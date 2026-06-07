@@ -247,7 +247,8 @@ h1 span {
 }
 
 .contrast-row.is-missing {
-  background: rgba(248, 250, 252, 0.92);
+  border-color: rgba(201, 47, 47, 0.35);
+  background: #fff1f1;
 }
 
 .contrast-initial {
@@ -272,6 +273,21 @@ h1 span {
 }
 
 .contrast-status.missing {
+  color: var(--accent);
+}
+
+.contrast-row.is-missing .contrast-initial {
+  background: #ffe1e1;
+  color: var(--accent);
+}
+
+.contrast-row.is-missing .contrast-syllable {
+  color: var(--accent);
+}
+
+.contrast-row.is-missing .contrast-tone-button {
+  border-color: rgba(201, 47, 47, 0.28);
+  background: #fff8f8;
   color: var(--accent);
 }
 
