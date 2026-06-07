@@ -243,6 +243,31 @@ h1 span {
   margin-top: 12px;
 }
 
+.contrast-sections {
+  display: grid;
+  gap: 12px;
+}
+
+.contrast-section {
+  display: grid;
+  gap: 7px;
+}
+
+.contrast-section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-height: 24px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.contrast-section-title strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+
 .contrast-empty {
   border: 1px dashed var(--line);
   border-radius: 8px;

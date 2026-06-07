@@ -757,29 +757,69 @@ function renderContrastEmpty(message = "Nhập âm đầu hoặc vận mẫu đ�
 }
 
 function renderContrastResults() {
-  const parsed = parseContrastInput(finalCompareInput.value);
+  const items = parseContrastInputs(finalCompareInput.value);
   activeContrastButton = null;
 
-  if (!parsed.raw) {
+  if (!items.length) {
     renderContrastEmpty();
     return;
   }
 
+  contrastResults.innerHTML = `<div class="contrast-sections">${items.map(renderContrastSection).join("")}</div>`;
+}
+
+function renderContrastSection(parsed) {
   if (validInitials.has(parsed.initial)) {
-    renderContrastByInitial(parsed.initial);
-    return;
+    return renderContrastSectionHtml({
+      parsed,
+      type: "âm đầu",
+      rows: renderContrastRowsByInitial(parsed.initial),
+      emptyMessage: `Không có âm nào với âm đầu "${parsed.raw}".`,
+    });
   }
 
   if (validFinals.has(parsed.final)) {
-    renderContrastByFinal(parsed);
-    return;
+    return renderContrastSectionHtml({
+      parsed,
+      type: "vận mẫu",
+      rows: renderContrastRowsByFinal(parsed),
+      emptyMessage: `Không có tổ hợp thật cho vận mẫu "${parsed.raw}".`,
+    });
   }
 
-  renderContrastEmpty(`Không có âm đầu hoặc vận mẫu "${parsed.raw}" trong bảng.`);
+  return renderContrastSectionHtml({
+    parsed,
+    type: "",
+    rows: "",
+    emptyMessage: `Không có âm đầu hoặc vận mẫu "${parsed.raw}" trong bảng.`,
+  });
 }
 
-function renderContrastByFinal(parsed) {
-  const rows = CONFUSION_INITIALS.map((initial) => {
+function renderContrastSectionHtml({ parsed, type, rows, emptyMessage }) {
+  const title = contrastSectionTitle(parsed);
+  const body = rows ? `<div class="contrast-grid">${rows}</div>` : `<div class="contrast-empty">${escapeHtml(emptyMessage)}</div>`;
+
+  return `
+    <section class="contrast-section">
+      <div class="contrast-section-title">
+        <strong>${escapeHtml(title)}</strong>
+        ${type ? `<span>${escapeHtml(type)}</span>` : ""}
+      </div>
+      ${body}
+    </section>
+  `;
+}
+
+function contrastSectionTitle(parsed) {
+  if (parsed.final && parsed.final !== parsed.raw && validFinals.has(parsed.final)) {
+    return `${parsed.raw} (${parsed.final})`;
+  }
+
+  return parsed.raw;
+}
+
+function renderContrastRowsByFinal(parsed) {
+  return CONFUSION_INITIALS.map((initial) => {
     const cell = findCellByInitialAndFinal(initial, parsed.final);
     if (!cell) return "";
 
@@ -791,17 +831,10 @@ function renderContrastByFinal(parsed) {
       tones: cell.tones,
     });
   }).join("");
-
-  if (!rows) {
-    renderContrastEmpty(`Không có tổ hợp thật cho vận mẫu "${parsed.raw}".`);
-    return;
-  }
-
-  contrastResults.innerHTML = `<div class="contrast-grid">${rows}</div>`;
 }
 
-function renderContrastByInitial(initial) {
-  const rows = cells
+function renderContrastRowsByInitial(initial) {
+  return cells
     .filter((cell) => cell.initial === initial)
     .map((cell) =>
       renderContrastRow({
@@ -813,13 +846,6 @@ function renderContrastByInitial(initial) {
       }),
     )
     .join("");
-
-  if (!rows) {
-    renderContrastEmpty(`Không có âm nào với âm đầu "${initial}".`);
-    return;
-  }
-
-  contrastResults.innerHTML = `<div class="contrast-grid">${rows}</div>`;
 }
 
 function renderContrastRow({ badge, final, initial, syllable, tones }) {
@@ -865,6 +891,13 @@ function openContrastForInitial(initial) {
   renderContrastResults();
   finalCompareInput.focus({ preventScroll: true });
   finalCompareInput.scrollIntoView({ block: "center" });
+}
+
+function parseContrastInputs(value) {
+  return value
+    .split(/[,;\n]+/)
+    .map((part) => parseContrastInput(part))
+    .filter((item) => item.raw);
 }
 
 function parseContrastInput(value) {
