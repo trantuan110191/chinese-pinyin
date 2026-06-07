@@ -235,6 +235,49 @@ h1 span {
   gap: 6px;
 }
 
+.contrast-missing-group {
+  border: 1px solid rgba(201, 47, 47, 0.35);
+  border-radius: 8px;
+  background: #fff8f8;
+  overflow: hidden;
+}
+
+.contrast-missing-group summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 12px;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 850;
+  list-style: none;
+}
+
+.contrast-missing-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.contrast-missing-group summary::after {
+  content: "▾";
+  color: var(--accent);
+  font-size: 16px;
+  transition: transform 0.18s ease;
+}
+
+.contrast-missing-group[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.contrast-missing-list {
+  display: grid;
+  gap: 6px;
+  border-top: 1px solid rgba(201, 47, 47, 0.2);
+  padding: 7px;
+}
+
 .contrast-row {
   display: grid;
   grid-template-columns: 54px 86px minmax(92px, 0.7fr) minmax(260px, 1.8fr);
@@ -496,7 +539,7 @@ td.active .cell-button {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: baseline;
-  gap: 2px;
+  gap: 4px 8px;
   min-width: 0;
   border-left: 4px solid var(--accent);
   padding: 7px 10px;
@@ -520,11 +563,33 @@ td.active .cell-button {
 }
 
 .tone-popup__meta small {
+  grid-column: 1 / 3;
   overflow: hidden;
   color: var(--muted);
   font-size: 12px;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.tone-popup__compare {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  align-self: center;
+  min-height: 30px;
+  border: 1px solid rgba(15, 118, 110, 0.32);
+  border-radius: 7px;
+  background: #eef6f3;
+  color: var(--accent-2);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 850;
+  padding: 0 9px;
+}
+
+.tone-popup__compare:hover,
+.tone-popup__compare:focus-visible {
+  border-color: var(--accent-2);
+  outline: 0;
 }
 
 .tone-buttons--popup {

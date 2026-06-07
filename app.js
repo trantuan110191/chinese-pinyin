@@ -420,6 +420,7 @@ const tonePopup = document.querySelector("#tonePopup");
 const popupBase = document.querySelector("#popupBase");
 const popupJoin = document.querySelector("#popupJoin");
 const popupToneButtons = document.querySelector("#popupToneButtons");
+const openContrastButton = document.querySelector("#openContrastButton");
 const playStatus = document.querySelector("#playStatus");
 const searchInput = document.querySelector("#searchInput");
 const searchResults = document.querySelector("#searchResults");
@@ -534,6 +535,13 @@ function bindEvents() {
     if (!button || !activeCell) return;
 
     playTone(activeCell, Number(button.dataset.tone));
+  });
+
+  openContrastButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (!activeCell) return;
+
+    openContrastForFinal(activeCell.final);
   });
 
   searchInput.addEventListener("input", renderSearchResults);
@@ -722,40 +730,72 @@ function renderContrastResults() {
           synthetic: true,
         }));
 
-    return `
-      <div class="contrast-row${cell ? "" : " is-missing"}">
-        <div class="contrast-initial">${escapeHtml(initial)}</div>
-        <div class="contrast-status ${cell ? "exists" : "missing"}">${cell ? "Có" : "Không có"}</div>
-        <div class="contrast-syllable">
-          ${escapeHtml(syllable)}
-          ${cell ? "" : "<small>âm giả định</small>"}
-        </div>
-        <div class="contrast-tones">
-          ${tones
-            .map(
-              (tone) => `
-                <button
-                  class="contrast-tone-button"
-                  type="button"
-                  data-initial="${escapeHtml(initial)}"
-                  data-final="${escapeHtml(parsed.final)}"
-                  data-tone="${tone.tone}"
-                  data-label="${escapeHtml(tone.label)}"
-                  data-url="${escapeHtml(tone.url || "")}"
-                  data-synthetic="${tone.synthetic ? "1" : "0"}"
-                >
-                  ${escapeHtml(tone.label)}
-                  <small>${TONE_NAMES[tone.tone - 1]}</small>
-                </button>
-              `,
-            )
-            .join("")}
-        </div>
-      </div>
-    `;
-  }).join("");
+    return {
+      exists: Boolean(cell),
+      html: renderContrastRow({
+        exists: Boolean(cell),
+        final: parsed.final,
+        initial,
+        syllable,
+        tones,
+      }),
+    };
+  });
 
-  contrastResults.innerHTML = `<div class="contrast-grid">${rows}</div>`;
+  const existingRows = rows.filter((row) => row.exists).map((row) => row.html).join("");
+  const missingRows = rows.filter((row) => !row.exists).map((row) => row.html).join("");
+  const missingCount = rows.filter((row) => !row.exists).length;
+  const missingGroup = missingCount
+    ? `
+      <details class="contrast-missing-group">
+        <summary>${missingCount} âm giả định không có thật</summary>
+        <div class="contrast-missing-list">${missingRows}</div>
+      </details>
+    `
+    : "";
+
+  contrastResults.innerHTML = `<div class="contrast-grid">${existingRows}${missingGroup}</div>`;
+}
+
+function renderContrastRow({ exists, final, initial, syllable, tones }) {
+  return `
+    <div class="contrast-row${exists ? "" : " is-missing"}">
+      <div class="contrast-initial">${escapeHtml(initial)}</div>
+      <div class="contrast-status ${exists ? "exists" : "missing"}">${exists ? "Có" : "Không có"}</div>
+      <div class="contrast-syllable">
+        ${escapeHtml(syllable)}
+        ${exists ? "" : "<small>âm giả định</small>"}
+      </div>
+      <div class="contrast-tones">
+        ${tones
+          .map(
+            (tone) => `
+              <button
+                class="contrast-tone-button"
+                type="button"
+                data-initial="${escapeHtml(initial)}"
+                data-final="${escapeHtml(final)}"
+                data-tone="${tone.tone}"
+                data-label="${escapeHtml(tone.label)}"
+                data-url="${escapeHtml(tone.url || "")}"
+                data-synthetic="${tone.synthetic ? "1" : "0"}"
+              >
+                ${escapeHtml(tone.label)}
+                <small>${TONE_NAMES[tone.tone - 1]}</small>
+              </button>
+            `,
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
+}
+
+function openContrastForFinal(final) {
+  finalCompareInput.value = final;
+  renderContrastResults();
+  finalCompareInput.focus({ preventScroll: true });
+  finalCompareInput.scrollIntoView({ block: "center" });
 }
 
 function parseFinalInput(value) {
