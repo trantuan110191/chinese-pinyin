@@ -495,8 +495,14 @@ function headerCell(text, className = "") {
 
 function bindEvents() {
   chart.addEventListener("click", (event) => {
+    const tableCell = event.target.closest("td");
+    if (!tableCell) return;
+
     const td = event.target.closest("td.pinyin-cell");
-    if (!td) return;
+    if (!td) {
+      hideTonePopup();
+      return;
+    }
 
     selectCell(td.dataset.cellId, 1, { anchorElement: td });
   });
@@ -531,6 +537,10 @@ function bindEvents() {
 
   document.addEventListener("click", (event) => {
     if (event.target.closest(".search-zone")) return;
+    if (!event.target.closest("#tonePopup") && !event.target.closest("td.pinyin-cell")) {
+      hideTonePopup();
+    }
+
     hideSearchResults();
   });
 
@@ -633,6 +643,22 @@ function positionTonePopup() {
 
   tonePopup.style.left = `${left}px`;
   tonePopup.style.top = `${top}px`;
+}
+
+function hideTonePopup() {
+  if (tonePopup.hidden) return;
+
+  tonePopup.hidden = true;
+  tonePopup.style.left = "";
+  tonePopup.style.top = "";
+  document.querySelector("td.active")?.classList.remove("active");
+  activeCell = null;
+  activeCellElement = null;
+  activeButton = null;
+  activeTone = 1;
+  playStatus.textContent = "Chọn một ô trong bảng";
+  player.pause();
+  player.currentTime = 0;
 }
 
 function renderSearchResults() {
