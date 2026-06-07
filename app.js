@@ -394,7 +394,6 @@ const TONE_MARKS = {
   ü: ["ǖ", "ǘ", "ǚ", "ǜ"],
 };
 
-const TONE_NAMES = ["Thanh 1", "Thanh 2", "Thanh 3", "Thanh 4"];
 const CONFUSION_INITIALS = ["z", "c", "s", "j", "q", "x", "zh", "ch", "sh", "r"];
 const FINAL_ALIASES = {
   iu: "iou",
@@ -610,13 +609,14 @@ function selectCell(cellId, tone, options = {}) {
 }
 
 function renderEmptyToneButtons() {
-  const buttons = TONE_NAMES.map((name, index) => {
+  const buttons = [1, 2, 3, 4].map((tone) => {
     const button = document.createElement("button");
     button.className = "tone-button";
     button.type = "button";
     button.disabled = true;
-    button.innerHTML = `-<small>${name}</small>`;
-    button.dataset.tone = String(index + 1);
+    button.textContent = "-";
+    button.dataset.tone = String(tone);
+    button.setAttribute("aria-label", `Thanh ${tone}`);
     return button;
   });
 
@@ -624,12 +624,13 @@ function renderEmptyToneButtons() {
 }
 
 function renderToneButtons(cell) {
-  const buttons = cell.tones.map((item, index) => {
+  const buttons = cell.tones.map((item) => {
     const button = document.createElement("button");
     button.className = `tone-button${item.tone === activeTone ? " active" : ""}`;
     button.type = "button";
     button.dataset.tone = String(item.tone);
-    button.innerHTML = `${item.label}<small>${TONE_NAMES[index]}</small>`;
+    button.textContent = item.label;
+    button.setAttribute("aria-label", `${item.label}, thanh ${item.tone}`);
     return button;
   });
 
@@ -720,51 +721,30 @@ function renderContrastResults() {
 
   const rows = CONFUSION_INITIALS.map((initial) => {
     const cell = findCellByInitialAndFinal(initial, parsed.final);
-    const fakeSyllable = makeHypotheticalSyllable(initial, parsed.displayFinal);
-    const syllable = cell?.syllable || fakeSyllable;
-    const tones = cell
-      ? cell.tones
-      : [1, 2, 3, 4].map((tone) => ({
-          tone,
-          label: markTone(fakeSyllable, tone),
-          synthetic: true,
-        }));
+    if (!cell) return "";
 
-    return {
-      exists: Boolean(cell),
-      html: renderContrastRow({
-        exists: Boolean(cell),
-        final: parsed.final,
-        initial,
-        syllable,
-        tones,
-      }),
-    };
-  });
+    return renderContrastRow({
+      final: parsed.final,
+      initial,
+      syllable: cell.syllable,
+      tones: cell.tones,
+    });
+  }).join("");
 
-  const existingRows = rows.filter((row) => row.exists).map((row) => row.html).join("");
-  const missingRows = rows.filter((row) => !row.exists).map((row) => row.html).join("");
-  const missingCount = rows.filter((row) => !row.exists).length;
-  const missingGroup = missingCount
-    ? `
-      <details class="contrast-missing-group">
-        <summary>${missingCount} âm giả định không có thật</summary>
-        <div class="contrast-missing-list">${missingRows}</div>
-      </details>
-    `
-    : "";
+  if (!rows) {
+    renderContrastEmpty(`Không có tổ hợp thật cho vận mẫu "${parsed.raw}".`);
+    return;
+  }
 
-  contrastResults.innerHTML = `<div class="contrast-grid">${existingRows}${missingGroup}</div>`;
+  contrastResults.innerHTML = `<div class="contrast-grid">${rows}</div>`;
 }
 
-function renderContrastRow({ exists, final, initial, syllable, tones }) {
+function renderContrastRow({ final, initial, syllable, tones }) {
   return `
-    <div class="contrast-row${exists ? "" : " is-missing"}">
+    <div class="contrast-row">
       <div class="contrast-initial">${escapeHtml(initial)}</div>
-      <div class="contrast-status ${exists ? "exists" : "missing"}">${exists ? "Có" : "Không có"}</div>
       <div class="contrast-syllable">
         ${escapeHtml(syllable)}
-        ${exists ? "" : "<small>âm giả định</small>"}
       </div>
       <div class="contrast-tones">
         ${tones
@@ -778,10 +758,9 @@ function renderContrastRow({ exists, final, initial, syllable, tones }) {
                 data-tone="${tone.tone}"
                 data-label="${escapeHtml(tone.label)}"
                 data-url="${escapeHtml(tone.url || "")}"
-                data-synthetic="${tone.synthetic ? "1" : "0"}"
+                aria-label="${escapeHtml(tone.label)}, thanh ${tone.tone}"
               >
                 ${escapeHtml(tone.label)}
-                <small>${TONE_NAMES[tone.tone - 1]}</small>
               </button>
             `,
           )
@@ -813,22 +792,12 @@ function findCellByInitialAndFinal(initial, final) {
   return cells.find((cell) => cell.initial === initial && cell.final === final) || null;
 }
 
-function makeHypotheticalSyllable(initial, final) {
-  return `${initial}${final}`;
-}
-
 async function playContrastTone(button) {
   activeContrastButton?.classList.remove("active");
   activeContrastButton = button;
   button.classList.add("active");
 
   const label = button.dataset.label;
-  if (button.dataset.synthetic === "1") {
-    speakSynthetic(label);
-    playStatus.textContent = `Âm giả định: ${label}`;
-    return;
-  }
-
   player.pause();
   player.currentTime = 0;
   player.src = button.dataset.url;
@@ -839,17 +808,6 @@ async function playContrastTone(button) {
   } catch (error) {
     playStatus.textContent = `Không phát được ${label}.`;
   }
-}
-
-function speakSynthetic(label) {
-  player.pause();
-  if (!("speechSynthesis" in window)) return;
-
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(label);
-  utterance.lang = "zh-CN";
-  utterance.rate = 0.82;
-  window.speechSynthesis.speak(utterance);
 }
 
 function renderSearchResults() {
