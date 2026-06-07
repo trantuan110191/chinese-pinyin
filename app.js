@@ -400,15 +400,13 @@ const player = new Audio();
 let activeCell = null;
 let activeTone = 1;
 let activeButton = null;
+let activeCellElement = null;
 
 const chart = document.querySelector("#pinyinChart");
-const selectedBase = document.querySelector("#selectedBase");
-const selectedJoin = document.querySelector("#selectedJoin");
-const toneButtons = document.querySelector("#toneButtons");
-const toneDock = document.querySelector("#toneDock");
-const dockBase = document.querySelector("#dockBase");
-const dockJoin = document.querySelector("#dockJoin");
-const dockToneButtons = document.querySelector("#dockToneButtons");
+const tonePopup = document.querySelector("#tonePopup");
+const popupBase = document.querySelector("#popupBase");
+const popupJoin = document.querySelector("#popupJoin");
+const popupToneButtons = document.querySelector("#popupToneButtons");
 const playStatus = document.querySelector("#playStatus");
 const searchInput = document.querySelector("#searchInput");
 const searchResults = document.querySelector("#searchResults");
@@ -500,18 +498,15 @@ function bindEvents() {
     const td = event.target.closest("td.pinyin-cell");
     if (!td) return;
 
-    selectCell(td.dataset.cellId, 1);
+    selectCell(td.dataset.cellId, 1, { anchorElement: td });
   });
 
-  const toneClickHandler = (event) => {
+  popupToneButtons.addEventListener("click", (event) => {
     const button = event.target.closest(".tone-button");
     if (!button || !activeCell) return;
 
     playTone(activeCell, Number(button.dataset.tone));
-  };
-
-  toneButtons.addEventListener("click", toneClickHandler);
-  dockToneButtons.addEventListener("click", toneClickHandler);
+  });
 
   searchInput.addEventListener("input", renderSearchResults);
   searchInput.addEventListener("focus", renderSearchResults);
@@ -521,7 +516,7 @@ function bindEvents() {
     if (!firstResult) return;
 
     event.preventDefault();
-    selectCell(firstResult.dataset.cellId, 1);
+    selectCell(firstResult.dataset.cellId, 1, { revealCell: true });
     hideSearchResults();
   });
 
@@ -529,7 +524,7 @@ function bindEvents() {
     const button = event.target.closest(".result-button");
     if (!button) return;
 
-    selectCell(button.dataset.cellId, 1);
+    selectCell(button.dataset.cellId, 1, { revealCell: true });
     hideSearchResults();
     searchInput.value = button.dataset.syllable;
   });
@@ -538,26 +533,30 @@ function bindEvents() {
     if (event.target.closest(".search-zone")) return;
     hideSearchResults();
   });
+
+  window.addEventListener("resize", positionTonePopup);
+  window.addEventListener("scroll", positionTonePopup, { passive: true });
 }
 
-function selectCell(cellId, tone) {
+function selectCell(cellId, tone, options = {}) {
   const cell = cells.find((item) => item.id === cellId);
   if (!cell) return;
 
   activeCell = cell;
-  selectedBase.textContent = cell.syllable;
-  selectedJoin.textContent = formatJoin(cell);
-  dockBase.textContent = cell.syllable;
-  dockJoin.textContent = formatJoin(cell);
-  toneDock.hidden = false;
-  document.body.classList.add("has-tone-dock");
+  popupBase.textContent = cell.syllable;
+  popupJoin.textContent = formatJoin(cell);
+  tonePopup.hidden = false;
 
   document.querySelector("td.active")?.classList.remove("active");
-  const nextCellElement = document.querySelector(`[data-cell-id="${cell.id}"]`);
+  const nextCellElement = options.anchorElement || document.querySelector(`[data-cell-id="${cell.id}"]`);
+  if (options.revealCell) {
+    nextCellElement?.scrollIntoView({ block: "center", inline: "center" });
+  }
+
   nextCellElement?.classList.add("active");
+  activeCellElement = nextCellElement;
   activeButton = nextCellElement?.querySelector(".cell-button") || null;
 
-  renderToneButtons(cell);
   playTone(cell, tone);
 }
 
@@ -572,8 +571,7 @@ function renderEmptyToneButtons() {
     return button;
   });
 
-  toneButtons.replaceChildren(...buttons);
-  dockToneButtons.replaceChildren(...buttons.map((button) => button.cloneNode(true)));
+  popupToneButtons.replaceChildren(...buttons);
 }
 
 function renderToneButtons(cell) {
@@ -586,8 +584,8 @@ function renderToneButtons(cell) {
     return button;
   });
 
-  toneButtons.replaceChildren(...buttons);
-  dockToneButtons.replaceChildren(...buttons.map((button) => button.cloneNode(true)));
+  popupToneButtons.replaceChildren(...buttons);
+  positionTonePopup();
 }
 
 async function playTone(cell, tone) {
@@ -607,6 +605,34 @@ async function playTone(cell, tone) {
   } catch (error) {
     playStatus.textContent = `Không phát được ${toneData.label}.`;
   }
+}
+
+function positionTonePopup() {
+  if (tonePopup.hidden || !activeCellElement) return;
+
+  const gap = 10;
+  const margin = 12;
+  const cellRect = activeCellElement.getBoundingClientRect();
+  const popupRect = tonePopup.getBoundingClientRect();
+  const popupWidth = popupRect.width || 320;
+  const popupHeight = popupRect.height || 168;
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  let left = cellRect.right + gap;
+  if (left + popupWidth > viewportWidth - margin) {
+    left = cellRect.left - popupWidth - gap;
+  }
+  if (left < margin) {
+    left = Math.max(margin, viewportWidth - popupWidth - margin);
+  }
+
+  const cellCenterY = cellRect.top + cellRect.height / 2;
+  let top = cellCenterY - popupHeight / 2;
+  top = Math.max(margin, Math.min(top, viewportHeight - popupHeight - margin));
+
+  tonePopup.style.left = `${left}px`;
+  tonePopup.style.top = `${top}px`;
 }
 
 function renderSearchResults() {
