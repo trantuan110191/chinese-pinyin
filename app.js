@@ -767,7 +767,11 @@ async function playSearchResult(cellId, button) {
     console.log("🟢 Added green highlight from search result");
   }
 
-  await playToneData(cell.tones[0], button);
+  // Use the tone specified in the search input (e.g., "ma2" uses tone 2)
+  const toneIndex = button.dataset.tone ? parseInt(button.dataset.tone) - 1 : 0;
+  const toneToPlay = cell.tones[toneIndex] || cell.tones[0];
+  
+  await playToneData(toneToPlay, button);
 }
 
 async function playToneData(toneData, focusElement = null) {
@@ -1077,7 +1081,14 @@ function scrollToMainTableCell(initial, final) {
 }
 
 function renderSearchResults() {
-  const queries = normalizeSearchVariants(searchInput.value);
+  const rawInput = searchInput.value.trim();
+  
+  // Parse tone number if present (e.g., "ma1" -> base: "ma", tone: 1)
+  const toneMatch = rawInput.match(/^(.+?)([1-4])$/);
+  const searchBase = toneMatch ? toneMatch[1] : rawInput;
+  const requestedTone = toneMatch ? parseInt(toneMatch[2]) : 1;
+  
+  const queries = normalizeSearchVariants(searchBase);
   searchResults.replaceChildren();
 
   if (!queries.length) {
@@ -1110,7 +1121,15 @@ function renderSearchResults() {
     button.type = "button";
     button.dataset.cellId = cell.id;
     button.dataset.syllable = cell.syllable;
-    button.textContent = cell.syllable;
+    button.dataset.tone = requestedTone; // Store requested tone
+    
+    // Show syllable with tone mark if tone was specified
+    if (toneMatch && cell.tones[requestedTone - 1]) {
+      button.textContent = cell.tones[requestedTone - 1].label;
+    } else {
+      button.textContent = cell.syllable;
+    }
+    
     searchResults.appendChild(button);
   });
 
