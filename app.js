@@ -1,3 +1,6 @@
+// DEBUG: Verify this version loads (has sh and r)
+console.log("🎵 Pinyin App loaded - Version with SH and R");
+
 const AUDIO_BASE = "https://data.kimma.group/interactivepinyinchart/";
 
 const COLUMNS = [
@@ -24,6 +27,12 @@ const COLUMNS = [
   { key: "sh", label: "sh" },
   { key: "r", label: "r" },
 ];
+
+// DEBUG: Verify COLUMNS includes sh and r
+console.log(`📊 Total columns: ${COLUMNS.length}`);
+console.log(`📋 Column labels: ${COLUMNS.map(c => c.label || '∅').join(', ')}`);
+console.log(`✅ Has 'sh': ${COLUMNS.some(c => c.label === 'sh')}`);
+console.log(`✅ Has 'r': ${COLUMNS.some(c => c.label === 'r')}`);
 
 const ROWS = [
   { final: "i", cells: { z: "zi", c: "ci", s: "si", zh: "zhi", ch: "chi", sh: "shi", r: "ri" } },
@@ -405,6 +414,22 @@ const FINAL_ALIASES = {
   vn: "ün",
 };
 
+// Reverse mapping to show common spelling from actual pronunciation
+const REVERSE_FINAL_ALIASES = {
+  "iou": "iu",
+  "uei": "ui",
+  "uen": "un",
+};
+
+function formatFinalLabel(final) {
+  // If there's a common spelling different from actual, show both
+  const commonSpelling = REVERSE_FINAL_ALIASES[final];
+  if (commonSpelling) {
+    return `${commonSpelling} (${final})`;
+  }
+  return final;
+}
+
 const player = new Audio();
 
 let activeCell = null;
@@ -425,15 +450,40 @@ const searchResults = document.querySelector("#searchResults");
 const finalCompareInput = document.querySelector("#finalCompareInput");
 const contrastResults = document.querySelector("#contrastResults");
 const initialSet = document.querySelector(".initial-set");
+const toggleTableButton = document.querySelector("#toggleTableButton");
+
+let showAllColumns = false;
 
 const cells = createCells();
 const validFinals = new Set(ROWS.map((row) => row.final));
 const validInitials = new Set(COLUMNS.map((column) => column.label).filter(Boolean));
 
+function getActiveColumns() {
+  if (showAllColumns) {
+    return COLUMNS;
+  }
+  // Show only confusion initials by default
+  return COLUMNS.filter((col) => !col.label || CONFUSION_INITIALS.includes(col.label));
+}
+
+function updateToggleButton() {
+  const labelEl = toggleTableButton.querySelector(".toggle-label");
+  const hintEl = toggleTableButton.querySelector(".toggle-hint");
+  
+  if (showAllColumns) {
+    labelEl.textContent = "Ẩn bảng đầy đủ";
+    hintEl.textContent = "(chỉ hiện âm dễ nhầm)";
+  } else {
+    labelEl.textContent = "Hiện bảng đầy đủ";
+    hintEl.textContent = "(tất cả 22 âm đầu)";
+  }
+}
+
 renderChart();
 renderEmptyToneButtons();
 renderContrastEmpty();
 bindEvents();
+updateToggleButton();
 
 function createCells() {
   const output = [];
@@ -463,18 +513,19 @@ function createCells() {
 }
 
 function renderChart() {
+  const activeColumns = getActiveColumns();
   const thead = document.createElement("thead");
   const headRow = document.createElement("tr");
   headRow.appendChild(headerCell("Âm cuối", "corner"));
-  COLUMNS.forEach((column) => headRow.appendChild(initialHeaderCell(column)));
+  activeColumns.forEach((column) => headRow.appendChild(initialHeaderCell(column)));
   thead.appendChild(headRow);
 
   const tbody = document.createElement("tbody");
   ROWS.forEach((row, rowIndex) => {
     const tr = document.createElement("tr");
-    tr.appendChild(headerCell(row.final, "final-header"));
+    tr.appendChild(headerCell(formatFinalLabel(row.final), "final-header"));
 
-    COLUMNS.forEach((column) => {
+    activeColumns.forEach((column) => {
       const syllable = row.cells[column.key];
       const td = document.createElement("td");
 
@@ -602,10 +653,25 @@ function bindEvents() {
   finalCompareInput.addEventListener("input", renderContrastResults);
   contrastResults.addEventListener("click", (event) => {
     const button = event.target.closest(".contrast-tone-button");
-    if (!button) return;
+    if (!button) {
+      // Check if it's the goto button
+      const gotoButton = event.target.closest(".goto-main-button");
+      if (gotoButton) {
+        scrollToMainTableCell(gotoButton.dataset.initial, gotoButton.dataset.final);
+        return;
+      }
+      return;
+    }
 
     hideTonePopup();
     playContrastTone(button);
+  });
+
+  toggleTableButton.addEventListener("click", () => {
+    showAllColumns = !showAllColumns;
+    updateToggleButton();
+    renderChart();
+    hideTonePopup();
   });
 
   document.addEventListener("click", (event) => {
@@ -849,12 +915,25 @@ function renderContrastRowsByInitial(initial) {
 }
 
 function renderContrastRow({ badge, final, initial, syllable, tones }) {
+  // Format the syllable with actual final if there's an alias
+  const finalLabel = REVERSE_FINAL_ALIASES[final] ? ` (${final})` : "";
+  
   return `
     <div class="contrast-row">
       <div class="contrast-initial">${escapeHtml(badge)}</div>
       <div class="contrast-syllable">
-        ${escapeHtml(syllable)}
+        ${escapeHtml(syllable)}<span class="final-note">${escapeHtml(finalLabel)}</span>
       </div>
+      <button 
+        class="goto-main-button" 
+        type="button"
+        data-initial="${escapeHtml(initial)}"
+        data-final="${escapeHtml(final)}"
+        title="Đi đến ô trong bảng chính"
+        aria-label="Đi đến ${escapeHtml(syllable)} trong bảng chính"
+      >
+        ↗
+      </button>
       <div class="contrast-tones">
         ${tones
           .map(
@@ -922,6 +1001,25 @@ async function playContrastTone(button) {
   button.classList.add("active");
 
   const label = button.dataset.label;
+  const initial = button.dataset.initial;
+  const final = button.dataset.final;
+  
+  // Find and highlight corresponding cell in main table with GREEN
+  const cell = findCellByInitialAndFinal(initial, final);
+  if (cell) {
+    // Remove previous highlights (both red and green)
+    document.querySelector("td.active")?.classList.remove("active");
+    document.querySelectorAll("td.highlight-blue").forEach((el) => el.classList.remove("highlight-blue"));
+    
+    // Find and highlight the cell in the main table with GREEN
+    const cellElement = document.querySelector(`td[data-cell-id="${cell.id}"]`);
+    if (cellElement) {
+      cellElement.classList.add("highlight-blue"); // GREEN highlight
+      console.log("🟢 Added green highlight from tone button");
+      // User can manually scroll if they want to see it (no auto-scroll)
+    }
+  }
+  
   player.pause();
   player.currentTime = 0;
   player.src = button.dataset.url;
@@ -931,6 +1029,40 @@ async function playContrastTone(button) {
     await player.play();
   } catch (error) {
     playStatus.textContent = `Không phát được ${label}.`;
+  }
+}
+
+function scrollToMainTableCell(initial, final) {
+  console.log("🔍 scrollToMainTableCell called with:", { initial, final });
+  
+  const cell = findCellByInitialAndFinal(initial, final);
+  console.log("📍 Found cell:", cell);
+  
+  if (!cell) {
+    console.warn("❌ Cell not found!");
+    return;
+  }
+  
+  // Remove previous blue highlights
+  const prevHighlighted = document.querySelectorAll("td.highlight-blue");
+  console.log("🧹 Removing previous highlights:", prevHighlighted.length);
+  prevHighlighted.forEach((el) => el.classList.remove("highlight-blue"));
+  
+  // Find the cell element in the main table
+  const cellElement = document.querySelector(`td[data-cell-id="${cell.id}"]`);
+  console.log("🎯 Found cell element:", cellElement);
+  
+  if (cellElement) {
+    // Add green highlight
+    cellElement.classList.add("highlight-blue");
+    console.log("✅ Added highlight-blue class");
+    console.log("🎨 Cell classes:", cellElement.className);
+    
+    // Scroll to it smoothly
+    cellElement.scrollIntoView({ block: "center", inline: "center", behavior: "smooth" });
+    console.log("📜 Scrolled to cell");
+  } else {
+    console.warn("❌ Cell element not found in DOM!");
   }
 }
 
