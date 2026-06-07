@@ -394,7 +394,7 @@ const TONE_MARKS = {
   ü: ["ǖ", "ǘ", "ǚ", "ǜ"],
 };
 
-const CONFUSION_INITIALS = ["z", "c", "s", "j", "q", "x", "zh", "ch", "sh", "r"];
+const CONFUSION_INITIALS = ["j", "q", "x", "z", "c", "s", "zh", "ch", "sh", "r"];
 const FINAL_ALIASES = {
   iu: "iou",
   ui: "uei",
