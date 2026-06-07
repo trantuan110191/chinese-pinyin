@@ -35,16 +35,29 @@
           <section class="contrast-tool" aria-label="Bảng phân biệt âm đầu">
             <div class="contrast-head">
               <div>
-                <h2>Phân biệt âm đầu</h2>
-                <div class="initial-set">j q x · z c s · zh ch sh r</div>
+                <h2>Bảng phụ phát âm</h2>
+                <div class="initial-set" aria-label="Chọn âm đầu để liệt kê">
+                  <button class="initial-chip" type="button" data-initial="j">j</button>
+                  <button class="initial-chip" type="button" data-initial="q">q</button>
+                  <button class="initial-chip" type="button" data-initial="x">x</button>
+                  <span aria-hidden="true">·</span>
+                  <button class="initial-chip" type="button" data-initial="z">z</button>
+                  <button class="initial-chip" type="button" data-initial="c">c</button>
+                  <button class="initial-chip" type="button" data-initial="s">s</button>
+                  <span aria-hidden="true">·</span>
+                  <button class="initial-chip" type="button" data-initial="zh">zh</button>
+                  <button class="initial-chip" type="button" data-initial="ch">ch</button>
+                  <button class="initial-chip" type="button" data-initial="sh">sh</button>
+                  <button class="initial-chip" type="button" data-initial="r">r</button>
+                </div>
               </div>
               <label class="final-field" for="finalCompareInput">
-                <span>Vận mẫu</span>
+                <span>Âm đầu / vận mẫu</span>
                 <input
                   id="finalCompareInput"
                   type="text"
                   autocomplete="off"
-                  placeholder="an, iang, ve, vn..."
+                  placeholder="zh, ch, an, iang, ve..."
                 />
               </label>
             </div>
@@ -73,6 +86,6 @@
     </section>
     <div id="playStatus" class="sr-only" aria-live="polite">Chọn một ô trong bảng</div>
 
-    <script src="./app.js?v=v-for-umlaut"></script>
+    <script src="./app.js?v=initial-chips"></script>
   </body>
 </html>

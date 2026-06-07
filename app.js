@@ -424,9 +424,11 @@ const searchInput = document.querySelector("#searchInput");
 const searchResults = document.querySelector("#searchResults");
 const finalCompareInput = document.querySelector("#finalCompareInput");
 const contrastResults = document.querySelector("#contrastResults");
+const initialSet = document.querySelector(".initial-set");
 
 const cells = createCells();
 const validFinals = new Set(ROWS.map((row) => row.final));
+const validInitials = new Set(COLUMNS.map((column) => column.label).filter(Boolean));
 
 renderChart();
 renderEmptyToneButtons();
@@ -464,7 +466,7 @@ function renderChart() {
   const thead = document.createElement("thead");
   const headRow = document.createElement("tr");
   headRow.appendChild(headerCell("Âm cuối", "corner"));
-  COLUMNS.forEach((column) => headRow.appendChild(headerCell(column.label || "∅")));
+  COLUMNS.forEach((column) => headRow.appendChild(initialHeaderCell(column)));
   thead.appendChild(headRow);
 
   const tbody = document.createElement("tbody");
@@ -509,12 +511,36 @@ function headerCell(text, className = "") {
   return th;
 }
 
+function initialHeaderCell(column) {
+  const th = headerCell(column.label || "∅");
+  if (!column.label) return th;
+
+  th.classList.add("initial-header");
+
+  const button = document.createElement("button");
+  button.className = "initial-header-button";
+  button.type = "button";
+  button.dataset.initial = column.label;
+  button.textContent = column.label;
+  button.setAttribute("aria-label", `Liệt kê âm ${column.label}`);
+  th.replaceChildren(button);
+
+  return th;
+}
+
 function bindEvents() {
   tonePopup.addEventListener("click", (event) => {
     event.stopPropagation();
   });
 
   chart.addEventListener("click", (event) => {
+    const initialButton = event.target.closest(".initial-header-button");
+    if (initialButton) {
+      hideTonePopup();
+      openContrastForInitial(initialButton.dataset.initial);
+      return;
+    }
+
     const tableCell = event.target.closest("td");
     if (!tableCell) return;
 
@@ -540,6 +566,13 @@ function bindEvents() {
     if (!activeCell) return;
 
     openContrastForFinal(activeCell.final);
+  });
+
+  initialSet.addEventListener("click", (event) => {
+    const button = event.target.closest(".initial-chip");
+    if (!button) return;
+
+    openContrastForInitial(button.dataset.initial);
   });
 
   searchInput.addEventListener("input", renderSearchResults);
@@ -700,12 +733,12 @@ function hideTonePopup() {
   player.currentTime = 0;
 }
 
-function renderContrastEmpty(message = "Nhập vận mẫu để tạo bảng nhỏ.") {
+function renderContrastEmpty(message = "Nhập âm đầu hoặc vận mẫu để tạo bảng nhỏ.") {
   contrastResults.innerHTML = `<div class="contrast-empty">${escapeHtml(message)}</div>`;
 }
 
 function renderContrastResults() {
-  const parsed = parseFinalInput(finalCompareInput.value);
+  const parsed = parseContrastInput(finalCompareInput.value);
   activeContrastButton = null;
 
   if (!parsed.raw) {
@@ -713,16 +746,26 @@ function renderContrastResults() {
     return;
   }
 
-  if (!validFinals.has(parsed.final)) {
-    renderContrastEmpty(`Không có vận mẫu "${parsed.raw}" trong bảng.`);
+  if (validInitials.has(parsed.initial)) {
+    renderContrastByInitial(parsed.initial);
     return;
   }
 
+  if (validFinals.has(parsed.final)) {
+    renderContrastByFinal(parsed);
+    return;
+  }
+
+  renderContrastEmpty(`Không có âm đầu hoặc vận mẫu "${parsed.raw}" trong bảng.`);
+}
+
+function renderContrastByFinal(parsed) {
   const rows = CONFUSION_INITIALS.map((initial) => {
     const cell = findCellByInitialAndFinal(initial, parsed.final);
     if (!cell) return "";
 
     return renderContrastRow({
+      badge: initial,
       final: parsed.final,
       initial,
       syllable: cell.syllable,
@@ -738,10 +781,32 @@ function renderContrastResults() {
   contrastResults.innerHTML = `<div class="contrast-grid">${rows}</div>`;
 }
 
-function renderContrastRow({ final, initial, syllable, tones }) {
+function renderContrastByInitial(initial) {
+  const rows = cells
+    .filter((cell) => cell.initial === initial)
+    .map((cell) =>
+      renderContrastRow({
+        badge: cell.final,
+        final: cell.final,
+        initial,
+        syllable: cell.syllable,
+        tones: cell.tones,
+      }),
+    )
+    .join("");
+
+  if (!rows) {
+    renderContrastEmpty(`Không có âm nào với âm đầu "${initial}".`);
+    return;
+  }
+
+  contrastResults.innerHTML = `<div class="contrast-grid">${rows}</div>`;
+}
+
+function renderContrastRow({ badge, final, initial, syllable, tones }) {
   return `
     <div class="contrast-row">
-      <div class="contrast-initial">${escapeHtml(initial)}</div>
+      <div class="contrast-initial">${escapeHtml(badge)}</div>
       <div class="contrast-syllable">
         ${escapeHtml(syllable)}
       </div>
@@ -776,12 +841,20 @@ function openContrastForFinal(final) {
   finalCompareInput.scrollIntoView({ block: "center" });
 }
 
-function parseFinalInput(value) {
+function openContrastForInitial(initial) {
+  finalCompareInput.value = initial;
+  renderContrastResults();
+  finalCompareInput.focus({ preventScroll: true });
+  finalCompareInput.scrollIntoView({ block: "center" });
+}
+
+function parseContrastInput(value) {
   const raw = value.trim();
   const normalized = stripToneMarks(raw);
   const final = FINAL_ALIASES[normalized] || normalized.replaceAll("v", "ü");
   return {
     raw,
+    initial: normalized,
     final,
     displayFinal: normalized || final,
   };
