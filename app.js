@@ -405,6 +405,10 @@ const chart = document.querySelector("#pinyinChart");
 const selectedBase = document.querySelector("#selectedBase");
 const selectedJoin = document.querySelector("#selectedJoin");
 const toneButtons = document.querySelector("#toneButtons");
+const toneDock = document.querySelector("#toneDock");
+const dockBase = document.querySelector("#dockBase");
+const dockJoin = document.querySelector("#dockJoin");
+const dockToneButtons = document.querySelector("#dockToneButtons");
 const playStatus = document.querySelector("#playStatus");
 const searchInput = document.querySelector("#searchInput");
 const searchResults = document.querySelector("#searchResults");
@@ -499,12 +503,15 @@ function bindEvents() {
     selectCell(td.dataset.cellId, 1);
   });
 
-  toneButtons.addEventListener("click", (event) => {
+  const toneClickHandler = (event) => {
     const button = event.target.closest(".tone-button");
     if (!button || !activeCell) return;
 
     playTone(activeCell, Number(button.dataset.tone));
-  });
+  };
+
+  toneButtons.addEventListener("click", toneClickHandler);
+  dockToneButtons.addEventListener("click", toneClickHandler);
 
   searchInput.addEventListener("input", renderSearchResults);
   searchInput.addEventListener("focus", renderSearchResults);
@@ -540,6 +547,10 @@ function selectCell(cellId, tone) {
   activeCell = cell;
   selectedBase.textContent = cell.syllable;
   selectedJoin.textContent = formatJoin(cell);
+  dockBase.textContent = cell.syllable;
+  dockJoin.textContent = formatJoin(cell);
+  toneDock.hidden = false;
+  document.body.classList.add("has-tone-dock");
 
   document.querySelector("td.active")?.classList.remove("active");
   const nextCellElement = document.querySelector(`[data-cell-id="${cell.id}"]`);
@@ -551,30 +562,32 @@ function selectCell(cellId, tone) {
 }
 
 function renderEmptyToneButtons() {
-  toneButtons.replaceChildren(
-    ...TONE_NAMES.map((name, index) => {
-      const button = document.createElement("button");
-      button.className = "tone-button";
-      button.type = "button";
-      button.disabled = true;
-      button.innerHTML = `-<small>${name}</small>`;
-      button.dataset.tone = String(index + 1);
-      return button;
-    }),
-  );
+  const buttons = TONE_NAMES.map((name, index) => {
+    const button = document.createElement("button");
+    button.className = "tone-button";
+    button.type = "button";
+    button.disabled = true;
+    button.innerHTML = `-<small>${name}</small>`;
+    button.dataset.tone = String(index + 1);
+    return button;
+  });
+
+  toneButtons.replaceChildren(...buttons);
+  dockToneButtons.replaceChildren(...buttons.map((button) => button.cloneNode(true)));
 }
 
 function renderToneButtons(cell) {
-  toneButtons.replaceChildren(
-    ...cell.tones.map((item, index) => {
-      const button = document.createElement("button");
-      button.className = `tone-button${item.tone === activeTone ? " active" : ""}`;
-      button.type = "button";
-      button.dataset.tone = String(item.tone);
-      button.innerHTML = `${item.label}<small>${TONE_NAMES[index]}</small>`;
-      return button;
-    }),
-  );
+  const buttons = cell.tones.map((item, index) => {
+    const button = document.createElement("button");
+    button.className = `tone-button${item.tone === activeTone ? " active" : ""}`;
+    button.type = "button";
+    button.dataset.tone = String(item.tone);
+    button.innerHTML = `${item.label}<small>${TONE_NAMES[index]}</small>`;
+    return button;
+  });
+
+  toneButtons.replaceChildren(...buttons);
+  dockToneButtons.replaceChildren(...buttons.map((button) => button.cloneNode(true)));
 }
 
 async function playTone(cell, tone) {
