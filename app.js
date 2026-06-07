@@ -849,6 +849,21 @@ function renderContrastResults() {
 }
 
 function renderContrastSection(parsed) {
+  if (parsed.cell) {
+    return renderContrastSectionHtml({
+      parsed,
+      type: "âm tiết",
+      rows: renderContrastRow({
+        badge: parsed.cell.final,
+        final: parsed.cell.final,
+        initial: parsed.cell.initial,
+        syllable: parsed.cell.syllable,
+        tones: parsed.cell.tones,
+      }),
+      emptyMessage: "",
+    });
+  }
+
   if (validInitials.has(parsed.initial)) {
     return renderContrastSectionHtml({
       parsed,
@@ -891,6 +906,10 @@ function renderContrastSectionHtml({ parsed, type, rows, emptyMessage }) {
 }
 
 function contrastSectionTitle(parsed) {
+  if (parsed.cell && parsed.cell.syllable !== parsed.raw) {
+    return `${parsed.raw} (${parsed.cell.syllable})`;
+  }
+
   if (parsed.final && parsed.final !== parsed.raw && validFinals.has(parsed.final)) {
     return `${parsed.raw} (${parsed.final})`;
   }
@@ -997,8 +1016,10 @@ function parseContrastInput(value) {
   const raw = value.trim();
   const normalized = stripToneMarks(raw);
   const final = FINAL_ALIASES[normalized] || normalized.replaceAll("v", "ü");
+  const cell = findCellBySyllableInput(normalized);
   return {
     raw,
+    cell,
     initial: normalized,
     final,
     displayFinal: normalized || final,
@@ -1007,6 +1028,13 @@ function parseContrastInput(value) {
 
 function findCellByInitialAndFinal(initial, final) {
   return cells.find((cell) => cell.initial === initial && cell.final === final) || null;
+}
+
+function findCellBySyllableInput(value) {
+  const variants = normalizeSearchVariants(value);
+  if (!variants.length) return null;
+
+  return cells.find((cell) => searchKeysForCell(cell).some((key) => variants.includes(key))) || null;
 }
 
 async function playContrastTone(button) {
