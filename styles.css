@@ -133,8 +133,8 @@ h1 span {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
   gap: 6px;
-  max-height: 246px;
-  overflow: auto;
+  max-height: none;
+  overflow: visible;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--paper);
@@ -157,7 +157,8 @@ h1 span {
 }
 
 .result-button:hover,
-.result-button:focus-visible {
+.result-button:focus-visible,
+.result-button.active {
   border-color: var(--accent-2);
   background: var(--soft-2);
   outline: 0;

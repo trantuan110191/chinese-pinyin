@@ -575,25 +575,28 @@ function bindEvents() {
     openContrastForInitial(button.dataset.initial);
   });
 
-  searchInput.addEventListener("input", renderSearchResults);
-  searchInput.addEventListener("focus", renderSearchResults);
+  searchInput.addEventListener("input", () => {
+    hideTonePopup();
+    renderSearchResults();
+  });
+  searchInput.addEventListener("focus", () => {
+    hideTonePopup();
+    renderSearchResults();
+  });
   searchInput.addEventListener("keydown", (event) => {
     if (event.key !== "Enter") return;
     const firstResult = searchResults.querySelector(".result-button");
     if (!firstResult) return;
 
     event.preventDefault();
-    selectCell(firstResult.dataset.cellId, 1, { revealCell: true });
-    hideSearchResults();
+    playSearchResult(firstResult.dataset.cellId, firstResult);
   });
 
   searchResults.addEventListener("click", (event) => {
     const button = event.target.closest(".result-button");
     if (!button) return;
 
-    selectCell(button.dataset.cellId, 1, { revealCell: true });
-    hideSearchResults();
-    searchInput.value = button.dataset.syllable;
+    playSearchResult(button.dataset.cellId, button);
   });
 
   finalCompareInput.addEventListener("input", renderContrastResults);
@@ -607,11 +610,10 @@ function bindEvents() {
 
   document.addEventListener("click", (event) => {
     if (event.target.closest(".search-zone")) return;
+
     if (!event.target.closest("#tonePopup") && !event.target.closest("td.pinyin-cell")) {
       hideTonePopup();
     }
-
-    hideSearchResults();
   });
 
   window.addEventListener("resize", positionTonePopup);
@@ -628,14 +630,17 @@ function selectCell(cellId, tone, options = {}) {
   tonePopup.hidden = false;
 
   document.querySelector("td.active")?.classList.remove("active");
+  document.querySelector(".result-button.active")?.classList.remove("active");
   const nextCellElement = options.anchorElement || document.querySelector(`[data-cell-id="${cell.id}"]`);
   if (options.revealCell) {
     nextCellElement?.scrollIntoView({ block: "center", inline: "center" });
   }
 
-  nextCellElement?.classList.add("active");
+  if (nextCellElement?.matches("td.pinyin-cell, .result-button")) {
+    nextCellElement.classList.add("active");
+  }
   activeCellElement = nextCellElement;
-  activeButton = nextCellElement?.querySelector(".cell-button") || null;
+  activeButton = nextCellElement?.querySelector(".cell-button") || (nextCellElement?.matches("button") ? nextCellElement : null);
 
   playTone(cell, tone);
 }
@@ -675,15 +680,29 @@ async function playTone(cell, tone) {
   const toneData = cell.tones[tone - 1];
 
   renderToneButtons(cell);
-  playStatus.textContent = `Đang phát: ${toneData.label}`;
+  await playToneData(toneData, activeButton);
+}
 
+async function playSearchResult(cellId, button) {
+  const cell = cells.find((item) => item.id === cellId);
+  if (!cell) return;
+
+  hideTonePopup();
+  document.querySelector(".result-button.active")?.classList.remove("active");
+  button.classList.add("active");
+
+  await playToneData(cell.tones[0], button);
+}
+
+async function playToneData(toneData, focusElement = null) {
+  playStatus.textContent = `Đang phát: ${toneData.label}`;
   player.pause();
   player.currentTime = 0;
   player.src = toneData.url;
 
   try {
     await player.play();
-    activeButton?.focus({ preventScroll: true });
+    focusElement?.focus({ preventScroll: true });
   } catch (error) {
     playStatus.textContent = `Không phát được ${toneData.label}.`;
   }
