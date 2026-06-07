@@ -757,6 +757,16 @@ async function playSearchResult(cellId, button) {
   document.querySelector(".result-button.active")?.classList.remove("active");
   button.classList.add("active");
 
+  // Add GREEN highlight to corresponding cell in main table
+  document.querySelector("td.active")?.classList.remove("active");
+  document.querySelectorAll("td.highlight-blue").forEach((el) => el.classList.remove("highlight-blue"));
+  
+  const cellElement = document.querySelector(`td[data-cell-id="${cell.id}"]`);
+  if (cellElement) {
+    cellElement.classList.add("highlight-blue"); // GREEN highlight
+    console.log("🟢 Added green highlight from search result");
+  }
+
   await playToneData(cell.tones[0], button);
 }
 
