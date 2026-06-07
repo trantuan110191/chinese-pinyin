@@ -399,11 +399,10 @@ const FINAL_ALIASES = {
   iu: "iou",
   ui: "uei",
   un: "uen",
-  u: "u",
+  v: "ü",
   ve: "üe",
   van: "üan",
   vn: "ün",
-  ue: "üe",
 };
 
 const player = new Audio();
@@ -779,8 +778,8 @@ function openContrastForFinal(final) {
 
 function parseFinalInput(value) {
   const raw = value.trim();
-  const normalized = normalizeSearch(raw.toLowerCase().replaceAll("u:", "ü"));
-  const final = FINAL_ALIASES[normalized] || normalized;
+  const normalized = stripToneMarks(raw);
+  const final = FINAL_ALIASES[normalized] || normalized.replaceAll("v", "ü");
   return {
     raw,
     final,
@@ -811,10 +810,10 @@ async function playContrastTone(button) {
 }
 
 function renderSearchResults() {
-  const query = normalizeSearch(searchInput.value);
+  const queries = normalizeSearchVariants(searchInput.value);
   searchResults.replaceChildren();
 
-  if (!query) {
+  if (!queries.length) {
     hideSearchResults();
     return;
   }
@@ -824,12 +823,11 @@ function renderSearchResults() {
   const includes = [];
 
   cells.forEach((cell) => {
-    const normalized = normalizeSearch(cell.syllable);
-    const toneMatch = cell.tones.some((tone) => normalizeSearch(tone.label).includes(query));
+    const keys = searchKeysForCell(cell);
 
-    if (normalized === query) exact.push(cell);
-    else if (normalized.startsWith(query)) starts.push(cell);
-    else if (normalized.includes(query) || toneMatch) includes.push(cell);
+    if (matchesAny(keys, queries, (key, query) => key === query)) exact.push(cell);
+    else if (matchesAny(keys, queries, (key, query) => key.startsWith(query))) starts.push(cell);
+    else if (matchesAny(keys, queries, (key, query) => key.includes(query))) includes.push(cell);
   });
 
   const results = [...exact, ...starts, ...includes].slice(0, 36);
@@ -909,11 +907,49 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function normalizeSearch(value) {
+function searchKeysForCell(cell) {
+  const base = stripToneMarks(cell.syllable);
+  const keys = new Set([base, base.replaceAll("ü", "v")]);
+  const jqxAlias = jqxUmlautAlias(cell);
+
+  if (jqxAlias) keys.add(jqxAlias);
+
+  return [...keys];
+}
+
+function jqxUmlautAlias(cell) {
+  if (!["j", "q", "x"].includes(cell.initial)) return "";
+
+  const aliases = {
+    ü: "v",
+    üe: "ve",
+    üan: "van",
+    ün: "vn",
+  };
+
+  return aliases[cell.final] ? `${cell.initial}${aliases[cell.final]}` : "";
+}
+
+function normalizeSearchVariants(value) {
+  const typed = stripToneMarks(value);
+  if (!typed) return [];
+
+  const variants = new Set([typed, typed.replaceAll("v", "ü"), typed.replaceAll("ü", "v")]);
+  const jqxTyped = typed.replace(/^([jqx])v/, "$1u").replace(/^([jqx])ü/, "$1u");
+
+  variants.add(jqxTyped);
+
+  return [...variants].filter(Boolean);
+}
+
+function matchesAny(keys, queries, predicate) {
+  return keys.some((key) => queries.some((query) => predicate(key, query)));
+}
+
+function stripToneMarks(value) {
   return value
     .trim()
     .toLowerCase()
-    .replaceAll("v", "ü")
     .replace(/[āáǎà]/g, "a")
     .replace(/[ēéěè]/g, "e")
     .replace(/[īíǐì]/g, "i")
