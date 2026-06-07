@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bảng phát âm Pinyin</title>
-    <link rel="stylesheet" href="./styles.css?v=keep-popup-on-tone-click" />
+    <link rel="stylesheet" href="./styles.css?v=confusion-initials" />
   </head>
   <body>
     <main class="app-shell">
@@ -30,6 +30,25 @@
             </label>
             <div id="searchResults" class="search-results" hidden></div>
           </div>
+
+          <section class="contrast-tool" aria-label="Bảng phân biệt âm đầu">
+            <div class="contrast-head">
+              <div>
+                <h2>Phân biệt âm đầu</h2>
+                <div class="initial-set">z c s j q x zh ch sh r</div>
+              </div>
+              <label class="final-field" for="finalCompareInput">
+                <span>Vận mẫu</span>
+                <input
+                  id="finalCompareInput"
+                  type="text"
+                  autocomplete="off"
+                  placeholder="an, iang, üe, ui..."
+                />
+              </label>
+            </div>
+            <div id="contrastResults" class="contrast-results"></div>
+          </section>
         </div>
       </section>
 
@@ -52,6 +71,6 @@
     </section>
     <div id="playStatus" class="sr-only" aria-live="polite">Chọn một ô trong bảng</div>
 
-    <script src="./app.js?v=keep-popup-on-tone-click"></script>
+    <script src="./app.js?v=confusion-initials"></script>
   </body>
 </html>

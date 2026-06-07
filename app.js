@@ -395,12 +395,25 @@ const TONE_MARKS = {
 };
 
 const TONE_NAMES = ["Thanh 1", "Thanh 2", "Thanh 3", "Thanh 4"];
+const CONFUSION_INITIALS = ["z", "c", "s", "j", "q", "x", "zh", "ch", "sh", "r"];
+const FINAL_ALIASES = {
+  iu: "iou",
+  ui: "uei",
+  un: "uen",
+  u: "u",
+  ve: "üe",
+  van: "üan",
+  vn: "ün",
+  ue: "üe",
+};
+
 const player = new Audio();
 
 let activeCell = null;
 let activeTone = 1;
 let activeButton = null;
 let activeCellElement = null;
+let activeContrastButton = null;
 
 const chart = document.querySelector("#pinyinChart");
 const tonePopup = document.querySelector("#tonePopup");
@@ -410,11 +423,15 @@ const popupToneButtons = document.querySelector("#popupToneButtons");
 const playStatus = document.querySelector("#playStatus");
 const searchInput = document.querySelector("#searchInput");
 const searchResults = document.querySelector("#searchResults");
+const finalCompareInput = document.querySelector("#finalCompareInput");
+const contrastResults = document.querySelector("#contrastResults");
 
 const cells = createCells();
+const validFinals = new Set(ROWS.map((row) => row.final));
 
 renderChart();
 renderEmptyToneButtons();
+renderContrastEmpty();
 bindEvents();
 
 function createCells() {
@@ -538,6 +555,15 @@ function bindEvents() {
     selectCell(button.dataset.cellId, 1, { revealCell: true });
     hideSearchResults();
     searchInput.value = button.dataset.syllable;
+  });
+
+  finalCompareInput.addEventListener("input", renderContrastResults);
+  contrastResults.addEventListener("click", (event) => {
+    const button = event.target.closest(".contrast-tone-button");
+    if (!button) return;
+
+    hideTonePopup();
+    playContrastTone(button);
   });
 
   document.addEventListener("click", (event) => {
@@ -666,6 +692,126 @@ function hideTonePopup() {
   player.currentTime = 0;
 }
 
+function renderContrastEmpty(message = "Nhập vận mẫu để tạo bảng nhỏ.") {
+  contrastResults.innerHTML = `<div class="contrast-empty">${escapeHtml(message)}</div>`;
+}
+
+function renderContrastResults() {
+  const parsed = parseFinalInput(finalCompareInput.value);
+  activeContrastButton = null;
+
+  if (!parsed.raw) {
+    renderContrastEmpty();
+    return;
+  }
+
+  if (!validFinals.has(parsed.final)) {
+    renderContrastEmpty(`Không có vận mẫu "${parsed.raw}" trong bảng.`);
+    return;
+  }
+
+  const rows = CONFUSION_INITIALS.map((initial) => {
+    const cell = findCellByInitialAndFinal(initial, parsed.final);
+    const fakeSyllable = makeHypotheticalSyllable(initial, parsed.displayFinal);
+    const syllable = cell?.syllable || fakeSyllable;
+    const tones = cell
+      ? cell.tones
+      : [1, 2, 3, 4].map((tone) => ({
+          tone,
+          label: markTone(fakeSyllable, tone),
+          synthetic: true,
+        }));
+
+    return `
+      <div class="contrast-row${cell ? "" : " is-missing"}">
+        <div class="contrast-initial">${escapeHtml(initial)}</div>
+        <div class="contrast-status ${cell ? "exists" : "missing"}">${cell ? "Có" : "Không có"}</div>
+        <div class="contrast-syllable">
+          ${escapeHtml(syllable)}
+          ${cell ? "" : "<small>âm giả định</small>"}
+        </div>
+        <div class="contrast-tones">
+          ${tones
+            .map(
+              (tone) => `
+                <button
+                  class="contrast-tone-button"
+                  type="button"
+                  data-initial="${escapeHtml(initial)}"
+                  data-final="${escapeHtml(parsed.final)}"
+                  data-tone="${tone.tone}"
+                  data-label="${escapeHtml(tone.label)}"
+                  data-url="${escapeHtml(tone.url || "")}"
+                  data-synthetic="${tone.synthetic ? "1" : "0"}"
+                >
+                  ${escapeHtml(tone.label)}
+                  <small>${TONE_NAMES[tone.tone - 1]}</small>
+                </button>
+              `,
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  contrastResults.innerHTML = `<div class="contrast-grid">${rows}</div>`;
+}
+
+function parseFinalInput(value) {
+  const raw = value.trim();
+  const normalized = normalizeSearch(raw.toLowerCase().replaceAll("u:", "ü"));
+  const final = FINAL_ALIASES[normalized] || normalized;
+  return {
+    raw,
+    final,
+    displayFinal: normalized || final,
+  };
+}
+
+function findCellByInitialAndFinal(initial, final) {
+  return cells.find((cell) => cell.initial === initial && cell.final === final) || null;
+}
+
+function makeHypotheticalSyllable(initial, final) {
+  return `${initial}${final}`;
+}
+
+async function playContrastTone(button) {
+  activeContrastButton?.classList.remove("active");
+  activeContrastButton = button;
+  button.classList.add("active");
+
+  const label = button.dataset.label;
+  if (button.dataset.synthetic === "1") {
+    speakSynthetic(label);
+    playStatus.textContent = `Âm giả định: ${label}`;
+    return;
+  }
+
+  player.pause();
+  player.currentTime = 0;
+  player.src = button.dataset.url;
+  playStatus.textContent = `Đang phát: ${label}`;
+
+  try {
+    await player.play();
+  } catch (error) {
+    playStatus.textContent = `Không phát được ${label}.`;
+  }
+}
+
+function speakSynthetic(label) {
+  player.pause();
+  if (!("speechSynthesis" in window)) return;
+
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(label);
+  utterance.lang = "zh-CN";
+  utterance.rate = 0.82;
+  window.speechSynthesis.speak(utterance);
+}
+
 function renderSearchResults() {
   const query = normalizeSearch(searchInput.value);
   searchResults.replaceChildren();
@@ -754,6 +900,15 @@ function audioStem(syllable) {
 function formatJoin(cell) {
   if (!cell.initial) return cell.final;
   return `${cell.initial} + ${cell.final}`;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 function normalizeSearch(value) {
