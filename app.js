@@ -494,6 +494,10 @@ function headerCell(text, className = "") {
 }
 
 function bindEvents() {
+  tonePopup.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
   chart.addEventListener("click", (event) => {
     const tableCell = event.target.closest("td");
     if (!tableCell) return;
@@ -508,6 +512,7 @@ function bindEvents() {
   });
 
   popupToneButtons.addEventListener("click", (event) => {
+    event.stopPropagation();
     const button = event.target.closest(".tone-button");
     if (!button || !activeCell) return;
 
