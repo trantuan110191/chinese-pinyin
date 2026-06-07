@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bảng phát âm Pinyin</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="tool-band">
+        <div class="container">
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">Tiếng Trung Hoa Việt</p>
+              <h1>Bảng phát âm <span>Pinyin</span></h1>
+            </div>
+            <div class="brand-mark" aria-hidden="true">拼</div>
+          </div>
+
+          <div class="search-zone">
+            <label class="search-field" for="searchInput">
+              <span aria-hidden="true">⌕</span>
+              <input
+                id="searchInput"
+                type="search"
+                autocomplete="off"
+                placeholder="Tìm pinyin, ví dụ: ma, zhong, nv"
+              />
+            </label>
+            <div id="searchResults" class="search-results" hidden></div>
+          </div>
+
+          <section class="player-panel" aria-live="polite">
+            <div class="selected-syllable">
+              <span class="selected-label">Âm đang chọn</span>
+              <strong id="selectedBase">-</strong>
+              <span id="selectedJoin"></span>
+            </div>
+            <div id="toneButtons" class="tone-buttons"></div>
+            <div id="playStatus" class="play-status">Chọn một ô trong bảng</div>
+          </section>
+        </div>
+      </section>
+
+      <section class="table-band">
+        <div class="container">
+          <div class="table-wrap" aria-label="Bảng phát âm Pinyin">
+            <table id="pinyinChart"></table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

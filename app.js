@@ -1,0 +1,700 @@
+const AUDIO_BASE = "https://data.kimma.group/interactivepinyinchart/";
+
+const COLUMNS = [
+  { key: "zero", label: "" },
+  { key: "b", label: "b" },
+  { key: "p", label: "p" },
+  { key: "m", label: "m" },
+  { key: "f", label: "f" },
+  { key: "d", label: "d" },
+  { key: "t", label: "t" },
+  { key: "n", label: "n" },
+  { key: "l", label: "l" },
+  { key: "g", label: "g" },
+  { key: "k", label: "k" },
+  { key: "h", label: "h" },
+  { key: "j", label: "j" },
+  { key: "q", label: "q" },
+  { key: "x", label: "x" },
+  { key: "z", label: "z" },
+  { key: "c", label: "c" },
+  { key: "s", label: "s" },
+  { key: "zh", label: "zh" },
+  { key: "ch", label: "ch" },
+  { key: "sh", label: "sh" },
+  { key: "r", label: "r" },
+];
+
+const ROWS = [
+  { final: "i", cells: { z: "zi", c: "ci", s: "si", zh: "zhi", ch: "chi", sh: "shi", r: "ri" } },
+  {
+    final: "a",
+    cells: {
+      zero: "a",
+      b: "ba",
+      p: "pa",
+      m: "ma",
+      f: "fa",
+      d: "da",
+      t: "ta",
+      n: "na",
+      l: "la",
+      g: "ga",
+      k: "ka",
+      h: "ha",
+      z: "za",
+      c: "ca",
+      s: "sa",
+      zh: "zha",
+      ch: "cha",
+      sh: "sha",
+    },
+  },
+  {
+    final: "ai",
+    cells: {
+      zero: "ai",
+      b: "bai",
+      p: "pai",
+      m: "mai",
+      d: "dai",
+      t: "tai",
+      n: "nai",
+      l: "lai",
+      g: "gai",
+      k: "kai",
+      h: "hai",
+      z: "zai",
+      c: "cai",
+      s: "sai",
+      zh: "zhai",
+      ch: "chai",
+      sh: "shai",
+    },
+  },
+  {
+    final: "an",
+    cells: {
+      zero: "an",
+      b: "ban",
+      p: "pan",
+      m: "man",
+      f: "fan",
+      d: "dan",
+      t: "tan",
+      n: "nan",
+      l: "lan",
+      g: "gan",
+      k: "kan",
+      h: "han",
+      z: "zan",
+      c: "can",
+      s: "san",
+      zh: "zhan",
+      ch: "chan",
+      sh: "shan",
+      r: "ran",
+    },
+  },
+  {
+    final: "ang",
+    cells: {
+      zero: "ang",
+      b: "bang",
+      p: "pang",
+      m: "mang",
+      f: "fang",
+      d: "dang",
+      t: "tang",
+      n: "nang",
+      l: "lang",
+      g: "gang",
+      k: "kang",
+      h: "hang",
+      z: "zang",
+      c: "cang",
+      s: "sang",
+      zh: "zhang",
+      ch: "chang",
+      sh: "shang",
+      r: "rang",
+    },
+  },
+  {
+    final: "ao",
+    cells: {
+      zero: "ao",
+      b: "bao",
+      p: "pao",
+      m: "mao",
+      d: "dao",
+      t: "tao",
+      n: "nao",
+      l: "lao",
+      g: "gao",
+      k: "kao",
+      h: "hao",
+      z: "zao",
+      c: "cao",
+      s: "sao",
+      zh: "zhao",
+      ch: "chao",
+      sh: "shao",
+      r: "rao",
+    },
+  },
+  {
+    final: "e",
+    cells: {
+      zero: "e",
+      m: "me",
+      d: "de",
+      t: "te",
+      n: "ne",
+      l: "le",
+      g: "ge",
+      k: "ke",
+      h: "he",
+      z: "ze",
+      c: "ce",
+      s: "se",
+      zh: "zhe",
+      ch: "che",
+      sh: "she",
+      r: "re",
+    },
+  },
+  {
+    final: "ei",
+    cells: {
+      zero: "ei",
+      b: "bei",
+      p: "pei",
+      m: "mei",
+      f: "fei",
+      d: "dei",
+      n: "nei",
+      l: "lei",
+      g: "gei",
+      h: "hei",
+      z: "zei",
+      zh: "zhei",
+      sh: "shei",
+    },
+  },
+  {
+    final: "en",
+    cells: {
+      zero: "en",
+      b: "ben",
+      p: "pen",
+      m: "men",
+      f: "fen",
+      n: "nen",
+      g: "gen",
+      k: "ken",
+      h: "hen",
+      z: "zen",
+      c: "cen",
+      s: "sen",
+      zh: "zhen",
+      ch: "chen",
+      sh: "shen",
+      r: "ren",
+    },
+  },
+  {
+    final: "eng",
+    cells: {
+      zero: "eng",
+      b: "beng",
+      p: "peng",
+      m: "meng",
+      f: "feng",
+      d: "deng",
+      t: "teng",
+      n: "neng",
+      l: "leng",
+      g: "geng",
+      k: "keng",
+      h: "heng",
+      z: "zeng",
+      c: "ceng",
+      s: "seng",
+      zh: "zheng",
+      ch: "cheng",
+      sh: "sheng",
+      r: "reng",
+    },
+  },
+  { final: "er", cells: { zero: "er" } },
+  {
+    final: "i",
+    cells: { zero: "yi", b: "bi", p: "pi", m: "mi", d: "di", t: "ti", n: "ni", l: "li", j: "ji", q: "qi", x: "xi" },
+  },
+  { final: "ia", cells: { zero: "ya", d: "dia", l: "lia", j: "jia", q: "qia", x: "xia" } },
+  {
+    final: "ian",
+    cells: {
+      zero: "yan",
+      b: "bian",
+      p: "pian",
+      m: "mian",
+      d: "dian",
+      t: "tian",
+      n: "nian",
+      l: "lian",
+      j: "jian",
+      q: "qian",
+      x: "xian",
+    },
+  },
+  { final: "iang", cells: { zero: "yang", n: "niang", l: "liang", j: "jiang", q: "qiang", x: "xiang" } },
+  {
+    final: "iao",
+    cells: {
+      zero: "yao",
+      b: "biao",
+      p: "piao",
+      m: "miao",
+      d: "diao",
+      t: "tiao",
+      n: "niao",
+      l: "liao",
+      j: "jiao",
+      q: "qiao",
+      x: "xiao",
+    },
+  },
+  {
+    final: "ie",
+    cells: { zero: "ye", b: "bie", p: "pie", m: "mie", d: "die", t: "tie", n: "nie", l: "lie", j: "jie", q: "qie", x: "xie" },
+  },
+  {
+    final: "in",
+    cells: { zero: "yin", b: "bin", p: "pin", m: "min", n: "nin", l: "lin", j: "jin", q: "qin", x: "xin" },
+  },
+  {
+    final: "ing",
+    cells: {
+      zero: "ying",
+      b: "bing",
+      p: "ping",
+      m: "ming",
+      d: "ding",
+      t: "ting",
+      n: "ning",
+      l: "ling",
+      j: "jing",
+      q: "qing",
+      x: "xing",
+    },
+  },
+  { final: "iong", cells: { zero: "yong", j: "jiong", q: "qiong", x: "xiong" } },
+  { final: "iou", cells: { zero: "you", m: "miu", d: "diu", n: "niu", l: "liu", j: "jiu", q: "qiu", x: "xiu" } },
+  { final: "o", cells: { zero: "o", b: "bo", p: "po", m: "mo", f: "fo" } },
+  {
+    final: "ong",
+    cells: { d: "dong", t: "tong", n: "nong", l: "long", g: "gong", k: "kong", h: "hong", z: "zong", c: "cong", s: "song", zh: "zhong", ch: "chong", r: "rong" },
+  },
+  {
+    final: "ou",
+    cells: {
+      zero: "ou",
+      p: "pou",
+      m: "mou",
+      f: "fou",
+      d: "dou",
+      t: "tou",
+      l: "lou",
+      g: "gou",
+      k: "kou",
+      h: "hou",
+      z: "zou",
+      c: "cou",
+      s: "sou",
+      zh: "zhou",
+      ch: "chou",
+      sh: "shou",
+      r: "rou",
+    },
+  },
+  {
+    final: "u",
+    cells: {
+      zero: "wu",
+      b: "bu",
+      p: "pu",
+      m: "mu",
+      f: "fu",
+      d: "du",
+      t: "tu",
+      n: "nu",
+      l: "lu",
+      g: "gu",
+      k: "ku",
+      h: "hu",
+      z: "zu",
+      c: "cu",
+      s: "su",
+      zh: "zhu",
+      ch: "chu",
+      sh: "shu",
+      r: "ru",
+    },
+  },
+  { final: "ua", cells: { zero: "wa", g: "gua", k: "kua", h: "hua", zh: "zhua", sh: "shua" } },
+  { final: "uai", cells: { zero: "wai", g: "guai", k: "kuai", h: "huai", zh: "zhuai", ch: "chuai", sh: "shuai" } },
+  {
+    final: "uan",
+    cells: {
+      zero: "wan",
+      d: "duan",
+      t: "tuan",
+      n: "nuan",
+      l: "luan",
+      g: "guan",
+      k: "kuan",
+      h: "huan",
+      z: "zuan",
+      c: "cuan",
+      s: "suan",
+      zh: "zhuan",
+      ch: "chuan",
+      sh: "shuan",
+      r: "ruan",
+    },
+  },
+  { final: "uang", cells: { zero: "wang", g: "guang", k: "kuang", h: "huang", zh: "zhuang", ch: "chuang", sh: "shuang" } },
+  {
+    final: "uei",
+    cells: { zero: "wei", d: "dui", t: "tui", g: "gui", k: "kui", h: "hui", z: "zui", c: "cui", s: "sui", zh: "zhui", ch: "chui", sh: "shui", r: "rui" },
+  },
+  {
+    final: "uen",
+    cells: { zero: "wen", d: "dun", t: "tun", l: "lun", g: "gun", k: "kun", h: "hun", z: "zun", c: "cun", s: "sun", zh: "zhun", ch: "chun", sh: "shun", r: "run" },
+  },
+  { final: "ueng", cells: { zero: "weng" } },
+  {
+    final: "uo",
+    cells: { zero: "wo", d: "duo", t: "tuo", n: "nuo", l: "luo", g: "guo", k: "kuo", h: "huo", z: "zuo", c: "cuo", s: "suo", zh: "zhuo", ch: "chuo", sh: "shuo", r: "ruo" },
+  },
+  { final: "ü", cells: { zero: "yu", n: "nü", l: "lü", j: "ju", q: "qu", x: "xu" } },
+  { final: "üan", cells: { zero: "yuan", j: "juan", q: "quan", x: "xuan" } },
+  { final: "üe", cells: { zero: "yue", n: "nüe", l: "lüe", j: "jue", q: "que", x: "xue" } },
+  { final: "ün", cells: { zero: "yun", j: "jun", q: "qun", x: "xun" } },
+];
+
+const TONE_MARKS = {
+  a: ["ā", "á", "ǎ", "à"],
+  e: ["ē", "é", "ě", "è"],
+  i: ["ī", "í", "ǐ", "ì"],
+  o: ["ō", "ó", "ǒ", "ò"],
+  u: ["ū", "ú", "ǔ", "ù"],
+  ü: ["ǖ", "ǘ", "ǚ", "ǜ"],
+};
+
+const TONE_NAMES = ["Thanh 1", "Thanh 2", "Thanh 3", "Thanh 4"];
+const player = new Audio();
+
+let activeCell = null;
+let activeTone = 1;
+let activeButton = null;
+
+const chart = document.querySelector("#pinyinChart");
+const selectedBase = document.querySelector("#selectedBase");
+const selectedJoin = document.querySelector("#selectedJoin");
+const toneButtons = document.querySelector("#toneButtons");
+const playStatus = document.querySelector("#playStatus");
+const searchInput = document.querySelector("#searchInput");
+const searchResults = document.querySelector("#searchResults");
+
+const cells = createCells();
+
+renderChart();
+renderEmptyToneButtons();
+bindEvents();
+
+function createCells() {
+  const output = [];
+
+  ROWS.forEach((row, rowIndex) => {
+    COLUMNS.forEach((column) => {
+      const syllable = row.cells[column.key];
+      if (!syllable) return;
+
+      output.push({
+        id: `${rowIndex}-${column.key}`,
+        rowIndex,
+        columnKey: column.key,
+        final: row.final,
+        initial: column.label,
+        syllable,
+        tones: [1, 2, 3, 4].map((tone) => ({
+          tone,
+          label: markTone(syllable, tone),
+          url: `${AUDIO_BASE}${audioStem(syllable)}${tone}.mp3`,
+        })),
+      });
+    });
+  });
+
+  return output;
+}
+
+function renderChart() {
+  const thead = document.createElement("thead");
+  const headRow = document.createElement("tr");
+  headRow.appendChild(headerCell("Âm cuối", "corner"));
+  COLUMNS.forEach((column) => headRow.appendChild(headerCell(column.label || "∅")));
+  thead.appendChild(headRow);
+
+  const tbody = document.createElement("tbody");
+  ROWS.forEach((row, rowIndex) => {
+    const tr = document.createElement("tr");
+    tr.appendChild(headerCell(row.final, "final-header"));
+
+    COLUMNS.forEach((column) => {
+      const syllable = row.cells[column.key];
+      const td = document.createElement("td");
+
+      if (!syllable) {
+        td.className = "empty";
+        tr.appendChild(td);
+        return;
+      }
+
+      const cell = cells.find((item) => item.rowIndex === rowIndex && item.columnKey === column.key);
+      td.className = "pinyin-cell";
+      td.dataset.cellId = cell.id;
+
+      const button = document.createElement("button");
+      button.className = "cell-button";
+      button.type = "button";
+      button.textContent = syllable;
+      button.setAttribute("aria-label", `${syllable} ${row.final}`);
+      td.appendChild(button);
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+
+  chart.replaceChildren(thead, tbody);
+}
+
+function headerCell(text, className = "") {
+  const th = document.createElement("th");
+  th.scope = className === "final-header" ? "row" : "col";
+  th.className = className;
+  th.textContent = text;
+  return th;
+}
+
+function bindEvents() {
+  chart.addEventListener("click", (event) => {
+    const td = event.target.closest("td.pinyin-cell");
+    if (!td) return;
+
+    selectCell(td.dataset.cellId, 1);
+  });
+
+  toneButtons.addEventListener("click", (event) => {
+    const button = event.target.closest(".tone-button");
+    if (!button || !activeCell) return;
+
+    playTone(activeCell, Number(button.dataset.tone));
+  });
+
+  searchInput.addEventListener("input", renderSearchResults);
+  searchInput.addEventListener("focus", renderSearchResults);
+  searchInput.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    const firstResult = searchResults.querySelector(".result-button");
+    if (!firstResult) return;
+
+    event.preventDefault();
+    selectCell(firstResult.dataset.cellId, 1);
+    hideSearchResults();
+  });
+
+  searchResults.addEventListener("click", (event) => {
+    const button = event.target.closest(".result-button");
+    if (!button) return;
+
+    selectCell(button.dataset.cellId, 1);
+    hideSearchResults();
+    searchInput.value = button.dataset.syllable;
+  });
+
+  document.addEventListener("click", (event) => {
+    if (event.target.closest(".search-zone")) return;
+    hideSearchResults();
+  });
+}
+
+function selectCell(cellId, tone) {
+  const cell = cells.find((item) => item.id === cellId);
+  if (!cell) return;
+
+  activeCell = cell;
+  selectedBase.textContent = cell.syllable;
+  selectedJoin.textContent = formatJoin(cell);
+
+  document.querySelector("td.active")?.classList.remove("active");
+  const nextCellElement = document.querySelector(`[data-cell-id="${cell.id}"]`);
+  nextCellElement?.classList.add("active");
+  activeButton = nextCellElement?.querySelector(".cell-button") || null;
+
+  renderToneButtons(cell);
+  playTone(cell, tone);
+}
+
+function renderEmptyToneButtons() {
+  toneButtons.replaceChildren(
+    ...TONE_NAMES.map((name, index) => {
+      const button = document.createElement("button");
+      button.className = "tone-button";
+      button.type = "button";
+      button.disabled = true;
+      button.innerHTML = `-<small>${name}</small>`;
+      button.dataset.tone = String(index + 1);
+      return button;
+    }),
+  );
+}
+
+function renderToneButtons(cell) {
+  toneButtons.replaceChildren(
+    ...cell.tones.map((item, index) => {
+      const button = document.createElement("button");
+      button.className = `tone-button${item.tone === activeTone ? " active" : ""}`;
+      button.type = "button";
+      button.dataset.tone = String(item.tone);
+      button.innerHTML = `${item.label}<small>${TONE_NAMES[index]}</small>`;
+      return button;
+    }),
+  );
+}
+
+async function playTone(cell, tone) {
+  activeTone = tone;
+  const toneData = cell.tones[tone - 1];
+
+  renderToneButtons(cell);
+  playStatus.textContent = `Đang phát: ${toneData.label}`;
+
+  player.pause();
+  player.currentTime = 0;
+  player.src = toneData.url;
+
+  try {
+    await player.play();
+    activeButton?.focus({ preventScroll: true });
+  } catch (error) {
+    playStatus.textContent = `Không phát được ${toneData.label}.`;
+  }
+}
+
+function renderSearchResults() {
+  const query = normalizeSearch(searchInput.value);
+  searchResults.replaceChildren();
+
+  if (!query) {
+    hideSearchResults();
+    return;
+  }
+
+  const exact = [];
+  const starts = [];
+  const includes = [];
+
+  cells.forEach((cell) => {
+    const normalized = normalizeSearch(cell.syllable);
+    const toneMatch = cell.tones.some((tone) => normalizeSearch(tone.label).includes(query));
+
+    if (normalized === query) exact.push(cell);
+    else if (normalized.startsWith(query)) starts.push(cell);
+    else if (normalized.includes(query) || toneMatch) includes.push(cell);
+  });
+
+  const results = [...exact, ...starts, ...includes].slice(0, 36);
+
+  if (!results.length) {
+    hideSearchResults();
+    return;
+  }
+
+  results.forEach((cell) => {
+    const button = document.createElement("button");
+    button.className = "result-button";
+    button.type = "button";
+    button.dataset.cellId = cell.id;
+    button.dataset.syllable = cell.syllable;
+    button.textContent = cell.syllable;
+    searchResults.appendChild(button);
+  });
+
+  searchResults.hidden = false;
+}
+
+function hideSearchResults() {
+  searchResults.hidden = true;
+}
+
+function markTone(syllable, tone) {
+  const chars = Array.from(syllable);
+  const targetIndex = findToneVowelIndex(chars);
+  if (targetIndex < 0) return syllable;
+
+  const vowel = chars[targetIndex];
+  chars[targetIndex] = TONE_MARKS[vowel][tone - 1];
+  return chars.join("");
+}
+
+function findToneVowelIndex(chars) {
+  const aIndex = chars.indexOf("a");
+  if (aIndex >= 0) return aIndex;
+
+  const eIndex = chars.indexOf("e");
+  if (eIndex >= 0) return eIndex;
+
+  const oIndex = chars.indexOf("o");
+  const uIndex = chars.indexOf("u");
+  if (oIndex >= 0 && uIndex === oIndex + 1) return oIndex;
+
+  for (let index = chars.length - 1; index >= 0; index -= 1) {
+    if (TONE_MARKS[chars[index]]) return index;
+  }
+
+  return -1;
+}
+
+function audioStem(syllable) {
+  const special = {
+    nü: "nv",
+    lü: "lv",
+    nüe: "nue",
+    lüe: "lve",
+  };
+
+  return special[syllable] || syllable.replaceAll("ü", "v");
+}
+
+function formatJoin(cell) {
+  if (!cell.initial) return cell.final;
+  return `${cell.initial} + ${cell.final}`;
+}
+
+function normalizeSearch(value) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replaceAll("v", "ü")
+    .replace(/[āáǎà]/g, "a")
+    .replace(/[ēéěè]/g, "e")
+    .replace(/[īíǐì]/g, "i")
+    .replace(/[ōóǒò]/g, "o")
+    .replace(/[ūúǔù]/g, "u")
+    .replace(/[ǖǘǚǜ]/g, "ü");
+}
