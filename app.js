@@ -918,12 +918,14 @@ function contrastSectionTitle(parsed) {
 }
 
 function renderContrastRowsByFinal(parsed) {
-  return CONFUSION_INITIALS.map((initial) => {
+  // Show ALL initials combined with this final, not just confusion initials
+  return COLUMNS.map((column) => {
+    const initial = column.label; // Can be "" for zero initial
     const cell = findCellByInitialAndFinal(initial, parsed.final);
     if (!cell) return "";
 
     return renderContrastRow({
-      badge: initial,
+      badge: initial || "∅",
       final: parsed.final,
       initial,
       syllable: cell.syllable,
