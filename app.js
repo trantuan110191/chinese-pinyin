@@ -849,21 +849,6 @@ function renderContrastResults() {
 }
 
 function renderContrastSection(parsed) {
-  if (parsed.cell) {
-    return renderContrastSectionHtml({
-      parsed,
-      type: "âm tiết",
-      rows: renderContrastRow({
-        badge: parsed.cell.final,
-        final: parsed.cell.final,
-        initial: parsed.cell.initial,
-        syllable: parsed.cell.syllable,
-        tones: parsed.cell.tones,
-      }),
-      emptyMessage: "",
-    });
-  }
-
   if (validInitials.has(parsed.initial)) {
     return renderContrastSectionHtml({
       parsed,
@@ -879,6 +864,21 @@ function renderContrastSection(parsed) {
       type: "vận mẫu",
       rows: renderContrastRowsByFinal(parsed),
       emptyMessage: `Không có tổ hợp thật cho vận mẫu "${parsed.raw}".`,
+    });
+  }
+
+  if (parsed.cell) {
+    return renderContrastSectionHtml({
+      parsed,
+      type: "âm tiết",
+      rows: renderContrastRow({
+        badge: parsed.cell.final,
+        final: parsed.cell.final,
+        initial: parsed.cell.initial,
+        syllable: parsed.cell.syllable,
+        tones: parsed.cell.tones,
+      }),
+      emptyMessage: "",
     });
   }
 
