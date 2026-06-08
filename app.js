@@ -404,6 +404,17 @@ const TONE_MARKS = {
 };
 
 const CONFUSION_INITIALS = ["j", "q", "x", "z", "c", "s", "zh", "ch", "sh", "r"];
+
+// Confusion groups for side-by-side comparison
+const CONFUSION_GROUPS = [
+  ["j", "q", "x"],
+  ["z", "c", "s"],
+  ["zh", "ch", "sh", "r"],
+];
+
+function getConfusionGroup(initial) {
+  return CONFUSION_GROUPS.find((group) => group.includes(initial)) || null;
+}
 const FINAL_ALIASES = {
   iu: "iou",
   ui: "uei",
@@ -850,6 +861,22 @@ function renderContrastResults() {
 
 function renderContrastSection(parsed) {
   if (validInitials.has(parsed.initial)) {
+    const group = getConfusionGroup(parsed.initial);
+    if (group) {
+      // Show group comparison for confusion initials (j/q/x, z/c/s, zh/ch/sh/r)
+      const groupLabel = group.join(" / ");
+      const body = renderContrastRowsByGroup(group);
+      return `
+        <section class="contrast-section">
+          <div class="contrast-section-title">
+            <strong>${escapeHtml(groupLabel)}</strong>
+            <span>nhóm âm đầu</span>
+          </div>
+          ${body || `<div class="contrast-empty">Không có âm nào.</div>`}
+        </section>
+      `;
+    }
+
     return renderContrastSectionHtml({
       parsed,
       type: "âm đầu",
@@ -918,14 +945,13 @@ function contrastSectionTitle(parsed) {
 }
 
 function renderContrastRowsByFinal(parsed) {
-  // Show ALL initials combined with this final, not just confusion initials
-  return COLUMNS.map((column) => {
-    const initial = column.label; // Can be "" for zero initial
+  // Show only CONFUSION initials combined with this final
+  return CONFUSION_INITIALS.map((initial) => {
     const cell = findCellByInitialAndFinal(initial, parsed.final);
     if (!cell) return "";
 
     return renderContrastRow({
-      badge: initial || "∅",
+      badge: initial,
       final: parsed.final,
       initial,
       syllable: cell.syllable,
@@ -946,6 +972,48 @@ function renderContrastRowsByInitial(initial) {
         tones: cell.tones,
       }),
     )
+    .join("");
+}
+
+function renderContrastRowsByGroup(group) {
+  // Collect all finals that ANY member of this group can combine with, in row order
+  const finalsOrdered = [];
+  const finalsSet = new Set();
+
+  cells.forEach((cell) => {
+    if (group.includes(cell.initial) && !finalsSet.has(cell.final)) {
+      finalsSet.add(cell.final);
+      finalsOrdered.push(cell.final);
+    }
+  });
+
+  // For each final, render a grouped block: header = final, rows = group members
+  return finalsOrdered
+    .map((final) => {
+      const rows = group
+        .map((initial) => {
+          const cell = findCellByInitialAndFinal(initial, final);
+          if (!cell) return "";
+          return renderContrastRow({
+            badge: initial,
+            final: cell.final,
+            initial: cell.initial,
+            syllable: cell.syllable,
+            tones: cell.tones,
+          });
+        })
+        .filter(Boolean)
+        .join("");
+
+      if (!rows) return "";
+
+      return `
+        <div class="group-final-section">
+          <div class="group-final-label">${escapeHtml(formatFinalLabel(final))}</div>
+          <div class="contrast-grid">${rows}</div>
+        </div>
+      `;
+    })
     .join("");
 }
 

@@ -282,6 +282,44 @@ h1 span {
   gap: 6px;
 }
 
+/* Group comparison layout: one block per final, rows = initials in group */
+.group-final-section {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.group-final-section:last-child {
+  margin-bottom: 0;
+}
+
+.group-final-label {
+  background: var(--soft);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.group-final-section .contrast-grid {
+  gap: 0;
+}
+
+.group-final-section .contrast-row {
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--paper);
+}
+
+.group-final-section .contrast-row:last-child {
+  border-bottom: none;
+}
+
 .contrast-row {
   display: grid;
   grid-template-columns: 54px minmax(92px, 0.7fr) 40px minmax(260px, 1.8fr);
