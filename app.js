@@ -495,6 +495,7 @@ renderEmptyToneButtons();
 renderContrastEmpty();
 bindEvents();
 updateToggleButton();
+applySearchFromUrl();
 
 function createCells() {
   const output = [];
@@ -1232,6 +1233,16 @@ function renderSearchResults() {
   });
 
   searchResults.hidden = false;
+}
+
+function applySearchFromUrl() {
+  const query = new URLSearchParams(window.location.search).get("q")?.trim();
+  if (!query) return;
+
+  searchInput.value = query;
+  renderSearchResults();
+  searchInput.focus({ preventScroll: true });
+  document.querySelector(".search-zone")?.scrollIntoView({ block: "center" });
 }
 
 function hideSearchResults() {
