@@ -1,0 +1,6932 @@
+{
+  "standard": "New HSK 3.0",
+  "syllabusPublished": "2025-11",
+  "effectiveFrom": "2026-07",
+  "sourceUrl": "https://www.chinesetest.cn/syllabus",
+  "dictionarySource": "CC-CEDICT",
+  "dictionaryLicense": "CC BY-SA 4.0",
+  "audioVoice": "zh-CN-XiaoxiaoNeural",
+  "counts": {
+    "1": 300,
+    "2": 197,
+    "3": 491
+  },
+  "words": [
+    {
+      "hanzi": "爱",
+      "pinyin": "ài",
+      "level": 1,
+      "meaning": "yêu",
+      "audio": "audio/hsk1/bafe3b2ee79f7c51.mp3"
+    },
+    {
+      "hanzi": "八",
+      "pinyin": "bā",
+      "level": 1,
+      "meaning": "tám",
+      "audio": "audio/hsk1/2c467d3673926b20.mp3"
+    },
+    {
+      "hanzi": "爸爸",
+      "pinyin": "bàba",
+      "level": 1,
+      "meaning": "bố",
+      "audio": "audio/hsk1/d45ce71dd359d0e7.mp3"
+    },
+    {
+      "hanzi": "吧",
+      "pinyin": "ba",
+      "level": 1,
+      "meaning": "nhé; đi",
+      "audio": "audio/hsk1/bad8b6c7ae2ee84b.mp3"
+    },
+    {
+      "hanzi": "白天",
+      "pinyin": "báitiān",
+      "level": 1,
+      "meaning": "ban ngày; trong ngày; ngày",
+      "audio": "audio/hsk1/6fa7e15a01ab0bcf.mp3"
+    },
+    {
+      "hanzi": "百",
+      "pinyin": "bǎi",
+      "level": 1,
+      "meaning": "họ Bạch; trăm; nhiều; tất cả các loại",
+      "audio": "audio/hsk1/089d8c4c00705fce.mp3"
+    },
+    {
+      "hanzi": "半",
+      "pinyin": "bàn",
+      "level": 1,
+      "meaning": "một nửa; bán-; không đầy đủ; (sau một số) rưỡi",
+      "audio": "audio/hsk1/f30071fa503a5928.mp3"
+    },
+    {
+      "hanzi": "包子",
+      "pinyin": "bāozi",
+      "level": 1,
+      "meaning": "baozi; bao (bánh nhồi hấp)",
+      "audio": "audio/hsk1/787d89bb2ba8a2c6.mp3"
+    },
+    {
+      "hanzi": "杯子",
+      "pinyin": "bēizi",
+      "level": 1,
+      "meaning": "cốc; kính",
+      "audio": "audio/hsk1/95f9e8e79208082d.mp3"
+    },
+    {
+      "hanzi": "本",
+      "pinyin": "běn",
+      "level": 1,
+      "meaning": "gốc; thân cây; nguồn gốc; nguồn; của riêng mình; cái này; cái này; hiện tại (năm vv)",
+      "audio": "audio/hsk1/83831c3f910cf940.mp3"
+    },
+    {
+      "hanzi": "边",
+      "pinyin": "biān",
+      "level": 1,
+      "meaning": "bên; bờ rìa; lề; biên giới",
+      "audio": "audio/hsk1/099db3137943e76e.mp3"
+    },
+    {
+      "hanzi": "便宜",
+      "pinyin": "piányi",
+      "level": 1,
+      "meaning": "giá rẻ; không tốn kém; một lợi ích nhỏ nhặt; thả ai đó đi một cách nhẹ nhàng",
+      "audio": "audio/hsk1/303a288691f82c62.mp3"
+    },
+    {
+      "hanzi": "病",
+      "pinyin": "bìng",
+      "level": 1,
+      "meaning": "bệnh tật; bệnh; bị ốm; khiếm khuyết",
+      "audio": "audio/hsk1/bd0fd6c08f85085f.mp3"
+    },
+    {
+      "hanzi": "不",
+      "pinyin": "bù",
+      "level": 1,
+      "meaning": "không",
+      "audio": "audio/hsk1/b02dfe2160c687c2.mp3"
+    },
+    {
+      "hanzi": "不客气",
+      "pinyin": "búkèqi",
+      "level": 1,
+      "meaning": "không có gì; đừng đề cập đến nó; bất lịch sự; thô lỗ",
+      "audio": "audio/hsk1/2313dbbb686a3b37.mp3"
+    },
+    {
+      "hanzi": "不要",
+      "pinyin": "búyào",
+      "level": 1,
+      "meaning": "đừng!; không được",
+      "audio": "audio/hsk1/77af2f337c1d4d74.mp3"
+    },
+    {
+      "hanzi": "菜",
+      "pinyin": "cài",
+      "level": 1,
+      "meaning": "món ăn; rau",
+      "audio": "audio/hsk1/45f0c2d97be1214d.mp3"
+    },
+    {
+      "hanzi": "茶",
+      "pinyin": "chá",
+      "level": 1,
+      "meaning": "trà",
+      "audio": "audio/hsk1/7e005ba311f86fa7.mp3"
+    },
+    {
+      "hanzi": "唱",
+      "pinyin": "chàng",
+      "level": 1,
+      "meaning": "hát; gọi to; tụng kinh",
+      "audio": "audio/hsk1/a337c728408b796d.mp3"
+    },
+    {
+      "hanzi": "超市",
+      "pinyin": "chāoshì",
+      "level": 1,
+      "meaning": "siêu thị",
+      "audio": "audio/hsk1/fc63db3dd42214b4.mp3"
+    },
+    {
+      "hanzi": "车",
+      "pinyin": "chē",
+      "level": 1,
+      "meaning": "họ Chế; xe hơi; phương tiện giao thông; máy móc; tạo hình bằng máy tiện",
+      "audio": "audio/hsk1/b1f8107ec8163500.mp3"
+    },
+    {
+      "hanzi": "吃",
+      "pinyin": "chī",
+      "level": 1,
+      "meaning": "ăn",
+      "audio": "audio/hsk1/c814805bc6d0365a.mp3"
+    },
+    {
+      "hanzi": "出租车",
+      "pinyin": "chūzūchē",
+      "level": 1,
+      "meaning": "taxi",
+      "audio": "audio/hsk1/a009d2a251780ef1.mp3"
+    },
+    {
+      "hanzi": "穿",
+      "pinyin": "chuān",
+      "level": 1,
+      "meaning": "mặc",
+      "audio": "audio/hsk1/9fdbcf44709512bd.mp3"
+    },
+    {
+      "hanzi": "打电话",
+      "pinyin": "dǎdiànhuà",
+      "level": 1,
+      "meaning": "để gọi điện thoại",
+      "audio": "audio/hsk1/7f9dc03c7fdc818e.mp3"
+    },
+    {
+      "hanzi": "大",
+      "pinyin": "dà",
+      "level": 1,
+      "meaning": "to; lớn",
+      "audio": "audio/hsk1/7d4ca7f48effd602.mp3"
+    },
+    {
+      "hanzi": "大家",
+      "pinyin": "dàjiā",
+      "level": 1,
+      "meaning": "mọi người",
+      "audio": "audio/hsk1/16b54b7ab3b5e984.mp3"
+    },
+    {
+      "hanzi": "大学",
+      "pinyin": "dàxué",
+      "level": 1,
+      "meaning": "Đại Học, một trong Tứ Thư 四書|四书 của Nho giáo; trường đại học; đại học",
+      "audio": "audio/hsk1/4513bba5432d9eff.mp3"
+    },
+    {
+      "hanzi": "大学生",
+      "pinyin": "dàxuéshēng",
+      "level": 1,
+      "meaning": "sinh viên đại học; sinh viên đại học",
+      "audio": "audio/hsk1/c247a0ffd43dccd5.mp3"
+    },
+    {
+      "hanzi": "到",
+      "pinyin": "dào",
+      "level": 1,
+      "meaning": "đạt được; đến; để lại cho; đi tới; đến (một nơi); cho đến (một thời điểm); lên đến (một điểm); (bổ ngữ động từ chỉ việc đến một nơi hoặc đạt đến một điểm)",
+      "audio": "audio/hsk1/b56f36b529dbcd62.mp3"
+    },
+    {
+      "hanzi": "的",
+      "pinyin": "de",
+      "level": 1,
+      "meaning": "của; trợ từ",
+      "audio": "audio/hsk1/8af2350cfd65805b.mp3"
+    },
+    {
+      "hanzi": "弟弟",
+      "pinyin": "dìdi",
+      "level": 1,
+      "meaning": "em trai",
+      "audio": "audio/hsk1/cf0af76ceb03b3ad.mp3"
+    },
+    {
+      "hanzi": "第",
+      "pinyin": "dì",
+      "level": 1,
+      "meaning": "(tiền tố chỉ số thứ tự, như trong 第六 \"thứ sáu\"); các lớp mà các thí sinh đậu trong kỳ thi hoàng gia được xếp vào; (cũ) nơi ở của quan chức cấp cao; Nhưng; tuy nhiên",
+      "audio": "audio/hsk1/af50a0fe2a50a3d1.mp3"
+    },
+    {
+      "hanzi": "点",
+      "pinyin": "diǎn",
+      "level": 1,
+      "meaning": "chạm nhẹ; gõ nhẹ; đánh dấu bằng dấu chấm; để kiểm tra (trong một danh sách); để đặt hàng (thực phẩm vv); để lựa chọn; đề cập đến; nêu lên (một chủ đề hoặc một người)",
+      "audio": "audio/hsk1/08dddeac1319d6e8.mp3"
+    },
+    {
+      "hanzi": "电话",
+      "pinyin": "diànhuà",
+      "level": 1,
+      "meaning": "điện thoại; cuộc gọi điện thoại; số điện thoại",
+      "audio": "audio/hsk1/bf8b5d378f010ece.mp3"
+    },
+    {
+      "hanzi": "电脑",
+      "pinyin": "diànnǎo",
+      "level": 1,
+      "meaning": "máy tính",
+      "audio": "audio/hsk1/d48f1dcf88d2ca0d.mp3"
+    },
+    {
+      "hanzi": "电视",
+      "pinyin": "diànshì",
+      "level": 1,
+      "meaning": "truyền hình; truyền hình",
+      "audio": "audio/hsk1/23777e3e3a73ff79.mp3"
+    },
+    {
+      "hanzi": "电影",
+      "pinyin": "diànyǐng",
+      "level": 1,
+      "meaning": "phim; phim ảnh",
+      "audio": "audio/hsk1/03a3a327af684099.mp3"
+    },
+    {
+      "hanzi": "电影院",
+      "pinyin": "diànyǐngyuàn",
+      "level": 1,
+      "meaning": "rạp chiếu phim; rạp chiếu phim",
+      "audio": "audio/hsk1/4456be6a340edd72.mp3"
+    },
+    {
+      "hanzi": "店",
+      "pinyin": "diàn",
+      "level": 1,
+      "meaning": "nhà trọ; khách sạn kiểu cũ (CL:家); cửa hàng; cửa hàng",
+      "audio": "audio/hsk1/aaded36a83022ef1.mp3"
+    },
+    {
+      "hanzi": "东西",
+      "pinyin": "dōngxī",
+      "level": 1,
+      "meaning": "đồ vật; thứ",
+      "audio": "audio/hsk1/b1813501860b58c2.mp3"
+    },
+    {
+      "hanzi": "都",
+      "pinyin": "dōu",
+      "level": 1,
+      "meaning": "đều",
+      "audio": "audio/hsk1/7eabb36ba1ab565b.mp3"
+    },
+    {
+      "hanzi": "读",
+      "pinyin": "dú",
+      "level": 1,
+      "meaning": "đọc",
+      "audio": "audio/hsk1/7c7a3cda2cb67d69.mp3"
+    },
+    {
+      "hanzi": "读书",
+      "pinyin": "dúshū",
+      "level": 1,
+      "meaning": "để đọc một cuốn sách; học tập; đi học",
+      "audio": "audio/hsk1/6e7a814f678b1e0d.mp3"
+    },
+    {
+      "hanzi": "对",
+      "pinyin": "duì",
+      "level": 1,
+      "meaning": "đúng; đối với",
+      "audio": "audio/hsk1/74570c72706a38b1.mp3"
+    },
+    {
+      "hanzi": "对不起",
+      "pinyin": "duìbuqǐ",
+      "level": 1,
+      "meaning": "xin lỗi",
+      "audio": "audio/hsk1/73cc81388c9bd644.mp3"
+    },
+    {
+      "hanzi": "多",
+      "pinyin": "duō",
+      "level": 1,
+      "meaning": "nhiều",
+      "audio": "audio/hsk1/1940119f05716460.mp3"
+    },
+    {
+      "hanzi": "多少",
+      "pinyin": "duōshǎo",
+      "level": 1,
+      "meaning": "bao nhiêu",
+      "audio": "audio/hsk1/fb8f01cb6d4be28b.mp3"
+    },
+    {
+      "hanzi": "儿子",
+      "pinyin": "érzi",
+      "level": 1,
+      "meaning": "con trai",
+      "audio": "audio/hsk1/9231b93fd67f48d7.mp3"
+    },
+    {
+      "hanzi": "二",
+      "pinyin": "èr",
+      "level": 1,
+      "meaning": "hai; 2; (phương ngữ Bắc Kinh) ngu ngốc",
+      "audio": "audio/hsk1/084b42f6e95e4e65.mp3"
+    },
+    {
+      "hanzi": "饭",
+      "pinyin": "fàn",
+      "level": 1,
+      "meaning": "cơm chín; bữa ăn; (từ mượn) người hâm mộ; người sùng đạo",
+      "audio": "audio/hsk1/f9fb8bcb87a58ef1.mp3"
+    },
+    {
+      "hanzi": "饭店",
+      "pinyin": "fàndiàn",
+      "level": 1,
+      "meaning": "nhà hàng; khách sạn",
+      "audio": "audio/hsk1/74ff2d7e528aff0f.mp3"
+    },
+    {
+      "hanzi": "房间",
+      "pinyin": "fángjiān",
+      "level": 1,
+      "meaning": "phòng",
+      "audio": "audio/hsk1/96b2d406041bbf38.mp3"
+    },
+    {
+      "hanzi": "飞机",
+      "pinyin": "fēijī",
+      "level": 1,
+      "meaning": "máy bay",
+      "audio": "audio/hsk1/c05f7cd6ed3587a2.mp3"
+    },
+    {
+      "hanzi": "非常",
+      "pinyin": "fēicháng",
+      "level": 1,
+      "meaning": "rất; Thực ra; bất thường; phi thường",
+      "audio": "audio/hsk1/2ccec3b4199d4dcb.mp3"
+    },
+    {
+      "hanzi": "分",
+      "pinyin": "fēn",
+      "level": 1,
+      "meaning": "chia; tách ra; để phân phối; phân bổ; để phân biệt (tốt và xấu); chi nhánh của (một tổ chức); sub- (như trong 分局)",
+      "audio": "audio/hsk1/b6a993c256ef577a.mp3"
+    },
+    {
+      "hanzi": "分钟",
+      "pinyin": "fēnzhōng",
+      "level": 1,
+      "meaning": "phút",
+      "audio": "audio/hsk1/bd957bc497aa1a41.mp3"
+    },
+    {
+      "hanzi": "高兴",
+      "pinyin": "gāoxìng",
+      "level": 1,
+      "meaning": "vui",
+      "audio": "audio/hsk1/5fcaf1452472773f.mp3"
+    },
+    {
+      "hanzi": "哥哥",
+      "pinyin": "gēge",
+      "level": 1,
+      "meaning": "anh trai",
+      "audio": "audio/hsk1/6cf70b7c4fa3c4b4.mp3"
+    },
+    {
+      "hanzi": "歌",
+      "pinyin": "gē",
+      "level": 1,
+      "meaning": "bài hát (CL:首,支); hát; biến thể của 歌",
+      "audio": "audio/hsk1/602c513e5ff73db8.mp3"
+    },
+    {
+      "hanzi": "个",
+      "pinyin": "gè",
+      "level": 1,
+      "meaning": "cái; người (lượng từ)",
+      "audio": "audio/hsk1/3a116815bc9da10d.mp3"
+    },
+    {
+      "hanzi": "给",
+      "pinyin": "gěi",
+      "level": 1,
+      "meaning": "cho; đưa",
+      "audio": "audio/hsk1/6e55fb9d8a3dacc1.mp3"
+    },
+    {
+      "hanzi": "工作",
+      "pinyin": "gōngzuò",
+      "level": 1,
+      "meaning": "làm việc; công việc",
+      "audio": "audio/hsk1/bc62d1b6b936c78d.mp3"
+    },
+    {
+      "hanzi": "公司",
+      "pinyin": "gōngsī",
+      "level": 1,
+      "meaning": "công ty; vững chãi; tập đoàn",
+      "audio": "audio/hsk1/e06ff957ed48e868.mp3"
+    },
+    {
+      "hanzi": "狗",
+      "pinyin": "gǒu",
+      "level": 1,
+      "meaning": "con chó",
+      "audio": "audio/hsk1/cecd675a4c3cb00d.mp3"
+    },
+    {
+      "hanzi": "贵",
+      "pinyin": "guì",
+      "level": 1,
+      "meaning": "tên viết tắt của Quý Châu 貴州|贵州; đắt; được đánh giá cao; quý giá; cao quý; có thứ hạng cao; (tiền tố) (kính trọng) của bạn",
+      "audio": "audio/hsk1/0c9640c83aa92be3.mp3"
+    },
+    {
+      "hanzi": "国",
+      "pinyin": "guó",
+      "level": 1,
+      "meaning": "họ Quách; quốc gia; Quốc gia; tình trạng; quốc gia",
+      "audio": "audio/hsk1/d1566afa505af0f0.mp3"
+    },
+    {
+      "hanzi": "还",
+      "pinyin": "hái",
+      "level": 1,
+      "meaning": "vẫn; còn",
+      "audio": "audio/hsk1/1bc709b8bf6c9706.mp3"
+    },
+    {
+      "hanzi": "孩子",
+      "pinyin": "háizi",
+      "level": 1,
+      "meaning": "đứa trẻ",
+      "audio": "audio/hsk1/5f887419f463425a.mp3"
+    },
+    {
+      "hanzi": "汉语",
+      "pinyin": "hànyǔ",
+      "level": 1,
+      "meaning": "tiếng Trung",
+      "audio": "audio/hsk1/65312c5c6c2213db.mp3"
+    },
+    {
+      "hanzi": "汉字",
+      "pinyin": "hànzì",
+      "level": 1,
+      "meaning": "(các) ký tự Trung Quốc",
+      "audio": "audio/hsk1/00e5d5601ce310d8.mp3"
+    },
+    {
+      "hanzi": "好",
+      "pinyin": "hǎo",
+      "level": 1,
+      "meaning": "tốt; được",
+      "audio": "audio/hsk1/f867f34178594f89.mp3"
+    },
+    {
+      "hanzi": "好吃",
+      "pinyin": "hǎochī",
+      "level": 1,
+      "meaning": "ngon; thơm ngon",
+      "audio": "audio/hsk1/0148aa8ffb7148d8.mp3"
+    },
+    {
+      "hanzi": "好看",
+      "pinyin": "hǎokàn",
+      "level": 1,
+      "meaning": "đẹp trai; đẹp trai; (của một bộ phim, cuốn sách, chương trình truyền hình, v.v.) tốt; trong một tình huống xấu hổ",
+      "audio": "audio/hsk1/f2aedcbd1c742e2b.mp3"
+    },
+    {
+      "hanzi": "好听",
+      "pinyin": "hǎotīng",
+      "level": 1,
+      "meaning": "thật thú vị khi nghe",
+      "audio": "audio/hsk1/6bb6a07bc6efef5e.mp3"
+    },
+    {
+      "hanzi": "好玩儿",
+      "pinyin": "hǎowánr",
+      "level": 1,
+      "meaning": "biến thể đàn nhị của 好玩",
+      "audio": "audio/hsk1/bbd2b7a83f4b359b.mp3"
+    },
+    {
+      "hanzi": "号",
+      "pinyin": "hào",
+      "level": 1,
+      "meaning": "ngày; số",
+      "audio": "audio/hsk1/f9376c98b6cb1cb4.mp3"
+    },
+    {
+      "hanzi": "喝",
+      "pinyin": "hē",
+      "level": 1,
+      "meaning": "uống",
+      "audio": "audio/hsk1/193632bffe7bd105.mp3"
+    },
+    {
+      "hanzi": "和",
+      "pinyin": "hé",
+      "level": 1,
+      "meaning": "và",
+      "audio": "audio/hsk1/3d7114281f5b59d9.mp3"
+    },
+    {
+      "hanzi": "很",
+      "pinyin": "hěn",
+      "level": 1,
+      "meaning": "rất",
+      "audio": "audio/hsk1/f2b91797ea3a7171.mp3"
+    },
+    {
+      "hanzi": "后",
+      "pinyin": "hòu",
+      "level": 1,
+      "meaning": "họ Hầu; hoàng hậu; nữ hoàng; (cổ) vua; người cai trị",
+      "audio": "audio/hsk1/60be66d61586b95c.mp3"
+    },
+    {
+      "hanzi": "回",
+      "pinyin": "huí",
+      "level": 1,
+      "meaning": "quay về",
+      "audio": "audio/hsk1/6da3e5c03ac7e66c.mp3"
+    },
+    {
+      "hanzi": "会",
+      "pinyin": "huì",
+      "level": 1,
+      "meaning": "biết; có thể",
+      "audio": "audio/hsk1/5ba1e3c0eb636161.mp3"
+    },
+    {
+      "hanzi": "火车",
+      "pinyin": "huǒchē",
+      "level": 1,
+      "meaning": "tàu hỏa",
+      "audio": "audio/hsk1/228e2ed446e684a3.mp3"
+    },
+    {
+      "hanzi": "鸡蛋",
+      "pinyin": "jīdàn",
+      "level": 1,
+      "meaning": "trứng gà",
+      "audio": "audio/hsk1/e9f5b71a472d27bb.mp3"
+    },
+    {
+      "hanzi": "几",
+      "pinyin": "jǐ",
+      "level": 1,
+      "meaning": "mấy; bao nhiêu",
+      "audio": "audio/hsk1/bb0d9c666fa88969.mp3"
+    },
+    {
+      "hanzi": "家",
+      "pinyin": "jiā",
+      "level": 1,
+      "meaning": "nhà; gia đình",
+      "audio": "audio/hsk1/c8ae97be80f3867c.mp3"
+    },
+    {
+      "hanzi": "家人",
+      "pinyin": "jiārén",
+      "level": 1,
+      "meaning": "thành viên gia đình; (cũ) người hầu",
+      "audio": "audio/hsk1/9baff1803c0a813d.mp3"
+    },
+    {
+      "hanzi": "见",
+      "pinyin": "jiàn",
+      "level": 1,
+      "meaning": "để xem; gặp gỡ; xuất hiện (là sth); phỏng vấn",
+      "audio": "audio/hsk1/b1c57d1cf6573f2e.mp3"
+    },
+    {
+      "hanzi": "件",
+      "pinyin": "jiàn",
+      "level": 1,
+      "meaning": "mục; thành phần; phân loại cho các sự kiện, đồ vật, quần áo, v.v.",
+      "audio": "audio/hsk1/7c00255577088ec9.mp3"
+    },
+    {
+      "hanzi": "饺子",
+      "pinyin": "jiǎozi",
+      "level": 1,
+      "meaning": "bánh bao; miếng dán nồi",
+      "audio": "audio/hsk1/f00ffdf5cd1b6828.mp3"
+    },
+    {
+      "hanzi": "叫",
+      "pinyin": "jiào",
+      "level": 1,
+      "meaning": "gọi; tên là",
+      "audio": "audio/hsk1/b71852847d38252f.mp3"
+    },
+    {
+      "hanzi": "姐姐",
+      "pinyin": "jiějie",
+      "level": 1,
+      "meaning": "chị gái",
+      "audio": "audio/hsk1/d25622289ef32c86.mp3"
+    },
+    {
+      "hanzi": "今年",
+      "pinyin": "jīnnián",
+      "level": 1,
+      "meaning": "năm nay",
+      "audio": "audio/hsk1/3a7ddf6c862aa15c.mp3"
+    },
+    {
+      "hanzi": "今天",
+      "pinyin": "jīntiān",
+      "level": 1,
+      "meaning": "hôm nay",
+      "audio": "audio/hsk1/d5f5a7a010731feb.mp3"
+    },
+    {
+      "hanzi": "九",
+      "pinyin": "jiǔ",
+      "level": 1,
+      "meaning": "chín",
+      "audio": "audio/hsk1/df897da6e02ecd30.mp3"
+    },
+    {
+      "hanzi": "觉得",
+      "pinyin": "juéde",
+      "level": 1,
+      "meaning": "cảm thấy",
+      "audio": "audio/hsk1/78c82d9f411246cb.mp3"
+    },
+    {
+      "hanzi": "开",
+      "pinyin": "kāi",
+      "level": 1,
+      "meaning": "mở; lái",
+      "audio": "audio/hsk1/39eae64cfc41ef37.mp3"
+    },
+    {
+      "hanzi": "开车",
+      "pinyin": "kāichē",
+      "level": 1,
+      "meaning": "lái ô tô (hoặc tàu hỏa, v.v.); (từ lóng) đăng nội dung khiêu dâm lên mạng; làm một trò đùa tình dục",
+      "audio": "audio/hsk1/e81b626b21aa722b.mp3"
+    },
+    {
+      "hanzi": "看",
+      "pinyin": "kàn",
+      "level": 1,
+      "meaning": "xem; nhìn",
+      "audio": "audio/hsk1/61f43315f98a4b16.mp3"
+    },
+    {
+      "hanzi": "看病",
+      "pinyin": "kànbìng",
+      "level": 1,
+      "meaning": "đi khám bác sĩ; để gặp một bệnh nhân",
+      "audio": "audio/hsk1/3ea59ea39ef55c78.mp3"
+    },
+    {
+      "hanzi": "看见",
+      "pinyin": "kànjiàn",
+      "level": 1,
+      "meaning": "để xem; để bắt gặp",
+      "audio": "audio/hsk1/7205426737a8c37c.mp3"
+    },
+    {
+      "hanzi": "可以",
+      "pinyin": "kěyǐ",
+      "level": 1,
+      "meaning": "có thể",
+      "audio": "audio/hsk1/0ef5c86fab94f13a.mp3"
+    },
+    {
+      "hanzi": "课",
+      "pinyin": "kè",
+      "level": 1,
+      "meaning": "chủ đề; khóa học; lớp học; bài học",
+      "audio": "audio/hsk1/c9ad714600dd4f76.mp3"
+    },
+    {
+      "hanzi": "口",
+      "pinyin": "kǒu",
+      "level": 1,
+      "meaning": "miệng; khẩu",
+      "audio": "audio/hsk1/037bb71227fae848.mp3"
+    },
+    {
+      "hanzi": "块",
+      "pinyin": "kuài",
+      "level": 1,
+      "meaning": "đồng; tệ (khẩu ngữ)",
+      "audio": "audio/hsk1/36d89c8f512d8cce.mp3"
+    },
+    {
+      "hanzi": "来",
+      "pinyin": "lái",
+      "level": 1,
+      "meaning": "đến",
+      "audio": "audio/hsk1/6d8229118caa20c2.mp3"
+    },
+    {
+      "hanzi": "老师",
+      "pinyin": "lǎoshī",
+      "level": 1,
+      "meaning": "giáo viên",
+      "audio": "audio/hsk1/c9a31a3f670b7f99.mp3"
+    },
+    {
+      "hanzi": "了",
+      "pinyin": "liǎo",
+      "level": 1,
+      "meaning": "rồi; trợ từ hoàn thành",
+      "audio": "audio/hsk1/b2dd27e84f07f49b.mp3"
+    },
+    {
+      "hanzi": "冷",
+      "pinyin": "lěng",
+      "level": 1,
+      "meaning": "lạnh",
+      "audio": "audio/hsk1/6e87e42fbc222f49.mp3"
+    },
+    {
+      "hanzi": "里",
+      "pinyin": "lǐ",
+      "level": 1,
+      "meaning": "bên trong",
+      "audio": "audio/hsk1/79f43de6e3bc9fd5.mp3"
+    },
+    {
+      "hanzi": "两",
+      "pinyin": "liǎng",
+      "level": 1,
+      "meaning": "hai; cả hai; một số; một vài",
+      "audio": "audio/hsk1/83385d2edafe28d4.mp3"
+    },
+    {
+      "hanzi": "零",
+      "pinyin": "líng",
+      "level": 1,
+      "meaning": "không; hư không; dấu 0; phân số",
+      "audio": "audio/hsk1/9489a4a6f3fbf136.mp3"
+    },
+    {
+      "hanzi": "六",
+      "pinyin": "liù",
+      "level": 1,
+      "meaning": "sáu; 6",
+      "audio": "audio/hsk1/de07b5383874b2a3.mp3"
+    },
+    {
+      "hanzi": "妈妈",
+      "pinyin": "māma",
+      "level": 1,
+      "meaning": "mẹ",
+      "audio": "audio/hsk1/45f1364f08aed165.mp3"
+    },
+    {
+      "hanzi": "吗",
+      "pinyin": "ma",
+      "level": 1,
+      "meaning": "không? (trợ từ hỏi)",
+      "audio": "audio/hsk1/5ac1612110def2c4.mp3"
+    },
+    {
+      "hanzi": "买",
+      "pinyin": "mǎi",
+      "level": 1,
+      "meaning": "mua",
+      "audio": "audio/hsk1/2cd2507d65de178f.mp3"
+    },
+    {
+      "hanzi": "卖",
+      "pinyin": "mài",
+      "level": 1,
+      "meaning": "bán",
+      "audio": "audio/hsk1/d998fc91a1724de6.mp3"
+    },
+    {
+      "hanzi": "忙",
+      "pinyin": "máng",
+      "level": 1,
+      "meaning": "bận",
+      "audio": "audio/hsk1/963e4f4abf641ba9.mp3"
+    },
+    {
+      "hanzi": "猫",
+      "pinyin": "māo",
+      "level": 1,
+      "meaning": "mèo (CL:隻|只); (phương ngữ) ẩn mình; (từ mượn) (thông tục) modem",
+      "audio": "audio/hsk1/a810bf845a307382.mp3"
+    },
+    {
+      "hanzi": "没关系",
+      "pinyin": "méiguānxi",
+      "level": 1,
+      "meaning": "không sao",
+      "audio": "audio/hsk1/e8b44a5169b8ab96.mp3"
+    },
+    {
+      "hanzi": "没事",
+      "pinyin": "méishì",
+      "level": 1,
+      "meaning": "nó không quan trọng; không có gì cả; đừng bận tâm; không có gì để làm",
+      "audio": "audio/hsk1/e54e5c8db870f6b7.mp3"
+    },
+    {
+      "hanzi": "没有",
+      "pinyin": "méiyǒu",
+      "level": 1,
+      "meaning": "chưa; chưa; không tồn tại; không có",
+      "audio": "audio/hsk1/f127804b9227e152.mp3"
+    },
+    {
+      "hanzi": "妹妹",
+      "pinyin": "mèimei",
+      "level": 1,
+      "meaning": "em gái",
+      "audio": "audio/hsk1/dd663fa55681eed7.mp3"
+    },
+    {
+      "hanzi": "们",
+      "pinyin": "men",
+      "level": 1,
+      "meaning": "các; những",
+      "audio": "audio/hsk1/b4dcb3305a16291a.mp3"
+    },
+    {
+      "hanzi": "米饭",
+      "pinyin": "mǐfàn",
+      "level": 1,
+      "meaning": "cơm",
+      "audio": "audio/hsk1/e233a13a49e51106.mp3"
+    },
+    {
+      "hanzi": "面包",
+      "pinyin": "miànbāo",
+      "level": 1,
+      "meaning": "bánh mì",
+      "audio": "audio/hsk1/b4bf241cd10ee181.mp3"
+    },
+    {
+      "hanzi": "面条儿",
+      "pinyin": "miàntiáor",
+      "level": 1,
+      "meaning": "biến thể đàn nhị của 麵條|面条",
+      "audio": "audio/hsk1/9abfe3d2eebc8c79.mp3"
+    },
+    {
+      "hanzi": "名字",
+      "pinyin": "míngzi",
+      "level": 1,
+      "meaning": "tên",
+      "audio": "audio/hsk1/6773310492a96fcf.mp3"
+    },
+    {
+      "hanzi": "明年",
+      "pinyin": "míngnián",
+      "level": 1,
+      "meaning": "năm tới",
+      "audio": "audio/hsk1/02b511cea0c378ed.mp3"
+    },
+    {
+      "hanzi": "明天",
+      "pinyin": "míngtiān",
+      "level": 1,
+      "meaning": "ngày mai",
+      "audio": "audio/hsk1/b1d841b978fb524c.mp3"
+    },
+    {
+      "hanzi": "哪",
+      "pinyin": "nǎ",
+      "level": 1,
+      "meaning": "nào",
+      "audio": "audio/hsk1/3f3e286143b37030.mp3"
+    },
+    {
+      "hanzi": "哪儿",
+      "pinyin": "nǎr",
+      "level": 1,
+      "meaning": "ở đâu",
+      "audio": "audio/hsk1/1ca22981984a89e6.mp3"
+    },
+    {
+      "hanzi": "哪个",
+      "pinyin": "nǎge",
+      "level": 1,
+      "meaning": "cái mà; ai",
+      "audio": "audio/hsk1/79464926d367a9b9.mp3"
+    },
+    {
+      "hanzi": "哪里",
+      "pinyin": "nǎlǐ",
+      "level": 1,
+      "meaning": "ở đâu?; ở đâu đó; bất cứ nơi nào; bất cứ nơi nào",
+      "audio": "audio/hsk1/90924eaa6dde0f68.mp3"
+    },
+    {
+      "hanzi": "哪些",
+      "pinyin": "nǎxiē",
+      "level": 1,
+      "meaning": "cái nào?; Ai?; Gì?",
+      "audio": "audio/hsk1/eeb54018e397223e.mp3"
+    },
+    {
+      "hanzi": "那",
+      "pinyin": "nà",
+      "level": 1,
+      "meaning": "kia; cái kia",
+      "audio": "audio/hsk1/5a2362a20207f453.mp3"
+    },
+    {
+      "hanzi": "那边",
+      "pinyin": "nàbian",
+      "level": 1,
+      "meaning": "ở đằng kia; đằng kia",
+      "audio": "audio/hsk1/25eeed50fdb7dc7c.mp3"
+    },
+    {
+      "hanzi": "那儿",
+      "pinyin": "nàr",
+      "level": 1,
+      "meaning": "ở đó",
+      "audio": "audio/hsk1/b4444021ad3e9b89.mp3"
+    },
+    {
+      "hanzi": "那个",
+      "pinyin": "nàge",
+      "level": 1,
+      "meaning": "cái đó; thứ đó; cái đó (trái ngược với cái này); (dùng trước động từ hoặc tính từ để nhấn mạnh)",
+      "audio": "audio/hsk1/fa6e73c549c6fe69.mp3"
+    },
+    {
+      "hanzi": "那里",
+      "pinyin": "nàli",
+      "level": 1,
+      "meaning": "ở đó",
+      "audio": "audio/hsk1/ebdef08347f3dfaa.mp3"
+    },
+    {
+      "hanzi": "那些",
+      "pinyin": "nàxiē",
+      "level": 1,
+      "meaning": "những cái đó",
+      "audio": "audio/hsk1/abd258db99698637.mp3"
+    },
+    {
+      "hanzi": "男",
+      "pinyin": "nán",
+      "level": 1,
+      "meaning": "nam giới; nam tước, cấp bậc thấp nhất trong năm cấp quý tộc 五等爵位",
+      "audio": "audio/hsk1/4e79758a99006223.mp3"
+    },
+    {
+      "hanzi": "男朋友",
+      "pinyin": "nánpéngyou",
+      "level": 1,
+      "meaning": "bạn trai",
+      "audio": "audio/hsk1/8da927115e674aad.mp3"
+    },
+    {
+      "hanzi": "呢",
+      "pinyin": "ne",
+      "level": 1,
+      "meaning": "thế còn; trợ từ",
+      "audio": "audio/hsk1/02811cec0b734158.mp3"
+    },
+    {
+      "hanzi": "能",
+      "pinyin": "néng",
+      "level": 1,
+      "meaning": "có thể",
+      "audio": "audio/hsk1/413c06bcef7c934d.mp3"
+    },
+    {
+      "hanzi": "你",
+      "pinyin": "nǐ",
+      "level": 1,
+      "meaning": "bạn",
+      "audio": "audio/hsk1/a0c7716669b5ded0.mp3"
+    },
+    {
+      "hanzi": "你好",
+      "pinyin": "nǐhǎo",
+      "level": 1,
+      "meaning": "xin chào; xin chào",
+      "audio": "audio/hsk1/670d9743542cae3e.mp3"
+    },
+    {
+      "hanzi": "你们",
+      "pinyin": "nǐmen",
+      "level": 1,
+      "meaning": "bạn (số nhiều)",
+      "audio": "audio/hsk1/8a5d477bdaf612a9.mp3"
+    },
+    {
+      "hanzi": "年",
+      "pinyin": "nián",
+      "level": 1,
+      "meaning": "năm",
+      "audio": "audio/hsk1/62ef900a8f5d5bff.mp3"
+    },
+    {
+      "hanzi": "您",
+      "pinyin": "nín",
+      "level": 1,
+      "meaning": "bạn (lịch sự, trái ngược với 你 thân mật)",
+      "audio": "audio/hsk1/9bbfbbc76f7ac5e0.mp3"
+    },
+    {
+      "hanzi": "牛奶",
+      "pinyin": "niúnǎi",
+      "level": 1,
+      "meaning": "sữa bò",
+      "audio": "audio/hsk1/b892a42b9695881d.mp3"
+    },
+    {
+      "hanzi": "女",
+      "pinyin": "nǚ",
+      "level": 1,
+      "meaning": "nữ; đàn bà; con gái",
+      "audio": "audio/hsk1/0ab4610b9257c298.mp3"
+    },
+    {
+      "hanzi": "女儿",
+      "pinyin": "nǚér",
+      "level": 1,
+      "meaning": "con gái",
+      "audio": "audio/hsk1/115425d59e4ae5f5.mp3"
+    },
+    {
+      "hanzi": "女朋友",
+      "pinyin": "nǚpéngyou",
+      "level": 1,
+      "meaning": "bạn gái",
+      "audio": "audio/hsk1/f7d17744be2297c2.mp3"
+    },
+    {
+      "hanzi": "女士",
+      "pinyin": "nǚshì",
+      "level": 1,
+      "meaning": "quý bà; thưa bà; Cô; Cô",
+      "audio": "audio/hsk1/d87cff0000c6a695.mp3"
+    },
+    {
+      "hanzi": "朋友",
+      "pinyin": "péngyou",
+      "level": 1,
+      "meaning": "bạn bè",
+      "audio": "audio/hsk1/677aad1a0ee44cd6.mp3"
+    },
+    {
+      "hanzi": "漂亮",
+      "pinyin": "piàoliang",
+      "level": 1,
+      "meaning": "đẹp",
+      "audio": "audio/hsk1/7f932e007e2c5e55.mp3"
+    },
+    {
+      "hanzi": "苹果",
+      "pinyin": "píngguǒ",
+      "level": 1,
+      "meaning": "táo",
+      "audio": "audio/hsk1/50537dab76505dfc.mp3"
+    },
+    {
+      "hanzi": "七",
+      "pinyin": "qī",
+      "level": 1,
+      "meaning": "bảy",
+      "audio": "audio/hsk1/1b0542878c67f6cd.mp3"
+    },
+    {
+      "hanzi": "起床",
+      "pinyin": "qǐchuáng",
+      "level": 1,
+      "meaning": "thức dậy",
+      "audio": "audio/hsk1/96f512f980046bf6.mp3"
+    },
+    {
+      "hanzi": "千",
+      "pinyin": "qiān",
+      "level": 1,
+      "meaning": "nghìn; được sử dụng trong 鞦韆|秋千",
+      "audio": "audio/hsk1/23d862decf4f14ab.mp3"
+    },
+    {
+      "hanzi": "前",
+      "pinyin": "qián",
+      "level": 1,
+      "meaning": "phía trước; phía trước; phía trước; đầu tiên",
+      "audio": "audio/hsk1/6044e9f095e0b5e4.mp3"
+    },
+    {
+      "hanzi": "钱",
+      "pinyin": "qián",
+      "level": 1,
+      "meaning": "tiền",
+      "audio": "audio/hsk1/0eb863c78da3e38b.mp3"
+    },
+    {
+      "hanzi": "请",
+      "pinyin": "qǐng",
+      "level": 1,
+      "meaning": "mời; xin",
+      "audio": "audio/hsk1/88d5840fab773af6.mp3"
+    },
+    {
+      "hanzi": "请问",
+      "pinyin": "qǐngwèn",
+      "level": 1,
+      "meaning": "Xin lỗi, tôi có thể hỏi...?",
+      "audio": "audio/hsk1/42be23d8344a4971.mp3"
+    },
+    {
+      "hanzi": "去",
+      "pinyin": "qù",
+      "level": 1,
+      "meaning": "đi",
+      "audio": "audio/hsk1/99ae21ea6c39ccc1.mp3"
+    },
+    {
+      "hanzi": "去年",
+      "pinyin": "qùnián",
+      "level": 1,
+      "meaning": "năm ngoái",
+      "audio": "audio/hsk1/c5c593d385bf5696.mp3"
+    },
+    {
+      "hanzi": "热",
+      "pinyin": "rè",
+      "level": 1,
+      "meaning": "nóng",
+      "audio": "audio/hsk1/312490eda9072580.mp3"
+    },
+    {
+      "hanzi": "人",
+      "pinyin": "rén",
+      "level": 1,
+      "meaning": "người",
+      "audio": "audio/hsk1/50f5d65d57290f75.mp3"
+    },
+    {
+      "hanzi": "认识",
+      "pinyin": "rènshi",
+      "level": 1,
+      "meaning": "quen; biết",
+      "audio": "audio/hsk1/1c17dc403125481f.mp3"
+    },
+    {
+      "hanzi": "日",
+      "pinyin": "rì",
+      "level": 1,
+      "meaning": "ngày",
+      "audio": "audio/hsk1/85217f7aff778414.mp3"
+    },
+    {
+      "hanzi": "三",
+      "pinyin": "sān",
+      "level": 1,
+      "meaning": "ba",
+      "audio": "audio/hsk1/a4c3313deb180960.mp3"
+    },
+    {
+      "hanzi": "商店",
+      "pinyin": "shāngdiàn",
+      "level": 1,
+      "meaning": "cửa hàng",
+      "audio": "audio/hsk1/61f96c6aac6a0745.mp3"
+    },
+    {
+      "hanzi": "上",
+      "pinyin": "shàng",
+      "level": 1,
+      "meaning": "trên; lên",
+      "audio": "audio/hsk1/db5ba671d244ee82.mp3"
+    },
+    {
+      "hanzi": "上班",
+      "pinyin": "shàngbān",
+      "level": 1,
+      "meaning": "đi làm; đang làm nhiệm vụ; để bắt đầu công việc; đi đến văn phòng",
+      "audio": "audio/hsk1/fbb0f7cc70d4bb48.mp3"
+    },
+    {
+      "hanzi": "上课",
+      "pinyin": "shàngkè",
+      "level": 1,
+      "meaning": "đến lớp; tham dự lớp học; đi dạy một lớp",
+      "audio": "audio/hsk1/b6a5b00f8db545dc.mp3"
+    },
+    {
+      "hanzi": "上午",
+      "pinyin": "shàngwǔ",
+      "level": 1,
+      "meaning": "buổi sáng",
+      "audio": "audio/hsk1/298336ec2c0e2e37.mp3"
+    },
+    {
+      "hanzi": "上学",
+      "pinyin": "shàngxué",
+      "level": 1,
+      "meaning": "đi học; đi học",
+      "audio": "audio/hsk1/9a04b4b6dfffbfe9.mp3"
+    },
+    {
+      "hanzi": "少",
+      "pinyin": "shǎo",
+      "level": 1,
+      "meaning": "ít",
+      "audio": "audio/hsk1/62f99c9a0c50d790.mp3"
+    },
+    {
+      "hanzi": "谁",
+      "pinyin": "shéi",
+      "level": 1,
+      "meaning": "ai",
+      "audio": "audio/hsk1/056b9c626275cd54.mp3"
+    },
+    {
+      "hanzi": "什么",
+      "pinyin": "shénme",
+      "level": 1,
+      "meaning": "cái gì",
+      "audio": "audio/hsk1/c1b52e0e64a33dea.mp3"
+    },
+    {
+      "hanzi": "生病",
+      "pinyin": "shēngbìng",
+      "level": 1,
+      "meaning": "bị bệnh",
+      "audio": "audio/hsk1/a37fff0c9f7322e2.mp3"
+    },
+    {
+      "hanzi": "十",
+      "pinyin": "shí",
+      "level": 1,
+      "meaning": "mười; 10",
+      "audio": "audio/hsk1/fc7edd399a5c4b93.mp3"
+    },
+    {
+      "hanzi": "时候",
+      "pinyin": "shíhou",
+      "level": 1,
+      "meaning": "lúc; thời gian",
+      "audio": "audio/hsk1/5484678be4ef7c24.mp3"
+    },
+    {
+      "hanzi": "时间",
+      "pinyin": "shíjiān",
+      "level": 1,
+      "meaning": "thời gian",
+      "audio": "audio/hsk1/8b6ff498515bcc2f.mp3"
+    },
+    {
+      "hanzi": "事",
+      "pinyin": "shì",
+      "level": 1,
+      "meaning": "vấn đề; điều; mục; làm việc",
+      "audio": "audio/hsk1/1d9ed569515d4b88.mp3"
+    },
+    {
+      "hanzi": "是",
+      "pinyin": "shì",
+      "level": 1,
+      "meaning": "là",
+      "audio": "audio/hsk1/b5141d3d19e9a048.mp3"
+    },
+    {
+      "hanzi": "手机",
+      "pinyin": "shǒujī",
+      "level": 1,
+      "meaning": "điện thoại di động",
+      "audio": "audio/hsk1/2e07333c8c740978.mp3"
+    },
+    {
+      "hanzi": "书",
+      "pinyin": "shū",
+      "level": 1,
+      "meaning": "sách",
+      "audio": "audio/hsk1/1be968f125240969.mp3"
+    },
+    {
+      "hanzi": "书店",
+      "pinyin": "shūdiàn",
+      "level": 1,
+      "meaning": "hiệu sách",
+      "audio": "audio/hsk1/9d95a62f5e3af759.mp3"
+    },
+    {
+      "hanzi": "水",
+      "pinyin": "shuǐ",
+      "level": 1,
+      "meaning": "nước",
+      "audio": "audio/hsk1/327b54d04f71f212.mp3"
+    },
+    {
+      "hanzi": "水果",
+      "pinyin": "shuǐguǒ",
+      "level": 1,
+      "meaning": "hoa quả",
+      "audio": "audio/hsk1/27c180751ad60f8c.mp3"
+    },
+    {
+      "hanzi": "睡",
+      "pinyin": "shuì",
+      "level": 1,
+      "meaning": "ngủ; nằm xuống",
+      "audio": "audio/hsk1/aeeb11604ed0248e.mp3"
+    },
+    {
+      "hanzi": "睡觉",
+      "pinyin": "shuìjiào",
+      "level": 1,
+      "meaning": "ngủ",
+      "audio": "audio/hsk1/b38a4b4c3335f2d4.mp3"
+    },
+    {
+      "hanzi": "说",
+      "pinyin": "shuō",
+      "level": 1,
+      "meaning": "nói",
+      "audio": "audio/hsk1/ccca74461399d2a0.mp3"
+    },
+    {
+      "hanzi": "说话",
+      "pinyin": "shuōhuà",
+      "level": 1,
+      "meaning": "nói chuyện; nói; nói chuyện; buôn chuyện",
+      "audio": "audio/hsk1/cc0dc791ff9c00c6.mp3"
+    },
+    {
+      "hanzi": "四",
+      "pinyin": "sì",
+      "level": 1,
+      "meaning": "bốn",
+      "audio": "audio/hsk1/754a9d5828d502f1.mp3"
+    },
+    {
+      "hanzi": "岁",
+      "pinyin": "suì",
+      "level": 1,
+      "meaning": "tuổi",
+      "audio": "audio/hsk1/43e84a7a98a4fc35.mp3"
+    },
+    {
+      "hanzi": "他",
+      "pinyin": "tā",
+      "level": 1,
+      "meaning": "anh ấy",
+      "audio": "audio/hsk1/8b7b91e0001c6971.mp3"
+    },
+    {
+      "hanzi": "他们",
+      "pinyin": "tāmen",
+      "level": 1,
+      "meaning": "họ; họ",
+      "audio": "audio/hsk1/10518f8f0abf21a3.mp3"
+    },
+    {
+      "hanzi": "它",
+      "pinyin": "tā",
+      "level": 1,
+      "meaning": "nó",
+      "audio": "audio/hsk1/7e9260e925f14bef.mp3"
+    },
+    {
+      "hanzi": "它们",
+      "pinyin": "tāmen",
+      "level": 1,
+      "meaning": "họ; họ",
+      "audio": "audio/hsk1/c40b3d28802c0caa.mp3"
+    },
+    {
+      "hanzi": "她",
+      "pinyin": "tā",
+      "level": 1,
+      "meaning": "cô ấy",
+      "audio": "audio/hsk1/2ab425e0c6b932cb.mp3"
+    },
+    {
+      "hanzi": "她们",
+      "pinyin": "tāmen",
+      "level": 1,
+      "meaning": "họ; họ (nữ)",
+      "audio": "audio/hsk1/22c6b349e5a21a21.mp3"
+    },
+    {
+      "hanzi": "太",
+      "pinyin": "tài",
+      "level": 1,
+      "meaning": "cao nhất; vĩ đại nhất; quá (nhiều); rất",
+      "audio": "audio/hsk1/e7ace7adf264b714.mp3"
+    },
+    {
+      "hanzi": "天",
+      "pinyin": "tiān",
+      "level": 1,
+      "meaning": "ngày; bầu trời; thiên đường",
+      "audio": "audio/hsk1/49da61ceeea2f271.mp3"
+    },
+    {
+      "hanzi": "天气",
+      "pinyin": "tiānqì",
+      "level": 1,
+      "meaning": "thời tiết",
+      "audio": "audio/hsk1/4d947325473f5b57.mp3"
+    },
+    {
+      "hanzi": "听",
+      "pinyin": "tīng",
+      "level": 1,
+      "meaning": "nghe",
+      "audio": "audio/hsk1/1f2eb2608d236247.mp3"
+    },
+    {
+      "hanzi": "听见",
+      "pinyin": "tīngjiàn",
+      "level": 1,
+      "meaning": "nghe",
+      "audio": "audio/hsk1/cbe999c9d0650d96.mp3"
+    },
+    {
+      "hanzi": "同学",
+      "pinyin": "tóngxué",
+      "level": 1,
+      "meaning": "bạn học",
+      "audio": "audio/hsk1/b8f27f90d943cb45.mp3"
+    },
+    {
+      "hanzi": "外",
+      "pinyin": "wài",
+      "level": 1,
+      "meaning": "bên ngoài; Ngoài ra; nước ngoài; bên ngoài",
+      "audio": "audio/hsk1/0e826095b60ccf03.mp3"
+    },
+    {
+      "hanzi": "外边",
+      "pinyin": "wàibian",
+      "level": 1,
+      "meaning": "bên ngoài; bề mặt bên ngoài; ở nước ngoài; nơi khác ngoài nhà của mình",
+      "audio": "audio/hsk1/d70965d0d654f385.mp3"
+    },
+    {
+      "hanzi": "玩",
+      "pinyin": "wán",
+      "level": 1,
+      "meaning": "đi chơi; để vui chơi; đùa giỡn với; đồ chơi; biến thể của 玩; Đài Loan PR.",
+      "audio": "audio/hsk1/7d6739abb05e1090.mp3"
+    },
+    {
+      "hanzi": "晚",
+      "pinyin": "wǎn",
+      "level": 1,
+      "meaning": "buổi tối; đêm; muộn",
+      "audio": "audio/hsk1/1917a52c057aad5c.mp3"
+    },
+    {
+      "hanzi": "晚饭",
+      "pinyin": "wǎnfàn",
+      "level": 1,
+      "meaning": "bữa tối; bữa tối; bữa tối",
+      "audio": "audio/hsk1/5a5420f01e11d0bc.mp3"
+    },
+    {
+      "hanzi": "晚上",
+      "pinyin": "wǎnshang",
+      "level": 1,
+      "meaning": "buổi tối",
+      "audio": "audio/hsk1/a9b1124b34615118.mp3"
+    },
+    {
+      "hanzi": "喂",
+      "pinyin": "wèi",
+      "level": 1,
+      "meaning": "này; cho ăn (một con vật, em bé, người tàn tật, v.v.); biến thể của 餵|喂",
+      "audio": "audio/hsk1/ea8ea533443d8196.mp3"
+    },
+    {
+      "hanzi": "问",
+      "pinyin": "wèn",
+      "level": 1,
+      "meaning": "hỏi; hỏi thăm",
+      "audio": "audio/hsk1/4628c0e06f4b378d.mp3"
+    },
+    {
+      "hanzi": "问题",
+      "pinyin": "wèntí",
+      "level": 1,
+      "meaning": "vấn đề; câu hỏi",
+      "audio": "audio/hsk1/33a8618cb6710e43.mp3"
+    },
+    {
+      "hanzi": "我",
+      "pinyin": "wǒ",
+      "level": 1,
+      "meaning": "tôi, mình",
+      "audio": "audio/hsk1/b70bb4acc0484cf0.mp3"
+    },
+    {
+      "hanzi": "我们",
+      "pinyin": "wǒmen",
+      "level": 1,
+      "meaning": "chúng tôi; chúng ta; chính chúng ta; của chúng tôi",
+      "audio": "audio/hsk1/bcacb40df81b94b7.mp3"
+    },
+    {
+      "hanzi": "五",
+      "pinyin": "wǔ",
+      "level": 1,
+      "meaning": "năm; 5",
+      "audio": "audio/hsk1/c9b87f516a38ea36.mp3"
+    },
+    {
+      "hanzi": "午饭",
+      "pinyin": "wǔfàn",
+      "level": 1,
+      "meaning": "bữa trưa",
+      "audio": "audio/hsk1/dac152a147729f3f.mp3"
+    },
+    {
+      "hanzi": "喜欢",
+      "pinyin": "xǐhuan",
+      "level": 1,
+      "meaning": "thích",
+      "audio": "audio/hsk1/653b04330b75751f.mp3"
+    },
+    {
+      "hanzi": "下",
+      "pinyin": "xià",
+      "level": 1,
+      "meaning": "dưới; xuống",
+      "audio": "audio/hsk1/13c12b064b635e06.mp3"
+    },
+    {
+      "hanzi": "下班",
+      "pinyin": "xiàbān",
+      "level": 1,
+      "meaning": "để hoàn thành công việc; nghỉ làm; dịch vụ tiếp theo (tàu, xe buýt, v.v.)",
+      "audio": "audio/hsk1/e3d3afd884be213e.mp3"
+    },
+    {
+      "hanzi": "下课",
+      "pinyin": "xiàkè",
+      "level": 1,
+      "meaning": "kết thúc lớp học; ra khỏi lớp; (hình) (đặc biệt là huấn luyện viên thể thao) bị sa thải; bị sa thải",
+      "audio": "audio/hsk1/fd0b4036e8b231ad.mp3"
+    },
+    {
+      "hanzi": "下午",
+      "pinyin": "xiàwǔ",
+      "level": 1,
+      "meaning": "buổi chiều",
+      "audio": "audio/hsk1/af81dcf37aa86091.mp3"
+    },
+    {
+      "hanzi": "下雨",
+      "pinyin": "xiàyǔ",
+      "level": 1,
+      "meaning": "mưa",
+      "audio": "audio/hsk1/024b2708ed8e3ffc.mp3"
+    },
+    {
+      "hanzi": "先生",
+      "pinyin": "xiānsheng",
+      "level": 1,
+      "meaning": "giáo viên; quý ông; thưa ông; ông (Mr.); chồng; (phương ngữ) bác sĩ",
+      "audio": "audio/hsk1/cd98e43da31bb1b9.mp3"
+    },
+    {
+      "hanzi": "现在",
+      "pinyin": "xiànzài",
+      "level": 1,
+      "meaning": "bây giờ",
+      "audio": "audio/hsk1/43584f37c1f4932f.mp3"
+    },
+    {
+      "hanzi": "想",
+      "pinyin": "xiǎng",
+      "level": 1,
+      "meaning": "muốn; nghĩ",
+      "audio": "audio/hsk1/df0d25193874aa17.mp3"
+    },
+    {
+      "hanzi": "小",
+      "pinyin": "xiǎo",
+      "level": 1,
+      "meaning": "nhỏ",
+      "audio": "audio/hsk1/6a7339bb759788f3.mp3"
+    },
+    {
+      "hanzi": "小朋友",
+      "pinyin": "xiǎopéngyǒu",
+      "level": 1,
+      "meaning": "đứa trẻ; đứa trẻ (dùng để chỉ một đứa trẻ, hoặc bởi người lớn để chỉ một đứa trẻ, hoặc, ở Đài Loan, để chỉ con của ai đó)",
+      "audio": "audio/hsk1/cc60fd1d341d8bb2.mp3"
+    },
+    {
+      "hanzi": "小时",
+      "pinyin": "xiǎoshí",
+      "level": 1,
+      "meaning": "giờ (khoảng thời gian)",
+      "audio": "audio/hsk1/3b6fefc50febace4.mp3"
+    },
+    {
+      "hanzi": "小学",
+      "pinyin": "xiǎoxué",
+      "level": 1,
+      "meaning": "trường tiểu học; trường tiểu học",
+      "audio": "audio/hsk1/9de8489c4575d186.mp3"
+    },
+    {
+      "hanzi": "小学生",
+      "pinyin": "xiǎoxuéshēng",
+      "level": 1,
+      "meaning": "học sinh tiểu học; học sinh; (hình) người mới bắt đầu",
+      "audio": "audio/hsk1/ff88e53b63547d39.mp3"
+    },
+    {
+      "hanzi": "些",
+      "pinyin": "xiē",
+      "level": 1,
+      "meaning": "bộ phân loại chỉ ra một lượng nhỏ hoặc số nhỏ lớn hơn 1: một số, một vài, một số",
+      "audio": "audio/hsk1/af76fed85c5499d9.mp3"
+    },
+    {
+      "hanzi": "写",
+      "pinyin": "xiě",
+      "level": 1,
+      "meaning": "viết",
+      "audio": "audio/hsk1/eecaf7bb139f9c37.mp3"
+    },
+    {
+      "hanzi": "谢谢",
+      "pinyin": "xièxie",
+      "level": 1,
+      "meaning": "cảm ơn",
+      "audio": "audio/hsk1/1bf7ac688560d3b0.mp3"
+    },
+    {
+      "hanzi": "新",
+      "pinyin": "xīn",
+      "level": 1,
+      "meaning": "mới",
+      "audio": "audio/hsk1/3cc493bc5b3b9b51.mp3"
+    },
+    {
+      "hanzi": "星期",
+      "pinyin": "xīngqī",
+      "level": 1,
+      "meaning": "tuần; thứ",
+      "audio": "audio/hsk1/c398134d7d1f58e7.mp3"
+    },
+    {
+      "hanzi": "星期日",
+      "pinyin": "xīngqīrì",
+      "level": 1,
+      "meaning": "chủ nhật",
+      "audio": "audio/hsk1/7e06f3148f70f58c.mp3"
+    },
+    {
+      "hanzi": "星期天",
+      "pinyin": "xīngqītiān",
+      "level": 1,
+      "meaning": "chủ nhật",
+      "audio": "audio/hsk1/ec93da23f2aa45fd.mp3"
+    },
+    {
+      "hanzi": "休息",
+      "pinyin": "xiūxi",
+      "level": 1,
+      "meaning": "nghỉ ngơi; nghỉ ngơi",
+      "audio": "audio/hsk1/fff33732fc978a09.mp3"
+    },
+    {
+      "hanzi": "学",
+      "pinyin": "xué",
+      "level": 1,
+      "meaning": "để học hỏi; học tập; bắt chước; khoa học",
+      "audio": "audio/hsk1/8a6949a38384ceae.mp3"
+    },
+    {
+      "hanzi": "学生",
+      "pinyin": "xuésheng",
+      "level": 1,
+      "meaning": "học sinh; sinh viên",
+      "audio": "audio/hsk1/13a58ec2074e014a.mp3"
+    },
+    {
+      "hanzi": "学习",
+      "pinyin": "xuéxí",
+      "level": 1,
+      "meaning": "học tập",
+      "audio": "audio/hsk1/2118cbc109880ac8.mp3"
+    },
+    {
+      "hanzi": "学校",
+      "pinyin": "xuéxiào",
+      "level": 1,
+      "meaning": "trường học",
+      "audio": "audio/hsk1/dc6e2aafeb9e125b.mp3"
+    },
+    {
+      "hanzi": "雪",
+      "pinyin": "xuě",
+      "level": 1,
+      "meaning": "họ Xue; tuyết; lau sạch (một sự sỉ nhục, v.v.)",
+      "audio": "audio/hsk1/53058fe2e03c00d9.mp3"
+    },
+    {
+      "hanzi": "要",
+      "pinyin": "yào",
+      "level": 1,
+      "meaning": "muốn; cần",
+      "audio": "audio/hsk1/975f35218ed8782e.mp3"
+    },
+    {
+      "hanzi": "也",
+      "pinyin": "yě",
+      "level": 1,
+      "meaning": "cũng",
+      "audio": "audio/hsk1/658605835bfc7ff8.mp3"
+    },
+    {
+      "hanzi": "一",
+      "pinyin": "yī",
+      "level": 1,
+      "meaning": "một",
+      "audio": "audio/hsk1/51a75f4634dfa859.mp3"
+    },
+    {
+      "hanzi": "一半",
+      "pinyin": "yībàn",
+      "level": 1,
+      "meaning": "một nửa",
+      "audio": "audio/hsk1/0d16ffcc87247143.mp3"
+    },
+    {
+      "hanzi": "一点儿",
+      "pinyin": "yìdiǎnr",
+      "level": 1,
+      "meaning": "một chút",
+      "audio": "audio/hsk1/f9796aa1410a0474.mp3"
+    },
+    {
+      "hanzi": "一下",
+      "pinyin": "yíxià",
+      "level": 1,
+      "meaning": "một chút; một lát",
+      "audio": "audio/hsk1/11a9d8072cf9e368.mp3"
+    },
+    {
+      "hanzi": "一些",
+      "pinyin": "yìxiē",
+      "level": 1,
+      "meaning": "một vài",
+      "audio": "audio/hsk1/1f5163c433ead049.mp3"
+    },
+    {
+      "hanzi": "衣服",
+      "pinyin": "yīfu",
+      "level": 1,
+      "meaning": "quần áo",
+      "audio": "audio/hsk1/3a28422f1f71d7f5.mp3"
+    },
+    {
+      "hanzi": "医生",
+      "pinyin": "yīshēng",
+      "level": 1,
+      "meaning": "bác sĩ",
+      "audio": "audio/hsk1/e8ec877c8da553d3.mp3"
+    },
+    {
+      "hanzi": "医院",
+      "pinyin": "yīyuàn",
+      "level": 1,
+      "meaning": "bệnh viện",
+      "audio": "audio/hsk1/1f6835c0d878fa0e.mp3"
+    },
+    {
+      "hanzi": "椅子",
+      "pinyin": "yǐzi",
+      "level": 1,
+      "meaning": "cái ghế",
+      "audio": "audio/hsk1/e57f49ca9c8120c9.mp3"
+    },
+    {
+      "hanzi": "有",
+      "pinyin": "yǒu",
+      "level": 1,
+      "meaning": "có",
+      "audio": "audio/hsk1/90ce0f66f09488f2.mp3"
+    },
+    {
+      "hanzi": "有的",
+      "pinyin": "yǒude",
+      "level": 1,
+      "meaning": "(có) một số (ai là...); một số (tồn tại)",
+      "audio": "audio/hsk1/1f1bdef3fba5d590.mp3"
+    },
+    {
+      "hanzi": "有点儿",
+      "pinyin": "yǒudiǎnr",
+      "level": 1,
+      "meaning": "nhẹ nhàng; một chút; phần nào",
+      "audio": "audio/hsk1/f55908adc5d21162.mp3"
+    },
+    {
+      "hanzi": "有些",
+      "pinyin": "yǒuxiē",
+      "level": 1,
+      "meaning": "một số; phần nào; hơn là; một chút",
+      "audio": "audio/hsk1/a4c04327ef6451b6.mp3"
+    },
+    {
+      "hanzi": "雨",
+      "pinyin": "yǔ",
+      "level": 1,
+      "meaning": "mưa",
+      "audio": "audio/hsk1/124d60580dfa9072.mp3"
+    },
+    {
+      "hanzi": "元",
+      "pinyin": "yuán",
+      "level": 1,
+      "meaning": "tệ; đồng",
+      "audio": "audio/hsk1/7f77f23af7b0dcc8.mp3"
+    },
+    {
+      "hanzi": "月",
+      "pinyin": "yuè",
+      "level": 1,
+      "meaning": "tháng",
+      "audio": "audio/hsk1/1625179badc027f0.mp3"
+    },
+    {
+      "hanzi": "再",
+      "pinyin": "zài",
+      "level": 1,
+      "meaning": "một lần nữa; một lần nữa; nốt Rê-; hơn nữa; ngoài thời điểm này; (trước tính từ) more; sau đó (sau cái gì đó, và không cho đến lúc đó)",
+      "audio": "audio/hsk1/8aa07f1595bd98d4.mp3"
+    },
+    {
+      "hanzi": "再见",
+      "pinyin": "zàijiàn",
+      "level": 1,
+      "meaning": "tạm biệt",
+      "audio": "audio/hsk1/c90a1cdb561d0269.mp3"
+    },
+    {
+      "hanzi": "在",
+      "pinyin": "zài",
+      "level": 1,
+      "meaning": "ở; đang",
+      "audio": "audio/hsk1/12404a0b63817240.mp3"
+    },
+    {
+      "hanzi": "早",
+      "pinyin": "zǎo",
+      "level": 1,
+      "meaning": "sớm; buổi sáng; Chào buổi sáng!; từ lâu rồi",
+      "audio": "audio/hsk1/e7c7fb50f3db8408.mp3"
+    },
+    {
+      "hanzi": "早饭",
+      "pinyin": "zǎofàn",
+      "level": 1,
+      "meaning": "bữa ăn sáng",
+      "audio": "audio/hsk1/2504ff16dd4cce10.mp3"
+    },
+    {
+      "hanzi": "早上",
+      "pinyin": "zǎoshang",
+      "level": 1,
+      "meaning": "buổi sáng",
+      "audio": "audio/hsk1/c6fe2eb2c986c383.mp3"
+    },
+    {
+      "hanzi": "怎么",
+      "pinyin": "zěnme",
+      "level": 1,
+      "meaning": "thế nào; làm sao",
+      "audio": "audio/hsk1/5ee8091a38eee188.mp3"
+    },
+    {
+      "hanzi": "怎么样",
+      "pinyin": "zěnmeyàng",
+      "level": 1,
+      "meaning": "bằng cách nào?; bạn nghĩ thế nào về?; nó thế nào rồi?; mọi chuyện thế nào?",
+      "audio": "audio/hsk1/60067e7ac645088b.mp3"
+    },
+    {
+      "hanzi": "找",
+      "pinyin": "zhǎo",
+      "level": 1,
+      "meaning": "tìm",
+      "audio": "audio/hsk1/c277be8a4b92ee42.mp3"
+    },
+    {
+      "hanzi": "这",
+      "pinyin": "zhè",
+      "level": 1,
+      "meaning": "đây; cái này",
+      "audio": "audio/hsk1/d409ab2ab3f8a04e.mp3"
+    },
+    {
+      "hanzi": "这边",
+      "pinyin": "zhèbiān",
+      "level": 1,
+      "meaning": "bên này; ở đây",
+      "audio": "audio/hsk1/720dfc5802bd2633.mp3"
+    },
+    {
+      "hanzi": "这儿",
+      "pinyin": "zhèr",
+      "level": 1,
+      "meaning": "ở đây",
+      "audio": "audio/hsk1/19a29e87c975dd9d.mp3"
+    },
+    {
+      "hanzi": "这个",
+      "pinyin": "zhège",
+      "level": 1,
+      "meaning": "(đại từ) cái này; (tính từ) cái này",
+      "audio": "audio/hsk1/979e2bc35b14bf4c.mp3"
+    },
+    {
+      "hanzi": "这里",
+      "pinyin": "zhèlǐ",
+      "level": 1,
+      "meaning": "ở đây",
+      "audio": "audio/hsk1/467d6a749e06b07a.mp3"
+    },
+    {
+      "hanzi": "这些",
+      "pinyin": "zhèxiē",
+      "level": 1,
+      "meaning": "những cái này",
+      "audio": "audio/hsk1/7a590a22cd94f687.mp3"
+    },
+    {
+      "hanzi": "真",
+      "pinyin": "zhēn",
+      "level": 1,
+      "meaning": "thực sự; thực sự; thực vậy; thực tế",
+      "audio": "audio/hsk1/827d018e1bf8a869.mp3"
+    },
+    {
+      "hanzi": "正在",
+      "pinyin": "zhèngzài",
+      "level": 1,
+      "meaning": "đang",
+      "audio": "audio/hsk1/e6b02a08e69a342d.mp3"
+    },
+    {
+      "hanzi": "知道",
+      "pinyin": "zhīdào",
+      "level": 1,
+      "meaning": "biết",
+      "audio": "audio/hsk1/d7b6472b11240bd2.mp3"
+    },
+    {
+      "hanzi": "只",
+      "pinyin": "zhī",
+      "level": 1,
+      "meaning": "biến thể của 隻|只; hạt đã bắt đầu chín",
+      "audio": "audio/hsk1/409e2c3882c96ae6.mp3"
+    },
+    {
+      "hanzi": "中国",
+      "pinyin": "zhōngguó",
+      "level": 1,
+      "meaning": "Trung Quốc",
+      "audio": "audio/hsk1/f0e9521611bb290d.mp3"
+    },
+    {
+      "hanzi": "中文",
+      "pinyin": "zhōngwén",
+      "level": 1,
+      "meaning": "tiếng Trung",
+      "audio": "audio/hsk1/72726d8818f69306.mp3"
+    },
+    {
+      "hanzi": "中午",
+      "pinyin": "zhōngwǔ",
+      "level": 1,
+      "meaning": "buổi trưa",
+      "audio": "audio/hsk1/5422a304a0bf193e.mp3"
+    },
+    {
+      "hanzi": "中学",
+      "pinyin": "zhōngxué",
+      "level": 1,
+      "meaning": "trường trung học cơ sở",
+      "audio": "audio/hsk1/79f8c2d06f9a44ae.mp3"
+    },
+    {
+      "hanzi": "中学生",
+      "pinyin": "zhōngxuéshēng",
+      "level": 1,
+      "meaning": "học sinh trung học cơ sở; học sinh trung học",
+      "audio": "audio/hsk1/460a867807e126bd.mp3"
+    },
+    {
+      "hanzi": "住",
+      "pinyin": "zhù",
+      "level": 1,
+      "meaning": "sống; ở",
+      "audio": "audio/hsk1/cbba0a98abd10ccc.mp3"
+    },
+    {
+      "hanzi": "桌子",
+      "pinyin": "zhuōzi",
+      "level": 1,
+      "meaning": "cái bàn",
+      "audio": "audio/hsk1/306de547695f668d.mp3"
+    },
+    {
+      "hanzi": "字",
+      "pinyin": "zì",
+      "level": 1,
+      "meaning": "lá thư; biểu tượng; tính cách; từ",
+      "audio": "audio/hsk1/c55038b272b109b8.mp3"
+    },
+    {
+      "hanzi": "昨天",
+      "pinyin": "zuótiān",
+      "level": 1,
+      "meaning": "hôm qua",
+      "audio": "audio/hsk1/0c184871f658375a.mp3"
+    },
+    {
+      "hanzi": "坐",
+      "pinyin": "zuò",
+      "level": 1,
+      "meaning": "ngồi; đi bằng",
+      "audio": "audio/hsk1/4247f1a43b8230cb.mp3"
+    },
+    {
+      "hanzi": "做",
+      "pinyin": "zuò",
+      "level": 1,
+      "meaning": "làm; để sản xuất; viết; sáng tác; làm; tham gia vào; tổ chức (một bữa tiệc, v.v); (của một người) là (người trung gian, học sinh giỏi, v.v.); trở thành (vợ chồng, bạn bè, v.v.)",
+      "audio": "audio/hsk1/94f5404441e8c480.mp3"
+    },
+    {
+      "hanzi": "做饭",
+      "pinyin": "zuòfàn",
+      "level": 1,
+      "meaning": "chuẩn bị bữa ăn; nấu ăn",
+      "audio": "audio/hsk1/39712e9368a8e037.mp3"
+    },
+    {
+      "hanzi": "啊",
+      "pinyin": "a",
+      "level": 2,
+      "meaning": "câu kết thúc trợ từ phương thức, thể hiện sự khẳng định, sự chấp thuận hoặc sự đồng ý",
+      "audio": "audio/hsk2/7c2c50fbaf7b2747.mp3"
+    },
+    {
+      "hanzi": "爱好",
+      "pinyin": "àihào",
+      "level": 2,
+      "meaning": "thích; được yêu thích; để tận hưởng niềm vui; quan tâm đến; quan tâm; sở thích",
+      "audio": "audio/hsk2/41dee9b11f5ff7f9.mp3"
+    },
+    {
+      "hanzi": "白色",
+      "pinyin": "báisè",
+      "level": 2,
+      "meaning": "trắng; quả sung. phản động; chống cộng sản",
+      "audio": "audio/hsk2/f56e7eff58bf730d.mp3"
+    },
+    {
+      "hanzi": "班",
+      "pinyin": "bān",
+      "level": 2,
+      "meaning": "họ Bản; đội; lớp học; cấp; (quân sự) đội; ca làm việc; phân loại cho các nhóm người và phương tiện vận chuyển theo lịch trình",
+      "audio": "audio/hsk2/12bd3e7d2bee2bbc.mp3"
+    },
+    {
+      "hanzi": "帮",
+      "pinyin": "bāng",
+      "level": 2,
+      "meaning": "biến thể cũ của 幫|帮; để giúp đỡ; để hỗ trợ; để hỗ trợ; cho sb (tức là như một sự trợ giúp)",
+      "audio": "audio/hsk2/4bd12b1e62a32a9c.mp3"
+    },
+    {
+      "hanzi": "帮忙",
+      "pinyin": "bāngmáng",
+      "level": 2,
+      "meaning": "để giúp đỡ; giúp một tay; để làm một việc giúp đỡ; để thực hiện một bước ngoặt tốt",
+      "audio": "audio/hsk2/de8f371434589d64.mp3"
+    },
+    {
+      "hanzi": "包",
+      "pinyin": "bāo",
+      "level": 2,
+      "meaning": "họ Bảo; để che đậy; để bọc; giữ; bao gồm",
+      "audio": "audio/hsk2/26b9c4d2448e01e4.mp3"
+    },
+    {
+      "hanzi": "本子",
+      "pinyin": "běnzi",
+      "level": 2,
+      "meaning": "cuốn sách; sổ tay; Truyện tranh tự xuất bản theo phong cách Nhật Bản (đặc biệt là truyện khiêu dâm), hay còn gọi là \"dōjinshi\"; ấn bản",
+      "audio": "audio/hsk2/42864ad27df88070.mp3"
+    },
+    {
+      "hanzi": "比",
+      "pinyin": "bǐ",
+      "level": 2,
+      "meaning": "Bỉ; người Bỉ; abbr. cho 比利時|比利时; để so sánh; (theo sau là danh từ và tính từ) nhiều {tính từ} hơn {danh từ}; tỷ lệ; cử chỉ",
+      "audio": "audio/hsk2/ab158a8483c3b86e.mp3"
+    },
+    {
+      "hanzi": "笔",
+      "pinyin": "bǐ",
+      "level": 2,
+      "meaning": "bút viết; dụng cụ viết (bút, bút chì, v.v.) (CL:支,枝); nét vẽ; nét (trong hội họa hoặc thư pháp); phong cách viết; cách văn học; kỹ thuật cọ vẽ; (phân loại) nét của chữ Hán",
+      "audio": "audio/hsk2/3afda9c1bd324f75.mp3"
+    },
+    {
+      "hanzi": "别",
+      "pinyin": "bié",
+      "level": 2,
+      "meaning": "họ Bi; rời đi; chia tay (từ); để phân biệt; để phân biệt; (phương ngữ) quay đi; quay sang một bên; tránh đi (khuôn mặt, cái nhìn v.v.); khác; khác; khác nhau",
+      "audio": "audio/hsk2/c6075d839ed6884d.mp3"
+    },
+    {
+      "hanzi": "不错",
+      "pinyin": "búcuò",
+      "level": 2,
+      "meaning": "đúng; Phải; không tệ; khá tốt",
+      "audio": "audio/hsk2/3da947d6a115b5ca.mp3"
+    },
+    {
+      "hanzi": "不好意思",
+      "pinyin": "bùhǎoyìsi",
+      "level": 2,
+      "meaning": "cảm thấy xấu hổ; thấy điều đó thật đáng xấu hổ; xin lỗi (vì đã làm phiền ai đó)",
+      "audio": "audio/hsk2/d60cc98d820ab554.mp3"
+    },
+    {
+      "hanzi": "车站",
+      "pinyin": "chēzhàn",
+      "level": 2,
+      "meaning": "nhà ga; bến xe",
+      "audio": "audio/hsk2/abee017e1b03833b.mp3"
+    },
+    {
+      "hanzi": "出",
+      "pinyin": "chū",
+      "level": 2,
+      "meaning": "ra ngoài",
+      "audio": "audio/hsk2/4d5f7e15c8a569bf.mp3"
+    },
+    {
+      "hanzi": "出国",
+      "pinyin": "chūguó",
+      "level": 2,
+      "meaning": "đi nước ngoài; rời khỏi đất nước",
+      "audio": "audio/hsk2/a11a412d05f2734e.mp3"
+    },
+    {
+      "hanzi": "出来",
+      "pinyin": "chūlái",
+      "level": 2,
+      "meaning": "đi ra; xuất hiện; phát sinh",
+      "audio": "audio/hsk2/8491cffebe6126ea.mp3"
+    },
+    {
+      "hanzi": "出门",
+      "pinyin": "chūmén",
+      "level": 2,
+      "meaning": "đi ra ngoài; rời khỏi nhà; đi trên một cuộc hành trình; xa nhà",
+      "audio": "audio/hsk2/10809c4d0192c12a.mp3"
+    },
+    {
+      "hanzi": "出去",
+      "pinyin": "chūqù",
+      "level": 2,
+      "meaning": "đi ra ngoài",
+      "audio": "audio/hsk2/d1147b647ff1a523.mp3"
+    },
+    {
+      "hanzi": "床",
+      "pinyin": "chuáng",
+      "level": 2,
+      "meaning": "giường; đi văng (đồ nội thất mà người ta có thể nằm xuống) (CL:張|张); giường; đáy (sông, đại dương, vườn, v.v.); khung; khung xe; phân loại chăn, mền vv; biến thể của 床",
+      "audio": "audio/hsk2/5cfd73078e3aaf3f.mp3"
+    },
+    {
+      "hanzi": "词",
+      "pinyin": "cí",
+      "level": 2,
+      "meaning": "biến thể cũ của 詞|词; từ; tuyên bố; lời nói; lời bài hát; một thể thơ trữ tình phát triển mạnh vào thời nhà Tống 宋朝 (CL:首)",
+      "audio": "audio/hsk2/52ff1aedae10a898.mp3"
+    },
+    {
+      "hanzi": "次",
+      "pinyin": "cì",
+      "level": 2,
+      "meaning": "lần",
+      "audio": "audio/hsk2/172fb7e67b9b09dd.mp3"
+    },
+    {
+      "hanzi": "从",
+      "pinyin": "cóng",
+      "level": 2,
+      "meaning": "từ; theo",
+      "audio": "audio/hsk2/2719a8ea304b8cbf.mp3"
+    },
+    {
+      "hanzi": "从小",
+      "pinyin": "cóngxiǎo",
+      "level": 2,
+      "meaning": "từ thời thơ ấu; từ khi còn nhỏ",
+      "audio": "audio/hsk2/963aa1e269177562.mp3"
+    },
+    {
+      "hanzi": "错",
+      "pinyin": "cuò",
+      "level": 2,
+      "meaning": "sai",
+      "audio": "audio/hsk2/4529e7c8cde40d06.mp3"
+    },
+    {
+      "hanzi": "打",
+      "pinyin": "dǎ",
+      "level": 2,
+      "meaning": "một động từ chuyển tiếp, nhẹ nhàng về mặt ngữ nghĩa, được kết hợp với nhiều tân ngữ ngữ pháp khác nhau để tạo thành động từ ghép và cụm động từ-tân ngữ với nhiều ý nghĩa khác nhau (ví dụ: 打傘|打伞 \"cầm ô\", 打電話|打电话 \"gọi điện thoại\", 打針|打针 \"để được tiêm thuốc\"",
+      "audio": "audio/hsk2/c6d764df544b1719.mp3"
+    },
+    {
+      "hanzi": "打车",
+      "pinyin": "dǎchē",
+      "level": 2,
+      "meaning": "đi taxi (trong thị trấn); đi nhờ thang máy",
+      "audio": "audio/hsk2/1cbc9bdec9271d46.mp3"
+    },
+    {
+      "hanzi": "打开",
+      "pinyin": "dǎkāi",
+      "level": 2,
+      "meaning": "để mở; để hiển thị (một vé); để bật; để bật",
+      "audio": "audio/hsk2/c771248e511fbf93.mp3"
+    },
+    {
+      "hanzi": "但",
+      "pinyin": "dàn",
+      "level": 2,
+      "meaning": "nhưng; chưa; tuy nhiên; tĩnh lặng; chỉ đơn thuần là; chỉ; chỉ",
+      "audio": "audio/hsk2/1f863793c6f0460d.mp3"
+    },
+    {
+      "hanzi": "但是",
+      "pinyin": "dànshì",
+      "level": 2,
+      "meaning": "nhưng",
+      "audio": "audio/hsk2/8cb1f721c82e7933.mp3"
+    },
+    {
+      "hanzi": "得",
+      "pinyin": "dé",
+      "level": 2,
+      "meaning": "được; phải; trợ từ bổ ngữ",
+      "audio": "audio/hsk2/71b1ed11149d6a5c.mp3"
+    },
+    {
+      "hanzi": "地",
+      "pinyin": "dì",
+      "level": 2,
+      "meaning": "trái đất; mặt đất; lĩnh vực; địa điểm",
+      "audio": "audio/hsk2/bdbd41e490e2e1d0.mp3"
+    },
+    {
+      "hanzi": "地铁",
+      "pinyin": "dìtiě",
+      "level": 2,
+      "meaning": "tàu điện ngầm",
+      "audio": "audio/hsk2/b8466cd555e68992.mp3"
+    },
+    {
+      "hanzi": "等",
+      "pinyin": "děng",
+      "level": 2,
+      "meaning": "đợi",
+      "audio": "audio/hsk2/385a845b6094b687.mp3"
+    },
+    {
+      "hanzi": "懂",
+      "pinyin": "dǒng",
+      "level": 2,
+      "meaning": "hiểu; để hiểu",
+      "audio": "audio/hsk2/e623ab488c8e0409.mp3"
+    },
+    {
+      "hanzi": "动",
+      "pinyin": "dòng",
+      "level": 2,
+      "meaning": "(của sth) di chuyển; bắt đầu chuyển động; dịch chuyển; chạm vào",
+      "audio": "audio/hsk2/c9defc59a5f35c34.mp3"
+    },
+    {
+      "hanzi": "饭馆",
+      "pinyin": "fànguǎn",
+      "level": 2,
+      "meaning": "nhà hàng",
+      "audio": "audio/hsk2/d6e63d61b6ba452f.mp3"
+    },
+    {
+      "hanzi": "飞",
+      "pinyin": "fēi",
+      "level": 2,
+      "meaning": "bay",
+      "audio": "audio/hsk2/270102d52eac1cae.mp3"
+    },
+    {
+      "hanzi": "高",
+      "pinyin": "gāo",
+      "level": 2,
+      "meaning": "cao",
+      "audio": "audio/hsk2/b1c27820fec23edb.mp3"
+    },
+    {
+      "hanzi": "高中",
+      "pinyin": "gāozhōng",
+      "level": 2,
+      "meaning": "trường trung học phổ thông",
+      "audio": "audio/hsk2/4f5bfa3e0d9062f7.mp3"
+    },
+    {
+      "hanzi": "告诉",
+      "pinyin": "gàosù",
+      "level": 2,
+      "meaning": "nói cho biết",
+      "audio": "audio/hsk2/74642897fad8fa7e.mp3"
+    },
+    {
+      "hanzi": "个子",
+      "pinyin": "gèzi",
+      "level": 2,
+      "meaning": "tầm vóc; chiều cao; kích thước (của một người hoặc đồ vật); (nông nghiệp) bó thân cây ngũ cốc buộc lại với nhau",
+      "audio": "audio/hsk2/dae0e2c15fec3ec7.mp3"
+    },
+    {
+      "hanzi": "跟",
+      "pinyin": "gēn",
+      "level": 2,
+      "meaning": "gót chân; theo dõi chặt chẽ; đi cùng; (của một người phụ nữ) kết hôn với ai đó",
+      "audio": "audio/hsk2/383a53d95c2c2cea.mp3"
+    },
+    {
+      "hanzi": "公交车",
+      "pinyin": "gōngjiāochē",
+      "level": 2,
+      "meaning": "phương tiện giao thông công cộng; xe buýt thị trấn",
+      "audio": "audio/hsk2/c7a3de26eb057205.mp3"
+    },
+    {
+      "hanzi": "过",
+      "pinyin": "guò",
+      "level": 2,
+      "meaning": "đã từng; qua",
+      "audio": "audio/hsk2/f7778934807d1283.mp3"
+    },
+    {
+      "hanzi": "过来",
+      "pinyin": "guòlái",
+      "level": 2,
+      "meaning": "đi qua; để quản lý; để xử lý; để có thể chăm sóc",
+      "audio": "audio/hsk2/d52f0bd07c3fdfd5.mp3"
+    },
+    {
+      "hanzi": "过年",
+      "pinyin": "guònián",
+      "level": 2,
+      "meaning": "để chào mừng năm mới của Trung Quốc",
+      "audio": "audio/hsk2/44272cd64d622266.mp3"
+    },
+    {
+      "hanzi": "过去",
+      "pinyin": "guòqù",
+      "level": 2,
+      "meaning": "(trong) quá khứ; trước; trước; đi qua; đi ngang qua",
+      "audio": "audio/hsk2/3774af744856e7f5.mp3"
+    },
+    {
+      "hanzi": "还是",
+      "pinyin": "háishi",
+      "level": 2,
+      "meaning": "vẫn (như trước); đã tốt hơn; bất ngờ; hoặc",
+      "audio": "audio/hsk2/dfaa7d6f73c1ec07.mp3"
+    },
+    {
+      "hanzi": "黑色",
+      "pinyin": "hēisè",
+      "level": 2,
+      "meaning": "màu đen",
+      "audio": "audio/hsk2/ed7d2c54184be5f5.mp3"
+    },
+    {
+      "hanzi": "红茶",
+      "pinyin": "hóngchá",
+      "level": 2,
+      "meaning": "trà đen",
+      "audio": "audio/hsk2/252a9a8f569801e8.mp3"
+    },
+    {
+      "hanzi": "红色",
+      "pinyin": "hóngsè",
+      "level": 2,
+      "meaning": "màu đỏ (màu sắc); mang tính cách mạng",
+      "audio": "audio/hsk2/789f61dbfcc7a2d2.mp3"
+    },
+    {
+      "hanzi": "后面",
+      "pinyin": "hòumian",
+      "level": 2,
+      "meaning": "phía sau",
+      "audio": "audio/hsk2/e59f6d90dead1883.mp3"
+    },
+    {
+      "hanzi": "花",
+      "pinyin": "huā",
+      "level": 2,
+      "meaning": "họ Hứa; hoa; hoa; hoa văn lạ mắt; hoa mỹ",
+      "audio": "audio/hsk2/b0a1eab5f902df03.mp3"
+    },
+    {
+      "hanzi": "画",
+      "pinyin": "huà",
+      "level": 2,
+      "meaning": "vẽ; vẽ; hình ảnh; hội họa (CL:幅,張|张); vẽ (một đường); nét chữ trung quốc",
+      "audio": "audio/hsk2/de9f18b00a568611.mp3"
+    },
+    {
+      "hanzi": "坏",
+      "pinyin": "huài",
+      "level": 2,
+      "meaning": "xấu; hư hỏng; vỡ; phá vỡ",
+      "audio": "audio/hsk2/70fb29929614c2b2.mp3"
+    },
+    {
+      "hanzi": "回来",
+      "pinyin": "huílai",
+      "level": 2,
+      "meaning": "quay trở lại; quay lại",
+      "audio": "audio/hsk2/b3ab908cef2352cd.mp3"
+    },
+    {
+      "hanzi": "回去",
+      "pinyin": "huíqu",
+      "level": 2,
+      "meaning": "quay trở lại; quay trở lại",
+      "audio": "audio/hsk2/8fa02ce7cc62b0cf.mp3"
+    },
+    {
+      "hanzi": "机场",
+      "pinyin": "jīchǎng",
+      "level": 2,
+      "meaning": "sân bay",
+      "audio": "audio/hsk2/6a5347ac5f65e5be.mp3"
+    },
+    {
+      "hanzi": "机票",
+      "pinyin": "jīpiào",
+      "level": 2,
+      "meaning": "vé máy bay; vé máy bay",
+      "audio": "audio/hsk2/15de5ae07a24afb2.mp3"
+    },
+    {
+      "hanzi": "记得",
+      "pinyin": "jìde",
+      "level": 2,
+      "meaning": "để nhớ",
+      "audio": "audio/hsk2/805b2ab19aaa8f37.mp3"
+    },
+    {
+      "hanzi": "间",
+      "pinyin": "jiān",
+      "level": 2,
+      "meaning": "giữa; giữa; trong một thời gian hoặc không gian xác định; phòng",
+      "audio": "audio/hsk2/f5b64b1a64978737.mp3"
+    },
+    {
+      "hanzi": "教",
+      "pinyin": "jiào",
+      "level": 2,
+      "meaning": "họ Giao; dạy dỗ; để hướng dẫn; một tôn giáo; gây ra (sb để làm sth); bảo (ai làm gì)",
+      "audio": "audio/hsk2/4da9378368423266.mp3"
+    },
+    {
+      "hanzi": "教室",
+      "pinyin": "jiàoshì",
+      "level": 2,
+      "meaning": "lớp học",
+      "audio": "audio/hsk2/df7a65bb1371b441.mp3"
+    },
+    {
+      "hanzi": "介绍",
+      "pinyin": "jièshào",
+      "level": 2,
+      "meaning": "giới thiệu (sb với sb); để thuyết trình; để trình bày (sb cho một công việc vv); giới thiệu",
+      "audio": "audio/hsk2/66a66f52a2b114b5.mp3"
+    },
+    {
+      "hanzi": "近",
+      "pinyin": "jìn",
+      "level": 2,
+      "meaning": "gần",
+      "audio": "audio/hsk2/03aeb7c768b4cb8e.mp3"
+    },
+    {
+      "hanzi": "进",
+      "pinyin": "jìn",
+      "level": 2,
+      "meaning": "đi về phía trước; thăng tiến; đi vào; để vào",
+      "audio": "audio/hsk2/83a8fd743b82c1ea.mp3"
+    },
+    {
+      "hanzi": "进来",
+      "pinyin": "jìnlái",
+      "level": 2,
+      "meaning": "đi vào",
+      "audio": "audio/hsk2/5a490d99246de50a.mp3"
+    },
+    {
+      "hanzi": "进去",
+      "pinyin": "jìnqù",
+      "level": 2,
+      "meaning": "đi vào",
+      "audio": "audio/hsk2/cdfd23ad259cd75c.mp3"
+    },
+    {
+      "hanzi": "经常",
+      "pinyin": "jīngcháng",
+      "level": 2,
+      "meaning": "thường xuyên; liên tục; thường xuyên; thường; hàng ngày; hàng ngày; hàng ngày",
+      "audio": "audio/hsk2/1c49d48df5599c11.mp3"
+    },
+    {
+      "hanzi": "酒店",
+      "pinyin": "jiǔdiàn",
+      "level": 2,
+      "meaning": "cửa hàng rượu; quán rượu (nhà công cộng); khách sạn; nhà hàng",
+      "audio": "audio/hsk2/59322eebea9442a1.mp3"
+    },
+    {
+      "hanzi": "就",
+      "pinyin": "jiù",
+      "level": 2,
+      "meaning": "liền; thì",
+      "audio": "audio/hsk2/2f9d9872e5f920d0.mp3"
+    },
+    {
+      "hanzi": "咖啡",
+      "pinyin": "kāfēi",
+      "level": 2,
+      "meaning": "cà phê",
+      "audio": "audio/hsk2/720ec669f15b87b1.mp3"
+    },
+    {
+      "hanzi": "开始",
+      "pinyin": "kāishǐ",
+      "level": 2,
+      "meaning": "bắt đầu; bắt đầu; bắt đầu; ban đầu",
+      "audio": "audio/hsk2/d2bb025a2e51c410.mp3"
+    },
+    {
+      "hanzi": "开学",
+      "pinyin": "kāixué",
+      "level": 2,
+      "meaning": "(của một học sinh) bắt đầu đi học; (của một học kỳ) để bắt đầu; (cũ) thành lập trường học; sự bắt đầu của một học kỳ mới",
+      "audio": "audio/hsk2/c4e0892eb7342848.mp3"
+    },
+    {
+      "hanzi": "考",
+      "pinyin": "kǎo",
+      "level": 2,
+      "meaning": "đánh bại; đánh; biến thể của 考; để kiểm tra; để kiểm tra; để xác minh; để kiểm tra; để kiểm tra",
+      "audio": "audio/hsk2/64bbd73e3a4e81fa.mp3"
+    },
+    {
+      "hanzi": "考试",
+      "pinyin": "kǎoshì",
+      "level": 2,
+      "meaning": "đi thi; kỳ thi",
+      "audio": "audio/hsk2/d26ef0190d6ccf8b.mp3"
+    },
+    {
+      "hanzi": "可能",
+      "pinyin": "kěnéng",
+      "level": 2,
+      "meaning": "có thể; khả năng",
+      "audio": "audio/hsk2/b3d10853b7c11416.mp3"
+    },
+    {
+      "hanzi": "裤子",
+      "pinyin": "kùzi",
+      "level": 2,
+      "meaning": "biến thể của 褲子|裤子, quần dài; quần dài; quần dài; quần",
+      "audio": "audio/hsk2/0232c7b8321b0349.mp3"
+    },
+    {
+      "hanzi": "快",
+      "pinyin": "kuài",
+      "level": 2,
+      "meaning": "nhanh",
+      "audio": "audio/hsk2/2846d63055754517.mp3"
+    },
+    {
+      "hanzi": "快乐",
+      "pinyin": "kuàilè",
+      "level": 2,
+      "meaning": "vui vẻ",
+      "audio": "audio/hsk2/da374d4d4e9ac6fc.mp3"
+    },
+    {
+      "hanzi": "快要",
+      "pinyin": "kuàiyào",
+      "level": 2,
+      "meaning": "gần đến điểm (làm việc gì đó); sắp (làm điều gì đó)",
+      "audio": "audio/hsk2/5af230014e973dc3.mp3"
+    },
+    {
+      "hanzi": "篮球",
+      "pinyin": "lánqiú",
+      "level": 2,
+      "meaning": "bóng rổ",
+      "audio": "audio/hsk2/1e255d233d9652f5.mp3"
+    },
+    {
+      "hanzi": "累",
+      "pinyin": "lèi",
+      "level": 2,
+      "meaning": "mệt",
+      "audio": "audio/hsk2/a8b43ae9fdc84d1a.mp3"
+    },
+    {
+      "hanzi": "离",
+      "pinyin": "lí",
+      "level": 2,
+      "meaning": "họ Lý; rời đi; chia tay; phải xa; (cho biết khoảng cách) từ",
+      "audio": "audio/hsk2/b266ff35e63cf204.mp3"
+    },
+    {
+      "hanzi": "里面",
+      "pinyin": "lǐmiàn",
+      "level": 2,
+      "meaning": "bên trong",
+      "audio": "audio/hsk2/0111930eba211e33.mp3"
+    },
+    {
+      "hanzi": "楼",
+      "pinyin": "lóu",
+      "level": 2,
+      "meaning": "họ Lou; nhà trên 1 tầng; tòa nhà nhiều tầng; sàn nhà",
+      "audio": "audio/hsk2/580f81d6c55c67eb.mp3"
+    },
+    {
+      "hanzi": "路",
+      "pinyin": "lù",
+      "level": 2,
+      "meaning": "đường",
+      "audio": "audio/hsk2/09c7804e4ff80d4f.mp3"
+    },
+    {
+      "hanzi": "路上",
+      "pinyin": "lùshang",
+      "level": 2,
+      "meaning": "trên đường; trên đường đi; trên đường đi",
+      "audio": "audio/hsk2/ada3aa39cd5efd07.mp3"
+    },
+    {
+      "hanzi": "旅游",
+      "pinyin": "lǚyóu",
+      "level": 2,
+      "meaning": "chuyến đi; hành trình; du lịch; du lịch",
+      "audio": "audio/hsk2/c8bf3f878e389b57.mp3"
+    },
+    {
+      "hanzi": "绿茶",
+      "pinyin": "lǜchá",
+      "level": 2,
+      "meaning": "trà xanh; (từ lóng) (của một cô gái) có vẻ ngây thơ, duyên dáng nhưng thực ra lại rất toan tính và lôi kéo; một cô gái có những phẩm chất này",
+      "audio": "audio/hsk2/7ded36aec25c40c8.mp3"
+    },
+    {
+      "hanzi": "绿色",
+      "pinyin": "lǜsè",
+      "level": 2,
+      "meaning": "màu xanh lá cây",
+      "audio": "audio/hsk2/30c83dc25b12c32c.mp3"
+    },
+    {
+      "hanzi": "慢",
+      "pinyin": "màn",
+      "level": 2,
+      "meaning": "chậm",
+      "audio": "audio/hsk2/42269e2627f4916c.mp3"
+    },
+    {
+      "hanzi": "没意思",
+      "pinyin": "méiyìsi",
+      "level": 2,
+      "meaning": "nhàm chán; không có hứng thú",
+      "audio": "audio/hsk2/8c8639b5594e241d.mp3"
+    },
+    {
+      "hanzi": "每",
+      "pinyin": "měi",
+      "level": 2,
+      "meaning": "mỗi; mỗi",
+      "audio": "audio/hsk2/d8b82d5765fa2fb4.mp3"
+    },
+    {
+      "hanzi": "门",
+      "pinyin": "mén",
+      "level": 2,
+      "meaning": "cửa",
+      "audio": "audio/hsk2/a407325e0081cb7d.mp3"
+    },
+    {
+      "hanzi": "门口",
+      "pinyin": "ménkǒu",
+      "level": 2,
+      "meaning": "ô cửa; cánh cổng",
+      "audio": "audio/hsk2/726c7da129e6e4a6.mp3"
+    },
+    {
+      "hanzi": "门票",
+      "pinyin": "ménpiào",
+      "level": 2,
+      "meaning": "vé (đi xem kịch, xem phim...)",
+      "audio": "audio/hsk2/7805c0d0d4da65e0.mp3"
+    },
+    {
+      "hanzi": "面",
+      "pinyin": "miàn",
+      "level": 2,
+      "meaning": "mặt; bên; bề mặt; diện mạo; biến thể của 麵|面",
+      "audio": "audio/hsk2/e0ce2334b50c0aa8.mp3"
+    },
+    {
+      "hanzi": "名",
+      "pinyin": "míng",
+      "level": 2,
+      "meaning": "tên; danh từ (một phần của lời nói); địa điểm (ví dụ: trong số những người chiến thắng); nổi tiếng",
+      "audio": "audio/hsk2/51a5d681a99c0e3b.mp3"
+    },
+    {
+      "hanzi": "拿",
+      "pinyin": "ná",
+      "level": 2,
+      "meaning": "biến thể cũ của 拿; biến thể của 拿",
+      "audio": "audio/hsk2/867a739542a8b697.mp3"
+    },
+    {
+      "hanzi": "那么",
+      "pinyin": "nàme",
+      "level": 2,
+      "meaning": "như thế; theo cách đó; đến mức đó; (trước một số) ... hoặc hơn thế; Về ...; sau đó; trong trường hợp đó; biến thể của 那麼|那么",
+      "audio": "audio/hsk2/a61f02e145a7e91e.mp3"
+    },
+    {
+      "hanzi": "那样",
+      "pinyin": "nàyàng",
+      "level": 2,
+      "meaning": "loại đó; kiểu đó",
+      "audio": "audio/hsk2/4ef21312b8a90162.mp3"
+    },
+    {
+      "hanzi": "奶茶",
+      "pinyin": "nǎichá",
+      "level": 2,
+      "meaning": "trà sữa",
+      "audio": "audio/hsk2/54b77038f0df2655.mp3"
+    },
+    {
+      "hanzi": "奶奶",
+      "pinyin": "nǎinai",
+      "level": 2,
+      "meaning": "(thân mật) bà (bà nội); (kính trọng) bà chủ nhà; (colll.) boobies; ngực",
+      "audio": "audio/hsk2/b50dde9bb88540ba.mp3"
+    },
+    {
+      "hanzi": "男孩儿",
+      "pinyin": "nánháir",
+      "level": 2,
+      "meaning": "dạng nhị hoa của 男孩",
+      "audio": "audio/hsk2/d5c7850a5185913a.mp3"
+    },
+    {
+      "hanzi": "鸟",
+      "pinyin": "niǎo",
+      "level": 2,
+      "meaning": "chim; gốc “chim” trong chữ Hán (Kangxi căn 196); (phương ngữ) chú ý tới; (tăng cường) chết tiệt",
+      "audio": "audio/hsk2/02d9cb10ca808b8a.mp3"
+    },
+    {
+      "hanzi": "女孩儿",
+      "pinyin": "nǚháir",
+      "level": 2,
+      "meaning": "dạng nhị hoa của 女孩",
+      "audio": "audio/hsk2/08a83ed3192475b6.mp3"
+    },
+    {
+      "hanzi": "旁边",
+      "pinyin": "pángbiān",
+      "level": 2,
+      "meaning": "bên cạnh",
+      "audio": "audio/hsk2/bab67370c50a5808.mp3"
+    },
+    {
+      "hanzi": "跑",
+      "pinyin": "pǎo",
+      "level": 2,
+      "meaning": "chạy; bỏ chạy; trốn thoát; chạy loanh quanh (làm việc vặt, v.v.)",
+      "audio": "audio/hsk2/d674691cdfbcd9ba.mp3"
+    },
+    {
+      "hanzi": "跑步",
+      "pinyin": "pǎobù",
+      "level": 2,
+      "meaning": "chạy; chạy bộ; (quân sự) diễu hành đôi",
+      "audio": "audio/hsk2/591052c733499bad.mp3"
+    },
+    {
+      "hanzi": "票",
+      "pinyin": "piào",
+      "level": 2,
+      "meaning": "vé; lá phiếu; tiền giấy; người bị bắt để đòi tiền chuộc",
+      "audio": "audio/hsk2/f7f6ebe84bfee267.mp3"
+    },
+    {
+      "hanzi": "妻子",
+      "pinyin": "qīzǐ",
+      "level": 2,
+      "meaning": "vợ",
+      "audio": "audio/hsk2/55c4fadb327e49a5.mp3"
+    },
+    {
+      "hanzi": "起来",
+      "pinyin": "qǐlai",
+      "level": 2,
+      "meaning": "đứng lên; đứng dậy; cũng pr.; (sau động từ) chỉ sự bắt đầu và tiếp tục của một hành động hoặc một trạng thái; biểu thị sự chuyển động đi lên (ví dụ: sau 站); chỉ ra sự hoàn thành; (sau động từ nhận thức, ví dụ: 看) thể hiện sự phán đoán sơ bộ",
+      "audio": "audio/hsk2/b8a694b2df6db340.mp3"
+    },
+    {
+      "hanzi": "前面",
+      "pinyin": "qiánmiàn",
+      "level": 2,
+      "meaning": "phía trước",
+      "audio": "audio/hsk2/ad0a0abeab6bedf6.mp3"
+    },
+    {
+      "hanzi": "晴",
+      "pinyin": "qíng",
+      "level": 2,
+      "meaning": "rõ ràng; ổn (thời tiết)",
+      "audio": "audio/hsk2/6379ede5c239d1fa.mp3"
+    },
+    {
+      "hanzi": "球",
+      "pinyin": "qiú",
+      "level": 2,
+      "meaning": "bóng dùng để chơi trò chơi; quả bóng; hình cầu; khối cầu; trò chơi bóng",
+      "audio": "audio/hsk2/12a2aadcf0a5a2d2.mp3"
+    },
+    {
+      "hanzi": "让",
+      "pinyin": "ràng",
+      "level": 2,
+      "meaning": "để; nhường",
+      "audio": "audio/hsk2/ad3757440409cf73.mp3"
+    },
+    {
+      "hanzi": "肉",
+      "pinyin": "ròu",
+      "level": 2,
+      "meaning": "thịt",
+      "audio": "audio/hsk2/2f79e1fce5422a84.mp3"
+    },
+    {
+      "hanzi": "商场",
+      "pinyin": "shāngchǎng",
+      "level": 2,
+      "meaning": "trung tâm mua sắm; trung tâm mua sắm; cửa hàng bách hóa; cửa hàng",
+      "audio": "audio/hsk2/15c391c5d4211faa.mp3"
+    },
+    {
+      "hanzi": "上来",
+      "pinyin": "shànglái",
+      "level": 2,
+      "meaning": "đi lên; tiếp cận; (bổ ngữ động từ chỉ sự thành công)",
+      "audio": "audio/hsk2/c5ebecd76ac379df.mp3"
+    },
+    {
+      "hanzi": "上面",
+      "pinyin": "shàngmiàn",
+      "level": 2,
+      "meaning": "ở trên; nêu trên; cũng pr.",
+      "audio": "audio/hsk2/7cbfbc4ea0cb481a.mp3"
+    },
+    {
+      "hanzi": "上去",
+      "pinyin": "shàngqù",
+      "level": 2,
+      "meaning": "đi lên",
+      "audio": "audio/hsk2/bd86a28aa0ff0ec4.mp3"
+    },
+    {
+      "hanzi": "上网",
+      "pinyin": "shàngwǎng",
+      "level": 2,
+      "meaning": "lên mạng; để kết nối với Internet; (của một tài liệu, v.v.) được tải lên Internet; (quần vợt, bóng chuyền, v.v.) di chuyển đến gần lưới",
+      "audio": "audio/hsk2/eb6591cf40a460d7.mp3"
+    },
+    {
+      "hanzi": "身体",
+      "pinyin": "shēntǐ",
+      "level": 2,
+      "meaning": "cơ thể; sức khỏe của một người",
+      "audio": "audio/hsk2/4729deedde2a0710.mp3"
+    },
+    {
+      "hanzi": "生日",
+      "pinyin": "shēngrì",
+      "level": 2,
+      "meaning": "sinh nhật",
+      "audio": "audio/hsk2/8f5ecd9fc26937ef.mp3"
+    },
+    {
+      "hanzi": "时",
+      "pinyin": "shí",
+      "level": 2,
+      "meaning": "biến thể cũ của 時|时; họ Shi",
+      "audio": "audio/hsk2/7d58b6422cacedbc.mp3"
+    },
+    {
+      "hanzi": "事情",
+      "pinyin": "shìqing",
+      "level": 2,
+      "meaning": "sự việc",
+      "audio": "audio/hsk2/e66d9fac19a76a4b.mp3"
+    },
+    {
+      "hanzi": "手",
+      "pinyin": "shǒu",
+      "level": 2,
+      "meaning": "tay; (trang trọng) giữ; người tham gia vào một số loại công việc nhất định; người có kỹ năng trong một số loại công việc",
+      "audio": "audio/hsk2/48e3a023f8997977.mp3"
+    },
+    {
+      "hanzi": "手表",
+      "pinyin": "shǒubiǎo",
+      "level": 2,
+      "meaning": "đồng hồ đeo tay",
+      "audio": "audio/hsk2/b727ee62fc58ed43.mp3"
+    },
+    {
+      "hanzi": "书包",
+      "pinyin": "shūbāo",
+      "level": 2,
+      "meaning": "cặp sách; cái túi; túi sách",
+      "audio": "audio/hsk2/c48625607f03389a.mp3"
+    },
+    {
+      "hanzi": "舒服",
+      "pinyin": "shūfu",
+      "level": 2,
+      "meaning": "thoải mái; cảm thấy khỏe",
+      "audio": "audio/hsk2/3a470adc4813cb22.mp3"
+    },
+    {
+      "hanzi": "送",
+      "pinyin": "sòng",
+      "level": 2,
+      "meaning": "tặng; đưa tiễn",
+      "audio": "audio/hsk2/2191cda8a545b174.mp3"
+    },
+    {
+      "hanzi": "虽然",
+      "pinyin": "suīrán",
+      "level": 2,
+      "meaning": "mặc dù; mặc dù (thường được sử dụng tương ứng với 可是 hoặc 但是, v.v.)",
+      "audio": "audio/hsk2/bd2b80097697b084.mp3"
+    },
+    {
+      "hanzi": "所以",
+      "pinyin": "suǒyǐ",
+      "level": 2,
+      "meaning": "vì vậy",
+      "audio": "audio/hsk2/a2f7e42081a8eb13.mp3"
+    },
+    {
+      "hanzi": "疼",
+      "pinyin": "téng",
+      "level": 2,
+      "meaning": "(nó) đau; đau; yêu thật lòng",
+      "audio": "audio/hsk2/b1e179f5622eeea5.mp3"
+    },
+    {
+      "hanzi": "踢",
+      "pinyin": "tī",
+      "level": 2,
+      "meaning": "đá; để chơi (ví dụ: bóng đá); (từ lóng) butch (trong mối quan hệ đồng tính nữ)",
+      "audio": "audio/hsk2/3b470aa5850696b4.mp3"
+    },
+    {
+      "hanzi": "题",
+      "pinyin": "tí",
+      "level": 2,
+      "meaning": "họ Ti; đề tài; vấn đề cần thảo luận; câu hỏi thi; chủ đề",
+      "audio": "audio/hsk2/edeb31dda65c9719.mp3"
+    },
+    {
+      "hanzi": "条",
+      "pinyin": "tiáo",
+      "level": 2,
+      "meaning": "dải; mục; bài báo; điều khoản (của luật hoặc hiệp ước)",
+      "audio": "audio/hsk2/f004f1d84cf962dc.mp3"
+    },
+    {
+      "hanzi": "跳舞",
+      "pinyin": "tiàowǔ",
+      "level": 2,
+      "meaning": "nhảy",
+      "audio": "audio/hsk2/d345d9a2fbf60ae0.mp3"
+    },
+    {
+      "hanzi": "头",
+      "pinyin": "tóu",
+      "level": 2,
+      "meaning": "đầu; kiểu tóc; đỉnh; kết thúc",
+      "audio": "audio/hsk2/5f64ab008929fdb5.mp3"
+    },
+    {
+      "hanzi": "外国",
+      "pinyin": "wàiguó",
+      "level": 2,
+      "meaning": "nước ngoài",
+      "audio": "audio/hsk2/eef932646f02ed80.mp3"
+    },
+    {
+      "hanzi": "外面",
+      "pinyin": "wàimiàn",
+      "level": 2,
+      "meaning": "bên ngoài",
+      "audio": "audio/hsk2/eff32262244cd369.mp3"
+    },
+    {
+      "hanzi": "完",
+      "pinyin": "wán",
+      "level": 2,
+      "meaning": "để kết thúc; kết thúc; trọn; hoàn thành",
+      "audio": "audio/hsk2/28e0bba69ee9141a.mp3"
+    },
+    {
+      "hanzi": "万",
+      "pinyin": "wàn",
+      "level": 2,
+      "meaning": "họ Vạn; mười nghìn; một con số tuyệt vời",
+      "audio": "audio/hsk2/fc227df4fc949728.mp3"
+    },
+    {
+      "hanzi": "网上",
+      "pinyin": "wǎngshàng",
+      "level": 2,
+      "meaning": "trực tuyến",
+      "audio": "audio/hsk2/25eb2d657fc44054.mp3"
+    },
+    {
+      "hanzi": "往",
+      "pinyin": "wǎng",
+      "level": 2,
+      "meaning": "đi (theo một hướng); ĐẾN; đối với; (của một chuyến tàu) hướng tới; biến thể cũ của 往",
+      "audio": "audio/hsk2/da8b4cde304b1488.mp3"
+    },
+    {
+      "hanzi": "忘",
+      "pinyin": "wàng",
+      "level": 2,
+      "meaning": "quên; bỏ qua; bỏ bê",
+      "audio": "audio/hsk2/3de85d3b5a4a8057.mp3"
+    },
+    {
+      "hanzi": "为什么",
+      "pinyin": "wèishénme",
+      "level": 2,
+      "meaning": "tại sao",
+      "audio": "audio/hsk2/1b919bb47883c5cf.mp3"
+    },
+    {
+      "hanzi": "位",
+      "pinyin": "wèi",
+      "level": 2,
+      "meaning": "chức vụ; vị trí; địa điểm; chỗ ngồi",
+      "audio": "audio/hsk2/1aa9c4170bddb16e.mp3"
+    },
+    {
+      "hanzi": "希望",
+      "pinyin": "xīwàng",
+      "level": 2,
+      "meaning": "hy vọng; một hy vọng; một điều ước",
+      "audio": "audio/hsk2/352df4d7086fcdb1.mp3"
+    },
+    {
+      "hanzi": "洗",
+      "pinyin": "xǐ",
+      "level": 2,
+      "meaning": "rửa; đi tắm; để phát triển (ảnh); xáo trộn (thẻ, v.v.); xóa (bản ghi âm)",
+      "audio": "audio/hsk2/b2d7b4bbf6bcf133.mp3"
+    },
+    {
+      "hanzi": "洗手间",
+      "pinyin": "xǐshǒujiān",
+      "level": 2,
+      "meaning": "nhà vệ sinh; nhà vệ sinh; nhà vệ sinh",
+      "audio": "audio/hsk2/1d7b35e9a9e491fd.mp3"
+    },
+    {
+      "hanzi": "下来",
+      "pinyin": "xiàlai",
+      "level": 2,
+      "meaning": "đi xuống; (đánh dấu hành động đã hoàn thành); (sau động từ chuyển động, biểu thị chuyển động đi xuống và hướng về phía chúng ta, cũng là hình.); (biểu thị sự tiếp tục từ quá khứ đối với chúng ta)",
+      "audio": "audio/hsk2/dd30687a430070b3.mp3"
+    },
+    {
+      "hanzi": "下面",
+      "pinyin": "xiàmiàn",
+      "level": 2,
+      "meaning": "bên dưới; dưới; Kế tiếp; sau đây; luộc mì",
+      "audio": "audio/hsk2/b0e7ba654088410d.mp3"
+    },
+    {
+      "hanzi": "下去",
+      "pinyin": "xiàqù",
+      "level": 2,
+      "meaning": "đi xuống; đi xuống; tiếp tục; tiếp tục",
+      "audio": "audio/hsk2/3a8091eb7937e6ba.mp3"
+    },
+    {
+      "hanzi": "小孩儿",
+      "pinyin": "xiǎoháir",
+      "level": 2,
+      "meaning": "biến thể đàn nhị của 小孩",
+      "audio": "audio/hsk2/af620f8352234e1a.mp3"
+    },
+    {
+      "hanzi": "小时候",
+      "pinyin": "xiǎoshíhou",
+      "level": 2,
+      "meaning": "trong tuổi thơ của một người",
+      "audio": "audio/hsk2/b89f58050385349a.mp3"
+    },
+    {
+      "hanzi": "笑",
+      "pinyin": "xiào",
+      "level": 2,
+      "meaning": "biến thể cũ của 笑; cười; mỉm cười; cười nhạo",
+      "audio": "audio/hsk2/1d8fb5e34e43a755.mp3"
+    },
+    {
+      "hanzi": "姓",
+      "pinyin": "xìng",
+      "level": 2,
+      "meaning": "họ",
+      "audio": "audio/hsk2/978d056de9ca8731.mp3"
+    },
+    {
+      "hanzi": "姓名",
+      "pinyin": "xìngmíng",
+      "level": 2,
+      "meaning": "họ và tên riêng; tên đầy đủ",
+      "audio": "audio/hsk2/50b5b1d2abefbca6.mp3"
+    },
+    {
+      "hanzi": "颜色",
+      "pinyin": "yánsè",
+      "level": 2,
+      "meaning": "màu sắc; vẻ mặt; vẻ bề ngoài; nét mặt",
+      "audio": "audio/hsk2/070a8016fcc3dffb.mp3"
+    },
+    {
+      "hanzi": "眼睛",
+      "pinyin": "yǎnjing",
+      "level": 2,
+      "meaning": "mắt",
+      "audio": "audio/hsk2/9069cc8f2c62b4b4.mp3"
+    },
+    {
+      "hanzi": "药",
+      "pinyin": "yào",
+      "level": 2,
+      "meaning": "lá của mống mắt; biến thể của 藥|药; thuốc; thuốc; chất được sử dụng cho một mục đích cụ thể (ví dụ như ngộ độc, nổ, lên men); đầu độc",
+      "audio": "audio/hsk2/b0c89b2ff5b84327.mp3"
+    },
+    {
+      "hanzi": "药店",
+      "pinyin": "yàodiàn",
+      "level": 2,
+      "meaning": "hiệu thuốc; hiệu thuốc",
+      "audio": "audio/hsk2/c3459d2c9e6a064d.mp3"
+    },
+    {
+      "hanzi": "爷爷",
+      "pinyin": "yéye",
+      "level": 2,
+      "meaning": "(thuật ngữ) ông nội; ông nội",
+      "audio": "audio/hsk2/05a394a5779b1ee5.mp3"
+    },
+    {
+      "hanzi": "一会儿",
+      "pinyin": "yíhuìr",
+      "level": 2,
+      "meaning": "một lát",
+      "audio": "audio/hsk2/45569fc063406280.mp3"
+    },
+    {
+      "hanzi": "一起",
+      "pinyin": "yīqǐ",
+      "level": 2,
+      "meaning": "cùng nhau",
+      "audio": "audio/hsk2/220ac6c5a3602b71.mp3"
+    },
+    {
+      "hanzi": "已经",
+      "pinyin": "yǐjīng",
+      "level": 2,
+      "meaning": "đã",
+      "audio": "audio/hsk2/8ee12e2310d9f000.mp3"
+    },
+    {
+      "hanzi": "意思",
+      "pinyin": "yìsi",
+      "level": 2,
+      "meaning": "ý tưởng; ý kiến; nghĩa; ước gì",
+      "audio": "audio/hsk2/65eb352d08bf12a0.mp3"
+    },
+    {
+      "hanzi": "因为",
+      "pinyin": "yīnwèi",
+      "level": 2,
+      "meaning": "bởi vì",
+      "audio": "audio/hsk2/795cfc96d4b55db7.mp3"
+    },
+    {
+      "hanzi": "阴",
+      "pinyin": "yīn",
+      "level": 2,
+      "meaning": "họ Âm; u ám (thời tiết); nhiều mây; râm; Âm (nguyên lý âm dương)",
+      "audio": "audio/hsk2/78df214e37ef162d.mp3"
+    },
+    {
+      "hanzi": "游",
+      "pinyin": "yóu",
+      "level": 2,
+      "meaning": "họ Bạn; bơi lội; biến thể của 遊|游",
+      "audio": "audio/hsk2/251e86cb3aceffc7.mp3"
+    },
+    {
+      "hanzi": "游泳",
+      "pinyin": "yóuyǒng",
+      "level": 2,
+      "meaning": "bơi lội; bơi lội",
+      "audio": "audio/hsk2/f864303afb4e4a85.mp3"
+    },
+    {
+      "hanzi": "有时",
+      "pinyin": "yǒushí",
+      "level": 2,
+      "meaning": "đôi khi; bây giờ và sau đó",
+      "audio": "audio/hsk2/3a72d58cd604862d.mp3"
+    },
+    {
+      "hanzi": "有意思",
+      "pinyin": "yǒuyìsi",
+      "level": 2,
+      "meaning": "thú vị; có ý nghĩa; thú vị; vui vẻ",
+      "audio": "audio/hsk2/892c00b426951bb1.mp3"
+    },
+    {
+      "hanzi": "右",
+      "pinyin": "yòu",
+      "level": 2,
+      "meaning": "đúng; phía bên phải; (chính trị) quyền trung tâm; (cũ) phía tây; phía bên phải là phía ưu tiên",
+      "audio": "audio/hsk2/14ab1f2bce0a8777.mp3"
+    },
+    {
+      "hanzi": "右边",
+      "pinyin": "yòubian",
+      "level": 2,
+      "meaning": "bên phải; đúng, bên phải",
+      "audio": "audio/hsk2/0838dcc59823278c.mp3"
+    },
+    {
+      "hanzi": "鱼",
+      "pinyin": "yú",
+      "level": 2,
+      "meaning": "họ Yu; cá (CL:條|条,尾); được sử dụng trong tên của nhiều loài động vật thủy sinh khác nhau không phải là cá (bao gồm bào ngư 鮑魚|鲍鱼, cá sấu Mỹ và cá sấu 鱷魚|鳄鱼 và bạch tuộc 章魚|章鱼)",
+      "audio": "audio/hsk2/ac3069de682490ac.mp3"
+    },
+    {
+      "hanzi": "远",
+      "pinyin": "yuǎn",
+      "level": 2,
+      "meaning": "xa",
+      "audio": "audio/hsk2/057c8f784250d8dd.mp3"
+    },
+    {
+      "hanzi": "运动",
+      "pinyin": "yùndòng",
+      "level": 2,
+      "meaning": "di chuyển; tập thể dục; thể thao; tập thể dục",
+      "audio": "audio/hsk2/a9d130d79595672c.mp3"
+    },
+    {
+      "hanzi": "站",
+      "pinyin": "zhàn",
+      "level": 2,
+      "meaning": "trạm; đứng; dừng lại; dừng lại",
+      "audio": "audio/hsk2/2978ed85cb04ac1b.mp3"
+    },
+    {
+      "hanzi": "长",
+      "pinyin": "cháng",
+      "level": 2,
+      "meaning": "dài",
+      "audio": "audio/hsk2/597ae23d84d4eac2.mp3"
+    },
+    {
+      "hanzi": "丈夫",
+      "pinyin": "zhàngfu",
+      "level": 2,
+      "meaning": "chồng",
+      "audio": "audio/hsk2/142646ce3064eee6.mp3"
+    },
+    {
+      "hanzi": "这么",
+      "pinyin": "zhème",
+      "level": 2,
+      "meaning": "rất nhiều; chừng này; bao nhiêu?; theo cách này; biến thể của 這麼|这么",
+      "audio": "audio/hsk2/7677ca84c60ade61.mp3"
+    },
+    {
+      "hanzi": "这样",
+      "pinyin": "zhèyàng",
+      "level": 2,
+      "meaning": "theo cách này; như thế này; Vì thế; (trước danh từ) loại này; như vậy",
+      "audio": "audio/hsk2/b7fc681861fbbfc1.mp3"
+    },
+    {
+      "hanzi": "着",
+      "pinyin": "zhe",
+      "level": 2,
+      "meaning": "đang; trợ từ trạng thái",
+      "audio": "audio/hsk2/9e5bf0d2d993accb.mp3"
+    },
+    {
+      "hanzi": "正",
+      "pinyin": "zhèng",
+      "level": 2,
+      "meaning": "thẳng; thẳng đứng; thích hợp; chính",
+      "audio": "audio/hsk2/d657ee1d4abbab42.mp3"
+    },
+    {
+      "hanzi": "周",
+      "pinyin": "zhōu",
+      "level": 2,
+      "meaning": "họ Chu; Nhà Chu (1046–256 TCN); để tạo ra một mạch điện; đi vòng tròn; vòng tròn; chu vi",
+      "audio": "audio/hsk2/5c553ec3f6db54f0.mp3"
+    },
+    {
+      "hanzi": "准备",
+      "pinyin": "zhǔnbèi",
+      "level": 2,
+      "meaning": "sự chuẩn bị; chuẩn bị; có ý định; sắp sửa",
+      "audio": "audio/hsk2/ddcf6e77b0ee1000.mp3"
+    },
+    {
+      "hanzi": "自己",
+      "pinyin": "zìjǐ",
+      "level": 2,
+      "meaning": "bản thân",
+      "audio": "audio/hsk2/fb43354d2aaece51.mp3"
+    },
+    {
+      "hanzi": "走",
+      "pinyin": "zǒu",
+      "level": 2,
+      "meaning": "đi; rời đi",
+      "audio": "audio/hsk2/f66de6c4cd41cdff.mp3"
+    },
+    {
+      "hanzi": "走路",
+      "pinyin": "zǒulù",
+      "level": 2,
+      "meaning": "đi bộ; đi bộ; rời đi; khởi hành; (thân mật) dọn dẹp; để đánh bại nó; (của ai bị sa thải hoặc từ chức) rời bỏ công việc; để thoát ra",
+      "audio": "audio/hsk2/6c7403e98c26f15a.mp3"
+    },
+    {
+      "hanzi": "足球",
+      "pinyin": "zúqiú",
+      "level": 2,
+      "meaning": "bóng đá; bóng đá; một quả bóng đá; một quả bóng đá",
+      "audio": "audio/hsk2/27a60fa44a5333bf.mp3"
+    },
+    {
+      "hanzi": "最",
+      "pinyin": "zuì",
+      "level": 2,
+      "meaning": "biến thể của 最; biến thể cũ của 最",
+      "audio": "audio/hsk2/150617a89b449d77.mp3"
+    },
+    {
+      "hanzi": "左",
+      "pinyin": "zuǒ",
+      "level": 2,
+      "meaning": "họ Tả; bên trái; cánh tả (chính trị); phía đông; không chính thống",
+      "audio": "audio/hsk2/e2e0c454e5d53186.mp3"
+    },
+    {
+      "hanzi": "左边",
+      "pinyin": "zuǒbian",
+      "level": 2,
+      "meaning": "bên trái; phía bên trái; bên trái của",
+      "audio": "audio/hsk2/6a0ef384c814c9e5.mp3"
+    },
+    {
+      "hanzi": "阿姨",
+      "pinyin": "āyí",
+      "level": 3,
+      "meaning": "dì ngoại; mẹ kế; nhân viên chăm sóc trẻ em; người giúp việc",
+      "audio": "audio/hsk3/1574b2157a28a423.mp3"
+    },
+    {
+      "hanzi": "矮",
+      "pinyin": "ǎi",
+      "level": 3,
+      "meaning": "(của một người) ngắn; (của một bức tường, v.v.) thấp; (về cấp bậc) kém hơn (đến); thấp hơn (hơn)",
+      "audio": "audio/hsk3/6e8ab5cc6e7855ab.mp3"
+    },
+    {
+      "hanzi": "爱人",
+      "pinyin": "àiren",
+      "level": 3,
+      "meaning": "vợ/chồng (PRC); người yêu (không phải PRC)",
+      "audio": "audio/hsk3/4914d572e30e0637.mp3"
+    },
+    {
+      "hanzi": "安静",
+      "pinyin": "ānjìng",
+      "level": 3,
+      "meaning": "yên tĩnh; hoà bình; bình tĩnh",
+      "audio": "audio/hsk3/04403982ac176961.mp3"
+    },
+    {
+      "hanzi": "安全",
+      "pinyin": "ānquán",
+      "level": 3,
+      "meaning": "an toàn; chắc chắn; sự an toàn; an ninh",
+      "audio": "audio/hsk3/afb63a620bdcff15.mp3"
+    },
+    {
+      "hanzi": "把",
+      "pinyin": "bǎ",
+      "level": 3,
+      "meaning": "cầm; chữ bǎ",
+      "audio": "audio/hsk3/2442748e41108dab.mp3"
+    },
+    {
+      "hanzi": "班级",
+      "pinyin": "bānjí",
+      "level": 3,
+      "meaning": "lớp (nhóm học sinh); lớp (ở trường)",
+      "audio": "audio/hsk3/d46e95e81219840c.mp3"
+    },
+    {
+      "hanzi": "搬",
+      "pinyin": "bān",
+      "level": 3,
+      "meaning": "di chuyển (tức là tự di chuyển); di chuyển (cái gì tương đối nặng hoặc cồng kềnh); thay đổi; sao chép một cách bừa bãi",
+      "audio": "audio/hsk3/d317389d38efb7a0.mp3"
+    },
+    {
+      "hanzi": "搬家",
+      "pinyin": "bānjiā",
+      "level": 3,
+      "meaning": "chuyển nhà; di dời; để loại bỏ (sth)",
+      "audio": "audio/hsk3/8f38f53523395061.mp3"
+    },
+    {
+      "hanzi": "办",
+      "pinyin": "bàn",
+      "level": 3,
+      "meaning": "để chăm sóc (một vấn đề); để giải quyết (một nhiệm vụ, thủ tục, v.v.); tổ chức (một sự kiện); thành lập; để thiết lập; để quản lý; để điều hành (một doanh nghiệp); (luật) xử lý; để điều tra; truy tố (vụ án, nghi phạm); văn phòng (như trong 招辦|招办, văn phòng tuyển sinh)",
+      "audio": "audio/hsk3/fc5b0c1a72a6c88e.mp3"
+    },
+    {
+      "hanzi": "办法",
+      "pinyin": "bànfǎ",
+      "level": 3,
+      "meaning": "cách xử lý việc đó; có nghĩa; đo lường; (thực tế) giải pháp cho một vấn đề",
+      "audio": "audio/hsk3/d2a92f0c9c91ab20.mp3"
+    },
+    {
+      "hanzi": "办公室",
+      "pinyin": "bàngōngshì",
+      "level": 3,
+      "meaning": "văn phòng; cơ sở kinh doanh",
+      "audio": "audio/hsk3/e8bfbc191cd79e44.mp3"
+    },
+    {
+      "hanzi": "半天",
+      "pinyin": "bàntiān",
+      "level": 3,
+      "meaning": "nửa ngày; một thời gian dài; khá lâu; giữa không trung",
+      "audio": "audio/hsk3/98002930c43bc1d9.mp3"
+    },
+    {
+      "hanzi": "帮助",
+      "pinyin": "bāngzhù",
+      "level": 3,
+      "meaning": "giúp đỡ",
+      "audio": "audio/hsk3/a57cfcb8428da408.mp3"
+    },
+    {
+      "hanzi": "饱",
+      "pinyin": "bǎo",
+      "level": 3,
+      "meaning": "ăn cho đến no; hài lòng",
+      "audio": "audio/hsk3/a218fbeb5e09defb.mp3"
+    },
+    {
+      "hanzi": "报纸",
+      "pinyin": "bàozhǐ",
+      "level": 3,
+      "meaning": "báo; giấy in báo",
+      "audio": "audio/hsk3/bdd34dcdbaa62120.mp3"
+    },
+    {
+      "hanzi": "北",
+      "pinyin": "běi",
+      "level": 3,
+      "meaning": "phía bắc; (cổ điển) bị đánh bại",
+      "audio": "audio/hsk3/01bc01b32975b903.mp3"
+    },
+    {
+      "hanzi": "北方",
+      "pinyin": "běifāng",
+      "level": 3,
+      "meaning": "phía bắc; phần phía bắc một đất nước; Trung Quốc phía bắc sông Hoàng Hà",
+      "audio": "audio/hsk3/78e20875d600228f.mp3"
+    },
+    {
+      "hanzi": "被",
+      "pinyin": "bèi",
+      "level": 3,
+      "meaning": "bị; được",
+      "audio": "audio/hsk3/47cc8021ca224d8d.mp3"
+    },
+    {
+      "hanzi": "比较",
+      "pinyin": "bǐjiào",
+      "level": 3,
+      "meaning": "để so sánh; tương phản; tương đối; tương đối",
+      "audio": "audio/hsk3/fb8791a7645ec8e3.mp3"
+    },
+    {
+      "hanzi": "比如",
+      "pinyin": "bǐrú",
+      "level": 3,
+      "meaning": "xem 比如縣|比如县; Ví dụ; chẳng hạn; chẳng hạn như",
+      "audio": "audio/hsk3/a201fc64552b4eac.mp3"
+    },
+    {
+      "hanzi": "比赛",
+      "pinyin": "bǐsài",
+      "level": 3,
+      "meaning": "cạnh tranh (thể thao, v.v.); cuộc thi đấu; để cạnh tranh",
+      "audio": "audio/hsk3/7595b4b87e468f45.mp3"
+    },
+    {
+      "hanzi": "笔记",
+      "pinyin": "bǐjì",
+      "level": 3,
+      "meaning": "gỡ xuống (bằng văn bản); ghi chú; một loại văn học bao gồm chủ yếu là các bản phác thảo ngắn",
+      "audio": "audio/hsk3/b778e307964fb978.mp3"
+    },
+    {
+      "hanzi": "笔记本",
+      "pinyin": "bǐjìběn",
+      "level": 3,
+      "meaning": "sổ tay (văn phòng phẩm) (CL:本); (máy tính) máy tính xách tay; sổ tay",
+      "audio": "audio/hsk3/155c2f5d0a3b2394.mp3"
+    },
+    {
+      "hanzi": "必须",
+      "pinyin": "bìxū",
+      "level": 3,
+      "meaning": "phải",
+      "audio": "audio/hsk3/2c08cddfb13b0ab0.mp3"
+    },
+    {
+      "hanzi": "变",
+      "pinyin": "biàn",
+      "level": 3,
+      "meaning": "thay đổi; trở nên khác biệt; biến đổi; thay đổi",
+      "audio": "audio/hsk3/049c1287001139ad.mp3"
+    },
+    {
+      "hanzi": "变成",
+      "pinyin": "biànchéng",
+      "level": 3,
+      "meaning": "đổi thành; biến thành; trở thành",
+      "audio": "audio/hsk3/f18922776ad4f473.mp3"
+    },
+    {
+      "hanzi": "变化",
+      "pinyin": "biànhuà",
+      "level": 3,
+      "meaning": "(nội động) thay đổi; thay đổi; thay đổi; biến thể",
+      "audio": "audio/hsk3/e329c44530ee62f6.mp3"
+    },
+    {
+      "hanzi": "遍",
+      "pinyin": "biàn",
+      "level": 3,
+      "meaning": "biến thể của 遍; ở khắp mọi nơi; khắp nơi; phân loại cho hành động: một lần",
+      "audio": "audio/hsk3/dd7606b00026e1bd.mp3"
+    },
+    {
+      "hanzi": "表演",
+      "pinyin": "biǎoyǎn",
+      "level": 3,
+      "meaning": "chơi; trình diễn; hiệu suất; triển lãm",
+      "audio": "audio/hsk3/1596ad4e4e5c2c82.mp3"
+    },
+    {
+      "hanzi": "别的",
+      "pinyin": "biéde",
+      "level": 3,
+      "meaning": "khác; khác",
+      "audio": "audio/hsk3/3966c0d55d96e512.mp3"
+    },
+    {
+      "hanzi": "别人",
+      "pinyin": "biéren",
+      "level": 3,
+      "meaning": "người khác",
+      "audio": "audio/hsk3/eeb0be5265ca353a.mp3"
+    },
+    {
+      "hanzi": "宾馆",
+      "pinyin": "bīnguǎn",
+      "level": 3,
+      "meaning": "nhà nghỉ; nhà nghỉ; khách sạn",
+      "audio": "audio/hsk3/2fe011f293ab0efc.mp3"
+    },
+    {
+      "hanzi": "冰",
+      "pinyin": "bīng",
+      "level": 3,
+      "meaning": "băng; để thư giãn cái gì đó; (của một vật hoặc chất) cảm thấy lạnh; (của một người) lạnh lùng; biến thể của 冰",
+      "audio": "audio/hsk3/ce1b85070022a3fd.mp3"
+    },
+    {
+      "hanzi": "冰激凌",
+      "pinyin": "bīngjīlíng",
+      "level": 3,
+      "meaning": "kem",
+      "audio": "audio/hsk3/9ab26cf4fdd8e920.mp3"
+    },
+    {
+      "hanzi": "冰箱",
+      "pinyin": "bīngxiāng",
+      "level": 3,
+      "meaning": "tủ lạnh; (cũ) thùng đá",
+      "audio": "audio/hsk3/f8781a5f97ced96e.mp3"
+    },
+    {
+      "hanzi": "病人",
+      "pinyin": "bìngrén",
+      "level": 3,
+      "meaning": "người bị bệnh; kiên nhẫn; không hợp lệ",
+      "audio": "audio/hsk3/3b604ece83447ba0.mp3"
+    },
+    {
+      "hanzi": "不但",
+      "pinyin": "búdàn",
+      "level": 3,
+      "meaning": "không chỉ (... mà còn ...)",
+      "audio": "audio/hsk3/dc1b8712e9da23aa.mp3"
+    },
+    {
+      "hanzi": "不见",
+      "pinyin": "bújiàn",
+      "level": 3,
+      "meaning": "không nhìn thấy; không gặp nhau; đã biến mất; bị mất tích",
+      "audio": "audio/hsk3/a3fdf059d4ffb9a2.mp3"
+    },
+    {
+      "hanzi": "不久",
+      "pinyin": "bùjiǔ",
+      "level": 3,
+      "meaning": "không lâu (sau); trước đó quá lâu; sớm; ngay sau đó",
+      "audio": "audio/hsk3/73e75f11978e30f9.mp3"
+    },
+    {
+      "hanzi": "不同",
+      "pinyin": "bùtóng",
+      "level": 3,
+      "meaning": "khác biệt; riêng biệt; không giống nhau; không giống nhau",
+      "audio": "audio/hsk3/f2632a784b0d7c93.mp3"
+    },
+    {
+      "hanzi": "不行",
+      "pinyin": "bùxíng",
+      "level": 3,
+      "meaning": "sẽ không làm được; không còn nghi ngờ gì nữa; không tốt chút nào; không làm việc",
+      "audio": "audio/hsk3/9ba359e542ee5a22.mp3"
+    },
+    {
+      "hanzi": "不用",
+      "pinyin": "búyòng",
+      "level": 3,
+      "meaning": "không cần",
+      "audio": "audio/hsk3/30a2338dfa5006d5.mp3"
+    },
+    {
+      "hanzi": "才",
+      "pinyin": "cái",
+      "level": 3,
+      "meaning": "khả năng; tài năng; sb thuộc một loại nhất định; một cá nhân có năng lực; sau đó và chỉ sau đó; ngay bây giờ; (trước biểu thức số lượng) chỉ",
+      "audio": "audio/hsk3/9a8d951dcb604ef6.mp3"
+    },
+    {
+      "hanzi": "菜单",
+      "pinyin": "càidān",
+      "level": 3,
+      "meaning": "thực đơn",
+      "audio": "audio/hsk3/4ce4cafdd0561280.mp3"
+    },
+    {
+      "hanzi": "参加",
+      "pinyin": "cānjiā",
+      "level": 3,
+      "meaning": "tham gia; tham gia; tham gia",
+      "audio": "audio/hsk3/041ef3e9eb873e90.mp3"
+    },
+    {
+      "hanzi": "草",
+      "pinyin": "cǎo",
+      "level": 3,
+      "meaning": "biến thể của 草; cỏ; rơm; bản thảo; bản thảo (của một tài liệu)",
+      "audio": "audio/hsk3/91b246b5dbc05480.mp3"
+    },
+    {
+      "hanzi": "草地",
+      "pinyin": "cǎodì",
+      "level": 3,
+      "meaning": "bãi cỏ; đồng cỏ; cỏ; sân cỏ",
+      "audio": "audio/hsk3/cca5bb81dd0436e7.mp3"
+    },
+    {
+      "hanzi": "层",
+      "pinyin": "céng",
+      "level": 3,
+      "meaning": "chồng lên nhau; lớp; tầng lớp; tầng (của tòa nhà); câu chuyện; (toán học.) bó",
+      "audio": "audio/hsk3/b6fd20c013e98965.mp3"
+    },
+    {
+      "hanzi": "查",
+      "pinyin": "chá",
+      "level": 3,
+      "meaning": "để nghiên cứu; để kiểm tra; để điều tra; để kiểm tra",
+      "audio": "audio/hsk3/c55cceb16b4958d6.mp3"
+    },
+    {
+      "hanzi": "差",
+      "pinyin": "chà",
+      "level": 3,
+      "meaning": "khác nhau; sai; nhầm lẫn; hụt hẫng; thiếu; không đạt tiêu chuẩn; kém cỏi",
+      "audio": "audio/hsk3/fc73c01de16319f7.mp3"
+    },
+    {
+      "hanzi": "差不多",
+      "pinyin": "chàbuduō",
+      "level": 3,
+      "meaning": "gần như; gần như; nhiều hay ít; về điều tương tự",
+      "audio": "audio/hsk3/ce713a41a9dfc66a.mp3"
+    },
+    {
+      "hanzi": "尝",
+      "pinyin": "cháng",
+      "level": 3,
+      "meaning": "nếm thử; thử (thức ăn); để trải nghiệm; bao giờ; một lần; nếm thử; để trải nghiệm",
+      "audio": "audio/hsk3/6109c45b11f63663.mp3"
+    },
+    {
+      "hanzi": "常",
+      "pinyin": "cháng",
+      "level": 3,
+      "meaning": "họ Chang; luôn luôn; bao giờ; thường; thường xuyên",
+      "audio": "audio/hsk3/08b2018a055b5231.mp3"
+    },
+    {
+      "hanzi": "常常",
+      "pinyin": "chángcháng",
+      "level": 3,
+      "meaning": "thường xuyên; thường xuyên",
+      "audio": "audio/hsk3/cfd3e2c41de90c5a.mp3"
+    },
+    {
+      "hanzi": "常见",
+      "pinyin": "chángjiàn",
+      "level": 3,
+      "meaning": "thường thấy; chung; gặp cái gì đó thường xuyên",
+      "audio": "audio/hsk3/3b164da37f3adbda.mp3"
+    },
+    {
+      "hanzi": "常用",
+      "pinyin": "chángyòng",
+      "level": 3,
+      "meaning": "trong cách sử dụng chung",
+      "audio": "audio/hsk3/4563c57b5143deaa.mp3"
+    },
+    {
+      "hanzi": "衬衫",
+      "pinyin": "chènshān",
+      "level": 3,
+      "meaning": "áo sơ mi; áo cánh",
+      "audio": "audio/hsk3/66f892caca60d9f5.mp3"
+    },
+    {
+      "hanzi": "成绩",
+      "pinyin": "chéngjì",
+      "level": 3,
+      "meaning": "thành tích; hồ sơ thực hiện; điểm",
+      "audio": "audio/hsk3/fdcd1bd074c9e5dd.mp3"
+    },
+    {
+      "hanzi": "城市",
+      "pinyin": "chéngshì",
+      "level": 3,
+      "meaning": "thành phố",
+      "audio": "audio/hsk3/ed84a1665f79b6ca.mp3"
+    },
+    {
+      "hanzi": "迟到",
+      "pinyin": "chídào",
+      "level": 3,
+      "meaning": "đến muộn",
+      "audio": "audio/hsk3/f7b592d50acbbcc7.mp3"
+    },
+    {
+      "hanzi": "出发",
+      "pinyin": "chūfā",
+      "level": 3,
+      "meaning": "khởi hành; bắt đầu (trên một cuộc hành trình)",
+      "audio": "audio/hsk3/efdc22fca1c6310f.mp3"
+    },
+    {
+      "hanzi": "出生",
+      "pinyin": "chūshēng",
+      "level": 3,
+      "meaning": "được sinh ra",
+      "audio": "audio/hsk3/7e3781ea90e9583f.mp3"
+    },
+    {
+      "hanzi": "出院",
+      "pinyin": "chūyuàn",
+      "level": 3,
+      "meaning": "rời bệnh viện; sắp được xuất viện",
+      "audio": "audio/hsk3/3a6966e560b15e87.mp3"
+    },
+    {
+      "hanzi": "初中",
+      "pinyin": "chūzhōng",
+      "level": 3,
+      "meaning": "trường trung học cơ sở",
+      "audio": "audio/hsk3/46423fe020ed29b1.mp3"
+    },
+    {
+      "hanzi": "除了",
+      "pinyin": "chúle",
+      "level": 3,
+      "meaning": "ngoại trừ; bên cạnh đó; ngoài ra (dùng để loại trừ, như trong 除了他，誰也沒來|除了他，谁也没来 \"ngoài anh ta ra, không có ai đến\", hoặc bao gồm, như trong除了英語，他也會法語|除了英语，他也会法语 \"ngoài tiếng Anh, anh ấy còn biết tiếng Pháp\"); (dùng để giới thiệu một trong hai lựa chọn thay thế theo thói quen trong",
+      "audio": "audio/hsk3/322272e54a20981c.mp3"
+    },
+    {
+      "hanzi": "船",
+      "pinyin": "chuán",
+      "level": 3,
+      "meaning": "biến thể của 船; thuyền; tàu; tàu",
+      "audio": "audio/hsk3/15b7f7a95c1ccdcb.mp3"
+    },
+    {
+      "hanzi": "春天",
+      "pinyin": "chūntiān",
+      "level": 3,
+      "meaning": "mùa xuân (mùa)",
+      "audio": "audio/hsk3/9eaa6d08fa0ccc5c.mp3"
+    },
+    {
+      "hanzi": "词典",
+      "pinyin": "cídiǎn",
+      "level": 3,
+      "meaning": "từ điển; cũng được viết 辭典|辞典",
+      "audio": "audio/hsk3/854581a8f04ce575.mp3"
+    },
+    {
+      "hanzi": "聪明",
+      "pinyin": "cōngming",
+      "level": 3,
+      "meaning": "thông minh; thông minh; tươi sáng; cấp tính (về thị giác và thính giác)",
+      "audio": "audio/hsk3/9462fdc554725b0b.mp3"
+    },
+    {
+      "hanzi": "打扫",
+      "pinyin": "dǎsǎo",
+      "level": 3,
+      "meaning": "để làm sạch; quét",
+      "audio": "audio/hsk3/dca3ee9e2c7de0e3.mp3"
+    },
+    {
+      "hanzi": "打算",
+      "pinyin": "dǎsuàn",
+      "level": 3,
+      "meaning": "lập kế hoạch; có ý định; để tính toán; kế hoạch",
+      "audio": "audio/hsk3/1ce151dd62de4dd1.mp3"
+    },
+    {
+      "hanzi": "大概",
+      "pinyin": "dàgài",
+      "level": 3,
+      "meaning": "đại khái; có lẽ; thô ráp; xấp xỉ",
+      "audio": "audio/hsk3/1c0fdcd4dfb3f381.mp3"
+    },
+    {
+      "hanzi": "大人",
+      "pinyin": "dàren",
+      "level": 3,
+      "meaning": "người lớn; người lớn; danh hiệu tôn trọng cấp trên",
+      "audio": "audio/hsk3/44dd6014a532924b.mp3"
+    },
+    {
+      "hanzi": "大小",
+      "pinyin": "dàxiǎo",
+      "level": 3,
+      "meaning": "lớn và nhỏ; kích thước; người lớn và trẻ em; xem xét thâm niên",
+      "audio": "audio/hsk3/50db7447b966f5ef.mp3"
+    },
+    {
+      "hanzi": "大熊猫",
+      "pinyin": "dàxióngmāo",
+      "level": 3,
+      "meaning": "gấu trúc khổng lồ (Ailuropoda melanoleuca)",
+      "audio": "audio/hsk3/e9f782e9c2b674d9.mp3"
+    },
+    {
+      "hanzi": "大衣",
+      "pinyin": "dàyī",
+      "level": 3,
+      "meaning": "áo khoác ngoài; lớp phủ ngoài; áo choàng",
+      "audio": "audio/hsk3/b0ab93fb3dd20cc0.mp3"
+    },
+    {
+      "hanzi": "带",
+      "pinyin": "dài",
+      "level": 3,
+      "meaning": "ban nhạc; thắt lưng; thắt lưng; ruy băng",
+      "audio": "audio/hsk3/fd5db2cf36a92942.mp3"
+    },
+    {
+      "hanzi": "担心",
+      "pinyin": "dānxīn",
+      "level": 3,
+      "meaning": "lo lắng; lo lắng; khó chịu; lo lắng",
+      "audio": "audio/hsk3/7f22105b7fbb0150.mp3"
+    },
+    {
+      "hanzi": "蛋糕",
+      "pinyin": "dàngāo",
+      "level": 3,
+      "meaning": "bánh ngọt",
+      "audio": "audio/hsk3/0b8c4bb849e089dd.mp3"
+    },
+    {
+      "hanzi": "当然",
+      "pinyin": "dāngrán",
+      "level": 3,
+      "meaning": "chỉ tự nhiên; như nó phải vậy; chắc chắn; tất nhiên",
+      "audio": "audio/hsk3/0002e2d87fe9c9ab.mp3"
+    },
+    {
+      "hanzi": "到处",
+      "pinyin": "dàochù",
+      "level": 3,
+      "meaning": "ở khắp mọi nơi",
+      "audio": "audio/hsk3/465be82399feacfb.mp3"
+    },
+    {
+      "hanzi": "得到",
+      "pinyin": "dédào",
+      "level": 3,
+      "meaning": "để có được; để có được; để nhận",
+      "audio": "audio/hsk3/6805c7479b746a48.mp3"
+    },
+    {
+      "hanzi": "得分",
+      "pinyin": "défēn",
+      "level": 3,
+      "meaning": "ghi điểm (trong một cuộc thi, bài kiểm tra, v.v.); điểm; đánh giá; lớp",
+      "audio": "audio/hsk3/1251e35c137ac764.mp3"
+    },
+    {
+      "hanzi": "地点",
+      "pinyin": "dìdiǎn",
+      "level": 3,
+      "meaning": "nơi; địa điểm; vị trí; địa điểm",
+      "audio": "audio/hsk3/253ac66fb8e1032b.mp3"
+    },
+    {
+      "hanzi": "地方",
+      "pinyin": "dìfāng",
+      "level": 3,
+      "meaning": "nơi; địa điểm",
+      "audio": "audio/hsk3/1462a7d8531ef5d2.mp3"
+    },
+    {
+      "hanzi": "地图",
+      "pinyin": "dìtú",
+      "level": 3,
+      "meaning": "bản đồ",
+      "audio": "audio/hsk3/41ab2e0ecbec6674.mp3"
+    },
+    {
+      "hanzi": "的话",
+      "pinyin": "dehuà",
+      "level": 3,
+      "meaning": "if (đứng sau mệnh đề điều kiện)",
+      "audio": "audio/hsk3/9b952dd4e3c8702d.mp3"
+    },
+    {
+      "hanzi": "灯",
+      "pinyin": "dēng",
+      "level": 3,
+      "meaning": "đèn; ánh sáng; đèn lồng",
+      "audio": "audio/hsk3/28656d470286ce04.mp3"
+    },
+    {
+      "hanzi": "电",
+      "pinyin": "diàn",
+      "level": 3,
+      "meaning": "sét; điện; điện; để có được (hoặc cho) một cú sốc điện",
+      "audio": "audio/hsk3/1763e47d08de8d81.mp3"
+    },
+    {
+      "hanzi": "电梯",
+      "pinyin": "diàntī",
+      "level": 3,
+      "meaning": "thang máy; thang cuốn",
+      "audio": "audio/hsk3/c4d0aea9e2da2f9f.mp3"
+    },
+    {
+      "hanzi": "电子书",
+      "pinyin": "diànzǐshū",
+      "level": 3,
+      "meaning": "sách điện tử; sách điện tử; đầu đọc sách điện tử",
+      "audio": "audio/hsk3/1099236fa822dc72.mp3"
+    },
+    {
+      "hanzi": "丢",
+      "pinyin": "diū",
+      "level": 3,
+      "meaning": "thua; gạt sang một bên; ném",
+      "audio": "audio/hsk3/816ddd658ba223c3.mp3"
+    },
+    {
+      "hanzi": "东",
+      "pinyin": "dōng",
+      "level": 3,
+      "meaning": "họ Đồng; phía đông; chủ nhà (tức là ngồi ở phía đông của khách); chủ nhà",
+      "audio": "audio/hsk3/5469a6af4ceaad28.mp3"
+    },
+    {
+      "hanzi": "东北",
+      "pinyin": "dōngběi",
+      "level": 3,
+      "meaning": "Đông Bắc Trung Quốc; Mãn Châu; hướng đông bắc",
+      "audio": "audio/hsk3/ddbc65483182cd8a.mp3"
+    },
+    {
+      "hanzi": "东方",
+      "pinyin": "dōngfāng",
+      "level": 3,
+      "meaning": "phương Đông; phương Đông; họ hai chữ Đông Phương; phía đông",
+      "audio": "audio/hsk3/67bad5bd2b80097d.mp3"
+    },
+    {
+      "hanzi": "东南",
+      "pinyin": "dōngnán",
+      "level": 3,
+      "meaning": "hướng đông nam",
+      "audio": "audio/hsk3/84f5e2635a08ba94.mp3"
+    },
+    {
+      "hanzi": "冬天",
+      "pinyin": "dōngtiān",
+      "level": 3,
+      "meaning": "mùa đông",
+      "audio": "audio/hsk3/7a6cc29740a72c4c.mp3"
+    },
+    {
+      "hanzi": "懂得",
+      "pinyin": "dǒngde",
+      "level": 3,
+      "meaning": "hiểu; biết; để hiểu",
+      "audio": "audio/hsk3/2319d6d7a464f5eb.mp3"
+    },
+    {
+      "hanzi": "动物",
+      "pinyin": "dòngwù",
+      "level": 3,
+      "meaning": "động vật",
+      "audio": "audio/hsk3/7ebb07e850a404af.mp3"
+    },
+    {
+      "hanzi": "动物园",
+      "pinyin": "dòngwùyuán",
+      "level": 3,
+      "meaning": "sở thú",
+      "audio": "audio/hsk3/0fd9e19000ddd499.mp3"
+    },
+    {
+      "hanzi": "短",
+      "pinyin": "duǎn",
+      "level": 3,
+      "meaning": "ngắn; ngắn gọn; thiếu; điểm yếu",
+      "audio": "audio/hsk3/4ca8d4f77574e43a.mp3"
+    },
+    {
+      "hanzi": "短裤",
+      "pinyin": "duǎnkù",
+      "level": 3,
+      "meaning": "quần ngắn; quần short",
+      "audio": "audio/hsk3/c9534e65fd9b69ec.mp3"
+    },
+    {
+      "hanzi": "段",
+      "pinyin": "duàn",
+      "level": 3,
+      "meaning": "họ Duẩn; đoạn văn; phần; phân đoạn; giai đoạn (của một quá trình)",
+      "audio": "audio/hsk3/0477dbbdee99b5b3.mp3"
+    },
+    {
+      "hanzi": "锻炼",
+      "pinyin": "duànliàn",
+      "level": 3,
+      "meaning": "làm cứng lại; bình tĩnh; tham gia tập thể dục; tập thể dục",
+      "audio": "audio/hsk3/ac42542715a9fd60.mp3"
+    },
+    {
+      "hanzi": "对话",
+      "pinyin": "duìhuà",
+      "level": 3,
+      "meaning": "nói chuyện (với ai); đối thoại; cuộc trò chuyện",
+      "audio": "audio/hsk3/6bf6d3f3d6261b75.mp3"
+    },
+    {
+      "hanzi": "饿",
+      "pinyin": "è",
+      "level": 3,
+      "meaning": "đói; chết đói (sb)",
+      "audio": "audio/hsk3/5f365d2c8e517cb9.mp3"
+    },
+    {
+      "hanzi": "而且",
+      "pinyin": "érqiě",
+      "level": 3,
+      "meaning": "(không chỉ ...) mà còn; Hơn thế nữa; Ngoài ra; hơn nữa",
+      "audio": "audio/hsk3/c193ed92f77db8a7.mp3"
+    },
+    {
+      "hanzi": "耳朵",
+      "pinyin": "ěrduo",
+      "level": 3,
+      "meaning": "tai; tay cầm (trên cốc)",
+      "audio": "audio/hsk3/86d7bf2d358bd82c.mp3"
+    },
+    {
+      "hanzi": "耳机",
+      "pinyin": "ěrjī",
+      "level": 3,
+      "meaning": "tai nghe; tai nghe; máy thu điện thoại",
+      "audio": "audio/hsk3/1bc009fa87e0dae1.mp3"
+    },
+    {
+      "hanzi": "发",
+      "pinyin": "fā",
+      "level": 3,
+      "meaning": "gửi đi; để hiển thị (cảm giác của một người); phát hành; để phát triển",
+      "audio": "audio/hsk3/05b5d32c723ad703.mp3"
+    },
+    {
+      "hanzi": "发烧",
+      "pinyin": "fāshāo",
+      "level": 3,
+      "meaning": "có nhiệt độ cao (do bệnh tật); bị sốt; (hình.) bị mê hoặc; bị ám ảnh; (hình) hưng thịnh; thịnh vượng; phổ biến",
+      "audio": "audio/hsk3/c003cb2f88b424e4.mp3"
+    },
+    {
+      "hanzi": "发生",
+      "pinyin": "fāshēng",
+      "level": 3,
+      "meaning": "xảy ra; xảy ra; diễn ra; để thoát ra",
+      "audio": "audio/hsk3/9dea2d989fd76041.mp3"
+    },
+    {
+      "hanzi": "发现",
+      "pinyin": "fāxiàn",
+      "level": 3,
+      "meaning": "để ý; để nhận thức được; để khám phá; để tìm; để phát hiện; một khám phá",
+      "audio": "audio/hsk3/10493d06b90f6b18.mp3"
+    },
+    {
+      "hanzi": "发展",
+      "pinyin": "fāzhǎn",
+      "level": 3,
+      "meaning": "phát triển; sự phát triển; để phát triển; phát triển",
+      "audio": "audio/hsk3/1f4d721b63588760.mp3"
+    },
+    {
+      "hanzi": "方便",
+      "pinyin": "fāngbiàn",
+      "level": 3,
+      "meaning": "thuận tiện; thích hợp; để tạo điều kiện thuận lợi; làm cho mọi việc trở nên dễ dàng; có tiền dư dả; (ngôn ngữ) để giải tỏa",
+      "audio": "audio/hsk3/6d80ef35db6962ac.mp3"
+    },
+    {
+      "hanzi": "方便面",
+      "pinyin": "fāngbiànmiàn",
+      "level": 3,
+      "meaning": "mì ăn liền",
+      "audio": "audio/hsk3/ed7d6da2eb335344.mp3"
+    },
+    {
+      "hanzi": "方法",
+      "pinyin": "fāngfǎ",
+      "level": 3,
+      "meaning": "phương pháp; đường; kỹ thuật; thủ tục",
+      "audio": "audio/hsk3/22b9f0b66212809c.mp3"
+    },
+    {
+      "hanzi": "方向",
+      "pinyin": "fāngxiàng",
+      "level": 3,
+      "meaning": "hướng; định hướng",
+      "audio": "audio/hsk3/1121471a0ff440f8.mp3"
+    },
+    {
+      "hanzi": "房子",
+      "pinyin": "fángzi",
+      "level": 3,
+      "meaning": "nhà; tòa nhà (một hoặc hai tầng); căn hộ; phòng",
+      "audio": "audio/hsk3/a38b0657f4edcfea.mp3"
+    },
+    {
+      "hanzi": "放",
+      "pinyin": "fàng",
+      "level": 3,
+      "meaning": "đặt; đến nơi; phát hành; giải phóng",
+      "audio": "audio/hsk3/50272827b8e2c1bd.mp3"
+    },
+    {
+      "hanzi": "放假",
+      "pinyin": "fàngjià",
+      "level": 3,
+      "meaning": "để có một kỳ nghỉ hoặc kỳ nghỉ",
+      "audio": "audio/hsk3/314a2ccd4636f4ff.mp3"
+    },
+    {
+      "hanzi": "放心",
+      "pinyin": "fàngxīn",
+      "level": 3,
+      "meaning": "cảm thấy nhẹ nhõm; để cảm thấy yên tâm; được thoải mái",
+      "audio": "audio/hsk3/102f7d8002fe533f.mp3"
+    },
+    {
+      "hanzi": "放学",
+      "pinyin": "fàngxué",
+      "level": 3,
+      "meaning": "cho học sinh ra về vào cuối ngày học",
+      "audio": "audio/hsk3/9f1415b044b5e48b.mp3"
+    },
+    {
+      "hanzi": "分开",
+      "pinyin": "fēnkāi",
+      "level": 3,
+      "meaning": "tách ra; chia tay",
+      "audio": "audio/hsk3/5701cf83192a7755.mp3"
+    },
+    {
+      "hanzi": "风",
+      "pinyin": "fēng",
+      "level": 3,
+      "meaning": "gió; tin tức; phong cách; phong tục",
+      "audio": "audio/hsk3/be65bd5518aedced.mp3"
+    },
+    {
+      "hanzi": "封",
+      "pinyin": "fēng",
+      "level": 3,
+      "meaning": "họ Phong; trao tặng; cấp; ban tặng một danh hiệu; niêm phong",
+      "audio": "audio/hsk3/fabe7310ec968b19.mp3"
+    },
+    {
+      "hanzi": "夫妻",
+      "pinyin": "fūqī",
+      "level": 3,
+      "meaning": "vợ chồng; cặp vợ chồng",
+      "audio": "audio/hsk3/3a4bf2f10aae4869.mp3"
+    },
+    {
+      "hanzi": "服务",
+      "pinyin": "fúwù",
+      "level": 3,
+      "meaning": "để phục vụ; dịch vụ",
+      "audio": "audio/hsk3/ec309ab207ef7fa3.mp3"
+    },
+    {
+      "hanzi": "附近",
+      "pinyin": "fùjìn",
+      "level": 3,
+      "meaning": "gần đó; lân cận; (ở) vùng lân cận (của); khu phố",
+      "audio": "audio/hsk3/263fa7d8fffddabe.mp3"
+    },
+    {
+      "hanzi": "复习",
+      "pinyin": "fùxí",
+      "level": 3,
+      "meaning": "để xem xét; ôn tập; biến thể của 復習|复习",
+      "audio": "audio/hsk3/00f0efe7948e1549.mp3"
+    },
+    {
+      "hanzi": "该",
+      "pinyin": "gāi",
+      "level": 3,
+      "meaning": "nên; nên; có lẽ; phải là",
+      "audio": "audio/hsk3/8c43cf577ab1929a.mp3"
+    },
+    {
+      "hanzi": "感到",
+      "pinyin": "gǎndào",
+      "level": 3,
+      "meaning": "cảm nhận; để cảm nhận; để nhận thức",
+      "audio": "audio/hsk3/15c245756690636b.mp3"
+    },
+    {
+      "hanzi": "感冒",
+      "pinyin": "gǎnmào",
+      "level": 3,
+      "meaning": "bị cảm lạnh; (cảm lạnh thông thường; (colll.) quan tâm đến (thường dùng ở thể phủ định); (Tw) ghét bỏ",
+      "audio": "audio/hsk3/db6f7a66b1cfafad.mp3"
+    },
+    {
+      "hanzi": "感兴趣",
+      "pinyin": "gǎnxìngqù",
+      "level": 3,
+      "meaning": "được quan tâm",
+      "audio": "audio/hsk3/9e767b4f5b1e545e.mp3"
+    },
+    {
+      "hanzi": "干",
+      "pinyin": "gān",
+      "level": 3,
+      "meaning": "biến thể cũ của 乾|干; họ Cám",
+      "audio": "audio/hsk3/9ee0280bc49cff49.mp3"
+    },
+    {
+      "hanzi": "干净",
+      "pinyin": "gānjìng",
+      "level": 3,
+      "meaning": "sạch sẽ; gọn gàng",
+      "audio": "audio/hsk3/535f2282f8c05490.mp3"
+    },
+    {
+      "hanzi": "刚",
+      "pinyin": "gāng",
+      "level": 3,
+      "meaning": "cứng; vững chãi; mạnh; chính xác; chính xác; vừa đủ; chỉ mà thôi; chỉ; chỉ cách đây không lâu",
+      "audio": "audio/hsk3/b8e5e03288d74de0.mp3"
+    },
+    {
+      "hanzi": "刚才",
+      "pinyin": "gāngcái",
+      "level": 3,
+      "meaning": "ngay bây giờ; một lúc trước; ngay bây giờ",
+      "audio": "audio/hsk3/e46b17ada9207054.mp3"
+    },
+    {
+      "hanzi": "刚刚",
+      "pinyin": "gānggang",
+      "level": 3,
+      "meaning": "vừa mới đây; chỉ một lúc trước",
+      "audio": "audio/hsk3/de6785d99e028971.mp3"
+    },
+    {
+      "hanzi": "高铁",
+      "pinyin": "gāotiě",
+      "level": 3,
+      "meaning": "đường sắt tốc độ cao",
+      "audio": "audio/hsk3/2db31e428de89535.mp3"
+    },
+    {
+      "hanzi": "根据",
+      "pinyin": "gēnjù",
+      "level": 3,
+      "meaning": "theo; dựa vào; cơ sở; nền tảng",
+      "audio": "audio/hsk3/a70a4587c393976a.mp3"
+    },
+    {
+      "hanzi": "更",
+      "pinyin": "gèng",
+      "level": 3,
+      "meaning": "nhiều hơn nữa; thậm chí còn hơn thế nữa; hơn nữa; vẫn còn",
+      "audio": "audio/hsk3/69c679ef6bf3d499.mp3"
+    },
+    {
+      "hanzi": "工作日",
+      "pinyin": "gōngzuòrì",
+      "level": 3,
+      "meaning": "ngày làm việc; ngày làm việc; ngày trong tuần",
+      "audio": "audio/hsk3/07161a3bf2c5938e.mp3"
+    },
+    {
+      "hanzi": "公斤",
+      "pinyin": "gōngjīn",
+      "level": 3,
+      "meaning": "kilôgam (kg)",
+      "audio": "audio/hsk3/5c109595de741492.mp3"
+    },
+    {
+      "hanzi": "公园",
+      "pinyin": "gōngyuán",
+      "level": 3,
+      "meaning": "công viên (để giải trí công cộng)",
+      "audio": "audio/hsk3/e852dca995be4432.mp3"
+    },
+    {
+      "hanzi": "故事",
+      "pinyin": "gùshì",
+      "level": 3,
+      "meaning": "thói quen cũ",
+      "audio": "audio/hsk3/4c2c5762d328829b.mp3"
+    },
+    {
+      "hanzi": "刮",
+      "pinyin": "guā",
+      "level": 3,
+      "meaning": "cạo; thổi; cạo râu; cướp bóc; thổi (gió)",
+      "audio": "audio/hsk3/49f3ab54d5fa6c2c.mp3"
+    },
+    {
+      "hanzi": "关",
+      "pinyin": "guān",
+      "level": 3,
+      "meaning": "đóng; tắt",
+      "audio": "audio/hsk3/5d0ae622f61f8ebf.mp3"
+    },
+    {
+      "hanzi": "关机",
+      "pinyin": "guānjī",
+      "level": 3,
+      "meaning": "tắt (máy, thiết bị); để kết thúc việc quay một bộ phim",
+      "audio": "audio/hsk3/5acf2082d7fd4f9e.mp3"
+    },
+    {
+      "hanzi": "关系",
+      "pinyin": "guānxi",
+      "level": 3,
+      "meaning": "quan hệ; mối quan hệ; quan tâm; ảnh hưởng đến; biến thể của 關係|关系",
+      "audio": "audio/hsk3/253aaff19a394621.mp3"
+    },
+    {
+      "hanzi": "关心",
+      "pinyin": "guānxīn",
+      "level": 3,
+      "meaning": "được quan tâm; quan tâm đến",
+      "audio": "audio/hsk3/0b2df726920c8e73.mp3"
+    },
+    {
+      "hanzi": "关于",
+      "pinyin": "guānyú",
+      "level": 3,
+      "meaning": "liên quan đến; liên quan đến; liên quan tới; về",
+      "audio": "audio/hsk3/52d25a9e30ba94f1.mp3"
+    },
+    {
+      "hanzi": "关注",
+      "pinyin": "guānzhù",
+      "level": 3,
+      "meaning": "chú ý tới; theo sát cái gì; để theo dõi (trên mạng xã hội); bận tâm; quan tâm; chú ý",
+      "audio": "audio/hsk3/eb137dee4c0aafcc.mp3"
+    },
+    {
+      "hanzi": "国家",
+      "pinyin": "guójiā",
+      "level": 3,
+      "meaning": "quốc gia",
+      "audio": "audio/hsk3/0cc659a9f57c2493.mp3"
+    },
+    {
+      "hanzi": "过节",
+      "pinyin": "guòjié",
+      "level": 3,
+      "meaning": "để tổ chức một lễ hội; sau lễ kỷ niệm (tức là khi lễ hội kết thúc)",
+      "audio": "audio/hsk3/198a4e4a6d91f2c5.mp3"
+    },
+    {
+      "hanzi": "海",
+      "pinyin": "hǎi",
+      "level": 3,
+      "meaning": "họ Hải; đại dương; biển; số lượng lớn người hoặc đồ vật; (phương ngữ) nhiều",
+      "audio": "audio/hsk3/0ac6d5192ec21d34.mp3"
+    },
+    {
+      "hanzi": "害怕",
+      "pinyin": "hàipà",
+      "level": 3,
+      "meaning": "sợ hãi; sợ hãi",
+      "audio": "audio/hsk3/571a5f62065064b1.mp3"
+    },
+    {
+      "hanzi": "好多",
+      "pinyin": "hǎoduō",
+      "level": 3,
+      "meaning": "nhiều; khá nhiều; tốt hơn nhiều",
+      "audio": "audio/hsk3/bec1625da1983c12.mp3"
+    },
+    {
+      "hanzi": "好久",
+      "pinyin": "hǎojiǔ",
+      "level": 3,
+      "meaning": "(col.) trong một thời gian dài",
+      "audio": "audio/hsk3/ab6132302b092398.mp3"
+    },
+    {
+      "hanzi": "好像",
+      "pinyin": "hǎoxiàng",
+      "level": 3,
+      "meaning": "như thể; có vẻ như",
+      "audio": "audio/hsk3/e8c23f6a13ffec1b.mp3"
+    },
+    {
+      "hanzi": "号码",
+      "pinyin": "hàomǎ",
+      "level": 3,
+      "meaning": "con số",
+      "audio": "audio/hsk3/260db5567c734574.mp3"
+    },
+    {
+      "hanzi": "合适",
+      "pinyin": "héshì",
+      "level": 3,
+      "meaning": "phù hợp; phù hợp; thích hợp",
+      "audio": "audio/hsk3/d3f6574ca0849f9d.mp3"
+    },
+    {
+      "hanzi": "河",
+      "pinyin": "hé",
+      "level": 3,
+      "meaning": "sông (CL:條|条,道); sông Hoàng Hà; Dải Ngân Hà; (trong thực đơn nhà hàng) mì gạo 河粉",
+      "audio": "audio/hsk3/0d7d2cdf672f3467.mp3"
+    },
+    {
+      "hanzi": "黑板",
+      "pinyin": "hēibǎn",
+      "level": 3,
+      "meaning": "bảng đen",
+      "audio": "audio/hsk3/b2900b0a97e926ee.mp3"
+    },
+    {
+      "hanzi": "红绿灯",
+      "pinyin": "hónglǜdēng",
+      "level": 3,
+      "meaning": "đèn giao thông; tín hiệu giao thông",
+      "audio": "audio/hsk3/eb80747dbecd82d4.mp3"
+    },
+    {
+      "hanzi": "后来",
+      "pinyin": "hòulái",
+      "level": 3,
+      "meaning": "sau đó; sau đó; mới đến",
+      "audio": "audio/hsk3/5ff5a4de18dc7cd2.mp3"
+    },
+    {
+      "hanzi": "后年",
+      "pinyin": "hòunián",
+      "level": 3,
+      "meaning": "năm sau tiếp theo",
+      "audio": "audio/hsk3/f53a75ddd80ba2eb.mp3"
+    },
+    {
+      "hanzi": "后天",
+      "pinyin": "hòutiān",
+      "level": 3,
+      "meaning": "ngày kia; cuộc sống sau khi sinh (giai đoạn mà một người phát triển thông qua trải nghiệm, trái ngược với 先天); mắc phải (không phải bẩm sinh hoặc bẩm sinh); một hậu thế",
+      "audio": "audio/hsk3/02bb9a7dd27a9714.mp3"
+    },
+    {
+      "hanzi": "护照",
+      "pinyin": "hùzhào",
+      "level": 3,
+      "meaning": "hộ chiếu",
+      "audio": "audio/hsk3/d24f1b9e50c3d3c8.mp3"
+    },
+    {
+      "hanzi": "花园",
+      "pinyin": "huāyuán",
+      "level": 3,
+      "meaning": "sân vườn (để trồng hoa, cây cảnh...); (cảnh quan) công viên; sân có cây trang trí",
+      "audio": "audio/hsk3/430c863fec45dd17.mp3"
+    },
+    {
+      "hanzi": "画家",
+      "pinyin": "huàjiā",
+      "level": 3,
+      "meaning": "họa sĩ",
+      "audio": "audio/hsk3/06ef5abac1b72f2f.mp3"
+    },
+    {
+      "hanzi": "欢迎",
+      "pinyin": "huānyíng",
+      "level": 3,
+      "meaning": "chào đón; chào mừng",
+      "audio": "audio/hsk3/960d96a6920e3c49.mp3"
+    },
+    {
+      "hanzi": "环境",
+      "pinyin": "huánjìng",
+      "level": 3,
+      "meaning": "môi trường; trường hợp; môi trường xung quanh; môi trường xung quanh",
+      "audio": "audio/hsk3/904dd029c768820d.mp3"
+    },
+    {
+      "hanzi": "换",
+      "pinyin": "huàn",
+      "level": 3,
+      "meaning": "trao đổi; để thay đổi (quần áo vv); để thay thế; chuyển đổi",
+      "audio": "audio/hsk3/1b5fdf01a42e830a.mp3"
+    },
+    {
+      "hanzi": "黄色",
+      "pinyin": "huángsè",
+      "level": 3,
+      "meaning": "màu vàng; thô tục; dâm dục; khiêu dâm",
+      "audio": "audio/hsk3/d451c07d739b3306.mp3"
+    },
+    {
+      "hanzi": "回答",
+      "pinyin": "huídá",
+      "level": 3,
+      "meaning": "để trả lời; để trả lời; hồi đáp; câu trả lời",
+      "audio": "audio/hsk3/f3f512648742020f.mp3"
+    },
+    {
+      "hanzi": "会议",
+      "pinyin": "huìyì",
+      "level": 3,
+      "meaning": "cuộc họp; hội nghị",
+      "audio": "audio/hsk3/63d30f1a037d0771.mp3"
+    },
+    {
+      "hanzi": "或",
+      "pinyin": "huò",
+      "level": 3,
+      "meaning": "có lẽ; có lẽ; có thể; có thể",
+      "audio": "audio/hsk3/a2123d69506f51ff.mp3"
+    },
+    {
+      "hanzi": "或者",
+      "pinyin": "huòzhě",
+      "level": 3,
+      "meaning": "hoặc; có thể; Có lẽ; có lẽ",
+      "audio": "audio/hsk3/5b7bbecff8606bdc.mp3"
+    },
+    {
+      "hanzi": "机会",
+      "pinyin": "jīhuì",
+      "level": 3,
+      "meaning": "cơ hội; cơ hội; dịp",
+      "audio": "audio/hsk3/558d9951283ea1e2.mp3"
+    },
+    {
+      "hanzi": "鸡",
+      "pinyin": "jī",
+      "level": 3,
+      "meaning": "gia cầm; thịt gà; (từ lóng) gái điếm; biến thể của 雞|鸡",
+      "audio": "audio/hsk3/6d93a4fb838143c5.mp3"
+    },
+    {
+      "hanzi": "极",
+      "pinyin": "jí",
+      "level": 3,
+      "meaning": "vô cùng; cực (địa lý, vật lý); tối đa; hàng đầu",
+      "audio": "audio/hsk3/ecfd7e1ad26fd471.mp3"
+    },
+    {
+      "hanzi": "急",
+      "pinyin": "jí",
+      "level": 3,
+      "meaning": "khẩn cấp; ép; nhanh; vội vã",
+      "audio": "audio/hsk3/2b7f95d215c445a0.mp3"
+    },
+    {
+      "hanzi": "几乎",
+      "pinyin": "jīhū",
+      "level": 3,
+      "meaning": "gần như; gần như; thực tế",
+      "audio": "audio/hsk3/6a58960d39dfd106.mp3"
+    },
+    {
+      "hanzi": "记",
+      "pinyin": "jì",
+      "level": 3,
+      "meaning": "để ghi lại; cần lưu ý; để ghi nhớ; để nhớ",
+      "audio": "audio/hsk3/7ae2a98598e08263.mp3"
+    },
+    {
+      "hanzi": "季",
+      "pinyin": "jì",
+      "level": 3,
+      "meaning": "họ Kỷ; mùa; tháng cuối cùng của mùa giải; thứ tư hoặc trẻ nhất trong số anh em; phân loại năng suất cây trồng theo mùa",
+      "audio": "audio/hsk3/5b0e0492b5854236.mp3"
+    },
+    {
+      "hanzi": "季节",
+      "pinyin": "jìjié",
+      "level": 3,
+      "meaning": "thời gian; mùa; Giai đoạn",
+      "audio": "audio/hsk3/09103976c39ee445.mp3"
+    },
+    {
+      "hanzi": "加",
+      "pinyin": "jiā",
+      "level": 3,
+      "meaning": "Canada; họ Giả; thêm vào; (toán.) cộng; tăng lên; tăng thêm; (dùng trước một động từ hai âm tiết, thường sau một trạng từ như 不, 大, 稍, v.v., để chỉ ra rằng hành động đó áp dụng cho cái gì đó đã được đề cập trước đó, như trong 稍加改良 \"thực hiện một số cải tiến nhỏ cho (it)\")",
+      "audio": "audio/hsk3/f0f0327bc55750d6.mp3"
+    },
+    {
+      "hanzi": "假期",
+      "pinyin": "jiàqī",
+      "level": 3,
+      "meaning": "kỳ nghỉ",
+      "audio": "audio/hsk3/d5a375488bf7191c.mp3"
+    },
+    {
+      "hanzi": "坚持",
+      "pinyin": "jiānchí",
+      "level": 3,
+      "meaning": "kiên trì với; kiên trì; nhấn mạnh vào",
+      "audio": "audio/hsk3/5b0acee7c4f23a3a.mp3"
+    },
+    {
+      "hanzi": "检查",
+      "pinyin": "jiǎnchá",
+      "level": 3,
+      "meaning": "kiểm tra; để kiểm tra; để kiểm tra",
+      "audio": "audio/hsk3/978e275133d14c1c.mp3"
+    },
+    {
+      "hanzi": "检票",
+      "pinyin": "jiǎnpiào",
+      "level": 3,
+      "meaning": "để kiểm tra vé; để kiểm tra một lá phiếu",
+      "audio": "audio/hsk3/775cfec195961baa.mp3"
+    },
+    {
+      "hanzi": "简单",
+      "pinyin": "jiǎndān",
+      "level": 3,
+      "meaning": "đơn giản; không phức tạp",
+      "audio": "audio/hsk3/01805727314e4def.mp3"
+    },
+    {
+      "hanzi": "见面",
+      "pinyin": "jiànmiàn",
+      "level": 3,
+      "meaning": "gặp gỡ; để gặp nhau",
+      "audio": "audio/hsk3/65a7e6d1d31fc4b9.mp3"
+    },
+    {
+      "hanzi": "健康",
+      "pinyin": "jiànkāng",
+      "level": 3,
+      "meaning": "khỏe mạnh",
+      "audio": "audio/hsk3/aa18b6dcd893d426.mp3"
+    },
+    {
+      "hanzi": "讲",
+      "pinyin": "jiǎng",
+      "level": 3,
+      "meaning": "nói chuyện; để giải thích; đàm phán; để nhấn mạnh",
+      "audio": "audio/hsk3/94990eb86be9eab5.mp3"
+    },
+    {
+      "hanzi": "角",
+      "pinyin": "jiǎo",
+      "level": 3,
+      "meaning": "góc; góc; sừng; hình sừng",
+      "audio": "audio/hsk3/beddda2bcf2473af.mp3"
+    },
+    {
+      "hanzi": "脚",
+      "pinyin": "jiǎo",
+      "level": 3,
+      "meaning": "chân; chân (của một con vật hoặc một đồ vật); cơ sở (của một vật); phân loại cho cú đá",
+      "audio": "audio/hsk3/94bf1ba00c1b0cfa.mp3"
+    },
+    {
+      "hanzi": "接",
+      "pinyin": "jiē",
+      "level": 3,
+      "meaning": "nhận được; trả lời (điện thoại); gặp gỡ hoặc chào đón ai đó; để kết nối",
+      "audio": "audio/hsk3/b62feee3515d2abc.mp3"
+    },
+    {
+      "hanzi": "街",
+      "pinyin": "jiē",
+      "level": 3,
+      "meaning": "đường phố",
+      "audio": "audio/hsk3/261c23b558433a27.mp3"
+    },
+    {
+      "hanzi": "节",
+      "pinyin": "jié",
+      "level": 3,
+      "meaning": "chung; nút; phần; phân đoạn; tiết khí (một trong 24 phần trong năm theo lịch truyền thống của Trung Quốc); lễ hội theo mùa",
+      "audio": "audio/hsk3/ada40d1b8bfe64f1.mp3"
+    },
+    {
+      "hanzi": "节目",
+      "pinyin": "jiémù",
+      "level": 3,
+      "meaning": "chương trình (TV hoặc radio); trình diễn; mục; hành động; phân đoạn; số (trong chương trình hòa nhạc, chương trình tạp kỹ hoặc sự kiện văn hóa); một hoạt động theo kế hoạch (trong lịch trình của một người)",
+      "audio": "audio/hsk3/817e8d3abd68ba84.mp3"
+    },
+    {
+      "hanzi": "节日",
+      "pinyin": "jiérì",
+      "level": 3,
+      "meaning": "kỳ nghỉ; lễ hội",
+      "audio": "audio/hsk3/e0ba7ad3b88e3c24.mp3"
+    },
+    {
+      "hanzi": "结婚",
+      "pinyin": "jiéhūn",
+      "level": 3,
+      "meaning": "kết hôn; kết hôn",
+      "audio": "audio/hsk3/ed7486a07a29fff1.mp3"
+    },
+    {
+      "hanzi": "结束",
+      "pinyin": "jiéshù",
+      "level": 3,
+      "meaning": "chấm dứt; để kết thúc; kết thúc; để kết luận",
+      "audio": "audio/hsk3/c7b24e7997e96eaa.mp3"
+    },
+    {
+      "hanzi": "姐妹",
+      "pinyin": "jiěmèi",
+      "level": 3,
+      "meaning": "chị em; anh chị em ruột; chị gái (trường học, thành phố, v.v.)",
+      "audio": "audio/hsk3/22a82bc61fef0e31.mp3"
+    },
+    {
+      "hanzi": "解决",
+      "pinyin": "jiějué",
+      "level": 3,
+      "meaning": "để giải quyết; để giải quyết; giải quyết (một vấn đề); để loại bỏ; quét sạch (kẻ thù, kẻ cướp, v.v.)",
+      "audio": "audio/hsk3/5516eb8280b50ab4.mp3"
+    },
+    {
+      "hanzi": "借",
+      "pinyin": "jiè",
+      "level": 3,
+      "meaning": "vay mượn; (dùng kết hợp với 給|给 hoặc 出 v.v.) để cho vay; để sử dụng; để tận dụng chính mình; (đôi khi theo sau là 著|着) bởi; với; biến thể của 借",
+      "audio": "audio/hsk3/2b264025e323409f.mp3"
+    },
+    {
+      "hanzi": "斤",
+      "pinyin": "jīn",
+      "level": 3,
+      "meaning": "catty; (PRC) trọng lượng bằng 500 g; (Tw) trọng lượng bằng 600 g; (HK, Malaysia, Singapore) hơn 604 g một chút",
+      "audio": "audio/hsk3/53eb39ce7a19b739.mp3"
+    },
+    {
+      "hanzi": "经过",
+      "pinyin": "jīngguò",
+      "level": 3,
+      "meaning": "vượt qua; đi qua; quá trình; khóa học",
+      "audio": "audio/hsk3/91d7950ecf64e256.mp3"
+    },
+    {
+      "hanzi": "经理",
+      "pinyin": "jīnglǐ",
+      "level": 3,
+      "meaning": "người quản lý; giám đốc",
+      "audio": "audio/hsk3/d2c8576739e011e1.mp3"
+    },
+    {
+      "hanzi": "久",
+      "pinyin": "jiǔ",
+      "level": 3,
+      "meaning": "(về một khoảng thời gian) dài",
+      "audio": "audio/hsk3/4302da3d1fe8e554.mp3"
+    },
+    {
+      "hanzi": "酒",
+      "pinyin": "jiǔ",
+      "level": 3,
+      "meaning": "rượu vang (đặc biệt là rượu gạo); rượu; tinh thần; đồ uống có cồn",
+      "audio": "audio/hsk3/8b7c6d87472d8688.mp3"
+    },
+    {
+      "hanzi": "旧",
+      "pinyin": "jiù",
+      "level": 3,
+      "meaning": "cũ",
+      "audio": "audio/hsk3/4fbc8134f6d04d80.mp3"
+    },
+    {
+      "hanzi": "句",
+      "pinyin": "jù",
+      "level": 3,
+      "meaning": "câu; điều khoản; cụm từ; phân loại cho các cụm từ hoặc dòng thơ",
+      "audio": "audio/hsk3/cd583bc65b686ec9.mp3"
+    },
+    {
+      "hanzi": "句子",
+      "pinyin": "jùzi",
+      "level": 3,
+      "meaning": "câu",
+      "audio": "audio/hsk3/ea3a456491382f60.mp3"
+    },
+    {
+      "hanzi": "决定",
+      "pinyin": "juédìng",
+      "level": 3,
+      "meaning": "quyết định; để xác định; quyết định; quyết định (CL:個|个,項|项)",
+      "audio": "audio/hsk3/f4aafaba3be7ad87.mp3"
+    },
+    {
+      "hanzi": "卡",
+      "pinyin": "kǎ",
+      "level": 3,
+      "meaning": "dừng lại; chặn; (máy tính) (thuật ngữ) chậm; (từ mượn) thẻ",
+      "audio": "audio/hsk3/cd2d6e9919fdf2b3.mp3"
+    },
+    {
+      "hanzi": "开花",
+      "pinyin": "kāihuā",
+      "level": 3,
+      "meaning": "nở hoa; nở hoa; ra hoa; (hình) nổ tung; để mở ra; (hình.) vỡ òa vì vui sướng; (hình) mọc lên khắp nơi; phát triển mạnh mẽ",
+      "audio": "audio/hsk3/0be1f248cf96b92c.mp3"
+    },
+    {
+      "hanzi": "开会",
+      "pinyin": "kāihuì",
+      "level": 3,
+      "meaning": "tổ chức một cuộc họp; tham dự một cuộc họp",
+      "audio": "audio/hsk3/b406359aa585c4bc.mp3"
+    },
+    {
+      "hanzi": "开机",
+      "pinyin": "kāijī",
+      "level": 3,
+      "meaning": "để khởi động động cơ; khởi động (máy tính); nhấn Ctrl-Alt-Delete; bắt đầu quay một bộ phim hoặc chương trình truyền hình",
+      "audio": "audio/hsk3/da4ea0ec27408db9.mp3"
+    },
+    {
+      "hanzi": "开心",
+      "pinyin": "kāixīn",
+      "level": 3,
+      "meaning": "cảm thấy hạnh phúc; vui mừng; để có một thời gian tuyệt vời; để trêu chọc ai đó",
+      "audio": "audio/hsk3/6e067999e2407ee3.mp3"
+    },
+    {
+      "hanzi": "看来",
+      "pinyin": "kànlai",
+      "level": 3,
+      "meaning": "rõ ràng; có vẻ như vậy",
+      "audio": "audio/hsk3/d2fb0dadf8ed030e.mp3"
+    },
+    {
+      "hanzi": "可",
+      "pinyin": "kě",
+      "level": 3,
+      "meaning": "(tiền tố) có thể; có thể; có khả năng; -có thể; phê duyệt; cho phép; cho phù hợp; (danh từ dùng để nhấn mạnh) chắc chắn rồi; rất",
+      "audio": "audio/hsk3/8b9cefa38e83e2fd.mp3"
+    },
+    {
+      "hanzi": "可爱",
+      "pinyin": "kěài",
+      "level": 3,
+      "meaning": "đáng yêu; dễ thương; đáng yêu",
+      "audio": "audio/hsk3/ae5412cf7235c807.mp3"
+    },
+    {
+      "hanzi": "可是",
+      "pinyin": "kěshì",
+      "level": 3,
+      "meaning": "Nhưng; Tuy nhiên; (dùng để nhấn mạnh) thực sự",
+      "audio": "audio/hsk3/38ca4a9c76b13303.mp3"
+    },
+    {
+      "hanzi": "渴",
+      "pinyin": "kě",
+      "level": 3,
+      "meaning": "khát nước",
+      "audio": "audio/hsk3/3dcae0ae0b0e7af5.mp3"
+    },
+    {
+      "hanzi": "刻",
+      "pinyin": "kè",
+      "level": 3,
+      "meaning": "quý (giờ); chốc lát; khắc; khắc",
+      "audio": "audio/hsk3/3ccf035260d523fb.mp3"
+    },
+    {
+      "hanzi": "客人",
+      "pinyin": "kèrén",
+      "level": 3,
+      "meaning": "du khách; khách mời; khách hàng; khách hàng",
+      "audio": "audio/hsk3/8dd49b2272ea8020.mp3"
+    },
+    {
+      "hanzi": "课本",
+      "pinyin": "kèběn",
+      "level": 3,
+      "meaning": "sách giáo khoa",
+      "audio": "audio/hsk3/5aba39cfdf6ddf0e.mp3"
+    },
+    {
+      "hanzi": "课文",
+      "pinyin": "kèwén",
+      "level": 3,
+      "meaning": "văn bản",
+      "audio": "audio/hsk3/d2efe5ca7fdc4ef6.mp3"
+    },
+    {
+      "hanzi": "空调",
+      "pinyin": "kōngtiáo",
+      "level": 3,
+      "meaning": "điều hòa không khí; điều hòa không khí (bao gồm cả các thiết bị có chế độ sưởi ấm)",
+      "audio": "audio/hsk3/9f10fe658f243bc9.mp3"
+    },
+    {
+      "hanzi": "哭",
+      "pinyin": "kū",
+      "level": 3,
+      "meaning": "khóc; khóc",
+      "audio": "audio/hsk3/32f573b748b711c3.mp3"
+    },
+    {
+      "hanzi": "筷子",
+      "pinyin": "kuàizi",
+      "level": 3,
+      "meaning": "đũa",
+      "audio": "audio/hsk3/399893f69b9b91c9.mp3"
+    },
+    {
+      "hanzi": "矿泉水",
+      "pinyin": "kuàngquánshuǐ",
+      "level": 3,
+      "meaning": "nước khoáng",
+      "audio": "audio/hsk3/6b1311e9a899a0d4.mp3"
+    },
+    {
+      "hanzi": "来自",
+      "pinyin": "láizì",
+      "level": 3,
+      "meaning": "đến từ (một nơi); Từ: (trong tiêu đề email)",
+      "audio": "audio/hsk3/9b6a4a82e39df105.mp3"
+    },
+    {
+      "hanzi": "蓝",
+      "pinyin": "lán",
+      "level": 3,
+      "meaning": "họ Lân; màu xanh da trời; cây chàm",
+      "audio": "audio/hsk3/52f354ecfccbb8e6.mp3"
+    },
+    {
+      "hanzi": "老",
+      "pinyin": "lǎo",
+      "level": 3,
+      "meaning": "già; lâu năm",
+      "audio": "audio/hsk3/f91f5faf74703314.mp3"
+    },
+    {
+      "hanzi": "老人",
+      "pinyin": "lǎorén",
+      "level": 3,
+      "meaning": "ông già hay bà già; người già; cha mẹ hoặc ông bà già của một người",
+      "audio": "audio/hsk3/94c14736de4ee0f7.mp3"
+    },
+    {
+      "hanzi": "了解",
+      "pinyin": "liǎojiě",
+      "level": 3,
+      "meaning": "hiểu; nhận ra; để tìm hiểu",
+      "audio": "audio/hsk3/aecbe4cbd4449c9a.mp3"
+    },
+    {
+      "hanzi": "离开",
+      "pinyin": "líkāi",
+      "level": 3,
+      "meaning": "khởi hành; rời đi",
+      "audio": "audio/hsk3/7345ed45ce936fff.mp3"
+    },
+    {
+      "hanzi": "礼物",
+      "pinyin": "lǐwù",
+      "level": 3,
+      "meaning": "quà tặng; hiện tại",
+      "audio": "audio/hsk3/bd2214d95e800c4f.mp3"
+    },
+    {
+      "hanzi": "历史",
+      "pinyin": "lìshǐ",
+      "level": 3,
+      "meaning": "lịch sử",
+      "audio": "audio/hsk3/b0385cfe4b424d83.mp3"
+    },
+    {
+      "hanzi": "脸",
+      "pinyin": "liǎn",
+      "level": 3,
+      "meaning": "đối mặt",
+      "audio": "audio/hsk3/78392c2e9d07a484.mp3"
+    },
+    {
+      "hanzi": "练",
+      "pinyin": "liàn",
+      "level": 3,
+      "meaning": "để thực hành; đào tạo; khoan; hoàn thiện (kỹ năng của một người)",
+      "audio": "audio/hsk3/7166addd7996d171.mp3"
+    },
+    {
+      "hanzi": "练习",
+      "pinyin": "liànxí",
+      "level": 3,
+      "meaning": "để thực hành; bài tập; máy khoan; luyện tập",
+      "audio": "audio/hsk3/3cae1f75ef711370.mp3"
+    },
+    {
+      "hanzi": "凉快",
+      "pinyin": "liángkuai",
+      "level": 3,
+      "meaning": "mát mẻ dễ chịu (thời tiết, v.v.); để làm mát bản thân; để nguội đi; (Tw) (từ lóng) (của quần áo) ít ỏi; lộ liễu; (colll.) tránh xa nó; để mông ra",
+      "audio": "audio/hsk3/b640ad963c78d70d.mp3"
+    },
+    {
+      "hanzi": "辆",
+      "pinyin": "liàng",
+      "level": 3,
+      "meaning": "phân loại xe cộ",
+      "audio": "audio/hsk3/5a724f9b2bfd38ba.mp3"
+    },
+    {
+      "hanzi": "聊",
+      "pinyin": "liáo",
+      "level": 3,
+      "meaning": "(col.) để trò chuyện; tạm thời; một lúc; phần nào; nhẹ nhàng; phụ thuộc vào",
+      "audio": "audio/hsk3/51e262f5cc44ce0c.mp3"
+    },
+    {
+      "hanzi": "聊天儿",
+      "pinyin": "liáotiānr",
+      "level": 3,
+      "meaning": "biến thể đàn nhị của 聊天",
+      "audio": "audio/hsk3/d0a778b77e6baab1.mp3"
+    },
+    {
+      "hanzi": "邻居",
+      "pinyin": "línjū",
+      "level": 3,
+      "meaning": "hàng xóm",
+      "audio": "audio/hsk3/58cf5de1eb45dbcc.mp3"
+    },
+    {
+      "hanzi": "留学",
+      "pinyin": "liúxué",
+      "level": 3,
+      "meaning": "đi du học",
+      "audio": "audio/hsk3/3a036c64c60c77d1.mp3"
+    },
+    {
+      "hanzi": "留学生",
+      "pinyin": "liúxuéshēng",
+      "level": 3,
+      "meaning": "sinh viên du học ở nước ngoài; học sinh trở về; sinh viên nước ngoài; sinh viên quốc tế",
+      "audio": "audio/hsk3/0aafc21fe06b486d.mp3"
+    },
+    {
+      "hanzi": "楼梯",
+      "pinyin": "lóutī",
+      "level": 3,
+      "meaning": "cầu thang; cầu thang",
+      "audio": "audio/hsk3/66a03a3ae3a13db9.mp3"
+    },
+    {
+      "hanzi": "路边",
+      "pinyin": "lùbiān",
+      "level": 3,
+      "meaning": "lề đường; ven đường; bên đường",
+      "audio": "audio/hsk3/2784741e4b61faa0.mp3"
+    },
+    {
+      "hanzi": "路口",
+      "pinyin": "lùkǒu",
+      "level": 3,
+      "meaning": "băng qua; ngã tư (đường)",
+      "audio": "audio/hsk3/4f986690b0dad778.mp3"
+    },
+    {
+      "hanzi": "马",
+      "pinyin": "mǎ",
+      "level": 3,
+      "meaning": "họ Mã; abbr. đối với Malaysia 馬來西亞|马来西亚; ngựa; quân ngựa hoặc kỵ binh trong cờ tướng; hiệp sĩ trong cờ vua phương Tây",
+      "audio": "audio/hsk3/a25ee73c98d16172.mp3"
+    },
+    {
+      "hanzi": "马路",
+      "pinyin": "mǎlù",
+      "level": 3,
+      "meaning": "đường phố; đường",
+      "audio": "audio/hsk3/19f5a424bd5cbc8d.mp3"
+    },
+    {
+      "hanzi": "马上",
+      "pinyin": "mǎshàng",
+      "level": 3,
+      "meaning": "cùng một lúc; ngay lập tức; ngay lập tức; trên lưng ngựa (tức là bằng lực lượng quân sự)",
+      "audio": "audio/hsk3/cc86c595a88aec0b.mp3"
+    },
+    {
+      "hanzi": "满意",
+      "pinyin": "mǎnyì",
+      "level": 3,
+      "meaning": "hài lòng; vừa lòng; đến sự hài lòng của một người",
+      "audio": "audio/hsk3/128ca464c756f2c1.mp3"
+    },
+    {
+      "hanzi": "毛",
+      "pinyin": "máo",
+      "level": 3,
+      "meaning": "họ Mao; tóc; lông vũ; xuống; len",
+      "audio": "audio/hsk3/99a8f4358612d50b.mp3"
+    },
+    {
+      "hanzi": "米",
+      "pinyin": "mǐ",
+      "level": 3,
+      "meaning": "họ Mi; cơm chưa nấu chín; mét (đơn vị chiều dài); (từ lóng) đồng nhân dân tệ của Trung Quốc",
+      "audio": "audio/hsk3/1aac8b956f808df5.mp3"
+    },
+    {
+      "hanzi": "面前",
+      "pinyin": "miànqián",
+      "level": 3,
+      "meaning": "ở phía trước; đối mặt; (trong) sự hiện diện (của)",
+      "audio": "audio/hsk3/6ce20e4c6ad656d6.mp3"
+    },
+    {
+      "hanzi": "名单",
+      "pinyin": "míngdān",
+      "level": 3,
+      "meaning": "danh sách tên",
+      "audio": "audio/hsk3/af488f5f257bd0b2.mp3"
+    },
+    {
+      "hanzi": "名人",
+      "pinyin": "míngrén",
+      "level": 3,
+      "meaning": "nhân vật; người nổi tiếng",
+      "audio": "audio/hsk3/3f1972678f8abe60.mp3"
+    },
+    {
+      "hanzi": "明白",
+      "pinyin": "míngbai",
+      "level": 3,
+      "meaning": "hiểu rõ",
+      "audio": "audio/hsk3/8e37cd5f7f76c831.mp3"
+    },
+    {
+      "hanzi": "男人",
+      "pinyin": "nánrén",
+      "level": 3,
+      "meaning": "đàn ông",
+      "audio": "audio/hsk3/a68402d40477a82d.mp3"
+    },
+    {
+      "hanzi": "男生",
+      "pinyin": "nánshēng",
+      "level": 3,
+      "meaning": "cậu học sinh; nam sinh viên; con trai; chàng trai (nam thanh niên)",
+      "audio": "audio/hsk3/ef08455cb3062a7b.mp3"
+    },
+    {
+      "hanzi": "南",
+      "pinyin": "nán",
+      "level": 3,
+      "meaning": "họ Nam; miền nam",
+      "audio": "audio/hsk3/b2f94b1034506f37.mp3"
+    },
+    {
+      "hanzi": "南方",
+      "pinyin": "nánfāng",
+      "level": 3,
+      "meaning": "phía nam; hướng nam; (ở Trung Quốc) khu vực phía nam, thường đề cập đến khu vực phía nam sông Dương Tử",
+      "audio": "audio/hsk3/551ee9cf1235d598.mp3"
+    },
+    {
+      "hanzi": "难",
+      "pinyin": "nán",
+      "level": 3,
+      "meaning": "khó (đến...); vấn đề; khó khăn; khó khăn",
+      "audio": "audio/hsk3/de73e9045636fb33.mp3"
+    },
+    {
+      "hanzi": "难过",
+      "pinyin": "nánguò",
+      "level": 3,
+      "meaning": "cảm thấy buồn; cảm thấy không khỏe; (của cuộc sống) trở nên khó khăn",
+      "audio": "audio/hsk3/668ce09171c3021a.mp3"
+    },
+    {
+      "hanzi": "难看",
+      "pinyin": "nánkàn",
+      "level": 3,
+      "meaning": "xấu xí; khó coi",
+      "audio": "audio/hsk3/c8dc523aa86c3290.mp3"
+    },
+    {
+      "hanzi": "难题",
+      "pinyin": "nántí",
+      "level": 3,
+      "meaning": "vấn đề khó khăn",
+      "audio": "audio/hsk3/0af1dcb2d2aa58e4.mp3"
+    },
+    {
+      "hanzi": "难听",
+      "pinyin": "nántīng",
+      "level": 3,
+      "meaning": "khó nghe; thô; thô tục; xúc phạm",
+      "audio": "audio/hsk3/d5a07f1fdc093654.mp3"
+    },
+    {
+      "hanzi": "年级",
+      "pinyin": "niánjí",
+      "level": 3,
+      "meaning": "lớp; năm (ở trường, đại học, v.v.)",
+      "audio": "audio/hsk3/3f458403162ef5c8.mp3"
+    },
+    {
+      "hanzi": "年轻",
+      "pinyin": "niánqīng",
+      "level": 3,
+      "meaning": "trẻ",
+      "audio": "audio/hsk3/82c3aeef9c316dfa.mp3"
+    },
+    {
+      "hanzi": "牛",
+      "pinyin": "niú",
+      "level": 3,
+      "meaning": "họ Ngưu; con bò đực; bò; bò đực; newton",
+      "audio": "audio/hsk3/a7bee35f18c1c782.mp3"
+    },
+    {
+      "hanzi": "努力",
+      "pinyin": "nǔlì",
+      "level": 3,
+      "meaning": "nỗ lực; cố gắng hết sức; phấn đấu; chăm chỉ; tận tâm",
+      "audio": "audio/hsk3/abe26aa668de1e20.mp3"
+    },
+    {
+      "hanzi": "女人",
+      "pinyin": "nǚrén",
+      "level": 3,
+      "meaning": "phụ nữ",
+      "audio": "audio/hsk3/7148666b21d61397.mp3"
+    },
+    {
+      "hanzi": "女生",
+      "pinyin": "nǚshēng",
+      "level": 3,
+      "meaning": "nữ sinh; nữ sinh viên; cô gái",
+      "audio": "audio/hsk3/79cdb978c703640a.mp3"
+    },
+    {
+      "hanzi": "爬",
+      "pinyin": "pá",
+      "level": 3,
+      "meaning": "bò; leo lên; đứng dậy hoặc ngồi dậy",
+      "audio": "audio/hsk3/14c221b376b7551f.mp3"
+    },
+    {
+      "hanzi": "怕",
+      "pinyin": "pà",
+      "level": 3,
+      "meaning": "họ Pa; sợ hãi; sợ hãi; sợ hãi; không thể chịu đựng được",
+      "audio": "audio/hsk3/0d2c43256849e491.mp3"
+    },
+    {
+      "hanzi": "拍照",
+      "pinyin": "pāizhào",
+      "level": 3,
+      "meaning": "để chụp ảnh",
+      "audio": "audio/hsk3/6e3a10ade7c74955.mp3"
+    },
+    {
+      "hanzi": "盘子",
+      "pinyin": "pánzi",
+      "level": 3,
+      "meaning": "khay; đĩa; món ăn",
+      "audio": "audio/hsk3/f13de7aaabf88374.mp3"
+    },
+    {
+      "hanzi": "胖",
+      "pinyin": "pàng",
+      "level": 3,
+      "meaning": "béo; đầy đặn",
+      "audio": "audio/hsk3/e515ff5d676871be.mp3"
+    },
+    {
+      "hanzi": "啤酒",
+      "pinyin": "píjiǔ",
+      "level": 3,
+      "meaning": "bia (từ mượn)",
+      "audio": "audio/hsk3/6ce042f4036c671b.mp3"
+    },
+    {
+      "hanzi": "平时",
+      "pinyin": "píngshí",
+      "level": 3,
+      "meaning": "thông thường; trong thời gian bình thường; trong thời bình",
+      "audio": "audio/hsk3/384d1330c0276bba.mp3"
+    },
+    {
+      "hanzi": "瓶子",
+      "pinyin": "píngzi",
+      "level": 3,
+      "meaning": "chai",
+      "audio": "audio/hsk3/912c83d0221b890c.mp3"
+    },
+    {
+      "hanzi": "其实",
+      "pinyin": "qíshí",
+      "level": 3,
+      "meaning": "thực ra; Trên thực tế; Thực ra",
+      "audio": "audio/hsk3/8293a25840ecee05.mp3"
+    },
+    {
+      "hanzi": "其他",
+      "pinyin": "qítā",
+      "level": 3,
+      "meaning": "khác; (sth hoặc sb) khác; phần còn lại",
+      "audio": "audio/hsk3/d2909f1647e7c891.mp3"
+    },
+    {
+      "hanzi": "奇怪",
+      "pinyin": "qíguài",
+      "level": 3,
+      "meaning": "kỳ lạ; số lẻ; ngạc nhiên; bị bối rối",
+      "audio": "audio/hsk3/3bd3de5492af8970.mp3"
+    },
+    {
+      "hanzi": "骑",
+      "pinyin": "qí",
+      "level": 3,
+      "meaning": "ngồi dạng chân; đi xe (ngựa, xe đạp, v.v.); phân loại ngựa yên ngựa",
+      "audio": "audio/hsk3/29b98b260b096fba.mp3"
+    },
+    {
+      "hanzi": "起",
+      "pinyin": "qǐ",
+      "level": 3,
+      "meaning": "tăng lên; nâng cao; đứng dậy; khởi hành",
+      "audio": "audio/hsk3/3f3ed24bab3fc188.mp3"
+    },
+    {
+      "hanzi": "起飞",
+      "pinyin": "qǐfēi",
+      "level": 3,
+      "meaning": "(của máy bay hoặc tên lửa) cất cánh; nhấc lên; (hình) (của một doanh nghiệp, v.v.) bắt đầu phát triển nhanh chóng",
+      "audio": "audio/hsk3/a7c75dfe163b8369.mp3"
+    },
+    {
+      "hanzi": "汽车",
+      "pinyin": "qìchē",
+      "level": 3,
+      "meaning": "ô tô; ô tô; xe buýt",
+      "audio": "audio/hsk3/1a19b5468c0683ab.mp3"
+    },
+    {
+      "hanzi": "铅笔",
+      "pinyin": "qiānbǐ",
+      "level": 3,
+      "meaning": "(chì) bút chì",
+      "audio": "audio/hsk3/f77e30ee1aed8819.mp3"
+    },
+    {
+      "hanzi": "前年",
+      "pinyin": "qiánnián",
+      "level": 3,
+      "meaning": "năm trước năm ngoái",
+      "audio": "audio/hsk3/d82aa9d14387e880.mp3"
+    },
+    {
+      "hanzi": "前天",
+      "pinyin": "qiántiān",
+      "level": 3,
+      "meaning": "ngày hôm kia",
+      "audio": "audio/hsk3/807710c9439571b7.mp3"
+    },
+    {
+      "hanzi": "清楚",
+      "pinyin": "qīngchu",
+      "level": 3,
+      "meaning": "rõ ràng; riêng biệt; hiểu tường tận; để rõ ràng về",
+      "audio": "audio/hsk3/3754e7935633b577.mp3"
+    },
+    {
+      "hanzi": "请假",
+      "pinyin": "qǐngjià",
+      "level": 3,
+      "meaning": "xin nghỉ phép",
+      "audio": "audio/hsk3/e2c0262fb6c5d2fc.mp3"
+    },
+    {
+      "hanzi": "请客",
+      "pinyin": "qǐngkè",
+      "level": 3,
+      "meaning": "tổ chức một bữa tiệc tối; để giải trí cho khách; mời đi ăn tối",
+      "audio": "audio/hsk3/48f2b3f6e53cf4e9.mp3"
+    },
+    {
+      "hanzi": "秋天",
+      "pinyin": "qiūtiān",
+      "level": 3,
+      "meaning": "mùa thu",
+      "audio": "audio/hsk3/21691f1b8e10ff5b.mp3"
+    },
+    {
+      "hanzi": "球场",
+      "pinyin": "qiúchǎng",
+      "level": 3,
+      "meaning": "sân vận động; sân thể thao; tòa án; cao độ",
+      "audio": "audio/hsk3/f0e81e10acd51f3a.mp3"
+    },
+    {
+      "hanzi": "裙子",
+      "pinyin": "qúnzi",
+      "level": 3,
+      "meaning": "váy",
+      "audio": "audio/hsk3/ee9ce792c80d0846.mp3"
+    },
+    {
+      "hanzi": "然后",
+      "pinyin": "ránhòu",
+      "level": 3,
+      "meaning": "thì; sau đó; sau đó",
+      "audio": "audio/hsk3/ca4f5ee82e28628d.mp3"
+    },
+    {
+      "hanzi": "热情",
+      "pinyin": "rèqíng",
+      "level": 3,
+      "meaning": "thân mật; nhiệt tình; niềm đam mê; đam mê",
+      "audio": "audio/hsk3/6dc3c72f4c3d1934.mp3"
+    },
+    {
+      "hanzi": "认得",
+      "pinyin": "rènde",
+      "level": 3,
+      "meaning": "để nhận ra; nhớ lại điều gì đó (hoặc sb) khi nhìn thấy nó; để biết",
+      "audio": "audio/hsk3/2156146cf64dd24c.mp3"
+    },
+    {
+      "hanzi": "认为",
+      "pinyin": "rènwéi",
+      "level": 3,
+      "meaning": "tin tưởng; suy nghĩ; để xem xét; cảm nhận",
+      "audio": "audio/hsk3/31e43519db636cc3.mp3"
+    },
+    {
+      "hanzi": "认真",
+      "pinyin": "rènzhēn",
+      "level": 3,
+      "meaning": "tận tâm; nghiêm trang; nghiêm trọng; nghiêm túc",
+      "audio": "audio/hsk3/c8051ef2e9c0e573.mp3"
+    },
+    {
+      "hanzi": "容易",
+      "pinyin": "róngyì",
+      "level": 3,
+      "meaning": "dễ dàng; thẳng thắn; rất có thể; chịu trách nhiệm; thích hợp với",
+      "audio": "audio/hsk3/2d945fb37d9aeb26.mp3"
+    },
+    {
+      "hanzi": "如果",
+      "pinyin": "rúguǒ",
+      "level": 3,
+      "meaning": "nếu",
+      "audio": "audio/hsk3/7ca71b72d778ca8a.mp3"
+    },
+    {
+      "hanzi": "伞",
+      "pinyin": "sǎn",
+      "level": 3,
+      "meaning": "ô; dù che nắng; lụa gấm hoa; biến thể của 傘|伞",
+      "audio": "audio/hsk3/99b0fd962a831543.mp3"
+    },
+    {
+      "hanzi": "扫",
+      "pinyin": "sǎo",
+      "level": 3,
+      "meaning": "quét (bằng bàn chải hoặc chổi); quét đi; quét sạch; để thoát khỏi; quét (mắt của một người, v.v.) qua; để quét",
+      "audio": "audio/hsk3/ed9077ece92c6bc1.mp3"
+    },
+    {
+      "hanzi": "沙发",
+      "pinyin": "shāfā",
+      "level": 3,
+      "meaning": "(từ mượn) sofa (CL:條|条,張|张); (tiếng lóng trên Internet) lần đầu tiên trả lời một bài đăng trên diễn đàn",
+      "audio": "audio/hsk3/961085f3c7ef705a.mp3"
+    },
+    {
+      "hanzi": "山",
+      "pinyin": "shān",
+      "level": 3,
+      "meaning": "họ Sơn; núi; đồi (CL:座); (coll.) bó rơm nhỏ để con tằm quay kén",
+      "audio": "audio/hsk3/4862540a299762b3.mp3"
+    },
+    {
+      "hanzi": "上衣",
+      "pinyin": "shàngyī",
+      "level": 3,
+      "meaning": "áo khoác; quần áo bên ngoài phía trên",
+      "audio": "audio/hsk3/f0ed5fbca3799767.mp3"
+    },
+    {
+      "hanzi": "勺子",
+      "pinyin": "sháozi",
+      "level": 3,
+      "meaning": "thìa; cái muôi",
+      "audio": "audio/hsk3/72407ec665b596b8.mp3"
+    },
+    {
+      "hanzi": "身边",
+      "pinyin": "shēnbiān",
+      "level": 3,
+      "meaning": "ở bên cạnh; trong tay",
+      "audio": "audio/hsk3/d185a827d4ffbe91.mp3"
+    },
+    {
+      "hanzi": "身高",
+      "pinyin": "shēngāo",
+      "level": 3,
+      "meaning": "chiều cao (của một người)",
+      "audio": "audio/hsk3/2763b73dd129f286.mp3"
+    },
+    {
+      "hanzi": "生活",
+      "pinyin": "shēnghuó",
+      "level": 3,
+      "meaning": "sống; mạng sống; sinh kế",
+      "audio": "audio/hsk3/15d208d1b4c98aae.mp3"
+    },
+    {
+      "hanzi": "生气",
+      "pinyin": "shēngqì",
+      "level": 3,
+      "meaning": "tức giận; tức giận; sức sống; sự sống động",
+      "audio": "audio/hsk3/1080332a28b0e082.mp3"
+    },
+    {
+      "hanzi": "声",
+      "pinyin": "shēng",
+      "level": 3,
+      "meaning": "âm thanh; tiếng nói; giai điệu; tiếng ồn",
+      "audio": "audio/hsk3/693e132f27eb39e7.mp3"
+    },
+    {
+      "hanzi": "声音",
+      "pinyin": "shēngyīn",
+      "level": 3,
+      "meaning": "giọng nói; âm thanh",
+      "audio": "audio/hsk3/473400815c0f687d.mp3"
+    },
+    {
+      "hanzi": "世界",
+      "pinyin": "shìjiè",
+      "level": 3,
+      "meaning": "thế giới",
+      "audio": "audio/hsk3/33650a369521ec29.mp3"
+    },
+    {
+      "hanzi": "市",
+      "pinyin": "shì",
+      "level": 3,
+      "meaning": "thị trường; thành phố; đô thị (đơn vị hành chính); để buôn bán; để mua và bán hàng hóa",
+      "audio": "audio/hsk3/767c596dbfefebd1.mp3"
+    },
+    {
+      "hanzi": "试",
+      "pinyin": "shì",
+      "level": 3,
+      "meaning": "để kiểm tra; thử; cuộc thí nghiệm; bài kiểm tra",
+      "audio": "audio/hsk3/ce9eb4ea7bf3c682.mp3"
+    },
+    {
+      "hanzi": "室",
+      "pinyin": "shì",
+      "level": 3,
+      "meaning": "họ Thạch; phòng; đơn vị công tác; mộ; bao kiếm",
+      "audio": "audio/hsk3/a9eb9a4ae1027b1b.mp3"
+    },
+    {
+      "hanzi": "收",
+      "pinyin": "shōu",
+      "level": 3,
+      "meaning": "nhận được; chấp nhận; để thu thập; bỏ đi",
+      "audio": "audio/hsk3/339bacf403051262.mp3"
+    },
+    {
+      "hanzi": "收到",
+      "pinyin": "shōudào",
+      "level": 3,
+      "meaning": "để nhận",
+      "audio": "audio/hsk3/e2c6751f828b50fd.mp3"
+    },
+    {
+      "hanzi": "受",
+      "pinyin": "shòu",
+      "level": 3,
+      "meaning": "nhận được; chấp nhận; đau khổ; phải chịu",
+      "audio": "audio/hsk3/b9bef45c39d8fb02.mp3"
+    },
+    {
+      "hanzi": "受到",
+      "pinyin": "shòudào",
+      "level": 3,
+      "meaning": "nhận được (khen ngợi, giáo dục, trừng phạt, v.v.); được ...ed (khen ngợi, giáo dục, trừng phạt, v.v.)",
+      "audio": "audio/hsk3/48d3e75b9ee514f5.mp3"
+    },
+    {
+      "hanzi": "瘦",
+      "pinyin": "shòu",
+      "level": 3,
+      "meaning": "mỏng; để giảm cân; (về quần áo) chật; (của thịt) nạc",
+      "audio": "audio/hsk3/da6cdf23a2455ac7.mp3"
+    },
+    {
+      "hanzi": "叔叔",
+      "pinyin": "shūshu",
+      "level": 3,
+      "meaning": "em trai của bố; chú ruột; dạng địa chỉ được trẻ em sử dụng cho nam giới lớn hơn một thế hệ",
+      "audio": "audio/hsk3/3aea6dc123efe59a.mp3"
+    },
+    {
+      "hanzi": "树",
+      "pinyin": "shù",
+      "level": 3,
+      "meaning": "cây; trồng trọt; để thiết lập",
+      "audio": "audio/hsk3/635643d28367e5e0.mp3"
+    },
+    {
+      "hanzi": "数学",
+      "pinyin": "shùxué",
+      "level": 3,
+      "meaning": "toán học",
+      "audio": "audio/hsk3/872c1fa141b5ed8d.mp3"
+    },
+    {
+      "hanzi": "刷",
+      "pinyin": "shuā",
+      "level": 3,
+      "meaning": "một bàn chải; vẽ; bôi bẩn; chải; để chà; (hình) để loại bỏ; loại bỏ (khỏi một cuộc thi); sa thải (từ một công việc)",
+      "audio": "audio/hsk3/59c12e43edefe7c4.mp3"
+    },
+    {
+      "hanzi": "双",
+      "pinyin": "shuāng",
+      "level": 3,
+      "meaning": "biến thể của 雙|双; họ Shuang",
+      "audio": "audio/hsk3/6fc4411ce5672f6d.mp3"
+    },
+    {
+      "hanzi": "水平",
+      "pinyin": "shuǐpíng",
+      "level": 3,
+      "meaning": "ngang; mức độ; một tiêu chuẩn; một mức độ (khả năng, sự phát triển, v.v.)",
+      "audio": "audio/hsk3/4995b90d72fc59f9.mp3"
+    },
+    {
+      "hanzi": "司机",
+      "pinyin": "sījī",
+      "level": 3,
+      "meaning": "tài xế; người lái xe",
+      "audio": "audio/hsk3/6687e5e0d4b16ed0.mp3"
+    },
+    {
+      "hanzi": "四季",
+      "pinyin": "sìjì",
+      "level": 3,
+      "meaning": "bốn mùa, cụ thể là: xuân 春, hạ 夏, thu 秋 và đông 冬",
+      "audio": "audio/hsk3/c075a3e58858d6e1.mp3"
+    },
+    {
+      "hanzi": "太阳",
+      "pinyin": "tàiyang",
+      "level": 3,
+      "meaning": "mặt trời; ánh sáng mặt trời; ánh nắng mặt trời; ngôi đền (ở phía đầu người)",
+      "audio": "audio/hsk3/5c313602f7beb485.mp3"
+    },
+    {
+      "hanzi": "糖",
+      "pinyin": "táng",
+      "level": 3,
+      "meaning": "đường; đồ ngọt; kẹo; biến thể cũ của 糖",
+      "audio": "audio/hsk3/c86bc88f26043273.mp3"
+    },
+    {
+      "hanzi": "特别",
+      "pinyin": "tèbié",
+      "level": 3,
+      "meaning": "bất thường; đặc biệt; rất; đặc biệt; cụ thể; rõ ràng; cho một mục đích cụ thể; (thường theo sau là 是) nói riêng",
+      "audio": "audio/hsk3/f02c4801c1c04ee3.mp3"
+    },
+    {
+      "hanzi": "提高",
+      "pinyin": "tígāo",
+      "level": 3,
+      "meaning": "nâng cao; tăng lên; để cải thiện",
+      "audio": "audio/hsk3/1686f268e494583f.mp3"
+    },
+    {
+      "hanzi": "体育",
+      "pinyin": "tǐyù",
+      "level": 3,
+      "meaning": "thể thao; giáo dục thể chất",
+      "audio": "audio/hsk3/ef7be5be3c137fb6.mp3"
+    },
+    {
+      "hanzi": "体育馆",
+      "pinyin": "tǐyùguǎn",
+      "level": 3,
+      "meaning": "phòng tập thể dục; phòng tập thể dục; sân vận động",
+      "audio": "audio/hsk3/1a8befbb8839c904.mp3"
+    },
+    {
+      "hanzi": "甜",
+      "pinyin": "tián",
+      "level": 3,
+      "meaning": "ngọt ngào; (hình) dễ chịu; đáng yêu; đáng yêu",
+      "audio": "audio/hsk3/10fe8c1b5c227472.mp3"
+    },
+    {
+      "hanzi": "跳",
+      "pinyin": "tiào",
+      "level": 3,
+      "meaning": "nhảy; nhảy lò cò; bỏ qua; nảy lên",
+      "audio": "audio/hsk3/d659bfa6d8a4095d.mp3"
+    },
+    {
+      "hanzi": "听说",
+      "pinyin": "tīngshuō",
+      "level": 3,
+      "meaning": "nghe (sth nói); người ta nghe thấy (điều đó); tin đồn; nghe và nói",
+      "audio": "audio/hsk3/acb083253f353ed9.mp3"
+    },
+    {
+      "hanzi": "挺",
+      "pinyin": "tǐng",
+      "level": 3,
+      "meaning": "thẳng; dựng đứng; thò ra ngoài (một bộ phận của cơ thể); (về thể chất) đứng thẳng lên",
+      "audio": "audio/hsk3/a9b2439a5a8f0fe8.mp3"
+    },
+    {
+      "hanzi": "同事",
+      "pinyin": "tóngshì",
+      "level": 3,
+      "meaning": "đồng nghiệp",
+      "audio": "audio/hsk3/6ae62af4619f6486.mp3"
+    },
+    {
+      "hanzi": "同意",
+      "pinyin": "tóngyì",
+      "level": 3,
+      "meaning": "đồng ý; đồng ý; phê duyệt",
+      "audio": "audio/hsk3/905819e2e3a059a0.mp3"
+    },
+    {
+      "hanzi": "头发",
+      "pinyin": "tóufa",
+      "level": 3,
+      "meaning": "tóc (trên đầu)",
+      "audio": "audio/hsk3/476627a8c1b83505.mp3"
+    },
+    {
+      "hanzi": "突然",
+      "pinyin": "tūrán",
+      "level": 3,
+      "meaning": "đột ngột; đột ngột; bất ngờ",
+      "audio": "audio/hsk3/8f8f93b58e2c33d3.mp3"
+    },
+    {
+      "hanzi": "图书馆",
+      "pinyin": "túshūguǎn",
+      "level": 3,
+      "meaning": "thư viện",
+      "audio": "audio/hsk3/266e6cb77079f0c3.mp3"
+    },
+    {
+      "hanzi": "腿",
+      "pinyin": "tuǐ",
+      "level": 3,
+      "meaning": "chân; xương hông; biến thể cũ của 腿",
+      "audio": "audio/hsk3/6fda657f199f4985.mp3"
+    },
+    {
+      "hanzi": "外地",
+      "pinyin": "wàidì",
+      "level": 3,
+      "meaning": "các vùng của đất nước ngoại trừ nơi bạn ở",
+      "audio": "audio/hsk3/8340d632d3a0d30f.mp3"
+    },
+    {
+      "hanzi": "外卖",
+      "pinyin": "wàimài",
+      "level": 3,
+      "meaning": "(của một nhà hàng) để cung cấp bữa ăn mang đi hoặc giao hàng tận nhà; mang đi (kinh doanh); mang đi (bữa ăn)",
+      "audio": "audio/hsk3/f42db5493d75fdb3.mp3"
+    },
+    {
+      "hanzi": "外语",
+      "pinyin": "wàiyǔ",
+      "level": 3,
+      "meaning": "ngoại ngữ",
+      "audio": "audio/hsk3/453b932b4d3e15f8.mp3"
+    },
+    {
+      "hanzi": "完成",
+      "pinyin": "wánchéng",
+      "level": 3,
+      "meaning": "để hoàn thành; để hoàn thành",
+      "audio": "audio/hsk3/c0b3fbff51ccc40b.mp3"
+    },
+    {
+      "hanzi": "晚点",
+      "pinyin": "wǎndiǎn",
+      "level": 3,
+      "meaning": "(của tàu hỏa, v.v.) muộn; bị trì hoãn; chậm tiến độ; bữa tối nhẹ",
+      "audio": "audio/hsk3/808d917162784790.mp3"
+    },
+    {
+      "hanzi": "晚会",
+      "pinyin": "wǎnhuì",
+      "level": 3,
+      "meaning": "bữa tiệc tối",
+      "audio": "audio/hsk3/25259891886d735b.mp3"
+    },
+    {
+      "hanzi": "碗",
+      "pinyin": "wǎn",
+      "level": 3,
+      "meaning": "biến thể của 碗; cái bát; tách",
+      "audio": "audio/hsk3/41bb76350c7ec2d8.mp3"
+    },
+    {
+      "hanzi": "网球",
+      "pinyin": "wǎngqiú",
+      "level": 3,
+      "meaning": "quần vợt; quả bóng tennis",
+      "audio": "audio/hsk3/324b8091c4f38dce.mp3"
+    },
+    {
+      "hanzi": "网站",
+      "pinyin": "wǎngzhàn",
+      "level": 3,
+      "meaning": "trang web",
+      "audio": "audio/hsk3/fb8d739d08b97168.mp3"
+    },
+    {
+      "hanzi": "忘记",
+      "pinyin": "wàngjì",
+      "level": 3,
+      "meaning": "quên",
+      "audio": "audio/hsk3/73b08832981088d3.mp3"
+    },
+    {
+      "hanzi": "卫生间",
+      "pinyin": "wèishēngjiān",
+      "level": 3,
+      "meaning": "phòng tắm; nhà vệ sinh; nhà vệ sinh",
+      "audio": "audio/hsk3/091ef162c8ed3e4a.mp3"
+    },
+    {
+      "hanzi": "为",
+      "pinyin": "wèi",
+      "level": 3,
+      "meaning": "vì; vì; ĐẾN; biến thể của 為|为",
+      "audio": "audio/hsk3/0d1785e1f3689615.mp3"
+    },
+    {
+      "hanzi": "为了",
+      "pinyin": "wèile",
+      "level": 3,
+      "meaning": "vì; nhằm mục đích; để",
+      "audio": "audio/hsk3/2ed64c1d92371de1.mp3"
+    },
+    {
+      "hanzi": "文化",
+      "pinyin": "wénhuà",
+      "level": 3,
+      "meaning": "văn hóa; nền văn minh; văn hóa",
+      "audio": "audio/hsk3/b12e914c1f82d6ed.mp3"
+    },
+    {
+      "hanzi": "屋子",
+      "pinyin": "wūzi",
+      "level": 3,
+      "meaning": "nhà; phòng",
+      "audio": "audio/hsk3/7cc5d34be6ab5f7c.mp3"
+    },
+    {
+      "hanzi": "西",
+      "pinyin": "xī",
+      "level": 3,
+      "meaning": "phương Tây; abbr. đối với Tây Ban Nha 西班牙; tiếng Tây Ban Nha; hướng tây",
+      "audio": "audio/hsk3/b9f0c815459caa83.mp3"
+    },
+    {
+      "hanzi": "西北",
+      "pinyin": "xīběi",
+      "level": 3,
+      "meaning": "Tây Bắc Trung Quốc (Thiểm Tây, Cam Túc, Thanh Hải, Ninh Hạ, Tân Cương); tây bắc",
+      "audio": "audio/hsk3/33cb2dcb23827517.mp3"
+    },
+    {
+      "hanzi": "西方",
+      "pinyin": "xīfāng",
+      "level": 3,
+      "meaning": "phương Tây; phương Tây; các nước phương Tây",
+      "audio": "audio/hsk3/8257f728a0d6b552.mp3"
+    },
+    {
+      "hanzi": "西瓜",
+      "pinyin": "xīguā",
+      "level": 3,
+      "meaning": "dưa hấu",
+      "audio": "audio/hsk3/3e3f03caa0435a00.mp3"
+    },
+    {
+      "hanzi": "西南",
+      "pinyin": "xīnán",
+      "level": 3,
+      "meaning": "tây nam",
+      "audio": "audio/hsk3/34d888dc0d69d80c.mp3"
+    },
+    {
+      "hanzi": "习惯",
+      "pinyin": "xíguàn",
+      "level": 3,
+      "meaning": "thói quen; phong tục; thực hành thông thường; được sử dụng để",
+      "audio": "audio/hsk3/9c6f7c9b854ab802.mp3"
+    },
+    {
+      "hanzi": "洗衣机",
+      "pinyin": "xǐyījī",
+      "level": 3,
+      "meaning": "máy giặt; máy giặt",
+      "audio": "audio/hsk3/6acfa1db6a625946.mp3"
+    },
+    {
+      "hanzi": "洗澡",
+      "pinyin": "xǐzǎo",
+      "level": 3,
+      "meaning": "đi tắm; đi tắm",
+      "audio": "audio/hsk3/81251d98367d0ff2.mp3"
+    },
+    {
+      "hanzi": "喜爱",
+      "pinyin": "xǐài",
+      "level": 3,
+      "meaning": "thích; yêu thương; được yêu thích; yêu thích",
+      "audio": "audio/hsk3/6c32444452abbd2b.mp3"
+    },
+    {
+      "hanzi": "夏天",
+      "pinyin": "xiàtiān",
+      "level": 3,
+      "meaning": "mùa hè",
+      "audio": "audio/hsk3/0c27fe7382e1aac3.mp3"
+    },
+    {
+      "hanzi": "先",
+      "pinyin": "xiān",
+      "level": 3,
+      "meaning": "trước đó; Đầu tiên; sớm hơn; lúc đầu; ban đầu; trong thời điểm hiện tại; bây giờ; (tiền tố) sự muộn màng của tôi (đề cập đến những người thân đã qua đời lớn tuổi hơn mình)",
+      "audio": "audio/hsk3/27250da81c0a763a.mp3"
+    },
+    {
+      "hanzi": "相机",
+      "pinyin": "xiàngjī",
+      "level": 3,
+      "meaning": "máy ảnh; vào thời điểm thích hợp; khi hoàn cảnh cho phép",
+      "audio": "audio/hsk3/dacf0702602643bb.mp3"
+    },
+    {
+      "hanzi": "相信",
+      "pinyin": "xiāngxìn",
+      "level": 3,
+      "meaning": "tin tưởng; được thuyết phục; chấp nhận là đúng",
+      "audio": "audio/hsk3/34241e377625e23c.mp3"
+    },
+    {
+      "hanzi": "香蕉",
+      "pinyin": "xiāngjiāo",
+      "level": 3,
+      "meaning": "chuối",
+      "audio": "audio/hsk3/dbf9f9c94fc90b7c.mp3"
+    },
+    {
+      "hanzi": "箱子",
+      "pinyin": "xiāngzi",
+      "level": 3,
+      "meaning": "vali; ngực; hộp; trường hợp",
+      "audio": "audio/hsk3/f6834b63f863adb9.mp3"
+    },
+    {
+      "hanzi": "向",
+      "pinyin": "xiàng",
+      "level": 3,
+      "meaning": "họ Tương; đối với; đối mặt; hướng tới; phương hướng",
+      "audio": "audio/hsk3/a2f77db0e9b9ab53.mp3"
+    },
+    {
+      "hanzi": "像",
+      "pinyin": "xiàng",
+      "level": 3,
+      "meaning": "giống; giống như; trông như thể; chẳng hạn như",
+      "audio": "audio/hsk3/cf8cedd58b7a3fe1.mp3"
+    },
+    {
+      "hanzi": "小区",
+      "pinyin": "xiǎoqū",
+      "level": 3,
+      "meaning": "khu nhà ở; cộng đồng; hàng xóm; (viễn thông) tế bào",
+      "audio": "audio/hsk3/3ea9f36ef3d9c6b9.mp3"
+    },
+    {
+      "hanzi": "小心",
+      "pinyin": "xiǎoxīn",
+      "level": 3,
+      "meaning": "phải cẩn thận; chăm sóc",
+      "audio": "audio/hsk3/f5261ae14a3d7d90.mp3"
+    },
+    {
+      "hanzi": "校园",
+      "pinyin": "xiàoyuán",
+      "level": 3,
+      "meaning": "khuôn viên trường",
+      "audio": "audio/hsk3/cf3e1046a3c3a5ce.mp3"
+    },
+    {
+      "hanzi": "校长",
+      "pinyin": "xiàozhǎng",
+      "level": 3,
+      "meaning": "hiệu trưởng (cao đẳng, đại học); hiệu trưởng",
+      "audio": "audio/hsk3/020ffe517ca48ae8.mp3"
+    },
+    {
+      "hanzi": "鞋",
+      "pinyin": "xié",
+      "level": 3,
+      "meaning": "giày; biến thể của 鞋",
+      "audio": "audio/hsk3/bf55fac9c5cf853b.mp3"
+    },
+    {
+      "hanzi": "心里",
+      "pinyin": "xīnli",
+      "level": 3,
+      "meaning": "ngực; trái tim; tâm trí",
+      "audio": "audio/hsk3/dcee9a614a00ca82.mp3"
+    },
+    {
+      "hanzi": "新年",
+      "pinyin": "xīnnián",
+      "level": 3,
+      "meaning": "năm mới",
+      "audio": "audio/hsk3/3dc45bf582a4cb31.mp3"
+    },
+    {
+      "hanzi": "新闻",
+      "pinyin": "xīnwén",
+      "level": 3,
+      "meaning": "tin tức",
+      "audio": "audio/hsk3/d39567b2b9f17d73.mp3"
+    },
+    {
+      "hanzi": "新鲜",
+      "pinyin": "xīnxiān",
+      "level": 3,
+      "meaning": "tươi mới (kinh nghiệm, thực phẩm, v.v.); sự tươi mát; cuốn tiểu thuyết; không phổ biến",
+      "audio": "audio/hsk3/773d6bfc831da6fb.mp3"
+    },
+    {
+      "hanzi": "信",
+      "pinyin": "xìn",
+      "level": 3,
+      "meaning": "lá thư; thư; tin tưởng; tin tưởng",
+      "audio": "audio/hsk3/8bd2ce70f64ffd5c.mp3"
+    },
+    {
+      "hanzi": "信用卡",
+      "pinyin": "xìnyòngkǎ",
+      "level": 3,
+      "meaning": "thẻ tín dụng",
+      "audio": "audio/hsk3/bf4fe76a26686e0e.mp3"
+    },
+    {
+      "hanzi": "行",
+      "pinyin": "xíng",
+      "level": 3,
+      "meaning": "đi bộ; đi; đi du lịch; chuyến đi; hành trình; thăm nom; tạm thời; tạm thời; hiện hành; đang lưu hành",
+      "audio": "audio/hsk3/4cc7b00050cb1c21.mp3"
+    },
+    {
+      "hanzi": "行李",
+      "pinyin": "xíngli",
+      "level": 3,
+      "meaning": "hành lý",
+      "audio": "audio/hsk3/48169ad8cbbb838d.mp3"
+    },
+    {
+      "hanzi": "兴趣",
+      "pinyin": "xìngqù",
+      "level": 3,
+      "meaning": "quan tâm (mong muốn biết về cái gì đó); sự quan tâm (điều mà một người quan tâm); sở thích",
+      "audio": "audio/hsk3/301339ba835108a0.mp3"
+    },
+    {
+      "hanzi": "休假",
+      "pinyin": "xiūjià",
+      "level": 3,
+      "meaning": "đi nghỉ; để có một kỳ nghỉ; nghỉ phép",
+      "audio": "audio/hsk3/e6ff14f58b185b16.mp3"
+    },
+    {
+      "hanzi": "需要",
+      "pinyin": "xūyào",
+      "level": 3,
+      "meaning": "cần",
+      "audio": "audio/hsk3/c9e9a062f5d588f3.mp3"
+    },
+    {
+      "hanzi": "选",
+      "pinyin": "xuǎn",
+      "level": 3,
+      "meaning": "để lựa chọn; để chọn; để lựa chọn; bầu cử",
+      "audio": "audio/hsk3/1029fedefdf99d95.mp3"
+    },
+    {
+      "hanzi": "选择",
+      "pinyin": "xuǎnzé",
+      "level": 3,
+      "meaning": "để lựa chọn; để chọn; sự lựa chọn; lựa chọn; thay thế",
+      "audio": "audio/hsk3/c11330b85234f9c0.mp3"
+    },
+    {
+      "hanzi": "学期",
+      "pinyin": "xuéqī",
+      "level": 3,
+      "meaning": "thời hạn; học kỳ",
+      "audio": "audio/hsk3/79a4ef019e9cc654.mp3"
+    },
+    {
+      "hanzi": "牙",
+      "pinyin": "yá",
+      "level": 3,
+      "meaning": "răng; ngà voi",
+      "audio": "audio/hsk3/4977b12bc74eb4e4.mp3"
+    },
+    {
+      "hanzi": "牙刷",
+      "pinyin": "yáshuā",
+      "level": 3,
+      "meaning": "bàn chải đánh răng",
+      "audio": "audio/hsk3/aeb4c474be567690.mp3"
+    },
+    {
+      "hanzi": "羊",
+      "pinyin": "yáng",
+      "level": 3,
+      "meaning": "họ Dương; con cừu; con dê",
+      "audio": "audio/hsk3/58f7764311f430bb.mp3"
+    },
+    {
+      "hanzi": "养",
+      "pinyin": "yǎng",
+      "level": 3,
+      "meaning": "nuôi dưỡng (động vật); nuôi dưỡng (con cái); nuôi (thú cưng); để hỗ trợ",
+      "audio": "audio/hsk3/bd49c65ddef642e1.mp3"
+    },
+    {
+      "hanzi": "要求",
+      "pinyin": "yāoqiú",
+      "level": 3,
+      "meaning": "yêu cầu; yêu cầu; yêu cầu; để yêu cầu bồi thường",
+      "audio": "audio/hsk3/268d6546e069788a.mp3"
+    },
+    {
+      "hanzi": "页",
+      "pinyin": "yè",
+      "level": 3,
+      "meaning": "trang; lá",
+      "audio": "audio/hsk3/d24d3c99460c7e3a.mp3"
+    },
+    {
+      "hanzi": "一般",
+      "pinyin": "yībān",
+      "level": 3,
+      "meaning": "giống nhau; bình thường; như vậy; chung",
+      "audio": "audio/hsk3/91e25f4ddc6f6cd8.mp3"
+    },
+    {
+      "hanzi": "一边",
+      "pinyin": "yībiān",
+      "level": 3,
+      "meaning": "một bên; hai bên; một mặt; mặt khác",
+      "audio": "audio/hsk3/ffa41540ad317051.mp3"
+    },
+    {
+      "hanzi": "一定",
+      "pinyin": "yīdìng",
+      "level": 3,
+      "meaning": "chắc chắn; chắc chắn; chắc chắn; cố định; giải quyết; một cái gì đó ...; một ... nhất định",
+      "audio": "audio/hsk3/a57fbc7663a1c92b.mp3"
+    },
+    {
+      "hanzi": "一共",
+      "pinyin": "yīgòng",
+      "level": 3,
+      "meaning": "tổng cộng; hoàn toàn",
+      "audio": "audio/hsk3/dd2509884781df6b.mp3"
+    },
+    {
+      "hanzi": "一块儿",
+      "pinyin": "yīkuàir",
+      "level": 3,
+      "meaning": "biến thể đàn nhị của 一塊|一块",
+      "audio": "audio/hsk3/3c8404fee8157aa3.mp3"
+    },
+    {
+      "hanzi": "一样",
+      "pinyin": "yīyàng",
+      "level": 3,
+      "meaning": "giống nhau; giống; bằng; giống như",
+      "audio": "audio/hsk3/9dc5c0158d9f5359.mp3"
+    },
+    {
+      "hanzi": "一直",
+      "pinyin": "yīzhí",
+      "level": 3,
+      "meaning": "thẳng (theo một đường thẳng); liên tục; luôn luôn; suốt chặng đường",
+      "audio": "audio/hsk3/5a2650501f0eb052.mp3"
+    },
+    {
+      "hanzi": "以后",
+      "pinyin": "yǐhòu",
+      "level": 3,
+      "meaning": "sau; sau đó; sau đó; theo dõi",
+      "audio": "audio/hsk3/e6ad7a1dbc1ede22.mp3"
+    },
+    {
+      "hanzi": "以前",
+      "pinyin": "yǐqián",
+      "level": 3,
+      "meaning": "trước; trước đây; trước; trước đây",
+      "audio": "audio/hsk3/aa98317793b49d8d.mp3"
+    },
+    {
+      "hanzi": "以上",
+      "pinyin": "yǐshàng",
+      "level": 3,
+      "meaning": "mức đó trở lên; số tiền đó trở lên; nêu trên; (dùng để biểu thị rằng người ta đã hoàn thành nhận xét của mình) Chỉ vậy thôi.",
+      "audio": "audio/hsk3/159f4405819e80fa.mp3"
+    },
+    {
+      "hanzi": "以外",
+      "pinyin": "yǐwài",
+      "level": 3,
+      "meaning": "ngoại trừ; khác hơn; ngoại trừ; bên ngoài",
+      "audio": "audio/hsk3/8555187709afe4cc.mp3"
+    },
+    {
+      "hanzi": "以为",
+      "pinyin": "yǐwéi",
+      "level": 3,
+      "meaning": "suy nghĩ; tin tưởng (thường với hàm ý rằng niềm tin đó là sai lầm – trừ khi đề cập đến niềm tin hiện tại của chính mình)",
+      "audio": "audio/hsk3/11ec4fd275ada99e.mp3"
+    },
+    {
+      "hanzi": "以下",
+      "pinyin": "yǐxià",
+      "level": 3,
+      "meaning": "mức đó hoặc thấp hơn; số tiền đó hoặc ít hơn; những điều sau đây",
+      "audio": "audio/hsk3/9b892087bc3ab66b.mp3"
+    },
+    {
+      "hanzi": "音乐",
+      "pinyin": "yīnyuè",
+      "level": 3,
+      "meaning": "âm nhạc",
+      "audio": "audio/hsk3/db95142124934467.mp3"
+    },
+    {
+      "hanzi": "银行",
+      "pinyin": "yínháng",
+      "level": 3,
+      "meaning": "ngân hàng",
+      "audio": "audio/hsk3/920e88c5a602df57.mp3"
+    },
+    {
+      "hanzi": "银行卡",
+      "pinyin": "yínhángkǎ",
+      "level": 3,
+      "meaning": "thẻ ngân hàng",
+      "audio": "audio/hsk3/063b78481d2eab5f.mp3"
+    },
+    {
+      "hanzi": "饮料",
+      "pinyin": "yǐnliào",
+      "level": 3,
+      "meaning": "uống rượu; đồ uống",
+      "audio": "audio/hsk3/4e98daedc20d0f27.mp3"
+    },
+    {
+      "hanzi": "应该",
+      "pinyin": "yīnggāi",
+      "level": 3,
+      "meaning": "nên",
+      "audio": "audio/hsk3/2e7e26a1e92c608a.mp3"
+    },
+    {
+      "hanzi": "影响",
+      "pinyin": "yǐngxiǎng",
+      "level": 3,
+      "meaning": "ảnh hưởng; tác dụng; gây ảnh hưởng; ảnh hưởng (thường là bất lợi)",
+      "audio": "audio/hsk3/dfdcd4e5e7bb2169.mp3"
+    },
+    {
+      "hanzi": "用",
+      "pinyin": "yòng",
+      "level": 3,
+      "meaning": "để sử dụng; để sử dụng; tuyển dụng; (bìa) với; sử dụng; cần; phải (thường dùng trong câu phủ định hoặc câu hỏi); sự hữu ích; tiện ích",
+      "audio": "audio/hsk3/04e45efb3be890e7.mp3"
+    },
+    {
+      "hanzi": "邮件",
+      "pinyin": "yóujiàn",
+      "level": 3,
+      "meaning": "thư; bưu kiện; email",
+      "audio": "audio/hsk3/3d708e8e8b1f9247.mp3"
+    },
+    {
+      "hanzi": "邮箱",
+      "pinyin": "yóuxiāng",
+      "level": 3,
+      "meaning": "hộp thư; hộp thư bưu điện; e-mail; hộp thư đến email",
+      "audio": "audio/hsk3/73075237fd0f05f0.mp3"
+    },
+    {
+      "hanzi": "游客",
+      "pinyin": "yóukè",
+      "level": 3,
+      "meaning": "du khách; du khách; (chơi game trực tuyến) người chơi khách",
+      "audio": "audio/hsk3/8214f290a3937703.mp3"
+    },
+    {
+      "hanzi": "游戏",
+      "pinyin": "yóuxì",
+      "level": 3,
+      "meaning": "trò chơi (CL:場|场); chơi",
+      "audio": "audio/hsk3/847c5f681ce955a0.mp3"
+    },
+    {
+      "hanzi": "有关",
+      "pinyin": "yǒuguān",
+      "level": 3,
+      "meaning": "có liên quan gì đến; liên quan đến; liên quan đến; quan tâm",
+      "audio": "audio/hsk3/85c9eab139fec823.mp3"
+    },
+    {
+      "hanzi": "有名",
+      "pinyin": "yǒumíng",
+      "level": 3,
+      "meaning": "nổi tiếng; nổi tiếng",
+      "audio": "audio/hsk3/0e555b079db112f4.mp3"
+    },
+    {
+      "hanzi": "有用",
+      "pinyin": "yǒuyòng",
+      "level": 3,
+      "meaning": "hữu ích",
+      "audio": "audio/hsk3/8a0157f787a3e5fb.mp3"
+    },
+    {
+      "hanzi": "又",
+      "pinyin": "yòu",
+      "level": 3,
+      "meaning": "lại; vừa... vừa",
+      "audio": "audio/hsk3/e71ce5deab513c6d.mp3"
+    },
+    {
+      "hanzi": "羽毛球",
+      "pinyin": "yǔmáoqiú",
+      "level": 3,
+      "meaning": "cầu lông; quả cầu",
+      "audio": "audio/hsk3/217a257fb363ed86.mp3"
+    },
+    {
+      "hanzi": "雨衣",
+      "pinyin": "yǔyī",
+      "level": 3,
+      "meaning": "áo mưa",
+      "audio": "audio/hsk3/c9c1e6e1309def05.mp3"
+    },
+    {
+      "hanzi": "语言",
+      "pinyin": "yǔyán",
+      "level": 3,
+      "meaning": "ngôn ngữ",
+      "audio": "audio/hsk3/9f6fee1aba17a565.mp3"
+    },
+    {
+      "hanzi": "遇到",
+      "pinyin": "yùdào",
+      "level": 3,
+      "meaning": "gặp gỡ; chạy vào; đi ngang qua",
+      "audio": "audio/hsk3/a66b2ee5b7996fe5.mp3"
+    },
+    {
+      "hanzi": "遇见",
+      "pinyin": "yùjiàn",
+      "level": 3,
+      "meaning": "gặp gỡ",
+      "audio": "audio/hsk3/0d31579fe5f75c4b.mp3"
+    },
+    {
+      "hanzi": "员",
+      "pinyin": "yuán",
+      "level": 3,
+      "meaning": "người tham gia vào một lĩnh vực hoạt động nhất định; thành viên; phân loại tướng quân đội",
+      "audio": "audio/hsk3/9575ad7d52e03d2b.mp3"
+    },
+    {
+      "hanzi": "园",
+      "pinyin": "yuán",
+      "level": 3,
+      "meaning": "họ Nguyên; đất trồng cây; địa điểm sử dụng cho mục đích giải trí công cộng; abbr. cho một địa điểm kết thúc bằng 園|园, chẳng hạn như vườn thực vật 植物園|植物园, trường mẫu giáo 幼兒園|幼儿园, v.v.",
+      "audio": "audio/hsk3/cc723688246165d8.mp3"
+    },
+    {
+      "hanzi": "愿意",
+      "pinyin": "yuànyì",
+      "level": 3,
+      "meaning": "mong muốn; muốn; sẵn sàng; sẵn lòng (làm việc gì đó)",
+      "audio": "audio/hsk3/1618951dd40fa9ee.mp3"
+    },
+    {
+      "hanzi": "月亮",
+      "pinyin": "yuèliang",
+      "level": 3,
+      "meaning": "mặt trăng",
+      "audio": "audio/hsk3/917705b6ba5e02dd.mp3"
+    },
+    {
+      "hanzi": "越",
+      "pinyin": "yuè",
+      "level": 3,
+      "meaning": "từ chung để chỉ các dân tộc hoặc các bang ở miền nam Trung Quốc hoặc Nam Á ở các giai đoạn lịch sử khác nhau; abbr. cho Việt Nam 越南; vượt quá; trèo qua; vượt qua; càng...càng nhiều",
+      "audio": "audio/hsk3/f77d7d6fdcadc75e.mp3"
+    },
+    {
+      "hanzi": "运动会",
+      "pinyin": "yùndònghuì",
+      "level": 3,
+      "meaning": "cuộc thi thể thao",
+      "audio": "audio/hsk3/4816d4fecc89fa21.mp3"
+    },
+    {
+      "hanzi": "运动员",
+      "pinyin": "yùndòngyuán",
+      "level": 3,
+      "meaning": "vận động viên",
+      "audio": "audio/hsk3/6726e6ca74528eea.mp3"
+    },
+    {
+      "hanzi": "咱们",
+      "pinyin": "zánmen",
+      "level": 3,
+      "meaning": "chúng tôi hoặc chúng tôi (bao gồm cả người nói và (những) người được nói chuyện cùng); (phương ngữ) Tôi hoặc tôi; (phương ngữ) (theo cách dỗ dành hoặc quen thuộc) bạn; cũng pr.",
+      "audio": "audio/hsk3/4cb118989eac139e.mp3"
+    },
+    {
+      "hanzi": "脏",
+      "pinyin": "zāng",
+      "level": 3,
+      "meaning": "bẩn thỉu; bẩn thỉu; làm (sth) bẩn",
+      "audio": "audio/hsk3/f1906ce054494ea3.mp3"
+    },
+    {
+      "hanzi": "怎么办",
+      "pinyin": "zěnmebàn",
+      "level": 3,
+      "meaning": "phải làm gì",
+      "audio": "audio/hsk3/11c128bc383dd7db.mp3"
+    },
+    {
+      "hanzi": "怎样",
+      "pinyin": "zěnyàng",
+      "level": 3,
+      "meaning": "như thế nào; loại gì",
+      "audio": "audio/hsk3/44f1881c996abe6f.mp3"
+    },
+    {
+      "hanzi": "张",
+      "pinyin": "zhāng",
+      "level": 3,
+      "meaning": "họ Trương; mở ra; lây lan; tờ giấy; phân loại cho các đối tượng phẳng, tấm",
+      "audio": "audio/hsk3/f56a049fcc23f1eb.mp3"
+    },
+    {
+      "hanzi": "照",
+      "pinyin": "zhào",
+      "level": 3,
+      "meaning": "biến thể của 照; tỏa sáng; chiếu sáng; theo; phù hợp với; tỏa sáng; để chiếu sáng",
+      "audio": "audio/hsk3/d6578de029fac6b4.mp3"
+    },
+    {
+      "hanzi": "照顾",
+      "pinyin": "zhàogu",
+      "level": 3,
+      "meaning": "để chăm sóc; để thể hiện sự cân nhắc; tham dự; để chăm sóc",
+      "audio": "audio/hsk3/eb9bc7e8e961b040.mp3"
+    },
+    {
+      "hanzi": "照片",
+      "pinyin": "zhàopiàn",
+      "level": 3,
+      "meaning": "bức ảnh",
+      "audio": "audio/hsk3/7b50017ae47eca32.mp3"
+    },
+    {
+      "hanzi": "照相",
+      "pinyin": "zhàoxiàng",
+      "level": 3,
+      "meaning": "để chụp ảnh",
+      "audio": "audio/hsk3/ceb2fb9214b22240.mp3"
+    },
+    {
+      "hanzi": "着急",
+      "pinyin": "zháojí",
+      "level": 3,
+      "meaning": "lo lắng; cảm thấy lo lắng; cảm thấy cấp bách; vội vàng; Đài Loan PR.",
+      "audio": "audio/hsk3/cb6fca23bf415f2c.mp3"
+    },
+    {
+      "hanzi": "直到",
+      "pinyin": "zhídào",
+      "level": 3,
+      "meaning": "cho đến khi",
+      "audio": "audio/hsk3/c690e4d7a790354a.mp3"
+    },
+    {
+      "hanzi": "只能",
+      "pinyin": "zhǐnéng",
+      "level": 3,
+      "meaning": "chỉ có thể; bắt buộc phải làm việc gì đó; không có lựa chọn nào khác",
+      "audio": "audio/hsk3/241f1d86accc5cb1.mp3"
+    },
+    {
+      "hanzi": "只是",
+      "pinyin": "zhǐshì",
+      "level": 3,
+      "meaning": "chỉ đơn thuần là; chỉ một; chỉ; không có gì ngoài; đơn giản là; Nhưng; tuy nhiên",
+      "audio": "audio/hsk3/3fb2673f8e43a434.mp3"
+    },
+    {
+      "hanzi": "只要",
+      "pinyin": "zhǐyào",
+      "level": 3,
+      "meaning": "miễn là; cung cấp; nếu",
+      "audio": "audio/hsk3/91ad7c3e91d0a43c.mp3"
+    },
+    {
+      "hanzi": "只有",
+      "pinyin": "zhǐyǒu",
+      "level": 3,
+      "meaning": "chỉ có ...; chỉ có ...; (dùng kết hợp với 才) chỉ khi ... (người ta có thể ...) (như trong 只有通過治療才能痊愈|只有通过治疗才能痊愈 \"cách duy nhất để chữa bệnh là dùng liệu pháp\"); chỉ có (ai đó) mới ... (như trong 只有男性才有此需要 \"chỉ có đàn ông mới có yêu cầu như vậy\")",
+      "audio": "audio/hsk3/ba8bd7c8c9747b95.mp3"
+    },
+    {
+      "hanzi": "纸",
+      "pinyin": "zhǐ",
+      "level": 3,
+      "meaning": "biến thể của 紙|纸; giấy (CL:張|张,沓); phân loại tài liệu, thư từ, v.v.",
+      "audio": "audio/hsk3/62e2af28ab4a412b.mp3"
+    },
+    {
+      "hanzi": "中",
+      "pinyin": "zhōng",
+      "level": 3,
+      "meaning": "giữa; Trung Quốc",
+      "audio": "audio/hsk3/a567bdaa11367f26.mp3"
+    },
+    {
+      "hanzi": "中间",
+      "pinyin": "zhōngjiān",
+      "level": 3,
+      "meaning": "ở giữa; bên trong; ở giữa; ở trong; giữa; giữa; trong lúc; trong lúc đó",
+      "audio": "audio/hsk3/79f883a9fb832c8b.mp3"
+    },
+    {
+      "hanzi": "终于",
+      "pinyin": "zhōngyú",
+      "level": 3,
+      "meaning": "cuối cùng; cuối cùng; Cuối cùng; cuối cùng",
+      "audio": "audio/hsk3/7bebbcc443f83248.mp3"
+    },
+    {
+      "hanzi": "种",
+      "pinyin": "zhǒng",
+      "level": 3,
+      "meaning": "hạt giống; giống loài; loại; loại",
+      "audio": "audio/hsk3/990261434bcd388c.mp3"
+    },
+    {
+      "hanzi": "重要",
+      "pinyin": "zhòngyào",
+      "level": 3,
+      "meaning": "quan trọng; có ý nghĩa; chính",
+      "audio": "audio/hsk3/a8cd9642aa48cd9f.mp3"
+    },
+    {
+      "hanzi": "周末",
+      "pinyin": "zhōumò",
+      "level": 3,
+      "meaning": "cuối tuần",
+      "audio": "audio/hsk3/709b90ebf308c71e.mp3"
+    },
+    {
+      "hanzi": "主要",
+      "pinyin": "zhǔyào",
+      "level": 3,
+      "meaning": "chủ yếu; hiệu trưởng; lớn lao; chính",
+      "audio": "audio/hsk3/5ccd91f4181db651.mp3"
+    },
+    {
+      "hanzi": "住院",
+      "pinyin": "zhùyuàn",
+      "level": 3,
+      "meaning": "ở lại bệnh viện; phải nhập viện",
+      "audio": "audio/hsk3/896fce734fc5d244.mp3"
+    },
+    {
+      "hanzi": "注意",
+      "pinyin": "zhùyì",
+      "level": 3,
+      "meaning": "để ý tới; chú ý đến",
+      "audio": "audio/hsk3/4ffef8f3113a3a11.mp3"
+    },
+    {
+      "hanzi": "子",
+      "pinyin": "zǐ",
+      "level": 3,
+      "meaning": "con trai; đứa trẻ; hạt giống; quả trứng",
+      "audio": "audio/hsk3/a6b71dae843e3e0a.mp3"
+    },
+    {
+      "hanzi": "字典",
+      "pinyin": "zìdiǎn",
+      "level": 3,
+      "meaning": "Từ điển ký tự tiếng Trung (chứa các mục cho các ký tự đơn, trái ngược với 詞典|词典, có các mục cho các từ có một hoặc nhiều ký tự); (thuật ngữ) từ điển",
+      "audio": "audio/hsk3/f6fdf82b10bce767.mp3"
+    },
+    {
+      "hanzi": "自行车",
+      "pinyin": "zìxíngchē",
+      "level": 3,
+      "meaning": "xe đạp",
+      "audio": "audio/hsk3/4851e1ac595a3f73.mp3"
+    },
+    {
+      "hanzi": "总",
+      "pinyin": "zǒng",
+      "level": 3,
+      "meaning": "chung; tổng thể; tóm lại; trong mọi trường hợp; luôn luôn; luôn luôn; Dẫu sao thì; xét cho cùng; sau cùng; sớm hay muộn",
+      "audio": "audio/hsk3/a2fdeab4826b7625.mp3"
+    },
+    {
+      "hanzi": "总是",
+      "pinyin": "zǒngshì",
+      "level": 3,
+      "meaning": "luôn luôn",
+      "audio": "audio/hsk3/1d325d8445bd7783.mp3"
+    },
+    {
+      "hanzi": "嘴",
+      "pinyin": "zuǐ",
+      "level": 3,
+      "meaning": "miệng; mỏ; vòi phun; vòi (của ấm trà v.v.)",
+      "audio": "audio/hsk3/a41c8546580c47bb.mp3"
+    },
+    {
+      "hanzi": "最好",
+      "pinyin": "zuìhǎo",
+      "level": 3,
+      "meaning": "tốt nhất; đã tốt hơn ...; tốt nhất là nên...",
+      "audio": "audio/hsk3/041e0910b5cc4e44.mp3"
+    },
+    {
+      "hanzi": "最后",
+      "pinyin": "zuìhòu",
+      "level": 3,
+      "meaning": "cuối cùng; cuối cùng; tối thượng; Cuối cùng; cuối cùng",
+      "audio": "audio/hsk3/445905122e87b990.mp3"
+    },
+    {
+      "hanzi": "最近",
+      "pinyin": "zuìjìn",
+      "level": 3,
+      "meaning": "gần đây; sớm; gần nhất",
+      "audio": "audio/hsk3/997a5e6e513f2a90.mp3"
+    },
+    {
+      "hanzi": "作业",
+      "pinyin": "zuòyè",
+      "level": 3,
+      "meaning": "phân công trường học; bài tập về nhà; công việc; nhiệm vụ",
+      "audio": "audio/hsk3/b0dff016ff17d665.mp3"
+    },
+    {
+      "hanzi": "做客",
+      "pinyin": "zuòkè",
+      "level": 3,
+      "meaning": "trở thành khách hoặc khách",
+      "audio": "audio/hsk3/89ab6b0fa350500d.mp3"
+    }
+  ]
+}

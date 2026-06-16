@@ -1,0 +1,575 @@
+{
+  "topics": {
+    "personal": "Thông tin cá nhân",
+    "family": "Gia đình",
+    "school": "Học tập",
+    "social": "Công việc và giao tiếp",
+    "place": "Địa điểm và đi lại",
+    "time": "Thời gian",
+    "food": "Ăn uống và mua sắm",
+    "daily": "Sinh hoạt, sức khỏe và thời tiết"
+  },
+  "count": 80,
+  "sentences": [
+    {
+      "id": 1,
+      "topic": "personal",
+      "hanzi": "你叫什么名字？",
+      "pinyin": "Nǐ jiào shénme míngzi?",
+      "meaning": "Bạn tên là gì?"
+    },
+    {
+      "id": 2,
+      "topic": "personal",
+      "hanzi": "我叫安娜。",
+      "pinyin": "Wǒ jiào Ānnà.",
+      "meaning": "Tôi tên là Anna."
+    },
+    {
+      "id": 3,
+      "topic": "personal",
+      "hanzi": "你姓什么？",
+      "pinyin": "Nǐ xìng shénme?",
+      "meaning": "Bạn họ gì?"
+    },
+    {
+      "id": 4,
+      "topic": "personal",
+      "hanzi": "我姓陈。",
+      "pinyin": "Wǒ xìng Chén.",
+      "meaning": "Tôi họ Trần."
+    },
+    {
+      "id": 5,
+      "topic": "personal",
+      "hanzi": "你是哪国人？",
+      "pinyin": "Nǐ shì nǎ guó rén?",
+      "meaning": "Bạn là người nước nào?"
+    },
+    {
+      "id": 6,
+      "topic": "personal",
+      "hanzi": "我是越南人。",
+      "pinyin": "Wǒ shì Yuènán rén.",
+      "meaning": "Tôi là người Việt Nam."
+    },
+    {
+      "id": 7,
+      "topic": "personal",
+      "hanzi": "你多大？",
+      "pinyin": "Nǐ duō dà?",
+      "meaning": "Bạn bao nhiêu tuổi?"
+    },
+    {
+      "id": 8,
+      "topic": "personal",
+      "hanzi": "我二十岁。",
+      "pinyin": "Wǒ èrshí suì.",
+      "meaning": "Tôi 20 tuổi."
+    },
+    {
+      "id": 9,
+      "topic": "personal",
+      "hanzi": "你会说汉语吗？",
+      "pinyin": "Nǐ huì shuō Hànyǔ ma?",
+      "meaning": "Bạn biết nói tiếng Trung không?"
+    },
+    {
+      "id": 10,
+      "topic": "personal",
+      "hanzi": "我会说一点儿汉语。",
+      "pinyin": "Wǒ huì shuō yìdiǎnr Hànyǔ.",
+      "meaning": "Tôi biết nói một chút tiếng Trung."
+    },
+    {
+      "id": 11,
+      "topic": "family",
+      "hanzi": "你家有几口人？",
+      "pinyin": "Nǐ jiā yǒu jǐ kǒu rén?",
+      "meaning": "Gia đình bạn có mấy người?"
+    },
+    {
+      "id": 12,
+      "topic": "family",
+      "hanzi": "我家有四口人。",
+      "pinyin": "Wǒ jiā yǒu sì kǒu rén.",
+      "meaning": "Gia đình tôi có bốn người."
+    },
+    {
+      "id": 13,
+      "topic": "family",
+      "hanzi": "这是谁？",
+      "pinyin": "Zhè shì shéi?",
+      "meaning": "Đây là ai?"
+    },
+    {
+      "id": 14,
+      "topic": "family",
+      "hanzi": "这是我妈妈。",
+      "pinyin": "Zhè shì wǒ māma.",
+      "meaning": "Đây là mẹ tôi."
+    },
+    {
+      "id": 15,
+      "topic": "family",
+      "hanzi": "你有哥哥姐姐吗？",
+      "pinyin": "Nǐ yǒu gēge jiějie ma?",
+      "meaning": "Bạn có anh trai hoặc chị gái không?"
+    },
+    {
+      "id": 16,
+      "topic": "family",
+      "hanzi": "我有一个哥哥。",
+      "pinyin": "Wǒ yǒu yí ge gēge.",
+      "meaning": "Tôi có một anh trai."
+    },
+    {
+      "id": 17,
+      "topic": "family",
+      "hanzi": "你爸爸做什么工作？",
+      "pinyin": "Nǐ bàba zuò shénme gōngzuò?",
+      "meaning": "Bố bạn làm nghề gì?"
+    },
+    {
+      "id": 18,
+      "topic": "family",
+      "hanzi": "我爸爸是医生。",
+      "pinyin": "Wǒ bàba shì yīshēng.",
+      "meaning": "Bố tôi là bác sĩ."
+    },
+    {
+      "id": 19,
+      "topic": "family",
+      "hanzi": "你妹妹今年多大？",
+      "pinyin": "Nǐ mèimei jīnnián duō dà?",
+      "meaning": "Năm nay em gái bạn bao nhiêu tuổi?"
+    },
+    {
+      "id": 20,
+      "topic": "family",
+      "hanzi": "她今年十二岁。",
+      "pinyin": "Tā jīnnián shí'èr suì.",
+      "meaning": "Năm nay em ấy 12 tuổi."
+    },
+    {
+      "id": 21,
+      "topic": "school",
+      "hanzi": "你在哪个学校学习？",
+      "pinyin": "Nǐ zài nǎ ge xuéxiào xuéxí?",
+      "meaning": "Bạn học ở trường nào?"
+    },
+    {
+      "id": 22,
+      "topic": "school",
+      "hanzi": "我在北京大学学习。",
+      "pinyin": "Wǒ zài Běijīng Dàxué xuéxí.",
+      "meaning": "Tôi học tại Đại học Bắc Kinh."
+    },
+    {
+      "id": 23,
+      "topic": "school",
+      "hanzi": "你是学生吗？",
+      "pinyin": "Nǐ shì xuésheng ma?",
+      "meaning": "Bạn là học sinh phải không?"
+    },
+    {
+      "id": 24,
+      "topic": "school",
+      "hanzi": "是，我是学生。",
+      "pinyin": "Shì, wǒ shì xuésheng.",
+      "meaning": "Vâng, tôi là học sinh."
+    },
+    {
+      "id": 25,
+      "topic": "school",
+      "hanzi": "你在哪儿学汉语？",
+      "pinyin": "Nǐ zài nǎr xué Hànyǔ?",
+      "meaning": "Bạn học tiếng Trung ở đâu?"
+    },
+    {
+      "id": 26,
+      "topic": "school",
+      "hanzi": "我在学校学汉语。",
+      "pinyin": "Wǒ zài xuéxiào xué Hànyǔ.",
+      "meaning": "Tôi học tiếng Trung ở trường."
+    },
+    {
+      "id": 27,
+      "topic": "school",
+      "hanzi": "这个字怎么读？",
+      "pinyin": "Zhège zì zěnme dú?",
+      "meaning": "Chữ này đọc thế nào?"
+    },
+    {
+      "id": 28,
+      "topic": "school",
+      "hanzi": "这个词是什么意思？",
+      "pinyin": "Zhège cí shì shénme yìsi?",
+      "meaning": "Từ này có nghĩa là gì?"
+    },
+    {
+      "id": 29,
+      "topic": "school",
+      "hanzi": "请再说一遍。",
+      "pinyin": "Qǐng zài shuō yí biàn.",
+      "meaning": "Xin hãy nói lại một lần."
+    },
+    {
+      "id": 30,
+      "topic": "school",
+      "hanzi": "我听不懂。",
+      "pinyin": "Wǒ tīng bu dǒng.",
+      "meaning": "Tôi nghe không hiểu."
+    },
+    {
+      "id": 31,
+      "topic": "social",
+      "hanzi": "你做什么工作？",
+      "pinyin": "Nǐ zuò shénme gōngzuò?",
+      "meaning": "Bạn làm nghề gì?"
+    },
+    {
+      "id": 32,
+      "topic": "social",
+      "hanzi": "我是老师。",
+      "pinyin": "Wǒ shì lǎoshī.",
+      "meaning": "Tôi là giáo viên."
+    },
+    {
+      "id": 33,
+      "topic": "social",
+      "hanzi": "他是我的同事。",
+      "pinyin": "Tā shì wǒ de tóngshì.",
+      "meaning": "Anh ấy là đồng nghiệp của tôi."
+    },
+    {
+      "id": 34,
+      "topic": "social",
+      "hanzi": "很高兴认识你。",
+      "pinyin": "Hěn gāoxìng rènshi nǐ.",
+      "meaning": "Rất vui được làm quen với bạn."
+    },
+    {
+      "id": 35,
+      "topic": "social",
+      "hanzi": "你叫什么名字？",
+      "pinyin": "Nǐ jiào shénme míngzi?",
+      "meaning": "Bạn tên là gì?"
+    },
+    {
+      "id": 36,
+      "topic": "social",
+      "hanzi": "谢谢你的帮助。",
+      "pinyin": "Xièxie nǐ de bāngzhù.",
+      "meaning": "Cảm ơn sự giúp đỡ của bạn."
+    },
+    {
+      "id": 37,
+      "topic": "social",
+      "hanzi": "对不起，我来晚了。",
+      "pinyin": "Duìbuqǐ, wǒ lái wǎn le.",
+      "meaning": "Xin lỗi, tôi đến muộn."
+    },
+    {
+      "id": 38,
+      "topic": "social",
+      "hanzi": "没关系。",
+      "pinyin": "Méi guānxi.",
+      "meaning": "Không sao."
+    },
+    {
+      "id": 39,
+      "topic": "social",
+      "hanzi": "明天见。",
+      "pinyin": "Míngtiān jiàn.",
+      "meaning": "Ngày mai gặp lại."
+    },
+    {
+      "id": 40,
+      "topic": "social",
+      "hanzi": "请给我打电话。",
+      "pinyin": "Qǐng gěi wǒ dǎ diànhuà.",
+      "meaning": "Hãy gọi điện cho tôi."
+    },
+    {
+      "id": 41,
+      "topic": "place",
+      "hanzi": "你住在哪儿？",
+      "pinyin": "Nǐ zhù zài nǎr?",
+      "meaning": "Bạn sống ở đâu?"
+    },
+    {
+      "id": 42,
+      "topic": "place",
+      "hanzi": "我住在河内。",
+      "pinyin": "Wǒ zhù zài Hénèi.",
+      "meaning": "Tôi sống ở Hà Nội."
+    },
+    {
+      "id": 43,
+      "topic": "place",
+      "hanzi": "你去哪儿？",
+      "pinyin": "Nǐ qù nǎr?",
+      "meaning": "Bạn đi đâu?"
+    },
+    {
+      "id": 44,
+      "topic": "place",
+      "hanzi": "我去学校。",
+      "pinyin": "Wǒ qù xuéxiào.",
+      "meaning": "Tôi đi đến trường."
+    },
+    {
+      "id": 45,
+      "topic": "place",
+      "hanzi": "洗手间在哪儿？",
+      "pinyin": "Xǐshǒujiān zài nǎr?",
+      "meaning": "Nhà vệ sinh ở đâu?"
+    },
+    {
+      "id": 46,
+      "topic": "place",
+      "hanzi": "洗手间在那儿。",
+      "pinyin": "Xǐshǒujiān zài nàr.",
+      "meaning": "Nhà vệ sinh ở đằng kia."
+    },
+    {
+      "id": 47,
+      "topic": "place",
+      "hanzi": "你怎么去学校？",
+      "pinyin": "Nǐ zěnme qù xuéxiào?",
+      "meaning": "Bạn đến trường bằng cách nào?"
+    },
+    {
+      "id": 48,
+      "topic": "place",
+      "hanzi": "我坐公共汽车去学校。",
+      "pinyin": "Wǒ zuò gōnggòng qìchē qù xuéxiào.",
+      "meaning": "Tôi đi xe buýt đến trường."
+    },
+    {
+      "id": 49,
+      "topic": "place",
+      "hanzi": "地铁站离这儿远吗？",
+      "pinyin": "Dìtiě zhàn lí zhèr yuǎn ma?",
+      "meaning": "Ga tàu điện ngầm có xa đây không?"
+    },
+    {
+      "id": 50,
+      "topic": "place",
+      "hanzi": "一直走，然后向左转。",
+      "pinyin": "Yìzhí zǒu, ránhòu xiàng zuǒ zhuǎn.",
+      "meaning": "Đi thẳng, sau đó rẽ trái."
+    },
+    {
+      "id": 51,
+      "topic": "time",
+      "hanzi": "现在几点？",
+      "pinyin": "Xiànzài jǐ diǎn?",
+      "meaning": "Bây giờ là mấy giờ?"
+    },
+    {
+      "id": 52,
+      "topic": "time",
+      "hanzi": "现在三点。",
+      "pinyin": "Xiànzài sān diǎn.",
+      "meaning": "Bây giờ là ba giờ."
+    },
+    {
+      "id": 53,
+      "topic": "time",
+      "hanzi": "今天几号？",
+      "pinyin": "Jīntiān jǐ hào?",
+      "meaning": "Hôm nay là ngày bao nhiêu?"
+    },
+    {
+      "id": 54,
+      "topic": "time",
+      "hanzi": "今天六月十二号。",
+      "pinyin": "Jīntiān liù yuè shí'èr hào.",
+      "meaning": "Hôm nay là ngày 12 tháng 6."
+    },
+    {
+      "id": 55,
+      "topic": "time",
+      "hanzi": "今天星期几？",
+      "pinyin": "Jīntiān xīngqī jǐ?",
+      "meaning": "Hôm nay là thứ mấy?"
+    },
+    {
+      "id": 56,
+      "topic": "time",
+      "hanzi": "今天星期五。",
+      "pinyin": "Jīntiān xīngqīwǔ.",
+      "meaning": "Hôm nay là thứ Sáu."
+    },
+    {
+      "id": 57,
+      "topic": "time",
+      "hanzi": "你什么时候去中国？",
+      "pinyin": "Nǐ shénme shíhou qù Zhōngguó?",
+      "meaning": "Khi nào bạn đi Trung Quốc?"
+    },
+    {
+      "id": 58,
+      "topic": "time",
+      "hanzi": "我明天去中国。",
+      "pinyin": "Wǒ míngtiān qù Zhōngguó.",
+      "meaning": "Ngày mai tôi đi Trung Quốc."
+    },
+    {
+      "id": 59,
+      "topic": "time",
+      "hanzi": "我们几点见面？",
+      "pinyin": "Wǒmen jǐ diǎn jiànmiàn?",
+      "meaning": "Mấy giờ chúng ta gặp nhau?"
+    },
+    {
+      "id": 60,
+      "topic": "time",
+      "hanzi": "我们下午两点见。",
+      "pinyin": "Wǒmen xiàwǔ liǎng diǎn jiàn.",
+      "meaning": "Chúng ta gặp nhau lúc hai giờ chiều."
+    },
+    {
+      "id": 61,
+      "topic": "food",
+      "hanzi": "你喜欢吃什么？",
+      "pinyin": "Nǐ xǐhuan chī shénme?",
+      "meaning": "Bạn thích ăn gì?"
+    },
+    {
+      "id": 62,
+      "topic": "food",
+      "hanzi": "我喜欢吃米饭。",
+      "pinyin": "Wǒ xǐhuan chī mǐfàn.",
+      "meaning": "Tôi thích ăn cơm."
+    },
+    {
+      "id": 63,
+      "topic": "food",
+      "hanzi": "你想喝什么？",
+      "pinyin": "Nǐ xiǎng hē shénme?",
+      "meaning": "Bạn muốn uống gì?"
+    },
+    {
+      "id": 64,
+      "topic": "food",
+      "hanzi": "我想喝茶。",
+      "pinyin": "Wǒ xiǎng hē chá.",
+      "meaning": "Tôi muốn uống trà."
+    },
+    {
+      "id": 65,
+      "topic": "food",
+      "hanzi": "这个多少钱？",
+      "pinyin": "Zhège duōshao qián?",
+      "meaning": "Cái này bao nhiêu tiền?"
+    },
+    {
+      "id": 66,
+      "topic": "food",
+      "hanzi": "这个十块钱。",
+      "pinyin": "Zhège shí kuài qián.",
+      "meaning": "Cái này giá 10 tệ."
+    },
+    {
+      "id": 67,
+      "topic": "food",
+      "hanzi": "请给我一杯咖啡。",
+      "pinyin": "Qǐng gěi wǒ yì bēi kāfēi.",
+      "meaning": "Cho tôi một cốc cà phê."
+    },
+    {
+      "id": 68,
+      "topic": "food",
+      "hanzi": "我不要辣的。",
+      "pinyin": "Wǒ bú yào là de.",
+      "meaning": "Tôi không muốn món cay."
+    },
+    {
+      "id": 69,
+      "topic": "food",
+      "hanzi": "还有别的吗？",
+      "pinyin": "Hái yǒu bié de ma?",
+      "meaning": "Còn loại khác không?"
+    },
+    {
+      "id": 70,
+      "topic": "food",
+      "hanzi": "可以便宜一点儿吗？",
+      "pinyin": "Kěyǐ piányi yìdiǎnr ma?",
+      "meaning": "Có thể rẻ hơn một chút không?"
+    },
+    {
+      "id": 71,
+      "topic": "daily",
+      "hanzi": "今天天气怎么样？",
+      "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+      "meaning": "Hôm nay thời tiết thế nào?"
+    },
+    {
+      "id": 72,
+      "topic": "daily",
+      "hanzi": "今天天气很好。",
+      "pinyin": "Jīntiān tiānqì hěn hǎo.",
+      "meaning": "Hôm nay thời tiết rất đẹp."
+    },
+    {
+      "id": 73,
+      "topic": "daily",
+      "hanzi": "你每天几点起床？",
+      "pinyin": "Nǐ měitiān jǐ diǎn qǐchuáng?",
+      "meaning": "Mỗi ngày bạn thức dậy lúc mấy giờ?"
+    },
+    {
+      "id": 74,
+      "topic": "daily",
+      "hanzi": "我每天七点起床。",
+      "pinyin": "Wǒ měitiān qī diǎn qǐchuáng.",
+      "meaning": "Mỗi ngày tôi thức dậy lúc bảy giờ."
+    },
+    {
+      "id": 75,
+      "topic": "daily",
+      "hanzi": "你周末喜欢做什么？",
+      "pinyin": "Nǐ zhōumò xǐhuan zuò shénme?",
+      "meaning": "Cuối tuần bạn thích làm gì?"
+    },
+    {
+      "id": 76,
+      "topic": "daily",
+      "hanzi": "我喜欢看电影。",
+      "pinyin": "Wǒ xǐhuan kàn diànyǐng.",
+      "meaning": "Tôi thích xem phim."
+    },
+    {
+      "id": 77,
+      "topic": "daily",
+      "hanzi": "你怎么了？",
+      "pinyin": "Nǐ zěnme le?",
+      "meaning": "Bạn bị làm sao?"
+    },
+    {
+      "id": 78,
+      "topic": "daily",
+      "hanzi": "我有点儿不舒服。",
+      "pinyin": "Wǒ yǒudiǎnr bù shūfu.",
+      "meaning": "Tôi hơi khó chịu trong người."
+    },
+    {
+      "id": 79,
+      "topic": "daily",
+      "hanzi": "你要多休息。",
+      "pinyin": "Nǐ yào duō xiūxi.",
+      "meaning": "Bạn cần nghỉ ngơi nhiều hơn."
+    },
+    {
+      "id": 80,
+      "topic": "daily",
+      "hanzi": "别忘了带雨伞。",
+      "pinyin": "Bié wàng le dài yǔsǎn.",
+      "meaning": "Đừng quên mang ô."
+    }
+  ]
+}

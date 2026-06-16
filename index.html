@@ -1,97 +1,482 @@
 <!doctype html>
 <html lang="vi">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bảng phát âm Pinyin</title>
-    <link rel="icon" href="./favicon.svg?v=pinyin-favicon" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles.css?v=group-compare" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
+    />
+    <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260616" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260616" />
   </head>
   <body>
-    <main class="app-shell">
-      <section class="tool-band">
-        <div class="container">
-          <div class="topbar">
-            <div>
-              <p class="eyebrow">Tiếng Trung Hoa Việt</p>
-              <h1>Bảng phát âm <span>Pinyin</span></h1>
-            </div>
-            <div class="brand-mark" aria-hidden="true">拼</div>
-          </div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Về đầu trang">
+        <span class="brand-mark" aria-hidden="true">字</span>
+        <span>
+          <strong>Hán Tự Ký Họa</strong>
+          <small>Nhìn chữ · Hiểu nghĩa · Nhớ lâu</small>
+        </span>
+      </a>
+      <div class="header-tools">
+        <form class="pinyin-lookup" id="pinyin-lookup">
+          <label class="sr-only" for="pinyin-lookup-input">Tra từ ngay trong ứng dụng</label>
+          <input id="pinyin-lookup-input" type="search" autocomplete="off" placeholder="Tra: ma3, 中国, hàng xóm..." />
+          <button type="submit">Tra từ</button>
+        </form>
+        <details class="lesson-menu" id="lesson-menu">
+          <summary><strong id="lesson-menu-current">Chọn mục học</strong><span aria-hidden="true">⌄</span></summary>
+          <nav class="lesson-menu-panel" aria-label="Chọn mục học">
+            <a href="#top"><b>00</b><span>Trang giới thiệu<small>Chọn một mục để bắt đầu</small></span></a>
+            <a href="#pinyin-dictionary"><b>01</b><span>Tra từ · Pinyin · bốn thanh<small>Nghe bằng giọng Xiaoxiao</small></span></a>
+            <a href="#common-questions"><b>02</b><span>Câu hỏi hay gặp<small>Gặp là dùng được ngay</small></span></a>
+            <a href="#pronunciation"><b>03</b><span>Luyện âm đầu<small>z c s · j q x · zh ch sh r</small></span></a>
+            <a href="#initial-quiz"><b>04</b><span>Kiểm tra nghe mù<small>20 câu chọn âm đầu</small></span></a>
+            <a href="#topic-workshop"><b>05</b><span>Học từ theo chủ đề<small>Chunk · ghép câu · nhớ lâu</small></span></a>
+            <a href="#real-dictation"><b>06</b><span>Chép chính tả người thật<small>Nạp audio thật + transcript</small></span></a>
+            <a href="#hsk-library"><b>07</b><span>988 từ để tra và nghe<small>HSK 1–3 mở rộng</small></span></a>
+            <a href="#common-sentences"><b>08</b><span>Học từ trong câu thật<small>80 câu giao tiếp</small></span></a>
+            <a href="#interrogative-words"><b>09</b><span>Từ để hỏi<small>Ai, gì, nào, đâu, thế nào...</small></span></a>
+            <a href="#question-guide"><b>10</b><span>Hỏi có không · this/that<small>吗 · 呢 · 还是 · 这 · 那</small></span></a>
+            <a href="#word-list"><b>11</b><span>Phân tích chuyên sâu<small>Cấu tạo chữ và cụm từ</small></span></a>
+          </nav>
+        </details>
+      </div>
+    </header>
 
-          <div class="search-zone">
-            <label class="search-field" for="searchInput">
-              <span aria-hidden="true">⌕</span>
-              <input
-                id="searchInput"
-                type="search"
-                autocomplete="off"
-                placeholder="Tìm pinyin, ví dụ: ma, zhong, nv, lve"
-              />
-            </label>
-            <div id="searchResults" class="search-results" hidden></div>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">HỌC CHỮ HÁN QUA HÌNH VÀ CÂU CHUYỆN</p>
+          <h1 id="hero-title">Mỗi nét chữ,<br /><em>một điều để nhớ.</em></h1>
+          <p class="hero-description">
+            Tra nhanh từ HSK bằng chữ Hán, Pinyin và nghĩa Việt; sau đó xuống kho chuyên sâu
+            để học cấu tạo chữ và mẹo liên tưởng có kiểm chứng.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#interrogative-words">Học từ để hỏi</a>
+            <span class="word-count"><strong id="total-count">0</strong> từ nền tảng</span>
           </div>
+        </div>
 
-          <section class="contrast-tool" aria-label="Bảng phân biệt âm đầu">
-            <div class="contrast-head">
-              <div>
-                <h2>Bảng phụ phát âm</h2>
-                <div class="initial-set" aria-label="Chọn âm đầu để liệt kê">
-                  <button class="initial-chip" type="button" data-initial="j">j</button>
-                  <button class="initial-chip" type="button" data-initial="q">q</button>
-                  <button class="initial-chip" type="button" data-initial="x">x</button>
-                  <span aria-hidden="true">·</span>
-                  <button class="initial-chip" type="button" data-initial="z">z</button>
-                  <button class="initial-chip" type="button" data-initial="c">c</button>
-                  <button class="initial-chip" type="button" data-initial="s">s</button>
-                  <span aria-hidden="true">·</span>
-                  <button class="initial-chip" type="button" data-initial="zh">zh</button>
-                  <button class="initial-chip" type="button" data-initial="ch">ch</button>
-                  <button class="initial-chip" type="button" data-initial="sh">sh</button>
-                  <button class="initial-chip" type="button" data-initial="r">r</button>
-                </div>
-              </div>
-              <label class="final-field" for="finalCompareInput">
-                <span>Âm đầu / vận mẫu</span>
-                <input
-                  id="finalCompareInput"
-                  type="text"
-                  autocomplete="off"
-                  placeholder="zh, ch, uan, van, zeng..."
-                />
-              </label>
-            </div>
-            <div id="contrastResults" class="contrast-results"></div>
-          </section>
+        <div class="hero-visual" aria-label="Minh họa chữ Gia, nghĩa là nhà và gia đình">
+          <div class="seal seal-one">口</div>
+          <div class="seal seal-two">人</div>
+          <div class="character-orbit">
+            <span class="orbit-label orbit-label-top">mái nhà</span>
+            <span class="hero-character">家</span>
+            <span class="orbit-label orbit-label-bottom">jiā · gia đình</span>
+          </div>
+          <svg class="brush-circle" viewBox="0 0 400 400" aria-hidden="true">
+            <path d="M328 65C252 10 139 24 73 100C9 175 24 289 104 341C181 391 290 363 340 282" />
+          </svg>
         </div>
       </section>
 
-      <section class="table-band">
-        <div class="container">
-          <div class="table-controls">
-            <button id="toggleTableButton" class="toggle-table-button" type="button">
-              <span class="toggle-label">Hiện bảng đầy đủ</span>
-              <span class="toggle-hint">(tất cả 22 âm đầu)</span>
-            </button>
+      <section class="pinyin-dictionary" id="pinyin-dictionary" aria-labelledby="pinyin-dictionary-title">
+        <div class="pinyin-dictionary-heading">
+          <div>
+            <p class="section-kicker">TRA NGAY TRONG ỨNG DỤNG</p>
+            <h2 id="pinyin-dictionary-title">Tra từ, Pinyin và bốn thanh</h2>
           </div>
-          <div class="table-wrap" aria-label="Bảng phát âm Pinyin">
-            <table id="pinyinChart"></table>
+          <p>
+            Nhập <strong>mǎ</strong>, <strong>ma3</strong>, chữ Hán hoặc nghĩa Việt.
+            Mọi nút nghe đều dùng bản ghi <strong>zh-CN-XiaoxiaoNeural</strong> của app.
+          </p>
+        </div>
+
+        <form class="pinyin-dictionary-search" id="pinyin-dictionary-search">
+          <label for="pinyin-dictionary-input">TỪ CẦN TRA</label>
+          <div>
+            <input id="pinyin-dictionary-input" type="search" autocomplete="off" placeholder="Ví dụ: ma, ma3, 中国, hàng xóm..." />
+            <button type="submit">Tìm</button>
           </div>
+        </form>
+
+        <div class="pinyin-analysis" id="pinyin-analysis" hidden></div>
+        <div class="pinyin-tone-filter" id="pinyin-tone-filter" aria-label="Lọc theo thanh điệu"></div>
+
+        <section class="pinyin-contrast-tool" aria-labelledby="pinyin-contrast-title">
+          <div class="pinyin-contrast-head">
+            <div>
+              <p class="section-kicker">BẢNG PHỤ PHÁT ÂM</p>
+              <h3 id="pinyin-contrast-title">So sánh các âm dễ nhầm</h3>
+              <div class="pinyin-initial-shortcuts" id="pinyin-initial-shortcuts" aria-label="Chọn nhóm âm đầu dễ nhầm"></div>
+            </div>
+            <label class="pinyin-contrast-search" for="pinyin-contrast-input">
+              <span>ÂM ĐẦU / VẬN MẪU</span>
+              <input id="pinyin-contrast-input" type="search" autocomplete="off" placeholder="zh, ch, uan, van, zeng..." />
+            </label>
+          </div>
+          <div class="pinyin-contrast-results" id="pinyin-contrast-results">
+            <p>Chọn một âm đầu hoặc nhập vận mẫu để tạo bảng so sánh.</p>
+          </div>
+          <p class="pinyin-contrast-note">Nút nghe dùng từ mẫu trong kho 988 từ. Ô trống nghĩa là chưa có bản ghi Xiaoxiao phù hợp với thanh đó.</p>
+        </section>
+
+        <p class="hsk-result-summary" id="pinyin-result-summary" aria-live="polite">Nhập một từ hoặc âm Pinyin để bắt đầu.</p>
+        <div class="pinyin-result-grid" id="pinyin-result-grid"></div>
+      </section>
+
+      <section class="question-strip" id="common-questions" aria-labelledby="question-title">
+        <div>
+          <p class="section-kicker">CÂU HỎI HAY GẶP</p>
+          <h2 id="question-title">Gặp là dùng được ngay</h2>
+        </div>
+        <div class="question-list">
+          <button class="question-card" data-open-word="名字">
+            <span>你叫什么名字？</span>
+            <small>Nǐ jiào shénme míngzi?</small>
+            <strong>Bạn tên là gì?</strong>
+          </button>
+          <button class="question-card" data-open-word="家">
+            <span>你家有几口人？</span>
+            <small>Nǐ jiā yǒu jǐ kǒu rén?</small>
+            <strong>Nhà bạn có mấy người?</strong>
+          </button>
+          <button class="question-card" data-open-word="学校">
+            <span>你在哪个学校学习？</span>
+            <small>Nǐ zài nǎ ge xuéxiào xuéxí?</small>
+            <strong>Bạn học trường nào?</strong>
+          </button>
+          <button class="question-card" data-open-word="哪国">
+            <span>你是哪国人？</span>
+            <small>Nǐ shì nǎ guó rén?</small>
+            <strong>Bạn là người nước nào?</strong>
+          </button>
+        </div>
+      </section>
+
+      <section class="pronunciation-lab" id="pronunciation" aria-labelledby="pronunciation-title">
+        <div class="pronunciation-heading">
+          <div>
+            <p class="section-kicker">LUYỆN ÂM ĐẦU DỄ NHẦM</p>
+            <h2 id="pronunciation-title">Nghe bằng từ thật, không đọc âm rời</h2>
+          </div>
+          <p class="pronunciation-intro">
+            Chọn một âm rồi bấm vào từ để nghe chậm và nghe lại ở tốc độ tự nhiên.
+            Các phụ âm tiếng Trung cần được nghe cùng nguyên âm và thanh điệu.
+          </p>
+        </div>
+
+        <div class="initial-families" aria-label="Ba nhóm âm đầu">
+          <span><strong>z · c · s</strong> Đầu lưỡi sát răng</span>
+          <span><strong>j · q · x</strong> Mặt lưỡi nâng cao</span>
+          <span><strong>zh · ch · sh · r</strong> Đầu lưỡi cong nhẹ</span>
+        </div>
+
+        <div class="pronunciation-controls">
+          <div class="initial-filter" id="initial-filter" aria-label="Chọn âm đầu để luyện"></div>
+          <button class="listen-group-button" id="listen-group-button" type="button">▶ Nghe cả nhóm</button>
+        </div>
+
+        <div class="initial-tip" id="initial-tip" aria-live="polite"></div>
+        <div class="practice-player">
+          <span>
+            <small>TRÌNH PHÁT</small>
+            <strong id="now-playing">Chọn một từ để nghe</strong>
+          </span>
+          <audio id="practice-audio" preload="metadata" controls></audio>
+        </div>
+        <div class="pronunciation-grid" id="pronunciation-grid"></div>
+      </section>
+
+      <section class="listening-quiz" id="initial-quiz" aria-labelledby="quiz-title">
+        <div class="quiz-heading">
+          <div>
+            <p class="section-kicker">KIỂM TRA NGHE MÙ</p>
+            <h2 id="quiz-title">Nghe từ, chọn đúng âm đầu</h2>
+          </div>
+          <p>
+            Mỗi lượt có 20 câu, cân bằng đủ <strong>z c s · j q x · zh ch sh r</strong>.
+            Từ nhiều âm tiết có thể cần chọn nhiều âm theo đúng thứ tự. Chữ và Pinyin chỉ hiện sau khi bạn trả lời.
+          </p>
+        </div>
+
+        <div class="quiz-shell">
+          <div class="quiz-stats" aria-label="Kết quả bài luyện">
+            <span><small>CÂU</small><strong id="quiz-progress">0 / 20</strong></span>
+            <span><small>ĐÚNG</small><strong id="quiz-score">0</strong></span>
+            <span><small>LIÊN TIẾP</small><strong id="quiz-streak">0</strong></span>
+          </div>
+
+          <div class="quiz-auto-controls" aria-label="Cài đặt tự động chuyển câu">
+            <label class="quiz-auto-toggle">
+              <input id="quiz-auto-advance" type="checkbox" checked />
+              <span aria-hidden="true"></span>
+              <strong>Tự động sang câu</strong>
+            </label>
+            <div class="quiz-delay-control">
+              <small>CHUYỂN SAU</small>
+              <button id="quiz-delay-decrease" type="button" aria-label="Giảm thời gian">−</button>
+              <output id="quiz-delay-value" aria-live="polite">6 giây</output>
+              <button id="quiz-delay-increase" type="button" aria-label="Tăng thời gian">+</button>
+            </div>
+          </div>
+
+          <div class="quiz-stage" id="quiz-stage">
+            <div class="quiz-intro" id="quiz-intro">
+              <span class="quiz-ear" aria-hidden="true">听</span>
+              <p>Đeo tai nghe nếu có. Bài ưu tiên từ nhiều âm tiết HSK 1-2 bằng giọng Xiaoxiao.</p>
+              <button class="quiz-primary-button" id="quiz-start" type="button">▶ Bắt đầu 20 câu</button>
+            </div>
+
+            <div class="quiz-question" id="quiz-question" hidden>
+              <p class="quiz-prompt" id="quiz-prompt">Nghe và chọn âm đầu thuộc nhóm đang luyện</p>
+              <button class="quiz-listen-button" id="quiz-replay" type="button" aria-label="Phát lại từ">
+                <span id="quiz-play-icon" aria-hidden="true">▶</span>
+              </button>
+              <audio id="quiz-audio" preload="auto"></audio>
+
+              <div class="quiz-options" id="quiz-options" aria-label="Chọn âm đầu"></div>
+              <p class="quiz-selection" id="quiz-selection" aria-live="polite" hidden></p>
+
+              <div class="quiz-feedback" id="quiz-feedback" aria-live="polite" hidden>
+                <p class="quiz-verdict" id="quiz-verdict"></p>
+                <div class="quiz-reveal">
+                  <span class="quiz-reveal-hanzi" id="quiz-reveal-hanzi" lang="zh-Hans"></span>
+                  <span>
+                    <strong id="quiz-reveal-pinyin"></strong>
+                    <small id="quiz-reveal-meaning"></small>
+                  </span>
+                  <span class="quiz-reveal-answer" id="quiz-reveal-answer"></span>
+                </div>
+                <div class="quiz-navigation">
+                  <button class="quiz-next-button" id="quiz-next" type="button">Câu tiếp theo →</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="quiz-result" id="quiz-result" hidden aria-live="polite"></div>
+          </div>
+
+          <p class="quiz-source">
+            Âm thanh lấy từ gói <code>hanzi-voice-dictionary-v0.8.0</code>:
+            <strong>zh-CN-XiaoxiaoNeural</strong>. Nhãn từ theo New HSK 3.0, có hiệu lực từ tháng 7/2026.
+          </p>
+        </div>
+      </section>
+
+      <section class="topic-workshop" id="topic-workshop" aria-labelledby="topic-workshop-title">
+        <div class="topic-workshop-heading">
+          <div>
+            <p class="section-kicker">HỌC TỪ MỚI THEO CHỦ ĐỀ</p>
+            <h2 id="topic-workshop-title">Học theo chunk, ghép vào câu, nhớ tới mức dùng được</h2>
+          </div>
+          <p>
+            Mỗi chủ đề gom từ thành <strong>cụm dùng được ngay</strong>. Học chữ, nghe âm,
+            nhìn hình liên tưởng rồi ghép từ vào câu để biến từ mới thành phản xạ.
+          </p>
+        </div>
+
+        <div class="topic-workshop-shell">
+          <div class="topic-filter" id="topic-filter" aria-label="Chọn chủ đề học từ"></div>
+          <div class="topic-review-controls" id="topic-review-controls" aria-live="polite"></div>
+          <div class="topic-mastery" id="topic-mastery" aria-live="polite"></div>
+          <div class="topic-panel-switcher" id="topic-panel-switcher" aria-label="Chọn kiểu ôn trong mục chủ đề"></div>
+          <div class="topic-listen-pinyin" id="topic-listen-pinyin" aria-live="polite"></div>
+          <div class="topic-flashcard" id="topic-flashcard" aria-live="polite"></div>
+          <div class="topic-choice" id="topic-choice" aria-live="polite"></div>
+          <div class="topic-stage" id="topic-stage"></div>
+          <div class="topic-drill" id="topic-drill" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="real-dictation" id="real-dictation" aria-labelledby="real-dictation-title">
+        <div class="dictation-heading">
+          <div>
+            <p class="section-kicker">CHÉP CHÍNH TẢ NGƯỜI THẬT</p>
+            <h2 id="real-dictation-title">Nạp audio thật, nghe từng đoạn rồi gõ lại</h2>
+          </div>
+          <p>
+            Dùng file <strong>MP3/M4A/WAV</strong> có giọng người thật. Nếu có transcript dạng
+            <strong>SRT/VTT</strong>, app sẽ phát đúng từng đoạn; nếu chỉ có từng dòng chữ, nút nghe sẽ phát cả file.
+          </p>
+        </div>
+
+        <div class="dictation-shell">
+          <details class="dictation-import" id="dictation-import" open>
+            <summary>Nhập bài nghe người thật</summary>
+            <div class="dictation-import-grid">
+              <label class="dictation-file-box" for="dictation-audio-file">
+                <span>AUDIO NGƯỜI THẬT</span>
+                <input id="dictation-audio-file" type="file" accept="audio/*" />
+                <small>Chọn file trên máy. App chỉ phát local, không tải đi đâu.</small>
+              </label>
+              <label class="dictation-text-box" for="dictation-transcript">
+                <span>TRANSCRIPT / SRT / VTT</span>
+                <textarea id="dictation-transcript" rows="10" spellcheck="false" placeholder="Ví dụ SRT:
+1
+00:00:01,000 --> 00:00:03,200
+你好。 | Nǐ hǎo. | Xin chào.
+
+Hoặc mỗi dòng:
+你叫什么名字？ | Nǐ jiào shénme míngzi? | Bạn tên là gì?"></textarea>
+              </label>
+            </div>
+            <div class="dictation-actions">
+              <button id="dictation-build" class="quiz-primary-button" type="button">Tạo bài chép chính tả</button>
+              <button id="dictation-clear" class="dictation-secondary-button" type="button">Xóa bài</button>
+            </div>
+          </details>
+
+          <div class="dictation-player">
+            <span>
+              <small>TRÌNH PHÁT NGƯỜI THẬT</small>
+              <strong id="dictation-status">Chưa nạp audio</strong>
+            </span>
+            <audio id="dictation-audio" preload="metadata" controls></audio>
+          </div>
+
+          <div class="dictation-tools">
+            <label class="quiz-auto-toggle">
+              <input id="dictation-loop" type="checkbox" checked />
+              <span aria-hidden="true"></span>
+              <strong>Lặp đoạn đang nghe</strong>
+            </label>
+            <p>Gõ Hán tự nghe được. Có thể bấm “Hiện đáp án” khi muốn tự kiểm tra.</p>
+          </div>
+
+          <p class="hsk-result-summary" id="dictation-summary" aria-live="polite">
+            Chọn file audio người thật và dán transcript để tạo bài.
+          </p>
+          <div class="dictation-list" id="dictation-list"></div>
+        </div>
+      </section>
+
+      <section class="hsk-library" id="hsk-library" aria-labelledby="hsk-library-title">
+        <div class="hsk-library-heading">
+          <div>
+            <p class="section-kicker">KHO TỪ NEW HSK 3.0</p>
+            <h2 id="hsk-library-title">988 từ để tra và nghe</h2>
+          </div>
+          <p>
+            Gồm <strong>300 từ HSK 1</strong>, <strong>197 từ HSK 2</strong> và
+            <strong>491 từ HSK 3 mở rộng</strong>. Chuẩn này có hiệu lực từ tháng 7/2026.
+          </p>
+        </div>
+
+        <div class="hsk-toolbar">
+          <label class="hsk-search-box">
+            <span class="sr-only">Tìm trong kho HSK</span>
+            <input id="hsk-search-input" type="search" placeholder="Tìm chữ, Pinyin hoặc nghĩa Việt..." />
+          </label>
+          <div class="hsk-level-filter" id="hsk-level-filter" aria-label="Lọc theo cấp HSK"></div>
+        </div>
+
+        <p class="hsk-result-summary" id="hsk-result-summary" aria-live="polite">Đang tải kho từ...</p>
+        <div class="hsk-word-grid" id="hsk-word-grid"></div>
+        <button class="hsk-load-more" id="hsk-load-more" type="button" hidden>Xem thêm từ ↓</button>
+      </section>
+
+      <section class="sentence-library" id="common-sentences" aria-labelledby="sentence-library-title">
+        <div class="sentence-library-heading">
+          <div>
+            <p class="section-kicker">80 CÂU GIAO TIẾP THÔNG DỤNG</p>
+            <h2 id="sentence-library-title">Học từ trong câu thật</h2>
+          </div>
+          <p>Mỗi câu có đủ chữ Hán, Pinyin và nghĩa Việt. Bấm nút phát để nghe cả câu.</p>
+        </div>
+        <div class="sentence-topic-filter" id="sentence-topic-filter" aria-label="Lọc câu theo chủ đề"></div>
+        <div class="sentence-grid" id="sentence-grid"></div>
+        <button class="sentence-load-more" id="sentence-load-more" type="button" hidden>Xem thêm câu ↓</button>
+      </section>
+
+      <section class="interrogative-words" id="interrogative-words" aria-labelledby="interrogative-words-title">
+        <div class="interrogative-heading">
+          <div>
+            <p class="section-kicker">MỤC RIÊNG · TỪ ĐỂ HỎI</p>
+            <h2 id="interrogative-words-title">Ai, gì, nào, đâu, thế nào...</h2>
+          </div>
+          <p>
+            Đặt từ để hỏi vào đúng vị trí của phần trả lời. Không đảo từ hỏi lên đầu câu:
+            <strong>我明天回家 → 你什么时候回家？</strong>
+          </p>
+        </div>
+
+        <div class="interrogative-map" aria-label="Các nhóm thông tin có thể hỏi">
+          <span><b>谁</b> người</span>
+          <span><b>什么</b> sự vật</span>
+          <span><b>哪</b> lựa chọn</span>
+          <span><b>哪儿</b> địa điểm</span>
+          <span><b>几 / 多少</b> số lượng</span>
+          <span><b>怎么</b> cách thức</span>
+          <span><b>为什么</b> lý do</span>
+          <span><b>什么时候</b> thời gian</span>
+        </div>
+        <div class="question-guide-grid" id="interrogative-grid"></div>
+      </section>
+
+      <section class="question-guide" id="question-guide" aria-labelledby="question-guide-title">
+        <div class="question-guide-heading">
+          <div>
+            <p class="section-kicker">MẪU CÂU HỎI · THIS / THAT</p>
+            <h2 id="question-guide-title">Hỏi có không và chỉ gần xa</h2>
+          </div>
+          <p>
+            Học riêng câu có/không với <strong>吗</strong>, hỏi tiếp với <strong>呢</strong>, lựa chọn với
+            <strong>还是</strong>, rồi phân biệt this/that bằng <strong>这/那</strong>.
+          </p>
+        </div>
+
+        <div class="demonstrative-scale" aria-label="So sánh this và that trong tiếng Trung">
+          <article>
+            <span>GẦN NGƯỜI NÓI</span>
+            <strong lang="zh-Hans">这 · 这个 · 这里</strong>
+            <small>zhè · zhège · zhèlǐ — đây, cái này, ở đây</small>
+          </article>
+          <div class="demonstrative-line" aria-hidden="true"><i></i></div>
+          <article>
+            <span>XA NGƯỜI NÓI</span>
+            <strong lang="zh-Hans">那 · 那个 · 那里</strong>
+            <small>nà · nàge · nàlǐ — kia, cái kia, ở kia</small>
+          </article>
+        </div>
+
+        <div class="question-guide-filter" id="question-guide-filter" aria-label="Lọc mẫu câu hỏi và từ chỉ định"></div>
+        <div class="question-guide-grid" id="question-guide-grid"></div>
+      </section>
+
+      <section class="library" id="word-list" aria-labelledby="library-title">
+        <div class="library-heading">
+          <div>
+            <p class="section-kicker">52 BÀI PHÂN TÍCH CHUYÊN SÂU</p>
+            <h2 id="library-title">Khám phá cấu tạo và hình tượng</h2>
+          </div>
+          <label class="search-box">
+            <span class="sr-only">Tìm chữ Hán, Pinyin hoặc nghĩa tiếng Việt</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-4-4"></path>
+            </svg>
+            <input id="search-input" type="search" placeholder="Tìm: gia đình, xuéxiào, 家..." />
+          </label>
+        </div>
+
+        <div class="filter-row" id="filter-row" aria-label="Lọc từ vựng theo chủ đề"></div>
+
+        <p class="result-summary" id="result-summary" aria-live="polite"></p>
+        <div class="word-grid" id="word-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span>找</span>
+          <h3>Chưa tìm thấy từ này</h3>
+          <p>Thử nhập chữ Hán, Pinyin không dấu hoặc nghĩa tiếng Việt khác.</p>
         </div>
       </section>
     </main>
 
-    <section id="tonePopup" class="tone-popup" aria-live="polite" hidden>
-      <div class="tone-popup__meta">
-        <span>Đang chọn</span>
-        <strong id="popupBase">-</strong>
-        <small id="popupJoin"></small>
-        <button id="openContrastButton" class="tone-popup__compare" type="button">So sánh</button>
-      </div>
-      <div id="popupToneButtons" class="tone-buttons tone-buttons--popup"></div>
-    </section>
-    <div id="playStatus" class="sr-only" aria-live="polite">Chọn một ô trong bảng</div>
+    <footer>
+      <span class="footer-mark">一</span>
+      <p><strong>Học đúng nguồn gốc.</strong> Mẹo nhớ luôn được ghi riêng, vì không phải chữ Hán nào cũng là chữ tượng hình.</p>
+    </footer>
 
-    <script src="./app.js?v=query-lookup"></script>
+    <dialog class="word-dialog" id="word-dialog">
+      <button class="dialog-close" id="dialog-close" aria-label="Đóng bảng chi tiết">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+
+    <script src="app.js?v=clarity-20260616"></script>
   </body>
 </html>
