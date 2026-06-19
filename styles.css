@@ -5005,6 +5005,7 @@ footer p {
 
 .detail-label-accent {
   display: inline-block;
+  margin-bottom: 18px;
   padding: 0;
   color: var(--red-dark) !important;
   background: transparent;
@@ -5029,10 +5030,6 @@ footer p {
 
 .mnemonic-box {
   background: #f1e5d6;
-}
-
-.mnemonic-box .detail-label-accent {
-  margin-bottom: 18px;
 }
 
 .component-section > h3 {
