@@ -5031,6 +5031,10 @@ footer p {
   background: #f1e5d6;
 }
 
+.mnemonic-box .detail-label-accent {
+  margin-bottom: 18px;
+}
+
 .component-section > h3 {
   margin-bottom: 8px;
 }
