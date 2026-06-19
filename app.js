@@ -2805,49 +2805,46 @@ function renderTopicFilter(reviewPool = getTopicReviewPool()) {
       <span class="topic-filter-label">Bản đồ chủ đề HSK 1-2</span>
       <small>Tick để trộn bộ ôn. Bấm tên chủ đề để mở danh sách từ.</small>
     </div>
-    <div class="topic-filter-status">
-      <strong>${reviewPool.length} từ đang nằm trong bộ ôn</strong>
+    <div class="topic-filter-status-inline">
+      <strong>${reviewPool.length} từ đang ôn</strong>
       <span>${escapeHtml(getTopicReviewSourceSummary())}</span>
     </div>
-    <div class="topic-filter-sections">
-      <section class="topic-filter-section topic-filter-section-hsk">
-        <div class="topic-filter-section-head">
-          <strong>Ôn theo cấp HSK</strong>
-        </div>
-        <div class="topic-filter-hsk-grid">
-          ${hskSources.map((source) => `
-            <label class="topic-filter-hsk-card ${selection.includes(source.id) ? "is-selected" : ""}">
-              <input data-topic-review-source="${source.id}" type="checkbox" ${selection.includes(source.id) ? "checked" : ""} />
-              <span>
-                <b>${escapeHtml(source.label)}</b>
-              </span>
-            </label>
-          `).join("")}
-        </div>
-      </section>
-      <section class="topic-filter-section">
-        <div class="topic-filter-section-head">
-          <strong>Ôn theo chủ đề</strong>
-        </div>
-        <div class="topic-filter-topic-grid">
-          ${overviewGroups.map((topic) => {
-            const sourceId = `overview:${topic.id}`;
-            const isSelected = selection.includes(sourceId);
-            const isActive = topic.id === activeTopicOverview;
-            return `
-              <article class="topic-filter-topic-card ${isSelected ? "is-selected" : ""} ${isActive ? "is-active" : ""}">
-                <label class="topic-filter-topic-check">
-                  <input data-topic-review-source="${sourceId}" type="checkbox" ${isSelected ? "checked" : ""} />
-                  <span>Chọn ôn</span>
-                </label>
-                <button class="topic-filter-topic-open" data-topic-overview-open="${topic.id}" type="button">
-                  <b>${escapeHtml(topic.label)}</b>
-                </button>
-              </article>
-            `;
-          }).join("")}
-        </div>
-      </section>
+    <div class="topic-filter-list-wrap">
+      <div class="topic-filter-list-heading">HSK</div>
+      <div class="topic-filter-list topic-filter-list-hsk">
+        ${hskSources.map((source) => `
+          <div class="topic-filter-row ${selection.includes(source.id) ? "is-selected" : ""}">
+            <input
+              class="topic-filter-checkbox"
+              data-topic-review-source="${source.id}"
+              type="checkbox"
+              aria-label="${escapeHtml(source.label)}"
+              ${selection.includes(source.id) ? "checked" : ""}
+            />
+            <span class="topic-filter-row-label">${escapeHtml(source.label)}</span>
+          </div>
+        `).join("")}
+      </div>
+      <div class="topic-filter-list-heading">Chủ đề</div>
+      <div class="topic-filter-list topic-filter-list-overview">
+        ${overviewGroups.map((topic) => {
+          const sourceId = `overview:${topic.id}`;
+          const isSelected = selection.includes(sourceId);
+          const isActive = topic.id === activeTopicOverview;
+          return `
+            <div class="topic-filter-row ${isSelected ? "is-selected" : ""} ${isActive ? "is-active" : ""}">
+              <input
+                class="topic-filter-checkbox"
+                data-topic-review-source="${sourceId}"
+                type="checkbox"
+                aria-label="${escapeHtml(topic.label)}"
+                ${isSelected ? "checked" : ""}
+              />
+              <button class="topic-filter-row-button" data-topic-overview-open="${topic.id}" type="button">${escapeHtml(topic.label)}</button>
+            </div>
+          `;
+        }).join("")}
+      </div>
     </div>
   `;
 }
@@ -4472,6 +4469,7 @@ async function loadLearningLibraries() {
   ]);
   hskVocabulary = hskData.words || [];
   commonSentenceData = sentenceData;
+  invalidateTopicWorkshopCaches();
   if (pinyinDictionaryInput.value.trim()) pinyinDictionaryTone = getRequestedTone(pinyinDictionaryInput.value);
   document.querySelector("#total-count").textContent = hskVocabulary.length;
   renderHskLevelFilter();
