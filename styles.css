@@ -201,7 +201,7 @@ a {
   display: grid;
   grid-template-columns: 34px 1fr;
   gap: 12px;
-  padding: 13px 16px;
+  padding: 15px 16px;
   color: var(--ink);
   border-bottom: 1px solid var(--line);
   text-decoration: none;
@@ -226,7 +226,7 @@ a {
   padding-top: 2px;
   color: var(--red);
   font-family: var(--serif);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .lesson-menu-panel span,
@@ -235,15 +235,13 @@ a {
 }
 
 .lesson-menu-panel span {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 800;
+  line-height: 1.28;
 }
 
 .lesson-menu-panel small {
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: 9px;
-  font-weight: 600;
+  display: none;
 }
 
 section[id] {
