@@ -1508,6 +1508,7 @@ const revealedHskWords = new Set();
 let commonSentenceData = { topics: {}, sentences: [] };
 let sentenceActiveTopic = "all";
 let sentenceVisibleLimit = 24;
+const revealedSentenceItems = new Set();
 let hskPlayingButton = null;
 let activeQuestionGuideGroup = "all";
 let activeInterrogativeGuideId = null;
@@ -2270,24 +2271,53 @@ function getFilteredSentences() {
   );
 }
 
+function getSentenceRevealKey(sentence) {
+  return `${sentence.topic}::${sentence.hanzi}`;
+}
+
 function renderSentences() {
   const filteredSentences = getFilteredSentences();
   const visibleSentences = filteredSentences.slice(0, sentenceVisibleLimit);
 
-  sentenceGrid.innerHTML = visibleSentences.map((sentence) => `
-    <article class="sentence-card">
-      <div class="sentence-card-copy">
-        <span class="sentence-topic">${escapeHtml(commonSentenceData.topics[sentence.topic])}</span>
-        <strong class="sentence-hanzi" lang="zh-Hans">${escapeHtml(sentence.hanzi)}</strong>
+  sentenceGrid.innerHTML = visibleSentences.map((sentence) => {
+    const revealKey = getSentenceRevealKey(sentence);
+    const isRevealed = revealedSentenceItems.has(revealKey);
+    const revealMarkup = isRevealed
+      ? `
         <span class="sentence-pinyin">${escapeHtml(sentence.pinyin)}</span>
         <small class="sentence-meaning">${escapeHtml(sentence.meaning)}</small>
-      </div>
-      <button class="sentence-audio" data-sentence-speak="${escapeHtml(sentence.hanzi)}"
-        type="button" aria-label="Nghe câu ${escapeHtml(sentence.hanzi)}">▶</button>
-    </article>
-  `).join("");
+      `
+      : "";
+
+    return `
+      <article class="sentence-card${isRevealed ? " is-revealed" : ""}">
+        <div class="sentence-card-copy">
+          <span class="sentence-topic">${escapeHtml(commonSentenceData.topics[sentence.topic])}</span>
+          <strong class="sentence-hanzi" lang="zh-Hans">${escapeHtml(sentence.hanzi)}</strong>
+          ${revealMarkup}
+        </div>
+        <div class="sentence-card-tools">
+          <button class="sentence-reveal${isRevealed ? " is-active" : ""}" data-sentence-reveal="${escapeHtml(revealKey)}"
+            type="button" aria-pressed="${isRevealed}" aria-label="${isRevealed ? "Ẩn" : "Hiện"} Pinyin và nghĩa của câu ${escapeHtml(sentence.hanzi)}">
+            <span class="sr-only">${isRevealed ? "Ẩn" : "Hiện"} Pinyin và nghĩa</span>
+          </button>
+          <button class="sentence-audio" data-sentence-speak="${escapeHtml(sentence.hanzi)}"
+            type="button" aria-label="Nghe câu ${escapeHtml(sentence.hanzi)}">▶</button>
+        </div>
+      </article>
+    `;
+  }).join("");
 
   sentenceLoadMore.hidden = visibleSentences.length >= filteredSentences.length;
+}
+
+function toggleSentenceReveal(revealKey) {
+  if (revealedSentenceItems.has(revealKey)) {
+    revealedSentenceItems.delete(revealKey);
+  } else {
+    revealedSentenceItems.add(revealKey);
+  }
+  renderSentences();
 }
 
 function renderQuestionGuideFilter() {
@@ -5026,6 +5056,7 @@ document.addEventListener("click", (event) => {
   const hskRevealButton = event.target.closest("[data-hsk-reveal]");
   const hskWordButton = event.target.closest("[data-hsk-word]");
   const hskAudioButton = event.target.closest("[data-hsk-audio]");
+  const sentenceRevealButton = event.target.closest("[data-sentence-reveal]");
   const sentenceAudioButton = event.target.closest("[data-sentence-speak]");
   const interrogativeGuideButton = event.target.closest("[data-interrogative-guide]");
   const questionGuideButton = event.target.closest("[data-question-guide]");
@@ -5066,6 +5097,7 @@ document.addEventListener("click", (event) => {
   if (hskRevealButton) toggleHskWordReveal(hskRevealButton.dataset.hskReveal);
   if (hskWordButton) openHskWord(hskWordButton.dataset.hskWord);
   if (hskAudioButton) playHskAudio(hskAudioButton.dataset.hskAudio, hskAudioButton);
+  if (sentenceRevealButton) toggleSentenceReveal(sentenceRevealButton.dataset.sentenceReveal);
   if (sentenceAudioButton) speakChinese(sentenceAudioButton.dataset.sentenceSpeak, 0.72);
   if (questionGuideButton) openQuestionGuide(questionGuideButton.dataset.questionGuide);
   if (topicReviewPresetButton) setTopicReviewPreset(topicReviewPresetButton.dataset.topicReviewPreset);
