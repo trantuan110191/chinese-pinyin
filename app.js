@@ -2325,47 +2325,47 @@ function renderInterrogativeGuideRows(guides) {
     const detailId = `interrogative-detail-${guide.id}`;
     const coreRule = getQuestionGuideCoreRule(guide);
     const examples = guide.examples.map(([hanzi, pinyin, meaning]) => `
-      <div class="example-sentence question-guide-example">
-        <strong lang="zh-Hans">${escapeHtml(hanzi)}</strong>
-        <span>${escapeHtml(pinyin)}</span>
-        <small>${escapeHtml(meaning)}</small>
-        <button class="question-example-audio" data-speak="${escapeHtml(hanzi)}" type="button" aria-label="Nghe câu ${escapeHtml(hanzi)}">▶</button>
-      </div>
+      <article class="interrogative-example-card">
+        <strong class="interrogative-example-hanzi" lang="zh-Hans">${escapeHtml(hanzi)}</strong>
+        <span class="interrogative-example-pinyin">${escapeHtml(pinyin)}</span>
+        <small class="interrogative-example-meaning">${escapeHtml(meaning)}</small>
+      </article>
     `).join("");
 
     return `
       <article class="interrogative-row${isOpen ? " open" : ""}">
-        <div class="interrogative-row-shell">
-          <button class="interrogative-row-toggle" data-interrogative-guide="${guide.id}" type="button"
-            aria-expanded="${isOpen}" aria-controls="${detailId}"
-            aria-label="${isOpen ? "Thu gọn" : "Mở"} kiến thức cho ${escapeHtml(guide.hanzi)}, ${escapeHtml(guide.pinyin)}">
-            <strong class="interrogative-row-hanzi" lang="zh-Hans">${escapeHtml(guide.hanzi)}</strong>
-            <span class="interrogative-row-pinyin">${escapeHtml(guide.pinyin)}</span>
-            <span class="interrogative-row-meaning">${escapeHtml(guide.meaning)}</span>
-            <span class="interrogative-row-hint">${isOpen ? "Thu gọn" : "Mở cách dùng"}</span>
-          </button>
-          <button class="interrogative-row-audio" data-speak="${escapeHtml(guide.hanzi.split(" /")[0])}"
-            type="button" aria-label="Nghe ${escapeHtml(guide.hanzi)}">▶</button>
-        </div>
+        <button class="interrogative-row-toggle" data-interrogative-guide="${guide.id}" type="button"
+          aria-expanded="${isOpen}" aria-controls="${detailId}"
+          aria-label="${isOpen ? "Thu gọn" : "Mở"} kiến thức cho ${escapeHtml(guide.hanzi)}, ${escapeHtml(guide.pinyin)}">
+          <strong class="interrogative-row-hanzi" lang="zh-Hans">${escapeHtml(guide.hanzi)}</strong>
+          <span class="interrogative-row-pinyin">${escapeHtml(guide.pinyin)}</span>
+          <span class="interrogative-row-meaning">${escapeHtml(guide.meaning)}</span>
+          <span class="interrogative-row-hint">${isOpen ? "Thu gọn" : "Mở cách dùng"}</span>
+        </button>
         <div class="interrogative-row-detail"${isOpen ? "" : " hidden"} id="${detailId}">
-          <div class="interrogative-detail-grid">
-            <section class="detail-section">
+          <div class="interrogative-detail-top">
+            <section class="interrogative-detail-main">
               <p class="detail-label">Cách dùng</p>
-              <p>${escapeHtml(guide.usage)}</p>
+              <p class="interrogative-detail-text">${escapeHtml(guide.usage)}</p>
             </section>
-            <section class="detail-section">
-              <p class="detail-label">Chunk / mẫu hay gặp</p>
-              <h3>${escapeHtml(guide.pattern)}</h3>
-              <p>${normalizeDisplayText(coreRule.text)}</p>
-            </section>
-            <section class="detail-section question-contrast-box">
-              <p class="detail-label">Điểm dễ nhầm</p>
-              <p>${escapeHtml(guide.contrast)}</p>
-            </section>
+            <div class="interrogative-detail-side">
+              <article class="interrogative-note-card interrogative-note-card-pattern">
+                <p class="detail-label">Mẫu nhanh</p>
+                <p class="interrogative-note-strong">${escapeHtml(guide.pattern)}</p>
+              </article>
+              <article class="interrogative-note-card interrogative-note-card-contrast">
+                <p class="detail-label">Dễ nhầm</p>
+                <p class="interrogative-detail-text">${escapeHtml(guide.contrast)}</p>
+              </article>
+            </div>
+          </div>
+          <div class="interrogative-rule-note">
+            <p class="detail-label">Nhớ nhanh</p>
+            <p class="interrogative-detail-text">${normalizeDisplayText(coreRule.text)}</p>
           </div>
           <div class="interrogative-row-examples">
             <p class="detail-label">Câu mẫu</p>
-            <div class="question-guide-examples">${examples}</div>
+            <div class="interrogative-example-list">${examples}</div>
           </div>
         </div>
       </article>
