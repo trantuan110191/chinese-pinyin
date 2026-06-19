@@ -1121,6 +1121,158 @@ const topicOverviewDefinitions = [
   },
 ];
 
+const topicWorkshopToOverviewMap = {
+  family: "family",
+  food: "food",
+  study: "school",
+  go: "travel",
+  time: "time",
+};
+
+const localTopicWorkshopWordLookup = new Map(
+  topicWorkshopData.flatMap((topic) =>
+    topic.words.map((word) => [word.hanzi, { ...word, __topicId: topic.id }])
+  )
+);
+
+const localTopicCuratedWordLookup = new Map(words.map((word) => [word.hanzi, word]));
+const localTopicPronunciationLookup = new Map(pronunciationWords.map((word) => [word.hanzi, word]));
+
+function getLocalTopicWordLevel(hanzi) {
+  return localTopicPronunciationLookup.get(hanzi)?.level || 1;
+}
+
+function buildLocalTopicReviewWordFromWorkshopWord(word) {
+  return {
+    ...word,
+    level: word.level || getLocalTopicWordLevel(word.hanzi),
+    sourceType: "overview",
+  };
+}
+
+function buildLocalTopicReviewWordFromCuratedWord(word) {
+  return {
+    hanzi: word.hanzi,
+    pinyin: word.pinyin,
+    meaning: word.meaning,
+    chunk: word.sentence?.[0] || word.hanzi,
+    visual: word.breakdown || word.type || "Từ quen mặt",
+    memory: word.mnemonic || word.origin || "Nhìn chữ, nhớ nghĩa ngắn rồi ráp ngay vào một câu quen miệng.",
+    sentence: word.sentence || [`请写：${word.hanzi}`, word.pinyin, word.meaning],
+    level: getLocalTopicWordLevel(word.hanzi),
+    sourceType: "overview",
+  };
+}
+
+function buildLocalTopicReviewWordFromPronunciationWord(word) {
+  const curatedWord = localTopicCuratedWordLookup.get(word.hanzi);
+  if (curatedWord) return buildLocalTopicReviewWordFromCuratedWord(curatedWord);
+  return {
+    hanzi: word.hanzi,
+    pinyin: word.pinyin,
+    meaning: word.meaning,
+    chunk: word.hanzi,
+    visual: `${getHskLevelLabel(word.level)} · luyện nghe`,
+    memory: "Đây là từ quen mặt trong bộ luyện phát âm. Nghe âm trước rồi bật nghĩa ra ngay.",
+    sentence: [`请写：${word.hanzi}`, word.pinyin, word.meaning],
+    level: word.level || 1,
+    sourceType: "overview",
+  };
+}
+
+function getLocalTopicReviewWord(hanzi) {
+  const workshopWord = localTopicWorkshopWordLookup.get(hanzi);
+  if (workshopWord) return buildLocalTopicReviewWordFromWorkshopWord(workshopWord);
+
+  const curatedWord = localTopicCuratedWordLookup.get(hanzi);
+  if (curatedWord) return buildLocalTopicReviewWordFromCuratedWord(curatedWord);
+
+  const pronunciationWord = localTopicPronunciationLookup.get(hanzi);
+  if (pronunciationWord) return buildLocalTopicReviewWordFromPronunciationWord(pronunciationWord);
+
+  return null;
+}
+
+function getAllLocalTopicReviewWords() {
+  const uniqueWords = new Map();
+  topicWorkshopData.forEach((topic) => {
+    topic.words.forEach((word) => {
+      uniqueWords.set(word.hanzi, buildLocalTopicReviewWordFromWorkshopWord(word));
+    });
+  });
+  words.forEach((word) => {
+    if (!uniqueWords.has(word.hanzi)) {
+      uniqueWords.set(word.hanzi, buildLocalTopicReviewWordFromCuratedWord(word));
+    }
+  });
+  pronunciationWords.forEach((word) => {
+    if (!uniqueWords.has(word.hanzi)) {
+      uniqueWords.set(word.hanzi, buildLocalTopicReviewWordFromPronunciationWord(word));
+    }
+  });
+  return [...uniqueWords.values()];
+}
+
+function getLocalTopicOverviewGroups() {
+  const cacheKey = `local:${topicWorkshopData.length}:${words.length}:${pronunciationWords.length}`;
+  if (topicOverviewGroupsCacheKey === cacheKey && topicOverviewGroupsCache.length) {
+    return topicOverviewGroupsCache;
+  }
+
+  const matchedHanzi = new Set();
+  const groups = [];
+  const workshopGroupMap = new Map(
+    topicWorkshopData
+      .map((topic) => [topicWorkshopToOverviewMap[topic.id], topic])
+      .filter(([overviewId]) => Boolean(overviewId))
+  );
+
+  topicOverviewDefinitions
+    .filter((definition) => definition.id !== "other")
+    .forEach((definition) => {
+      const uniqueWords = new Map();
+      const workshopGroup = workshopGroupMap.get(definition.id);
+      workshopGroup?.words.forEach((word) => {
+        uniqueWords.set(word.hanzi, buildLocalTopicReviewWordFromWorkshopWord(word));
+      });
+      definition.words.forEach((hanzi) => {
+        const localWord = getLocalTopicReviewWord(hanzi);
+        if (!localWord) return;
+        uniqueWords.set(localWord.hanzi, localWord);
+      });
+      if (!uniqueWords.size) return;
+      const overviewWords = sortTopicOverviewWords([...uniqueWords.values()]);
+      overviewWords.forEach((word) => matchedHanzi.add(word.hanzi));
+      groups.push({
+        ...definition,
+        words: overviewWords,
+        count: overviewWords.length,
+        hsk1Count: overviewWords.filter((word) => (word.level || 1) === 1).length,
+        hsk2Count: overviewWords.filter((word) => word.level === 2).length,
+      });
+    });
+
+  const otherDefinition = topicOverviewDefinitions.find((definition) => definition.id === "other");
+  if (otherDefinition) {
+    const otherWords = sortTopicOverviewWords(
+      getAllLocalTopicReviewWords().filter((word) => !matchedHanzi.has(word.hanzi))
+    );
+    if (otherWords.length) {
+      groups.push({
+        ...otherDefinition,
+        words: otherWords,
+        count: otherWords.length,
+        hsk1Count: otherWords.filter((word) => (word.level || 1) === 1).length,
+        hsk2Count: otherWords.filter((word) => word.level === 2).length,
+      });
+    }
+  }
+
+  topicOverviewGroupsCacheKey = cacheKey;
+  topicOverviewGroupsCache = groups;
+  return groups;
+}
+
 function normalizeTopicOverviewText(value) {
   return normalize(String(value || ""))
     .replace(/[^a-z0-9\s]+/g, " ")
@@ -1158,7 +1310,7 @@ function invalidateTopicWorkshopCaches() {
 }
 
 function getTopicOverviewGroups() {
-  if (!hskVocabulary.length) return [];
+  if (!hskVocabulary.length) return getLocalTopicOverviewGroups();
   const cacheKey = `${hskVocabulary.length}:${hskVocabulary[0]?.hanzi || ""}:${hskVocabulary[hskVocabulary.length - 1]?.hanzi || ""}`;
   if (topicOverviewGroupsCacheKey === cacheKey && topicOverviewGroupsCache.length) {
     return topicOverviewGroupsCache;
@@ -2556,8 +2708,7 @@ function getTopicReviewDefaultSelection() {
   const overviewGroups = getTopicOverviewGroups();
   const currentOverview = overviewGroups.find((group) => group.id === activeTopicOverview);
   if (currentOverview) return [`overview:${currentOverview.id}`];
-  const firstDefinition = topicOverviewDefinitions.find((definition) => definition.id !== "other");
-  if (firstDefinition) return [`overview:${firstDefinition.id}`];
+  if (overviewGroups[0]) return [`overview:${overviewGroups[0].id}`];
   return ["hsk:1"];
 }
 
@@ -3380,8 +3531,8 @@ function renderTopicListenPinyin(reviewPool = getTopicReviewPool()) {
   const word = getCurrentTopicListenWord(reviewPool);
   if (!word) {
     topicListenPinyin.innerHTML = getTopicWorkshopEmptyState(
-      "Đang nạp bài nghe Pinyin",
-      "Chờ một chút để app dựng bài nghe theo bộ từ bạn đang chọn."
+      "Đang tải bộ nghe Pinyin",
+      "Nếu bạn chỉ tick HSK 1 hoặc HSK 2, app cần nạp kho HSK nền một lần. Các chủ đề cục bộ sẽ hiện gần như ngay."
     );
     return;
   }
@@ -3457,8 +3608,8 @@ function renderTopicFlashcard(reviewPool = getTopicReviewPool()) {
   const word = getCurrentTopicWord(reviewPool);
   if (!word) {
     topicFlashcard.innerHTML = getTopicWorkshopEmptyState(
-      "Đang nạp flash card",
-      "Chờ một chút để app dựng bộ từ bạn vừa chọn."
+      "Đang tải bộ flash card",
+      "Nếu bạn chỉ tick HSK 1 hoặc HSK 2, app cần nạp kho HSK nền một lần. Khi có chủ đề cục bộ, thẻ sẽ hiện ngay."
     );
     return;
   }
@@ -3756,8 +3907,8 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
   const word = getCurrentTopicChoiceWord(reviewPool);
   if (!word) {
     topicChoice.innerHTML = getTopicWorkshopEmptyState(
-      "Đang nạp bài chọn đáp án",
-      "Khi bộ từ sẵn sàng, phần nhìn chữ chọn nghĩa sẽ hiện ngay ở đây."
+      "Đang tải bài chọn đáp án",
+      "Nếu bạn chỉ tick HSK, phần này sẽ hiện sau khi kho HSK nền nạp xong."
     );
     return;
   }
@@ -4858,6 +5009,10 @@ dialog.addEventListener("click", (event) => {
 });
 
 document.querySelector("#total-count").textContent = "988";
+loadLearningLibraries().catch((error) => {
+  hskResultSummary.textContent = "Không tải được kho từ. Hãy mở trang qua máy chủ local rồi tải lại.";
+  sentenceGrid.innerHTML = `<p class="hsk-source-note">${escapeHtml(error.message)}</p>`;
+});
 renderFilters();
 renderWords();
 renderPronunciationPractice();
@@ -4868,7 +5023,3 @@ renderPinyinToneFilter();
 renderPinyinInitialShortcuts();
 renderTopicWorkshop();
 initializeLessonView();
-loadLearningLibraries().catch((error) => {
-  hskResultSummary.textContent = "Không tải được kho từ. Hãy mở trang qua máy chủ local rồi tải lại.";
-  sentenceGrid.innerHTML = `<p class="hsk-source-note">${escapeHtml(error.message)}</p>`;
-});
