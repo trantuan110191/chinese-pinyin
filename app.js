@@ -1504,6 +1504,7 @@ let hskVocabulary = [];
 let hskExplanationEntries = {};
 let hskActiveLevel = "all";
 let hskVisibleLimit = 60;
+const revealedHskWords = new Set();
 let commonSentenceData = { topics: {}, sentences: [] };
 let sentenceActiveTopic = "all";
 let sentenceVisibleLimit = 24;
@@ -1922,25 +1923,54 @@ function renderHskWords() {
   const filteredWords = getFilteredHskWords();
   const visibleWords = filteredWords.slice(0, hskVisibleLimit);
 
-  hskWordGrid.innerHTML = visibleWords.map((word) => `
-    <article class="hsk-word-card">
-      <button class="hsk-word-open" data-hsk-word="${escapeHtml(word.hanzi)}" type="button"
-        aria-label="Xem ${escapeHtml(word.hanzi)}, ${escapeHtml(word.pinyin)}, ${escapeHtml(getConciseMeaning(word))}">
-        <span class="hsk-word-level">${getHskLevelLabel(word.level)}</span>
-        <span class="hsk-word-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</span>
-        <span class="hsk-word-pinyin">${escapeHtml(word.pinyin)}</span>
-        <span class="hsk-word-meaning">${escapeHtml(getConciseMeaning(word))}</span>
-      </button>
-      <button class="hsk-word-audio" data-hsk-audio="${escapeHtml(word.audio)}"
-        data-hsk-label="${escapeHtml(word.hanzi)} · ${escapeHtml(word.pinyin)}" type="button"
-        aria-label="Nghe phát âm ${escapeHtml(word.hanzi)}">▶</button>
-    </article>
-  `).join("");
+  hskWordGrid.innerHTML = visibleWords.map((word) => {
+    const isRevealed = revealedHskWords.has(word.hanzi);
+    const conciseMeaning = getConciseMeaning(word);
+    const revealMarkup = isRevealed
+      ? `
+        <div class="hsk-word-meta">
+          <span class="hsk-word-pinyin">${escapeHtml(word.pinyin)}</span>
+          <span class="hsk-word-meaning">${escapeHtml(conciseMeaning)}</span>
+        </div>
+      `
+      : "";
+
+    return `
+      <article class="hsk-word-card${isRevealed ? " is-revealed" : ""}">
+        <div class="hsk-word-top">
+          <span class="hsk-word-level">${getHskLevelLabel(word.level)}</span>
+          <div class="hsk-word-tools">
+            <button class="hsk-word-reveal${isRevealed ? " is-active" : ""}" data-hsk-reveal="${escapeHtml(word.hanzi)}"
+              type="button" aria-pressed="${isRevealed}" aria-label="${isRevealed ? "Ẩn" : "Hiện"} Pinyin và nghĩa của ${escapeHtml(word.hanzi)}">
+              <span class="sr-only">${isRevealed ? "Ẩn" : "Hiện"} Pinyin và nghĩa</span>
+            </button>
+            <button class="hsk-word-audio" data-hsk-audio="${escapeHtml(word.audio)}"
+              data-hsk-label="${escapeHtml(word.hanzi)} · ${escapeHtml(word.pinyin)}" type="button"
+              aria-label="Nghe phát âm ${escapeHtml(word.hanzi)}">▶</button>
+          </div>
+        </div>
+        <button class="hsk-word-open" data-hsk-word="${escapeHtml(word.hanzi)}" type="button"
+          aria-label="Xem ${escapeHtml(word.hanzi)}, ${escapeHtml(word.pinyin)}, ${escapeHtml(conciseMeaning)}">
+          <span class="hsk-word-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</span>
+          ${revealMarkup}
+        </button>
+      </article>
+    `;
+  }).join("");
 
   hskResultSummary.textContent = filteredWords.length
     ? `Đang hiển thị ${visibleWords.length} / ${filteredWords.length} từ phù hợp`
     : "Chưa tìm thấy từ phù hợp. Thử chữ Hán, Pinyin không dấu hoặc nghĩa Việt khác.";
   hskLoadMore.hidden = visibleWords.length >= filteredWords.length;
+}
+
+function toggleHskWordReveal(hanzi) {
+  if (revealedHskWords.has(hanzi)) {
+    revealedHskWords.delete(hanzi);
+  } else {
+    revealedHskWords.add(hanzi);
+  }
+  renderHskWords();
 }
 
 function renderPinyinToneFilter() {
@@ -4631,7 +4661,7 @@ function renderImportedHskExplanation(explanation) {
   const mnemonicSection = explanation.mnemonic && explanation.mnemonic !== explanation.explanation
     ? `
       <section class="detail-section full-width mnemonic-box">
-        <p class="detail-label">Mẹo nhớ nhanh</p>
+        <p class="detail-label detail-label-accent">Mẹo nhớ</p>
         <h3>Nhìn là bật nghĩa</h3>
         <p>${escapeHtml(explanation.mnemonic)}</p>
       </section>
@@ -4650,7 +4680,7 @@ function renderImportedHskExplanation(explanation) {
       <p>${escapeHtml(explanation.structure || "Tài liệu chưa ghi rõ cấu tạo cho mục này.")}</p>
     </section>
     <section class="detail-section full-width">
-      <p class="detail-label">Giải thích nhanh</p>
+      <p class="detail-label detail-label-accent">Giải thích nhanh</p>
       <h3>${escapeHtml(explanation.hanzi)}</h3>
       <p>${escapeHtml(explanationText)}</p>
     </section>
@@ -4681,8 +4711,8 @@ function openHskWord(hanzi) {
     : `<p class="hsk-source-note">Chưa có câu mẫu trong bộ 80 câu cho từ này.</p>`;
 
   dialogContent.innerHTML = `
-    <div class="dialog-hero">
-      <div class="dialog-character" lang="zh-Hans">${escapeHtml(word.hanzi)}</div>
+    <div class="dialog-hero hsk-quick-dialog-hero">
+      <div class="dialog-character hsk-quick-dialog-character" lang="zh-Hans">${escapeHtml(word.hanzi)}</div>
       <div class="dialog-intro">
         <p class="dialog-topic">${getHskLevelLabel(word.level)} · Tra nhanh</p>
         <h2>${escapeHtml(getConciseMeaning(word))}</h2>
@@ -4696,7 +4726,7 @@ function openHskWord(hanzi) {
     <div class="dialog-body">
       ${explanation ? renderImportedHskExplanation(explanation) : ""}
       <section class="detail-section full-width">
-        <p class="detail-label">Câu giao tiếp có từ này</p>
+        <p class="detail-label detail-label-accent">Giao tiếp</p>
         <h3>Nghe và đọc trong ngữ cảnh</h3>
         ${exampleMarkup}
       </section>
@@ -4987,6 +5017,7 @@ document.addEventListener("click", (event) => {
   const questionButton = event.target.closest("[data-open-word]");
   const speakButton = event.target.closest("[data-speak]");
   const practiceButton = event.target.closest("[data-practice-word]");
+  const hskRevealButton = event.target.closest("[data-hsk-reveal]");
   const hskWordButton = event.target.closest("[data-hsk-word]");
   const hskAudioButton = event.target.closest("[data-hsk-audio]");
   const sentenceAudioButton = event.target.closest("[data-sentence-speak]");
@@ -5026,6 +5057,7 @@ document.addEventListener("click", (event) => {
   }
   if (speakButton) speakChinese(speakButton.dataset.speak);
   if (practiceButton) speakPracticeWord(practiceButton.dataset.practiceWord);
+  if (hskRevealButton) toggleHskWordReveal(hskRevealButton.dataset.hskReveal);
   if (hskWordButton) openHskWord(hskWordButton.dataset.hskWord);
   if (hskAudioButton) playHskAudio(hskAudioButton.dataset.hskAudio, hskAudioButton);
   if (sentenceAudioButton) speakChinese(sentenceAudioButton.dataset.sentenceSpeak, 0.72);

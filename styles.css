@@ -4393,11 +4393,28 @@ main.single-lesson-view > section:not([hidden]) {
 
 .hsk-word-card {
   position: relative;
-  min-height: 176px;
-  padding: 18px 16px 16px;
+  min-height: 126px;
+  padding: 14px 14px 13px;
   background: rgba(251, 249, 243, 0.72);
   border: 1px solid var(--line);
   border-radius: 4px;
+}
+
+.hsk-word-card.is-revealed {
+  min-height: 164px;
+}
+
+.hsk-word-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hsk-word-tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .hsk-word-open {
@@ -4427,23 +4444,26 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .hsk-word-hanzi {
-  margin-top: 17px;
+  margin-top: 14px;
   font-family: var(--hanzi);
-  font-size: 34px;
+  font-size: 30px;
   line-height: 1.05;
 }
 
+.hsk-word-meta {
+  margin-top: 10px;
+}
+
 .hsk-word-pinyin {
-  margin-top: 12px;
   color: var(--red);
   font-family: var(--reading);
-  font-size: 13px;
+  font-size: 12px;
   font-style: italic;
 }
 
 .hsk-word-meaning {
   display: -webkit-box;
-  margin-top: 6px;
+  margin-top: 4px;
   overflow: hidden;
   color: var(--muted);
   font-size: 10px;
@@ -4453,20 +4473,65 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .hsk-word-audio,
+.hsk-word-reveal,
 .sentence-audio {
-  position: absolute;
-  top: 14px;
-  right: 14px;
   display: grid;
   width: 30px;
   height: 30px;
   place-items: center;
-  color: var(--red);
   background: transparent;
   border: 1px solid var(--line);
   border-radius: 50%;
   cursor: pointer;
   font-size: 10px;
+}
+
+.hsk-word-audio,
+.hsk-word-reveal {
+  position: static;
+  flex-shrink: 0;
+}
+
+.hsk-word-audio,
+.sentence-audio {
+  color: var(--red);
+}
+
+.hsk-word-reveal {
+  position: relative;
+  color: var(--blue);
+}
+
+.hsk-word-reveal::before {
+  content: "";
+  width: 14px;
+  height: 9px;
+  border: 1.7px solid currentColor;
+  border-radius: 100px / 72px;
+}
+
+.hsk-word-reveal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 4px;
+  height: 4px;
+  margin: auto;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.hsk-word-reveal:hover,
+.hsk-word-reveal.is-active {
+  color: white;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.sentence-audio {
+  position: absolute;
+  top: 14px;
+  right: 14px;
 }
 
 .hsk-word-audio:hover,
@@ -4832,6 +4897,14 @@ footer p {
   font-size: clamp(92px, 15vw, 150px);
 }
 
+.hsk-quick-dialog-hero {
+  min-height: 284px;
+}
+
+.hsk-quick-dialog-character {
+  font-size: clamp(76px, 11vw, 122px);
+}
+
 .dialog-intro {
   display: flex;
   flex-direction: column;
@@ -4930,6 +5003,16 @@ footer p {
   font-weight: 850;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+}
+
+.detail-label-accent {
+  display: inline-flex;
+  width: fit-content;
+  padding: 4px 9px;
+  color: #fff7ea;
+  background: var(--red);
+  border-radius: 999px;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.08);
 }
 
 .detail-section h3 {
@@ -5710,7 +5793,11 @@ footer p {
   }
 
   .hsk-word-card {
-    min-height: 168px;
+    min-height: 118px;
+  }
+
+  .hsk-word-card.is-revealed {
+    min-height: 150px;
   }
 
   .quiz-stats span {
