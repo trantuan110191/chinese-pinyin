@@ -2802,8 +2802,8 @@ function renderTopicFilter(reviewPool = getTopicReviewPool()) {
 
   topicFilter.innerHTML = `
     <div class="topic-filter-copy">
-      <span class="topic-filter-label">Bản đồ chủ đề HSK 1-2</span>
-      <small>Tick để trộn bộ ôn. Bấm tên chủ đề để mở danh sách từ.</small>
+      <span class="topic-filter-label">Ôn theo chủ đề</span>
+      <small>Tick để trộn bộ ôn. Bấm tên để mở danh sách từ.</small>
     </div>
     <div class="topic-filter-status-inline">
       <strong>${reviewPool.length} từ đang ôn</strong>
