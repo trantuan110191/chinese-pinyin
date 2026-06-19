@@ -948,6 +948,275 @@ const topicWorkshopData = [
   }
 ];
 
+const topicOverviewDefinitions = [
+  {
+    id: "question",
+    label: "Từ để hỏi & chỉ định",
+    shortLabel: "Hỏi / chỉ",
+    sceneHanzi: "哪",
+    sceneTitle: "Nhóm từ hỏi đúng chỗ, chỉ đúng vật, mở câu rất nhanh",
+    sceneNote: "Gom các từ kiểu ai, gì, nào, đâu, mấy, bao nhiêu, thế nào, this, that để bạn nhìn một lượt ra ngay cả nhóm.",
+    words: ["谁", "什么", "哪", "哪个", "哪些", "哪儿", "哪里", "几", "多少", "怎么", "怎么样", "为什么", "什么时候", "吗", "呢", "还是", "这", "这个", "这里", "这儿", "那", "那个", "那里", "那儿", "每", "所有", "一起"],
+    keywords: ["ai", "cai gi", "nao", "o dau", "the nao", "bao nhieu", "may", "khi nao", "tai sao", "day", "kia", "nay", "do"]
+  },
+  {
+    id: "number",
+    label: "Số đếm & số lượng",
+    shortLabel: "Số lượng",
+    sceneHanzi: "数",
+    sceneTitle: "Đếm người, đếm món, hỏi số lượng và thời lượng cơ bản",
+    sceneNote: "Nhóm này gom số đếm, lượng từ và những từ bạn gặp suốt khi nói tuổi, giờ, số tiền, số lần.",
+    words: ["零", "一", "二", "两", "三", "四", "五", "六", "七", "八", "九", "十", "百", "千", "万", "半", "个", "口", "岁", "次", "点", "号", "分钟", "小时", "年", "月", "天", "多少", "几", "多"],
+    keywords: ["mot", "hai", "ba", "bon", "nam", "sau", "bay", "tam", "chin", "muoi", "tram", "nghin", "van", "lan", "tuoi", "ruoi"]
+  },
+  {
+    id: "time",
+    label: "Thời gian & lịch",
+    shortLabel: "Thời gian",
+    sceneHanzi: "时",
+    sceneTitle: "Một trục thời gian để kể hôm nay, ngày mai, sáng trưa tối",
+    sceneNote: "Bấm vào đây để xem toàn bộ từ HSK 1-2 nói về giờ giấc, tuần, ngày tháng và nhịp sinh hoạt.",
+    words: ["今天", "明天", "昨天", "现在", "时候", "时间", "星期", "周", "星期天", "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "上午", "中午", "下午", "晚上", "早上", "早", "晚", "今年", "明年", "去年"],
+    keywords: ["hom nay", "ngay mai", "hom qua", "bay gio", "luc", "buoi sang", "buoi trua", "buoi chieu", "buoi toi", "tuan", "nam truoc", "nam nay", "nam sau"]
+  },
+  {
+    id: "family",
+    label: "Gia đình & quan hệ",
+    shortLabel: "Gia đình",
+    sceneHanzi: "家",
+    sceneTitle: "Những người quanh bạn: trong nhà, lớp học, chỗ làm và ngoài mạng",
+    sceneNote: "Không chỉ người thân, nhóm này còn gom bạn học, đồng nghiệp, hàng xóm và các vai xã hội rất hay dùng.",
+    words: ["家", "家庭", "家人", "爸爸", "妈妈", "哥哥", "姐姐", "弟弟", "妹妹", "儿子", "女儿", "孩子", "朋友", "同学", "老师", "学生", "同事", "邻居", "室友", "网友", "先生", "小姐", "客人", "男人", "女人", "人"],
+    keywords: ["gia dinh", "me", "bo", "anh trai", "chi gai", "em trai", "em gai", "ban hoc", "ban be", "dong nghiep", "hang xom", "con trai", "con gai", "khach"]
+  },
+  {
+    id: "school",
+    label: "Học tập & ngôn ngữ",
+    shortLabel: "Học tập",
+    sceneHanzi: "学",
+    sceneTitle: "Tất cả từ về trường lớp, học hành, đọc viết và ngôn ngữ",
+    sceneNote: "Nếu bạn đang học để giao tiếp cơ bản, đây là một trong những chủ đề nên ôn đi ôn lại nhiều nhất.",
+    words: ["学校", "大学", "大学生", "学生", "老师", "同学", "学习", "汉语", "中文", "英语", "语文", "字", "汉字", "名字", "姓名", "问题", "回答", "课", "考试", "作业", "书", "本子", "笔", "写", "看", "读", "听", "说"],
+    keywords: ["hoc", "truong", "giao vien", "hoc sinh", "dai hoc", "ngon ngu", "viet chu", "doc sach", "bai hoc", "de thi", "tra loi"]
+  },
+  {
+    id: "food",
+    label: "Ăn uống",
+    shortLabel: "Ăn uống",
+    sceneHanzi: "吃",
+    sceneTitle: "Món ăn, đồ uống và các từ dùng khi gọi món, hỏi khẩu vị",
+    sceneNote: "Tập theo nhóm này sẽ kéo được rất nhiều câu giao tiếp đời thường: ăn gì, uống gì, thích món nào.",
+    words: ["吃", "喝", "米饭", "面包", "包子", "饺子", "面条", "水果", "苹果", "香蕉", "菜", "肉", "鱼", "鸡蛋", "牛奶", "水", "茶", "咖啡", "饭店", "食堂", "米", "饭", "早餐", "午饭", "晚饭"],
+    keywords: ["an", "uong", "com", "banh", "tra", "nuoc", "trai cay", "rau", "thit", "ca phe", "sua", "trung", "nha hang"]
+  },
+  {
+    id: "shopping",
+    label: "Mua sắm & tiền",
+    shortLabel: "Mua sắm",
+    sceneHanzi: "买",
+    sceneTitle: "Mua, bán, giá cả và tiền nong trong HSK 1-2",
+    sceneNote: "Nhóm này đặc biệt hữu ích để hỏi giá, mặc cả nhẹ, hoặc phản xạ nhanh khi thanh toán.",
+    words: ["买", "卖", "东西", "钱", "块", "元", "多少", "便宜", "贵", "商店", "超市", "衣服", "颜色"],
+    keywords: ["mua", "ban", "tien", "re", "dat", "gia", "cua hang", "sieu thi"]
+  },
+  {
+    id: "travel",
+    label: "Đi lại & phương tiện",
+    shortLabel: "Đi lại",
+    sceneHanzi: "车",
+    sceneTitle: "Ra ngoài, di chuyển, lên xe, xuống xe, về nhà, đến trường",
+    sceneNote: "Những từ này giúp bạn kể đường đi và phương tiện rất nhanh, đặc biệt trong các đoạn hội thoại HSK đầu cấp.",
+    words: ["去", "来", "回", "走", "坐", "站", "上", "下", "进", "出", "开", "到", "从", "出租车", "公共汽车", "飞机", "火车", "地铁", "车", "路", "门"],
+    keywords: ["taxi", "xe buyt", "may bay", "tau hoa", "tau dien ngam", "xe", "duong di", "ve nha", "vao", "ra ngoai", "len xe", "xuong xe"]
+  },
+  {
+    id: "place",
+    label: "Nơi chốn & phương hướng",
+    shortLabel: "Nơi chốn",
+    sceneHanzi: "里",
+    sceneTitle: "Ở đâu, bên nào, phía nào, gần xa, trong ngoài trên dưới",
+    sceneNote: "Bấm một lần để xem toàn bộ nhóm từ định vị không gian rất hay đi chung với 在, 去, 来.",
+    words: ["这里", "这儿", "那里", "那儿", "前面", "后面", "里面", "外面", "上面", "下面", "左边", "右边", "旁边", "对面", "附近", "里面", "外边", "学校", "医院", "饭店", "商店", "房间", "桌子", "椅子"],
+    keywords: ["noi", "phia truoc", "phia sau", "ben trong", "ben ngoai", "tren", "duoi", "ben trai", "ben phai", "gan", "xa", "doi dien", "phong"]
+  },
+  {
+    id: "work",
+    label: "Công việc & nơi làm",
+    shortLabel: "Công việc",
+    sceneHanzi: "工",
+    sceneTitle: "Đi làm, tan làm, công ty và những vai trò công việc cơ bản",
+    sceneNote: "Nhóm này nhỏ hơn nhưng rất thực dụng, nhất là khi bạn muốn tự giới thiệu công việc của mình.",
+    words: ["工作", "上班", "下班", "公司", "办公室", "经理", "同事", "服务员", "医生"],
+    keywords: ["cong viec", "di lam", "tan lam", "cong ty", "van phong", "phuc vu", "quan ly"]
+  },
+  {
+    id: "body",
+    label: "Cơ thể & sức khỏe",
+    shortLabel: "Sức khỏe",
+    sceneHanzi: "病",
+    sceneTitle: "Nhóm từ nói về đau ốm, bác sĩ, thuốc và các bộ phận cơ thể",
+    sceneNote: "Đây là một nhóm cực đáng học sớm vì dùng được ngay khi cần giúp đỡ hoặc nói tình trạng cơ thể.",
+    words: ["病", "医生", "药", "身体", "头", "眼睛", "鼻子", "嘴", "耳朵", "牙", "手", "脚", "肚子", "累", "热", "冷"],
+    keywords: ["benh", "bac si", "thuoc", "co the", "mat", "mui", "mieng", "tai", "rang", "tay", "chan", "met", "nong", "lanh"]
+  },
+  {
+    id: "clothes",
+    label: "Quần áo & màu sắc",
+    shortLabel: "Quần áo",
+    sceneHanzi: "衣",
+    sceneTitle: "Mặc gì, màu gì, mới cũ đẹp xấu ra sao",
+    sceneNote: "Bạn có thể dùng nhóm này khi mua đồ, tả người hoặc nói sở thích rất tự nhiên.",
+    words: ["衣服", "裤子", "鞋", "帽子", "颜色", "白", "黑", "红", "蓝", "绿", "黄", "新", "旧", "漂亮"],
+    keywords: ["ao", "quan", "giay", "mu", "mau", "trang", "den", "do", "xanh", "vang", "dep", "moi", "cu"]
+  },
+  {
+    id: "weather",
+    label: "Thời tiết & thiên nhiên",
+    shortLabel: "Thời tiết",
+    sceneHanzi: "天",
+    sceneTitle: "Trời nóng lạnh, mưa nắng và vài từ thiên nhiên hay gặp",
+    sceneNote: "Chủ đề này ghép rất gọn với mẫu câu 今天天气怎么样？ nên ôn khá nhanh.",
+    words: ["天气", "天", "下雨", "雪", "风", "太阳", "云", "热", "冷", "山", "花", "水"],
+    keywords: ["thoi tiet", "troi", "mua", "tuyet", "gio", "mat troi", "may", "nui", "hoa"]
+  },
+  {
+    id: "daily",
+    label: "Động từ hằng ngày",
+    shortLabel: "Động từ",
+    sceneHanzi: "做",
+    sceneTitle: "Những động từ cơ bản dùng suốt ngày: ngủ, dậy, gọi, mở, đóng, đợi",
+    sceneNote: "Đây là nhóm kéo phản xạ nói rất nhanh vì gần như ngày nào cũng dùng đến.",
+    words: ["做", "睡觉", "起床", "打电话", "看", "听", "说", "问", "找", "等", "玩", "帮助", "打开", "关", "记得", "觉得", "知道", "认识", "喜欢", "想", "要", "会", "能", "可以"],
+    keywords: ["ngu", "thuc day", "goi dien", "nhin", "nghe", "noi", "hoi", "tim", "doi", "choi", "giup", "mo", "dong", "nho", "cam thay", "biet", "quen", "thich", "muon"]
+  },
+  {
+    id: "feelings",
+    label: "Tính chất & cảm nhận",
+    shortLabel: "Cảm nhận",
+    sceneHanzi: "好",
+    sceneTitle: "To nhỏ, đẹp xấu, đúng sai, vui buồn, thú vị hay nhàm chán",
+    sceneNote: "Nhóm này giúp bạn nhận xét sự vật nhanh hơn thay vì chỉ gọi tên chúng.",
+    words: ["好", "不好", "大", "小", "多", "少", "高", "低", "长", "短", "快", "慢", "对", "错", "漂亮", "忙", "累", "开心", "高兴", "有意思", "真", "太"],
+    keywords: ["to", "nho", "nhieu", "it", "cao", "thap", "dai", "ngan", "nhanh", "cham", "dung", "sai", "dep", "ban", "met", "vui", "thu vi", "that su", "qua"]
+  },
+  {
+    id: "grammar",
+    label: "Ngữ pháp nền & từ công cụ",
+    shortLabel: "Ngữ pháp",
+    sceneHanzi: "是",
+    sceneTitle: "Những từ nhỏ nhưng cực mạnh: là, có, không, cũng, đều, vì vậy...",
+    sceneNote: "Đây là nhóm từ không hào nhoáng nhưng thiếu nó là không ráp nổi câu. Rất đáng ôn như một bộ riêng.",
+    words: ["是", "有", "在", "不", "没", "的", "了", "也", "都", "和", "跟", "给", "就", "再", "先", "因为", "所以", "但是", "已经", "还", "过", "可以", "能", "会", "要", "让"],
+    keywords: ["khong", "co", "la", "cung", "deu", "va", "voi", "cho", "roi", "truoc", "lai", "vi vay", "nhung", "da", "van con", "da tung"]
+  },
+  {
+    id: "other",
+    label: "Các từ khác rất hay gặp",
+    shortLabel: "Khác",
+    sceneHanzi: "常",
+    sceneTitle: "Phần còn lại của HSK 1-2 vẫn nên nhìn một lượt để không sót từ quen mặt",
+    sceneNote: "Nhóm này gom những từ chưa nằm gọn trong một chủ đề lớn nhưng vẫn xuất hiện thường xuyên trong bài đầu cấp.",
+    words: [],
+    keywords: []
+  },
+];
+
+function normalizeTopicOverviewText(value) {
+  return normalize(String(value || ""))
+    .replace(/[^a-z0-9\s]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function matchesTopicOverviewKeyword(word, keywords = []) {
+  if (!keywords.length) return false;
+  const text = ` ${normalizeTopicOverviewText(word.meaning)} `;
+  return keywords.some((keyword) => {
+    const normalizedKeyword = normalizeTopicOverviewText(keyword);
+    return normalizedKeyword && text.includes(` ${normalizedKeyword} `);
+  });
+}
+
+function matchesTopicOverviewDefinition(definition, word) {
+  return definition.words.includes(word.hanzi) || matchesTopicOverviewKeyword(word, definition.keywords);
+}
+
+function sortTopicOverviewWords(wordsToSort) {
+  return [...wordsToSort].sort((left, right) =>
+    left.level - right.level
+    || left.hanzi.localeCompare(right.hanzi, "zh-Hans-CN")
+  );
+}
+
+function getTopicOverviewGroups() {
+  if (!hskVocabulary.length) return [];
+
+  const baseWords = hskVocabulary.filter((word) => word.level === 1 || word.level === 2);
+  const matchedHanzi = new Set();
+  const groups = [];
+
+  topicOverviewDefinitions
+    .filter((definition) => definition.id !== "other")
+    .forEach((definition) => {
+      const uniqueWords = new Map();
+      baseWords.forEach((word) => {
+        if (!matchesTopicOverviewDefinition(definition, word)) return;
+        uniqueWords.set(word.hanzi, buildTopicReviewHskWord(word));
+        matchedHanzi.add(word.hanzi);
+      });
+      if (!uniqueWords.size) return;
+      const overviewWords = sortTopicOverviewWords([...uniqueWords.values()]);
+      groups.push({
+        ...definition,
+        words: overviewWords,
+        count: overviewWords.length,
+        hsk1Count: overviewWords.filter((word) => word.level === 1).length,
+        hsk2Count: overviewWords.filter((word) => word.level === 2).length,
+      });
+    });
+
+  const otherDefinition = topicOverviewDefinitions.find((definition) => definition.id === "other");
+  if (otherDefinition) {
+    const otherWords = sortTopicOverviewWords(
+      baseWords
+        .filter((word) => !matchedHanzi.has(word.hanzi))
+        .map((word) => buildTopicReviewHskWord(word))
+    );
+    if (otherWords.length) {
+      groups.push({
+        ...otherDefinition,
+        words: otherWords,
+        count: otherWords.length,
+        hsk1Count: otherWords.filter((word) => word.level === 1).length,
+        hsk2Count: otherWords.filter((word) => word.level === 2).length,
+      });
+    }
+  }
+
+  return groups;
+}
+
+function getActiveTopicOverviewGroup() {
+  const overviewGroups = getTopicOverviewGroups();
+  const activeGroup = overviewGroups.find((group) => group.id === activeTopicOverview) || overviewGroups[0] || null;
+  if (activeGroup && activeGroup.id !== activeTopicOverview) {
+    activeTopicOverview = activeGroup.id;
+    localStorage.setItem("topicOverviewActive", activeGroup.id);
+  }
+  return activeGroup;
+}
+
+function setActiveTopicOverview(topicId) {
+  activeTopicOverview = topicId;
+  topicOverviewVisibleLimit = 24;
+  localStorage.setItem("topicOverviewActive", topicId);
+}
+
+function showMoreTopicOverviewWords() {
+  topicOverviewVisibleLimit += 24;
+  renderTopicWorkshop();
+}
+
 const grid = document.querySelector("#word-grid");
 const filters = document.querySelector("#filter-row");
 const searchInput = document.querySelector("#search-input");
@@ -1080,8 +1349,11 @@ let dictationSegmentStart = 0;
 let dictationSegmentEnd = null;
 let dictationPlayingButton = null;
 let activeTopicWorkshop = localStorage.getItem("topicWorkshopActive") || "family";
+let activeTopicOverview = localStorage.getItem("topicOverviewActive") || "family";
 let topicReviewSelection = [];
 let activeTopicPanel = localStorage.getItem("topicWorkshopPanel") || "flashcard";
+let topicOverviewVisibleLimit = 24;
+let topicStageMeaningVisible = localStorage.getItem("topicStageMeaningVisible") === "true";
 let topicListenIndex = 0;
 let topicListenInputValue = "";
 let topicListenChecked = false;
@@ -1097,6 +1369,8 @@ let topicChoiceSelected = "";
 let topicChoiceAnswered = false;
 let topicChoiceOptions = [];
 let topicChoiceDisplayMode = localStorage.getItem("topicChoiceDisplayMode") || "pinyin";
+let topicChoiceOrder = [];
+let topicChoiceOrderKey = "";
 let topicDrillIndex = 0;
 let topicDrillSelected = "";
 let topicDrillAnswered = false;
@@ -2190,18 +2464,38 @@ function getActiveTopicWorkshop() {
   return topicWorkshopData.find((topic) => topic.id === activeTopicWorkshop) || topicWorkshopData[0];
 }
 
+function normalizeTopicReviewSourceId(sourceId) {
+  const legacyMap = {
+    "topic:family": "overview:family",
+    "topic:food": "overview:food",
+    "topic:study": "overview:school",
+    "topic:go": "overview:travel",
+    "topic:time": "overview:time",
+  };
+  return legacyMap[sourceId] || sourceId;
+}
+
 function getTopicReviewSourceOptions() {
+  const overviewGroups = getTopicOverviewGroups();
+  const overviewMap = new Map(overviewGroups.map((group) => [group.id, group]));
   const hsk1Count = hskVocabulary.filter((word) => word.level === 1).length;
   const hsk2Count = hskVocabulary.filter((word) => word.level === 2).length;
   return [
-    ...topicWorkshopData.map((topic) => ({
-      id: `topic:${topic.id}`,
-      label: topic.label,
-      shortLabel: topic.shortLabel,
-      type: "topic",
-      count: topic.words.length,
-      note: topic.sceneTitle,
-    })),
+    ...topicOverviewDefinitions
+      .filter((definition) => definition.id !== "other")
+      .map((definition) => {
+        const group = overviewMap.get(definition.id);
+        return {
+          id: `overview:${definition.id}`,
+          label: definition.label,
+          shortLabel: definition.shortLabel,
+          type: "overview",
+          count: group?.count || 0,
+          hsk1Count: group?.hsk1Count || 0,
+          hsk2Count: group?.hsk2Count || 0,
+          note: group?.sceneTitle || definition.sceneTitle,
+        };
+      }),
     {
       id: "hsk:1",
       label: "HSK 1",
@@ -2228,12 +2522,21 @@ function saveTopicReviewSelection() {
 }
 
 function getTopicReviewDefaultSelection() {
-  return [`topic:${getActiveTopicWorkshop().id}`];
+  const overviewGroups = getTopicOverviewGroups();
+  const currentOverview = overviewGroups.find((group) => group.id === activeTopicOverview);
+  if (currentOverview) return [`overview:${currentOverview.id}`];
+  const firstDefinition = topicOverviewDefinitions.find((definition) => definition.id !== "other");
+  if (firstDefinition) return [`overview:${firstDefinition.id}`];
+  return ["hsk:1"];
 }
 
 function syncTopicReviewSelection() {
   const validIds = new Set(getTopicReviewSourceOptions().map((source) => source.id));
-  topicReviewSelection = [...new Set(topicReviewSelection.filter((id) => validIds.has(id)))];
+  topicReviewSelection = [...new Set(
+    topicReviewSelection
+      .map(normalizeTopicReviewSourceId)
+      .filter((id) => validIds.has(id))
+  )];
   if (!topicReviewSelection.length) topicReviewSelection = getTopicReviewDefaultSelection();
   saveTopicReviewSelection();
   return topicReviewSelection;
@@ -2244,14 +2547,16 @@ function getTopicReviewSelection() {
 }
 
 function getTopicReviewPresetMap() {
-  const topicIds = topicWorkshopData.map((topic) => `topic:${topic.id}`);
+  const overviewIds = topicOverviewDefinitions
+    .filter((definition) => definition.id !== "other")
+    .map((definition) => `overview:${definition.id}`);
   return {
-    current: [`topic:${getActiveTopicWorkshop().id}`],
-    topics: topicIds,
+    current: [`overview:${getActiveTopicOverviewGroup()?.id || topicOverviewDefinitions[0]?.id || "family"}`],
+    topics: overviewIds,
     hsk1: ["hsk:1"],
     hsk2: ["hsk:2"],
     hsk12: ["hsk:1", "hsk:2"],
-    total: [...topicIds, "hsk:1", "hsk:2"],
+    total: [...overviewIds, "hsk:1", "hsk:2"],
   };
 }
 
@@ -2280,13 +2585,286 @@ function getTopicReviewSourceSummary() {
   return `${labels.slice(0, 3).join(" · ")} · +${labels.length - 3} nguồn nữa`;
 }
 
+function buildTopicReviewOverviewWord(word, overviewGroup) {
+  return {
+    ...word,
+    sourceLabel: overviewGroup.label,
+    sourceShortLabel: overviewGroup.shortLabel,
+    sourceType: "overview",
+  };
+}
+
+function buildTopicReviewHskWord(word) {
+  const curatedWord = words.find((item) => item.hanzi === word.hanzi);
+  const meaning = getConciseMeaning(word);
+  const example = curatedWord?.sentence?.length
+    ? curatedWord.sentence
+    : (() => {
+      const sentence = getSentencesForWord(word)[0];
+      return sentence
+        ? [sentence.hanzi, sentence.pinyin, sentence.meaning]
+        : [`请写：${word.hanzi}`, word.pinyin, meaning];
+    })();
+  return {
+    ...(curatedWord || {}),
+    hanzi: word.hanzi,
+    pinyin: word.pinyin,
+    meaning,
+    chunk: curatedWord?.chunk || example[0] || word.hanzi,
+    visual: curatedWord?.visual || `${getHskLevelLabel(word.level)} · tra nhanh`,
+    memory: curatedWord?.memory || "Nghe âm, kéo nghĩa ra nhanh rồi đưa từ này vào một câu ngắn quen miệng.",
+    sentence: example,
+    sourceLabel: getHskLevelLabel(word.level),
+    sourceShortLabel: `HSK ${word.level}`,
+    sourceType: "hsk",
+    level: word.level,
+    audio: word.audio,
+  };
+}
+
+function getTopicReviewPool() {
+  const selection = getTopicReviewSelection();
+  const uniqueWords = new Map();
+  const overviewGroupMap = new Map(getTopicOverviewGroups().map((group) => [group.id, group]));
+  const selectedOverviewIds = selection
+    .filter((id) => id.startsWith("overview:"))
+    .map((id) => id.replace("overview:", ""));
+  const selectedHskLevels = selection
+    .filter((id) => id.startsWith("hsk:"))
+    .map((id) => Number(id.split(":")[1]))
+    .filter((level) => Number.isFinite(level));
+
+  selectedOverviewIds.forEach((overviewId) => {
+    const group = overviewGroupMap.get(overviewId);
+    if (!group) return;
+    group.words.forEach((word) => {
+      uniqueWords.set(word.hanzi, buildTopicReviewOverviewWord(word, group));
+    });
+  });
+
+  selectedHskLevels.forEach((level) => {
+    hskVocabulary
+      .filter((word) => word.level === level)
+      .forEach((word) => {
+        if (!uniqueWords.has(word.hanzi)) {
+          uniqueWords.set(word.hanzi, buildTopicReviewHskWord(word));
+        }
+      });
+  });
+
+  return [...uniqueWords.values()];
+}
+
+function renderTopicReviewControls(reviewPool = getTopicReviewPool()) {
+  const selection = getTopicReviewSelection();
+  const sourceOptions = getTopicReviewSourceOptions();
+  const topicSources = sourceOptions.filter((source) => source.type === "overview");
+  const hskSources = sourceOptions.filter((source) => source.type === "hsk");
+  const presetButtons = [
+    ["current", "Bài đang ôn"],
+    ["topics", "Tất cả chủ đề"],
+    ["hsk1", "HSK 1"],
+    ["hsk2", "HSK 2"],
+    ["hsk12", "HSK 1 + 2"],
+    ["total", "Ôn tổng thể"],
+  ].map(([presetId, label]) => `
+    <button class="${doesTopicReviewSelectionMatch(getTopicReviewPresetMap()[presetId]) ? "active" : ""}" data-topic-review-preset="${presetId}" type="button">
+      ${escapeHtml(label)}
+    </button>
+  `).join("");
+  const renderSourceChip = (source) => {
+    const countLabel = source.type === "hsk" && !hskVocabulary.length
+      ? "đang nạp"
+      : `${source.count} từ`;
+    return `
+      <label class="topic-review-chip ${selection.includes(source.id) ? "is-checked" : ""}">
+        <input data-topic-review-source="${source.id}" type="checkbox" ${selection.includes(source.id) ? "checked" : ""} />
+        <span>
+          <b>${escapeHtml(source.label)}</b>
+          <small>${escapeHtml(countLabel)} · ${escapeHtml(source.note)}</small>
+        </span>
+      </label>
+    `;
+  };
+  const hsk1Count = sourceOptions.find((source) => source.id === "hsk:1")?.count || 300;
+  const hsk2Count = sourceOptions.find((source) => source.id === "hsk:2")?.count || 197;
+
+  topicReviewControls.innerHTML = `
+    <article class="topic-review-card">
+      <div class="topic-review-head">
+        <div>
+          <p class="section-kicker">CHỌN BỘ ÔN TẬP</p>
+          <h3>Tick một hoặc nhiều nguồn từ để ôn</h3>
+          <p>Ôn riêng từng chủ đề, trộn nhiều chủ đề, hoặc gọi thẳng cả bộ HSK 1 và HSK 2 để luyện tổng thể.</p>
+        </div>
+        <div class="topic-review-presets">
+          ${presetButtons}
+        </div>
+      </div>
+      <div class="topic-review-summary">
+        <strong>${reviewPool.length ? `${reviewPool.length} từ trong bộ đang ôn` : "Đang nạp bộ từ bạn vừa chọn..."}</strong>
+        <span>${escapeHtml(getTopicReviewSourceSummary())}</span>
+        <small>HSK 1 có ${hsk1Count} từ, HSK 2 có ${hsk2Count} từ. Bạn có thể tick nhiều ô cùng lúc.</small>
+      </div>
+      <div class="topic-review-source-columns">
+        <section class="topic-review-source-column">
+          <header>
+            <strong>Chủ đề luyện sâu</strong>
+            <small>Nhóm nhỏ để ôn flash card, nghe, chọn đáp án và ghép câu.</small>
+          </header>
+          <div class="topic-review-source-grid">
+            ${topicSources.map(renderSourceChip).join("")}
+          </div>
+        </section>
+        <section class="topic-review-source-column is-hsk">
+          <header>
+            <strong>Kho HSK nền</strong>
+            <small>Tick riêng HSK 1, HSK 2 hoặc ghép cả hai để ôn tổng thể.</small>
+          </header>
+          <div class="topic-review-source-grid topic-review-source-grid-hsk">
+            ${hskSources.map(renderSourceChip).join("")}
+          </div>
+        </section>
+      </div>
+    </article>
+  `;
+}
+
+function saveTopicKnownWords() {
+  localStorage.setItem("topicKnownWords", JSON.stringify(topicKnownWords));
+}
+
+function isTopicWordKnown(hanzi) {
+  return Boolean(topicKnownWords[hanzi]);
+}
+
+function setTopicWordKnown(hanzi, known) {
+  if (known) {
+    topicKnownWords[hanzi] = true;
+  } else {
+    delete topicKnownWords[hanzi];
+  }
+  saveTopicKnownWords();
+}
+
+function renderTopicFilter(reviewPool = getTopicReviewPool()) {
+  const overviewGroups = getTopicOverviewGroups();
+  const selection = getTopicReviewSelection();
+  const sourceOptions = getTopicReviewSourceOptions();
+  const overviewSourceMap = new Map(
+    sourceOptions
+      .filter((source) => source.type === "overview")
+      .map((source) => [source.id.replace("overview:", ""), source])
+  );
+  const hskSources = sourceOptions.filter((source) => source.type === "hsk");
+  if (!overviewGroups.length) {
+    topicFilter.innerHTML = `
+      <div class="topic-filter-copy">
+        <span class="topic-filter-label">Bản đồ chủ đề HSK 1-2</span>
+        <small>Đang nạp các nhóm từ để bạn bấm xem tổng thể.</small>
+      </div>
+    `;
+    return;
+  }
+
+  topicFilter.innerHTML = `
+    <div class="topic-filter-copy">
+      <span class="topic-filter-label">Bản đồ chủ đề HSK 1-2</span>
+      <small>Tick nhiều ô để trộn bộ ôn. Bấm vào thẻ chủ đề để mở ngay danh sách từ của nhóm đó.</small>
+    </div>
+    <div class="topic-filter-status">
+      <strong>${reviewPool.length} từ đang nằm trong bộ ôn</strong>
+      <span>${escapeHtml(getTopicReviewSourceSummary())}</span>
+    </div>
+    <div class="topic-filter-sections">
+      <section class="topic-filter-section topic-filter-section-hsk">
+        <div class="topic-filter-section-head">
+          <strong>Ôn theo cấp HSK</strong>
+          <small>HSK 1 có 300 từ, HSK 2 có 197 từ. Có thể tick cả hai cùng lúc.</small>
+        </div>
+        <div class="topic-filter-hsk-grid">
+          ${hskSources.map((source) => `
+            <label class="topic-filter-hsk-card ${selection.includes(source.id) ? "is-selected" : ""}">
+              <input data-topic-review-source="${source.id}" type="checkbox" ${selection.includes(source.id) ? "checked" : ""} />
+              <span>
+                <b>${escapeHtml(source.label)}</b>
+                <small>${source.count} từ · ${escapeHtml(source.note)}</small>
+              </span>
+            </label>
+          `).join("")}
+        </div>
+      </section>
+      <section class="topic-filter-section">
+        <div class="topic-filter-section-head">
+          <strong>Ôn theo chủ đề</strong>
+          <small>Mỗi chủ đề có ô tick riêng. Bấm tên chủ đề để xem toàn bộ từ trước khi ôn.</small>
+        </div>
+        <div class="topic-filter-topic-grid">
+          ${overviewGroups.map((topic) => {
+            const source = overviewSourceMap.get(topic.id);
+            const sourceId = `overview:${topic.id}`;
+            const isSelected = selection.includes(sourceId);
+            const isActive = topic.id === activeTopicOverview;
+            return `
+              <article class="topic-filter-topic-card ${isSelected ? "is-selected" : ""} ${isActive ? "is-active" : ""}">
+                <label class="topic-filter-topic-check">
+                  <input data-topic-review-source="${sourceId}" type="checkbox" ${isSelected ? "checked" : ""} />
+                  <span>Chọn ôn</span>
+                </label>
+                <button class="topic-filter-topic-open" data-topic-overview-open="${topic.id}" type="button">
+                  <b>${escapeHtml(topic.label)}</b>
+                  <small>${topic.count} từ · HSK 1: ${source?.hsk1Count || 0} · HSK 2: ${source?.hsk2Count || 0}</small>
+                  <span>${escapeHtml(topic.sceneTitle)}</span>
+                </button>
+              </article>
+            `;
+          }).join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+function renderTopicSentenceWithBlank(prompt) {
+  return escapeHtml(prompt).replace("____", "<span class=\"topic-blank\">____</span>");
+}
+
+function normalizeTopicPinyin(value) {
+  return normalize(String(value || "")
+    .replace(/[ǖǘǚǜü]/gi, "v"))
+    .replace(/[1-5]/g, "")
+    .replace(/[^a-zv]/g, "");
+}
+
+function normalizePinyinSyllableLetters(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/u:/g, "v")
+    .replace(/[üǖǘǚǜ]/g, "v")
+    .replace(/[āáǎà]/g, "a")
+    .replace(/[ēéěè]/g, "e")
+    .replace(/[īíǐì]/g, "i")
+    .replace(/[ōóǒò]/g, "o")
+    .replace(/[ūúǔù]/g, "u")
+    .replace(/[^a-zv]/g, "");
+}
+
+function keepMarkedPinyinSyllable(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/u:/g, "ü")
+    .replace(/v/g, "ü")
+    .split("")
+    .filter((character) => /[a-züāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/.test(character))
+    .join("");
+}
 function getTopicPanelOptions() {
   return [
     { id: "listen", label: "Nghe + Pinyin", note: "Bấm 1 2 3 4 để đặt thanh" },
     { id: "flashcard", label: "Flash card", note: "Gõ Pinyin hoặc nghĩa" },
     { id: "choice", label: "Chọn đáp án", note: "Nhìn chữ chọn đúng nghĩa" },
     { id: "drill", label: "Ghép câu", note: "Điền từ vào câu" },
-    { id: "stage", label: "Xem sâu", note: "Chunk và từ của chủ đề" },
+    { id: "stage", label: "Xem chủ đề", note: "Bấm chủ đề để xem trọn bộ từ" },
   ];
 }
 
@@ -2356,6 +2934,8 @@ function resetTopicWorkshopPracticeState() {
   topicChoiceSelected = "";
   topicChoiceAnswered = false;
   topicChoiceOptions = [];
+  topicChoiceOrder = [];
+  topicChoiceOrderKey = "";
   topicDrillIndex = 0;
   topicDrillSelected = "";
   topicDrillAnswered = false;
@@ -2364,13 +2944,17 @@ function resetTopicWorkshopPracticeState() {
 
 function setTopicReviewSelection(nextSelection) {
   const validIds = new Set(getTopicReviewSourceOptions().map((source) => source.id));
-  const normalizedSelection = [...new Set((nextSelection || []).filter((id) => validIds.has(id)))];
+  const normalizedSelection = [...new Set(
+    (nextSelection || [])
+      .map(normalizeTopicReviewSourceId)
+      .filter((id) => validIds.has(id))
+  )];
   topicReviewSelection = normalizedSelection.length ? normalizedSelection : getTopicReviewDefaultSelection();
-  const selectedTopicIds = topicReviewSelection
-    .filter((id) => id.startsWith("topic:"))
-    .map((id) => id.replace("topic:", ""));
-  if (selectedTopicIds.length && !selectedTopicIds.includes(activeTopicWorkshop)) {
-    setTopicWorkshopActiveTopic(selectedTopicIds[0]);
+  const selectedOverviewIds = topicReviewSelection
+    .filter((id) => id.startsWith("overview:"))
+    .map((id) => id.replace("overview:", ""));
+  if (selectedOverviewIds.length && !selectedOverviewIds.includes(activeTopicOverview)) {
+    setActiveTopicOverview(selectedOverviewIds[0]);
   }
   saveTopicReviewSelection();
   resetTopicWorkshopPracticeState();
@@ -2380,12 +2964,14 @@ function setTopicReviewSelection(nextSelection) {
 function setTopicReviewSourceChecked(sourceId, checked) {
   const selection = new Set(getTopicReviewSelection());
   if (checked) {
-    selection.add(sourceId);
+    selection.add(normalizeTopicReviewSourceId(sourceId));
   } else {
-    selection.delete(sourceId);
+    selection.delete(normalizeTopicReviewSourceId(sourceId));
   }
-  if (checked && sourceId.startsWith("topic:")) {
-    setTopicWorkshopActiveTopic(sourceId.replace("topic:", ""));
+  const normalizedSourceId = normalizeTopicReviewSourceId(sourceId);
+  if (checked && normalizedSourceId.startsWith("overview:")) {
+    const overviewId = normalizedSourceId.replace("overview:", "");
+    setActiveTopicOverview(overviewId);
   }
   setTopicReviewSelection([...selection]);
 }
@@ -2393,161 +2979,7 @@ function setTopicReviewSourceChecked(sourceId, checked) {
 function setTopicReviewPreset(presetId) {
   const presets = getTopicReviewPresetMap();
   if (!presets[presetId]) return;
-  if (presetId === "current") setTopicWorkshopActiveTopic(getActiveTopicWorkshop().id);
   setTopicReviewSelection(presets[presetId]);
-}
-
-function buildTopicReviewTopicWord(word, topic) {
-  return {
-    ...word,
-    sourceLabel: topic.label,
-    sourceShortLabel: topic.shortLabel,
-    sourceType: "topic",
-  };
-}
-
-function buildTopicReviewHskWord(word) {
-  const curatedWord = words.find((item) => item.hanzi === word.hanzi);
-  const meaning = getConciseMeaning(word);
-  const example = curatedWord?.sentence?.length
-    ? curatedWord.sentence
-    : (() => {
-      const sentence = getSentencesForWord(word)[0];
-      return sentence
-        ? [sentence.hanzi, sentence.pinyin, sentence.meaning]
-        : [`请写：${word.hanzi}`, word.pinyin, meaning];
-    })();
-  return {
-    ...(curatedWord || {}),
-    hanzi: word.hanzi,
-    pinyin: word.pinyin,
-    meaning,
-    chunk: curatedWord?.chunk || example[0] || word.hanzi,
-    visual: curatedWord?.visual || `${getHskLevelLabel(word.level)} · tra nhanh`,
-    memory: curatedWord?.memory || "Nghe âm, kéo nghĩa ra nhanh rồi đưa từ này vào một câu ngắn quen miệng.",
-    sentence: example,
-    sourceLabel: getHskLevelLabel(word.level),
-    sourceShortLabel: `HSK ${word.level}`,
-    sourceType: "hsk",
-    level: word.level,
-    audio: word.audio,
-  };
-}
-
-function getTopicReviewPool() {
-  const selection = getTopicReviewSelection();
-  const uniqueWords = new Map();
-  const selectedTopicIds = selection
-    .filter((id) => id.startsWith("topic:"))
-    .map((id) => id.replace("topic:", ""));
-  const selectedHskLevels = selection
-    .filter((id) => id.startsWith("hsk:"))
-    .map((id) => Number(id.split(":")[1]))
-    .filter((level) => Number.isFinite(level));
-
-  selectedTopicIds.forEach((topicId) => {
-    const topic = topicWorkshopData.find((item) => item.id === topicId);
-    if (!topic) return;
-    topic.words.forEach((word) => {
-      uniqueWords.set(word.hanzi, buildTopicReviewTopicWord(word, topic));
-    });
-  });
-
-  selectedHskLevels.forEach((level) => {
-    hskVocabulary
-      .filter((word) => word.level === level)
-      .forEach((word) => {
-        if (!uniqueWords.has(word.hanzi)) {
-          uniqueWords.set(word.hanzi, buildTopicReviewHskWord(word));
-        }
-      });
-  });
-
-  return [...uniqueWords.values()];
-}
-
-function renderTopicReviewControls(reviewPool = getTopicReviewPool()) {
-  const selection = getTopicReviewSelection();
-  const sourceOptions = getTopicReviewSourceOptions();
-  const presetButtons = [
-    ["current", "Chủ đề đang xem"],
-    ["topics", "Tất cả chủ đề"],
-    ["hsk1", "HSK 1"],
-    ["hsk2", "HSK 2"],
-    ["hsk12", "HSK 1 + 2"],
-    ["total", "Ôn tổng thể"],
-  ].map(([presetId, label]) => `
-    <button class="${doesTopicReviewSelectionMatch(getTopicReviewPresetMap()[presetId]) ? "active" : ""}" data-topic-review-preset="${presetId}" type="button">
-      ${escapeHtml(label)}
-    </button>
-  `).join("");
-  const sourceChips = sourceOptions.map((source) => {
-    const countLabel = source.type === "hsk" && !hskVocabulary.length
-      ? "đang nạp"
-      : `${source.count} từ`;
-    return `
-      <label class="topic-review-chip ${selection.includes(source.id) ? "is-checked" : ""}">
-        <input data-topic-review-source="${source.id}" type="checkbox" ${selection.includes(source.id) ? "checked" : ""} />
-        <span>
-          <b>${escapeHtml(source.label)}</b>
-          <small>${escapeHtml(countLabel)} · ${escapeHtml(source.note)}</small>
-        </span>
-      </label>
-    `;
-  }).join("");
-  const hsk1Count = sourceOptions.find((source) => source.id === "hsk:1")?.count || 300;
-  const hsk2Count = sourceOptions.find((source) => source.id === "hsk:2")?.count || 197;
-
-  topicReviewControls.innerHTML = `
-    <article class="topic-review-card">
-      <div class="topic-review-head">
-        <div>
-          <p class="section-kicker">CHỌN BỘ ÔN TẬP</p>
-          <h3>Tick một hoặc nhiều nguồn từ để ôn</h3>
-          <p>Ôn riêng từng chủ đề, trộn nhiều chủ đề, hoặc gọi thẳng cả bộ HSK 1 và HSK 2 để luyện tổng thể.</p>
-        </div>
-        <div class="topic-review-presets">
-          ${presetButtons}
-        </div>
-      </div>
-      <div class="topic-review-summary">
-        <strong>${reviewPool.length ? `${reviewPool.length} từ trong bộ đang ôn` : "Đang nạp bộ từ bạn vừa chọn..."}</strong>
-        <span>${escapeHtml(getTopicReviewSourceSummary())}</span>
-        <small>HSK 1 có ${hsk1Count} từ, HSK 2 có ${hsk2Count} từ. Bạn có thể tick nhiều ô cùng lúc.</small>
-      </div>
-      <div class="topic-review-source-grid">
-        ${sourceChips}
-      </div>
-    </article>
-  `;
-}
-
-function saveTopicKnownWords() {
-  localStorage.setItem("topicKnownWords", JSON.stringify(topicKnownWords));
-}
-
-function isTopicWordKnown(hanzi) {
-  return Boolean(topicKnownWords[hanzi]);
-}
-
-function setTopicWordKnown(hanzi, known) {
-  if (known) {
-    topicKnownWords[hanzi] = true;
-  } else {
-    delete topicKnownWords[hanzi];
-  }
-  saveTopicKnownWords();
-}
-
-function renderTopicFilter() {
-  topicFilter.innerHTML = `
-    <span class="topic-filter-label">Xem sâu chủ đề</span>
-    ${topicWorkshopData.map((topic) => `
-      <button class="${topic.id === activeTopicWorkshop ? "active" : ""}" data-topic-id="${topic.id}" type="button">
-        ${escapeHtml(topic.shortLabel)}
-      </button>
-    `).join("")}
-  `;
 }
 
 function renderTopicSentenceWithBlank(prompt) {
@@ -2701,9 +3133,41 @@ function getCurrentTopicListenWord(reviewPool = getTopicReviewPool()) {
   return reviewPool[topicListenIndex % reviewPool.length];
 }
 
+function getTopicChoicePoolKey(reviewPool = getTopicReviewPool()) {
+  return reviewPool.map((word) => word.hanzi).join("|");
+}
+
+function ensureTopicChoiceOrder(reviewPool = getTopicReviewPool()) {
+  if (!reviewPool.length) {
+    topicChoiceOrder = [];
+    topicChoiceOrderKey = "";
+    topicChoiceIndex = 0;
+    return topicChoiceOrder;
+  }
+
+  const poolKey = getTopicChoicePoolKey(reviewPool);
+  const currentHanziSet = new Set(reviewPool.map((word) => word.hanzi));
+  const shouldResetOrder = topicChoiceOrderKey !== poolKey
+    || topicChoiceOrder.length !== reviewPool.length
+    || topicChoiceOrder.some((hanzi) => !currentHanziSet.has(hanzi));
+
+  if (shouldResetOrder) {
+    topicChoiceOrder = shuffle(reviewPool.map((word) => word.hanzi));
+    topicChoiceOrderKey = poolKey;
+    topicChoiceIndex = 0;
+    topicChoiceSelected = "";
+    topicChoiceAnswered = false;
+    topicChoiceOptions = [];
+  }
+
+  return topicChoiceOrder;
+}
+
 function getCurrentTopicChoiceWord(reviewPool = getTopicReviewPool()) {
   if (!reviewPool.length) return null;
-  return reviewPool[topicChoiceIndex % reviewPool.length];
+  const choiceOrder = ensureTopicChoiceOrder(reviewPool);
+  const currentHanzi = choiceOrder[topicChoiceIndex % choiceOrder.length];
+  return reviewPool.find((word) => word.hanzi === currentHanzi) || reviewPool[0];
 }
 
 function resetTopicChoiceOptions(reviewPool = getTopicReviewPool()) {
@@ -3093,12 +3557,13 @@ function toggleTopicFlashMeaning() {
 
 function renderTopicWorkshop() {
   const reviewPool = getTopicReviewPool();
-  const topic = getActiveTopicWorkshop();
   const knownCount = reviewPool.filter((word) => isTopicWordKnown(word.hanzi)).length;
   const percent = reviewPool.length ? Math.round((knownCount / reviewPool.length) * 100) : 0;
+  const overviewGroup = getActiveTopicOverviewGroup();
 
-  renderTopicFilter();
-  renderTopicReviewControls(reviewPool);
+  renderTopicFilter(reviewPool);
+  topicReviewControls.hidden = true;
+  topicReviewControls.innerHTML = "";
   topicMastery.innerHTML = `
     <span>
       <strong>${knownCount}/${reviewPool.length || 0}</strong> từ đã nhớ trong bộ đang ôn
@@ -3111,61 +3576,80 @@ function renderTopicWorkshop() {
   renderTopicFlashcard(reviewPool);
   renderTopicChoice(reviewPool);
 
-  const chunkMarkup = topic.chunks.map(([pattern, note, example]) => `
-    <article class="topic-chunk-card">
-      <span>CHUNK</span>
-      <strong>${escapeHtml(pattern)}</strong>
-      <p>${escapeHtml(note)}</p>
-      <small lang="zh-Hans">${escapeHtml(example)}</small>
-    </article>
-  `).join("");
-
-  const wordMarkup = topic.words.map((word) => {
-    const known = isTopicWordKnown(word.hanzi);
-    return `
-      <article class="topic-word-card ${known ? "is-known" : ""}">
-        <div class="topic-word-visual" aria-hidden="true">
-          <span lang="zh-Hans">${escapeHtml(word.hanzi.slice(0, 1))}</span>
-          <small>${escapeHtml(word.visual)}</small>
-        </div>
-        <div class="topic-word-main">
-          <div class="topic-word-head">
+  if (!overviewGroup) {
+    topicStage.innerHTML = getTopicWorkshopEmptyState(
+      "Đang nạp bản đồ chủ đề",
+      "Chờ một chút để app gom toàn bộ từ HSK 1-2 theo từng nhóm dễ học."
+    );
+  } else {
+    const visibleWords = overviewGroup.words.slice(0, topicOverviewVisibleLimit);
+    const remainingCount = Math.max(0, overviewGroup.words.length - visibleWords.length);
+    const wordMarkup = visibleWords.map((word) => {
+      const known = isTopicWordKnown(word.hanzi);
+      const hasRealExample = word.sentence?.[0] && !String(word.sentence[0]).startsWith("请写：");
+      const chunkHanzi = word.chunk || word.sentence?.[0] || word.hanzi;
+      return `
+        <article class="topic-overview-word-card ${known ? "is-known" : ""}">
+          <div class="topic-overview-word-head">
             <strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>
+            <span class="topic-overview-level">HSK ${word.level || "1-2"}</span>
+          </div>
+          <span class="topic-overview-pinyin">${escapeHtml(word.pinyin)}</span>
+          ${topicStageMeaningVisible ? `<p class="topic-overview-meaning">${escapeHtml(getTopicMeaningLabel(word.meaning))}</p>` : ""}
+          <div class="topic-overview-example">
+            <span>Chunk để ráp câu</span>
+            <strong lang="zh-Hans">${escapeHtml(chunkHanzi)}</strong>
+            ${hasRealExample ? `<em lang="zh-Hans">${escapeHtml(word.sentence[0])}</em>` : ""}
+            ${hasRealExample ? `<small>${escapeHtml(word.sentence[1])}</small>` : `<small class="topic-overview-note">Nhóm: ${escapeHtml(overviewGroup.shortLabel)}</small>`}
+            ${topicStageMeaningVisible
+              ? `<small class="topic-overview-translation">${escapeHtml(word.sentence?.[2] || getTopicMeaningLabel(word.meaning))}</small>`
+              : ""}
+          </div>
+          <div class="topic-overview-actions">
             <button class="topic-audio-button" data-topic-audio="${escapeHtml(word.hanzi)}" type="button">▶ Nghe</button>
-          </div>
-          <span>${escapeHtml(word.pinyin)} · ${escapeHtml(word.meaning)}</span>
-          <p><b>Chunk:</b> ${escapeHtml(word.chunk)}</p>
-          <p><b>Hình nhớ:</b> ${escapeHtml(word.memory)}</p>
-          <div class="topic-example">
-            <em lang="zh-Hans">${escapeHtml(word.sentence[0])}</em>
-            <small>${escapeHtml(word.sentence[1])}</small>
-            <small>${escapeHtml(word.sentence[2])}</small>
-          </div>
-          <div class="topic-word-actions">
             <button data-topic-known="${escapeHtml(word.hanzi)}" type="button">${known ? "Đã nhớ" : "Đánh dấu đã nhớ"}</button>
             <button data-topic-lookup="${escapeHtml(word.hanzi)}" type="button">Mở thẻ từ</button>
           </div>
+        </article>
+      `;
+    }).join("");
+
+    topicStage.innerHTML = `
+      <article class="topic-scene-card topic-overview-scene-card">
+        <div class="topic-scene-mark" lang="zh-Hans">${escapeHtml(overviewGroup.sceneHanzi)}</div>
+        <div>
+          <div class="topic-overview-hero-head">
+            <div>
+              <p class="section-kicker">XEM TOÀN BỘ TỪ THEO CHỦ ĐỀ</p>
+              <h3>${escapeHtml(overviewGroup.label)}</h3>
+            </div>
+            <button class="topic-translation-toggle ${topicStageMeaningVisible ? "active" : ""}" data-topic-stage-meaning-toggle type="button">
+              <span aria-hidden="true">&#128065;</span>
+              ${topicStageMeaningVisible ? "Ẩn dịch Việt" : "Hiện dịch Việt"}
+            </button>
+          </div>
+          <p>${escapeHtml(overviewGroup.sceneNote)}</p>
+          <div class="topic-overview-meta">
+            <strong>${overviewGroup.count} từ</strong>
+            <span>HSK 1: ${overviewGroup.hsk1Count} · HSK 2: ${overviewGroup.hsk2Count}</span>
+          </div>
         </div>
       </article>
-    `;
-  }).join("");
-
-  topicStage.innerHTML = `
-    <article class="topic-scene-card">
-      <div class="topic-scene-mark" lang="zh-Hans">${escapeHtml(topic.sceneHanzi)}</div>
-      <div>
-        <p class="section-kicker">${escapeHtml(topic.label)}</p>
-        <h3>${escapeHtml(topic.sceneTitle)}</h3>
-        <p>${escapeHtml(topic.sceneNote)}</p>
+      <div class="topic-overview-summary">
+        <strong>Đang hiện ${visibleWords.length}/${overviewGroup.words.length} từ của chủ đề này</strong>
+        <span>${escapeHtml(overviewGroup.sceneTitle)}</span>
+        <small>${topicStageMeaningVisible ? "Dịch Việt đang mở cho nghĩa từ và phần chunk." : "Nghĩa Việt đang ẩn. Bấm nút con mắt để hiện nghĩa từ và phần chunk."}</small>
       </div>
-    </article>
-    <section class="topic-chunk-board" aria-label="Các chunk ưu tiên">
-      ${chunkMarkup}
-    </section>
-    <section class="topic-word-board" aria-label="Từ mới theo chủ đề">
-      ${wordMarkup}
-    </section>
-  `;
+      <section class="topic-overview-word-board" aria-label="Toàn bộ từ của chủ đề đang chọn">
+        ${wordMarkup}
+      </section>
+      ${remainingCount ? `
+        <div class="topic-overview-more">
+          <button class="topic-next-button" data-topic-overview-more type="button">Xem thêm ${Math.min(24, remainingCount)} từ</button>
+        </div>
+      ` : ""}
+    `;
+  }
 
   renderTopicDrill(reviewPool);
   applyTopicPanelVisibility();
@@ -3256,7 +3740,20 @@ function answerTopicChoice(hanzi) {
 function nextTopicChoice() {
   const reviewPool = getTopicReviewPool();
   if (!reviewPool.length) return;
-  topicChoiceIndex = (topicChoiceIndex + 1) % reviewPool.length;
+  const choiceOrder = ensureTopicChoiceOrder(reviewPool);
+  if (!choiceOrder.length) return;
+  if (topicChoiceIndex + 1 >= choiceOrder.length) {
+    const lastHanzi = choiceOrder[choiceOrder.length - 1];
+    let nextOrder = shuffle(reviewPool.map((word) => word.hanzi));
+    if (nextOrder.length > 1 && nextOrder[0] === lastHanzi) {
+      nextOrder = [...nextOrder.slice(1), nextOrder[0]];
+    }
+    topicChoiceOrder = nextOrder;
+    topicChoiceOrderKey = getTopicChoicePoolKey(reviewPool);
+    topicChoiceIndex = 0;
+  } else {
+    topicChoiceIndex += 1;
+  }
   topicChoiceSelected = "";
   topicChoiceAnswered = false;
   topicChoiceOptions = [];
@@ -3335,14 +3832,16 @@ function toggleTopicDrillMeaning() {
   renderTopicDrill();
 }
 
-function selectTopicWorkshop(topicId) {
-  const shouldFollowTopic = doesTopicReviewSelectionMatch([`topic:${getActiveTopicWorkshop().id}`]);
-  setTopicWorkshopActiveTopic(topicId);
-  if (shouldFollowTopic) {
-    topicReviewSelection = [`topic:${topicId}`];
-    saveTopicReviewSelection();
-    resetTopicWorkshopPracticeState();
-  }
+function toggleTopicStageMeaning() {
+  topicStageMeaningVisible = !topicStageMeaningVisible;
+  localStorage.setItem("topicStageMeaningVisible", String(topicStageMeaningVisible));
+  renderTopicWorkshop();
+}
+
+function selectTopicOverview(topicId) {
+  setActiveTopicOverview(topicId);
+  activeTopicPanel = "stage";
+  saveTopicPanelPreference();
   renderTopicWorkshop();
 }
 
@@ -4137,9 +4636,10 @@ document.addEventListener("click", (event) => {
   const sentenceAudioButton = event.target.closest("[data-sentence-speak]");
   const questionGuideButton = event.target.closest("[data-question-guide]");
   const internalPinyinButton = event.target.closest("[data-lookup-pinyin]");
-  const topicButton = event.target.closest("[data-topic-id]");
+  const topicOverviewOpenButton = event.target.closest("[data-topic-overview-open]");
   const topicReviewPresetButton = event.target.closest("[data-topic-review-preset]");
   const topicPanelButton = event.target.closest("[data-topic-panel]");
+  const topicOverviewMoreButton = event.target.closest("[data-topic-overview-more]");
   const topicAudioButton = event.target.closest("[data-topic-audio]");
   const topicListenRevealButton = event.target.closest("[data-topic-listen-reveal]");
   const topicListenNextButton = event.target.closest("[data-topic-listen-next]");
@@ -4155,6 +4655,7 @@ document.addEventListener("click", (event) => {
   const topicFlashRevealButton = event.target.closest("[data-topic-flash-reveal]");
   const topicFlashNextButton = event.target.closest("[data-topic-flash-next]");
   const topicDrillMeaningToggle = event.target.closest("[data-topic-drill-meaning-toggle]");
+  const topicStageMeaningToggle = event.target.closest("[data-topic-stage-meaning-toggle]");
   const dictationPlayButton = event.target.closest("[data-dictation-play]");
   const dictationCheckButton = event.target.closest("[data-dictation-check]");
   const dictationRevealButton = event.target.closest("[data-dictation-reveal]");
@@ -4169,7 +4670,8 @@ document.addEventListener("click", (event) => {
   if (questionGuideButton) openQuestionGuide(questionGuideButton.dataset.questionGuide);
   if (topicReviewPresetButton) setTopicReviewPreset(topicReviewPresetButton.dataset.topicReviewPreset);
   if (topicPanelButton) setActiveTopicPanel(topicPanelButton.dataset.topicPanel);
-  if (topicButton) selectTopicWorkshop(topicButton.dataset.topicId);
+  if (topicOverviewOpenButton) selectTopicOverview(topicOverviewOpenButton.dataset.topicOverviewOpen);
+  if (topicOverviewMoreButton) showMoreTopicOverviewWords();
   if (topicAudioButton) playTopicAudio(topicAudioButton.dataset.topicAudio, topicAudioButton);
   if (topicListenRevealButton) revealTopicListenPinyin();
   if (topicListenNextButton) nextTopicListenPinyin();
@@ -4188,6 +4690,7 @@ document.addEventListener("click", (event) => {
   if (topicFlashRevealButton) revealTopicFlashcard(topicFlashRevealButton.dataset.topicFlashReveal);
   if (topicFlashNextButton) nextTopicFlashcard();
   if (topicDrillMeaningToggle) toggleTopicDrillMeaning();
+  if (topicStageMeaningToggle) toggleTopicStageMeaning();
   if (dictationPlayButton) playDictationItem(Number(dictationPlayButton.dataset.dictationPlay), dictationPlayButton);
   if (dictationCheckButton) checkDictationAnswer(Number(dictationCheckButton.dataset.dictationCheck));
   if (dictationRevealButton) revealDictationAnswer(Number(dictationRevealButton.dataset.dictationReveal));
