@@ -1508,6 +1508,7 @@ let sentenceActiveTopic = "all";
 let sentenceVisibleLimit = 24;
 let hskPlayingButton = null;
 let activeQuestionGuideGroup = "all";
+let activeInterrogativeGuideId = null;
 let pinyinDictionaryTone = "all";
 let dictationItems = [];
 let dictationAudioUrl = "";
@@ -2264,12 +2265,49 @@ function renderQuestionGuideFilter() {
   `).join("");
 }
 
+function getQuestionGuideGroupLabel(group) {
+  if (group === "question") return "Từ để hỏi";
+  if (group === "particle") return "Mẫu câu hỏi";
+  return "Từ chỉ định";
+}
+
+function getQuestionGuideCoreRule(guide) {
+  if (guide.id === "ma") {
+    return {
+      title: "Không thêm 吗 vào câu đã có từ để hỏi",
+      text: "Dùng <strong>你是谁？</strong>, không dùng <strong>你是谁吗？</strong>. 谁 đã thể hiện điều cần hỏi nên không cần 吗."
+    };
+  }
+  if (guide.id === "ne") {
+    return {
+      title: "呢 cần một ngữ cảnh đã có sẵn",
+      text: "Nói <strong>我很好，你呢？</strong> khi chủ đề “khỏe thế nào” đã rõ. 呢 giúp hỏi tiếp cùng chủ đề."
+    };
+  }
+  if (guide.id === "haishi") {
+    return {
+      title: "Câu lựa chọn thường không thêm 吗",
+      text: "Dùng <strong>你喝茶还是咖啡？</strong>. 还是 đã tạo câu hỏi lựa chọn nên thường không cần thêm 吗 ở cuối."
+    };
+  }
+  if (guide.group === "question") {
+    return {
+      title: "Không đảo từ để hỏi lên đầu câu",
+      text: "Đặt từ để hỏi đúng vào vị trí của phần trả lời. Ví dụ: <strong>我明天回家</strong> → <strong>你什么时候回家？</strong>"
+    };
+  }
+  return {
+    title: "Đừng quên lượng từ trước danh từ",
+    text: "Với danh từ đếm được, dùng <strong>这/那 + lượng từ + danh từ</strong>: 这本书, 那辆车, 这个人."
+  };
+}
+
 function renderQuestionGuideCards(guides) {
   return guides.map((guide) => `
     <article class="question-guide-card">
       <button class="question-guide-open" data-question-guide="${guide.id}" type="button"
         aria-label="Xem cách dùng ${escapeHtml(guide.hanzi)}, ${escapeHtml(guide.pinyin)}">
-        <span class="question-guide-type">${guide.group === "question" ? "Từ để hỏi" : guide.group === "particle" ? "Mẫu câu hỏi" : "Từ chỉ định"}</span>
+        <span class="question-guide-type">${getQuestionGuideGroupLabel(guide.group)}</span>
         <strong lang="zh-Hans">${escapeHtml(guide.hanzi)}</strong>
         <span class="question-guide-pinyin">${escapeHtml(guide.pinyin)}</span>
         <small>${escapeHtml(guide.meaning)}</small>
@@ -2281,8 +2319,62 @@ function renderQuestionGuideCards(guides) {
   `).join("");
 }
 
+function renderInterrogativeGuideRows(guides) {
+  return guides.map((guide) => {
+    const isOpen = activeInterrogativeGuideId === guide.id;
+    const detailId = `interrogative-detail-${guide.id}`;
+    const coreRule = getQuestionGuideCoreRule(guide);
+    const examples = guide.examples.map(([hanzi, pinyin, meaning]) => `
+      <div class="example-sentence question-guide-example">
+        <strong lang="zh-Hans">${escapeHtml(hanzi)}</strong>
+        <span>${escapeHtml(pinyin)}</span>
+        <small>${escapeHtml(meaning)}</small>
+        <button class="question-example-audio" data-speak="${escapeHtml(hanzi)}" type="button" aria-label="Nghe câu ${escapeHtml(hanzi)}">▶</button>
+      </div>
+    `).join("");
+
+    return `
+      <article class="interrogative-row${isOpen ? " open" : ""}">
+        <div class="interrogative-row-shell">
+          <button class="interrogative-row-toggle" data-interrogative-guide="${guide.id}" type="button"
+            aria-expanded="${isOpen}" aria-controls="${detailId}"
+            aria-label="${isOpen ? "Thu gọn" : "Mở"} kiến thức cho ${escapeHtml(guide.hanzi)}, ${escapeHtml(guide.pinyin)}">
+            <strong class="interrogative-row-hanzi" lang="zh-Hans">${escapeHtml(guide.hanzi)}</strong>
+            <span class="interrogative-row-pinyin">${escapeHtml(guide.pinyin)}</span>
+            <span class="interrogative-row-meaning">${escapeHtml(guide.meaning)}</span>
+            <span class="interrogative-row-hint">${isOpen ? "Thu gọn" : "Mở cách dùng"}</span>
+          </button>
+          <button class="interrogative-row-audio" data-speak="${escapeHtml(guide.hanzi.split(" /")[0])}"
+            type="button" aria-label="Nghe ${escapeHtml(guide.hanzi)}">▶</button>
+        </div>
+        <div class="interrogative-row-detail"${isOpen ? "" : " hidden"} id="${detailId}">
+          <div class="interrogative-detail-grid">
+            <section class="detail-section">
+              <p class="detail-label">Cách dùng</p>
+              <p>${escapeHtml(guide.usage)}</p>
+            </section>
+            <section class="detail-section">
+              <p class="detail-label">Chunk / mẫu hay gặp</p>
+              <h3>${escapeHtml(guide.pattern)}</h3>
+              <p>${normalizeDisplayText(coreRule.text)}</p>
+            </section>
+            <section class="detail-section question-contrast-box">
+              <p class="detail-label">Điểm dễ nhầm</p>
+              <p>${escapeHtml(guide.contrast)}</p>
+            </section>
+          </div>
+          <div class="interrogative-row-examples">
+            <p class="detail-label">Câu mẫu</p>
+            <div class="question-guide-examples">${examples}</div>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
 function renderInterrogativeGuides() {
-  interrogativeGrid.innerHTML = renderQuestionGuideCards(
+  interrogativeGrid.innerHTML = renderInterrogativeGuideRows(
     questionGuides.filter((guide) => guide.group === "question")
   );
 }
@@ -2307,39 +2399,13 @@ function openQuestionGuide(id) {
       <button class="question-example-audio" data-speak="${escapeHtml(hanzi)}" type="button" aria-label="Nghe câu ${escapeHtml(hanzi)}">▶</button>
     </div>
   `).join("");
-  let coreRule;
-  if (guide.id === "ma") {
-    coreRule = {
-      title: "Không thêm 吗 vào câu đã có từ để hỏi",
-      text: "Dùng <strong>你是谁？</strong>, không dùng <strong>你是谁吗？</strong>. 谁 đã thể hiện điều cần hỏi nên không cần 吗."
-    };
-  } else if (guide.id === "ne") {
-    coreRule = {
-      title: "呢 cần một ngữ cảnh đã có sẵn",
-      text: "Nói <strong>我很好，你呢？</strong> khi chủ đề “khỏe thế nào” đã rõ. 呢 giúp hỏi tiếp cùng chủ đề."
-    };
-  } else if (guide.id === "haishi") {
-    coreRule = {
-      title: "Câu lựa chọn thường không thêm 吗",
-      text: "Dùng <strong>你喝茶还是咖啡？</strong>. 还是 đã tạo câu hỏi lựa chọn nên thường không cần thêm 吗 ở cuối."
-    };
-  } else if (guide.group === "question") {
-    coreRule = {
-      title: "Không đảo từ để hỏi lên đầu câu",
-      text: "Đặt từ để hỏi đúng vào vị trí của phần trả lời. Ví dụ: <strong>我明天回家</strong> → <strong>你什么时候回家？</strong>"
-    };
-  } else {
-    coreRule = {
-      title: "Đừng quên lượng từ trước danh từ",
-      text: "Với danh từ đếm được, dùng <strong>这/那 + lượng từ + danh từ</strong>: 这本书, 那辆车, 这个人."
-    };
-  }
+  const coreRule = getQuestionGuideCoreRule(guide);
 
   dialogContent.innerHTML = `
     <div class="dialog-hero question-guide-dialog-hero">
       <div class="dialog-character" lang="zh-Hans">${escapeHtml(guide.hanzi)}</div>
       <div class="dialog-intro">
-        <p class="dialog-topic">${normalizeDisplayText(guide.group === "question" ? "Từ để hỏi" : guide.group === "particle" ? "Mẫu câu hỏi" : "Từ chỉ định")}</p>
+        <p class="dialog-topic">${normalizeDisplayText(getQuestionGuideGroupLabel(guide.group))}</p>
         <h2>${escapeHtml(guide.meaning)}</h2>
         <p class="dialog-pinyin">${escapeHtml(guide.pinyin)}</p>
         <div class="dialog-actions">
@@ -4885,6 +4951,7 @@ document.addEventListener("click", (event) => {
   const hskWordButton = event.target.closest("[data-hsk-word]");
   const hskAudioButton = event.target.closest("[data-hsk-audio]");
   const sentenceAudioButton = event.target.closest("[data-sentence-speak]");
+  const interrogativeGuideButton = event.target.closest("[data-interrogative-guide]");
   const questionGuideButton = event.target.closest("[data-question-guide]");
   const internalPinyinButton = event.target.closest("[data-lookup-pinyin]");
   const topicOverviewOpenButton = event.target.closest("[data-topic-overview-open]");
@@ -4913,6 +4980,11 @@ document.addEventListener("click", (event) => {
   const lessonLink = event.target.closest("a[href^='#']");
   if (wordButton) openWord(wordButton.dataset.word);
   if (questionButton) openWord(questionButton.dataset.openWord);
+  if (interrogativeGuideButton) {
+    const { interrogativeGuide } = interrogativeGuideButton.dataset;
+    activeInterrogativeGuideId = activeInterrogativeGuideId === interrogativeGuide ? null : interrogativeGuide;
+    renderInterrogativeGuides();
+  }
   if (speakButton) speakChinese(speakButton.dataset.speak);
   if (practiceButton) speakPracticeWord(practiceButton.dataset.practiceWord);
   if (hskWordButton) openHskWord(hskWordButton.dataset.hskWord);

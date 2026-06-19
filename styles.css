@@ -3868,30 +3868,131 @@ main.single-lesson-view > section:not([hidden]) {
   content: "";
 }
 
-.interrogative-map {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 42px 0 22px;
+.interrogative-list {
+  margin-top: 42px;
   border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.18);
 }
 
-.interrogative-map span {
-  min-height: 66px;
-  padding: 14px;
-  color: var(--muted);
-  border-right: 1px solid var(--line);
+.interrogative-row {
   border-bottom: 1px solid var(--line);
-  font-size: 10px;
 }
 
-.interrogative-map b {
+.interrogative-row-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+}
+
+.interrogative-row-toggle {
+  display: grid;
+  grid-template-columns: minmax(90px, 220px) minmax(120px, 220px) minmax(180px, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  width: 100%;
+  min-height: 78px;
+  padding: 16px 20px;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.interrogative-row:hover,
+.interrogative-row.open {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.interrogative-row-hanzi,
+.interrogative-row-pinyin,
+.interrogative-row-meaning,
+.interrogative-row-hint {
   display: block;
-  margin-bottom: 5px;
+}
+
+.interrogative-row-hanzi {
   color: var(--ink);
   font-family: var(--hanzi);
-  font-size: 20px;
+  font-size: 34px;
   font-weight: 500;
+  line-height: 1.08;
+}
+
+.interrogative-row-pinyin {
+  color: var(--red);
+  font-family: var(--reading);
+  font-size: 16px;
+  font-style: italic;
+}
+
+.interrogative-row-meaning {
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.interrogative-row-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.interrogative-row-hint::after {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  color: var(--blue);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 1;
+  content: "+";
+}
+
+.interrogative-row-toggle[aria-expanded="true"] .interrogative-row-hint::after {
+  content: "−";
+}
+
+.interrogative-row-detail {
+  padding: 0 20px 22px;
+  border-top: 1px solid var(--line);
+}
+
+.interrogative-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.interrogative-row-detail .detail-section {
+  padding: 18px;
+  background: rgba(251, 249, 243, 0.78);
+  border: 1px solid var(--line);
+}
+
+.interrogative-row-detail .detail-section h3 {
+  font-size: 18px;
+}
+
+.interrogative-row-examples {
+  margin-top: 14px;
+  padding: 18px;
+  background: rgba(251, 249, 243, 0.88);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--blue);
+}
+
+.interrogative-row-examples .detail-label {
+  margin: 0 0 14px;
 }
 
 .demonstrative-scale {
@@ -4066,6 +4167,7 @@ main.single-lesson-view > section:not([hidden]) {
   white-space: normal;
 }
 
+.interrogative-row-audio,
 .question-guide-audio,
 .question-example-audio {
   display: grid;
@@ -4077,6 +4179,14 @@ main.single-lesson-view > section:not([hidden]) {
   cursor: pointer;
 }
 
+.interrogative-row-audio {
+  align-self: center;
+  width: 36px;
+  height: 36px;
+  margin: 0 18px 0 0;
+  font-size: 10px;
+}
+
 .question-guide-audio {
   position: absolute;
   top: 16px;
@@ -4086,6 +4196,7 @@ main.single-lesson-view > section:not([hidden]) {
   font-size: 9px;
 }
 
+.interrogative-row-audio:hover,
 .question-guide-audio:hover,
 .question-example-audio:hover {
   color: white;
@@ -5185,8 +5296,23 @@ footer p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .interrogative-map {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .interrogative-row-toggle {
+    grid-template-columns: minmax(92px, 150px) minmax(110px, 160px) minmax(140px, 1fr) auto;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .interrogative-row-hanzi {
+    font-size: 28px;
+  }
+
+  .interrogative-row-pinyin,
+  .interrogative-row-meaning {
+    font-size: 14px;
+  }
+
+  .interrogative-detail-grid {
+    grid-template-columns: 1fr;
   }
 
   .question-guide-examples {
@@ -5484,8 +5610,21 @@ footer p {
     grid-template-columns: 1fr;
   }
 
-  .interrogative-map {
+  .interrogative-row-shell {
     grid-template-columns: 1fr;
+  }
+
+  .interrogative-row-toggle {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .interrogative-row-hint {
+    justify-self: start;
+  }
+
+  .interrogative-row-audio {
+    margin: 0 0 14px 16px;
   }
 
   .hsk-word-card {
