@@ -3137,6 +3137,49 @@ function getTopicChoicePoolKey(reviewPool = getTopicReviewPool()) {
   return reviewPool.map((word) => word.hanzi).join("|");
 }
 
+function isTopicChoiceOrderWellMixed(order, originalOrder) {
+  if (order.length <= 2 || originalOrder.length !== order.length) return true;
+  const checkLength = Math.min(8, order.length);
+  const sourceIndexMap = new Map(originalOrder.map((hanzi, index) => [hanzi, index]));
+  let samePositionCount = 0;
+  let adjacentSourceNeighborCount = 0;
+
+  for (let index = 0; index < checkLength; index += 1) {
+    const sourceIndex = sourceIndexMap.get(order[index]);
+    if (sourceIndex === index) samePositionCount += 1;
+    if (index > 0) {
+      const previousSourceIndex = sourceIndexMap.get(order[index - 1]);
+      if (Math.abs(previousSourceIndex - sourceIndex) === 1) {
+        adjacentSourceNeighborCount += 1;
+      }
+    }
+  }
+
+  return samePositionCount === 0 && adjacentSourceNeighborCount <= Math.max(1, Math.floor(checkLength / 4));
+}
+
+function buildTopicChoiceOrder(reviewPool = getTopicReviewPool(), previousLastHanzi = "") {
+  const originalOrder = reviewPool.map((word) => word.hanzi);
+  if (originalOrder.length <= 1) return originalOrder;
+
+  let bestOrder = shuffle(originalOrder);
+  for (let attempt = 0; attempt < 24; attempt += 1) {
+    const candidate = shuffle(originalOrder);
+    const startsWithPreviousLast = previousLastHanzi && candidate[0] === previousLastHanzi;
+    if (!startsWithPreviousLast && isTopicChoiceOrderWellMixed(candidate, originalOrder)) {
+      return candidate;
+    }
+    if (isTopicChoiceOrderWellMixed(candidate, originalOrder)) {
+      bestOrder = candidate;
+    }
+  }
+
+  if (previousLastHanzi && bestOrder.length > 1 && bestOrder[0] === previousLastHanzi) {
+    return [...bestOrder.slice(1), bestOrder[0]];
+  }
+  return bestOrder;
+}
+
 function ensureTopicChoiceOrder(reviewPool = getTopicReviewPool()) {
   if (!reviewPool.length) {
     topicChoiceOrder = [];
@@ -3152,7 +3195,7 @@ function ensureTopicChoiceOrder(reviewPool = getTopicReviewPool()) {
     || topicChoiceOrder.some((hanzi) => !currentHanziSet.has(hanzi));
 
   if (shouldResetOrder) {
-    topicChoiceOrder = shuffle(reviewPool.map((word) => word.hanzi));
+    topicChoiceOrder = buildTopicChoiceOrder(reviewPool);
     topicChoiceOrderKey = poolKey;
     topicChoiceIndex = 0;
     topicChoiceSelected = "";
@@ -3744,10 +3787,7 @@ function nextTopicChoice() {
   if (!choiceOrder.length) return;
   if (topicChoiceIndex + 1 >= choiceOrder.length) {
     const lastHanzi = choiceOrder[choiceOrder.length - 1];
-    let nextOrder = shuffle(reviewPool.map((word) => word.hanzi));
-    if (nextOrder.length > 1 && nextOrder[0] === lastHanzi) {
-      nextOrder = [...nextOrder.slice(1), nextOrder[0]];
-    }
+    const nextOrder = buildTopicChoiceOrder(reviewPool, lastHanzi);
     topicChoiceOrder = nextOrder;
     topicChoiceOrderKey = getTopicChoicePoolKey(reviewPool);
     topicChoiceIndex = 0;
