@@ -1827,8 +1827,12 @@ function getDictionaryLookupIntent(value) {
   return "meaning";
 }
 
+function normalizeDisplayText(value) {
+  return String(value ?? "").normalize("NFC");
+}
+
 function escapeHtml(value) {
-  return String(value)
+  return normalizeDisplayText(value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -2335,7 +2339,7 @@ function openQuestionGuide(id) {
     <div class="dialog-hero question-guide-dialog-hero">
       <div class="dialog-character" lang="zh-Hans">${escapeHtml(guide.hanzi)}</div>
       <div class="dialog-intro">
-        <p class="dialog-topic">${guide.group === "question" ? "Từ để hỏi" : guide.group === "particle" ? "Mẫu câu hỏi" : "Từ chỉ định"}</p>
+        <p class="dialog-topic">${normalizeDisplayText(guide.group === "question" ? "Từ để hỏi" : guide.group === "particle" ? "Mẫu câu hỏi" : "Từ chỉ định")}</p>
         <h2>${escapeHtml(guide.meaning)}</h2>
         <p class="dialog-pinyin">${escapeHtml(guide.pinyin)}</p>
         <div class="dialog-actions">
@@ -2360,8 +2364,8 @@ function openQuestionGuide(id) {
       </section>
       <section class="detail-section full-width question-order-note">
         <p class="detail-label">Quy tắc cốt lõi</p>
-        <h3>${coreRule.title}</h3>
-        <p>${coreRule.text}</p>
+        <h3>${escapeHtml(coreRule.title)}</h3>
+        <p>${normalizeDisplayText(coreRule.text)}</p>
       </section>
     </div>
   `;
