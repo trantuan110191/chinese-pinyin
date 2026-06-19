@@ -4645,13 +4645,13 @@ function renderImportedHskExplanation(explanation) {
       <p>${escapeHtml(explanation.titleMeaning || "Giải thích ngắn lấy từ tài liệu HSK 1-2.")}</p>
     </section>
     <section class="detail-section">
-      <p class="detail-label">Cấu tạo trong tài liệu</p>
+      <p class="detail-label">Cấu tạo</p>
       <h3>${escapeHtml(metaHeading || explanation.hanzi)}</h3>
       <p>${escapeHtml(explanation.structure || "Tài liệu chưa ghi rõ cấu tạo cho mục này.")}</p>
     </section>
     <section class="detail-section full-width">
-      <p class="detail-label">Giải thích từ tài liệu</p>
-      <h3>${escapeHtml(explanation.hanzi)} trong file HSK 1-2</h3>
+      <p class="detail-label">Giải thích nhanh</p>
+      <h3>${escapeHtml(explanation.hanzi)}</h3>
       <p>${escapeHtml(explanationText)}</p>
     </section>
     ${mnemonicSection}
@@ -4699,20 +4699,6 @@ function openHskWord(hanzi) {
         <p class="detail-label">Câu giao tiếp có từ này</p>
         <h3>Nghe và đọc trong ngữ cảnh</h3>
         ${exampleMarkup}
-      </section>
-      <section class="detail-section full-width">
-        <p class="detail-label">${explanation ? "Nguồn giải thích" : "Phạm vi dữ liệu"}</p>
-        <h3>${explanation ? "Đã lấy từ file HSK 1-2 bạn cung cấp" : "Kho tra nhanh, không phải phân tích nguồn gốc chữ"}</h3>
-        <p class="hsk-source-note">
-          ${explanation
-            ? "Phần giải thích này được nhập từ tài liệu hsk1-hsk2-explanations.md. App dùng nó làm lớp học nhanh cho các mục HSK 1-2 chưa có bài phân tích riêng."
-            : ""}
-          Từ thuộc New HSK 3.0, công bố tháng 11/2025 và có hiệu lực từ tháng 7/2026.
-          Âm thanh dùng giọng zh-CN-XiaoxiaoNeural từ gói người dùng cung cấp.
-          ${explanation
-            ? " Với các chữ đã có bài biên tập chuyên sâu trong app, app vẫn ưu tiên bài chuyên sâu đó."
-            : " Muốn học cấu tạo, bộ thủ và mẹo hình tượng có kiểm chứng, hãy dùng khu 45 chữ phân tích chuyên sâu bên dưới."}
-        </p>
       </section>
     </div>
   `;

@@ -146,9 +146,22 @@ a {
   display: none;
 }
 
-.lesson-menu summary span {
-  font-size: 16px;
-  transition: transform 160ms ease;
+.lesson-menu-icon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  flex-shrink: 0;
+  width: 18px;
+}
+
+.lesson-menu-icon i {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+  transition: transform 160ms ease, opacity 160ms ease;
 }
 
 .lesson-menu summary strong {
@@ -158,8 +171,16 @@ a {
   white-space: nowrap;
 }
 
-.lesson-menu[open] summary span {
-  transform: rotate(180deg);
+.lesson-menu[open] .lesson-menu-icon i:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.lesson-menu[open] .lesson-menu-icon i:nth-child(2) {
+  opacity: 0;
+}
+
+.lesson-menu[open] .lesson-menu-icon i:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .lesson-menu-panel {
