@@ -4391,15 +4391,17 @@ main.single-lesson-view > section:not([hidden]) {
 
 .hsk-word-card {
   position: relative;
-  min-height: 126px;
-  padding: 14px 14px 13px;
+  display: flex;
+  min-height: 104px;
+  flex-direction: column;
+  padding: 12px 12px 11px;
   background: rgba(251, 249, 243, 0.72);
   border: 1px solid var(--line);
   border-radius: 4px;
 }
 
 .hsk-word-card.is-revealed {
-  min-height: 164px;
+  min-height: 142px;
 }
 
 .hsk-word-top {
@@ -4416,7 +4418,10 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .hsk-word-open {
-  display: block;
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
   width: 100%;
   padding: 0;
   text-align: left;
@@ -4442,14 +4447,30 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .hsk-word-hanzi {
-  margin-top: 14px;
+  margin-top: 10px;
   font-family: var(--hanzi);
-  font-size: 30px;
-  line-height: 1.05;
+  line-height: 1.02;
+  word-break: keep-all;
 }
 
 .hsk-word-meta {
-  margin-top: 10px;
+  margin-top: 8px;
+}
+
+.hsk-word-card--single .hsk-word-hanzi {
+  font-size: 44px;
+}
+
+.hsk-word-card--double .hsk-word-hanzi {
+  font-size: 38px;
+}
+
+.hsk-word-card--triple .hsk-word-hanzi {
+  font-size: 33px;
+}
+
+.hsk-word-card--multi .hsk-word-hanzi {
+  font-size: 30px;
 }
 
 .hsk-word-pinyin {
@@ -5791,11 +5812,23 @@ footer p {
   }
 
   .hsk-word-card {
-    min-height: 118px;
+    min-height: 98px;
   }
 
   .hsk-word-card.is-revealed {
-    min-height: 150px;
+    min-height: 134px;
+  }
+
+  .hsk-word-card--single .hsk-word-hanzi {
+    font-size: 40px;
+  }
+
+  .hsk-word-card--double .hsk-word-hanzi {
+    font-size: 35px;
+  }
+
+  .hsk-word-card--triple .hsk-word-hanzi {
+    font-size: 31px;
   }
 
   .quiz-stats span {

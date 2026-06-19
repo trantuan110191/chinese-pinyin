@@ -1926,6 +1926,14 @@ function renderHskWords() {
   hskWordGrid.innerHTML = visibleWords.map((word) => {
     const isRevealed = revealedHskWords.has(word.hanzi);
     const conciseMeaning = getConciseMeaning(word);
+    const hanziCount = [...word.hanzi].length;
+    const sizeClass = hanziCount === 1
+      ? " hsk-word-card--single"
+      : hanziCount === 2
+        ? " hsk-word-card--double"
+        : hanziCount === 3
+          ? " hsk-word-card--triple"
+          : " hsk-word-card--multi";
     const revealMarkup = isRevealed
       ? `
         <div class="hsk-word-meta">
@@ -1936,7 +1944,7 @@ function renderHskWords() {
       : "";
 
     return `
-      <article class="hsk-word-card${isRevealed ? " is-revealed" : ""}">
+      <article class="hsk-word-card${sizeClass}${isRevealed ? " is-revealed" : ""}">
         <div class="hsk-word-top">
           <span class="hsk-word-level">${getHskLevelLabel(word.level)}</span>
           <div class="hsk-word-tools">
