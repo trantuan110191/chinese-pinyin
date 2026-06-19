@@ -4662,7 +4662,6 @@ function renderImportedHskExplanation(explanation) {
     ? `
       <section class="detail-section full-width mnemonic-box">
         <p class="detail-label detail-label-accent">Mẹo nhớ</p>
-        <h3>Nhìn là bật nghĩa</h3>
         <p>${escapeHtml(explanation.mnemonic)}</p>
       </section>
     `
@@ -4727,7 +4726,6 @@ function openHskWord(hanzi) {
       ${explanation ? renderImportedHskExplanation(explanation) : ""}
       <section class="detail-section full-width">
         <p class="detail-label detail-label-accent">Giao tiếp</p>
-        <h3>Nghe và đọc trong ngữ cảnh</h3>
         ${exampleMarkup}
       </section>
     </div>
