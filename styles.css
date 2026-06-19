@@ -4476,17 +4476,17 @@ main.single-lesson-view > section:not([hidden]) {
 .hsk-word-pinyin {
   color: var(--red);
   font-family: var(--reading);
-  font-size: 12px;
+  font-size: 15px;
   font-style: italic;
 }
 
 .hsk-word-meaning {
   display: -webkit-box;
-  margin-top: 4px;
+  margin-top: 6px;
   overflow: hidden;
   color: var(--muted);
-  font-size: 10px;
-  line-height: 1.4;
+  font-size: 13px;
+  line-height: 1.5;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
