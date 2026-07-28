@@ -1615,6 +1615,8 @@ let activeTopicOverview = getAppStorage("topicOverviewActive") || "family";
 let topicReviewSelection = [];
 let activeTopicPanel = getAppStorage("topicWorkshopPanel") || "flashcard";
 let topicFilterExpanded = getAppStorage("topicFilterExpanded") === "true";
+let topicPanelSwitcherExpanded = false;
+let topicChoiceControlsExpanded = false;
 let topicOverviewVisibleLimit = 24;
 let topicStageMeaningVisible = getAppStorage("topicStageMeaningVisible") === "true";
 let topicListenIndex = 0;
@@ -3816,22 +3818,39 @@ function saveTopicPanelPreference() {
 function setActiveTopicPanel(panelId) {
   clearTopicChoiceAutoAdvanceTimer();
   activeTopicPanel = normalizeTopicPanel(panelId);
+  topicPanelSwitcherExpanded = false;
+  topicChoiceControlsExpanded = false;
   saveTopicPanelPreference();
   renderTopicWorkshop();
 }
 
 function renderTopicPanelSwitcher() {
+  const options = getTopicPanelOptions();
+  const activePanel = options.find((panel) => panel.id === normalizeTopicPanel(activeTopicPanel)) || options[0];
   topicPanelSwitcher.innerHTML = `
-    <div class="topic-panel-switcher-inner is-compact">
-      <div class="topic-panel-switcher-buttons">
-        ${getTopicPanelOptions().map((panel) => `
+    <div class="topic-panel-switcher-inner ${topicPanelSwitcherExpanded ? "is-open" : "is-collapsed"}">
+      <button class="topic-panel-switcher-toggle" data-topic-panel-toggle type="button" aria-expanded="${topicPanelSwitcherExpanded}">
+        <span>
+          <small>Kiểu ôn</small>
+          <b>${escapeHtml(activePanel.label)}</b>
+        </span>
+        <i aria-hidden="true">${topicPanelSwitcherExpanded ? "▾" : "▸"}</i>
+      </button>
+      <div class="topic-panel-switcher-buttons" ${topicPanelSwitcherExpanded ? "" : "hidden"}>
+        ${options.map((panel) => `
           <button class="${activeTopicPanel === panel.id ? "active" : ""}" data-topic-panel="${panel.id}" type="button">
             <b>${escapeHtml(panel.label)}</b>
+            <span>${escapeHtml(panel.note)}</span>
           </button>
         `).join("")}
       </div>
     </div>
   `;
+}
+
+function toggleTopicPanelSwitcher() {
+  topicPanelSwitcherExpanded = !topicPanelSwitcherExpanded;
+  renderTopicPanelSwitcher();
 }
 
 function applyTopicPanelVisibility() {
@@ -5122,6 +5141,7 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
     `;
   }).join("");
   const isMeaningToHanzi = currentPracticeMode === "meaning-to-hanzi";
+  const currentDisplayLabel = topicChoiceDisplayMode === "full" ? "Pinyin + Việt" : "Pinyin";
   const choiceModeButtons = [
     ["pinyin", "Pinyin"],
     ["full", "Pinyin + Việt"]
@@ -5133,15 +5153,24 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
 
   topicChoice.innerHTML = `
     <article class="topic-choice-card ${topicChoiceAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
-      <div class="topic-choice-toolbar ${isMeaningToHanzi ? "topic-choice-toolbar-static" : ""}">
-        <div class="topic-choice-mode topic-choice-mode-practice">
-          ${practiceModeButtons}
-        </div>
-        ${isMeaningToHanzi ? "" : `
-          <div class="topic-choice-mode">
-            ${choiceModeButtons}
+      <div class="topic-choice-toolbar ${topicChoiceControlsExpanded ? "is-open" : "is-collapsed"} ${isMeaningToHanzi ? "topic-choice-toolbar-static" : ""}">
+        <button class="topic-choice-controls-toggle" data-topic-choice-controls-toggle type="button" aria-expanded="${topicChoiceControlsExpanded}">
+          <span>
+            <small>Kiểu câu</small>
+            <b>${escapeHtml(currentPractice.label)}${isMeaningToHanzi ? "" : ` · ${currentDisplayLabel}`}</b>
+          </span>
+          <i aria-hidden="true">${topicChoiceControlsExpanded ? "▾" : "▸"}</i>
+        </button>
+        <div class="topic-choice-controls" ${topicChoiceControlsExpanded ? "" : "hidden"}>
+          <div class="topic-choice-mode topic-choice-mode-practice">
+            ${practiceModeButtons}
           </div>
-        `}
+          ${isMeaningToHanzi ? "" : `
+            <div class="topic-choice-mode">
+              ${choiceModeButtons}
+            </div>
+          `}
+        </div>
       </div>
       <div class="topic-choice-prompt">
         ${isMeaningToHanzi ? "" : `<button class="topic-audio-button" data-topic-audio="${escapeHtml(word.hanzi)}" type="button">▶ Nghe</button>`}
@@ -5181,6 +5210,7 @@ function answerTopicChoice(hanzi) {
   const expectedHanzi = topicChoice.dataset.currentHanzi || "";
   const word = reviewPool.find((item) => item.hanzi === expectedHanzi) || getCurrentTopicChoiceWord(reviewPool);
   if (!word) return;
+  topicChoiceControlsExpanded = false;
   const topicChoiceAudioButton = topicChoice.querySelector(".topic-audio-button");
   const audioButton = topicChoiceAudioButton || document.createElement("button");
   if (!topicChoiceAudioButton) audioButton.className = "topic-audio-button";
@@ -5257,6 +5287,7 @@ function setTopicChoiceDisplayMode(mode) {
   if (!["pinyin", "full"].includes(mode)) return;
   topicChoiceDisplayMode = mode;
   setAppStorage("topicChoiceDisplayMode", mode);
+  topicChoiceControlsExpanded = false;
   renderTopicChoice();
 }
 
@@ -5265,10 +5296,16 @@ function setTopicChoicePracticeMode(mode) {
   if (!nextMode) return;
   topicChoicePracticeMode = nextMode;
   setAppStorage("topicChoicePracticeMode", nextMode);
+  topicChoiceControlsExpanded = false;
   topicChoiceSelected = "";
   topicChoiceAnsweredHanzi = "";
   topicChoiceAnswered = false;
   topicChoiceOptions = [];
+  renderTopicChoice();
+}
+
+function toggleTopicChoiceControls() {
+  topicChoiceControlsExpanded = !topicChoiceControlsExpanded;
   renderTopicChoice();
 }
 
@@ -6707,6 +6744,7 @@ document.addEventListener("click", (event) => {
   const topicFilterToggleButton = event.target.closest("[data-topic-filter-toggle]");
   const topicOverviewOpenButton = event.target.closest("[data-topic-overview-open]");
   const topicReviewPresetButton = event.target.closest("[data-topic-review-preset]");
+  const topicPanelToggleButton = event.target.closest("[data-topic-panel-toggle]");
   const topicPanelButton = event.target.closest("[data-topic-panel]");
   const topicOverviewMoreButton = event.target.closest("[data-topic-overview-more]");
   const topicAudioButton = event.target.closest("[data-topic-audio]");
@@ -6714,6 +6752,7 @@ document.addEventListener("click", (event) => {
   const topicListenNextButton = event.target.closest("[data-topic-listen-next]");
   const topicKnownButton = event.target.closest("[data-topic-known]");
   const topicLookupButton = event.target.closest("[data-topic-lookup]");
+  const topicChoiceControlsToggleButton = event.target.closest("[data-topic-choice-controls-toggle]");
   const topicChoicePracticeModeButton = event.target.closest("[data-topic-choice-practice-mode]");
   const topicChoiceModeButton = event.target.closest("[data-topic-choice-mode]");
   const topicChoiceAnswerButton = event.target.closest("[data-topic-choice-answer]");
@@ -6756,6 +6795,7 @@ document.addEventListener("click", (event) => {
   if (questionGuideButton) openQuestionGuide(questionGuideButton.dataset.questionGuide);
   if (topicReviewPresetButton) setTopicReviewPreset(topicReviewPresetButton.dataset.topicReviewPreset);
   if (topicFilterToggleButton) toggleTopicFilterExpanded();
+  if (topicPanelToggleButton) toggleTopicPanelSwitcher();
   if (topicPanelButton) setActiveTopicPanel(topicPanelButton.dataset.topicPanel);
   if (topicOverviewOpenButton) selectTopicOverview(topicOverviewOpenButton.dataset.topicOverviewOpen);
   if (topicOverviewMoreButton) showMoreTopicOverviewWords();
@@ -6767,6 +6807,7 @@ document.addEventListener("click", (event) => {
     renderTopicWorkshop();
   }
   if (topicLookupButton) openTopicWord(topicLookupButton.dataset.topicLookup);
+  if (topicChoiceControlsToggleButton) toggleTopicChoiceControls();
   if (topicChoicePracticeModeButton) setTopicChoicePracticeMode(topicChoicePracticeModeButton.dataset.topicChoicePracticeMode);
   if (topicChoiceModeButton) setTopicChoiceDisplayMode(topicChoiceModeButton.dataset.topicChoiceMode);
   if (topicChoiceAnswerButton) answerTopicChoice(topicChoiceAnswerButton.dataset.topicChoiceAnswer);
