@@ -38,6 +38,9 @@ const profileScopedStorageKeys = new Set([
   "neededNotesMode",
   "neededNotesChoiceMode",
   "neededNotesMemoryRatings",
+  "neededNotesMonth",
+  "neededNotesDate",
+  "neededNotesTopic",
 ]);
 
 function readLearningProfile() {
@@ -1731,6 +1734,10 @@ let neededNotesMemoryRatings = {};
 let neededNotesAutoTimer = null;
 let neededNotesMenuExpanded = false;
 let neededNotesChoiceMenuExpanded = false;
+let neededNotesFilterExpanded = false;
+let neededNotesMonth = getAppStorage("neededNotesMonth") || "all";
+let neededNotesDate = getAppStorage("neededNotesDate") || "all";
+let neededNotesTopic = getAppStorage("neededNotesTopic") || "all";
 let learningLibrariesReady = false;
 let learningLibrariesFailed = false;
 
@@ -5493,6 +5500,115 @@ function getNeededNoteDateLabel(word) {
   return label && !label.startsWith("Không rõ") ? label : "Từ project ghi chú";
 }
 
+function getNeededNoteDate(word) {
+  return word?.date || "Không rõ ngày";
+}
+
+function getNeededNoteMonth(word) {
+  const explicitMonth = word?.month || "";
+  if (explicitMonth) return explicitMonth;
+  const date = getNeededNoteDate(word);
+  return /^\d{4}-\d{2}/.test(date) ? date.slice(0, 7) : "Không rõ tháng";
+}
+
+function getNeededNoteTopic(word) {
+  return word?.topic || "Chưa phân loại";
+}
+
+function getNeededNoteGroup(word) {
+  return word?.group || "";
+}
+
+function getNeededNoteTopicLabel(word) {
+  return [getNeededNoteTopic(word), getNeededNoteGroup(word)].filter(Boolean).join(" · ");
+}
+
+function uniqueNeededNoteValues(words, getter) {
+  const seen = new Set();
+  const values = [];
+  words.forEach((word) => {
+    const value = getter(word);
+    if (!value || seen.has(value)) return;
+    seen.add(value);
+    values.push(value);
+  });
+  return values;
+}
+
+function getNeededNotesMonths() {
+  return uniqueNeededNoteValues(neededNoteWords, getNeededNoteMonth).sort((left, right) => {
+    if (left === "Không rõ tháng") return 1;
+    if (right === "Không rõ tháng") return -1;
+    return right.localeCompare(left);
+  });
+}
+
+function getNeededNotesDates() {
+  const words = neededNotesMonth === "all"
+    ? neededNoteWords
+    : neededNoteWords.filter((word) => getNeededNoteMonth(word) === neededNotesMonth);
+  return uniqueNeededNoteValues(words, getNeededNoteDate).sort((left, right) => {
+    if (left === "Không rõ ngày") return 1;
+    if (right === "Không rõ ngày") return -1;
+    return right.localeCompare(left);
+  });
+}
+
+function getNeededNotesTopics() {
+  let words = neededNoteWords;
+  if (neededNotesMonth !== "all") {
+    words = words.filter((word) => getNeededNoteMonth(word) === neededNotesMonth);
+  }
+  if (neededNotesDate !== "all") {
+    words = words.filter((word) => getNeededNoteDate(word) === neededNotesDate);
+  }
+  return uniqueNeededNoteValues(words, getNeededNoteTopic);
+}
+
+function saveNeededNotesFilters() {
+  setAppStorage("neededNotesMonth", neededNotesMonth);
+  setAppStorage("neededNotesDate", neededNotesDate);
+  setAppStorage("neededNotesTopic", neededNotesTopic);
+}
+
+function normalizeNeededNotesFilters() {
+  const months = new Set(getNeededNotesMonths());
+  if (neededNotesDate !== "all") {
+    const dateMonth = /^\d{4}-\d{2}/.test(neededNotesDate) ? neededNotesDate.slice(0, 7) : "Không rõ tháng";
+    if (months.has(dateMonth)) neededNotesMonth = dateMonth;
+  }
+  if (neededNotesMonth !== "all" && !months.has(neededNotesMonth)) {
+    neededNotesMonth = "all";
+  }
+
+  const dates = new Set(getNeededNotesDates());
+  if (neededNotesDate !== "all" && !dates.has(neededNotesDate)) {
+    neededNotesDate = "all";
+  }
+
+  const topics = new Set(getNeededNotesTopics());
+  if (neededNotesTopic !== "all" && !topics.has(neededNotesTopic)) {
+    neededNotesTopic = "all";
+  }
+}
+
+function getNeededNotesFilteredWords() {
+  return neededNoteWords.filter((word) => {
+    if (neededNotesMonth !== "all" && getNeededNoteMonth(word) !== neededNotesMonth) return false;
+    if (neededNotesDate !== "all" && getNeededNoteDate(word) !== neededNotesDate) return false;
+    if (neededNotesTopic !== "all" && getNeededNoteTopic(word) !== neededNotesTopic) return false;
+    return true;
+  });
+}
+
+function getNeededNotesFilterSummary(total) {
+  const parts = [];
+  if (neededNotesMonth !== "all") parts.push(neededNotesMonth);
+  if (neededNotesDate !== "all") parts.push(neededNotesDate);
+  if (neededNotesTopic !== "all") parts.push(neededNotesTopic);
+  return `${parts.length ? parts.join(" · ") : "Tất cả ghi chú"} · ${total} từ`;
+}
+
 function saveNeededNotesKnownWords() {
   setAppStorage("neededNotesKnownWords", JSON.stringify(neededNotesKnownWords));
 }
@@ -5534,11 +5650,11 @@ function setNeededNoteMemoryRating(word, rating) {
 }
 
 function getNeededNotesLearnedWords() {
-  return neededNoteWords.filter((word) => isNeededNoteKnown(word));
+  return getNeededNotesFilteredWords().filter((word) => isNeededNoteKnown(word));
 }
 
 function getNeededNotesActiveWords() {
-  return neededNoteWords.filter((word) => !isNeededNoteKnown(word));
+  return getNeededNotesFilteredWords().filter((word) => !isNeededNoteKnown(word));
 }
 
 function clampNeededNotesIndex(length) {
@@ -5604,10 +5720,11 @@ function resetNeededNotesChoiceOptions(word = getNeededNotesCurrentWord()) {
     neededNotesChoiceOptionForId = "";
     return;
   }
-  const optionCount = Math.min(8, neededNoteWords.length || 1);
+  const optionPool = getNeededNotesFilteredWords();
+  const optionCount = Math.min(8, optionPool.length || 1);
   const currentId = getNeededNoteId(word);
   const distractors = shuffle(
-    neededNoteWords
+    optionPool
       .filter((item) => getNeededNoteId(item) !== currentId)
       .map(getNeededNoteId)
   ).slice(0, Math.max(0, optionCount - 1));
@@ -5642,15 +5759,81 @@ function renderNeededNotesLocked() {
 function renderNeededNotesDone(total) {
   return `
     <article class="needed-empty needed-empty-done">
-      <strong>Xong ${total}/${total} từ trong ghi chú rồi.</strong>
-      <span>Tất cả từ đã nằm trong danh sách đã học của Admin.</span>
+      <strong>Xong ${total}/${total} từ trong bộ lọc này rồi.</strong>
+      <span>Tất cả từ đang lọc đã nằm trong danh sách đã học của Admin.</span>
       <button class="topic-next-button" data-needed-mode="list" type="button">Xem danh sách đã học</button>
     </article>
   `;
 }
 
+function renderNeededNotesNoMatches() {
+  return `
+    <article class="needed-empty">
+      <strong>Không có từ trong bộ lọc này.</strong>
+      <span>Đổi tháng, ngày hoặc chủ đề để lấy lại danh sách từ cần học.</span>
+      <button class="topic-next-button" data-needed-filter-reset type="button">Hiện tất cả ghi chú</button>
+    </article>
+  `;
+}
+
+function renderNeededNotesFilterPanel(total) {
+  const monthOptions = [
+    `<option value="all">Tất cả tháng</option>`,
+    ...getNeededNotesMonths().map((month) => {
+      const count = neededNoteWords.filter((word) => getNeededNoteMonth(word) === month).length;
+      return `<option value="${escapeHtml(month)}" ${neededNotesMonth === month ? "selected" : ""}>${escapeHtml(month)} · ${count} từ</option>`;
+    }),
+  ].join("");
+  const dateOptions = [
+    `<option value="all">Tất cả ngày</option>`,
+    ...getNeededNotesDates().map((date) => {
+      const count = neededNoteWords.filter((word) => {
+        if (neededNotesMonth !== "all" && getNeededNoteMonth(word) !== neededNotesMonth) return false;
+        return getNeededNoteDate(word) === date;
+      }).length;
+      return `<option value="${escapeHtml(date)}" ${neededNotesDate === date ? "selected" : ""}>${escapeHtml(date)} · ${count} từ</option>`;
+    }),
+  ].join("");
+  const topicOptions = [
+    `<option value="all">Tất cả chủ đề</option>`,
+    ...getNeededNotesTopics().map((topic) => {
+      const count = neededNoteWords.filter((word) => {
+        if (neededNotesMonth !== "all" && getNeededNoteMonth(word) !== neededNotesMonth) return false;
+        if (neededNotesDate !== "all" && getNeededNoteDate(word) !== neededNotesDate) return false;
+        return getNeededNoteTopic(word) === topic;
+      }).length;
+      return `<option value="${escapeHtml(topic)}" ${neededNotesTopic === topic ? "selected" : ""}>${escapeHtml(topic)} · ${count} từ</option>`;
+    }),
+  ].join("");
+
+  return `
+    <div class="needed-source-filter ${neededNotesFilterExpanded ? "is-open" : "is-collapsed"}">
+      <button class="needed-filter-toggle" data-needed-filter-toggle type="button" aria-expanded="${neededNotesFilterExpanded}">
+        <span>Ngày / chủ đề</span>
+        <strong>${escapeHtml(getNeededNotesFilterSummary(total))}</strong>
+        <b aria-hidden="true">${neededNotesFilterExpanded ? "▴" : "▾"}</b>
+      </button>
+      <div class="needed-filter-panel" ${neededNotesFilterExpanded ? "" : "hidden"}>
+        <label>
+          <span>Tháng</span>
+          <select data-needed-filter="month">${monthOptions}</select>
+        </label>
+        <label>
+          <span>Ngày</span>
+          <select data-needed-filter="date">${dateOptions}</select>
+        </label>
+        <label>
+          <span>Chủ đề</span>
+          <select data-needed-filter="topic">${topicOptions}</select>
+        </label>
+        <button data-needed-filter-reset type="button">Tất cả</button>
+      </div>
+    </div>
+  `;
+}
+
 function renderNeededNotesShell(innerMarkup) {
-  const total = neededNoteWords.length;
+  const total = getNeededNotesFilteredWords().length;
   const learnedWords = getNeededNotesLearnedWords();
   const learnedCount = learnedWords.length;
   const remainingCount = Math.max(0, total - learnedCount);
@@ -5688,14 +5871,15 @@ function renderNeededNotesShell(innerMarkup) {
         </div>
       </div>
     </div>
+    ${renderNeededNotesFilterPanel(total)}
     ${innerMarkup}
   `;
 }
 
 function renderNeededNotesChoice() {
-  const activeWords = getNeededNotesActiveWords();
+  const total = getNeededNotesFilteredWords().length;
   const word = getNeededNotesCurrentWord();
-  if (!word) return renderNeededNotesDone(neededNoteWords.length);
+  if (!word) return renderNeededNotesDone(total);
 
   neededNotesChoiceMode = normalizeNeededNotesChoiceMode(neededNotesChoiceMode);
   const learnedCount = getNeededNotesLearnedWords().length;
@@ -5749,7 +5933,7 @@ function renderNeededNotesChoice() {
     <article class="needed-card ${neededNotesAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
       <div class="needed-choice-head">
         <div>
-          <p class="section-kicker">GHI CHÚ · CHỌN ĐÁP ÁN · ${learnedCount}/${neededNoteWords.length}</p>
+          <p class="section-kicker">GHI CHÚ · CHỌN ĐÁP ÁN · ${learnedCount}/${total}</p>
           <span>${escapeHtml(getNeededNoteDateLabel(word))}</span>
         </div>
         <div class="needed-choice-menu ${neededNotesChoiceMenuExpanded ? "is-open" : "is-collapsed"}">
@@ -5778,8 +5962,9 @@ function renderNeededNotesChoice() {
 }
 
 function renderNeededNotesFlashcard() {
+  const total = getNeededNotesFilteredWords().length;
   const word = getNeededNotesCurrentWord();
-  if (!word) return renderNeededNotesDone(neededNoteWords.length);
+  if (!word) return renderNeededNotesDone(total);
   const wordId = getNeededNoteId(word);
   return `
     <article class="needed-card needed-flash">
@@ -5818,7 +6003,7 @@ function renderNeededNotesList() {
       <button class="needed-row-audio" data-needed-audio="${escapeHtml(getNeededNoteId(word))}" type="button">▶</button>
       <span lang="zh-Hans">${escapeHtml(word.hanzi)}</span>
       <em>${escapeHtml(word.pinyin)}</em>
-      <small>${escapeHtml(getNeededNoteMeaning(word))}</small>
+      <small>${escapeHtml(getNeededNoteMeaning(word))} · ${escapeHtml(getNeededNoteTopicLabel(word) || getNeededNoteDate(word))}</small>
       <b>${learned ? "đã học" : "cần học"}</b>
     </li>
   `;
@@ -5848,13 +6033,24 @@ function renderNeededNotes() {
   if (!isAdminProfile()) {
     neededNotesMenuExpanded = false;
     neededNotesChoiceMenuExpanded = false;
+    neededNotesFilterExpanded = false;
     renderNeededNotesLocked();
     return;
   }
   if (!neededNoteWords.length) {
     neededNotesMenuExpanded = false;
     neededNotesChoiceMenuExpanded = false;
+    neededNotesFilterExpanded = false;
     renderNeededNotesLoading();
+    return;
+  }
+  normalizeNeededNotesFilters();
+  saveNeededNotesFilters();
+  const filteredWords = getNeededNotesFilteredWords();
+  if (!filteredWords.length) {
+    neededNotesMenuExpanded = false;
+    neededNotesChoiceMenuExpanded = false;
+    renderNeededNotesShell(renderNeededNotesNoMatches());
     return;
   }
   neededNotesMode = normalizeNeededNotesMode(neededNotesMode);
@@ -5869,13 +6065,57 @@ function renderNeededNotes() {
 function toggleNeededNotesMenu() {
   neededNotesMenuExpanded = !neededNotesMenuExpanded;
   neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
   renderNeededNotes();
 }
 
 function toggleNeededNotesChoiceMenu() {
   neededNotesChoiceMenuExpanded = !neededNotesChoiceMenuExpanded;
   neededNotesMenuExpanded = false;
+  neededNotesFilterExpanded = false;
   renderNeededNotes();
+}
+
+function toggleNeededNotesFilter() {
+  neededNotesFilterExpanded = !neededNotesFilterExpanded;
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
+  renderNeededNotes();
+}
+
+function applyNeededNotesFilterChange() {
+  normalizeNeededNotesFilters();
+  saveNeededNotesFilters();
+  clearNeededNotesAutoTimer();
+  resetNeededNotesAnswerState();
+  clampNeededNotesIndex(getNeededNotesActiveWords().length);
+  saveNeededNotesIndex();
+  renderNeededNotes();
+}
+
+function setNeededNotesFilter(type, value) {
+  const normalizedValue = value || "all";
+  if (type === "month") {
+    neededNotesMonth = normalizedValue;
+    neededNotesDate = "all";
+  } else if (type === "date") {
+    neededNotesDate = normalizedValue;
+    if (neededNotesDate !== "all") {
+      neededNotesMonth = /^\d{4}-\d{2}/.test(neededNotesDate) ? neededNotesDate.slice(0, 7) : "Không rõ tháng";
+    }
+  } else if (type === "topic") {
+    neededNotesTopic = normalizedValue;
+  }
+  neededNotesIndex = 0;
+  applyNeededNotesFilterChange();
+}
+
+function resetNeededNotesFilters() {
+  neededNotesMonth = "all";
+  neededNotesDate = "all";
+  neededNotesTopic = "all";
+  neededNotesIndex = 0;
+  applyNeededNotesFilterChange();
 }
 
 function scheduleNeededNotesNext(wordId) {
@@ -5893,6 +6133,7 @@ function setNeededNotesMode(mode) {
   clearNeededNotesAutoTimer();
   neededNotesMenuExpanded = false;
   neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
   resetNeededNotesAnswerState();
   renderNeededNotes();
 }
@@ -5903,6 +6144,7 @@ function setNeededNotesChoiceMode(mode) {
   clearNeededNotesAutoTimer();
   neededNotesMenuExpanded = false;
   neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
   neededNotesSelected = "";
   neededNotesAnswered = false;
   neededNotesAnsweredId = "";
@@ -5914,6 +6156,7 @@ function nextNeededNote(options = {}) {
   clearNeededNotesAutoTimer();
   neededNotesMenuExpanded = false;
   neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
   const activeWords = getNeededNotesActiveWords();
   if (activeWords.length && !options.keepIndex) {
     neededNotesIndex = (neededNotesIndex + 1) % activeWords.length;
@@ -5928,6 +6171,7 @@ function answerNeededNotesChoice(optionId) {
   if (neededNotesAnswered) return;
   neededNotesMenuExpanded = false;
   neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
   const word = getNeededNotesCurrentWord();
   const selectedWord = getNeededNoteById(optionId);
   if (!word || !selectedWord) return;
@@ -5955,6 +6199,7 @@ function rateNeededNotesFlashcard(rating) {
   if (!normalizedRating) return;
   neededNotesMenuExpanded = false;
   neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
   setNeededNoteMemoryRating(word, normalizedRating);
   if (normalizedRating === 1 || normalizedRating === 2) {
     setNeededNoteKnown(word, true);
@@ -6569,7 +6814,16 @@ async function loadLearningLibraries() {
     ...word,
     id: word.id || `need-${index + 1}`,
     chunk: word.hanzi,
-    sourceLabel: `${word.date || "Không rõ ngày"}${word.time ? ` · ${word.time}` : ""}`,
+    date: word.date || "Không rõ ngày",
+    month: word.month || (/^\d{4}-\d{2}/.test(word.date || "") ? String(word.date).slice(0, 7) : "Không rõ tháng"),
+    topic: word.topic || "Chưa phân loại",
+    group: word.group || "",
+    sourceLabel: [
+      word.date || "Không rõ ngày",
+      word.time || "",
+      word.topic || "",
+      word.group || "",
+    ].filter(Boolean).join(" · "),
   }));
   learningLibrariesReady = true;
   learningLibrariesFailed = false;
@@ -6891,6 +7145,7 @@ document.addEventListener("click", (event) => {
   const clickedInsideTopicChoiceControls = topicChoice?.querySelector(".topic-choice-toolbar")?.contains(event.target);
   const clickedInsideNeededMenu = neededNotesApp?.querySelector(".needed-menu")?.contains(event.target);
   const clickedInsideNeededChoiceMenu = neededNotesApp?.querySelector(".needed-choice-menu")?.contains(event.target);
+  const clickedInsideNeededFilter = neededNotesApp?.querySelector(".needed-source-filter")?.contains(event.target);
   const wordButton = event.target.closest("[data-word]");
   const questionButton = event.target.closest("[data-open-word]");
   const speakButton = event.target.closest("[data-speak]");
@@ -6930,6 +7185,8 @@ document.addEventListener("click", (event) => {
   const topicStageMeaningToggle = event.target.closest("[data-topic-stage-meaning-toggle]");
   const neededMenuToggleButton = event.target.closest("[data-needed-menu-toggle]");
   const neededChoiceMenuToggleButton = event.target.closest("[data-needed-choice-menu-toggle]");
+  const neededFilterToggleButton = event.target.closest("[data-needed-filter-toggle]");
+  const neededFilterResetButton = event.target.closest("[data-needed-filter-reset]");
   const neededModeButton = event.target.closest("[data-needed-mode]");
   const neededChoiceModeButton = event.target.closest("[data-needed-choice-mode]");
   const neededAnswerButton = event.target.closest("[data-needed-answer]");
@@ -6993,6 +7250,8 @@ document.addEventListener("click", (event) => {
   if (topicStageMeaningToggle) toggleTopicStageMeaning();
   if (neededMenuToggleButton) toggleNeededNotesMenu();
   if (neededChoiceMenuToggleButton) toggleNeededNotesChoiceMenu();
+  if (neededFilterToggleButton) toggleNeededNotesFilter();
+  if (neededFilterResetButton) resetNeededNotesFilters();
   if (neededModeButton) setNeededNotesMode(neededModeButton.dataset.neededMode);
   if (neededChoiceModeButton) setNeededNotesChoiceMode(neededChoiceModeButton.dataset.neededChoiceMode);
   if (neededAnswerButton) answerNeededNotesChoice(neededAnswerButton.dataset.neededAnswer);
@@ -7038,6 +7297,10 @@ document.addEventListener("click", (event) => {
     neededNotesChoiceMenuExpanded = false;
     renderNeededNotes();
   }
+  if (neededNotesFilterExpanded && !clickedInsideNeededFilter) {
+    neededNotesFilterExpanded = false;
+    renderNeededNotes();
+  }
   if (lessonMenu.open && !lessonMenu.contains(event.target)) lessonMenu.open = false;
 });
 
@@ -7066,6 +7329,11 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.addEventListener("change", (event) => {
+  const neededFilterControl = event.target.closest?.("[data-needed-filter]");
+  if (neededFilterControl) {
+    setNeededNotesFilter(neededFilterControl.dataset.neededFilter, neededFilterControl.value);
+    return;
+  }
   const topicReviewSource = event.target.closest?.("[data-topic-review-source]");
   if (!topicReviewSource) return;
   setTopicReviewSourceChecked(topicReviewSource.dataset.topicReviewSource, topicReviewSource.checked);

@@ -1684,6 +1684,102 @@ main.single-lesson-view > section:not([hidden]) {
   line-height: 1.45;
 }
 
+.needed-source-filter {
+  position: relative;
+  z-index: 12;
+  margin-top: -6px;
+}
+
+.needed-filter-toggle {
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  width: min(620px, 100%);
+  padding: 10px 14px;
+  color: var(--blue);
+  text-align: left;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(55, 40, 25, 0.07);
+  cursor: pointer;
+}
+
+.needed-filter-toggle span {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.needed-filter-toggle strong {
+  overflow: hidden;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.needed-filter-toggle b {
+  font-size: 12px;
+}
+
+.needed-filter-panel[hidden] {
+  display: none;
+}
+
+.needed-filter-panel {
+  display: grid;
+  grid-template-columns: 0.9fr 0.9fr minmax(220px, 1.2fr) auto;
+  align-items: end;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 12px;
+  background: #f7f5ee;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.needed-filter-panel label {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.needed-filter-panel label span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.needed-filter-panel select {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  color: var(--ink);
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.needed-filter-panel button {
+  padding: 11px 16px;
+  color: #fffdf8;
+  background: var(--blue);
+  border: 0;
+  border-radius: 999px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
 .needed-mode-tabs,
 .needed-choice-mode,
 .needed-rating {
@@ -6795,6 +6891,14 @@ footer p {
   .needed-toolbar,
   .needed-choice-head {
     padding-right: 48px;
+  }
+
+  .needed-filter-toggle {
+    width: 100%;
+  }
+
+  .needed-filter-panel {
+    grid-template-columns: 1fr;
   }
 
   .needed-progress-mini {
