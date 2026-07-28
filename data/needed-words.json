@@ -1,0 +1,3607 @@
+{
+  "source": "Từ cần học/tu_can_hoc.html",
+  "syncedAt": "2026-07-28T01:26:25.523Z",
+  "count": 360,
+  "words": [
+    {
+      "id": "need-0001",
+      "date": "2026-06-28",
+      "time": "20:13:18",
+      "meaning": "nhắn tin",
+      "hanzi": "发短信",
+      "pinyin": "fā duǎnxìn",
+      "audioText": "发短信",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0002",
+      "date": "2026-06-28",
+      "time": "20:18:45",
+      "meaning": "dùng",
+      "hanzi": "用 / 使用",
+      "pinyin": "yòng / shǐyòng",
+      "audioText": "用",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0003",
+      "date": "2026-06-28",
+      "time": "20:22:27",
+      "meaning": "màu trắng",
+      "hanzi": "白色",
+      "pinyin": "báisè",
+      "audioText": "白色",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0004",
+      "date": "2026-06-28",
+      "time": "20:26:24",
+      "meaning": "nói cho / bảo",
+      "hanzi": "告诉",
+      "pinyin": "gàosu",
+      "audioText": "告诉",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0005",
+      "date": "2026-06-28",
+      "time": "20:34:25",
+      "meaning": "tìm / tìm kiếm",
+      "hanzi": "找",
+      "pinyin": "zhǎo",
+      "audioText": "找",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0006",
+      "date": "2026-06-28",
+      "time": "22:40:00",
+      "meaning": "có hay không; nói nhanh âm cuối nhẹ đi",
+      "hanzi": "有没有",
+      "pinyin": "yǒu méi yǒu, nói nhanh nghe như yǒu méil...",
+      "audioText": "有没有",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0007",
+      "date": "2026-07-05",
+      "time": "21:56:46",
+      "meaning": "chậm",
+      "hanzi": "慢",
+      "pinyin": "màn",
+      "audioText": "慢",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0008",
+      "date": "2026-07-05",
+      "time": "21:57:47",
+      "meaning": "V sớm hơn một chút",
+      "hanzi": "早一点儿 + V",
+      "pinyin": "zǎo yìdiǎnr + V",
+      "audioText": "早一点儿",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0009",
+      "date": "2026-07-05",
+      "time": "21:59:43",
+      "meaning": "đi vào / vào trong",
+      "hanzi": "进去",
+      "pinyin": "jìnqù",
+      "audioText": "进去",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0010",
+      "date": "2026-07-07",
+      "time": "04:14:25",
+      "meaning": "bạn muốn thử món nào một chút",
+      "hanzi": "你想试一下儿哪个菜",
+      "pinyin": "nǐ xiǎng shì yíxiàr nǎ ge cài",
+      "audioText": "你想试一下儿哪个菜",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0011",
+      "date": "2026-07-09",
+      "time": "21:13:38",
+      "meaning": "đơn giản / dễ",
+      "hanzi": "简单",
+      "pinyin": "jiǎndān",
+      "audioText": "简单",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0012",
+      "date": "2026-07-09",
+      "time": "21:13:38",
+      "meaning": "bạn thích ăn loại sandwich nào",
+      "hanzi": "你喜欢吃哪种三明治？",
+      "pinyin": "nǐ xǐhuan chī nǎ zhǒng sānmíngzhì",
+      "audioText": "你喜欢吃哪种三明治",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0013",
+      "date": "2026-07-09",
+      "time": "21:13:38",
+      "meaning": "một số / có vài",
+      "hanzi": "有些",
+      "pinyin": "yǒuxiē",
+      "audioText": "有些",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0014",
+      "date": "2026-07-09",
+      "time": "21:13:38",
+      "meaning": "khác / cái khác / loại khác",
+      "hanzi": "别的",
+      "pinyin": "bié de",
+      "audioText": "别的",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0015",
+      "date": "2026-07-09",
+      "time": "21:13:38",
+      "meaning": "nói chuyện / nói",
+      "hanzi": "说话",
+      "pinyin": "shuōhuà",
+      "audioText": "说话",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0016",
+      "date": "2026-07-09",
+      "time": "21:13:38",
+      "meaning": "làm gì",
+      "hanzi": "干什么",
+      "pinyin": "gàn shénme",
+      "audioText": "干什么",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0017",
+      "date": "2026-07-09",
+      "time": "21:13:38",
+      "meaning": "đã / đã ... rồi",
+      "hanzi": "已经",
+      "pinyin": "yǐjīng",
+      "audioText": "已经",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0018",
+      "date": "2026-07-15",
+      "time": "05:53:07",
+      "meaning": "Nhà tôi cách công ty rất gần, đi bộ chỉ cần 5 phút",
+      "hanzi": "我家离公司很近，走路只要五分钟",
+      "pinyin": "wǒ jiā lí gōngsī hěn jìn, zǒulù zhǐ yào wǔ fēnzhōng",
+      "audioText": "我家离公司很近走路只要五分钟",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0019",
+      "date": "2026-07-15",
+      "time": "05:53:07",
+      "meaning": "lần",
+      "hanzi": "次",
+      "pinyin": "cì",
+      "audioText": "次",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0020",
+      "date": "2026-07-15",
+      "time": "05:53:07",
+      "meaning": "Đợi một chút rồi gọi điện cho bạn",
+      "hanzi": "等一下再给你打电话",
+      "pinyin": "děng yíxià zài gěi nǐ dǎ diànhuà",
+      "audioText": "等一下再给你打电话",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0021",
+      "date": "2026-07-15",
+      "time": "05:53:07",
+      "meaning": "liền / ngay",
+      "hanzi": "就",
+      "pinyin": "jiù",
+      "audioText": "就",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0022",
+      "date": "2026-07-15",
+      "time": "05:53:07",
+      "meaning": "đã xem / đã đọc qua ba lần",
+      "hanzi": "看过三次",
+      "pinyin": "kàn guo sān cì",
+      "audioText": "看过三次",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0023",
+      "date": "2026-07-15",
+      "time": "05:53:07",
+      "meaning": "có thể / có khả năng",
+      "hanzi": "可能",
+      "pinyin": "kěnéng",
+      "audioText": "可能",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0024",
+      "date": "2026-07-15",
+      "time": "05:53:07",
+      "meaning": "có thể / được phép",
+      "hanzi": "可以",
+      "pinyin": "kěyǐ",
+      "audioText": "可以",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0025",
+      "date": "2026-07-15",
+      "time": "05:53:07",
+      "meaning": "ra ngoài",
+      "hanzi": "出来 / 出去",
+      "pinyin": "chūlái / chūqù",
+      "audioText": "出来",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0026",
+      "date": "2026-07-15",
+      "time": "05:53:07",
+      "meaning": "đi vào / vào trong",
+      "hanzi": "进来 / 进去",
+      "pinyin": "jìnlái / jìnqù",
+      "audioText": "进来",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0027",
+      "date": "2026-07-15",
+      "time": "05:53:07",
+      "meaning": "cho nên / vì vậy",
+      "hanzi": "所以",
+      "pinyin": "suǒyǐ",
+      "audioText": "所以",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0028",
+      "date": "2026-07-15",
+      "time": "20:16:14",
+      "meaning": "trợ từ sau động từ, nối với bổ ngữ chỉ trình độ/kết quả",
+      "hanzi": "得",
+      "pinyin": "de",
+      "audioText": "得",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0029",
+      "date": "2026-07-15",
+      "time": "20:16:14",
+      "meaning": "để / khiến / bảo ai làm gì",
+      "hanzi": "让",
+      "pinyin": "ràng",
+      "audioText": "让",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0030",
+      "date": "2026-07-15",
+      "time": "20:16:14",
+      "meaning": "ý nghĩa / ý tứ / thú vị",
+      "hanzi": "意思",
+      "pinyin": "yìsi",
+      "audioText": "意思",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0031",
+      "date": "2026-07-15",
+      "time": "20:16:14",
+      "meaning": "sau này / về sau",
+      "hanzi": "以后",
+      "pinyin": "yǐhòu",
+      "audioText": "以后",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0032",
+      "date": "2026-07-15",
+      "time": "20:16:14",
+      "meaning": "có thể / được phép",
+      "hanzi": "可以",
+      "pinyin": "kěyǐ",
+      "audioText": "可以",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0033",
+      "date": "2026-07-15",
+      "time": "20:16:14",
+      "meaning": "không tệ / khá tốt",
+      "hanzi": "不错",
+      "pinyin": "búcuò",
+      "audioText": "不错",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0034",
+      "date": "2026-07-15",
+      "time": "20:16:14",
+      "meaning": "cũng được / tạm ổn",
+      "hanzi": "还可以",
+      "pinyin": "hái kěyǐ",
+      "audioText": "还可以",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0035",
+      "date": "2026-07-15",
+      "time": "20:16:14",
+      "meaning": "có thể / được phép (nhắc lại)",
+      "hanzi": "可以",
+      "pinyin": "kěyǐ",
+      "audioText": "可以",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0036",
+      "date": "2026-07-15",
+      "time": "20:16:14",
+      "meaning": "hơi / có một chút",
+      "hanzi": "有点儿",
+      "pinyin": "yǒudiǎnr",
+      "audioText": "有点儿",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0037",
+      "date": "2026-07-15",
+      "time": "20:16:14",
+      "meaning": "cũng không tệ / khá ổn",
+      "hanzi": "还不错",
+      "pinyin": "hái búcuò",
+      "audioText": "还不错",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0038",
+      "date": "2026-07-15",
+      "time": "21:02:49",
+      "meaning": "hai ngày nay / mấy ngày này",
+      "hanzi": "这两天 / 这几天",
+      "pinyin": "zhè liǎng tiān / zhè jǐ tiān",
+      "audioText": "这两天",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0039",
+      "date": "2026-07-15",
+      "time": "21:02:49",
+      "meaning": "thịt dê / thịt cừu",
+      "hanzi": "羊肉",
+      "pinyin": "yángròu",
+      "audioText": "羊肉",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0040",
+      "date": "2026-07-15",
+      "time": "21:02:49",
+      "meaning": "chơi bóng rổ",
+      "hanzi": "打篮球",
+      "pinyin": "dǎ lánqiú",
+      "audioText": "打篮球",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0041",
+      "date": "2026-07-15",
+      "time": "21:02:49",
+      "meaning": "kilôgam / cân",
+      "hanzi": "公斤",
+      "pinyin": "gōngjīn",
+      "audioText": "公斤",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0042",
+      "date": "2026-07-16",
+      "time": "05:46:42",
+      "meaning": "thế nào / sao / tại sao",
+      "hanzi": "怎么",
+      "pinyin": "zěnme; có lúc gần nghĩa 为什么",
+      "audioText": "怎么",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0043",
+      "date": "2026-07-16",
+      "time": "05:46:42",
+      "meaning": "lặp lại lượng từ; từng ... một",
+      "hanzi": "量词重叠（一个一个）",
+      "pinyin": "liàngcí chóngdié (yí ge yí ge)",
+      "audioText": "量词重叠一个一个",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0044",
+      "date": "2026-07-16",
+      "time": "05:46:42",
+      "meaning": "xong / hoàn thành",
+      "hanzi": "完",
+      "pinyin": "wán",
+      "audioText": "完",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0045",
+      "date": "2026-07-16",
+      "time": "05:46:42",
+      "meaning": "chưa đến 1 mét / không tới 1 mét",
+      "hanzi": "不到一米",
+      "pinyin": "bú dào yì mǐ",
+      "audioText": "不到一米",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0046",
+      "date": "2026-07-16",
+      "time": "05:46:42",
+      "meaning": "cách nói 10 giờ 30",
+      "hanzi": "十点半 / 十点三十分",
+      "pinyin": "shí diǎn bàn / shí diǎn sānshí fēn",
+      "audioText": "十点半",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0047",
+      "date": "2026-07-16",
+      "time": "05:46:42",
+      "meaning": "cách nghe “10 giờ”; 点 có thể nghe như dián",
+      "hanzi": "十点",
+      "pinyin": "shí diǎn, nói nhanh nghe gần shí dián",
+      "audioText": "十点",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0048",
+      "date": "2026-07-16",
+      "time": "05:46:42",
+      "meaning": "bạn cùng phòng",
+      "hanzi": "室友",
+      "pinyin": "shìyǒu",
+      "audioText": "室友",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0049",
+      "date": "2026-07-16",
+      "time": "05:46:42",
+      "meaning": "ghét / đáng ghét",
+      "hanzi": "讨厌",
+      "pinyin": "tǎoyàn",
+      "audioText": "讨厌",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0050",
+      "date": "2026-07-16",
+      "time": "05:46:42",
+      "meaning": "sáu giờ; 六 nói nhẹ khi nói nhanh",
+      "hanzi": "六点",
+      "pinyin": "liù diǎn, nói nhanh nghe như liu diǎn",
+      "audioText": "六点",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0051",
+      "date": "2026-07-16",
+      "time": "06:02:33",
+      "meaning": "diễn tả trạng thái thay đổi; rồi / nữa",
+      "hanzi": "了",
+      "pinyin": "le",
+      "audioText": "了",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0052",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "Đợi một chút rồi gọi điện cho bạn",
+      "hanzi": "等一下再给你打电话",
+      "pinyin": "děng yíxià zài gěi nǐ dǎ diànhuà",
+      "audioText": "等一下再给你打电话",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0053",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "vẫn chưa / chưa ... đâu",
+      "hanzi": "还没",
+      "pinyin": "hái méi",
+      "audioText": "还没",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0054",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "vẫn chưa ăn xong",
+      "hanzi": "还没吃完",
+      "pinyin": "hái méi chī wán",
+      "audioText": "还没吃完",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0055",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "đối với ... rất tốt",
+      "hanzi": "对……很好",
+      "pinyin": "duì ... hěn hǎo",
+      "audioText": "对……很好",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0056",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "rút gọn 没有 thành 没; chưa / không có",
+      "hanzi": "没 / 没有",
+      "pinyin": "méi / méiyǒu",
+      "audioText": "没",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0057",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "siêu thị",
+      "hanzi": "超市",
+      "pinyin": "chāoshì",
+      "audioText": "超市",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0058",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "đôi khi / có lúc",
+      "hanzi": "有时",
+      "pinyin": "yǒushí",
+      "audioText": "有时",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0059",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "dạo / đi dạo chơi",
+      "hanzi": "逛",
+      "pinyin": "guàng",
+      "audioText": "逛",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0060",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "cấu trúc nhấn mạnh thời gian / nơi chốn / cách thức",
+      "hanzi": "是……的",
+      "pinyin": "shì ... de",
+      "audioText": "是……的",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0061",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "làm gì",
+      "hanzi": "干什么",
+      "pinyin": "gàn shénme",
+      "audioText": "干什么",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0062",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "vị trí thời gian với 想",
+      "hanzi": "我明天想去 / 我想明天去",
+      "pinyin": "wǒ míngtiān xiǎng qù / wǒ xiǎng míngtiān qù",
+      "audioText": "我明天想去",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0063",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "tập thể dục / tập gym",
+      "hanzi": "健身",
+      "pinyin": "jiànshēn",
+      "audioText": "健身",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0064",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "thường xuyên / cùng nhau",
+      "hanzi": "经常 / 一起",
+      "pinyin": "jīngcháng / yìqǐ",
+      "audioText": "经常",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0065",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "bắt xe / đi taxi",
+      "hanzi": "打车",
+      "pinyin": "dǎ chē",
+      "audioText": "打车",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0066",
+      "date": "2026-07-17",
+      "time": "06:00:16",
+      "meaning": "đợi / nhỏ",
+      "hanzi": "等 / 小",
+      "pinyin": "děng / xiǎo",
+      "audioText": "等",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0067",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "phía nam / bên nam",
+      "hanzi": "南边",
+      "pinyin": "nánbian",
+      "audioText": "南边",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0068",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "bên phải",
+      "hanzi": "右边",
+      "pinyin": "yòubian",
+      "audioText": "右边",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0069",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "ở giữa / chính giữa",
+      "hanzi": "中间",
+      "pinyin": "zhōngjiān",
+      "audioText": "中间",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0070",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "cách nói “cái gì ở giữa cái gì”",
+      "hanzi": "A在B和C中间",
+      "pinyin": "A zài B hé C zhōngjiān",
+      "audioText": "在和中间",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0071",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "đường / đường cái",
+      "hanzi": "马路",
+      "pinyin": "mǎlù",
+      "audioText": "马路",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0072",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "tòa nhà / tầng lầu",
+      "hanzi": "楼",
+      "pinyin": "lóu",
+      "audioText": "楼",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0073",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "家 dùng cho cửa hàng/công ty; 个 là lượng từ chung",
+      "hanzi": "家 / 个",
+      "pinyin": "jiā / ge",
+      "audioText": "家",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0074",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "đúng / với / đối với",
+      "hanzi": "对",
+      "pinyin": "duì",
+      "audioText": "对",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0075",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "cái tủ",
+      "hanzi": "柜子",
+      "pinyin": "guìzi",
+      "audioText": "柜子",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0076",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "tủ lạnh",
+      "hanzi": "冰箱",
+      "pinyin": "bīngxiāng",
+      "audioText": "冰箱",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0077",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "bên cạnh",
+      "hanzi": "旁边",
+      "pinyin": "pángbiān",
+      "audioText": "旁边",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0078",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "có bao nhiêu / bên dưới / bên trên",
+      "hanzi": "有多少 / 下面 / 上面",
+      "pinyin": "yǒu duōshao / xiàmiàn / shàngmiàn",
+      "audioText": "有多少",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0079",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "bánh quy",
+      "hanzi": "饼干",
+      "pinyin": "bǐnggān",
+      "audioText": "饼干",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0080",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "câu hỏi số lượng không cần lượng từ; phía Tây công viên có bao nhiêu siêu thị?",
+      "hanzi": "地方 + 有 + 多少 + 名词？ / 公园西边有多少超市？",
+      "pinyin": "dìfang + yǒu + duōshao + míngcí / gōngyuán xībian yǒu duōshao chāoshì?",
+      "audioText": "地方  有  多少  名词",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0081",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "món quà",
+      "hanzi": "礼物",
+      "pinyin": "lǐwù",
+      "audioText": "礼物",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0082",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "buổi tụ họp / buổi tiệc",
+      "hanzi": "聚会",
+      "pinyin": "jùhuì",
+      "audioText": "聚会",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0083",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "tham gia",
+      "hanzi": "参加",
+      "pinyin": "cānjiā",
+      "audioText": "参加",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0084",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "giúp đỡ / giúp một tay",
+      "hanzi": "帮忙",
+      "pinyin": "bāngmáng",
+      "audioText": "帮忙",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0085",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "mời",
+      "hanzi": "邀请",
+      "pinyin": "yāoqǐng",
+      "audioText": "邀请",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0086",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "Vậy bạn có thể đến không?",
+      "hanzi": "那你能来吗",
+      "pinyin": "nà nǐ néng lái ma",
+      "audioText": "那你能来吗",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0087",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "nhớ / nhớ rằng",
+      "hanzi": "记得",
+      "pinyin": "jìde",
+      "audioText": "记得",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0088",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "biết",
+      "hanzi": "知道",
+      "pinyin": "zhīdào",
+      "audioText": "知道",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0089",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "trò chơi",
+      "hanzi": "游戏",
+      "pinyin": "yóuxì",
+      "audioText": "游戏",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0090",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "sạch sẽ",
+      "hanzi": "干净",
+      "pinyin": "gānjìng",
+      "audioText": "干净",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0091",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "người nổi tiếng",
+      "hanzi": "有名的人",
+      "pinyin": "yǒumíng de rén",
+      "audioText": "有名的人",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0092",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "trò chơi vui / hay",
+      "hanzi": "好玩儿的游戏",
+      "pinyin": "hǎowánr de yóuxì",
+      "audioText": "好玩儿的游戏",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0093",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "nối âm 是我; nói nhanh nghe như shuar",
+      "hanzi": "是我",
+      "pinyin": "shì wǒ",
+      "audioText": "是我",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0094",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "các loại vị trí",
+      "hanzi": "里面 / 外面 / 上面 / 下面 / 前面 / 后面 / 旁边 / 中间",
+      "pinyin": "lǐmiàn / wàimiàn / shàngmiàn / xiàmiàn / qiánmiàn / hòumiàn / pángbiān / zhōngjiān",
+      "audioText": "里面",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0095",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "món quà rẻ",
+      "hanzi": "便宜的礼物",
+      "pinyin": "piányi de lǐwù",
+      "audioText": "便宜的礼物",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0096",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "chuối",
+      "hanzi": "香蕉",
+      "pinyin": "xiāngjiāo",
+      "audioText": "香蕉",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0097",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "tặng / đưa / gửi",
+      "hanzi": "送",
+      "pinyin": "sòng",
+      "audioText": "送",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0098",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "Người tặng món quà này là ai?",
+      "hanzi": "送这个礼物的人是谁",
+      "pinyin": "sòng zhège lǐwù de rén shì shéi",
+      "audioText": "送这个礼物的人是谁",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0099",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "đồng hồ đeo tay",
+      "hanzi": "手表",
+      "pinyin": "shǒubiǎo",
+      "audioText": "手表",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0100",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "ngày tháng / ngày",
+      "hanzi": "日期",
+      "pinyin": "rìqī",
+      "audioText": "日期",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0101",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "địa điểm",
+      "hanzi": "地点",
+      "pinyin": "dìdiǎn",
+      "audioText": "地点",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0102",
+      "date": "2026-07-18",
+      "time": "05:45:51",
+      "meaning": "nói cho / bảo",
+      "hanzi": "告诉",
+      "pinyin": "gàosu",
+      "audioText": "告诉",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0103",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "cô / quý cô; chào cô",
+      "hanzi": "女士 / 女士，你好",
+      "pinyin": "nǚshì / nǚshì, nǐ hǎo",
+      "audioText": "女士",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0104",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "vào / mời vào",
+      "hanzi": "进 / 请进",
+      "pinyin": "jìn / qǐng jìn",
+      "audioText": "进",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0105",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "mời / xin; mời ngồi",
+      "hanzi": "请 / 请坐",
+      "pinyin": "qǐng / qǐng zuò",
+      "audioText": "请",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0106",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "gọi món; tôi muốn gọi món",
+      "hanzi": "点菜 / 我要点菜",
+      "pinyin": "diǎn cài / wǒ yào diǎn cài",
+      "audioText": "点菜",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0107",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "mang về / gói mang về",
+      "hanzi": "打包 / 打包带走",
+      "pinyin": "dǎbāo / dǎbāo dài zǒu",
+      "audioText": "打包",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0108",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "không có gì / không cần khách sáo",
+      "hanzi": "不客气 / 不用客气",
+      "pinyin": "bú kèqi / bú yòng kèqi",
+      "audioText": "不客气",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0109",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "nhân viên phục vụ; gọi phục vụ",
+      "hanzi": "服务员 / 服务员，点菜",
+      "pinyin": "fúwùyuán / fúwùyuán, diǎn cài",
+      "audioText": "服务员",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0110",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "thanh toán; tính tiền giúp tôi",
+      "hanzi": "买单 / 请买单",
+      "pinyin": "mǎidān / qǐng mǎidān",
+      "audioText": "买单",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0111",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "canh / súp; một bát canh",
+      "hanzi": "汤 / 一碗汤",
+      "pinyin": "tāng / yì wǎn tāng",
+      "audioText": "汤",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0112",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "thực đơn; xem thực đơn",
+      "hanzi": "菜单 / 看菜单",
+      "pinyin": "càidān / kàn càidān",
+      "audioText": "菜单",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0113",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "thìa / muỗng; một cái thìa",
+      "hanzi": "勺子 / 一个勺子",
+      "pinyin": "sháozi / yí ge sháozi",
+      "audioText": "勺子",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0114",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "nĩa; một cái nĩa",
+      "hanzi": "叉子 / 一个叉子",
+      "pinyin": "chāzi / yí ge chāzi",
+      "audioText": "叉子",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0115",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "lấy / cầm; lấy giúp tôi",
+      "hanzi": "拿 / 帮我拿一下",
+      "pinyin": "ná / bāng wǒ ná yíxià",
+      "audioText": "拿",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0116",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "đĩa; một cái đĩa",
+      "hanzi": "盘子 / 一个盘子",
+      "pinyin": "pánzi / yí ge pánzi",
+      "audioText": "盘子",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0117",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "đổi / thay; đổi một cái",
+      "hanzi": "换 / 换一个",
+      "pinyin": "huàn / huàn yí ge",
+      "audioText": "换",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0118",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "mở ra; mở cửa",
+      "hanzi": "打开 / 打开门",
+      "pinyin": "dǎkāi / dǎkāi mén",
+      "audioText": "打开",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0119",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "đá viên; thêm đá",
+      "hanzi": "冰块 / 加冰块",
+      "pinyin": "bīngkuài / jiā bīngkuài",
+      "audioText": "冰块",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0120",
+      "date": "2026-07-19",
+      "time": "06:55:56",
+      "meaning": "tiền tip / tiền boa",
+      "hanzi": "小费 / 给小费",
+      "pinyin": "xiǎofèi / gěi xiǎofèi",
+      "audioText": "小费",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0121",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "khăn giấy ăn; xin cho tôi khăn giấy ăn",
+      "hanzi": "餐巾纸 / 请给我餐巾纸",
+      "pinyin": "cānjīnzhǐ / qǐng gěi wǒ cānjīnzhǐ",
+      "audioText": "餐巾纸",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0122",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "một vài / một số; một vài câu hỏi",
+      "hanzi": "一些 / 一些问题",
+      "pinyin": "yìxiē / yìxiē wèntí",
+      "audioText": "一些",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0123",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "phân biệt “một vài” và “một chút”",
+      "hanzi": "一些 / 一点儿",
+      "pinyin": "yìxiē / yìdiǎnr",
+      "audioText": "一些",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0124",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "mới / cũ; sách mới / sách cũ",
+      "hanzi": "新 / 旧 / 新书 / 旧书",
+      "pinyin": "xīn / jiù / xīn shū / jiù shū",
+      "audioText": "新",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0125",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "sách giáo khoa; sách tiếng Trung",
+      "hanzi": "课本 / 中文课本",
+      "pinyin": "kèběn / Zhōngwén kèběn",
+      "audioText": "课本",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0126",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "câu hỏi / vấn đề; có câu hỏi",
+      "hanzi": "问题 / 有问题",
+      "pinyin": "wèntí / yǒu wèntí",
+      "audioText": "问题",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0127",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "bài khóa / bài đọc; đọc bài khóa",
+      "hanzi": "课文 / 读课文",
+      "pinyin": "kèwén / dú kèwén",
+      "audioText": "课文",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0128",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "trả lời; trả lời câu hỏi",
+      "hanzi": "回答 / 回答问题",
+      "pinyin": "huídá / huídá wèntí",
+      "audioText": "回答",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0129",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "dạy; dạy tiếng Trung",
+      "hanzi": "教 / 教中文",
+      "pinyin": "jiāo / jiāo Zhōngwén",
+      "audioText": "教",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0130",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "ngôn ngữ; học ngôn ngữ",
+      "hanzi": "语言 / 学语言",
+      "pinyin": "yǔyán / xué yǔyán",
+      "audioText": "语言",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0131",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "kém / tệ; tiếng Trung của tôi còn kém",
+      "hanzi": "差 / 我的中文很差",
+      "pinyin": "chà / wǒ de Zhōngwén hěn chà",
+      "audioText": "差",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0132",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "thi / kiểm tra; thi tiếng Trung",
+      "hanzi": "考试 / 中文考试",
+      "pinyin": "kǎoshì / Zhōngwén kǎoshì",
+      "audioText": "考试",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0133",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "đơn giản / dễ; câu này rất dễ",
+      "hanzi": "简单 / 这个句子很简单",
+      "pinyin": "jiǎndān / zhège jùzi hěn jiǎndān",
+      "audioText": "简单",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0134",
+      "date": "2026-07-19",
+      "time": "10:08:05",
+      "meaning": "khó; bài này rất khó",
+      "hanzi": "难 / 这课很难",
+      "pinyin": "nán / zhè kè hěn nán",
+      "audioText": "难",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0135",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "thì / liền / ngay; vậy thì làm luôn",
+      "hanzi": "就 / 那就做吧",
+      "pinyin": "jiù / nà jiù zuò ba",
+      "audioText": "就",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0136",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "vẫn đang; vẫn đang học",
+      "hanzi": "还在 / 还在学习",
+      "pinyin": "hái zài / hái zài xuéxí",
+      "audioText": "还在",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0137",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "còn có / vẫn còn; còn câu hỏi không?",
+      "hanzi": "还有 / 还有问题吗",
+      "pinyin": "hái yǒu / hái yǒu wèntí ma",
+      "audioText": "还有",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0138",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "vẫn là / hay là; vẫn là tôi đi nhé",
+      "hanzi": "还是 / 还是我去吧",
+      "pinyin": "háishi / háishi wǒ qù ba",
+      "audioText": "还是",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0139",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "cách bao lâu / khoảng cách thời gian bao lâu",
+      "hanzi": "今天离我的生日有多少天？ / 现在离考试还有多长时间？",
+      "pinyin": "jīntiān lí wǒ de shēngrì yǒu duōshao tiān? / xiànzài lí kǎoshì hái yǒu duō cháng shíjiān?",
+      "audioText": "今天离我的生日有多少天",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0140",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "còn muốn thêm một chút",
+      "hanzi": "还想再来点儿 / 今天的午饭太好吃了，我还想再来点儿呢。",
+      "pinyin": "hái xiǎng zài lái diǎnr / jīntiān de wǔfàn tài hǎochī le, wǒ hái xiǎng zài lái diǎnr ne.",
+      "audioText": "还想再来点儿",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0141",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "rau; ăn nhiều rau",
+      "hanzi": "蔬菜 / 多吃蔬菜",
+      "pinyin": "shūcài / duō chī shūcài",
+      "audioText": "蔬菜",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0142",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "tôm; có tôm không?",
+      "hanzi": "虾 / 有虾吗？",
+      "pinyin": "xiā / yǒu xiā ma?",
+      "audioText": "虾",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0143",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "đồ uống; gọi đồ uống",
+      "hanzi": "饮料 / 点饮料",
+      "pinyin": "yǐnliào / diǎn yǐnliào",
+      "audioText": "饮料",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0144",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "thứ khác / đồ khác",
+      "hanzi": "别的东西 / 还有别的东西吗？",
+      "pinyin": "bié de dōngxi / hái yǒu bié de dōngxi ma?",
+      "audioText": "别的东西",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0145",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "khác / cái khác",
+      "hanzi": "别的 / 别的人",
+      "pinyin": "bié de / bié de rén",
+      "audioText": "别的",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0146",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "đồ ăn vặt; mua đồ ăn vặt",
+      "hanzi": "零食 / 买零食",
+      "pinyin": "língshí / mǎi língshí",
+      "audioText": "零食",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0147",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "số 3 / ba cái",
+      "hanzi": "三 / 三个",
+      "pinyin": "sān / sān ge",
+      "audioText": "三",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0148",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "bia; một chai bia",
+      "hanzi": "啤酒 / 一瓶啤酒",
+      "pinyin": "píjiǔ / yì píng píjiǔ",
+      "audioText": "啤酒",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0149",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "100 tệ / 100 đồng",
+      "hanzi": "一百块",
+      "pinyin": "yì bǎi kuài",
+      "audioText": "一百块",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0150",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "316 tệ; không đọc thiếu 一",
+      "hanzi": "三百一十六块",
+      "pinyin": "sān bǎi yī shí liù kuài",
+      "audioText": "三百一十六块",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0151",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "thẻ tín dụng; dùng thẻ tín dụng",
+      "hanzi": "信用卡 / 用信用卡",
+      "pinyin": "xìnyòngkǎ / yòng xìnyòngkǎ",
+      "audioText": "信用卡",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0152",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "tiền mặt; trả tiền mặt",
+      "hanzi": "现金 / 付现金",
+      "pinyin": "xiànjīn / fù xiànjīn",
+      "audioText": "现金",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0153",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "Alipay; dùng Alipay",
+      "hanzi": "支付宝 / 用支付宝",
+      "pinyin": "Zhīfùbǎo / yòng Zhīfùbǎo",
+      "audioText": "支付宝",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0154",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "WeChat; dùng WeChat thanh toán",
+      "hanzi": "微信 / 用微信支付",
+      "pinyin": "Wēixìn / yòng Wēixìn zhīfù",
+      "audioText": "微信",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0155",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "nghe số còn yếu; luyện nghe giá tiền",
+      "hanzi": "听数字 / 听价格",
+      "pinyin": "tīng shùzì / tīng jiàgé",
+      "audioText": "听数字",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0156",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "một chút; 一点儿 đầy đủ hơn 点儿",
+      "hanzi": "一点儿 / 点儿",
+      "pinyin": "yìdiǎnr / diǎnr",
+      "audioText": "一点儿",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0157",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "nhà / căn nhà; thuê nhà",
+      "hanzi": "房子 / 租房子",
+      "pinyin": "fángzi / zū fángzi",
+      "audioText": "房子",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0158",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "tức giận; đừng giận",
+      "hanzi": "生气 / 别生气",
+      "pinyin": "shēngqì / bié shēngqì",
+      "audioText": "生气",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0159",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "lên mạng; tôi muốn lên mạng",
+      "hanzi": "上网 / 我要上网",
+      "pinyin": "shàngwǎng / wǒ yào shàngwǎng",
+      "audioText": "上网",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0160",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "đi một lần; nói nhanh dễ nghe mất 一",
+      "hanzi": "去一次 / 要去一次",
+      "pinyin": "qù yí cì / yào qù yí cì",
+      "audioText": "去一次",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0161",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "hoạt động; tham gia hoạt động",
+      "hanzi": "活动 / 参加活动",
+      "pinyin": "huódòng / cānjiā huódòng",
+      "audioText": "活动",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0162",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "trời âm u / nhiều mây",
+      "hanzi": "阴天 / 今天是阴天",
+      "pinyin": "yīntiān / jīntiān shì yīntiān",
+      "audioText": "阴天",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0163",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "trời nắng",
+      "hanzi": "晴天 / 明天是晴天",
+      "pinyin": "qíngtiān / míngtiān shì qíngtiān",
+      "audioText": "晴天",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0164",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "hôm nay 8 độ",
+      "hanzi": "今天八度",
+      "pinyin": "jīntiān bā dù",
+      "audioText": "今天八度",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0165",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "chậm; nói chậm một chút",
+      "hanzi": "慢 / 慢一点儿",
+      "pinyin": "màn / màn yìdiǎnr",
+      "audioText": "慢",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0166",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "động từ hướng: về/ra/vào",
+      "hanzi": "回去 / 回来 / 出去 / 出来 / 进去 / 进来",
+      "pinyin": "huíqù / huílái / chūqù / chūlái / jìnqù / jìnlái",
+      "audioText": "回去",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0167",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "đóng / tắt; đóng cửa",
+      "hanzi": "关 / 关门",
+      "pinyin": "guān / guān mén",
+      "audioText": "关",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0168",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "cửa sổ; mở/đóng cửa sổ",
+      "hanzi": "窗户 / 打开窗户 / 关窗户",
+      "pinyin": "chuānghu / dǎkāi chuānghu / guān chuānghu",
+      "audioText": "窗户",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0169",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "một chút / một vài; phân biệt lượng ít",
+      "hanzi": "一下 / 一点 / 一些 / 一点儿",
+      "pinyin": "yíxià / yìdiǎn / yìxiē / yìdiǎnr",
+      "audioText": "一下",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0170",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "ra ngoài và ra khỏi nhà",
+      "hanzi": "出去 / 出门",
+      "pinyin": "chūqù / chūmén",
+      "audioText": "出去",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0171",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "một lát / một lúc; đợi một lát",
+      "hanzi": "一会儿 / 等一会儿",
+      "pinyin": "yíhuìr / děng yíhuìr",
+      "audioText": "一会儿",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0172",
+      "date": "2026-07-19",
+      "time": "18:37:14",
+      "meaning": "lại / thêm; ăn thêm một chút",
+      "hanzi": "再 / 再吃一点儿",
+      "pinyin": "zài / zài chī yìdiǎnr",
+      "audioText": "再",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0173",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "mặc / đi giày; mặc quần áo",
+      "hanzi": "穿 / 穿衣服 / 穿鞋",
+      "pinyin": "chuān / chuān yīfu / chuān xié",
+      "audioText": "穿",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0174",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "lại / thêm / lần nữa",
+      "hanzi": "再 / 再吃一点儿 / 再来一次",
+      "pinyin": "zài / zài chī yìdiǎnr / zài lái yí cì",
+      "audioText": "再",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0175",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "trợ từ ngữ khí; còn bạn thì sao?",
+      "hanzi": "呢 / 你呢？ / 你做什么呢？",
+      "pinyin": "ne / nǐ ne? / nǐ zuò shénme ne?",
+      "audioText": "呢",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0176",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "pizza; ăn pizza",
+      "hanzi": "披萨 / 吃披萨",
+      "pinyin": "pīsà / chī pīsà",
+      "audioText": "披萨",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0177",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "hamburger; một cái hamburger",
+      "hanzi": "汉堡 / 一个汉堡",
+      "pinyin": "hànbǎo / yí ge hànbǎo",
+      "audioText": "汉堡",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0178",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "giới thiệu / đề xuất; bạn đề xuất món gì?",
+      "hanzi": "推荐 / 你推荐什么？",
+      "pinyin": "tuījiàn / nǐ tuījiàn shénme?",
+      "audioText": "推荐",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0179",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "loại / chủng loại; loại nào?",
+      "hanzi": "种 / 哪种 / 这种 / 一种",
+      "pinyin": "zhǒng / nǎ zhǒng / zhè zhǒng / yì zhǒng",
+      "audioText": "种",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0180",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "làm nhanh / thử một chút",
+      "hanzi": "动词 + 一下儿 / 试一下儿 / 看一下儿",
+      "pinyin": "dòngcí + yíxiàr / shì yíxiàr / kàn yíxiàr",
+      "audioText": "动词  一下儿",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0181",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "một ít + danh từ",
+      "hanzi": "一点儿 + 名词 / 一点儿水 / 一点儿钱",
+      "pinyin": "yìdiǎnr + míngcí / yìdiǎnr shuǐ / yìdiǎnr qián",
+      "audioText": "一点儿  名词",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0182",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "tính từ + hơn một chút",
+      "hanzi": "形容词 + 一点儿 / 快一点儿 / 便宜一点儿",
+      "pinyin": "xíngróngcí + yìdiǎnr / kuài yìdiǎnr / piányi yìdiǎnr",
+      "audioText": "形容词  一点儿",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0183",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "làm việc gì đó ... hơn một chút",
+      "hanzi": "形容词 + 一点儿 + 动词 / 慢一点儿走 / 早一点儿来",
+      "pinyin": "xíngróngcí + yìdiǎnr + dòngcí / màn yìdiǎnr zǒu / zǎo yìdiǎnr lái",
+      "audioText": "形容词  一点儿  动词",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0184",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "ngoại lệ với 多 / 少",
+      "hanzi": "多 / 少 + 动词 + 一点儿 / 多吃一点儿 / 少说一点儿",
+      "pinyin": "duō / shǎo + dòngcí + yìdiǎnr / duō chī yìdiǎnr / shǎo shuō yìdiǎnr",
+      "audioText": "多",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0185",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "nước sốt; thêm sốt / không lấy sốt",
+      "hanzi": "酱 / 加酱 / 不要酱",
+      "pinyin": "jiàng / jiā jiàng / bú yào jiàng",
+      "audioText": "酱",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0186",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "ghi chú nghe nhanh: 试 vẫn là thanh 4",
+      "hanzi": "试一下 / 试一下儿",
+      "pinyin": "shì yíxià / shì yíxiàr; nói nhanh có thể nghe nhẹ, nhưng đúng là shì",
+      "audioText": "试一下",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0187",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "có một vài / có một ít",
+      "hanzi": "有一些 / 有一些问题",
+      "pinyin": "yǒu yìxiē / yǒu yìxiē wèntí",
+      "audioText": "有一些",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0188",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "sandwich; một cái sandwich",
+      "hanzi": "三明治 / 一个三明治",
+      "pinyin": "sānmíngzhì / yí ge sānmíngzhì",
+      "audioText": "三明治",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0189",
+      "date": "2026-07-20",
+      "time": "05:34:01",
+      "meaning": "mì Ý / pasta; một phần mì Ý",
+      "hanzi": "意面 / 一份意面",
+      "pinyin": "yìmiàn / yí fèn yìmiàn",
+      "audioText": "意面",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0190",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "việc / sự việc; tôi có việc",
+      "hanzi": "事情 / 我有事情",
+      "pinyin": "shìqing / wǒ yǒu shìqing",
+      "audioText": "事情",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0191",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "tìm thời gian / sắp xếp lúc nào đó",
+      "hanzi": "找时间 / 我们找时间一起吃饭",
+      "pinyin": "zhǎo shíjiān / wǒmen zhǎo shíjiān yìqǐ chīfàn",
+      "audioText": "找时间",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0192",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "lại / thêm / hẵng; để sau nói",
+      "hanzi": "再 / 再说 / 明天再去",
+      "pinyin": "zài / zài shuō / míngtiān zài qù",
+      "audioText": "再",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0193",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "cấu trúc nhấn mạnh thông tin đã xảy ra",
+      "hanzi": "是……的 / 我是昨天来的 / 他是坐车去的",
+      "pinyin": "shì ... de / wǒ shì zuótiān lái de / tā shì zuò chē qù de",
+      "audioText": "是……的",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0194",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "để / khiến / bảo ai làm gì",
+      "hanzi": "让 / 让我想想 / 让他去 / 这让我很高兴",
+      "pinyin": "ràng / ràng wǒ xiǎngxiang / ràng tā qù / zhè ràng wǒ hěn gāoxìng",
+      "audioText": "让",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0195",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "họp; hôm nay họp",
+      "hanzi": "开会 / 今天开会",
+      "pinyin": "kāi huì / jīntiān kāi huì",
+      "audioText": "开会",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0196",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "đang; 正在 nhấn mạnh đang xảy ra hơn 在",
+      "hanzi": "正在 / 在 / 正在开会 / 在开会",
+      "pinyin": "zhèngzài / zài / zhèngzài kāi huì / zài kāi huì",
+      "audioText": "正在",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0197",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "nói chuyện; đừng nói chuyện",
+      "hanzi": "说话 / 别说话",
+      "pinyin": "shuōhuà / bié shuōhuà",
+      "audioText": "说话",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0198",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "tắm; đi tắm",
+      "hanzi": "洗澡 / 去洗澡",
+      "pinyin": "xǐzǎo / qù xǐzǎo",
+      "audioText": "洗澡",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0199",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "vừa... vừa...",
+      "hanzi": "一边……一边…… / 一边吃饭一边看电视",
+      "pinyin": "yìbiān ... yìbiān ... / yìbiān chīfàn yìbiān kàn diànshì",
+      "audioText": "一边……一边……",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0200",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "呢 ở cuối câu: đang đấy / đấy",
+      "hanzi": "呢 / 他在开会呢 / 我正忙呢",
+      "pinyin": "ne / tā zài kāi huì ne / wǒ zhèng máng ne",
+      "audioText": "呢",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0201",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "cười và đợi; cười một cái / đợi một chút",
+      "hanzi": "笑 / 等 / 笑一笑 / 等一下",
+      "pinyin": "xiào / děng / xiào yi xiào / děng yíxià",
+      "audioText": "笑",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0202",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "khách sạn; ở khách sạn",
+      "hanzi": "酒店 / 住酒店",
+      "pinyin": "jiǔdiàn / zhù jiǔdiàn",
+      "audioText": "酒店",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0203",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "sau khi xuống máy bay",
+      "hanzi": "下飞机后 / 下飞机后取行李",
+      "pinyin": "xià fēijī hòu / xià fēijī hòu qǔ xíngli",
+      "audioText": "下飞机后",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0204",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "hành lý; hành lý rất nặng",
+      "hanzi": "行李 / 行李很重",
+      "pinyin": "xíngli / xíngli hěn zhòng",
+      "audioText": "行李",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0205",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "trước tiên; trước tiên mua vé",
+      "hanzi": "先 / 先买票",
+      "pinyin": "xiān / xiān mǎi piào",
+      "audioText": "先",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0206",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "vé máy bay; mua vé máy bay",
+      "hanzi": "机票 / 买机票",
+      "pinyin": "jīpiào / mǎi jīpiào",
+      "audioText": "机票",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0207",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "đổi / thay; đổi tiền / đổi chỗ ngồi",
+      "hanzi": "换 / 换钱 / 换座位",
+      "pinyin": "huàn / huàn qián / huàn zuòwèi",
+      "audioText": "换",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0208",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "ký gửi; ký gửi hành lý",
+      "hanzi": "托运 / 托运行李",
+      "pinyin": "tuōyùn / tuōyùn xíngli",
+      "audioText": "托运",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0209",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "lấy / nhận; lấy hành lý",
+      "hanzi": "取 / 取行李",
+      "pinyin": "qǔ / qǔ xíngli",
+      "audioText": "取",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0210",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "Vạn Lý Trường Thành; đi Trường Thành",
+      "hanzi": "长城 / 去长城",
+      "pinyin": "Chángchéng / qù Chángchéng",
+      "audioText": "长城",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0211",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "nặng; cái này rất nặng",
+      "hanzi": "重 / 这个很重",
+      "pinyin": "zhòng / zhège hěn zhòng",
+      "audioText": "重",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0212",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "lần; đi một lần",
+      "hanzi": "次 / 去一次",
+      "pinyin": "cì / qù yí cì",
+      "audioText": "次",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0213",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "đã gặp năm người bạn; cần lượng từ 个",
+      "hanzi": "见了五个朋友",
+      "pinyin": "jiàn le wǔ ge péngyou; nói nhanh le + wǔ dễ nghe dính lại",
+      "audioText": "见了五个朋友",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0214",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "mang theo; mang bản đồ / tai nghe",
+      "hanzi": "带 / 带地图 / 带耳机",
+      "pinyin": "dài / dài dìtú / dài ěrjī",
+      "audioText": "带",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0215",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "bản đồ; xem bản đồ",
+      "hanzi": "地图 / 看地图",
+      "pinyin": "dìtú / kàn dìtú",
+      "audioText": "地图",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0216",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "nhớ kỹ; nhớ kỹ từ này",
+      "hanzi": "记住 / 记住这个词",
+      "pinyin": "jìzhù / jìzhù zhège cí",
+      "audioText": "记住",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0217",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "đã... rồi; 已经 thường đi với 了",
+      "hanzi": "已经……了 / 我已经到了 / 我到了",
+      "pinyin": "yǐjīng ... le / wǒ yǐjīng dào le / wǒ dào le",
+      "audioText": "已经……了",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0218",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "cây; một cái cây",
+      "hanzi": "树 / 一棵树",
+      "pinyin": "shù / yì kē shù",
+      "audioText": "树",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0219",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "hai trang sách",
+      "hanzi": "两页书 / 看两页书",
+      "pinyin": "liǎng yè shū / kàn liǎng yè shū",
+      "audioText": "两页书",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0220",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "trên người / mang theo người",
+      "hanzi": "身上 / 在我身上",
+      "pinyin": "shēnshang / zài wǒ shēnshang",
+      "audioText": "身上",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0221",
+      "date": "2026-07-21",
+      "time": "06:07:05",
+      "meaning": "tai nghe; đeo tai nghe",
+      "hanzi": "耳机 / 戴耳机",
+      "pinyin": "ěrjī / dài ěrjī",
+      "audioText": "耳机",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0222",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "thấp / lùn; thấp hơn tôi",
+      "hanzi": "矮 / 比我矮",
+      "pinyin": "ǎi / bǐ wǒ ǎi",
+      "audioText": "矮",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0223",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "béo / mập; hơi mập",
+      "hanzi": "胖 / 有点儿胖",
+      "pinyin": "pàng / yǒudiǎnr pàng",
+      "audioText": "胖",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0224",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "nghèo; không giàu",
+      "hanzi": "穷 / 不富有",
+      "pinyin": "qióng / bù fùyǒu",
+      "audioText": "穷",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0225",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "trẻ / trẻ tuổi; rất trẻ",
+      "hanzi": "年轻 / 很年轻",
+      "pinyin": "niánqīng / hěn niánqīng",
+      "audioText": "年轻",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0226",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "cao; cao hơn tôi",
+      "hanzi": "高 / 比我高",
+      "pinyin": "gāo / bǐ wǒ gāo",
+      "audioText": "高",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0227",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "anh ấy không giàu bằng bạn",
+      "hanzi": "他没有你有钱",
+      "pinyin": "tā méi yǒu nǐ yǒu qián",
+      "audioText": "他没有你有钱",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0228",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "gầy / ốm; quá gầy",
+      "hanzi": "瘦 / 太瘦",
+      "pinyin": "shòu / tài shòu",
+      "audioText": "瘦",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0229",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "quen / thói quen; quen rồi",
+      "hanzi": "习惯 / 习惯了 / 不习惯",
+      "pinyin": "xíguàn / xíguàn le / bù xíguàn",
+      "audioText": "习惯",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0230",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "ý tưởng / cách nghĩ; ý tưởng của tôi",
+      "hanzi": "想法 / 我的想法",
+      "pinyin": "xiǎngfǎ / wǒ de xiǎngfǎ",
+      "audioText": "想法",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0231",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "kiến thức; học kiến thức",
+      "hanzi": "知识 / 学知识",
+      "pinyin": "zhīshi / xué zhīshi",
+      "audioText": "知识",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0232",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "gia đình; gia đình tôi",
+      "hanzi": "家庭 / 我的家庭",
+      "pinyin": "jiātíng / wǒ de jiātíng",
+      "audioText": "家庭",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0233",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "quan trọng; rất quan trọng",
+      "hanzi": "重要 / 很重要",
+      "pinyin": "zhòngyào / hěn zhòngyào",
+      "audioText": "重要",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0234",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "ban ngày; từ ban ngày đến bây giờ",
+      "hanzi": "白天 / 从白天到现在",
+      "pinyin": "báitiān / cóng báitiān dào xiànzài",
+      "audioText": "白天",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0235",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "việc nhà; làm việc nhà",
+      "hanzi": "家务 / 做家务",
+      "pinyin": "jiāwù / zuò jiāwù",
+      "audioText": "家务",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0236",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "Từ ban ngày đến giờ, bạn đều đang làm gì?",
+      "hanzi": "从白天到现在，你都在干什么？",
+      "pinyin": "cóng báitiān dào xiànzài, nǐ dōu zài gàn shénme?",
+      "audioText": "从白天到现在你都在干什么",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0237",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "buồn ngủ; tôi buồn ngủ rồi",
+      "hanzi": "困 / 我困了",
+      "pinyin": "kùn / wǒ kùn le",
+      "audioText": "困",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0238",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "khát; tôi khát rồi",
+      "hanzi": "渴 / 我渴了",
+      "pinyin": "kě / wǒ kě le",
+      "audioText": "渴",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0239",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "điện thoại của tôi hết pin rồi",
+      "hanzi": "我的手机没电了",
+      "pinyin": "wǒ de shǒujī méi diàn le",
+      "audioText": "我的手机没电了",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0240",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "ngay lập tức; lập tức đến",
+      "hanzi": "马上 / 马上来",
+      "pinyin": "mǎshàng / mǎshàng lái",
+      "audioText": "马上",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0241",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "bẩn; rất bẩn",
+      "hanzi": "脏 / 很脏",
+      "pinyin": "zāng / hěn zāng",
+      "audioText": "脏",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0242",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "nam sinh / con trai",
+      "hanzi": "男生 / 一个男生",
+      "pinyin": "nánshēng / yí ge nánshēng",
+      "audioText": "男生",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0243",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "đặt / để; đặt ở đây",
+      "hanzi": "放 / 放在这里",
+      "pinyin": "fàng / fàng zài zhèlǐ",
+      "audioText": "放",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0244",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "đóng lại; đóng cửa lại",
+      "hanzi": "关上 / 关上门",
+      "pinyin": "guān shang / guān shang mén",
+      "audioText": "关上",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0245",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "nghỉ / được nghỉ; ngày mai nghỉ",
+      "hanzi": "放假 / 明天放假",
+      "pinyin": "fàngjià / míngtiān fàngjià",
+      "audioText": "放假",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0246",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "nghe điện thoại / nhận cuộc gọi",
+      "hanzi": "接电话 / 我在接电话",
+      "pinyin": "jiē diànhuà / wǒ zài jiē diànhuà",
+      "audioText": "接电话",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0247",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "mặt; rửa mặt",
+      "hanzi": "脸 / 洗脸",
+      "pinyin": "liǎn / xǐ liǎn",
+      "audioText": "脸",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0248",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "có người / có vài người",
+      "hanzi": "有的人 / 有的人喜欢安静",
+      "pinyin": "yǒu de rén / yǒu de rén xǐhuan ānjìng",
+      "audioText": "有的人",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0249",
+      "date": "2026-07-22",
+      "time": "05:47:23",
+      "meaning": "quên; tôi quên rồi",
+      "hanzi": "忘记 / 我忘记了",
+      "pinyin": "wàngjì / wǒ wàngjì le",
+      "audioText": "忘记",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0250",
+      "date": "2026-07-22",
+      "time": "05:50:10",
+      "meaning": "đang làm một hành động; đang họp",
+      "hanzi": "正在 / 我正在开会",
+      "pinyin": "zhèngzài / wǒ zhèngzài kāihuì",
+      "audioText": "正在",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0251",
+      "date": "2026-07-22",
+      "time": "05:50:10",
+      "meaning": "đang ở trạng thái; cửa đang mở đấy, mời vào",
+      "hanzi": "着 / 开着 / 门开着呢，请进",
+      "pinyin": "zhe / kāi zhe / mén kāi zhe ne, qǐng jìn",
+      "audioText": "着",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0252",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "hiểu; hiểu rồi",
+      "hanzi": "明白 / 明白了",
+      "pinyin": "míngbai / míngbai le",
+      "audioText": "明白",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0253",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "âm thanh / giọng nói; âm thanh hơi lớn",
+      "hanzi": "声音 / 声音有点儿大",
+      "pinyin": "shēngyīn / shēngyīn yǒudiǎnr dà",
+      "audioText": "声音",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0254",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "cắn; cắn một miếng",
+      "hanzi": "咬 / 咬一口",
+      "pinyin": "yǎo / yǎo yì kǒu",
+      "audioText": "咬",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0255",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "không thích lắm",
+      "hanzi": "不大喜欢",
+      "pinyin": "bú dà xǐhuan",
+      "audioText": "不大喜欢",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0256",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "chim; một con chim",
+      "hanzi": "鸟 / 一只鸟",
+      "pinyin": "niǎo / yì zhī niǎo",
+      "audioText": "鸟",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0257",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "bố mẹ; bố mẹ tôi",
+      "hanzi": "父母 / 我的父母",
+      "pinyin": "fùmǔ / wǒ de fùmǔ",
+      "audioText": "父母",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0258",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "ngủ, ở, ngồi, đứng; nhớ dạng trạng thái",
+      "hanzi": "睡觉 / 住在 / 坐着 / 站着",
+      "pinyin": "shuìjiào / zhù zài / zuò zhe / zhàn zhe",
+      "audioText": "睡觉",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0259",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "thân thiện; rất thân thiện",
+      "hanzi": "友好 / 很友好",
+      "pinyin": "yǒuhǎo / hěn yǒuhǎo",
+      "audioText": "友好",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0260",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "trong số hàng xóm của tôi",
+      "hanzi": "在我的邻居中",
+      "pinyin": "zài wǒ de línjū zhōng",
+      "audioText": "在我的邻居中",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0261",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "nhiệt tình; rất nhiệt tình",
+      "hanzi": "热情 / 很热情",
+      "pinyin": "rèqíng / hěn rèqíng",
+      "audioText": "热情",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0262",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "đặc biệt; đặc biệt tốt",
+      "hanzi": "特别 / 特别好",
+      "pinyin": "tèbié / tèbié hǎo",
+      "audioText": "特别",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0263",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "khóc; đừng khóc",
+      "hanzi": "哭 / 别哭",
+      "pinyin": "kū / bié kū",
+      "audioText": "哭",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0264",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "yên tĩnh; rất yên tĩnh",
+      "hanzi": "安静 / 很安静",
+      "pinyin": "ānjìng / hěn ānjìng",
+      "audioText": "安静",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0265",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "nghiêm túc / chăm chú; học nghiêm túc",
+      "hanzi": "认真 / 认真学习",
+      "pinyin": "rènzhēn / rènzhēn xuéxí",
+      "audioText": "认真",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0266",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "tình hình / tình huống; tình hình thế nào?",
+      "hanzi": "情况 / 什么情况？",
+      "pinyin": "qíngkuàng / shénme qíngkuàng?",
+      "audioText": "情况",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0267",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "giới thiệu tình hình một cách nghiêm túc một chút",
+      "hanzi": "认真地介绍一下情况",
+      "pinyin": "rènzhēn de jièshào yíxià qíngkuàng",
+      "audioText": "认真地介绍一下情况",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0268",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "xin lỗi / nói lời xin lỗi; xin lỗi bạn",
+      "hanzi": "道歉 / 向你道歉",
+      "pinyin": "dàoqiàn / xiàng nǐ dàoqiàn",
+      "audioText": "道歉",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0269",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "xin nghỉ; xin nghỉ một ngày",
+      "hanzi": "请假 / 请一天假",
+      "pinyin": "qǐngjià / qǐng yì tiān jià",
+      "audioText": "请假",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0270",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "đùa; tôi đang nói đùa",
+      "hanzi": "开玩笑 / 我在开玩笑",
+      "pinyin": "kāi wánxiào / wǒ zài kāi wánxiào",
+      "audioText": "开玩笑",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0271",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "người khác; đồ của người khác",
+      "hanzi": "别人 / 别人的东西",
+      "pinyin": "biéren / biéren de dōngxi",
+      "audioText": "别人",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0272",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "lần trước; lần trước gặp mặt",
+      "hanzi": "上次 / 上次见面",
+      "pinyin": "shàng cì / shàng cì jiànmiàn",
+      "audioText": "上次",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0273",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "tha thứ; xin hãy tha thứ cho tôi",
+      "hanzi": "原谅 / 请原谅我",
+      "pinyin": "yuánliàng / qǐng yuánliàng wǒ",
+      "audioText": "原谅",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0274",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "sẽ / định; tôi định đi",
+      "hanzi": "要 / 我要去",
+      "pinyin": "yào / wǒ yào qù",
+      "audioText": "要",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0275",
+      "date": "2026-07-23",
+      "time": "05:50:10",
+      "meaning": "còn muốn / còn phải; tôi còn muốn thêm một cốc nước",
+      "hanzi": "还要 / 我还要一杯水",
+      "pinyin": "hái yào / wǒ hái yào yì bēi shuǐ",
+      "audioText": "还要",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0276",
+      "date": "2026-07-24",
+      "time": "20:19:33",
+      "meaning": "hoan nghênh / chào mừng; hoan nghênh bạn đến nhà tôi",
+      "hanzi": "欢迎 / 欢迎你来我家",
+      "pinyin": "huānyíng / huānyíng nǐ lái wǒ jiā",
+      "audioText": "欢迎",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0277",
+      "date": "2026-07-24",
+      "time": "20:19:33",
+      "meaning": "hiểu; nghe hiểu rồi",
+      "hanzi": "懂 / 听懂了 / 你懂吗？",
+      "pinyin": "dǒng / tīng dǒng le / nǐ dǒng ma?",
+      "audioText": "懂",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0278",
+      "date": "2026-07-24",
+      "time": "20:19:33",
+      "meaning": "hy vọng; hy vọng bạn có thể đến",
+      "hanzi": "希望 / 希望你能来",
+      "pinyin": "xīwàng / xīwàng nǐ néng lái",
+      "audioText": "希望",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0279",
+      "date": "2026-07-24",
+      "time": "06:04:59",
+      "meaning": "luôn luôn / suốt; vẫn luôn đang học",
+      "hanzi": "一直 / 他一直在学习",
+      "pinyin": "yìzhí / tā yìzhí zài xuéxí",
+      "audioText": "一直",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0280",
+      "date": "2026-07-24",
+      "time": "06:04:59",
+      "meaning": "chỉ có; chỉ có bạn mới có thể đến",
+      "hanzi": "只有 / 只有你能来",
+      "pinyin": "zhǐ yǒu / zhǐ yǒu nǐ néng lái",
+      "audioText": "只有",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0281",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "tòa nhà dạy học; ở tòa nhà dạy học",
+      "hanzi": "教学楼 / 在教学楼",
+      "pinyin": "jiàoxué lóu / zài jiàoxué lóu",
+      "audioText": "教学楼",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0282",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "ký túc xá; về ký túc xá",
+      "hanzi": "宿舍 / 回宿舍",
+      "pinyin": "sùshè / huí sùshè",
+      "audioText": "宿舍",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0283",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "nhà ăn; ăn ở nhà ăn",
+      "hanzi": "食堂 / 在食堂吃饭",
+      "pinyin": "shítáng / zài shítáng chī fàn",
+      "audioText": "食堂",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0284",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "phòng học; vào phòng học",
+      "hanzi": "教室 / 进教室",
+      "pinyin": "jiàoshì / jìn jiàoshì",
+      "audioText": "教室",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0285",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "đi về phía đông; cứ đi về phía đông",
+      "hanzi": "往东走 / 一直往东走",
+      "pinyin": "wǎng dōng zǒu / yìzhí wǎng dōng zǒu",
+      "audioText": "往东走",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0286",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "rẽ; rẽ trái / rẽ phải",
+      "hanzi": "拐 / 往左拐 / 往右拐",
+      "pinyin": "guǎi / wǎng zuǒ guǎi / wǎng yòu guǎi",
+      "audioText": "拐",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0287",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "lùi / trả lại; lùi lại một bước",
+      "hanzi": "退 / 往后退一步",
+      "pinyin": "tuì / wǎng hòu tuì yí bù",
+      "audioText": "退",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0288",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "nấm; ăn nấm",
+      "hanzi": "蘑菇 / 吃蘑菇",
+      "pinyin": "mógu / chī mógu",
+      "audioText": "蘑菇",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0289",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "dưa chuột; một quả dưa chuột",
+      "hanzi": "黄瓜 / 一根黄瓜",
+      "pinyin": "huángguā / yì gēn huángguā",
+      "audioText": "黄瓜",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0290",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "ớt; bỏ ớt",
+      "hanzi": "辣椒 / 放辣椒",
+      "pinyin": "làjiāo / fàng làjiāo",
+      "audioText": "辣椒",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0291",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "tỏi; bỏ tỏi",
+      "hanzi": "蒜 / 放蒜",
+      "pinyin": "suàn / fàng suàn",
+      "audioText": "蒜",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0292",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "hành tây; cắt hành tây",
+      "hanzi": "洋葱 / 切洋葱",
+      "pinyin": "yángcōng / qiē yángcōng",
+      "audioText": "洋葱",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0293",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "đủ; đủ chưa?",
+      "hanzi": "够 / 够不够？ / 不够",
+      "pinyin": "gòu / gòu bu gòu? / bú gòu",
+      "audioText": "够",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0294",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "để tôi làm / xung phong làm",
+      "hanzi": "来 / 我来 / 我来做",
+      "pinyin": "lái / wǒ lái / wǒ lái zuò",
+      "audioText": "来",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0295",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "đổ / rót; đổ dầu vào nồi",
+      "hanzi": "倒 / 倒油 / 把油倒进锅里",
+      "pinyin": "dào / dào yóu / bǎ yóu dào jìn guō li",
+      "audioText": "倒",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0296",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "dầu; một chút dầu",
+      "hanzi": "油 / 一点儿油",
+      "pinyin": "yóu / yìdiǎnr yóu",
+      "audioText": "油",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0297",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "nên / phải; nên làm thế này",
+      "hanzi": "应该 / 应该这样做",
+      "pinyin": "yīnggāi / yīnggāi zhèyàng zuò",
+      "audioText": "应该",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0298",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "đường; bỏ đường",
+      "hanzi": "糖 / 放糖",
+      "pinyin": "táng / fàng táng",
+      "audioText": "糖",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0299",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "muối; bỏ muối",
+      "hanzi": "盐 / 放盐",
+      "pinyin": "yán / fàng yán",
+      "audioText": "盐",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0300",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "bạn không nên bỏ muối trước",
+      "hanzi": "你不该先放盐",
+      "pinyin": "nǐ bù gāi xiān fàng yán",
+      "audioText": "你不该先放盐",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0301",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "như thế này; làm như thế này",
+      "hanzi": "这样 / 这样做",
+      "pinyin": "zhèyàng / zhèyàng zuò",
+      "audioText": "这样",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0302",
+      "date": "2026-07-25",
+      "time": "06:04:59",
+      "meaning": "như thế nào; nên làm thế nào?",
+      "hanzi": "怎样 / 应该怎样做？",
+      "pinyin": "zěnyàng / yīnggāi zěnyàng zuò?",
+      "audioText": "怎样",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0303",
+      "date": "2026-07-26",
+      "time": "07:38:25",
+      "meaning": "hướng về / với / nói với ai; xin lỗi ai",
+      "hanzi": "向 / 向你道歉 / 向老师问好",
+      "pinyin": "xiàng / xiàng nǐ dàoqiàn / xiàng lǎoshī wènhǎo",
+      "audioText": "向",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0304",
+      "date": "2026-07-26",
+      "time": "09:25:52",
+      "meaning": "nghỉ là về quê ngay; hễ nghỉ là về quê",
+      "hanzi": "放假就回老家",
+      "pinyin": "fàngjià jiù huí lǎojiā",
+      "audioText": "放假就回老家",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0305",
+      "date": "2026-07-26",
+      "time": "09:25:52",
+      "meaning": "giúp đỡ; giúp người khác",
+      "hanzi": "帮助 / 帮助别人",
+      "pinyin": "bāngzhù / bāngzhù biéren",
+      "audioText": "帮助",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0306",
+      "date": "2026-07-26",
+      "time": "09:25:52",
+      "meaning": "đừng; đừng giặt/rửa nữa",
+      "hanzi": "别 / 别洗了",
+      "pinyin": "bié / bié xǐ le",
+      "audioText": "别",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0307",
+      "date": "2026-07-26",
+      "time": "09:25:52",
+      "meaning": "đang; đang tắm",
+      "hanzi": "正在 / 正在洗澡",
+      "pinyin": "zhèngzài / zhèngzài xǐzǎo",
+      "audioText": "正在",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0308",
+      "date": "2026-07-26",
+      "time": "09:25:52",
+      "meaning": "rửa / giặt; giặt quần áo",
+      "hanzi": "洗 / 洗衣服",
+      "pinyin": "xǐ / xǐ yīfu",
+      "audioText": "洗",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0309",
+      "date": "2026-07-26",
+      "time": "09:25:52",
+      "meaning": "đừng ăn nữa",
+      "hanzi": "不要吃了",
+      "pinyin": "bú yào chī le",
+      "audioText": "不要吃了",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0310",
+      "date": "2026-07-26",
+      "time": "09:25:52",
+      "meaning": "đừng nói nữa",
+      "hanzi": "不要说话了",
+      "pinyin": "bú yào shuōhuà le",
+      "audioText": "不要说话了",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0311",
+      "date": "2026-07-26",
+      "time": "09:25:52",
+      "meaning": "đừng xem TV nữa",
+      "hanzi": "不要看电视了",
+      "pinyin": "bú yào kàn diànshì le",
+      "audioText": "不要看电视了",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0312",
+      "date": "2026-07-26",
+      "time": "09:25:52",
+      "meaning": "xem TV có ích cho việc học tiếng Trung",
+      "hanzi": "看电视对学汉语有帮助",
+      "pinyin": "kàn diànshì duì xué hànyǔ yǒu bāngzhù",
+      "audioText": "看电视对学汉语有帮助",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0313",
+      "date": "2026-07-26",
+      "time": "10:20:13",
+      "meaning": "rất nhanh sẽ...; tôi sẽ quay lại rất nhanh",
+      "hanzi": "很快就 / 我很快就回来",
+      "pinyin": "hěn kuài jiù / wǒ hěn kuài jiù huílái",
+      "audioText": "很快就",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0314",
+      "date": "2026-07-26",
+      "time": "10:20:13",
+      "meaning": "đừng chơi máy tính nữa",
+      "hanzi": "别玩儿电脑了",
+      "pinyin": "bié wánr diànnǎo le",
+      "audioText": "别玩儿电脑了",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0315",
+      "date": "2026-07-26",
+      "time": "10:20:13",
+      "meaning": "xem / nhìn máy tính lâu quá",
+      "hanzi": "看电脑时间长了",
+      "pinyin": "kàn diànnǎo shíjiān cháng le",
+      "audioText": "看电脑时间长了",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0316",
+      "date": "2026-07-26",
+      "time": "10:20:13",
+      "meaning": "không tốt cho mắt",
+      "hanzi": "对眼睛不好",
+      "pinyin": "duì yǎnjing bù hǎo",
+      "audioText": "对眼睛不好",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0317",
+      "date": "2026-07-26",
+      "time": "10:20:13",
+      "meaning": "thích giúp đỡ người khác",
+      "hanzi": "喜欢帮助别人",
+      "pinyin": "xǐhuan bāngzhù biéren",
+      "audioText": "喜欢帮助别人",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0318",
+      "date": "2026-07-26",
+      "time": "10:20:13",
+      "meaning": "David là một đứa trẻ ngoan thích giúp đỡ người khác",
+      "hanzi": "大卫是一个喜欢帮助别人的好孩子",
+      "pinyin": "Dàwèi shì yí ge xǐhuan bāngzhù biéren de hǎo háizi",
+      "audioText": "大卫是一个喜欢帮助别人的好孩子",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0319",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "nhiệt độ; nhiệt độ cao / thấp",
+      "hanzi": "温度 / 温度很高 / 温度很低",
+      "pinyin": "wēndù / wēndù hěn gāo / wēndù hěn dī",
+      "audioText": "温度",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0320",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "họ; bạn họ gì?",
+      "hanzi": "姓 / 你姓什么？",
+      "pinyin": "xìng / nǐ xìng shénme?",
+      "audioText": "姓",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0321",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "tên là / gọi là; bạn tên là gì?",
+      "hanzi": "叫 / 你叫什么名字？",
+      "pinyin": "jiào / nǐ jiào shénme míngzi?",
+      "audioText": "叫",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0322",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "ngọt; rất ngọt",
+      "hanzi": "甜 / 很甜",
+      "pinyin": "tián / hěn tián",
+      "audioText": "甜",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0323",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "cay; cay quá",
+      "hanzi": "辣 / 太辣",
+      "pinyin": "là / tài là",
+      "audioText": "辣",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0324",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "đắng; hơi đắng",
+      "hanzi": "苦 / 有点儿苦",
+      "pinyin": "kǔ / yǒudiǎnr kǔ",
+      "audioText": "苦",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0325",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "mặn; món này hơi mặn",
+      "hanzi": "咸 / 这个菜有点儿咸",
+      "pinyin": "xián / zhè ge cài yǒudiǎnr xián",
+      "audioText": "咸",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0326",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "cấu trúc Adj + 的: loại/cái có tính chất đó",
+      "hanzi": "辣的 / 甜的 / 咸的 / 苦的",
+      "pinyin": "là de / tián de / xián de / kǔ de",
+      "audioText": "辣的",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0327",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "đủ; đủ rồi / không đủ",
+      "hanzi": "够 / 够了 / 不够",
+      "pinyin": "gòu / gòu le / bú gòu",
+      "audioText": "够",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0328",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "mềm; rất mềm",
+      "hanzi": "软 / 很软",
+      "pinyin": "ruǎn / hěn ruǎn",
+      "audioText": "软",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0329",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "khác / cái khác; người khác",
+      "hanzi": "其他 / 其他的 / 其他人",
+      "pinyin": "qítā / qítā de / qítā rén",
+      "audioText": "其他",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0330",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "đồ ngọt / món tráng miệng; ăn đồ ngọt",
+      "hanzi": "甜品 / 吃甜品",
+      "pinyin": "tiánpǐn / chī tiánpǐn",
+      "audioText": "甜品",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0331",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "còn muốn ăn",
+      "hanzi": "还想吃",
+      "pinyin": "hái xiǎng chī",
+      "audioText": "还想吃",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0332",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "lá cây; lá cây màu xanh",
+      "hanzi": "树叶 / 绿树叶",
+      "pinyin": "shùyè / lǜ shùyè",
+      "audioText": "树叶",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0333",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "xanh lá; màu xanh lá",
+      "hanzi": "绿 / 绿色",
+      "pinyin": "lǜ / lǜsè",
+      "audioText": "绿",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0334",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "những bông hoa này màu vàng",
+      "hanzi": "这些花是黄的",
+      "pinyin": "zhèxiē huā shì huáng de",
+      "audioText": "这些花是黄的",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0335",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "biển màu xanh dương",
+      "hanzi": "海是蓝的",
+      "pinyin": "hǎi shì lán de",
+      "audioText": "海是蓝的",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0336",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "mặt trăng; mặt trăng rất sáng",
+      "hanzi": "月亮 / 月亮很亮",
+      "pinyin": "yuèliang / yuèliang hěn liàng",
+      "audioText": "月亮",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0337",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "mặt trời; mặt trời mọc rồi",
+      "hanzi": "太阳 / 太阳出来了",
+      "pinyin": "tàiyáng / tàiyáng chūlái le",
+      "audioText": "太阳",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0338",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "đẹp biết bao!",
+      "hanzi": "多么好看啊",
+      "pinyin": "duōme hǎokàn a",
+      "audioText": "多么好看啊",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0339",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "sáng; rất sáng",
+      "hanzi": "亮 / 很亮",
+      "pinyin": "liàng / hěn liàng",
+      "audioText": "亮",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0340",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "đã 7 giờ tối rồi",
+      "hanzi": "已经晚上七点了",
+      "pinyin": "yǐjīng wǎnshang qī diǎn le",
+      "audioText": "已经晚上七点了",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0341",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "áo trên / áo; mặc áo trên",
+      "hanzi": "上衣 / 穿上衣",
+      "pinyin": "shàngyī / chuān shàngyī",
+      "audioText": "上衣",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0342",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "váy; một chiếc váy",
+      "hanzi": "裙子 / 一条裙子",
+      "pinyin": "qúnzi / yì tiáo qúnzi",
+      "audioText": "裙子",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0343",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "quần; một chiếc quần",
+      "hanzi": "裤子 / 一条裤子",
+      "pinyin": "kùzi / yì tiáo kùzi",
+      "audioText": "裤子",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0344",
+      "date": "2026-07-27",
+      "time": "05:58:36",
+      "meaning": "khá đẹp / nhìn khá đẹp",
+      "hanzi": "挺好看 / 挺好看的",
+      "pinyin": "tǐng hǎokàn / tǐng hǎokàn de",
+      "audioText": "挺好看",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0345",
+      "date": "2026-07-27",
+      "time": "20:53:17",
+      "meaning": "Tôi muốn tìm một công việc lương cao hơn bây giờ một chút. Mẫu: 我想找 + 一份工作 + 比现在...一点儿",
+      "hanzi": "我想找一个比现在钱多一点儿的工作。 / 我想找一份工资比现在高一点儿的工作。",
+      "pinyin": "wǒ xiǎng zhǎo yí ge bǐ xiànzài qián duō yìdiǎnr de gōngzuò / wǒ xiǎng zhǎo yí fèn gōngzī bǐ xiànzài gāo yìdiǎnr de gōngzuò",
+      "audioText": "我想找一个比现在钱多一点儿的工作",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0346",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "giày; một đôi giày; đi giày",
+      "hanzi": "鞋 / 一双鞋 / 穿鞋",
+      "pinyin": "xié / yì shuāng xié / chuān xié",
+      "audioText": "鞋",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0347",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "thoải mái; mang/đi vào rất thoải mái",
+      "hanzi": "舒服 / 穿着很舒服",
+      "pinyin": "shūfu / chuān zhe hěn shūfu",
+      "audioText": "舒服",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0348",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "phù hợp / vừa; kích cỡ vừa",
+      "hanzi": "合适 / 大小合适 / 很合适",
+      "pinyin": "héshì / dàxiǎo héshì / hěn héshì",
+      "audioText": "合适",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0349",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "khác nhau; màu sắc khác nhau",
+      "hanzi": "不同 / 颜色不同",
+      "pinyin": "bùtóng / yánsè bùtóng",
+      "audioText": "不同",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0350",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "giống nhau; kích cỡ giống nhau",
+      "hanzi": "相同 / 大小相同",
+      "pinyin": "xiāngtóng / dàxiǎo xiāngtóng",
+      "audioText": "相同",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0351",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "kiểu dáng / hình dáng; kiểu dáng khá đẹp",
+      "hanzi": "样子 / 样子挺好看",
+      "pinyin": "yàngzi / yàngzi tǐng hǎokàn",
+      "audioText": "样子",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0352",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "gần giống / xấp xỉ; hai cái này gần giống nhau",
+      "hanzi": "差不多 / 这两个差不多",
+      "pinyin": "chàbuduō / zhè liǎng ge chàbuduō",
+      "audioText": "差不多",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0353",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "kích cỡ / to nhỏ; kích cỡ thế nào?",
+      "hanzi": "大小 / 大小怎么样？",
+      "pinyin": "dàxiǎo / dàxiǎo zěnmeyàng?",
+      "audioText": "大小",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0354",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "giày thể thao; một đôi giày thể thao",
+      "hanzi": "球鞋 / 一双球鞋",
+      "pinyin": "qiúxié / yì shuāng qiúxié",
+      "audioText": "球鞋",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0355",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "áo sơ mi; một chiếc áo sơ mi",
+      "hanzi": "衬衫 / 一件衬衫",
+      "pinyin": "chènshān / yí jiàn chènshān",
+      "audioText": "衬衫",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0356",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "mũ; một chiếc mũ",
+      "hanzi": "帽子 / 一顶帽子",
+      "pinyin": "màozi / yì dǐng màozi",
+      "audioText": "帽子",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0357",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "đội / đeo; đội mũ; đeo găng tay",
+      "hanzi": "戴 / 戴帽子 / 戴手套",
+      "pinyin": "dài / dài màozi / dài shǒutào",
+      "audioText": "戴",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0358",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "không cần; không cần mua nữa",
+      "hanzi": "不用 / 不用买了 / 不用戴",
+      "pinyin": "bú yòng / bú yòng mǎi le / bú yòng dài",
+      "audioText": "不用",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0359",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "khăn quàng; quàng khăn",
+      "hanzi": "围巾 / 围围巾",
+      "pinyin": "wéijīn / wéi wéijīn",
+      "audioText": "围巾",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0360",
+      "date": "2026-07-28",
+      "time": "06:05:03",
+      "meaning": "găng tay; một đôi găng tay; đeo găng tay",
+      "hanzi": "手套 / 一副手套 / 戴手套",
+      "pinyin": "shǒutào / yí fù shǒutào / dài shǒutào",
+      "audioText": "手套",
+      "source": "Ghi chú từ cần học"
+    }
+  ]
+}

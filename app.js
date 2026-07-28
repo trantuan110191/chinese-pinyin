@@ -33,6 +33,11 @@ const profileScopedStorageKeys = new Set([
   "topicMemoryRatings",
   "topicReviewSchedule",
   "topicWorkshopProgress",
+  "neededNotesKnownWords",
+  "neededNotesIndex",
+  "neededNotesMode",
+  "neededNotesChoiceMode",
+  "neededNotesMemoryRatings",
 ]);
 
 function readLearningProfile() {
@@ -1550,6 +1555,7 @@ const topicFlashcard = document.querySelector("#topic-flashcard");
 const topicChoice = document.querySelector("#topic-choice");
 const topicStage = document.querySelector("#topic-stage");
 const topicDrill = document.querySelector("#topic-drill");
+const neededNotesApp = document.querySelector("#needed-notes-app");
 
 const lessonLabels = {
   top: "Chọn mục học",
@@ -1558,6 +1564,7 @@ const lessonLabels = {
   pronunciation: "Luyện âm đầu",
   "initial-quiz": "Kiểm tra nghe mù",
   "topic-workshop": "Học từ theo chủ đề",
+  "needed-notes": "Ghi chú từ cần học",
   "real-dictation": "Chép chính tả người thật",
   "hsk-library": "988 từ để tra và nghe",
   "common-sentences": "Học từ trong câu thật",
@@ -1565,6 +1572,7 @@ const lessonLabels = {
   "question-guide": "Hỏi có không · this/that",
   "word-list": "Phân tích chuyên sâu",
 };
+const adminOnlyLessonIds = new Set(["needed-notes"]);
 const lessonSectionIds = Object.keys(lessonLabels).filter((id) => id !== "top");
 const lessonSections = lessonSectionIds.map((id) => document.getElementById(id));
 
@@ -1584,6 +1592,7 @@ let quizAutoAdvanceDelay = Number.isInteger(storedQuizDelay) && storedQuizDelay 
   : 6;
 let hskVocabulary = [];
 let hskExplanationEntries = {};
+let neededNoteWords = [];
 let hskActiveLevel = "all";
 let hskVisibleLimit = 60;
 const revealedHskWords = new Set();
@@ -1648,6 +1657,18 @@ let topicReviewPoolCacheKey = "";
 let topicReviewPoolCache = [];
 let topicWorkshopProgress = {};
 let topicWorkshopProgressLoadedKey = "";
+let neededNotesKnownWords = {};
+let neededNotesIndex = Math.max(0, Number(getAppStorage("neededNotesIndex")) || 0);
+let neededNotesMode = getAppStorage("neededNotesMode") || "choice";
+let neededNotesChoiceMode = getAppStorage("neededNotesChoiceMode") || "hanzi-to-meaning";
+let neededNotesSelected = "";
+let neededNotesAnswered = false;
+let neededNotesAnsweredId = "";
+let neededNotesReveal = false;
+let neededNotesChoiceOptions = [];
+let neededNotesChoiceOptionForId = "";
+let neededNotesMemoryRatings = {};
+let neededNotesAutoTimer = null;
 let learningLibrariesReady = false;
 let learningLibrariesFailed = false;
 
@@ -1686,6 +1707,24 @@ try {
   }
 } catch {
   topicWorkshopProgress = {};
+}
+
+try {
+  neededNotesKnownWords = JSON.parse(getAppStorage("neededNotesKnownWords") || "{}") || {};
+  if (!neededNotesKnownWords || Array.isArray(neededNotesKnownWords) || typeof neededNotesKnownWords !== "object") {
+    neededNotesKnownWords = {};
+  }
+} catch {
+  neededNotesKnownWords = {};
+}
+
+try {
+  neededNotesMemoryRatings = JSON.parse(getAppStorage("neededNotesMemoryRatings") || "{}") || {};
+  if (!neededNotesMemoryRatings || Array.isArray(neededNotesMemoryRatings) || typeof neededNotesMemoryRatings !== "object") {
+    neededNotesMemoryRatings = {};
+  }
+} catch {
+  neededNotesMemoryRatings = {};
 }
 
 const HSK_PAGE_SIZE = 60;
@@ -1734,9 +1773,16 @@ function renderLearningProfileUi() {
   profileLabel.textContent = profile.label;
   profileButton.classList.toggle("is-admin", profile.id === "admin");
   document.body.dataset.learningProfile = profile.id;
+  document.querySelectorAll("[data-admin-only]").forEach((element) => {
+    element.hidden = profile.id !== "admin";
+  });
   if (profileClose) {
     profileClose.hidden = !readLearningProfile();
   }
+}
+
+function isAdminProfile() {
+  return currentLearningProfile.id === "admin";
 }
 
 function setProfileMessage(message, isError = false) {
@@ -1788,7 +1834,15 @@ function stopLessonAudio() {
 }
 
 function showLesson(id, options = {}) {
-  const targetId = lessonSectionIds.includes(id) ? id : "top";
+  let targetId = lessonSectionIds.includes(id) ? id : "top";
+  if (adminOnlyLessonIds.has(targetId) && !isAdminProfile()) {
+    showProfileGate("Mục “Ghi chú từ cần học” dành cho Admin. Nhập mật khẩu 110191 để mở.");
+    const storedId = getAppStorage("activeLesson");
+    targetId = lessonLabels[storedId] && !adminOnlyLessonIds.has(storedId) ? storedId : "top";
+    if (window.location.hash.slice(1) !== targetId) {
+      history.replaceState(null, "", `#${targetId}`);
+    }
+  }
   const isHome = targetId === "top";
 
   heroSection.hidden = !isHome;
@@ -5310,6 +5364,458 @@ function playTopicAudio(hanzi, button) {
   speakChinese(hanzi, 0.76);
 }
 
+function getNeededNoteId(word) {
+  return word?.id || word?.hanzi || "";
+}
+
+function getNeededNoteById(id) {
+  return neededNoteWords.find((word) => getNeededNoteId(word) === id) || null;
+}
+
+function getNeededNoteAudioText(word) {
+  return String(word?.audioText || word?.hanzi || "")
+    .split(/\s*[\/／|｜]\s*/)[0]
+    .trim();
+}
+
+function getNeededNoteMeaning(word) {
+  return getTopicMeaningLabel(word?.meaning || "");
+}
+
+function getNeededNoteDateLabel(word) {
+  const label = word?.sourceLabel || "";
+  return label && !label.startsWith("Không rõ") ? label : "Từ project ghi chú";
+}
+
+function saveNeededNotesKnownWords() {
+  setAppStorage("neededNotesKnownWords", JSON.stringify(neededNotesKnownWords));
+}
+
+function saveNeededNotesMemoryRatings() {
+  setAppStorage("neededNotesMemoryRatings", JSON.stringify(neededNotesMemoryRatings));
+}
+
+function saveNeededNotesIndex() {
+  setAppStorage("neededNotesIndex", String(Math.max(0, Math.floor(neededNotesIndex) || 0)));
+}
+
+function isNeededNoteKnown(word) {
+  return Boolean(neededNotesKnownWords[getNeededNoteId(word)]);
+}
+
+function setNeededNoteKnown(word, known) {
+  const id = getNeededNoteId(word);
+  if (!id) return;
+  if (known) {
+    neededNotesKnownWords[id] = {
+      hanzi: word.hanzi,
+      pinyin: word.pinyin,
+      meaning: word.meaning,
+      knownAt: Date.now(),
+    };
+  } else {
+    delete neededNotesKnownWords[id];
+  }
+  saveNeededNotesKnownWords();
+}
+
+function setNeededNoteMemoryRating(word, rating) {
+  const normalizedRating = normalizeTopicMemoryRating(rating);
+  const id = getNeededNoteId(word);
+  if (!id || !normalizedRating) return;
+  neededNotesMemoryRatings[id] = normalizedRating;
+  saveNeededNotesMemoryRatings();
+}
+
+function getNeededNotesLearnedWords() {
+  return neededNoteWords.filter((word) => isNeededNoteKnown(word));
+}
+
+function getNeededNotesActiveWords() {
+  return neededNoteWords.filter((word) => !isNeededNoteKnown(word));
+}
+
+function clampNeededNotesIndex(length) {
+  if (!length) {
+    neededNotesIndex = 0;
+    return 0;
+  }
+  neededNotesIndex = Math.max(0, Math.min(Math.floor(neededNotesIndex) || 0, length - 1));
+  return neededNotesIndex;
+}
+
+function getNeededNotesCurrentWord() {
+  if (neededNotesAnsweredId) {
+    const answeredWord = getNeededNoteById(neededNotesAnsweredId);
+    if (answeredWord) return answeredWord;
+  }
+  const activeWords = getNeededNotesActiveWords();
+  if (!activeWords.length) return null;
+  return activeWords[clampNeededNotesIndex(activeWords.length)];
+}
+
+function getNeededNotesModes() {
+  return {
+    choice: "Chọn đáp án",
+    flashcard: "Flash card",
+    list: "Danh sách từ",
+  };
+}
+
+function normalizeNeededNotesMode(mode) {
+  return getNeededNotesModes()[mode] ? mode : "choice";
+}
+
+function getNeededNotesChoiceModes() {
+  return {
+    "hanzi-to-meaning": "Nhìn chữ chọn nghĩa",
+    "meaning-to-hanzi": "Nhìn nghĩa chọn chữ",
+  };
+}
+
+function normalizeNeededNotesChoiceMode(mode) {
+  return getNeededNotesChoiceModes()[mode] ? mode : "hanzi-to-meaning";
+}
+
+function resetNeededNotesAnswerState() {
+  neededNotesSelected = "";
+  neededNotesAnswered = false;
+  neededNotesAnsweredId = "";
+  neededNotesReveal = false;
+  neededNotesChoiceOptions = [];
+  neededNotesChoiceOptionForId = "";
+}
+
+function clearNeededNotesAutoTimer() {
+  if (!neededNotesAutoTimer) return;
+  clearTimeout(neededNotesAutoTimer);
+  neededNotesAutoTimer = null;
+}
+
+function resetNeededNotesChoiceOptions(word = getNeededNotesCurrentWord()) {
+  if (!word) {
+    neededNotesChoiceOptions = [];
+    neededNotesChoiceOptionForId = "";
+    return;
+  }
+  const optionCount = Math.min(8, neededNoteWords.length || 1);
+  const currentId = getNeededNoteId(word);
+  const distractors = shuffle(
+    neededNoteWords
+      .filter((item) => getNeededNoteId(item) !== currentId)
+      .map(getNeededNoteId)
+  ).slice(0, Math.max(0, optionCount - 1));
+  neededNotesChoiceOptions = shuffle([currentId, ...distractors]);
+  neededNotesChoiceOptionForId = currentId;
+}
+
+function getNeededNotesChoiceOptionLabel(word) {
+  if (neededNotesChoiceMode === "meaning-to-hanzi") return word.hanzi;
+  return getNeededNoteMeaning(word);
+}
+
+function renderNeededNotesLoading() {
+  neededNotesApp.innerHTML = `
+    <article class="needed-empty">
+      <strong>Đang nạp ghi chú từ cần học</strong>
+      <span>Nếu vừa cập nhật file nguồn, hãy chạy lại script đồng bộ rồi tải lại trang.</span>
+    </article>
+  `;
+}
+
+function renderNeededNotesLocked() {
+  neededNotesApp.innerHTML = `
+    <article class="needed-empty">
+      <strong>Mục này dành riêng cho Admin</strong>
+      <span>Đăng nhập Admin để dùng tiến độ và danh sách từ riêng của bạn.</span>
+      <button class="topic-next-button" data-open-admin-profile type="button">Mở đăng nhập Admin</button>
+    </article>
+  `;
+}
+
+function renderNeededNotesDone(total) {
+  return `
+    <article class="needed-empty needed-empty-done">
+      <strong>Xong ${total}/${total} từ trong ghi chú rồi.</strong>
+      <span>Tất cả từ đã nằm trong danh sách đã học của Admin.</span>
+      <button class="topic-next-button" data-needed-mode="list" type="button">Xem danh sách đã học</button>
+    </article>
+  `;
+}
+
+function renderNeededNotesShell(innerMarkup) {
+  const total = neededNoteWords.length;
+  const learnedWords = getNeededNotesLearnedWords();
+  const learnedCount = learnedWords.length;
+  const remainingCount = Math.max(0, total - learnedCount);
+  const percent = total ? Math.round((learnedCount / total) * 100) : 0;
+  const modes = getNeededNotesModes();
+  const modeButtons = Object.entries(modes).map(([mode, label]) => `
+    <button class="${neededNotesMode === mode ? "active" : ""}" data-needed-mode="${mode}" type="button">
+      ${escapeHtml(label)}
+    </button>
+  `).join("");
+
+  neededNotesApp.innerHTML = `
+    <aside class="needed-progress-mini" aria-label="Tiến độ học từ ghi chú">
+      <div class="topic-progress topic-progress-vertical" style="--needed-progress: ${percent}%"><i style="height: ${percent}%"></i></div>
+      <strong>${learnedCount}</strong>
+      <small>còn ${remainingCount}</small>
+    </aside>
+    <div class="needed-toolbar">
+      <div class="needed-stats">
+        <strong>Đã học ${learnedCount}/${total}</strong>
+        <span>Còn cần học: ${remainingCount} từ · nguồn project “Từ cần học”</span>
+      </div>
+      <div class="needed-mode-tabs">${modeButtons}</div>
+    </div>
+    ${innerMarkup}
+  `;
+}
+
+function renderNeededNotesChoice() {
+  const activeWords = getNeededNotesActiveWords();
+  const word = getNeededNotesCurrentWord();
+  if (!word) return renderNeededNotesDone(neededNoteWords.length);
+
+  neededNotesChoiceMode = normalizeNeededNotesChoiceMode(neededNotesChoiceMode);
+  const learnedCount = getNeededNotesLearnedWords().length;
+  const wordId = getNeededNoteId(word);
+  if (!neededNotesChoiceOptions.length || neededNotesChoiceOptionForId !== wordId) {
+    resetNeededNotesChoiceOptions(word);
+  }
+
+  const selectedWord = getNeededNoteById(neededNotesSelected);
+  const isCorrect = neededNotesAnswered && neededNotesSelected === wordId;
+  const choiceModeButtons = Object.entries(getNeededNotesChoiceModes()).map(([mode, label]) => `
+    <button class="${neededNotesChoiceMode === mode ? "active" : ""}" data-needed-choice-mode="${mode}" type="button">
+      ${escapeHtml(label)}
+    </button>
+  `).join("");
+  const isMeaningToHanzi = neededNotesChoiceMode === "meaning-to-hanzi";
+  const options = neededNotesChoiceOptions.map((id) => {
+    const optionWord = getNeededNoteById(id);
+    if (!optionWord) return "";
+    const isAnswer = id === wordId;
+    const isSelected = id === neededNotesSelected;
+    const stateClass = neededNotesAnswered
+      ? isAnswer ? "is-correct" : isSelected ? "is-wrong" : ""
+      : "";
+    const hanziClass = isMeaningToHanzi ? "needed-option-hanzi" : "";
+    return `
+      <button class="${[stateClass, hanziClass].filter(Boolean).join(" ")}" data-needed-answer="${escapeHtml(id)}" type="button" ${neededNotesAnswered ? "disabled" : ""}>
+        ${escapeHtml(getNeededNotesChoiceOptionLabel(optionWord))}
+      </button>
+    `;
+  }).join("");
+  const nextLabel = isCorrect ? "Qua từ tiếp theo" : neededNotesAnswered ? "Từ tiếp theo" : "Bỏ qua từ này";
+  const promptMarkup = isMeaningToHanzi
+    ? `<strong class="needed-prompt-meaning" lang="vi">${escapeHtml(getNeededNoteMeaning(word))}</strong>`
+    : `<strong class="needed-prompt-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>`;
+  const feedback = neededNotesAnswered ? `
+    <div class="needed-feedback ${isCorrect ? "is-correct" : "is-wrong"}">
+      <strong>${isCorrect
+        ? "Đúng rồi. Từ này đã chuyển sang danh sách đã học của Admin."
+        : "Chưa đúng. Từ này vẫn ở danh sách cần học và sẽ quay lại sau."
+      }</strong>
+      <span lang="zh-Hans">${escapeHtml(word.hanzi)}</span>
+      <small>${escapeHtml(word.pinyin)} · ${escapeHtml(getNeededNoteMeaning(word))}</small>
+      ${selectedWord && !isCorrect ? `<small>Bạn vừa chọn: ${escapeHtml(selectedWord.hanzi)} · ${escapeHtml(selectedWord.pinyin)} · ${escapeHtml(getNeededNoteMeaning(selectedWord))}</small>` : ""}
+    </div>
+  ` : "";
+
+  return `
+    <article class="needed-card ${neededNotesAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
+      <div class="needed-choice-head">
+        <div>
+          <p class="section-kicker">GHI CHÚ · CHỌN ĐÁP ÁN · ${learnedCount}/${neededNoteWords.length}</p>
+          <span>${escapeHtml(getNeededNoteDateLabel(word))}</span>
+        </div>
+        <div class="needed-choice-mode">${choiceModeButtons}</div>
+      </div>
+      <div class="needed-prompt">
+        <button class="topic-audio-button" data-needed-audio="${escapeHtml(wordId)}" type="button">▶ Nghe</button>
+        ${promptMarkup}
+        <button class="topic-choice-next-button" data-needed-next type="button">${escapeHtml(nextLabel)}</button>
+      </div>
+      <div class="needed-options">${options}</div>
+      ${feedback}
+    </article>
+  `;
+}
+
+function renderNeededNotesFlashcard() {
+  const word = getNeededNotesCurrentWord();
+  if (!word) return renderNeededNotesDone(neededNoteWords.length);
+  const wordId = getNeededNoteId(word);
+  return `
+    <article class="needed-card needed-flash">
+      <div class="needed-choice-head">
+        <div>
+          <p class="section-kicker">GHI CHÚ · FLASH CARD</p>
+          <span>${escapeHtml(getNeededNoteDateLabel(word))}</span>
+        </div>
+        <button class="topic-audio-button" data-needed-audio="${escapeHtml(wordId)}" type="button">▶ Nghe</button>
+      </div>
+      <div class="needed-flash-main">
+        <strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>
+        <button class="topic-inline-toggle" data-needed-reveal type="button">
+          ${neededNotesReveal ? "▾ Ẩn đáp án" : "▸ Hiện Pinyin và nghĩa"}
+        </button>
+        <div class="needed-flash-answer" ${neededNotesReveal ? "" : "hidden"}>
+          <span>${escapeHtml(word.pinyin)}</span>
+          <p>${escapeHtml(getNeededNoteMeaning(word))}</p>
+        </div>
+      </div>
+      <div class="needed-rating">
+        <button data-needed-rate="1" type="button">1 · rất nhớ</button>
+        <button data-needed-rate="2" type="button">2 · tạm nhớ</button>
+        <button data-needed-rate="3" type="button">3 · chưa nhớ</button>
+      </div>
+    </article>
+  `;
+}
+
+function renderNeededNotesList() {
+  const learnedWords = getNeededNotesLearnedWords()
+    .sort((left, right) => Number(neededNotesKnownWords[getNeededNoteId(right)]?.knownAt || 0) - Number(neededNotesKnownWords[getNeededNoteId(left)]?.knownAt || 0));
+  const activeWords = getNeededNotesActiveWords();
+  const renderRow = (word, learned = false) => `
+    <li>
+      <button class="needed-row-audio" data-needed-audio="${escapeHtml(getNeededNoteId(word))}" type="button">▶</button>
+      <span lang="zh-Hans">${escapeHtml(word.hanzi)}</span>
+      <em>${escapeHtml(word.pinyin)}</em>
+      <small>${escapeHtml(getNeededNoteMeaning(word))}</small>
+      <b>${learned ? "đã học" : "cần học"}</b>
+    </li>
+  `;
+
+  return `
+    <article class="needed-card needed-list-card">
+      <div class="needed-choice-head">
+        <div>
+          <p class="section-kicker">DANH SÁCH TỪ GHI CHÚ</p>
+          <span>${activeWords.length} từ cần học · ${learnedWords.length} từ đã học</span>
+        </div>
+      </div>
+      <details open>
+        <summary>Cần học (${activeWords.length})</summary>
+        <ul class="needed-word-list">${activeWords.slice(0, 160).map((word) => renderRow(word)).join("")}</ul>
+      </details>
+      <details>
+        <summary>Đã học (${learnedWords.length})</summary>
+        <ul class="needed-word-list">${learnedWords.slice(0, 160).map((word) => renderRow(word, true)).join("")}</ul>
+      </details>
+    </article>
+  `;
+}
+
+function renderNeededNotes() {
+  if (!neededNotesApp) return;
+  if (!isAdminProfile()) {
+    renderNeededNotesLocked();
+    return;
+  }
+  if (!neededNoteWords.length) {
+    renderNeededNotesLoading();
+    return;
+  }
+  neededNotesMode = normalizeNeededNotesMode(neededNotesMode);
+  const panels = {
+    choice: renderNeededNotesChoice,
+    flashcard: renderNeededNotesFlashcard,
+    list: renderNeededNotesList,
+  };
+  renderNeededNotesShell(panels[neededNotesMode]());
+}
+
+function scheduleNeededNotesNext(wordId) {
+  clearNeededNotesAutoTimer();
+  neededNotesAutoTimer = setTimeout(() => {
+    neededNotesAutoTimer = null;
+    if (!neededNotesAnswered || neededNotesAnsweredId !== wordId || neededNotesSelected !== wordId) return;
+    nextNeededNote({ keepIndex: true });
+  }, 1000);
+}
+
+function setNeededNotesMode(mode) {
+  neededNotesMode = normalizeNeededNotesMode(mode);
+  setAppStorage("neededNotesMode", neededNotesMode);
+  clearNeededNotesAutoTimer();
+  resetNeededNotesAnswerState();
+  renderNeededNotes();
+}
+
+function setNeededNotesChoiceMode(mode) {
+  neededNotesChoiceMode = normalizeNeededNotesChoiceMode(mode);
+  setAppStorage("neededNotesChoiceMode", neededNotesChoiceMode);
+  clearNeededNotesAutoTimer();
+  neededNotesSelected = "";
+  neededNotesAnswered = false;
+  neededNotesAnsweredId = "";
+  resetNeededNotesChoiceOptions();
+  renderNeededNotes();
+}
+
+function nextNeededNote(options = {}) {
+  clearNeededNotesAutoTimer();
+  const activeWords = getNeededNotesActiveWords();
+  if (activeWords.length && !options.keepIndex) {
+    neededNotesIndex = (neededNotesIndex + 1) % activeWords.length;
+  }
+  clampNeededNotesIndex(getNeededNotesActiveWords().length);
+  saveNeededNotesIndex();
+  resetNeededNotesAnswerState();
+  renderNeededNotes();
+}
+
+function answerNeededNotesChoice(optionId) {
+  if (neededNotesAnswered) return;
+  const word = getNeededNotesCurrentWord();
+  const selectedWord = getNeededNoteById(optionId);
+  if (!word || !selectedWord) return;
+  const wordId = getNeededNoteId(word);
+  const selectedId = getNeededNoteId(selectedWord);
+  clearNeededNotesAutoTimer();
+  playTopicAudio(getNeededNoteAudioText(selectedWord), document.createElement("button"));
+  neededNotesSelected = selectedId;
+  neededNotesAnswered = true;
+  neededNotesAnsweredId = wordId;
+  if (selectedId === wordId) {
+    setNeededNoteKnown(word, true);
+    setNeededNoteMemoryRating(word, 1);
+  } else {
+    setNeededNoteMemoryRating(word, 3);
+  }
+  renderNeededNotes();
+  if (selectedId === wordId) scheduleNeededNotesNext(wordId);
+}
+
+function rateNeededNotesFlashcard(rating) {
+  const word = getNeededNotesCurrentWord();
+  if (!word) return;
+  const normalizedRating = normalizeTopicMemoryRating(rating);
+  if (!normalizedRating) return;
+  setNeededNoteMemoryRating(word, normalizedRating);
+  if (normalizedRating === 1 || normalizedRating === 2) {
+    setNeededNoteKnown(word, true);
+    nextNeededNote({ keepIndex: true });
+  } else {
+    nextNeededNote();
+  }
+}
+
+function toggleNeededNotesReveal() {
+  neededNotesReveal = !neededNotesReveal;
+  renderNeededNotes();
+}
+
+function playNeededNoteAudio(wordId, button) {
+  const word = getNeededNoteById(wordId);
+  if (!word) return;
+  playTopicAudio(getNeededNoteAudioText(word), button);
+}
+
 function openTopicWord(hanzi) {
   const hskWord = hskVocabulary.find((word) => word.hanzi === hanzi);
   if (hskWord) {
@@ -5877,20 +6383,22 @@ function openHskWord(hanzi) {
 async function loadLearningLibraries() {
   learningLibrariesReady = false;
   learningLibrariesFailed = false;
-  const [hskResponse, sentenceResponse, explanationResponse] = await Promise.all([
+  const [hskResponse, sentenceResponse, explanationResponse, neededResponse] = await Promise.all([
     fetch("data/hsk-vocabulary.json"),
     fetch("data/common-sentences.json"),
-    fetch("data/hsk-explanations.json")
+    fetch("data/hsk-explanations.json"),
+    fetch("data/needed-words.json")
   ]);
 
-  if (!hskResponse.ok || !sentenceResponse.ok || !explanationResponse.ok) {
-    throw new Error("Không tải được dữ liệu HSK, câu giao tiếp hoặc phần giải thích HSK 1-2.");
+  if (!hskResponse.ok || !sentenceResponse.ok || !explanationResponse.ok || !neededResponse.ok) {
+    throw new Error("Không tải được dữ liệu HSK, câu giao tiếp, phần giải thích hoặc ghi chú từ cần học.");
   }
 
-  const [hskData, sentenceData, explanationData] = await Promise.all([
+  const [hskData, sentenceData, explanationData, neededData] = await Promise.all([
     hskResponse.json(),
     sentenceResponse.json(),
-    explanationResponse.json()
+    explanationResponse.json(),
+    neededResponse.json()
   ]);
   hskExplanationEntries = explanationData.entries || {};
   hskVocabulary = (hskData.words || []).map((word) => ({
@@ -5898,6 +6406,12 @@ async function loadLearningLibraries() {
     importedExplanation: hskExplanationEntries[word.hanzi] || null,
   }));
   commonSentenceData = sentenceData;
+  neededNoteWords = (neededData.words || []).map((word, index) => ({
+    ...word,
+    id: word.id || `need-${index + 1}`,
+    chunk: word.hanzi,
+    sourceLabel: `${word.date || "Không rõ ngày"}${word.time ? ` · ${word.time}` : ""}`,
+  }));
   learningLibrariesReady = true;
   learningLibrariesFailed = false;
   invalidateTopicWorkshopCaches();
@@ -5910,6 +6424,7 @@ async function loadLearningLibraries() {
   renderSentenceTopicFilter();
   renderSentences();
   renderTopicWorkshop();
+  renderNeededNotes();
 }
 
 function createChineseUtterance(text, rate) {
@@ -6212,6 +6727,14 @@ document.addEventListener("click", (event) => {
   const topicFlashNextButton = event.target.closest("[data-topic-flash-next]");
   const topicDrillMeaningToggle = event.target.closest("[data-topic-drill-meaning-toggle]");
   const topicStageMeaningToggle = event.target.closest("[data-topic-stage-meaning-toggle]");
+  const neededModeButton = event.target.closest("[data-needed-mode]");
+  const neededChoiceModeButton = event.target.closest("[data-needed-choice-mode]");
+  const neededAnswerButton = event.target.closest("[data-needed-answer]");
+  const neededNextButton = event.target.closest("[data-needed-next]");
+  const neededRevealButton = event.target.closest("[data-needed-reveal]");
+  const neededRatingButton = event.target.closest("[data-needed-rate]");
+  const neededAudioButton = event.target.closest("[data-needed-audio]");
+  const adminProfileButton = event.target.closest("[data-open-admin-profile]");
   const dictationPlayButton = event.target.closest("[data-dictation-play]");
   const dictationCheckButton = event.target.closest("[data-dictation-check]");
   const dictationRevealButton = event.target.closest("[data-dictation-reveal]");
@@ -6263,6 +6786,16 @@ document.addEventListener("click", (event) => {
   if (topicFlashNextButton) nextTopicFlashcard();
   if (topicDrillMeaningToggle) toggleTopicDrillMeaning();
   if (topicStageMeaningToggle) toggleTopicStageMeaning();
+  if (neededModeButton) setNeededNotesMode(neededModeButton.dataset.neededMode);
+  if (neededChoiceModeButton) setNeededNotesChoiceMode(neededChoiceModeButton.dataset.neededChoiceMode);
+  if (neededAnswerButton) answerNeededNotesChoice(neededAnswerButton.dataset.neededAnswer);
+  if (neededNextButton) {
+    nextNeededNote({ keepIndex: neededNotesAnswered && neededNotesSelected === neededNotesAnsweredId });
+  }
+  if (neededRevealButton) toggleNeededNotesReveal();
+  if (neededRatingButton) rateNeededNotesFlashcard(neededRatingButton.dataset.neededRate);
+  if (neededAudioButton) playNeededNoteAudio(neededAudioButton.dataset.neededAudio, neededAudioButton);
+  if (adminProfileButton) showProfileGate("Nhập mật khẩu Admin 110191 để mở mục ghi chú từ cần học.");
   if (dictationPlayButton) playDictationItem(Number(dictationPlayButton.dataset.dictationPlay), dictationPlayButton);
   if (dictationCheckButton) checkDictationAnswer(Number(dictationCheckButton.dataset.dictationCheck));
   if (dictationRevealButton) revealDictationAnswer(Number(dictationRevealButton.dataset.dictationReveal));
@@ -6345,6 +6878,7 @@ loadLearningLibraries().catch((error) => {
   hskResultSummary.textContent = "Không tải được kho từ. Hãy mở trang qua máy chủ local rồi tải lại.";
   sentenceGrid.innerHTML = `<p class="hsk-source-note">${escapeHtml(error.message)}</p>`;
   renderTopicWorkshop();
+  renderNeededNotes();
 });
 renderFilters();
 renderWords();
@@ -6355,6 +6889,7 @@ renderQuestionGuides();
 renderPinyinToneFilter();
 renderPinyinInitialShortcuts();
 renderTopicWorkshop();
+renderNeededNotes();
 initializeLessonView();
 if (shouldShowInitialProfileGate) {
   showProfileGate("Chọn Admin hoặc Học tự do để bắt đầu. Admin cần mật khẩu.");

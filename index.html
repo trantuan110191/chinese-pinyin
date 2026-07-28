@@ -8,8 +8,8 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260728e" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20260728e" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260728g" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260728g" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -72,12 +72,13 @@
             <a href="#pronunciation"><b>03</b><span>Luyện âm đầu<small>z c s · j q x · zh ch sh r</small></span></a>
             <a href="#initial-quiz"><b>04</b><span>Kiểm tra nghe mù<small>20 câu chọn âm đầu</small></span></a>
             <a href="#topic-workshop"><b>05</b><span>Học từ theo chủ đề<small>Chunk · ghép câu · nhớ lâu</small></span></a>
-            <a href="#real-dictation"><b>06</b><span>Chép chính tả người thật<small>Nạp audio thật + transcript</small></span></a>
-            <a href="#hsk-library"><b>07</b><span>988 từ để tra và nghe<small>HSK 1–3 mở rộng</small></span></a>
-            <a href="#common-sentences"><b>08</b><span>Học từ trong câu thật<small>80 câu giao tiếp</small></span></a>
-            <a href="#interrogative-words"><b>09</b><span>Từ để hỏi<small>Ai, gì, nào, đâu, thế nào...</small></span></a>
-            <a href="#question-guide"><b>10</b><span>Hỏi có không · this/that<small>吗 · 呢 · 还是 · 这 · 那</small></span></a>
-            <a href="#word-list"><b>11</b><span>Phân tích chuyên sâu<small>Cấu tạo chữ và cụm từ</small></span></a>
+            <a href="#needed-notes" data-admin-only><b>06</b><span>Ghi chú từ cần học<small>Riêng cho Admin</small></span></a>
+            <a href="#real-dictation"><b>07</b><span>Chép chính tả người thật<small>Nạp audio thật + transcript</small></span></a>
+            <a href="#hsk-library"><b>08</b><span>988 từ để tra và nghe<small>HSK 1–3 mở rộng</small></span></a>
+            <a href="#common-sentences"><b>09</b><span>Học từ trong câu thật<small>80 câu giao tiếp</small></span></a>
+            <a href="#interrogative-words"><b>10</b><span>Từ để hỏi<small>Ai, gì, nào, đâu, thế nào...</small></span></a>
+            <a href="#question-guide"><b>11</b><span>Hỏi có không · this/that<small>吗 · 呢 · 还是 · 这 · 那</small></span></a>
+            <a href="#word-list"><b>12</b><span>Phân tích chuyên sâu<small>Cấu tạo chữ và cụm từ</small></span></a>
           </nav>
         </details>
       </div>
@@ -311,6 +312,19 @@
         </div>
       </section>
 
+      <section class="needed-notes" id="needed-notes" data-admin-only aria-labelledby="needed-notes-title">
+        <div class="needed-notes-heading">
+          <div>
+            <p class="section-kicker">ADMIN · GHI CHÚ TỪ CẦN HỌC</p>
+            <h2 id="needed-notes-title">Ôn các từ bạn đã ghi riêng</h2>
+          </div>
+          <p>
+            Nguồn lấy từ project <strong>Từ cần học</strong>. Chọn đúng thì từ được chuyển sang danh sách đã học của Admin.
+          </p>
+        </div>
+        <div class="needed-notes-shell" id="needed-notes-app" aria-live="polite"></div>
+      </section>
+
       <section class="real-dictation" id="real-dictation" aria-labelledby="real-dictation-title">
         <div class="dictation-heading">
           <div>
@@ -494,6 +508,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20260728e"></script>
+    <script src="app.js?v=clarity-20260728g"></script>
   </body>
 </html>
