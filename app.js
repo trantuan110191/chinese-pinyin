@@ -3829,20 +3829,23 @@ function renderTopicPanelSwitcher() {
   const activePanel = options.find((panel) => panel.id === normalizeTopicPanel(activeTopicPanel)) || options[0];
   topicPanelSwitcher.innerHTML = `
     <div class="topic-panel-switcher-inner ${topicPanelSwitcherExpanded ? "is-open" : "is-collapsed"}">
-      <button class="topic-panel-switcher-toggle" data-topic-panel-toggle type="button" aria-expanded="${topicPanelSwitcherExpanded}">
-        <span>
-          <small>Kiểu ôn</small>
-          <b>${escapeHtml(activePanel.label)}</b>
-        </span>
-        <i aria-hidden="true">${topicPanelSwitcherExpanded ? "▾" : "▸"}</i>
+      <button class="topic-panel-switcher-toggle topic-menu-toggle" data-topic-panel-toggle type="button" aria-expanded="${topicPanelSwitcherExpanded}" aria-label="Mở chọn kiểu ôn, đang là ${escapeHtml(activePanel.label)}">
+        <span class="topic-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="sr-only">Mở chọn kiểu ôn, đang là ${escapeHtml(activePanel.label)}</span>
       </button>
-      <div class="topic-panel-switcher-buttons" ${topicPanelSwitcherExpanded ? "" : "hidden"}>
-        ${options.map((panel) => `
-          <button class="${activeTopicPanel === panel.id ? "active" : ""}" data-topic-panel="${panel.id}" type="button">
-            <b>${escapeHtml(panel.label)}</b>
-            <span>${escapeHtml(panel.note)}</span>
-          </button>
-        `).join("")}
+      <div class="topic-panel-popover" ${topicPanelSwitcherExpanded ? "" : "hidden"}>
+        <div class="topic-panel-popover-head">
+          <small>Kiểu ôn đang chọn</small>
+          <strong>${escapeHtml(activePanel.label)}</strong>
+        </div>
+        <div class="topic-panel-switcher-buttons">
+          ${options.map((panel) => `
+            <button class="${activeTopicPanel === panel.id ? "active" : ""}" data-topic-panel="${panel.id}" type="button">
+              <b>${escapeHtml(panel.label)}</b>
+              <span>${escapeHtml(panel.note)}</span>
+            </button>
+          `).join("")}
+        </div>
       </div>
     </div>
   `;
@@ -5154,22 +5157,25 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
   topicChoice.innerHTML = `
     <article class="topic-choice-card ${topicChoiceAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
       <div class="topic-choice-toolbar ${topicChoiceControlsExpanded ? "is-open" : "is-collapsed"} ${isMeaningToHanzi ? "topic-choice-toolbar-static" : ""}">
-        <button class="topic-choice-controls-toggle" data-topic-choice-controls-toggle type="button" aria-expanded="${topicChoiceControlsExpanded}">
-          <span>
-            <small>Kiểu câu</small>
-            <b>${escapeHtml(currentPractice.label)}${isMeaningToHanzi ? "" : ` · ${currentDisplayLabel}`}</b>
-          </span>
-          <i aria-hidden="true">${topicChoiceControlsExpanded ? "▾" : "▸"}</i>
+        <button class="topic-choice-controls-toggle topic-menu-toggle" data-topic-choice-controls-toggle type="button" aria-expanded="${topicChoiceControlsExpanded}" aria-label="Mở chọn kiểu câu, đang là ${escapeHtml(currentPractice.label)}${isMeaningToHanzi ? "" : `, ${currentDisplayLabel}`}">
+          <span class="topic-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="sr-only">Mở chọn kiểu câu, đang là ${escapeHtml(currentPractice.label)}${isMeaningToHanzi ? "" : `, ${currentDisplayLabel}`}</span>
         </button>
-        <div class="topic-choice-controls" ${topicChoiceControlsExpanded ? "" : "hidden"}>
-          <div class="topic-choice-mode topic-choice-mode-practice">
-            ${practiceModeButtons}
+        <div class="topic-choice-controls-popover" ${topicChoiceControlsExpanded ? "" : "hidden"}>
+          <div class="topic-panel-popover-head">
+            <small>Kiểu câu đang chọn</small>
+            <strong>${escapeHtml(currentPractice.label)}${isMeaningToHanzi ? "" : ` · ${currentDisplayLabel}`}</strong>
           </div>
-          ${isMeaningToHanzi ? "" : `
-            <div class="topic-choice-mode">
-              ${choiceModeButtons}
+          <div class="topic-choice-controls">
+            <div class="topic-choice-mode topic-choice-mode-practice">
+              ${practiceModeButtons}
             </div>
-          `}
+            ${isMeaningToHanzi ? "" : `
+              <div class="topic-choice-mode">
+                ${choiceModeButtons}
+              </div>
+            `}
+          </div>
         </div>
       </div>
       <div class="topic-choice-prompt">
@@ -6729,6 +6735,8 @@ profileAdminForm?.addEventListener("submit", (event) => {
 
 document.addEventListener("click", (event) => {
   const clickedInsideTopicFilter = topicFilter?.contains(event.target);
+  const clickedInsideTopicPanelSwitcher = topicPanelSwitcher?.contains(event.target);
+  const clickedInsideTopicChoiceControls = topicChoice?.querySelector(".topic-choice-toolbar")?.contains(event.target);
   const wordButton = event.target.closest("[data-word]");
   const questionButton = event.target.closest("[data-open-word]");
   const speakButton = event.target.closest("[data-speak]");
@@ -6855,6 +6863,14 @@ document.addEventListener("click", (event) => {
   }
   if (topicFilterExpanded && !clickedInsideTopicFilter) {
     setTopicFilterExpanded(false);
+  }
+  if (topicPanelSwitcherExpanded && !clickedInsideTopicPanelSwitcher) {
+    topicPanelSwitcherExpanded = false;
+    renderTopicPanelSwitcher();
+  }
+  if (topicChoiceControlsExpanded && !clickedInsideTopicChoiceControls) {
+    topicChoiceControlsExpanded = false;
+    renderTopicChoice();
   }
   if (lessonMenu.open && !lessonMenu.contains(event.target)) lessonMenu.open = false;
 });
