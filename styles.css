@@ -1499,9 +1499,17 @@ main.single-lesson-view > section:not([hidden]) {
 .needed-notes {
   width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 96px 0 100px;
   border-bottom: 1px solid var(--line);
   overflow: visible;
+}
+
+.topic-workshop {
+  padding: 22px 0 86px;
+  scroll-margin-top: 72px;
+}
+
+.needed-notes {
+  padding: 80px 0 100px;
 }
 
 .topic-workshop-heading,
@@ -1539,7 +1547,7 @@ main.single-lesson-view > section:not([hidden]) {
 
 .topic-workshop-shell {
   position: relative;
-  margin-top: 44px;
+  margin-top: 0;
   overflow: visible;
   background: var(--card);
   border: 1px solid var(--line);
