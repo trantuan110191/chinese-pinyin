@@ -4154,6 +4154,7 @@ main.single-lesson-view > section:not([hidden]) {
   border-color: var(--blue);
   border-radius: 999px;
   font-size: 13px;
+  font-weight: 900;
 }
 
 .topic-word-card.is-known .topic-word-actions button:first-child,
