@@ -1724,10 +1724,10 @@ main.single-lesson-view > section:not([hidden]) {
   position: absolute;
   z-index: 8;
   top: 100px;
-  right: -82px;
+  right: -44px;
   display: grid;
   justify-items: center;
-  width: 72px;
+  width: 28px;
   pointer-events: none;
 }
 
@@ -1739,14 +1739,14 @@ main.single-lesson-view > section:not([hidden]) {
   display: grid;
   justify-items: center;
   align-content: start;
-  gap: 10px;
-  width: 72px;
-  min-height: 390px;
-  padding: 12px 8px;
-  background: rgba(233, 225, 210, 0.96);
-  border: 1px solid rgba(36, 33, 29, 0.14);
-  border-radius: 999px;
-  box-shadow: 0 16px 36px rgba(55, 40, 25, 0.16);
+  gap: 6px;
+  width: 28px;
+  min-height: 285px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   pointer-events: auto;
 }
 
@@ -1761,9 +1761,13 @@ main.single-lesson-view > section:not([hidden]) {
   text-align: center;
 }
 
+.topic-mastery-count {
+  display: none;
+}
+
 .topic-mastery-count small,
 .topic-mastery-remaining small {
-  font-size: 10px;
+  font-size: 8px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -1772,7 +1776,7 @@ main.single-lesson-view > section:not([hidden]) {
 .topic-mastery-remaining strong {
   color: var(--green);
   font-family: var(--serif);
-  font-size: 25px;
+  font-size: 18px;
   line-height: 0.95;
 }
 
@@ -1785,7 +1789,7 @@ main.single-lesson-view > section:not([hidden]) {
 .topic-mastery-popover {
   position: absolute;
   top: 12px;
-  right: calc(100% + 12px);
+  right: calc(100% + 14px);
   display: grid;
   gap: 5px;
   width: min(320px, calc(100vw - 150px));
@@ -1821,7 +1825,7 @@ main.single-lesson-view > section:not([hidden]) {
 
 .topic-learned-list {
   position: relative;
-  display: grid;
+  display: none;
   justify-items: center;
   color: var(--muted);
   font-size: 12px;
@@ -1929,7 +1933,7 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .topic-learned-list-empty {
-  display: grid;
+  display: none;
   width: 48px;
   min-height: 34px;
   place-items: center;
@@ -2040,8 +2044,8 @@ main.single-lesson-view > section:not([hidden]) {
 .topic-progress-vertical {
   display: flex;
   align-items: flex-end;
-  width: 14px;
-  height: clamp(210px, 28vh, 280px);
+  width: 12px;
+  height: clamp(180px, 24vh, 230px);
   background: rgba(36, 33, 29, 0.12);
 }
 
@@ -2053,7 +2057,7 @@ main.single-lesson-view > section:not([hidden]) {
 
 @media (max-width: 1360px) and (min-width: 761px) {
   .topic-mastery {
-    right: -48px;
+    right: -28px;
   }
 }
 
