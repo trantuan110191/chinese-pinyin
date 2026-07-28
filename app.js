@@ -69,6 +69,59 @@ function removeAppStorage(key) {
   localStorage.removeItem(getProfileStorageKey(key));
 }
 
+function encodeProgressPayload(payload) {
+  const json = JSON.stringify(payload);
+  const bytes = new TextEncoder().encode(json);
+  let binary = "";
+  bytes.forEach((byte) => {
+    binary += String.fromCharCode(byte);
+  });
+  return btoa(binary);
+}
+
+function decodeProgressPayload(code) {
+  const normalizedCode = String(code || "").trim().replace(/\s+/g, "");
+  if (!normalizedCode) throw new Error("empty");
+  const binary = atob(normalizedCode);
+  const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+  return JSON.parse(new TextDecoder().decode(bytes));
+}
+
+function collectProfileProgress(profileId = "admin") {
+  const data = {};
+  profileScopedStorageKeys.forEach((key) => {
+    const value = localStorage.getItem(getProfileStorageKey(key, profileId));
+    data[key] = value;
+  });
+  return {
+    app: "hanzi-voice-dictionary",
+    kind: "admin-progress",
+    version: 1,
+    profileId,
+    savedAt: new Date().toISOString(),
+    data,
+  };
+}
+
+function exportAdminProgressCode() {
+  return encodeProgressPayload(collectProfileProgress("admin"));
+}
+
+function importAdminProgressCode(code) {
+  const payload = decodeProgressPayload(code);
+  if (payload?.kind !== "admin-progress" || !payload.data || typeof payload.data !== "object") {
+    throw new Error("invalid");
+  }
+  profileScopedStorageKeys.forEach((key) => {
+    if (typeof payload.data[key] === "string") {
+      localStorage.setItem(getProfileStorageKey(key, "admin"), payload.data[key]);
+    } else if (payload.data[key] === null) {
+      localStorage.removeItem(getProfileStorageKey(key, "admin"));
+    }
+  });
+  saveLearningProfile("admin");
+}
+
 function saveLearningProfile(profileId) {
   const profile = learningProfiles[profileId] || learningProfiles.guest;
   localStorage.setItem(learningProfileStorageKey, JSON.stringify(profile));
@@ -1521,6 +1574,11 @@ const profileClose = document.querySelector("#profile-close");
 const profileGuestButton = document.querySelector("#profile-guest");
 const profileAdminForm = document.querySelector("#profile-admin-form");
 const profilePassword = document.querySelector("#profile-password");
+const profileSync = document.querySelector("#profile-sync");
+const profileSyncCode = document.querySelector("#profile-sync-code");
+const profileExportProgress = document.querySelector("#profile-export-progress");
+const profileCopyProgress = document.querySelector("#profile-copy-progress");
+const profileImportProgress = document.querySelector("#profile-import-progress");
 const profileMessage = document.querySelector("#profile-message");
 const mainContent = document.querySelector("main");
 const heroSection = document.querySelector(".hero");
@@ -1783,6 +1841,9 @@ function renderLearningProfileUi() {
   if (profileClose) {
     profileClose.hidden = !readLearningProfile();
   }
+  if (profileSync) {
+    profileSync.hidden = profile.id !== "admin";
+  }
 }
 
 function isAdminProfile() {
@@ -1791,7 +1852,7 @@ function isAdminProfile() {
 
 function setProfileMessage(message, isError = false) {
   if (!profileMessage) return;
-  profileMessage.textContent = message || "Mật khẩu này dùng để tách hồ sơ trên app tĩnh/localStorage, không phải bảo mật server.";
+  profileMessage.textContent = message || "Mật khẩu Admin chỉ mở hồ sơ trên máy này. Muốn sang máy khác, dùng phần Đồng bộ tiến độ Admin.";
   profileMessage.classList.toggle("is-error", Boolean(isError));
 }
 
@@ -6786,6 +6847,42 @@ profileAdminForm?.addEventListener("submit", (event) => {
     return;
   }
   switchLearningProfile("admin");
+});
+
+profileExportProgress?.addEventListener("click", () => {
+  if (!isAdminProfile() || !profileSyncCode) return;
+  profileSyncCode.value = exportAdminProgressCode();
+  profileSyncCode.focus();
+  profileSyncCode.select();
+  setProfileMessage("Đã tạo mã sao lưu. Copy mã này sang máy khác rồi nhập ở hồ sơ Admin.");
+});
+
+profileCopyProgress?.addEventListener("click", async () => {
+  if (!profileSyncCode) return;
+  if (!profileSyncCode.value.trim()) {
+    profileSyncCode.value = exportAdminProgressCode();
+  }
+  profileSyncCode.focus();
+  profileSyncCode.select();
+  try {
+    await navigator.clipboard?.writeText(profileSyncCode.value);
+    setProfileMessage("Đã copy mã tiến độ Admin.");
+  } catch {
+    setProfileMessage("Không copy tự động được. Mã đã được bôi đen, bạn bấm Cmd/Ctrl + C để copy.");
+  }
+});
+
+profileImportProgress?.addEventListener("click", () => {
+  if (!profileSyncCode) return;
+  try {
+    importAdminProgressCode(profileSyncCode.value);
+    setProfileMessage("Đã nhập tiến độ Admin. App sẽ tải lại để dùng dữ liệu mới.");
+    window.setTimeout(() => window.location.reload(), 650);
+  } catch {
+    setProfileMessage("Mã tiến độ chưa đúng hoặc bị thiếu ký tự. Copy lại toàn bộ mã rồi nhập lại nhé.", true);
+    profileSyncCode.focus();
+    profileSyncCode.select();
+  }
 });
 
 document.addEventListener("click", (event) => {

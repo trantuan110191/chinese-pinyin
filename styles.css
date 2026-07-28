@@ -201,6 +201,91 @@ a {
   font-weight: 850;
 }
 
+.profile-sync {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(41, 77, 102, 0.07);
+  border: 1px solid rgba(41, 77, 102, 0.16);
+  border-radius: 8px;
+}
+
+.profile-sync[hidden] {
+  display: none;
+}
+
+.profile-sync-head {
+  display: grid;
+  gap: 4px;
+}
+
+.profile-sync-head strong {
+  color: var(--green);
+  font-size: 16px;
+}
+
+.profile-sync-head small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.profile-sync-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-sync-actions button {
+  min-height: 36px;
+  padding: 0 12px;
+  color: var(--blue);
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.profile-sync-actions button:hover {
+  color: white;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.profile-sync-code {
+  display: grid;
+  gap: 7px;
+}
+
+.profile-sync-code span {
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.profile-sync-code textarea {
+  width: 100%;
+  min-height: 82px;
+  resize: vertical;
+  padding: 10px 12px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.45;
+  outline: 0;
+}
+
+.profile-sync-code textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(41, 77, 102, 0.1);
+}
+
 .profile-note {
   min-height: 22px;
   font-size: 12px !important;

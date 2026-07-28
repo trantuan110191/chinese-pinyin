@@ -8,8 +8,8 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260728l" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20260728l" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260728m" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260728m" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -34,8 +34,23 @@
             <button type="submit">Vào admin</button>
           </form>
         </div>
+        <section class="profile-sync" id="profile-sync" hidden aria-label="Sao lưu và khôi phục tiến độ Admin">
+          <div class="profile-sync-head">
+            <strong>Đồng bộ tiến độ Admin</strong>
+            <small>App tĩnh nên mật khẩu chỉ mở hồ sơ trên máy này. Muốn học tiếp ở máy khác, hãy tạo mã sao lưu rồi nhập mã đó ở máy mới.</small>
+          </div>
+          <div class="profile-sync-actions">
+            <button id="profile-export-progress" type="button">Tạo mã sao lưu</button>
+            <button id="profile-copy-progress" type="button">Copy mã</button>
+            <button id="profile-import-progress" type="button">Nhập mã vào máy này</button>
+          </div>
+          <label class="profile-sync-code" for="profile-sync-code">
+            <span>MÃ TIẾN ĐỘ</span>
+            <textarea id="profile-sync-code" rows="4" spellcheck="false" placeholder="Dán mã tiến độ Admin ở đây, hoặc bấm Tạo mã sao lưu để copy sang máy khác."></textarea>
+          </label>
+        </section>
         <p class="profile-note" id="profile-message">
-          Mật khẩu này dùng để tách hồ sơ trên app tĩnh/localStorage, không phải bảo mật server.
+          Mật khẩu Admin chỉ mở hồ sơ trên máy này. Muốn sang máy khác, dùng phần Đồng bộ tiến độ Admin.
         </p>
       </div>
     </section>
@@ -500,6 +515,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20260728l"></script>
+    <script src="app.js?v=clarity-20260728m"></script>
   </body>
 </html>
