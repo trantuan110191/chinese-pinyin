@@ -4780,7 +4780,10 @@ function renderTopicWorkshop() {
   const learnedPreviewLimit = 36;
   const learnedListMarkup = knownCount ? `
     <details class="topic-learned-list">
-      <summary>Danh sách đã học được (${knownCount})</summary>
+      <summary aria-label="Mở danh sách đã học được">
+        <span>✓</span>
+        <b>${knownCount}</b>
+      </summary>
       <div>
         ${learnedWords.slice(0, learnedPreviewLimit).map((word) => `
           <button data-topic-lookup="${escapeHtml(word.hanzi)}" type="button" title="${escapeHtml(word.pinyin)} · ${escapeHtml(getTopicMeaningLabel(word.meaning))}">
@@ -4792,7 +4795,7 @@ function renderTopicWorkshop() {
       </div>
     </details>
   ` : `
-    <div class="topic-learned-list topic-learned-list-empty">Chọn đúng một từ, nó sẽ chuyển sang danh sách đã học ở đây.</div>
+    <div class="topic-learned-list topic-learned-list-empty" title="Chọn đúng một từ, nó sẽ chuyển sang danh sách đã học ở đây.">✓ 0</div>
   `;
   const activePanel = normalizeTopicPanel(activeTopicPanel);
   const overviewGroup = activePanel === "stage" ? getActiveTopicOverviewGroup() : null;
@@ -4802,31 +4805,55 @@ function renderTopicWorkshop() {
   topicReviewControls.innerHTML = "";
   if (waitingForHskLibrary) {
     topicMastery.innerHTML = `
-      <span>
+      <div class="topic-mastery-main is-loading" style="--topic-progress: 12%">
+        <span class="topic-mastery-count">
+          <small>đang nạp</small>
+          <strong>${reviewPool.length}</strong>
+          <em>/ ${getExpectedTopicHskWordCount(selection) || reviewPool.length}</em>
+        </span>
+        <div class="topic-progress topic-progress-vertical" aria-label="Tiến độ nạp kho từ"><i style="height: 12%"></i></div>
+        <span class="topic-mastery-remaining"><strong>...</strong><small>HSK</small></span>
+      </div>
+      <div class="topic-mastery-popover">
         <strong>Đang nạp đủ kho HSK...</strong>
         <small>${escapeHtml(getTopicReviewSourceSummary() || getTopicReviewDisplayName())}</small>
         <small>Tạm thời bạn vẫn có thể ôn ${reviewPool.length} từ nội bộ đã có sẵn. Khi nạp xong app sẽ lên đủ ${getExpectedTopicHskWordCount(selection)} từ theo bộ HSK bạn đang chọn.</small>
-      </span>
-      <div class="topic-progress" aria-label="Tiến độ nhớ từ"><i style="width: 12%"></i></div>
+      </div>
     `;
   } else if (hskLibraryUnavailable) {
     topicMastery.innerHTML = `
-      <span>
+      <div class="topic-mastery-main is-error" style="--topic-progress: 0%">
+        <span class="topic-mastery-count">
+          <small>đã học</small>
+          <strong>${knownCount}</strong>
+          <em>/ ${reviewPool.length || 0}</em>
+        </span>
+        <div class="topic-progress topic-progress-vertical" aria-label="Tiến độ nhớ từ"><i style="height: 0%"></i></div>
+        <span class="topic-mastery-remaining"><strong>${remainingCount}</strong><small>còn</small></span>
+      </div>
+      <div class="topic-mastery-popover">
         <strong>Nạp kho HSK đang lỗi</strong>
         <small>${escapeHtml(getTopicReviewSourceSummary() || getTopicReviewDisplayName())}</small>
         <small>Tạm thời app vẫn mở ${reviewPool.length} từ nội bộ để bạn học tiếp. Khi kho HSK nạp lại ổn, số từ sẽ tự trở về đủ bộ.</small>
-      </span>
-      <div class="topic-progress" aria-label="Tiến độ nhớ từ"><i style="width: 0%"></i></div>
+      </div>
     `;
   } else {
     topicMastery.innerHTML = `
-      <span>
+      <div class="topic-mastery-main" style="--topic-progress: ${percent}%">
+        <span class="topic-mastery-count">
+          <small>đã học</small>
+          <strong>${knownCount}</strong>
+          <em>/ ${reviewPool.length || 0}</em>
+        </span>
+        <div class="topic-progress topic-progress-vertical" aria-label="Tiến độ nhớ từ"><i style="height: ${percent}%"></i></div>
+        <span class="topic-mastery-remaining"><strong>${remainingCount}</strong><small>còn</small></span>
+        ${learnedListMarkup}
+      </div>
+      <div class="topic-mastery-popover">
         <strong>Đã học được ${knownCount}/${reviewPool.length || 0}</strong>
         <small>${escapeHtml(getTopicReviewSourceSummary())}</small>
         <small>Còn cần học: ${remainingCount} từ · 1 rất nhớ: ${memoryStats[1]} · 2 trung bình: ${memoryStats[2]} · 3 không nhớ: ${memoryStats[3]}</small>
-      </span>
-      <div class="topic-progress" aria-label="Tiến độ nhớ từ"><i style="width: ${percent}%"></i></div>
-      ${learnedListMarkup}
+      </div>
     `;
   }
   renderTopicPanelSwitcher();

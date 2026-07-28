@@ -1303,6 +1303,7 @@ main.single-lesson-view > section:not([hidden]) {
   margin: 0 auto;
   padding: 96px 0 100px;
   border-bottom: 1px solid var(--line);
+  overflow: visible;
 }
 
 .topic-workshop-heading {
@@ -1335,8 +1336,9 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .topic-workshop-shell {
+  position: relative;
   margin-top: 44px;
-  overflow: hidden;
+  overflow: visible;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 5px;
@@ -1719,53 +1721,174 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .topic-mastery {
+  position: absolute;
+  z-index: 8;
+  top: 100px;
+  right: -82px;
   display: grid;
-  grid-template-columns: minmax(190px, auto) 1fr;
-  align-items: center;
-  gap: 18px;
-  padding: 14px 22px;
-  background: var(--paper-deep);
-  border-bottom: 1px solid var(--line);
+  justify-items: center;
+  width: 72px;
+  pointer-events: none;
 }
 
-.topic-mastery span {
+.topic-filter:not(.is-compact) ~ .topic-mastery {
+  top: 350px;
+}
+
+.topic-mastery-main {
   display: grid;
-  gap: 4px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
+  justify-items: center;
+  align-content: start;
+  gap: 10px;
+  width: 72px;
+  min-height: 390px;
+  padding: 12px 8px;
+  background: rgba(233, 225, 210, 0.96);
+  border: 1px solid rgba(36, 33, 29, 0.14);
+  border-radius: 999px;
+  box-shadow: 0 16px 36px rgba(55, 40, 25, 0.16);
+  pointer-events: auto;
 }
 
-.topic-mastery span small {
+.topic-mastery-count,
+.topic-mastery-remaining {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
   color: var(--muted);
-  font-size: 11px;
-  font-weight: 600;
+  font-weight: 850;
+  line-height: 1;
+  text-align: center;
 }
 
-.topic-mastery strong {
+.topic-mastery-count small,
+.topic-mastery-remaining small {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.topic-mastery-count strong,
+.topic-mastery-remaining strong {
   color: var(--green);
   font-family: var(--serif);
-  font-size: 19px;
+  font-size: 25px;
+  line-height: 0.95;
+}
+
+.topic-mastery-count em {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+}
+
+.topic-mastery-popover {
+  position: absolute;
+  top: 12px;
+  right: calc(100% + 12px);
+  display: grid;
+  gap: 5px;
+  width: min(320px, calc(100vw - 150px));
+  padding: 12px 14px;
+  color: var(--muted);
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(55, 40, 25, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(6px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.topic-mastery:hover .topic-mastery-popover,
+.topic-mastery:focus-within .topic-mastery-popover {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.topic-mastery-popover strong {
+  color: var(--green);
+  font-family: var(--serif);
+  font-size: 18px;
+}
+
+.topic-mastery-popover small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .topic-learned-list {
-  grid-column: 1 / -1;
+  position: relative;
+  display: grid;
+  justify-items: center;
   color: var(--muted);
   font-size: 12px;
   font-weight: 700;
 }
 
 .topic-learned-list summary {
-  cursor: pointer;
+  display: grid;
+  width: 48px;
+  min-height: 48px;
+  place-items: center;
+  gap: 1px;
   color: var(--blue);
-  width: max-content;
+  background: #fffdf8;
+  border: 1px solid rgba(41, 77, 102, 0.18);
+  border-radius: 999px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.topic-learned-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.topic-learned-list summary span {
+  color: var(--green);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.topic-learned-list summary b {
+  color: var(--blue);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 0.9;
+}
+
+.topic-learned-list[open] summary {
+  color: white;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.topic-learned-list[open] summary span,
+.topic-learned-list[open] summary b {
+  color: white;
 }
 
 .topic-learned-list div {
-  display: flex;
+  position: absolute;
+  right: calc(100% + 14px);
+  bottom: 0;
+  display: none;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 10px;
+  width: min(480px, calc(100vw - 150px));
+  max-height: 320px;
+  overflow: auto;
+  padding: 12px;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 42px rgba(55, 40, 25, 0.16);
+}
+
+.topic-learned-list[open] div {
+  display: flex;
 }
 
 .topic-learned-list button {
@@ -1806,7 +1929,16 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .topic-learned-list-empty {
-  font-weight: 600;
+  display: grid;
+  width: 48px;
+  min-height: 34px;
+  place-items: center;
+  color: var(--muted);
+  background: rgba(255, 253, 248, 0.66);
+  border: 1px dashed rgba(41, 77, 102, 0.18);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 850;
 }
 
 .topic-panel-switcher {
@@ -1903,6 +2035,26 @@ main.single-lesson-view > section:not([hidden]) {
   background: var(--green);
   border-radius: inherit;
   transition: width 180ms ease;
+}
+
+.topic-progress-vertical {
+  display: flex;
+  align-items: flex-end;
+  width: 14px;
+  height: clamp(210px, 28vh, 280px);
+  background: rgba(36, 33, 29, 0.12);
+}
+
+.topic-progress-vertical i {
+  width: 100%;
+  height: var(--topic-progress, 0%);
+  transition: height 180ms ease;
+}
+
+@media (max-width: 1360px) and (min-width: 761px) {
+  .topic-mastery {
+    right: -48px;
+  }
 }
 
 .topic-listen-pinyin {
@@ -5917,6 +6069,49 @@ footer p {
 
   .topic-flash-actions button {
     flex: 1;
+  }
+
+  .topic-mastery {
+    position: static;
+    width: auto;
+    padding: 8px 16px 0;
+    background: transparent;
+    pointer-events: auto;
+  }
+
+  .topic-filter:not(.is-compact) ~ .topic-mastery {
+    top: auto;
+  }
+
+  .topic-mastery-main {
+    grid-template-columns: auto minmax(80px, 1fr) auto auto;
+    align-items: center;
+    width: 100%;
+    min-height: auto;
+    padding: 10px 12px;
+    border-radius: 999px;
+  }
+
+  .topic-mastery-popover {
+    display: none;
+  }
+
+  .topic-progress-vertical {
+    width: 100%;
+    height: 10px;
+  }
+
+  .topic-progress-vertical i {
+    width: var(--topic-progress, 0%);
+    height: 100% !important;
+    transition: width 180ms ease;
+  }
+
+  .topic-learned-list div {
+    right: 0;
+    bottom: auto;
+    top: calc(100% + 10px);
+    width: min(480px, calc(100vw - 64px));
   }
 
   .topic-review-presets button {
