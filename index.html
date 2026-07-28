@@ -8,8 +8,8 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260619r" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20260619r" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260728b" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260728b" />
   </head>
   <body>
     <header class="site-header">
@@ -184,6 +184,7 @@
             <strong id="now-playing">Chọn một từ để nghe</strong>
           </span>
           <audio id="practice-audio" preload="metadata" controls></audio>
+          <audio id="hsk-player" preload="auto"></audio>
         </div>
         <div class="pronunciation-grid" id="pronunciation-grid"></div>
       </section>
@@ -264,18 +265,7 @@
         </div>
       </section>
 
-      <section class="topic-workshop" id="topic-workshop" aria-labelledby="topic-workshop-title">
-        <div class="topic-workshop-heading">
-          <div>
-            <p class="section-kicker">HỌC TỪ MỚI THEO CHỦ ĐỀ</p>
-            <h2 id="topic-workshop-title">Học theo chunk, ghép vào câu, nhớ tới mức dùng được</h2>
-          </div>
-          <p>
-            Mỗi chủ đề gom từ thành <strong>cụm dùng được ngay</strong>. Học chữ, nghe âm,
-            nhìn hình liên tưởng rồi ghép từ vào câu để biến từ mới thành phản xạ.
-          </p>
-        </div>
-
+      <section class="topic-workshop" id="topic-workshop" aria-label="Học từ theo chủ đề">
         <div class="topic-workshop-shell">
           <div class="topic-filter" id="topic-filter" aria-label="Chọn chủ đề học từ"></div>
           <div class="topic-review-controls" id="topic-review-controls" aria-live="polite"></div>
@@ -472,6 +462,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20260619r"></script>
+    <script src="app.js?v=clarity-20260728b"></script>
   </body>
 </html>

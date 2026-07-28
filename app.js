@@ -1523,6 +1523,7 @@ let activeTopicWorkshop = localStorage.getItem("topicWorkshopActive") || "family
 let activeTopicOverview = localStorage.getItem("topicOverviewActive") || "family";
 let topicReviewSelection = [];
 let activeTopicPanel = localStorage.getItem("topicWorkshopPanel") || "flashcard";
+let topicFilterExpanded = localStorage.getItem("topicFilterExpanded") === "true";
 let topicOverviewVisibleLimit = 24;
 let topicStageMeaningVisible = localStorage.getItem("topicStageMeaningVisible") === "true";
 let topicListenIndex = 0;
@@ -1537,22 +1538,36 @@ let topicFlashMeaningOpen = false;
 let topicFlashRevealLevel = "none";
 let topicChoiceIndex = 0;
 let topicChoiceSelected = "";
+let topicChoiceAnsweredHanzi = "";
 let topicChoiceAnswered = false;
 let topicChoiceOptions = [];
 let topicChoiceDisplayMode = localStorage.getItem("topicChoiceDisplayMode") || "pinyin";
+let topicChoicePracticeMode = localStorage.getItem("topicChoicePracticeMode") || "";
 let topicChoiceOrder = [];
 let topicChoiceOrderKey = "";
+let topicChoiceBoosts = {};
+let topicChoiceOrderNeedsRefresh = false;
+let topicChoiceAutoAdvanceTimer = null;
 let topicDrillIndex = 0;
 let topicDrillSelected = "";
 let topicDrillAnswered = false;
 let topicDrillMeaningOpen = false;
 let topicKnownWords = {};
+let topicMemoryRatings = {};
+let topicReviewSchedule = {};
+let topicFlashSchedule = [];
+let topicFlashSchedulePoolKey = "";
+let topicFlashScheduleNeedsRefresh = false;
 let topicOverviewGroupsCacheKey = "";
 let topicOverviewGroupsCache = [];
 let topicReviewSourceOptionsCacheKey = "";
 let topicReviewSourceOptionsCache = [];
 let topicReviewPoolCacheKey = "";
 let topicReviewPoolCache = [];
+let topicWorkshopProgress = {};
+let topicWorkshopProgressLoadedKey = "";
+let learningLibrariesReady = false;
+let learningLibrariesFailed = false;
 
 try {
   topicReviewSelection = JSON.parse(localStorage.getItem("topicReviewSelection") || "[]") || [];
@@ -1567,9 +1582,33 @@ try {
   topicKnownWords = {};
 }
 
+try {
+  topicMemoryRatings = JSON.parse(localStorage.getItem("topicMemoryRatings") || "{}") || {};
+} catch {
+  topicMemoryRatings = {};
+}
+
+try {
+  topicReviewSchedule = JSON.parse(localStorage.getItem("topicReviewSchedule") || "{}") || {};
+  if (!topicReviewSchedule || Array.isArray(topicReviewSchedule) || typeof topicReviewSchedule !== "object") {
+    topicReviewSchedule = {};
+  }
+} catch {
+  topicReviewSchedule = {};
+}
+
+try {
+  topicWorkshopProgress = JSON.parse(localStorage.getItem("topicWorkshopProgress") || "{}") || {};
+  if (!topicWorkshopProgress || Array.isArray(topicWorkshopProgress) || typeof topicWorkshopProgress !== "object") {
+    topicWorkshopProgress = {};
+  }
+} catch {
+  topicWorkshopProgress = {};
+}
+
 const HSK_PAGE_SIZE = 60;
 const SENTENCE_PAGE_SIZE = 24;
-const hskPlayer = new Audio();
+const hskPlayer = document.querySelector("#hsk-player") || new Audio();
 const pinyinInitials = ["zh", "ch", "sh", "j", "q", "x", "z", "c", "s", "r", "b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "h"];
 const pinyinConfusionGroups = [
   ["j", "q", "x"],
@@ -2799,7 +2838,6 @@ function getTopicReviewSourceOptions() {
   const overviewMap = new Map(overviewGroups.map((group) => [group.id, group]));
   topicReviewSourceOptionsCache = [
     ...topicOverviewDefinitions
-      .filter((definition) => definition.id !== "other")
       .map((definition) => {
         const group = overviewMap.get(definition.id);
         return {
@@ -2843,6 +2881,23 @@ function saveTopicReviewSelection() {
   }
 }
 
+function saveTopicFilterExpanded() {
+  const nextValue = String(topicFilterExpanded);
+  if (localStorage.getItem("topicFilterExpanded") !== nextValue) {
+    localStorage.setItem("topicFilterExpanded", nextValue);
+  }
+}
+
+function setTopicFilterExpanded(expanded, rerender = true) {
+  topicFilterExpanded = Boolean(expanded);
+  saveTopicFilterExpanded();
+  if (rerender) renderTopicFilter(getTopicReviewPool());
+}
+
+function toggleTopicFilterExpanded() {
+  setTopicFilterExpanded(!topicFilterExpanded);
+}
+
 function getTopicReviewDefaultSelection() {
   const overviewGroups = getTopicOverviewGroups();
   const currentOverview = overviewGroups.find((group) => group.id === activeTopicOverview);
@@ -2868,16 +2923,15 @@ function getTopicReviewSelection() {
 }
 
 function getTopicReviewPresetMap() {
-  const overviewIds = topicOverviewDefinitions
-    .filter((definition) => definition.id !== "other")
-    .map((definition) => `overview:${definition.id}`);
+  const overviewIds = getTopicOverviewGroups().map((group) => `overview:${group.id}`);
+  const buildHskPreset = (...levels) => [...overviewIds, ...levels.map((level) => `hsk:${level}`)];
   return {
     current: [`overview:${getActiveTopicOverviewGroup()?.id || topicOverviewDefinitions[0]?.id || "family"}`],
     topics: overviewIds,
-    hsk1: ["hsk:1"],
-    hsk2: ["hsk:2"],
-    hsk12: ["hsk:1", "hsk:2"],
-    total: [...overviewIds, "hsk:1", "hsk:2"],
+    hsk1: buildHskPreset(1),
+    hsk2: buildHskPreset(2),
+    hsk12: buildHskPreset(1, 2),
+    total: buildHskPreset(1, 2),
   };
 }
 
@@ -2943,8 +2997,62 @@ function buildTopicReviewHskWord(word) {
   };
 }
 
+function getSelectedTopicHskLevels(selection = getTopicReviewSelection()) {
+  return selection
+    .filter((id) => id.startsWith("hsk:"))
+    .map((id) => Number(id.split(":")[1]))
+    .filter((level) => Number.isFinite(level));
+}
+
+function isWaitingForTopicHskLibrary(selection = getTopicReviewSelection()) {
+  return getSelectedTopicHskLevels(selection).length > 0 && !learningLibrariesReady && !learningLibrariesFailed;
+}
+
+function isTopicHskLibraryUnavailable(selection = getTopicReviewSelection()) {
+  return getSelectedTopicHskLevels(selection).length > 0 && learningLibrariesFailed;
+}
+
+function getExpectedTopicHskWordCount(selection = getTopicReviewSelection()) {
+  return getSelectedTopicHskLevels(selection).reduce((total, level) => {
+    if (level === 1) return total + 300;
+    if (level === 2) return total + 197;
+    if (level === 3) return total + 491;
+    return total;
+  }, 0);
+}
+
+function buildFallbackTopicReviewPool(selection = getTopicReviewSelection()) {
+  const overviewGroups = getTopicOverviewGroups();
+  const overviewGroupMap = new Map(overviewGroups.map((group) => [group.id, group]));
+  let selectedOverviewIds = selection
+    .filter((id) => id.startsWith("overview:"))
+    .map((id) => id.replace("overview:", ""));
+  const selectedHskLevels = getSelectedTopicHskLevels(selection);
+  const selectedHskLevelSet = new Set(selectedHskLevels);
+  if (!selectedOverviewIds.length && selectedHskLevelSet.size) {
+    selectedOverviewIds = overviewGroups.map((group) => group.id);
+  }
+  const uniqueWords = new Map();
+  selectedOverviewIds.forEach((overviewId) => {
+    const group = overviewGroupMap.get(overviewId);
+    if (!group) return;
+    const filteredGroupWords = selectedHskLevelSet.size
+      ? group.words.filter((word) => selectedHskLevelSet.has(word.level || 1))
+      : group.words;
+    filteredGroupWords.forEach((word) => {
+      uniqueWords.set(word.hanzi, buildTopicReviewOverviewWord(word, group));
+    });
+  });
+  return [...uniqueWords.values()];
+}
+
 function getTopicReviewPool() {
   const selection = getTopicReviewSelection();
+  if (isWaitingForTopicHskLibrary(selection) || isTopicHskLibraryUnavailable(selection)) {
+    topicReviewPoolCache = buildFallbackTopicReviewPool(selection);
+    topicReviewPoolCacheKey = "";
+    return topicReviewPoolCache;
+  }
   const cacheKey = `${selection.join("|")}::${hskVocabulary.length}`;
   if (topicReviewPoolCacheKey === cacheKey && topicReviewPoolCache.length) {
     return topicReviewPoolCache;
@@ -2955,15 +3063,16 @@ function getTopicReviewPool() {
   const selectedOverviewIds = selection
     .filter((id) => id.startsWith("overview:"))
     .map((id) => id.replace("overview:", ""));
-  const selectedHskLevels = selection
-    .filter((id) => id.startsWith("hsk:"))
-    .map((id) => Number(id.split(":")[1]))
-    .filter((level) => Number.isFinite(level));
+  const selectedHskLevels = getSelectedTopicHskLevels(selection);
+  const selectedHskLevelSet = new Set(selectedHskLevels);
 
   selectedOverviewIds.forEach((overviewId) => {
     const group = overviewGroupMap.get(overviewId);
     if (!group) return;
-    group.words.forEach((word) => {
+    const filteredGroupWords = selectedHskLevelSet.size
+      ? group.words.filter((word) => selectedHskLevelSet.has(word.level || 1))
+      : group.words;
+    filteredGroupWords.forEach((word) => {
       uniqueWords.set(word.hanzi, buildTopicReviewOverviewWord(word, group));
     });
   });
@@ -3075,11 +3184,309 @@ function setTopicWordKnown(hanzi, known) {
   saveTopicKnownWords();
 }
 
+function saveTopicMemoryRatings() {
+  localStorage.setItem("topicMemoryRatings", JSON.stringify(topicMemoryRatings));
+}
+
+function saveTopicWorkshopProgressStore() {
+  localStorage.setItem("topicWorkshopProgress", JSON.stringify(topicWorkshopProgress));
+}
+
+function clampTopicProgressIndex(value, length) {
+  if (!length) return 0;
+  const normalized = Number(value);
+  if (!Number.isFinite(normalized) || normalized < 0) return 0;
+  return Math.min(Math.floor(normalized), Math.max(0, length - 1));
+}
+
+function getTopicWorkshopProgressEntry(reviewPool = getTopicReviewPool()) {
+  const poolKey = getTopicChoicePoolKey(reviewPool);
+  if (!poolKey) return null;
+  return topicWorkshopProgress[poolKey] || null;
+}
+
+function restoreTopicWorkshopProgress(reviewPool = getTopicReviewPool()) {
+  if (!reviewPool.length) return;
+  const poolKey = getTopicChoicePoolKey(reviewPool);
+  if (!poolKey || topicWorkshopProgressLoadedKey === poolKey) return;
+
+  topicListenIndex = 0;
+  topicListenInputValue = "";
+  topicListenChecked = false;
+  topicListenReveal = false;
+  topicFlashIndex = 0;
+  topicFlashChecked = false;
+  topicFlashSentenceChecked = false;
+  topicFlashMeaningOpen = false;
+  topicFlashRevealLevel = "none";
+  topicFlashSchedule = [];
+  topicFlashSchedulePoolKey = "";
+  topicFlashScheduleNeedsRefresh = false;
+  topicChoiceIndex = 0;
+  topicChoiceSelected = "";
+  topicChoiceAnsweredHanzi = "";
+  topicChoiceAnswered = false;
+  topicChoiceOptions = [];
+  topicChoiceOrder = [];
+  topicChoiceOrderKey = "";
+  topicChoiceBoosts = {};
+  topicChoiceOrderNeedsRefresh = false;
+  topicDrillIndex = 0;
+  topicDrillSelected = "";
+  topicDrillAnswered = false;
+  topicDrillMeaningOpen = false;
+
+  const entry = getTopicWorkshopProgressEntry(reviewPool);
+  const validWordSet = new Set(reviewPool.map((word) => word.hanzi));
+
+  if (entry?.listen) {
+    topicListenIndex = clampTopicProgressIndex(entry.listen.index, reviewPool.length);
+  }
+
+  if (entry?.flashcard) {
+    const savedSchedule = Array.isArray(entry.flashcard.schedule)
+      ? entry.flashcard.schedule.filter((hanzi) => validWordSet.has(hanzi))
+      : [];
+    if (savedSchedule.length) {
+      topicFlashSchedule = savedSchedule;
+      topicFlashSchedulePoolKey = poolKey;
+      topicFlashIndex = clampTopicProgressIndex(entry.flashcard.index, topicFlashSchedule.length);
+    } else if (entry.flashcard.currentHanzi && validWordSet.has(entry.flashcard.currentHanzi)) {
+      rebuildTopicFlashSchedule(reviewPool, entry.flashcard.currentHanzi);
+    }
+  }
+
+  if (entry?.choice) {
+    const savedBoosts = Object.fromEntries(
+      Object.entries(entry.choice.boosts || {})
+        .filter(([hanzi, value]) => validWordSet.has(hanzi) && Number(value) > 0)
+        .map(([hanzi, value]) => [hanzi, Math.min(4, Math.max(1, Number(value) || 0))])
+    );
+    topicChoiceBoosts = savedBoosts;
+    const savedOrder = Array.isArray(entry.choice.order)
+      ? entry.choice.order.filter((hanzi) => validWordSet.has(hanzi))
+      : [];
+    if (savedOrder.length) {
+      topicChoiceOrder = savedOrder;
+      topicChoiceOrderKey = poolKey;
+      topicChoiceIndex = clampTopicProgressIndex(entry.choice.index, topicChoiceOrder.length);
+    } else if (entry.choice.currentHanzi && validWordSet.has(entry.choice.currentHanzi)) {
+      rebuildTopicChoiceOrder(reviewPool, entry.choice.currentHanzi);
+    }
+  }
+
+  if (entry?.drill) {
+    topicDrillIndex = clampTopicProgressIndex(entry.drill.index, getTopicDrillTotal(reviewPool));
+  }
+
+  topicWorkshopProgressLoadedKey = poolKey;
+}
+
+function persistTopicWorkshopProgress(reviewPool = getTopicReviewPool()) {
+  if (!reviewPool.length) return;
+  const poolKey = getTopicChoicePoolKey(reviewPool);
+  if (!poolKey) return;
+  const flashWord = getCurrentTopicWord(reviewPool);
+  const choiceWord = getCurrentTopicChoiceWord(reviewPool);
+  const listenWord = getCurrentTopicListenWord(reviewPool);
+  const drill = getTopicDrillData(reviewPool);
+  const validWordSet = new Set(reviewPool.map((word) => word.hanzi));
+
+  topicWorkshopProgress[poolKey] = {
+    listen: {
+      index: clampTopicProgressIndex(topicListenIndex, reviewPool.length),
+      currentHanzi: listenWord?.hanzi || "",
+    },
+    flashcard: {
+      index: clampTopicProgressIndex(topicFlashIndex, topicFlashSchedule.length || reviewPool.length),
+      currentHanzi: flashWord?.hanzi || "",
+      schedule: topicFlashSchedule.filter((hanzi) => validWordSet.has(hanzi)),
+    },
+    choice: {
+      index: clampTopicProgressIndex(topicChoiceIndex, topicChoiceOrder.length || reviewPool.length),
+      currentHanzi: choiceWord?.hanzi || "",
+      order: topicChoiceOrder.filter((hanzi) => validWordSet.has(hanzi)),
+      boosts: Object.fromEntries(
+        Object.entries(topicChoiceBoosts).filter(([hanzi, value]) => validWordSet.has(hanzi) && Number(value) > 0)
+      ),
+    },
+    drill: {
+      index: clampTopicProgressIndex(topicDrillIndex, getTopicDrillTotal(reviewPool)),
+      currentHanzi: drill?.answer || "",
+    },
+  };
+
+  topicWorkshopProgressLoadedKey = poolKey;
+  saveTopicWorkshopProgressStore();
+}
+
+function normalizeTopicMemoryRating(value) {
+  const rating = Number(value);
+  return rating === 1 || rating === 2 || rating === 3 ? rating : null;
+}
+
+const topicReviewIntervals = [
+  15 * 60 * 1000,
+  24 * 60 * 60 * 1000,
+  2 * 24 * 60 * 60 * 1000,
+  4 * 24 * 60 * 60 * 1000,
+  7 * 24 * 60 * 60 * 1000,
+  14 * 24 * 60 * 60 * 1000,
+];
+
+function saveTopicReviewSchedule() {
+  localStorage.setItem("topicReviewSchedule", JSON.stringify(topicReviewSchedule));
+}
+
+function normalizeTopicReviewStage(value) {
+  const stage = Number(value);
+  if (!Number.isFinite(stage)) return 0;
+  return Math.max(0, Math.min(topicReviewIntervals.length - 1, Math.floor(stage)));
+}
+
+function getTopicReviewScheduleEntry(hanzi) {
+  return topicReviewSchedule[hanzi] || null;
+}
+
+function hasTopicWordBeenSeen(hanzi) {
+  return Boolean(getTopicReviewScheduleEntry(hanzi))
+    || isTopicWordKnown(hanzi)
+    || normalizeTopicMemoryRating(topicMemoryRatings[hanzi]) !== null;
+}
+
+function getTopicReviewDueAt(hanzi) {
+  const dueAt = Number(getTopicReviewScheduleEntry(hanzi)?.dueAt);
+  return Number.isFinite(dueAt) && dueAt > 0 ? dueAt : 0;
+}
+
+function setTopicReviewScheduleEntry(hanzi, stage, dueAt) {
+  topicReviewSchedule[hanzi] = {
+    stage: normalizeTopicReviewStage(stage),
+    dueAt: Math.max(0, Math.floor(Number(dueAt) || 0)),
+    lastReviewedAt: Math.floor(Date.now()),
+  };
+  saveTopicReviewSchedule();
+}
+
+function scheduleTopicWordReview(hanzi, result = "medium") {
+  const currentStage = normalizeTopicReviewStage(getTopicReviewScheduleEntry(hanzi)?.stage);
+  let nextStage = currentStage;
+
+  if (result === "wrong") nextStage = 0;
+  else if (result === "medium") nextStage = Math.max(1, currentStage);
+  else nextStage = Math.max(1, Math.min(topicReviewIntervals.length - 1, currentStage + 1));
+
+  const interval = topicReviewIntervals[nextStage] || topicReviewIntervals[0];
+  setTopicReviewScheduleEntry(hanzi, nextStage, Date.now() + interval);
+}
+
+function scheduleTopicWordReviewFromRating(hanzi, rating) {
+  const normalizedRating = normalizeTopicMemoryRating(rating);
+  if (!normalizedRating) return;
+
+  if (normalizedRating === 3) {
+    scheduleTopicWordReview(hanzi, "wrong");
+    return;
+  }
+
+  if (normalizedRating === 2) {
+    scheduleTopicWordReview(hanzi, "medium");
+    return;
+  }
+
+  const currentStage = normalizeTopicReviewStage(getTopicReviewScheduleEntry(hanzi)?.stage);
+  const nextStage = Math.max(2, Math.min(topicReviewIntervals.length - 1, currentStage + 1));
+  const interval = topicReviewIntervals[nextStage] || topicReviewIntervals[2];
+  setTopicReviewScheduleEntry(hanzi, nextStage, Date.now() + interval);
+}
+
+function registerTopicWordSuccess(hanzi, options = {}) {
+  const wasKnown = Boolean(options.wasKnown);
+  const rating = getTopicWordMemoryRating(hanzi);
+  const isEasy = wasKnown || rating === 1;
+  scheduleTopicWordReview(hanzi, isEasy ? "easy" : "medium");
+}
+
+function getTopicWordMemoryRating(hanzi) {
+  return normalizeTopicMemoryRating(topicMemoryRatings[hanzi]) || 2;
+}
+
+function getTopicWordMemoryLabel(rating) {
+  if (rating === 1) return "Rất nhớ";
+  if (rating === 3) return "Không nhớ";
+  return "Trung bình";
+}
+
+function getTopicWordMemoryWeight(hanzi) {
+  const rating = getTopicWordMemoryRating(hanzi);
+  if (rating === 1) return 1;
+  if (rating === 3) return 3;
+  return 2;
+}
+
+function getTopicMemoryStats(reviewPool = getTopicReviewPool()) {
+  return reviewPool.reduce((stats, word) => {
+    const rating = getTopicWordMemoryRating(word.hanzi);
+    stats[rating] += 1;
+    return stats;
+  }, { 1: 0, 2: 0, 3: 0 });
+}
+
+function getTopicChoiceBoost(hanzi) {
+  return Math.max(0, Number(topicChoiceBoosts[hanzi]) || 0);
+}
+
+function reinforceTopicChoiceWord(hanzi, amount = 1) {
+  if (topicChoiceBoosts[hanzi]) delete topicChoiceBoosts[hanzi];
+  topicChoiceOrderNeedsRefresh = true;
+}
+
+function relaxTopicChoiceWord(hanzi, amount = 1) {
+  if (topicChoiceBoosts[hanzi]) delete topicChoiceBoosts[hanzi];
+  topicChoiceOrderNeedsRefresh = true;
+}
+
+function setTopicWordMemoryRating(hanzi, rating) {
+  const normalizedRating = normalizeTopicMemoryRating(rating);
+  if (!normalizedRating) return;
+  topicMemoryRatings[hanzi] = normalizedRating;
+  saveTopicMemoryRatings();
+  if (normalizedRating === 1) setTopicWordKnown(hanzi, true);
+  scheduleTopicWordReviewFromRating(hanzi, normalizedRating);
+  topicFlashScheduleNeedsRefresh = true;
+  topicChoiceOrderNeedsRefresh = true;
+}
+
+function markTopicWordAnsweredCorrect(hanzi) {
+  const wasKnown = isTopicWordKnown(hanzi);
+  if (getTopicWordMemoryRating(hanzi) === 3) {
+    topicMemoryRatings[hanzi] = 2;
+    saveTopicMemoryRatings();
+  }
+  setTopicWordKnown(hanzi, true);
+  registerTopicWordSuccess(hanzi, { wasKnown });
+  return wasKnown;
+}
+
 function renderTopicFilter(reviewPool = getTopicReviewPool()) {
   const overviewGroups = getTopicOverviewGroups();
   const selection = getTopicReviewSelection();
   const sourceOptions = getTopicReviewSourceOptions();
   const hskSources = sourceOptions.filter((source) => source.type === "hsk");
+  const hskQuickButtons = [
+    ["hsk1", "Chọn toàn HSK 1"],
+    ["hsk2", "Chọn toàn HSK 2"],
+  ].map(([presetId, label]) => `
+    <button
+      class="${doesTopicReviewSelectionMatch(getTopicReviewPresetMap()[presetId]) ? "active" : ""}"
+      data-topic-review-preset="${presetId}"
+      type="button"
+    >
+      ${escapeHtml(label)}
+    </button>
+  `).join("");
+  const toggleLabel = topicFilterExpanded ? "Đóng danh sách ôn" : "Chọn danh sách ôn";
+  topicFilter.classList.toggle("is-compact", !topicFilterExpanded);
   if (!overviewGroups.length) {
     topicFilter.innerHTML = `
       <div class="topic-filter-copy">
@@ -3090,20 +3497,49 @@ function renderTopicFilter(reviewPool = getTopicReviewPool()) {
     return;
   }
 
+  if (!topicFilterExpanded) {
+    topicFilter.innerHTML = `
+      <div class="topic-filter-compact">
+        <button
+          class="topic-filter-toggle"
+          data-topic-filter-toggle
+          type="button"
+          aria-expanded="false"
+          aria-controls="topic-filter-panel"
+        >
+          <span>${toggleLabel}</span>
+          <b aria-hidden="true">▸</b>
+        </button>
+      </div>
+    `;
+    return;
+  }
+
   topicFilter.innerHTML = `
-    <div class="topic-filter-copy">
-      <span class="topic-filter-label">Ôn theo chủ đề</span>
-      <small>Tick để trộn bộ ôn. Bấm tên để mở danh sách từ.</small>
+    <div class="topic-filter-head">
+      <div class="topic-filter-copy">
+        <span class="topic-filter-label">Ôn theo chủ đề</span>
+        <small>Tick các bộ cần ôn, xong bấm ra ngoài để thu gọn lại.</small>
+      </div>
+      <button
+        class="topic-filter-toggle ${topicFilterExpanded ? "is-open" : ""}"
+        data-topic-filter-toggle
+        type="button"
+        aria-expanded="${topicFilterExpanded ? "true" : "false"}"
+        aria-controls="topic-filter-panel"
+      >
+        <span>${toggleLabel}</span>
+        <b aria-hidden="true">${topicFilterExpanded ? "▾" : "▸"}</b>
+      </button>
     </div>
-    <div class="topic-filter-status-inline">
-      <strong>${reviewPool.length} từ đang ôn</strong>
-      <span>${escapeHtml(getTopicReviewSourceSummary())}</span>
-    </div>
-    <div class="topic-filter-list-wrap">
+    <div class="topic-filter-list-wrap" id="topic-filter-panel">
       <div class="topic-filter-list-heading">HSK</div>
+      <div class="topic-filter-quick-actions">
+        ${hskQuickButtons}
+      </div>
       <div class="topic-filter-list topic-filter-list-hsk">
         ${hskSources.map((source) => `
-          <div class="topic-filter-row ${selection.includes(source.id) ? "is-selected" : ""}">
+          <label class="topic-filter-row ${selection.includes(source.id) ? "is-selected" : ""}">
             <input
               class="topic-filter-checkbox"
               data-topic-review-source="${source.id}"
@@ -3112,7 +3548,7 @@ function renderTopicFilter(reviewPool = getTopicReviewPool()) {
               ${selection.includes(source.id) ? "checked" : ""}
             />
             <span class="topic-filter-row-label">${escapeHtml(source.label)}</span>
-          </div>
+          </label>
         `).join("")}
       </div>
       <div class="topic-filter-list-heading">Chủ đề</div>
@@ -3176,7 +3612,7 @@ function getTopicPanelOptions() {
   return [
     { id: "listen", label: "Nghe + Pinyin", note: "Bấm 1 2 3 4 để đặt thanh" },
     { id: "flashcard", label: "Flash card", note: "Gõ Pinyin hoặc nghĩa" },
-    { id: "choice", label: "Chọn đáp án", note: "Nhìn chữ chọn đúng nghĩa" },
+    { id: "choice", label: "Chọn đáp án", note: "Nhìn chữ hoặc nhìn nghĩa" },
     { id: "drill", label: "Ghép câu", note: "Điền từ vào câu" },
     { id: "stage", label: "Xem chủ đề", note: "Bấm chủ đề để xem trọn bộ từ" },
   ];
@@ -3193,6 +3629,7 @@ function saveTopicPanelPreference() {
 }
 
 function setActiveTopicPanel(panelId) {
+  clearTopicChoiceAutoAdvanceTimer();
   activeTopicPanel = normalizeTopicPanel(panelId);
   saveTopicPanelPreference();
   renderTopicWorkshop();
@@ -3200,16 +3637,11 @@ function setActiveTopicPanel(panelId) {
 
 function renderTopicPanelSwitcher() {
   topicPanelSwitcher.innerHTML = `
-    <div class="topic-panel-switcher-inner">
-      <div class="topic-panel-switcher-copy">
-        <small>HIỂN THỊ GỌN</small>
-        <strong>Chỉ mở một khối để đỡ phải cuộn dài</strong>
-      </div>
+    <div class="topic-panel-switcher-inner is-compact">
       <div class="topic-panel-switcher-buttons">
         ${getTopicPanelOptions().map((panel) => `
           <button class="${activeTopicPanel === panel.id ? "active" : ""}" data-topic-panel="${panel.id}" type="button">
             <b>${escapeHtml(panel.label)}</b>
-            <span>${escapeHtml(panel.note)}</span>
           </button>
         `).join("")}
       </div>
@@ -3237,25 +3669,33 @@ function setTopicWorkshopActiveTopic(topicId) {
 }
 
 function resetTopicWorkshopPracticeState() {
+  clearTopicChoiceAutoAdvanceTimer();
   topicListenIndex = 0;
   topicListenInputValue = "";
   topicListenChecked = false;
   topicListenReveal = false;
   topicFlashIndex = 0;
+  topicFlashSchedule = [];
+  topicFlashSchedulePoolKey = "";
+  topicFlashScheduleNeedsRefresh = false;
   topicFlashChecked = false;
   topicFlashSentenceChecked = false;
   topicFlashMeaningOpen = false;
   topicFlashRevealLevel = "none";
   topicChoiceIndex = 0;
   topicChoiceSelected = "";
+  topicChoiceAnsweredHanzi = "";
   topicChoiceAnswered = false;
   topicChoiceOptions = [];
   topicChoiceOrder = [];
   topicChoiceOrderKey = "";
+  topicChoiceBoosts = {};
+  topicChoiceOrderNeedsRefresh = false;
   topicDrillIndex = 0;
   topicDrillSelected = "";
   topicDrillAnswered = false;
   topicDrillMeaningOpen = false;
+  topicWorkshopProgressLoadedKey = "";
 }
 
 function setTopicReviewSelection(nextSelection) {
@@ -3361,7 +3801,7 @@ function addToneMarkToSyllable(value, toneNumber) {
 }
 
 function canonicalizePinyinSurface(value) {
-  const text = String(value || "").trim().replace(/u:/gi, "v");
+  const text = String(value || "").replace(/u:/gi, "v");
   let output = "";
   let syllableBuffer = "";
 
@@ -3377,6 +3817,13 @@ function canonicalizePinyinSurface(value) {
     }
     output += keepMarkedPinyinSyllable(syllableBuffer);
     syllableBuffer = "";
+    if (/\s/.test(character)) {
+      output += character;
+      continue;
+    }
+    if (/['’-]/.test(character)) {
+      output += character;
+    }
   }
 
   output += keepMarkedPinyinSyllable(syllableBuffer);
@@ -3405,7 +3852,7 @@ function applyToneNumberAtCursor(value, toneNumber, cursorIndex = String(value |
 }
 
 function topicPinyinAnswerMatches(input, expected) {
-  return canonicalizePinyinSurface(input) === canonicalizePinyinSurface(expected);
+  return canonicalizePinyinSurface(input).trim() === canonicalizePinyinSurface(expected).trim();
 }
 
 function normalizeTopicMeaning(value) {
@@ -3439,9 +3886,72 @@ function getTopicMeaningLabel(meaning) {
     .join("; ");
 }
 
+function getTopicChoicePoolKey(reviewPool = getTopicReviewPool()) {
+  return reviewPool.map((word) => word.hanzi).join("|");
+}
+
+function buildTopicFlashSchedule(reviewPool = getTopicReviewPool()) {
+  return buildTopicSmartOrder(reviewPool);
+}
+
+function rebuildTopicFlashSchedule(reviewPool = getTopicReviewPool(), anchorHanzi = "") {
+  const poolKey = getTopicChoicePoolKey(reviewPool);
+  const nextSchedule = buildTopicFlashSchedule(reviewPool);
+
+  if (!nextSchedule.length) {
+    topicFlashSchedule = [];
+    topicFlashSchedulePoolKey = poolKey;
+    topicFlashScheduleNeedsRefresh = false;
+    topicFlashIndex = 0;
+    return topicFlashSchedule;
+  }
+
+  if (anchorHanzi) {
+    const anchorIndex = nextSchedule.indexOf(anchorHanzi);
+    if (anchorIndex >= 0) {
+      topicFlashSchedule = [...nextSchedule.slice(anchorIndex), ...nextSchedule.slice(0, anchorIndex)];
+      topicFlashIndex = 0;
+    } else {
+      topicFlashSchedule = nextSchedule;
+      if (topicFlashIndex >= topicFlashSchedule.length) topicFlashIndex = 0;
+    }
+  } else {
+    topicFlashSchedule = nextSchedule;
+    topicFlashIndex = 0;
+  }
+
+  topicFlashSchedulePoolKey = poolKey;
+  topicFlashScheduleNeedsRefresh = false;
+  return topicFlashSchedule;
+}
+
+function ensureTopicFlashSchedule(reviewPool = getTopicReviewPool()) {
+  const poolKey = getTopicChoicePoolKey(reviewPool);
+  const activeWords = getTopicActiveReviewWords(reviewPool);
+  if (!activeWords.length) {
+    topicFlashSchedule = [];
+    topicFlashSchedulePoolKey = poolKey;
+    topicFlashIndex = 0;
+    return topicFlashSchedule;
+  }
+  const validWordSet = new Set(activeWords.map((word) => word.hanzi));
+  const scheduleIsValid = topicFlashSchedule.length
+    && topicFlashSchedulePoolKey === poolKey
+    && topicFlashSchedule.length === activeWords.length
+    && topicFlashSchedule.every((hanzi) => validWordSet.has(hanzi));
+
+  if (!scheduleIsValid) {
+    rebuildTopicFlashSchedule(reviewPool);
+  }
+
+  return topicFlashSchedule;
+}
+
 function getCurrentTopicWord(reviewPool = getTopicReviewPool()) {
-  if (!reviewPool.length) return null;
-  return reviewPool[topicFlashIndex % reviewPool.length];
+  const flashSchedule = ensureTopicFlashSchedule(reviewPool);
+  if (!reviewPool.length || !flashSchedule.length) return null;
+  const currentHanzi = flashSchedule[topicFlashIndex % flashSchedule.length];
+  return reviewPool.find((word) => word.hanzi === currentHanzi) || reviewPool[0];
 }
 
 function getCurrentTopicListenWord(reviewPool = getTopicReviewPool()) {
@@ -3449,51 +3959,139 @@ function getCurrentTopicListenWord(reviewPool = getTopicReviewPool()) {
   return reviewPool[topicListenIndex % reviewPool.length];
 }
 
-function getTopicChoicePoolKey(reviewPool = getTopicReviewPool()) {
-  return reviewPool.map((word) => word.hanzi).join("|");
+function getTopicReviewSortBucket(word, now = Date.now()) {
+  const isKnown = isTopicWordKnown(word.hanzi);
+  const hasBeenSeen = hasTopicWordBeenSeen(word.hanzi);
+  const dueAt = getTopicReviewDueAt(word.hanzi);
+  if (isKnown) return 4;
+  if (!isKnown && !hasBeenSeen) return 0;
+  if (!isKnown && (!dueAt || dueAt <= now)) return 1;
+  if (!isKnown) return 2;
+  return 4;
 }
 
-function isTopicChoiceOrderWellMixed(order, originalOrder) {
-  if (order.length <= 2 || originalOrder.length !== order.length) return true;
-  const checkLength = Math.min(8, order.length);
-  const sourceIndexMap = new Map(originalOrder.map((hanzi, index) => [hanzi, index]));
-  let samePositionCount = 0;
-  let adjacentSourceNeighborCount = 0;
+function getTopicLearnedReviewWords(reviewPool = getTopicReviewPool()) {
+  return reviewPool.filter((word) => isTopicWordKnown(word.hanzi));
+}
 
-  for (let index = 0; index < checkLength; index += 1) {
-    const sourceIndex = sourceIndexMap.get(order[index]);
-    if (sourceIndex === index) samePositionCount += 1;
-    if (index > 0) {
-      const previousSourceIndex = sourceIndexMap.get(order[index - 1]);
-      if (Math.abs(previousSourceIndex - sourceIndex) === 1) {
-        adjacentSourceNeighborCount += 1;
-      }
-    }
+function getTopicUnlearnedReviewWords(reviewPool = getTopicReviewPool()) {
+  return reviewPool.filter((word) => !isTopicWordKnown(word.hanzi));
+}
+
+function isTopicWordActiveForCurrentRound(word, now = Date.now()) {
+  const bucket = getTopicReviewSortBucket(word, now);
+  return bucket === 0 || bucket === 1;
+}
+
+function getTopicActiveReviewWords(reviewPool = getTopicReviewPool(), now = Date.now()) {
+  return reviewPool.filter((word) => isTopicWordActiveForCurrentRound(word, now));
+}
+
+function getTopicNextDueAt(reviewPool = getTopicReviewPool(), now = Date.now()) {
+  return reviewPool.reduce((soonest, word) => {
+    if (isTopicWordKnown(word.hanzi)) return soonest;
+    const dueAt = getTopicReviewDueAt(word.hanzi);
+    if (!dueAt || dueAt <= now) return soonest;
+    if (!soonest || dueAt < soonest) return dueAt;
+    return soonest;
+  }, 0);
+}
+
+function formatTopicReviewWaitTime(waitMs) {
+  const safeWaitMs = Math.max(0, Math.floor(Number(waitMs) || 0));
+  const minutes = Math.max(1, Math.ceil(safeWaitMs / (60 * 1000)));
+  if (minutes < 60) return `${minutes} phút`;
+  const hours = Math.ceil(minutes / 60);
+  if (hours < 24) return `${hours} giờ`;
+  const days = Math.ceil(hours / 24);
+  return `${days} ngày`;
+}
+
+function getTopicReviewIdleState(title, reviewPool = getTopicReviewPool()) {
+  const nextDueAt = getTopicNextDueAt(reviewPool);
+  if (!nextDueAt) {
+    return getTopicWorkshopEmptyState(
+      title,
+      "Bạn đã xong vòng này rồi. Từ đúng được giãn lịch sang lượt sau, nên app sẽ không nhắc lại ngay trong cùng buổi."
+    );
   }
 
-  return samePositionCount === 0 && adjacentSourceNeighborCount <= Math.max(1, Math.floor(checkLength / 4));
+  return getTopicWorkshopEmptyState(
+    title,
+    `Tạm hết từ đến hạn trong lượt này. Từ sai sẽ quay lại sau khoảng ${formatTopicReviewWaitTime(nextDueAt - Date.now())}.`
+  );
+}
+
+function buildTopicSmartOrder(reviewPool = getTopicReviewPool(), previousLastHanzi = "") {
+  const now = Date.now();
+  const activeWords = getTopicActiveReviewWords(reviewPool, now);
+  if (activeWords.length <= 1) return activeWords.map((word) => word.hanzi);
+
+  const shuffledWords = shuffle([...activeWords]);
+  const orderRank = new Map(shuffledWords.map((word, index) => [word.hanzi, index]));
+  const ordered = [...activeWords].sort((left, right) => {
+    const leftBucket = getTopicReviewSortBucket(left, now);
+    const rightBucket = getTopicReviewSortBucket(right, now);
+    if (leftBucket !== rightBucket) return leftBucket - rightBucket;
+
+    const leftDueAt = getTopicReviewDueAt(left.hanzi);
+    const rightDueAt = getTopicReviewDueAt(right.hanzi);
+
+    if (leftBucket === 1 || leftBucket === 3) {
+      const leftOverdue = now - leftDueAt;
+      const rightOverdue = now - rightDueAt;
+      if (rightOverdue !== leftOverdue) return rightOverdue - leftOverdue;
+    } else if ((leftBucket === 2 || leftBucket === 4) && leftDueAt !== rightDueAt) {
+      return leftDueAt - rightDueAt;
+    }
+
+    const leftRating = getTopicWordMemoryRating(left.hanzi);
+    const rightRating = getTopicWordMemoryRating(right.hanzi);
+    if (rightRating !== leftRating) return rightRating - leftRating;
+
+    return (orderRank.get(left.hanzi) || 0) - (orderRank.get(right.hanzi) || 0);
+  }).map((word) => word.hanzi);
+
+  if (previousLastHanzi && ordered.length > 1 && ordered[0] === previousLastHanzi) {
+    ordered.push(ordered.shift());
+  }
+
+  return ordered;
 }
 
 function buildTopicChoiceOrder(reviewPool = getTopicReviewPool(), previousLastHanzi = "") {
-  const originalOrder = reviewPool.map((word) => word.hanzi);
-  if (originalOrder.length <= 1) return originalOrder;
+  return buildTopicSmartOrder(reviewPool, previousLastHanzi);
+}
 
-  let bestOrder = shuffle(originalOrder);
-  for (let attempt = 0; attempt < 24; attempt += 1) {
-    const candidate = shuffle(originalOrder);
-    const startsWithPreviousLast = previousLastHanzi && candidate[0] === previousLastHanzi;
-    if (!startsWithPreviousLast && isTopicChoiceOrderWellMixed(candidate, originalOrder)) {
-      return candidate;
-    }
-    if (isTopicChoiceOrderWellMixed(candidate, originalOrder)) {
-      bestOrder = candidate;
-    }
+function rebuildTopicChoiceOrder(reviewPool = getTopicReviewPool(), anchorHanzi = "", previousLastHanzi = "") {
+  const poolKey = getTopicChoicePoolKey(reviewPool);
+  const nextOrder = buildTopicChoiceOrder(reviewPool, previousLastHanzi);
+
+  if (!nextOrder.length) {
+    topicChoiceOrder = [];
+    topicChoiceOrderKey = poolKey;
+    topicChoiceOrderNeedsRefresh = false;
+    topicChoiceIndex = 0;
+    return topicChoiceOrder;
   }
 
-  if (previousLastHanzi && bestOrder.length > 1 && bestOrder[0] === previousLastHanzi) {
-    return [...bestOrder.slice(1), bestOrder[0]];
+  if (anchorHanzi) {
+    const anchorIndex = nextOrder.indexOf(anchorHanzi);
+    if (anchorIndex >= 0) {
+      topicChoiceOrder = [...nextOrder.slice(anchorIndex), ...nextOrder.slice(0, anchorIndex)];
+      topicChoiceIndex = 0;
+    } else {
+      topicChoiceOrder = nextOrder;
+      if (topicChoiceIndex >= topicChoiceOrder.length) topicChoiceIndex = 0;
+    }
+  } else {
+    topicChoiceOrder = nextOrder;
+    topicChoiceIndex = 0;
   }
-  return bestOrder;
+
+  topicChoiceOrderKey = poolKey;
+  topicChoiceOrderNeedsRefresh = false;
+  return topicChoiceOrder;
 }
 
 function ensureTopicChoiceOrder(reviewPool = getTopicReviewPool()) {
@@ -3505,18 +4103,38 @@ function ensureTopicChoiceOrder(reviewPool = getTopicReviewPool()) {
   }
 
   const poolKey = getTopicChoicePoolKey(reviewPool);
-  const currentHanziSet = new Set(reviewPool.map((word) => word.hanzi));
-  const shouldResetOrder = topicChoiceOrderKey !== poolKey
-    || topicChoiceOrder.length !== reviewPool.length
-    || topicChoiceOrder.some((hanzi) => !currentHanziSet.has(hanzi));
+  const activeWords = getTopicActiveReviewWords(reviewPool);
+  const currentHanziSet = new Set(activeWords.map((word) => word.hanzi));
+  const reviewPoolHanziSet = new Set(reviewPool.map((word) => word.hanzi));
+  const hasDisplayableAnsweredOrder = topicChoiceAnswered
+    && topicChoiceOrder.length
+    && topicChoiceOrderKey === poolKey
+    && topicChoiceOrder.every((hanzi) => reviewPoolHanziSet.has(hanzi));
 
-  if (shouldResetOrder) {
-    topicChoiceOrder = buildTopicChoiceOrder(reviewPool);
+  if (hasDisplayableAnsweredOrder) {
+    return topicChoiceOrder;
+  }
+
+  if (!activeWords.length) {
+    topicChoiceOrder = [];
     topicChoiceOrderKey = poolKey;
     topicChoiceIndex = 0;
+    return topicChoiceOrder;
+  }
+  const hasUsableOrder = topicChoiceOrder.length
+    && topicChoiceOrderKey === poolKey
+    && topicChoiceOrder.length === activeWords.length
+    && topicChoiceOrder.every((hanzi) => currentHanziSet.has(hanzi));
+  const shouldResetOrder = !hasUsableOrder;
+
+  if (shouldResetOrder) {
+    rebuildTopicChoiceOrder(reviewPool);
     topicChoiceSelected = "";
     topicChoiceAnswered = false;
     topicChoiceOptions = [];
+  } else if (topicChoiceOrderNeedsRefresh && !topicChoiceAnswered) {
+    const currentHanzi = topicChoiceOrder[topicChoiceIndex % topicChoiceOrder.length] || "";
+    rebuildTopicChoiceOrder(reviewPool, currentHanzi);
   }
 
   return topicChoiceOrder;
@@ -3530,20 +4148,15 @@ function getCurrentTopicChoiceWord(reviewPool = getTopicReviewPool()) {
 }
 
 function getTopicChoiceOptionHanzi(reviewPool = getTopicReviewPool()) {
-  const choiceOrder = ensureTopicChoiceOrder(reviewPool);
-  if (!choiceOrder.length) return [];
-  const optionCount = Math.min(8, choiceOrder.length);
-  const currentIndex = topicChoiceIndex % choiceOrder.length;
-  const beforeCount = Math.floor((optionCount - 1) / 2);
-  const afterCount = optionCount - beforeCount - 1;
-  const optionHanzi = [];
-
-  for (let offset = -beforeCount; offset <= afterCount; offset += 1) {
-    const index = (currentIndex + offset + choiceOrder.length) % choiceOrder.length;
-    optionHanzi.push(choiceOrder[index]);
-  }
-
-  return optionHanzi;
+  const word = getCurrentTopicChoiceWord(reviewPool);
+  if (!word) return [];
+  const optionCount = Math.min(8, reviewPool.length);
+  const distractors = shuffle(
+    reviewPool
+      .filter((item) => item.hanzi !== word.hanzi)
+      .map((item) => item.hanzi)
+  ).slice(0, Math.max(0, optionCount - 1));
+  return shuffle([word.hanzi, ...distractors]);
 }
 
 function resetTopicChoiceOptions(reviewPool = getTopicReviewPool()) {
@@ -3555,7 +4168,29 @@ function resetTopicChoiceOptions(reviewPool = getTopicReviewPool()) {
   topicChoiceOptions = getTopicChoiceOptionHanzi(reviewPool);
 }
 
-function getTopicChoiceOptionLabel(word) {
+function getTopicChoicePracticeModes() {
+  return {
+    "hanzi-to-meaning": {
+      label: "Nhìn chữ chọn nghĩa",
+      note: "Hiện chữ Hán trước, chọn đáp án theo Pinyin hoặc Pinyin kèm nghĩa Việt.",
+      kicker: "NHÌN CHỮ CHỌN NGHĨA",
+    },
+    "meaning-to-hanzi": {
+      label: "Nhìn nghĩa chọn chữ",
+      note: "Hiện nghĩa tiếng Việt trước, chọn đúng chữ Hán tương ứng.",
+      kicker: "NHÌN NGHĨA CHỌN CHỮ",
+    },
+  };
+}
+
+function normalizeTopicChoicePracticeMode(mode) {
+  return getTopicChoicePracticeModes()[mode] ? mode : "";
+}
+
+function getTopicChoiceOptionLabel(word, practiceMode = topicChoicePracticeMode) {
+  if (practiceMode === "meaning-to-hanzi") {
+    return word.hanzi;
+  }
   if (topicChoiceDisplayMode === "full") {
     return `${word.pinyin} · ${getTopicMeaningLabel(word.meaning)}`;
   }
@@ -3746,20 +4381,28 @@ function renderTopicListenPinyin(reviewPool = getTopicReviewPool()) {
 function renderTopicFlashcard(reviewPool = getTopicReviewPool()) {
   const word = getCurrentTopicWord(reviewPool);
   if (!word) {
-    topicFlashcard.innerHTML = getTopicWorkshopEmptyState(
-      "Đang tải bộ flash card",
-      "Nếu bạn chỉ tick HSK 1 hoặc HSK 2, app cần nạp kho HSK nền một lần. Khi có chủ đề cục bộ, thẻ sẽ hiện ngay."
-    );
+    topicFlashcard.innerHTML = reviewPool.length
+      ? getTopicReviewIdleState("Flash card đang nghỉ một nhịp", reviewPool)
+      : getTopicWorkshopEmptyState(
+        "Đang tải bộ flash card",
+        "Nếu bạn chỉ tick HSK 1 hoặc HSK 2, app cần nạp kho HSK nền một lần. Khi có chủ đề cục bộ, thẻ sẽ hiện ngay."
+      );
     return;
   }
   const flashMode = getTopicFlashModeConfig();
+  const flashSchedule = ensureTopicFlashSchedule(reviewPool);
+  const cycleCount = flashSchedule.length || reviewPool.length;
   const meaningLabel = getTopicMeaningLabel(word.meaning);
   const revealPinyin = topicFlashRevealLevel === "pinyin" || topicFlashRevealLevel === "full";
   const revealMeaning = topicFlashRevealLevel === "full";
   const showFeedback = topicFlashChecked || revealPinyin;
+  const showMemoryRating = topicFlashChecked || topicFlashSentenceChecked || topicFlashRevealLevel !== "none";
+  const memoryRating = getTopicWordMemoryRating(word.hanzi);
   const pinyinInput = topicFlashcard.querySelector("#topic-flash-pinyin")?.value || "";
   const meaningInput = topicFlashcard.querySelector("#topic-flash-meaning")?.value || "";
   const sentenceInput = topicFlashcard.querySelector("#topic-flash-sentence")?.value || "";
+  const pinyinFilled = !flashMode.needsPinyin || normalizeTopicPinyin(pinyinInput).length > 0;
+  const meaningFilled = !flashMode.needsMeaning || normalizeTopicMeaning(meaningInput).length > 0;
   const pinyinCorrect = !flashMode.needsPinyin
     || (topicFlashChecked && normalizeTopicPinyin(pinyinInput) === normalizeTopicPinyin(word.pinyin));
   const meaningCorrect = !flashMode.needsMeaning
@@ -3779,15 +4422,42 @@ function renderTopicFlashcard(reviewPool = getTopicReviewPool()) {
       ? "Kiểm tra Pinyin"
       : "Kiểm tra nghĩa";
   const feedbackHeadline = topicFlashChecked
-    ? basePassed ? "Ổn rồi. Giờ đưa từ này vào câu." : "Chưa nhuần, nhìn lại đáp án rồi gõ lại một lần nữa."
+    ? basePassed
+      ? "Ổn rồi. Giờ đưa từ này vào câu."
+      : !pinyinFilled && !meaningFilled
+        ? "Bạn chưa điền Pinyin và nghĩa."
+        : !pinyinFilled && meaningCorrect
+          ? "Nghĩa đúng rồi, nhưng bạn còn thiếu Pinyin."
+          : !meaningFilled && pinyinCorrect
+            ? "Pinyin đúng rồi, nhưng chế độ này còn cần nghĩa tiếng Việt."
+            : !pinyinFilled
+              ? "Bạn còn thiếu Pinyin."
+              : !meaningFilled
+                ? "Bạn còn thiếu nghĩa tiếng Việt."
+                : pinyinCorrect && !meaningCorrect
+                  ? "Pinyin đúng rồi, nhưng nghĩa chưa khớp."
+                  : !pinyinCorrect && meaningCorrect
+                    ? "Nghĩa đúng rồi, nhưng Pinyin chưa khớp."
+                    : "Chưa nhuần, nhìn lại đáp án rồi gõ lại một lần nữa."
     : revealMeaning
       ? "Đã hiện cả Pinyin và nghĩa tham chiếu."
       : "Đã hiện Pinyin tham chiếu. Nghĩa tiếng Việt vẫn đang ẩn.";
+  const memoryButtons = [1, 2, 3].map((rating) => `
+    <button
+      class="topic-memory-rate-button topic-memory-rate-button-${rating}${memoryRating === rating ? " active" : ""}"
+      data-topic-memory-hanzi="${escapeHtml(word.hanzi)}"
+      data-topic-memory-rate="${rating}"
+      type="button"
+    >
+      <b>${rating}</b>
+      <span>${escapeHtml(getTopicWordMemoryLabel(rating))}</span>
+    </button>
+  `).join("");
 
   topicFlashcard.innerHTML = `
     <article class="topic-flash-card ${basePassed ? "is-open" : ""} ${sentenceCorrect ? "is-correct" : topicFlashSentenceChecked ? "is-wrong" : ""}">
       <div class="topic-flash-main">
-        <p class="section-kicker">FLASH CARD · ${topicFlashIndex + 1}/${reviewPool.length} · ${escapeHtml(getTopicReviewDisplayName())}</p>
+        <p class="section-kicker">FLASH CARD · ${topicFlashIndex + 1}/${cycleCount} lượt · ${escapeHtml(getTopicReviewDisplayName())}</p>
         <button class="topic-flash-audio" data-topic-audio="${escapeHtml(word.hanzi)}" type="button">▶ Nghe</button>
         <div class="topic-flash-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</div>
         <div class="topic-flash-hint">
@@ -3819,11 +4489,20 @@ function renderTopicFlashcard(reviewPool = getTopicReviewPool()) {
       <div class="topic-flash-feedback" ${showFeedback ? "" : "hidden"}>
         <strong>${feedbackHeadline}</strong>
         ${(topicFlashChecked || revealPinyin) ? `
-          <span>${topicFlashChecked ? pinyinCorrect ? "✓" : "•" : "•"} ${topicFlashChecked && flashMode.needsPinyin ? "Pinyin" : "Pinyin tham chiếu"}: <b>${escapeHtml(word.pinyin)}</b></span>
+          <span>${topicFlashChecked ? pinyinCorrect ? "✓" : !pinyinFilled ? "…" : "•" : "•"} ${topicFlashChecked && flashMode.needsPinyin ? "Pinyin" : "Pinyin tham chiếu"}: <b>${escapeHtml(word.pinyin)}</b></span>
         ` : ""}
         ${(topicFlashChecked && flashMode.needsMeaning) || revealMeaning ? `
-          <span>${topicFlashChecked ? meaningCorrect ? "✓" : "•" : "•"} ${topicFlashChecked && flashMode.needsMeaning ? "Nghĩa" : "Nghĩa tham chiếu"}: <b>${escapeHtml(word.meaning)}</b></span>
+          <span>${topicFlashChecked ? meaningCorrect ? "✓" : !meaningFilled ? "…" : "•" : "•"} ${topicFlashChecked && flashMode.needsMeaning ? "Nghĩa" : "Nghĩa tham chiếu"}: <b>${escapeHtml(word.meaning)}</b></span>
         ` : ""}
+      </div>
+      <div class="topic-memory-rating" ${showMemoryRating ? "" : "hidden"}>
+        <div class="topic-memory-rating-copy">
+          <strong>Chấm kiểu Anki để app lặp lại từ</strong>
+          <small>1 rất nhớ · 2 trung bình · 3 không nhớ. Mức 3 sẽ quay lại sớm hơn ở lượt sau, không chen ngay lại trong cùng nhịp.</small>
+        </div>
+        <div class="topic-memory-rating-buttons">
+          ${memoryButtons}
+        </div>
       </div>
       <form class="topic-cloze-form" id="topic-cloze-form" ${basePassed ? "" : "hidden"}>
         <label>
@@ -3857,10 +4536,13 @@ function updateTopicListenPinyinValue(value) {
 function checkTopicListenPinyin() {
   const word = getCurrentTopicListenWord();
   if (!word) return;
+  const isCorrect = topicPinyinAnswerMatches(topicListenInputValue, word.pinyin);
   topicListenChecked = true;
   topicListenReveal = false;
-  if (topicPinyinAnswerMatches(topicListenInputValue, word.pinyin)) {
-    setTopicWordKnown(word.hanzi, true);
+  if (isCorrect) {
+    markTopicWordAnsweredCorrect(word.hanzi);
+  } else {
+    setTopicWordMemoryRating(word.hanzi, 3);
   }
   renderTopicWorkshop();
 }
@@ -3885,11 +4567,39 @@ function nextTopicListenPinyin() {
 }
 
 function checkTopicFlashcard() {
+  const word = getCurrentTopicWord();
+  if (!word) return;
+  const flashMode = getTopicFlashModeConfig();
+  const pinyinInput = topicFlashcard.querySelector("#topic-flash-pinyin")?.value || "";
+  const meaningInput = topicFlashcard.querySelector("#topic-flash-meaning")?.value || "";
+  const pinyinFilled = !flashMode.needsPinyin || normalizeTopicPinyin(pinyinInput).length > 0;
+  const meaningFilled = !flashMode.needsMeaning || normalizeTopicMeaning(meaningInput).length > 0;
+  const pinyinCorrect = !flashMode.needsPinyin
+    || normalizeTopicPinyin(pinyinInput) === normalizeTopicPinyin(word.pinyin);
+  const meaningCorrect = !flashMode.needsMeaning
+    || isTopicMeaningCorrect(meaningInput, word.meaning);
+  const hasAllRequiredInputs = pinyinFilled && meaningFilled;
   topicFlashChecked = true;
   topicFlashSentenceChecked = false;
+  if (pinyinCorrect && meaningCorrect) {
+    markTopicWordAnsweredCorrect(word.hanzi);
+  } else if (hasAllRequiredInputs) {
+    setTopicWordMemoryRating(word.hanzi, 3);
+  }
   renderTopicFlashcard();
-  const clozeInput = topicFlashcard.querySelector("#topic-flash-sentence");
-  if (clozeInput) clozeInput.focus();
+  const nextFocusSelector = !pinyinFilled && flashMode.needsPinyin
+    ? "#topic-flash-pinyin"
+    : !meaningFilled && flashMode.needsMeaning
+      ? "#topic-flash-meaning"
+      : pinyinCorrect && meaningCorrect
+        ? "#topic-flash-sentence"
+        : !pinyinCorrect && flashMode.needsPinyin
+          ? "#topic-flash-pinyin"
+          : flashMode.needsMeaning
+            ? "#topic-flash-meaning"
+            : "";
+  const nextInput = nextFocusSelector ? topicFlashcard.querySelector(nextFocusSelector) : null;
+  if (nextInput) nextInput.focus();
 }
 
 function revealTopicFlashcard(level = "full") {
@@ -3908,18 +4618,57 @@ function checkTopicFlashSentence() {
   const sentenceCorrect = normalizeDictationHanzi(sentenceInput) === normalizeDictationHanzi(word.hanzi)
     || normalizeTopicPinyin(sentenceInput) === normalizeTopicPinyin(word.pinyin);
   topicFlashSentenceChecked = true;
-  if (sentenceCorrect) setTopicWordKnown(word.hanzi, true);
+  if (sentenceCorrect) {
+    markTopicWordAnsweredCorrect(word.hanzi);
+  } else {
+    setTopicWordMemoryRating(word.hanzi, 3);
+  }
   renderTopicWorkshop();
+}
+
+function clearTopicFlashInputs() {
+  const pinyinInput = topicFlashcard.querySelector("#topic-flash-pinyin");
+  const meaningInput = topicFlashcard.querySelector("#topic-flash-meaning");
+  const sentenceInput = topicFlashcard.querySelector("#topic-flash-sentence");
+  if (pinyinInput) pinyinInput.value = "";
+  if (meaningInput) meaningInput.value = "";
+  if (sentenceInput) sentenceInput.value = "";
 }
 
 function nextTopicFlashcard() {
   const reviewPool = getTopicReviewPool();
   if (!reviewPool.length) return;
-  topicFlashIndex = (topicFlashIndex + 1) % reviewPool.length;
+  const currentWord = getCurrentTopicWord(reviewPool);
+  const currentHanzi = currentWord?.hanzi || "";
+  if (topicFlashScheduleNeedsRefresh) {
+    rebuildTopicFlashSchedule(reviewPool, currentHanzi);
+  } else {
+    ensureTopicFlashSchedule(reviewPool);
+  }
+  if (!topicFlashSchedule.length) {
+    topicFlashIndex = 0;
+    topicFlashChecked = false;
+    topicFlashSentenceChecked = false;
+    topicFlashMeaningOpen = false;
+    topicFlashRevealLevel = "none";
+    clearTopicFlashInputs();
+    renderTopicWorkshop();
+    return;
+  }
+  const shouldAdvance = !currentHanzi || topicFlashSchedule.includes(currentHanzi);
+  if (shouldAdvance) {
+    topicFlashIndex = (topicFlashIndex + 1) % topicFlashSchedule.length;
+  } else {
+    topicFlashIndex = clampTopicProgressIndex(topicFlashIndex, topicFlashSchedule.length);
+  }
+  if (shouldAdvance && topicFlashIndex === 0) {
+    rebuildTopicFlashSchedule(reviewPool);
+  }
   topicFlashChecked = false;
   topicFlashSentenceChecked = false;
   topicFlashMeaningOpen = false;
   topicFlashRevealLevel = "none";
+  clearTopicFlashInputs();
   renderTopicWorkshop();
 }
 
@@ -4017,22 +4766,69 @@ function renderTopicStagePanel(overviewGroup) {
 }
 
 function renderTopicWorkshop() {
+  const selection = getTopicReviewSelection();
+  const waitingForHskLibrary = isWaitingForTopicHskLibrary(selection);
+  const hskLibraryUnavailable = isTopicHskLibraryUnavailable(selection);
   const reviewPool = getTopicReviewPool();
-  const knownCount = reviewPool.filter((word) => isTopicWordKnown(word.hanzi)).length;
+  restoreTopicWorkshopProgress(reviewPool);
+  const learnedWords = getTopicLearnedReviewWords(reviewPool);
+  const unlearnedWords = getTopicUnlearnedReviewWords(reviewPool);
+  const knownCount = learnedWords.length;
+  const remainingCount = unlearnedWords.length;
+  const memoryStats = getTopicMemoryStats(reviewPool);
   const percent = reviewPool.length ? Math.round((knownCount / reviewPool.length) * 100) : 0;
+  const learnedPreviewLimit = 36;
+  const learnedListMarkup = knownCount ? `
+    <details class="topic-learned-list">
+      <summary>Danh sách đã học được (${knownCount})</summary>
+      <div>
+        ${learnedWords.slice(0, learnedPreviewLimit).map((word) => `
+          <button data-topic-lookup="${escapeHtml(word.hanzi)}" type="button" title="${escapeHtml(word.pinyin)} · ${escapeHtml(getTopicMeaningLabel(word.meaning))}">
+            <b lang="zh-Hans">${escapeHtml(word.hanzi)}</b>
+            <small>${escapeHtml(word.pinyin)}</small>
+          </button>
+        `).join("")}
+        ${knownCount > learnedPreviewLimit ? `<em>+${knownCount - learnedPreviewLimit} từ nữa</em>` : ""}
+      </div>
+    </details>
+  ` : `
+    <div class="topic-learned-list topic-learned-list-empty">Chọn đúng một từ, nó sẽ chuyển sang danh sách đã học ở đây.</div>
+  `;
   const activePanel = normalizeTopicPanel(activeTopicPanel);
   const overviewGroup = activePanel === "stage" ? getActiveTopicOverviewGroup() : null;
 
   renderTopicFilter(reviewPool);
   topicReviewControls.hidden = true;
   topicReviewControls.innerHTML = "";
-  topicMastery.innerHTML = `
-    <span>
-      <strong>${knownCount}/${reviewPool.length || 0}</strong> từ đã nhớ trong bộ đang ôn
-      <small>${escapeHtml(getTopicReviewSourceSummary())}</small>
-    </span>
-    <div class="topic-progress" aria-label="Tiến độ nhớ từ"><i style="width: ${percent}%"></i></div>
-  `;
+  if (waitingForHskLibrary) {
+    topicMastery.innerHTML = `
+      <span>
+        <strong>Đang nạp đủ kho HSK...</strong>
+        <small>${escapeHtml(getTopicReviewSourceSummary() || getTopicReviewDisplayName())}</small>
+        <small>Tạm thời bạn vẫn có thể ôn ${reviewPool.length} từ nội bộ đã có sẵn. Khi nạp xong app sẽ lên đủ ${getExpectedTopicHskWordCount(selection)} từ theo bộ HSK bạn đang chọn.</small>
+      </span>
+      <div class="topic-progress" aria-label="Tiến độ nhớ từ"><i style="width: 12%"></i></div>
+    `;
+  } else if (hskLibraryUnavailable) {
+    topicMastery.innerHTML = `
+      <span>
+        <strong>Nạp kho HSK đang lỗi</strong>
+        <small>${escapeHtml(getTopicReviewSourceSummary() || getTopicReviewDisplayName())}</small>
+        <small>Tạm thời app vẫn mở ${reviewPool.length} từ nội bộ để bạn học tiếp. Khi kho HSK nạp lại ổn, số từ sẽ tự trở về đủ bộ.</small>
+      </span>
+      <div class="topic-progress" aria-label="Tiến độ nhớ từ"><i style="width: 0%"></i></div>
+    `;
+  } else {
+    topicMastery.innerHTML = `
+      <span>
+        <strong>Đã học được ${knownCount}/${reviewPool.length || 0}</strong>
+        <small>${escapeHtml(getTopicReviewSourceSummary())}</small>
+        <small>Còn cần học: ${remainingCount} từ · 1 rất nhớ: ${memoryStats[1]} · 2 trung bình: ${memoryStats[2]} · 3 không nhớ: ${memoryStats[3]}</small>
+      </span>
+      <div class="topic-progress" aria-label="Tiến độ nhớ từ"><i style="width: ${percent}%"></i></div>
+      ${learnedListMarkup}
+    `;
+  }
   renderTopicPanelSwitcher();
   if (activePanel === "listen") renderTopicListenPinyin(reviewPool);
   if (activePanel === "flashcard") renderTopicFlashcard(reviewPool);
@@ -4040,23 +4836,80 @@ function renderTopicWorkshop() {
   if (activePanel === "stage") renderTopicStagePanel(overviewGroup);
   if (activePanel === "drill") renderTopicDrill(reviewPool);
   applyTopicPanelVisibility();
+  persistTopicWorkshopProgress(reviewPool);
 }
 
 function renderTopicChoice(reviewPool = getTopicReviewPool()) {
-  const word = getCurrentTopicChoiceWord(reviewPool);
-  if (!word) {
-    topicChoice.innerHTML = getTopicWorkshopEmptyState(
-      "Đang tải bài chọn đáp án",
-      "Nếu bạn chỉ tick HSK, phần này sẽ hiện sau khi kho HSK nền nạp xong."
-    );
+  const practiceModes = getTopicChoicePracticeModes();
+  const currentPracticeMode = normalizeTopicChoicePracticeMode(topicChoicePracticeMode);
+  const currentPractice = practiceModes[currentPracticeMode];
+  const practiceModeButtons = Object.entries(practiceModes).map(([mode, config]) => `
+    <button class="${currentPracticeMode === mode ? "active" : ""}" data-topic-choice-practice-mode="${mode}" type="button">
+      ${escapeHtml(config.label)}
+    </button>
+  `).join("");
+  const topicChoiceSetup = `
+    <article class="topic-choice-setup-card">
+      <div class="topic-choice-head">
+        <div>
+          <p class="section-kicker">KIỂU LUYỆN</p>
+          <span>Chọn một hướng luyện rồi bài sẽ hiện ngay bên dưới.</span>
+        </div>
+      </div>
+      <div class="topic-choice-practice-mode">
+        ${practiceModeButtons}
+      </div>
+    </article>
+  `;
+
+  if (!currentPractice) {
+    topicChoice.dataset.currentHanzi = "";
+    topicChoice.innerHTML = topicChoiceSetup;
     return;
   }
+
+  const choiceOrder = ensureTopicChoiceOrder(reviewPool);
+  const cycleCount = choiceOrder.length || reviewPool.length;
+  const answeredWord = topicChoiceAnswered && topicChoiceAnsweredHanzi
+    ? reviewPool.find((item) => item.hanzi === topicChoiceAnsweredHanzi)
+    : null;
+  const word = answeredWord || getCurrentTopicChoiceWord(reviewPool);
+  if (!word) {
+    topicChoice.dataset.currentHanzi = "";
+    topicChoice.innerHTML = reviewPool.length
+      ? getTopicReviewIdleState("Bài chọn đáp án đã xong lượt hiện tại", reviewPool)
+      : getTopicWorkshopEmptyState(
+        "Đang tải bài chọn đáp án",
+        "Nếu bạn chỉ tick HSK, phần này sẽ hiện sau khi kho HSK nền nạp xong."
+      );
+    return;
+  }
+
+  topicChoice.dataset.currentHanzi = word.hanzi;
+
   if (!topicChoiceOptions.length
     || !topicChoiceOptions.includes(word.hanzi)
     || topicChoiceOptions.some((hanzi) => !reviewPool.some((item) => item.hanzi === hanzi))) {
     resetTopicChoiceOptions(reviewPool);
   }
   const isCorrect = topicChoiceAnswered && topicChoiceSelected === word.hanzi;
+  const reviewPoolMap = new Map(reviewPool.map((item) => [item.hanzi, item]));
+  const options = topicChoiceOptions.map((hanzi) => {
+    const optionWord = reviewPoolMap.get(hanzi);
+    if (!optionWord) return "";
+    const isSelected = hanzi === topicChoiceSelected;
+    const isAnswer = hanzi === word.hanzi;
+    const optionVariantClass = currentPracticeMode === "meaning-to-hanzi" ? "topic-choice-option-hanzi" : "";
+    const className = topicChoiceAnswered
+      ? isAnswer ? "is-correct" : isSelected ? "is-wrong" : ""
+      : "";
+    return `
+      <button class="${[className, optionVariantClass].filter(Boolean).join(" ")}" data-topic-choice-answer="${escapeHtml(hanzi)}" type="button" ${topicChoiceAnswered ? "disabled" : ""}>
+        ${escapeHtml(getTopicChoiceOptionLabel(optionWord, currentPracticeMode))}
+      </button>
+    `;
+  }).join("");
+  const isMeaningToHanzi = currentPracticeMode === "meaning-to-hanzi";
   const choiceModeButtons = [
     ["pinyin", "Pinyin"],
     ["full", "Pinyin + Việt"]
@@ -4065,49 +4918,46 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
       ${escapeHtml(label)}
     </button>
   `).join("");
-  const reviewPoolMap = new Map(reviewPool.map((item) => [item.hanzi, item]));
-  const options = topicChoiceOptions.map((hanzi) => {
-    const optionWord = reviewPoolMap.get(hanzi);
-    if (!optionWord) return "";
-    const isSelected = hanzi === topicChoiceSelected;
-    const isAnswer = hanzi === word.hanzi;
-    const className = topicChoiceAnswered
-      ? isAnswer ? "is-correct" : isSelected ? "is-wrong" : ""
-      : "";
-    return `
-      <button class="${className}" data-topic-choice-answer="${escapeHtml(hanzi)}" type="button" ${topicChoiceAnswered ? "disabled" : ""}>
-        ${escapeHtml(getTopicChoiceOptionLabel(optionWord))}
-      </button>
-    `;
-  }).join("");
 
   topicChoice.innerHTML = `
     <article class="topic-choice-card ${topicChoiceAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
-      <div class="topic-choice-head">
-        <div>
-          <p class="section-kicker">NHÌN CHỮ CHỌN NGHĨA · ${topicChoiceIndex + 1}/${reviewPool.length}</p>
-          <span>${topicChoiceOptions.length} đáp án lấy từ bộ bạn đang tick</span>
+      <div class="topic-choice-toolbar ${isMeaningToHanzi ? "topic-choice-toolbar-static" : ""}">
+        <div class="topic-choice-mode topic-choice-mode-practice">
+          ${practiceModeButtons}
         </div>
-      </div>
-      <div class="topic-choice-toolbar">
-        <small>ĐÁP ÁN HIỆN THEO</small>
-        <div class="topic-choice-mode">
-          ${choiceModeButtons}
-        </div>
+        ${isMeaningToHanzi ? "" : `
+          <div class="topic-choice-mode">
+            ${choiceModeButtons}
+          </div>
+        `}
       </div>
       <div class="topic-choice-prompt">
-        <button class="topic-audio-button" data-topic-audio="${escapeHtml(word.hanzi)}" type="button">▶ Nghe</button>
-        <small>Chữ hỏi chỉ hiện Hán tự. Nhìn chữ rồi chọn đáp án đúng trong bộ ${escapeHtml(getTopicReviewDisplayName())}.</small>
+        ${isMeaningToHanzi ? "" : `<button class="topic-audio-button" data-topic-audio="${escapeHtml(word.hanzi)}" type="button">▶ Nghe</button>`}
         <div class="topic-choice-hanzi-row">
-          <strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>
+          ${isMeaningToHanzi
+            ? `<strong class="topic-choice-meaning" lang="vi">${escapeHtml(getTopicMeaningLabel(word.meaning))}</strong>`
+            : `<strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>`
+          }
           <button class="topic-next-button topic-choice-next-button" data-topic-choice-next type="button">${topicChoiceAnswered ? "Từ tiếp theo" : "Bỏ qua từ này"}</button>
         </div>
       </div>
       <div class="topic-choice-options">${options}</div>
       <div class="topic-choice-feedback" ${topicChoiceAnswered ? "" : "hidden"}>
-        <strong>${isCorrect ? "Đúng rồi, bạn nối được chữ với nghĩa khá chắc." : `Chưa khớp. ${escapeHtml(word.hanzi)} là ${escapeHtml(getTopicMeaningLabel(word.meaning))}.`}</strong>
-        <span>${escapeHtml(word.pinyin)} · ${escapeHtml(getTopicMeaningLabel(word.meaning))}</span>
+        <strong>${isCorrect
+          ? isMeaningToHanzi
+            ? "Đúng rồi, bạn nối được nghĩa với chữ khá chắc."
+            : "Đúng rồi, bạn nối được chữ với nghĩa khá chắc."
+          : isMeaningToHanzi
+            ? `Chưa khớp. “${escapeHtml(getTopicMeaningLabel(word.meaning))}” là ${escapeHtml(word.hanzi)}.`
+            : `Chưa khớp. ${escapeHtml(word.hanzi)} là ${escapeHtml(getTopicMeaningLabel(word.meaning))}.`
+        }</strong>
+        <span>${isMeaningToHanzi
+          ? `${escapeHtml(word.hanzi)} · ${escapeHtml(word.pinyin)} · ${escapeHtml(getTopicMeaningLabel(word.meaning))}`
+          : `${escapeHtml(word.pinyin)} · ${escapeHtml(getTopicMeaningLabel(word.meaning))}`
+        }</span>
+        <button class="topic-audio-button topic-choice-feedback-audio" data-topic-audio="${escapeHtml(topicChoiceSelected || word.hanzi)}" type="button">▶ Nghe lại</button>
         <small class="topic-choice-feedback-chunk"><span>Chunk:</span> <b lang="zh-Hans">${escapeHtml(word.chunk)}</b></small>
+        ${topicChoiceAnswered && !isCorrect ? `<small class="topic-choice-feedback-repeat">Từ này đã được đẩy sang lịch ôn sau, không nhảy lại liên tục trong cùng lượt nữa.</small>` : ""}
       </div>
     </article>
   `;
@@ -4115,40 +4965,98 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
 
 function answerTopicChoice(hanzi) {
   if (topicChoiceAnswered) return;
-  const word = getCurrentTopicChoiceWord();
+  const reviewPool = getTopicReviewPool();
+  const expectedHanzi = topicChoice.dataset.currentHanzi || "";
+  const word = reviewPool.find((item) => item.hanzi === expectedHanzi) || getCurrentTopicChoiceWord(reviewPool);
   if (!word) return;
   const topicChoiceAudioButton = topicChoice.querySelector(".topic-audio-button");
-  if (topicChoiceAudioButton) playTopicAudio(word.hanzi, topicChoiceAudioButton);
+  const audioButton = topicChoiceAudioButton || document.createElement("button");
+  if (!topicChoiceAudioButton) audioButton.className = "topic-audio-button";
+  clearTopicChoiceAutoAdvanceTimer();
+  playTopicAudio(hanzi, audioButton);
   topicChoiceSelected = hanzi;
+  topicChoiceAnsweredHanzi = word.hanzi;
   topicChoiceAnswered = true;
-  if (hanzi === word.hanzi) setTopicWordKnown(word.hanzi, true);
+  const isCorrect = hanzi === word.hanzi;
+  if (isCorrect) {
+    markTopicWordAnsweredCorrect(word.hanzi);
+    relaxTopicChoiceWord(word.hanzi);
+  } else {
+    setTopicWordMemoryRating(word.hanzi, 3);
+    reinforceTopicChoiceWord(word.hanzi, 2);
+  }
   renderTopicWorkshop();
+  if (isCorrect) scheduleTopicChoiceAutoAdvance(word.hanzi);
 }
 
 function nextTopicChoice() {
+  clearTopicChoiceAutoAdvanceTimer();
   const reviewPool = getTopicReviewPool();
   if (!reviewPool.length) return;
-  const choiceOrder = ensureTopicChoiceOrder(reviewPool);
-  if (!choiceOrder.length) return;
-  if (topicChoiceIndex + 1 >= choiceOrder.length) {
-    const lastHanzi = choiceOrder[choiceOrder.length - 1];
-    const nextOrder = buildTopicChoiceOrder(reviewPool, lastHanzi);
-    topicChoiceOrder = nextOrder;
-    topicChoiceOrderKey = getTopicChoicePoolKey(reviewPool);
-    topicChoiceIndex = 0;
+  const currentWord = getCurrentTopicChoiceWord(reviewPool);
+  const currentHanzi = topicChoiceAnsweredHanzi || currentWord?.hanzi || "";
+  if (topicChoiceOrderNeedsRefresh) {
+    rebuildTopicChoiceOrder(reviewPool, currentHanzi);
   } else {
-    topicChoiceIndex += 1;
+    ensureTopicChoiceOrder(reviewPool);
+  }
+  if (!topicChoiceOrder.length) {
+    topicChoiceIndex = 0;
+    topicChoiceSelected = "";
+    topicChoiceAnsweredHanzi = "";
+    topicChoiceAnswered = false;
+    topicChoiceOptions = [];
+    renderTopicWorkshop();
+    return;
+  }
+  const shouldAdvance = !currentHanzi || topicChoiceOrder.includes(currentHanzi);
+  if (shouldAdvance) {
+    topicChoiceIndex = (topicChoiceIndex + 1) % topicChoiceOrder.length;
+  } else {
+    topicChoiceIndex = clampTopicProgressIndex(topicChoiceIndex, topicChoiceOrder.length);
+  }
+  if (shouldAdvance && topicChoiceIndex === 0) {
+    const previousLastHanzi = topicChoiceOrder[topicChoiceOrder.length - 1] || "";
+    rebuildTopicChoiceOrder(reviewPool, "", previousLastHanzi);
   }
   topicChoiceSelected = "";
+  topicChoiceAnsweredHanzi = "";
   topicChoiceAnswered = false;
   topicChoiceOptions = [];
   renderTopicWorkshop();
+}
+
+function clearTopicChoiceAutoAdvanceTimer() {
+  if (!topicChoiceAutoAdvanceTimer) return;
+  clearTimeout(topicChoiceAutoAdvanceTimer);
+  topicChoiceAutoAdvanceTimer = null;
+}
+
+function scheduleTopicChoiceAutoAdvance(expectedHanzi) {
+  clearTopicChoiceAutoAdvanceTimer();
+  topicChoiceAutoAdvanceTimer = setTimeout(() => {
+    topicChoiceAutoAdvanceTimer = null;
+    if (!topicChoiceAnswered || topicChoiceAnsweredHanzi !== expectedHanzi || topicChoiceSelected !== expectedHanzi) return;
+    nextTopicChoice();
+  }, 1000);
 }
 
 function setTopicChoiceDisplayMode(mode) {
   if (!["pinyin", "full"].includes(mode)) return;
   topicChoiceDisplayMode = mode;
   localStorage.setItem("topicChoiceDisplayMode", mode);
+  renderTopicChoice();
+}
+
+function setTopicChoicePracticeMode(mode) {
+  const nextMode = normalizeTopicChoicePracticeMode(mode);
+  if (!nextMode) return;
+  topicChoicePracticeMode = nextMode;
+  localStorage.setItem("topicChoicePracticeMode", nextMode);
+  topicChoiceSelected = "";
+  topicChoiceAnsweredHanzi = "";
+  topicChoiceAnswered = false;
+  topicChoiceOptions = [];
   renderTopicChoice();
 }
 
@@ -4198,7 +5106,11 @@ function answerTopicDrill(answer) {
   if (!drill) return;
   topicDrillSelected = answer;
   topicDrillAnswered = true;
-  if (answer === drill.answer) setTopicWordKnown(answer, true);
+  if (answer === drill.answer) {
+    markTopicWordAnsweredCorrect(answer);
+  } else {
+    setTopicWordMemoryRating(drill.answer, 3);
+  }
   renderTopicWorkshop();
 }
 
@@ -4225,6 +5137,7 @@ function toggleTopicStageMeaning() {
 
 function selectTopicOverview(topicId) {
   setActiveTopicOverview(topicId);
+  setTopicFilterExpanded(false, false);
   activeTopicPanel = "stage";
   saveTopicPanelPreference();
   renderTopicWorkshop();
@@ -4233,7 +5146,7 @@ function selectTopicOverview(topicId) {
 function playTopicAudio(hanzi, button) {
   const hskWord = hskVocabulary.find((word) => word.hanzi === hanzi);
   if (hskWord?.audio) {
-    playHskAudio(hskWord.audio, button);
+    playHskAudio(hskWord.audio, button, hanzi);
     return;
   }
   speakChinese(hanzi, 0.76);
@@ -4668,13 +5581,22 @@ function resetHskPlayerButton() {
   hskPlayingButton = null;
 }
 
-function playHskAudio(path, button) {
+function playHskAudio(path, button, fallbackText = "") {
   hskPlayer.pause();
   hskPlayer.currentTime = 0;
   resetHskPlayerButton();
   stopQuizAudio();
   stopRecordedAudio();
   window.speechSynthesis?.cancel();
+  hskPlayer.playsInline = true;
+  hskPlayer.muted = true;
+  hskPlayer.volume = 0;
+  const unmuteHskPlayer = () => {
+    hskPlayer.muted = false;
+    hskPlayer.volume = 1;
+    hskPlayer.removeEventListener("playing", unmuteHskPlayer);
+  };
+  hskPlayer.addEventListener("playing", unmuteHskPlayer, { once: true });
 
   hskPlayingButton = button;
   button.classList.add("is-playing");
@@ -4684,7 +5606,28 @@ function playHskAudio(path, button) {
     button.textContent = "=";
   }
   hskPlayer.src = path;
-  hskPlayer.play().catch(resetHskPlayerButton);
+  hskPlayer.load();
+  hskPlayer.play().catch((error) => {
+    console.error("hskPlayer.play failed", error);
+    practiceAudio.pause();
+    practiceAudio.currentTime = 0;
+    practiceAudio.src = path;
+    practiceAudio.playsInline = true;
+    practiceAudio.muted = true;
+    practiceAudio.volume = 0;
+    const unmutePracticeAudio = () => {
+      practiceAudio.muted = false;
+      practiceAudio.volume = 1;
+      practiceAudio.removeEventListener("playing", unmutePracticeAudio);
+    };
+    practiceAudio.addEventListener("playing", unmutePracticeAudio, { once: true });
+    practiceAudio.load();
+    practiceAudio.play().catch((fallbackError) => {
+      console.error("practiceAudio.play failed", fallbackError);
+      resetHskPlayerButton();
+      if (fallbackText) speakChinese(fallbackText, 0.76);
+    });
+  });
 }
 
 function getSentencesForWord(word) {
@@ -4774,6 +5717,8 @@ function openHskWord(hanzi) {
 }
 
 async function loadLearningLibraries() {
+  learningLibrariesReady = false;
+  learningLibrariesFailed = false;
   const [hskResponse, sentenceResponse, explanationResponse] = await Promise.all([
     fetch("data/hsk-vocabulary.json"),
     fetch("data/common-sentences.json"),
@@ -4795,6 +5740,8 @@ async function loadLearningLibraries() {
     importedExplanation: hskExplanationEntries[word.hanzi] || null,
   }));
   commonSentenceData = sentenceData;
+  learningLibrariesReady = true;
+  learningLibrariesFailed = false;
   invalidateTopicWorkshopCaches();
   if (pinyinDictionaryInput.value.trim()) pinyinDictionaryTone = getRequestedTone(pinyinDictionaryInput.value);
   document.querySelector("#total-count").textContent = hskVocabulary.length;
@@ -5049,6 +5996,7 @@ initialFilter.addEventListener("click", (event) => {
 listenGroupButton.addEventListener("click", speakInitialGroup);
 
 document.addEventListener("click", (event) => {
+  const clickedInsideTopicFilter = topicFilter?.contains(event.target);
   const wordButton = event.target.closest("[data-word]");
   const questionButton = event.target.closest("[data-open-word]");
   const speakButton = event.target.closest("[data-speak]");
@@ -5061,6 +6009,7 @@ document.addEventListener("click", (event) => {
   const interrogativeGuideButton = event.target.closest("[data-interrogative-guide]");
   const questionGuideButton = event.target.closest("[data-question-guide]");
   const internalPinyinButton = event.target.closest("[data-lookup-pinyin]");
+  const topicFilterToggleButton = event.target.closest("[data-topic-filter-toggle]");
   const topicOverviewOpenButton = event.target.closest("[data-topic-overview-open]");
   const topicReviewPresetButton = event.target.closest("[data-topic-review-preset]");
   const topicPanelButton = event.target.closest("[data-topic-panel]");
@@ -5070,6 +6019,7 @@ document.addEventListener("click", (event) => {
   const topicListenNextButton = event.target.closest("[data-topic-listen-next]");
   const topicKnownButton = event.target.closest("[data-topic-known]");
   const topicLookupButton = event.target.closest("[data-topic-lookup]");
+  const topicChoicePracticeModeButton = event.target.closest("[data-topic-choice-practice-mode]");
   const topicChoiceModeButton = event.target.closest("[data-topic-choice-mode]");
   const topicChoiceAnswerButton = event.target.closest("[data-topic-choice-answer]");
   const topicChoiceNextButton = event.target.closest("[data-topic-choice-next]");
@@ -5078,6 +6028,7 @@ document.addEventListener("click", (event) => {
   const topicFlashModeButton = event.target.closest("[data-topic-flash-mode]");
   const topicFlashMeaningToggle = event.target.closest("[data-topic-flash-meaning-toggle]");
   const topicFlashRevealButton = event.target.closest("[data-topic-flash-reveal]");
+  const topicMemoryRateButton = event.target.closest("[data-topic-memory-rate]");
   const topicFlashNextButton = event.target.closest("[data-topic-flash-next]");
   const topicDrillMeaningToggle = event.target.closest("[data-topic-drill-meaning-toggle]");
   const topicStageMeaningToggle = event.target.closest("[data-topic-stage-meaning-toggle]");
@@ -5101,6 +6052,7 @@ document.addEventListener("click", (event) => {
   if (sentenceAudioButton) speakChinese(sentenceAudioButton.dataset.sentenceSpeak, 0.72);
   if (questionGuideButton) openQuestionGuide(questionGuideButton.dataset.questionGuide);
   if (topicReviewPresetButton) setTopicReviewPreset(topicReviewPresetButton.dataset.topicReviewPreset);
+  if (topicFilterToggleButton) toggleTopicFilterExpanded();
   if (topicPanelButton) setActiveTopicPanel(topicPanelButton.dataset.topicPanel);
   if (topicOverviewOpenButton) selectTopicOverview(topicOverviewOpenButton.dataset.topicOverviewOpen);
   if (topicOverviewMoreButton) showMoreTopicOverviewWords();
@@ -5112,6 +6064,7 @@ document.addEventListener("click", (event) => {
     renderTopicWorkshop();
   }
   if (topicLookupButton) openTopicWord(topicLookupButton.dataset.topicLookup);
+  if (topicChoicePracticeModeButton) setTopicChoicePracticeMode(topicChoicePracticeModeButton.dataset.topicChoicePracticeMode);
   if (topicChoiceModeButton) setTopicChoiceDisplayMode(topicChoiceModeButton.dataset.topicChoiceMode);
   if (topicChoiceAnswerButton) answerTopicChoice(topicChoiceAnswerButton.dataset.topicChoiceAnswer);
   if (topicChoiceNextButton) nextTopicChoice();
@@ -5120,6 +6073,13 @@ document.addEventListener("click", (event) => {
   if (topicFlashModeButton) setTopicFlashMode(topicFlashModeButton.dataset.topicFlashMode);
   if (topicFlashMeaningToggle) toggleTopicFlashMeaning();
   if (topicFlashRevealButton) revealTopicFlashcard(topicFlashRevealButton.dataset.topicFlashReveal);
+  if (topicMemoryRateButton) {
+    setTopicWordMemoryRating(
+      topicMemoryRateButton.dataset.topicMemoryHanzi,
+      topicMemoryRateButton.dataset.topicMemoryRate
+    );
+    renderTopicWorkshop();
+  }
   if (topicFlashNextButton) nextTopicFlashcard();
   if (topicDrillMeaningToggle) toggleTopicDrillMeaning();
   if (topicStageMeaningToggle) toggleTopicStageMeaning();
@@ -5138,6 +6098,9 @@ document.addEventListener("click", (event) => {
       showLesson(targetId, { smooth: true });
       lessonMenu.open = false;
     }
+  }
+  if (topicFilterExpanded && !clickedInsideTopicFilter) {
+    setTopicFilterExpanded(false);
   }
   if (lessonMenu.open && !lessonMenu.contains(event.target)) lessonMenu.open = false;
 });
@@ -5195,8 +6158,12 @@ dialog.addEventListener("click", (event) => {
 
 document.querySelector("#total-count").textContent = "988";
 loadLearningLibraries().catch((error) => {
+  learningLibrariesReady = false;
+  learningLibrariesFailed = true;
+  console.error("loadLearningLibraries failed", error);
   hskResultSummary.textContent = "Không tải được kho từ. Hãy mở trang qua máy chủ local rồi tải lại.";
   sentenceGrid.innerHTML = `<p class="hsk-source-note">${escapeHtml(error.message)}</p>`;
+  renderTopicWorkshop();
 });
 renderFilters();
 renderWords();
