@@ -1671,6 +1671,8 @@ let neededNotesChoiceOptions = [];
 let neededNotesChoiceOptionForId = "";
 let neededNotesMemoryRatings = {};
 let neededNotesAutoTimer = null;
+let neededNotesMenuExpanded = false;
+let neededNotesChoiceMenuExpanded = false;
 let learningLibrariesReady = false;
 let learningLibrariesFailed = false;
 
@@ -5593,6 +5595,7 @@ function renderNeededNotesShell(innerMarkup) {
   const remainingCount = Math.max(0, total - learnedCount);
   const percent = total ? Math.round((learnedCount / total) * 100) : 0;
   const modes = getNeededNotesModes();
+  const activeModeLabel = modes[neededNotesMode] || modes.choice || "Chọn đáp án";
   const modeButtons = Object.entries(modes).map(([mode, label]) => `
     <button class="${neededNotesMode === mode ? "active" : ""}" data-needed-mode="${mode}" type="button">
       ${escapeHtml(label)}
@@ -5608,9 +5611,21 @@ function renderNeededNotesShell(innerMarkup) {
     <div class="needed-toolbar">
       <div class="needed-stats">
         <strong>Đã học ${learnedCount}/${total}</strong>
-        <span>Còn cần học: ${remainingCount} từ · nguồn project “Từ cần học”</span>
+        <span>Còn ${remainingCount} từ trong ghi chú cần ôn</span>
       </div>
-      <div class="needed-mode-tabs">${modeButtons}</div>
+      <div class="needed-menu ${neededNotesMenuExpanded ? "is-open" : "is-collapsed"}">
+        <button class="needed-menu-toggle topic-menu-toggle" data-needed-menu-toggle type="button" aria-expanded="${neededNotesMenuExpanded}" aria-label="Mở chọn kiểu học ghi chú, đang là ${escapeHtml(activeModeLabel)}">
+          <span class="topic-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="sr-only">Mở chọn kiểu học ghi chú, đang là ${escapeHtml(activeModeLabel)}</span>
+        </button>
+        <div class="needed-menu-popover" ${neededNotesMenuExpanded ? "" : "hidden"}>
+          <div class="topic-panel-popover-head">
+            <small>Kiểu học ghi chú</small>
+            <strong>${escapeHtml(activeModeLabel)}</strong>
+          </div>
+          <div class="needed-mode-tabs">${modeButtons}</div>
+        </div>
+      </div>
     </div>
     ${innerMarkup}
   `;
@@ -5630,7 +5645,9 @@ function renderNeededNotesChoice() {
 
   const selectedWord = getNeededNoteById(neededNotesSelected);
   const isCorrect = neededNotesAnswered && neededNotesSelected === wordId;
-  const choiceModeButtons = Object.entries(getNeededNotesChoiceModes()).map(([mode, label]) => `
+  const choiceModes = getNeededNotesChoiceModes();
+  const activeChoiceModeLabel = choiceModes[neededNotesChoiceMode] || choiceModes["hanzi-to-meaning"] || "Nhìn chữ chọn nghĩa";
+  const choiceModeButtons = Object.entries(choiceModes).map(([mode, label]) => `
     <button class="${neededNotesChoiceMode === mode ? "active" : ""}" data-needed-choice-mode="${mode}" type="button">
       ${escapeHtml(label)}
     </button>
@@ -5674,7 +5691,19 @@ function renderNeededNotesChoice() {
           <p class="section-kicker">GHI CHÚ · CHỌN ĐÁP ÁN · ${learnedCount}/${neededNoteWords.length}</p>
           <span>${escapeHtml(getNeededNoteDateLabel(word))}</span>
         </div>
-        <div class="needed-choice-mode">${choiceModeButtons}</div>
+        <div class="needed-choice-menu ${neededNotesChoiceMenuExpanded ? "is-open" : "is-collapsed"}">
+          <button class="needed-choice-menu-toggle topic-menu-toggle" data-needed-choice-menu-toggle type="button" aria-expanded="${neededNotesChoiceMenuExpanded}" aria-label="Mở kiểu câu ghi chú, đang là ${escapeHtml(activeChoiceModeLabel)}">
+            <span class="topic-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="sr-only">Mở kiểu câu ghi chú, đang là ${escapeHtml(activeChoiceModeLabel)}</span>
+          </button>
+          <div class="needed-choice-menu-popover" ${neededNotesChoiceMenuExpanded ? "" : "hidden"}>
+            <div class="topic-panel-popover-head">
+              <small>Kiểu câu đang chọn</small>
+              <strong>${escapeHtml(activeChoiceModeLabel)}</strong>
+            </div>
+            <div class="needed-choice-mode">${choiceModeButtons}</div>
+          </div>
+        </div>
       </div>
       <div class="needed-prompt">
         <button class="topic-audio-button" data-needed-audio="${escapeHtml(wordId)}" type="button">▶ Nghe</button>
@@ -5756,10 +5785,14 @@ function renderNeededNotesList() {
 function renderNeededNotes() {
   if (!neededNotesApp) return;
   if (!isAdminProfile()) {
+    neededNotesMenuExpanded = false;
+    neededNotesChoiceMenuExpanded = false;
     renderNeededNotesLocked();
     return;
   }
   if (!neededNoteWords.length) {
+    neededNotesMenuExpanded = false;
+    neededNotesChoiceMenuExpanded = false;
     renderNeededNotesLoading();
     return;
   }
@@ -5770,6 +5803,18 @@ function renderNeededNotes() {
     list: renderNeededNotesList,
   };
   renderNeededNotesShell(panels[neededNotesMode]());
+}
+
+function toggleNeededNotesMenu() {
+  neededNotesMenuExpanded = !neededNotesMenuExpanded;
+  neededNotesChoiceMenuExpanded = false;
+  renderNeededNotes();
+}
+
+function toggleNeededNotesChoiceMenu() {
+  neededNotesChoiceMenuExpanded = !neededNotesChoiceMenuExpanded;
+  neededNotesMenuExpanded = false;
+  renderNeededNotes();
 }
 
 function scheduleNeededNotesNext(wordId) {
@@ -5785,6 +5830,8 @@ function setNeededNotesMode(mode) {
   neededNotesMode = normalizeNeededNotesMode(mode);
   setAppStorage("neededNotesMode", neededNotesMode);
   clearNeededNotesAutoTimer();
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
   resetNeededNotesAnswerState();
   renderNeededNotes();
 }
@@ -5793,6 +5840,8 @@ function setNeededNotesChoiceMode(mode) {
   neededNotesChoiceMode = normalizeNeededNotesChoiceMode(mode);
   setAppStorage("neededNotesChoiceMode", neededNotesChoiceMode);
   clearNeededNotesAutoTimer();
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
   neededNotesSelected = "";
   neededNotesAnswered = false;
   neededNotesAnsweredId = "";
@@ -5802,6 +5851,8 @@ function setNeededNotesChoiceMode(mode) {
 
 function nextNeededNote(options = {}) {
   clearNeededNotesAutoTimer();
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
   const activeWords = getNeededNotesActiveWords();
   if (activeWords.length && !options.keepIndex) {
     neededNotesIndex = (neededNotesIndex + 1) % activeWords.length;
@@ -5814,6 +5865,8 @@ function nextNeededNote(options = {}) {
 
 function answerNeededNotesChoice(optionId) {
   if (neededNotesAnswered) return;
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
   const word = getNeededNotesCurrentWord();
   const selectedWord = getNeededNoteById(optionId);
   if (!word || !selectedWord) return;
@@ -5839,6 +5892,8 @@ function rateNeededNotesFlashcard(rating) {
   if (!word) return;
   const normalizedRating = normalizeTopicMemoryRating(rating);
   if (!normalizedRating) return;
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
   setNeededNoteMemoryRating(word, normalizedRating);
   if (normalizedRating === 1 || normalizedRating === 2) {
     setNeededNoteKnown(word, true);
@@ -6737,6 +6792,8 @@ document.addEventListener("click", (event) => {
   const clickedInsideTopicFilter = topicFilter?.contains(event.target);
   const clickedInsideTopicPanelSwitcher = topicPanelSwitcher?.contains(event.target);
   const clickedInsideTopicChoiceControls = topicChoice?.querySelector(".topic-choice-toolbar")?.contains(event.target);
+  const clickedInsideNeededMenu = neededNotesApp?.querySelector(".needed-menu")?.contains(event.target);
+  const clickedInsideNeededChoiceMenu = neededNotesApp?.querySelector(".needed-choice-menu")?.contains(event.target);
   const wordButton = event.target.closest("[data-word]");
   const questionButton = event.target.closest("[data-open-word]");
   const speakButton = event.target.closest("[data-speak]");
@@ -6774,6 +6831,8 @@ document.addEventListener("click", (event) => {
   const topicFlashNextButton = event.target.closest("[data-topic-flash-next]");
   const topicDrillMeaningToggle = event.target.closest("[data-topic-drill-meaning-toggle]");
   const topicStageMeaningToggle = event.target.closest("[data-topic-stage-meaning-toggle]");
+  const neededMenuToggleButton = event.target.closest("[data-needed-menu-toggle]");
+  const neededChoiceMenuToggleButton = event.target.closest("[data-needed-choice-menu-toggle]");
   const neededModeButton = event.target.closest("[data-needed-mode]");
   const neededChoiceModeButton = event.target.closest("[data-needed-choice-mode]");
   const neededAnswerButton = event.target.closest("[data-needed-answer]");
@@ -6835,6 +6894,8 @@ document.addEventListener("click", (event) => {
   if (topicFlashNextButton) nextTopicFlashcard();
   if (topicDrillMeaningToggle) toggleTopicDrillMeaning();
   if (topicStageMeaningToggle) toggleTopicStageMeaning();
+  if (neededMenuToggleButton) toggleNeededNotesMenu();
+  if (neededChoiceMenuToggleButton) toggleNeededNotesChoiceMenu();
   if (neededModeButton) setNeededNotesMode(neededModeButton.dataset.neededMode);
   if (neededChoiceModeButton) setNeededNotesChoiceMode(neededChoiceModeButton.dataset.neededChoiceMode);
   if (neededAnswerButton) answerNeededNotesChoice(neededAnswerButton.dataset.neededAnswer);
@@ -6871,6 +6932,14 @@ document.addEventListener("click", (event) => {
   if (topicChoiceControlsExpanded && !clickedInsideTopicChoiceControls) {
     topicChoiceControlsExpanded = false;
     renderTopicChoice();
+  }
+  if (neededNotesMenuExpanded && !clickedInsideNeededMenu) {
+    neededNotesMenuExpanded = false;
+    renderNeededNotes();
+  }
+  if (neededNotesChoiceMenuExpanded && !clickedInsideNeededChoiceMenu) {
+    neededNotesChoiceMenuExpanded = false;
+    renderNeededNotes();
   }
   if (lessonMenu.open && !lessonMenu.contains(event.target)) lessonMenu.open = false;
 });
