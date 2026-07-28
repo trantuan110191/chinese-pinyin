@@ -8,10 +8,38 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260728d" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20260728d" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260728e" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260728e" />
   </head>
   <body>
+    <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
+      <div class="profile-gate-card">
+        <button class="profile-close" id="profile-close" type="button" aria-label="Đóng chọn người học">×</button>
+        <p class="section-kicker">CHỌN NGƯỜI HỌC</p>
+        <h2 id="profile-gate-title">Bạn đang học bằng hồ sơ nào?</h2>
+        <p>
+          Admin có tiến độ và lịch ôn riêng. Người khác có thể bấm học tự do,
+          không đụng vào phần đã học của admin.
+        </p>
+        <div class="profile-options">
+          <button class="profile-free-button" id="profile-guest" type="button">
+            <strong>Học tự do</strong>
+            <small>Không cần mật khẩu, dùng hồ sơ khách.</small>
+          </button>
+          <form class="profile-admin-form" id="profile-admin-form">
+            <label for="profile-password">
+              <span>ADMIN</span>
+              <input id="profile-password" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Nhập mật khẩu admin" />
+            </label>
+            <button type="submit">Vào admin</button>
+          </form>
+        </div>
+        <p class="profile-note" id="profile-message">
+          Mật khẩu này dùng để tách hồ sơ trên app tĩnh/localStorage, không phải bảo mật server.
+        </p>
+      </div>
+    </section>
+
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Về đầu trang">
         <span class="brand-mark" aria-hidden="true">字</span>
@@ -21,6 +49,10 @@
         </span>
       </a>
       <div class="header-tools">
+        <button class="profile-button" id="profile-button" type="button">
+          <small>Người học</small>
+          <strong id="profile-label">Học tự do</strong>
+        </button>
         <form class="pinyin-lookup" id="pinyin-lookup">
           <label class="sr-only" for="pinyin-lookup-input">Tra từ ngay trong ứng dụng</label>
           <input id="pinyin-lookup-input" type="search" autocomplete="off" placeholder="Tra: ma3, 中国, hàng xóm..." />
@@ -462,6 +494,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20260728d"></script>
+    <script src="app.js?v=clarity-20260728e"></script>
   </body>
 </html>

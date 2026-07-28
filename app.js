@@ -12,6 +12,80 @@ const categories = {
 
 const targetInitials = ["j", "q", "x", "z", "c", "s", "zh", "ch", "sh", "r"];
 
+const learningProfiles = {
+  guest: { id: "guest", label: "Học tự do" },
+  admin: { id: "admin", label: "Admin" },
+};
+const learningProfileStorageKey = "hanziLearningProfile";
+const adminProfilePassword = "110191";
+const profileScopedStorageKeys = new Set([
+  "activeLesson",
+  "topicWorkshopActive",
+  "topicOverviewActive",
+  "topicWorkshopPanel",
+  "topicFilterExpanded",
+  "topicStageMeaningVisible",
+  "topicFlashMode",
+  "topicChoiceDisplayMode",
+  "topicChoicePracticeMode",
+  "topicReviewSelection",
+  "topicKnownWords",
+  "topicMemoryRatings",
+  "topicReviewSchedule",
+  "topicWorkshopProgress",
+]);
+
+function readLearningProfile() {
+  try {
+    const storedProfile = JSON.parse(localStorage.getItem(learningProfileStorageKey) || "null");
+    if (storedProfile?.id && learningProfiles[storedProfile.id]) return learningProfiles[storedProfile.id];
+  } catch {
+    // Fall back to guest below.
+  }
+  return null;
+}
+
+let currentLearningProfile = readLearningProfile() || learningProfiles.guest;
+const shouldShowInitialProfileGate = !readLearningProfile();
+
+function getProfileStorageKey(key, profileId = currentLearningProfile.id) {
+  return profileScopedStorageKeys.has(key) ? `profile:${profileId}:${key}` : key;
+}
+
+function getAppStorage(key) {
+  return localStorage.getItem(getProfileStorageKey(key));
+}
+
+function setAppStorage(key, value) {
+  localStorage.setItem(getProfileStorageKey(key), value);
+}
+
+function removeAppStorage(key) {
+  localStorage.removeItem(getProfileStorageKey(key));
+}
+
+function saveLearningProfile(profileId) {
+  const profile = learningProfiles[profileId] || learningProfiles.guest;
+  localStorage.setItem(learningProfileStorageKey, JSON.stringify(profile));
+}
+
+function migrateLegacyProfileStorage(profileId) {
+  const migratedKey = `profile:${profileId}:legacyMigrated:v1`;
+  if (localStorage.getItem(migratedKey) === "true") return;
+  profileScopedStorageKeys.forEach((key) => {
+    const legacyValue = localStorage.getItem(key);
+    const profileKey = getProfileStorageKey(key, profileId);
+    if (legacyValue !== null && localStorage.getItem(profileKey) === null) {
+      localStorage.setItem(profileKey, legacyValue);
+    }
+  });
+  localStorage.setItem(migratedKey, "true");
+}
+
+if (currentLearningProfile.id === "admin") {
+  migrateLegacyProfileStorage("admin");
+}
+
 const initialTips = {
   z: "Không bật hơi mạnh. Đầu lưỡi chạm nhẹ sau răng trên rồi mở ra, gần âm “dz”.",
   c: "Cùng vị trí với z nhưng bật một luồng hơi rõ. Đặt tay trước miệng để cảm nhận hơi.",
@@ -1368,7 +1442,7 @@ function getActiveTopicOverviewGroup() {
   const activeGroup = overviewGroups.find((group) => group.id === activeTopicOverview) || overviewGroups[0] || null;
   if (activeGroup && activeGroup.id !== activeTopicOverview) {
     activeTopicOverview = activeGroup.id;
-    localStorage.setItem("topicOverviewActive", activeGroup.id);
+    setAppStorage("topicOverviewActive", activeGroup.id);
   }
   return activeGroup;
 }
@@ -1376,7 +1450,7 @@ function getActiveTopicOverviewGroup() {
 function setActiveTopicOverview(topicId) {
   activeTopicOverview = topicId;
   topicOverviewVisibleLimit = 24;
-  localStorage.setItem("topicOverviewActive", topicId);
+  setAppStorage("topicOverviewActive", topicId);
 }
 
 function showMoreTopicOverviewWords() {
@@ -1435,6 +1509,14 @@ const questionGuideGrid = document.querySelector("#question-guide-grid");
 const interrogativeGrid = document.querySelector("#interrogative-grid");
 const lessonMenu = document.querySelector("#lesson-menu");
 const lessonMenuCurrent = document.querySelector("#lesson-menu-current");
+const profileGate = document.querySelector("#profile-gate");
+const profileButton = document.querySelector("#profile-button");
+const profileLabel = document.querySelector("#profile-label");
+const profileClose = document.querySelector("#profile-close");
+const profileGuestButton = document.querySelector("#profile-guest");
+const profileAdminForm = document.querySelector("#profile-admin-form");
+const profilePassword = document.querySelector("#profile-password");
+const profileMessage = document.querySelector("#profile-message");
 const mainContent = document.querySelector("main");
 const heroSection = document.querySelector(".hero");
 const headerLookupForm = document.querySelector("#pinyin-lookup");
@@ -1519,13 +1601,13 @@ let dictationActiveIndex = -1;
 let dictationSegmentStart = 0;
 let dictationSegmentEnd = null;
 let dictationPlayingButton = null;
-let activeTopicWorkshop = localStorage.getItem("topicWorkshopActive") || "family";
-let activeTopicOverview = localStorage.getItem("topicOverviewActive") || "family";
+let activeTopicWorkshop = getAppStorage("topicWorkshopActive") || "family";
+let activeTopicOverview = getAppStorage("topicOverviewActive") || "family";
 let topicReviewSelection = [];
-let activeTopicPanel = localStorage.getItem("topicWorkshopPanel") || "flashcard";
-let topicFilterExpanded = localStorage.getItem("topicFilterExpanded") === "true";
+let activeTopicPanel = getAppStorage("topicWorkshopPanel") || "flashcard";
+let topicFilterExpanded = getAppStorage("topicFilterExpanded") === "true";
 let topicOverviewVisibleLimit = 24;
-let topicStageMeaningVisible = localStorage.getItem("topicStageMeaningVisible") === "true";
+let topicStageMeaningVisible = getAppStorage("topicStageMeaningVisible") === "true";
 let topicListenIndex = 0;
 let topicListenInputValue = "";
 let topicListenChecked = false;
@@ -1533,7 +1615,7 @@ let topicListenReveal = false;
 let topicFlashIndex = 0;
 let topicFlashChecked = false;
 let topicFlashSentenceChecked = false;
-let topicFlashMode = localStorage.getItem("topicFlashMode") || "both";
+let topicFlashMode = getAppStorage("topicFlashMode") || "both";
 let topicFlashMeaningOpen = false;
 let topicFlashRevealLevel = "none";
 let topicChoiceIndex = 0;
@@ -1541,8 +1623,8 @@ let topicChoiceSelected = "";
 let topicChoiceAnsweredHanzi = "";
 let topicChoiceAnswered = false;
 let topicChoiceOptions = [];
-let topicChoiceDisplayMode = localStorage.getItem("topicChoiceDisplayMode") || "pinyin";
-let topicChoicePracticeMode = localStorage.getItem("topicChoicePracticeMode") || "";
+let topicChoiceDisplayMode = getAppStorage("topicChoiceDisplayMode") || "pinyin";
+let topicChoicePracticeMode = getAppStorage("topicChoicePracticeMode") || "";
 let topicChoiceOrder = [];
 let topicChoiceOrderKey = "";
 let topicChoiceBoosts = {};
@@ -1570,26 +1652,26 @@ let learningLibrariesReady = false;
 let learningLibrariesFailed = false;
 
 try {
-  topicReviewSelection = JSON.parse(localStorage.getItem("topicReviewSelection") || "[]") || [];
+  topicReviewSelection = JSON.parse(getAppStorage("topicReviewSelection") || "[]") || [];
   if (!Array.isArray(topicReviewSelection)) topicReviewSelection = [];
 } catch {
   topicReviewSelection = [];
 }
 
 try {
-  topicKnownWords = JSON.parse(localStorage.getItem("topicKnownWords") || "{}") || {};
+  topicKnownWords = JSON.parse(getAppStorage("topicKnownWords") || "{}") || {};
 } catch {
   topicKnownWords = {};
 }
 
 try {
-  topicMemoryRatings = JSON.parse(localStorage.getItem("topicMemoryRatings") || "{}") || {};
+  topicMemoryRatings = JSON.parse(getAppStorage("topicMemoryRatings") || "{}") || {};
 } catch {
   topicMemoryRatings = {};
 }
 
 try {
-  topicReviewSchedule = JSON.parse(localStorage.getItem("topicReviewSchedule") || "{}") || {};
+  topicReviewSchedule = JSON.parse(getAppStorage("topicReviewSchedule") || "{}") || {};
   if (!topicReviewSchedule || Array.isArray(topicReviewSchedule) || typeof topicReviewSchedule !== "object") {
     topicReviewSchedule = {};
   }
@@ -1598,7 +1680,7 @@ try {
 }
 
 try {
-  topicWorkshopProgress = JSON.parse(localStorage.getItem("topicWorkshopProgress") || "{}") || {};
+  topicWorkshopProgress = JSON.parse(getAppStorage("topicWorkshopProgress") || "{}") || {};
   if (!topicWorkshopProgress || Array.isArray(topicWorkshopProgress) || typeof topicWorkshopProgress !== "object") {
     topicWorkshopProgress = {};
   }
@@ -1646,6 +1728,55 @@ const pinyinToneMarkMap = {
 };
 const pinyinMarkedCharacterPattern = /[a-zA-ZüÜvVāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ:]/;
 
+function renderLearningProfileUi() {
+  if (!profileLabel || !profileButton) return;
+  const profile = learningProfiles[currentLearningProfile.id] || learningProfiles.guest;
+  profileLabel.textContent = profile.label;
+  profileButton.classList.toggle("is-admin", profile.id === "admin");
+  document.body.dataset.learningProfile = profile.id;
+  if (profileClose) {
+    profileClose.hidden = !readLearningProfile();
+  }
+}
+
+function setProfileMessage(message, isError = false) {
+  if (!profileMessage) return;
+  profileMessage.textContent = message || "Mật khẩu này dùng để tách hồ sơ trên app tĩnh/localStorage, không phải bảo mật server.";
+  profileMessage.classList.toggle("is-error", Boolean(isError));
+}
+
+function showProfileGate(message = "") {
+  if (!profileGate) return;
+  renderLearningProfileUi();
+  setProfileMessage(message);
+  profileGate.hidden = false;
+  profilePassword.value = "";
+  window.setTimeout(() => {
+    if (currentLearningProfile.id === "admin") profileGuestButton?.focus();
+    else profilePassword?.focus();
+  }, 0);
+}
+
+function hideProfileGate() {
+  if (!profileGate || !readLearningProfile()) return;
+  profileGate.hidden = true;
+  setProfileMessage("");
+}
+
+function switchLearningProfile(profileId, options = {}) {
+  const profile = learningProfiles[profileId] || learningProfiles.guest;
+  const previousProfileId = currentLearningProfile.id;
+  saveLearningProfile(profile.id);
+  if (profile.id === "admin") migrateLegacyProfileStorage("admin");
+  currentLearningProfile = profile;
+  renderLearningProfileUi();
+  if (previousProfileId !== profile.id || options.reload) {
+    window.location.reload();
+    return;
+  }
+  hideProfileGate();
+}
+
 quizAutoAdvance.checked = quizAutoAdvanceEnabled;
 
 function stopLessonAudio() {
@@ -1671,7 +1802,7 @@ function showLesson(id, options = {}) {
     if (isCurrent) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   });
-  localStorage.setItem("activeLesson", targetId);
+  setAppStorage("activeLesson", targetId);
 
   if (options.stopAudio !== false) stopLessonAudio();
   if (options.scroll !== false) {
@@ -1681,7 +1812,7 @@ function showLesson(id, options = {}) {
 
 function initializeLessonView() {
   const hashId = window.location.hash.slice(1);
-  const storedId = localStorage.getItem("activeLesson");
+  const storedId = getAppStorage("activeLesson");
   const initialId = lessonLabels[hashId]
     ? hashId
     : lessonLabels[storedId]
@@ -2876,15 +3007,15 @@ function getTopicReviewSourceOptions() {
 
 function saveTopicReviewSelection() {
   const nextValue = JSON.stringify(topicReviewSelection);
-  if (localStorage.getItem("topicReviewSelection") !== nextValue) {
-    localStorage.setItem("topicReviewSelection", nextValue);
+  if (getAppStorage("topicReviewSelection") !== nextValue) {
+    setAppStorage("topicReviewSelection", nextValue);
   }
 }
 
 function saveTopicFilterExpanded() {
   const nextValue = String(topicFilterExpanded);
-  if (localStorage.getItem("topicFilterExpanded") !== nextValue) {
-    localStorage.setItem("topicFilterExpanded", nextValue);
+  if (getAppStorage("topicFilterExpanded") !== nextValue) {
+    setAppStorage("topicFilterExpanded", nextValue);
   }
 }
 
@@ -3168,7 +3299,7 @@ function renderTopicReviewControls(reviewPool = getTopicReviewPool()) {
 }
 
 function saveTopicKnownWords() {
-  localStorage.setItem("topicKnownWords", JSON.stringify(topicKnownWords));
+  setAppStorage("topicKnownWords", JSON.stringify(topicKnownWords));
 }
 
 function isTopicWordKnown(hanzi) {
@@ -3185,11 +3316,11 @@ function setTopicWordKnown(hanzi, known) {
 }
 
 function saveTopicMemoryRatings() {
-  localStorage.setItem("topicMemoryRatings", JSON.stringify(topicMemoryRatings));
+  setAppStorage("topicMemoryRatings", JSON.stringify(topicMemoryRatings));
 }
 
 function saveTopicWorkshopProgressStore() {
-  localStorage.setItem("topicWorkshopProgress", JSON.stringify(topicWorkshopProgress));
+  setAppStorage("topicWorkshopProgress", JSON.stringify(topicWorkshopProgress));
 }
 
 function clampTopicProgressIndex(value, length) {
@@ -3335,7 +3466,7 @@ const topicReviewIntervals = [
 ];
 
 function saveTopicReviewSchedule() {
-  localStorage.setItem("topicReviewSchedule", JSON.stringify(topicReviewSchedule));
+  setAppStorage("topicReviewSchedule", JSON.stringify(topicReviewSchedule));
 }
 
 function normalizeTopicReviewStage(value) {
@@ -3623,8 +3754,8 @@ function normalizeTopicPanel(panelId) {
 }
 
 function saveTopicPanelPreference() {
-  if (localStorage.getItem("topicWorkshopPanel") !== activeTopicPanel) {
-    localStorage.setItem("topicWorkshopPanel", activeTopicPanel);
+  if (getAppStorage("topicWorkshopPanel") !== activeTopicPanel) {
+    setAppStorage("topicWorkshopPanel", activeTopicPanel);
   }
 }
 
@@ -3665,7 +3796,7 @@ function applyTopicPanelVisibility() {
 
 function setTopicWorkshopActiveTopic(topicId) {
   activeTopicWorkshop = topicId;
-  localStorage.setItem("topicWorkshopActive", topicId);
+  setAppStorage("topicWorkshopActive", topicId);
 }
 
 function resetTopicWorkshopPracticeState() {
@@ -4675,7 +4806,7 @@ function nextTopicFlashcard() {
 function setTopicFlashMode(mode) {
   if (!getTopicFlashModes()[mode]) return;
   topicFlashMode = mode;
-  localStorage.setItem("topicFlashMode", mode);
+  setAppStorage("topicFlashMode", mode);
   topicFlashChecked = false;
   topicFlashSentenceChecked = false;
   topicFlashRevealLevel = "none";
@@ -5071,7 +5202,7 @@ function scheduleTopicChoiceAutoAdvance(expectedHanzi) {
 function setTopicChoiceDisplayMode(mode) {
   if (!["pinyin", "full"].includes(mode)) return;
   topicChoiceDisplayMode = mode;
-  localStorage.setItem("topicChoiceDisplayMode", mode);
+  setAppStorage("topicChoiceDisplayMode", mode);
   renderTopicChoice();
 }
 
@@ -5079,7 +5210,7 @@ function setTopicChoicePracticeMode(mode) {
   const nextMode = normalizeTopicChoicePracticeMode(mode);
   if (!nextMode) return;
   topicChoicePracticeMode = nextMode;
-  localStorage.setItem("topicChoicePracticeMode", nextMode);
+  setAppStorage("topicChoicePracticeMode", nextMode);
   topicChoiceSelected = "";
   topicChoiceAnsweredHanzi = "";
   topicChoiceAnswered = false;
@@ -5158,7 +5289,7 @@ function toggleTopicDrillMeaning() {
 
 function toggleTopicStageMeaning() {
   topicStageMeaningVisible = !topicStageMeaningVisible;
-  localStorage.setItem("topicStageMeaningVisible", String(topicStageMeaningVisible));
+  setAppStorage("topicStageMeaningVisible", String(topicStageMeaningVisible));
   renderTopicWorkshop();
 }
 
@@ -6022,6 +6153,28 @@ initialFilter.addEventListener("click", (event) => {
 
 listenGroupButton.addEventListener("click", speakInitialGroup);
 
+profileButton?.addEventListener("click", () => {
+  showProfileGate();
+});
+
+profileClose?.addEventListener("click", () => {
+  hideProfileGate();
+});
+
+profileGuestButton?.addEventListener("click", () => {
+  switchLearningProfile("guest");
+});
+
+profileAdminForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if ((profilePassword?.value || "").trim() !== adminProfilePassword) {
+    setProfileMessage("Mật khẩu admin chưa đúng.", true);
+    profilePassword?.select();
+    return;
+  }
+  switchLearningProfile("admin");
+});
+
 document.addEventListener("click", (event) => {
   const clickedInsideTopicFilter = topicFilter?.contains(event.target);
   const wordButton = event.target.closest("[data-word]");
@@ -6184,6 +6337,7 @@ dialog.addEventListener("click", (event) => {
 });
 
 document.querySelector("#total-count").textContent = "988";
+renderLearningProfileUi();
 loadLearningLibraries().catch((error) => {
   learningLibrariesReady = false;
   learningLibrariesFailed = true;
@@ -6202,3 +6356,6 @@ renderPinyinToneFilter();
 renderPinyinInitialShortcuts();
 renderTopicWorkshop();
 initializeLessonView();
+if (shouldShowInitialProfileGate) {
+  showProfileGate("Chọn Admin hoặc Học tự do để bắt đầu. Admin cần mật khẩu.");
+}
