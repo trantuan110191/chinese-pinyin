@@ -241,6 +241,23 @@ a {
   border-top: 1px solid rgba(41, 77, 102, 0.14);
 }
 
+.profile-sync-manual {
+  display: grid;
+  gap: 10px;
+}
+
+.profile-sync-manual summary {
+  width: fit-content;
+  color: var(--blue);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.profile-sync-manual[open] {
+  padding-top: 4px;
+}
+
 .profile-sync-actions {
   display: flex;
   flex-wrap: wrap;

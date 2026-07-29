@@ -8,8 +8,8 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260729e" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20260729e" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260729f" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260729f" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -36,29 +36,32 @@
         </div>
         <section class="profile-sync" id="profile-sync" hidden aria-label="Đồng bộ, sao lưu và khôi phục tiến độ Admin">
           <div class="profile-sync-head">
-            <strong>Cloud sync Admin</strong>
-            <small id="profile-cloud-status">Đăng nhập Admin để app tự kéo và đẩy tiến độ giữa các máy.</small>
+            <strong>Cloud sync Admin tự động</strong>
+            <small id="profile-cloud-status">Admin mở app là tự kéo cloud, học xong là tự đẩy lên cloud.</small>
           </div>
-          <div class="profile-sync-actions">
-            <button id="profile-cloud-pull" type="button">Kéo từ cloud</button>
-            <button id="profile-cloud-push" type="button">Đẩy lên cloud</button>
-          </div>
-          <div class="profile-sync-head profile-sync-head-manual">
-            <strong>Sao lưu thủ công</strong>
-            <small>Dùng mã này như đường lui khi mạng hoặc cloud tạm lỗi.</small>
-          </div>
-          <div class="profile-sync-actions">
-            <button id="profile-export-progress" type="button">Tạo mã sao lưu</button>
-            <button id="profile-copy-progress" type="button">Copy mã</button>
-            <button id="profile-import-progress" type="button">Nhập mã vào máy này</button>
-          </div>
-          <label class="profile-sync-code" for="profile-sync-code">
-            <span>MÃ TIẾN ĐỘ</span>
-            <textarea id="profile-sync-code" rows="4" spellcheck="false" placeholder="Dán mã tiến độ Admin ở đây, hoặc bấm Tạo mã sao lưu để copy sang máy khác."></textarea>
-          </label>
+          <details class="profile-sync-manual">
+            <summary>Thao tác dự phòng</summary>
+            <div class="profile-sync-actions">
+              <button id="profile-cloud-pull" type="button">Kéo từ cloud</button>
+              <button id="profile-cloud-push" type="button">Đẩy lên cloud</button>
+            </div>
+            <div class="profile-sync-head profile-sync-head-manual">
+              <strong>Sao lưu thủ công</strong>
+              <small>Dùng mã này như đường lui khi mạng hoặc cloud tạm lỗi.</small>
+            </div>
+            <div class="profile-sync-actions">
+              <button id="profile-export-progress" type="button">Tạo mã sao lưu</button>
+              <button id="profile-copy-progress" type="button">Copy mã</button>
+              <button id="profile-import-progress" type="button">Nhập mã vào máy này</button>
+            </div>
+            <label class="profile-sync-code" for="profile-sync-code">
+              <span>MÃ TIẾN ĐỘ</span>
+              <textarea id="profile-sync-code" rows="4" spellcheck="false" placeholder="Dán mã tiến độ Admin ở đây, hoặc bấm Tạo mã sao lưu để copy sang máy khác."></textarea>
+            </label>
+          </details>
         </section>
         <p class="profile-note" id="profile-message">
-          Cloud sync sẽ tự lưu tiến độ Admin khi bạn học. Mã sao lưu chỉ dùng khi cần.
+          Admin được tự động đồng bộ cloud. Người học tự do chỉ lưu trên máy đang dùng.
         </p>
       </div>
     </section>
@@ -523,6 +526,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20260729e"></script>
+    <script src="app.js?v=clarity-20260729f"></script>
   </body>
 </html>
