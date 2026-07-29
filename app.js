@@ -5630,42 +5630,6 @@ function getNeededNotesProgressLabel(words) {
   return `${learned}/${total} học`;
 }
 
-function renderNeededNotesVolumeMeter(percent) {
-  const thresholds = [1, 25, 50, 75, 100];
-  return `
-    <span class="needed-volume-meter" aria-hidden="true">
-      ${thresholds.map((threshold) => `<i class="${percent >= threshold ? "is-on" : ""}"></i>`).join("")}
-    </span>
-  `;
-}
-
-function renderNeededNotesProgressGroup(title, rows, filterType) {
-  if (!rows.length) return "";
-  const rowMarkup = rows.map(({ value, label, words }) => {
-    const stats = getNeededNotesProgressStats(words);
-    const active = filterType === "date" ? neededNotesDate === value : neededNotesTopic === value;
-    return `
-      <button class="needed-filter-progress-row ${active ? "active" : ""}" data-needed-filter-pick="${escapeHtml(filterType)}" data-needed-filter-value="${escapeHtml(value)}" type="button">
-        <span>
-          <strong>${escapeHtml(label)}</strong>
-          <small>đã học ${stats.learned}/${stats.total} · còn ${stats.remaining}</small>
-        </span>
-        ${renderNeededNotesVolumeMeter(stats.percent)}
-      </button>
-    `;
-  }).join("");
-
-  return `
-    <div class="needed-filter-progress-group">
-      <div class="needed-filter-progress-head">
-        <strong>${escapeHtml(title)}</strong>
-        <small>Bấm một dòng để chọn nhanh</small>
-      </div>
-      <div class="needed-filter-progress-list">${rowMarkup}</div>
-    </div>
-  `;
-}
-
 function saveNeededNotesKnownWords() {
   setAppStorage("neededNotesKnownWords", JSON.stringify(neededNotesKnownWords));
 }
@@ -5858,16 +5822,7 @@ function renderNeededNotesFilterPanel(total) {
       return `<option value="${escapeHtml(topic)}" ${neededNotesTopic === topic ? "selected" : ""}>${escapeHtml(topic)} · ${escapeHtml(getNeededNotesProgressLabel(words))}</option>`;
     }),
   ].join("");
-  const dateProgressRows = getNeededNotesDates().map((date) => ({
-    value: date,
-    label: date,
-    words: getNeededNotesWordsForFilter({ month: neededNotesMonth, date }),
-  }));
-  const topicProgressRows = getNeededNotesTopics().map((topic) => ({
-    value: topic,
-    label: topic,
-    words: getNeededNotesWordsForFilter({ month: neededNotesMonth, date: neededNotesDate, topic }),
-  }));
+  const selectedStats = getNeededNotesProgressStats(getNeededNotesFilteredWords());
 
   return `
     <div class="needed-source-filter ${neededNotesFilterExpanded ? "is-open" : "is-collapsed"}">
@@ -5890,9 +5845,9 @@ function renderNeededNotesFilterPanel(total) {
           <select data-needed-filter="topic">${topicOptions}</select>
         </label>
         <button data-needed-filter-reset type="button">Tất cả</button>
-        <div class="needed-filter-progress">
-          ${renderNeededNotesProgressGroup("Tiến độ theo ngày", dateProgressRows, "date")}
-          ${renderNeededNotesProgressGroup("Tiến độ theo chủ đề", topicProgressRows, "topic")}
+        <div class="needed-filter-mini-progress">
+          <span>Đang chọn: đã học ${selectedStats.learned}/${selectedStats.total} · còn ${selectedStats.remaining}</span>
+          <i aria-hidden="true"><b style="width: ${selectedStats.percent}%"></b></i>
         </div>
       </div>
     </div>
@@ -7254,7 +7209,6 @@ document.addEventListener("click", (event) => {
   const neededChoiceMenuToggleButton = event.target.closest("[data-needed-choice-menu-toggle]");
   const neededFilterToggleButton = event.target.closest("[data-needed-filter-toggle]");
   const neededFilterResetButton = event.target.closest("[data-needed-filter-reset]");
-  const neededFilterPickButton = event.target.closest("[data-needed-filter-pick]");
   const neededModeButton = event.target.closest("[data-needed-mode]");
   const neededChoiceModeButton = event.target.closest("[data-needed-choice-mode]");
   const neededAnswerButton = event.target.closest("[data-needed-answer]");
@@ -7320,12 +7274,6 @@ document.addEventListener("click", (event) => {
   if (neededChoiceMenuToggleButton) toggleNeededNotesChoiceMenu();
   if (neededFilterToggleButton) toggleNeededNotesFilter();
   if (neededFilterResetButton) resetNeededNotesFilters();
-  if (neededFilterPickButton) {
-    setNeededNotesFilter(
-      neededFilterPickButton.dataset.neededFilterPick,
-      neededFilterPickButton.dataset.neededFilterValue
-    );
-  }
   if (neededModeButton) setNeededNotesMode(neededModeButton.dataset.neededMode);
   if (neededChoiceModeButton) setNeededNotesChoiceMode(neededChoiceModeButton.dataset.neededChoiceMode);
   if (neededAnswerButton) answerNeededNotesChoice(neededAnswerButton.dataset.neededAnswer);
