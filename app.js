@@ -2699,9 +2699,9 @@ function renderComponentContrastCard(item) {
   `;
 }
 
-function renderComponentContrastInlineItem(item) {
+function renderComponentContrastListItem(item) {
   return `
-    <button class="component-inline-hanzi" data-component-hanzi="${escapeHtml(item.hanzi)}" type="button" aria-label="Mở chi tiết chữ ${escapeHtml(item.hanzi)}">
+    <button class="component-list-hanzi" data-component-hanzi="${escapeHtml(item.hanzi)}" type="button" aria-label="Mở chi tiết chữ ${escapeHtml(item.hanzi)}">
       <span lang="zh-Hans">${escapeHtml(item.hanzi)}</span>
     </button>
   `;
@@ -2726,15 +2726,12 @@ function renderComponentContrast() {
       <details class="component-cluster">
         <summary>
           <span class="component-cluster-mark" lang="zh-Hans">${escapeHtml(group.mark)}</span>
-          <span class="component-cluster-titleline">
-            <strong>${escapeHtml(group.title)}</strong>
-            <span class="component-inline-list" aria-label="Các chữ cùng bộ">
-              <span class="component-inline-colon">:</span>
-              ${group.visibleItems.map(renderComponentContrastInlineItem).join("")}
-            </span>
-          </span>
+          <strong>${escapeHtml(group.title)}</strong>
           <small>${escapeHtml(group.visibleItems.length)} chữ · ${escapeHtml(getComponentLevelSummary(group.visibleItems))}</small>
         </summary>
+        <div class="component-character-list" aria-label="Các chữ cùng bộ ${escapeHtml(group.title)}">
+          ${group.visibleItems.map(renderComponentContrastListItem).join("")}
+        </div>
       </details>
     `).join("")
     : `<p class="hsk-source-note">Chưa có nhóm nào đủ từ ở cấp HSK đang chọn. Thử chọn HSK 1-3 hoặc Tất cả.</p>`;
@@ -2770,25 +2767,23 @@ function openComponentContrastItem(hanzi) {
 
   const { group, item } = match;
   dialogContent.innerHTML = `
-    <div class="dialog-hero hsk-quick-dialog-hero">
-      <div class="dialog-character hsk-quick-dialog-character" lang="zh-Hans">${escapeHtml(item.hanzi)}</div>
-      <div class="dialog-intro">
-        <p class="dialog-topic">${escapeHtml(getHskLevelLabel(item.level))} · ${escapeHtml(group.title)}</p>
-        <h2>${escapeHtml(item.meaning || "Chữ dễ nhầm")}</h2>
-        <p class="dialog-pinyin">${escapeHtml(item.pinyin || "")}</p>
+    <div class="component-detail-dialog">
+      <div class="component-detail-hero">
+        <span class="component-detail-group">${escapeHtml(getHskLevelLabel(item.level))} · ${escapeHtml(group.title)}</span>
+        <strong lang="zh-Hans">${escapeHtml(item.hanzi)}</strong>
+        <small>${escapeHtml(item.meaning || "Chữ dễ nhầm")}</small>
       </div>
-    </div>
-    <div class="dialog-body">
-      <section class="detail-section full-width">
-        <p class="detail-label detail-label-accent">Cấu tạo</p>
-        <h3>${escapeHtml(item.hanzi)}</h3>
-        <p>${escapeHtml(item.structure || "Tài liệu chưa ghi rõ cấu tạo cho chữ này.")}</p>
-      </section>
-      <section class="detail-section full-width mnemonic-box">
-        <p class="detail-label detail-label-accent">Mẹo nhớ</p>
-        <h3>${escapeHtml(item.compareTip || group.focus || group.title)}</h3>
-        <p>${escapeHtml(item.memory || group.hint || "")}</p>
-      </section>
+      <div class="component-detail-content">
+        <section>
+          <p class="detail-label detail-label-accent">Cấu tạo</p>
+          <p>${escapeHtml(item.structure || "Tài liệu chưa ghi rõ cấu tạo cho chữ này.")}</p>
+        </section>
+        <section>
+          <p class="detail-label detail-label-accent">Mẹo nhớ</p>
+          <h3>${escapeHtml(item.compareTip || group.focus || group.title)}</h3>
+          <p>${escapeHtml(item.memory || group.hint || "")}</p>
+        </section>
+      </div>
     </div>
   `;
 

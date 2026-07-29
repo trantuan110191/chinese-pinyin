@@ -5508,13 +5508,6 @@ main.single-lesson-view > section:not([hidden]) {
   line-height: 1.25;
 }
 
-.component-cluster-titleline {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  gap: 8px;
-}
-
 .component-cluster summary small {
   grid-column: 2 / 4;
   color: var(--muted);
@@ -5525,44 +5518,32 @@ main.single-lesson-view > section:not([hidden]) {
   display: none;
 }
 
-.component-inline-list {
-  display: none;
-  min-width: 0;
-  align-items: center;
-  gap: 5px;
-  overflow-x: auto;
-  padding: 3px 2px;
-  white-space: nowrap;
-  scrollbar-width: thin;
+.component-character-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  padding: 10px 14px 14px;
+  background: #f8f3e9;
+  border-top: 1px solid var(--line);
 }
 
-.component-cluster[open] .component-inline-list {
-  display: flex;
-}
-
-.component-inline-colon {
-  color: var(--muted);
-  font-weight: 900;
-}
-
-.component-inline-hanzi {
-  display: inline-grid;
+.component-list-hanzi {
+  display: grid;
+  width: 100%;
+  min-height: 48px;
   place-items: center;
-  min-width: 36px;
-  height: 36px;
-  padding: 0 8px;
   color: var(--ink);
   background: #fffdf8;
   border: 1px solid rgba(41, 77, 102, 0.16);
   border-radius: 8px;
   font-family: var(--cjk);
-  font-size: 25px;
+  font-size: 34px;
   line-height: 1;
   cursor: pointer;
 }
 
-.component-inline-hanzi:hover,
-.component-inline-hanzi:focus-visible {
+.component-list-hanzi:hover,
+.component-list-hanzi:focus-visible {
   color: #fffdf8;
   background: var(--blue);
   border-color: var(--blue);
@@ -6840,6 +6821,76 @@ footer p {
   gap: 0;
 }
 
+.component-detail-dialog {
+  clear: both;
+  display: grid;
+  grid-template-columns: minmax(250px, 0.7fr) minmax(0, 1.3fr);
+  min-height: min(560px, calc(100vh - 96px));
+}
+
+.component-detail-hero {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  padding: 44px 38px;
+  color: #fff7ea;
+  background: var(--red);
+  border-right: 1px solid var(--line);
+}
+
+.component-detail-group {
+  color: rgba(255, 247, 234, 0.78);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.component-detail-hero strong {
+  font-family: var(--hanzi);
+  font-size: clamp(118px, 14vw, 172px);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.component-detail-hero small {
+  color: #fff7ea;
+  font-family: var(--serif);
+  font-size: clamp(25px, 3vw, 38px);
+  line-height: 1.15;
+}
+
+.component-detail-content {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  padding: 34px 44px 42px;
+}
+
+.component-detail-content section {
+  padding: 0 0 28px;
+}
+
+.component-detail-content section + section {
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.component-detail-content h3 {
+  margin: 0 0 12px;
+  color: var(--green);
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.component-detail-content p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
 .detail-section {
   padding: 35px 42px;
   border-bottom: 1px solid var(--line);
@@ -7477,6 +7528,15 @@ footer p {
     right: 14px;
   }
 
+  .component-character-list {
+    padding: 8px 10px 12px;
+  }
+
+  .component-list-hanzi {
+    min-height: 44px;
+    font-size: 31px;
+  }
+
   .quiz-stage {
     min-height: 500px;
     padding: 42px 24px;
@@ -7673,6 +7733,22 @@ footer p {
   .dialog-hero,
   .dialog-body {
     grid-template-columns: 1fr;
+  }
+
+  .component-detail-dialog {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .component-detail-hero {
+    min-height: 230px;
+    padding: 34px 26px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .component-detail-content {
+    padding: 30px 26px;
   }
 
   .dialog-character {
