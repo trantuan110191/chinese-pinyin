@@ -2694,9 +2694,6 @@ function getComponentContrastGroups() {
 function renderComponentContrastCard(item) {
   return `
     <article class="component-compare-card">
-      <div class="component-card-top">
-        <span class="hsk-word-level">${escapeHtml(getComponentLevelLabel(item.level))}</span>
-      </div>
       <span class="compare-hanzi" lang="zh-Hans">${escapeHtml(item.hanzi)}</span>
     </article>
   `;

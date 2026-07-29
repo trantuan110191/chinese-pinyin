@@ -5530,10 +5530,9 @@ main.single-lesson-view > section:not([hidden]) {
 
 .component-compare-card {
   display: grid;
-  gap: 5px;
-  align-content: start;
-  min-height: 112px;
+  min-height: 96px;
   padding: 10px;
+  place-items: center;
   background: #f8f3e9;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -5545,16 +5544,12 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .component-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  min-height: 24px;
+  display: none;
 }
 
 .compare-hanzi {
   font-family: var(--cjk);
-  font-size: clamp(54px, 5vw, 82px);
+  font-size: clamp(44px, 4.2vw, 66px);
   line-height: 1;
   text-align: center;
 }
