@@ -5523,17 +5523,17 @@ main.single-lesson-view > section:not([hidden]) {
 
 .component-compare-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 12px;
-  padding: 0 20px 20px;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 8px;
+  padding: 0 16px 16px;
 }
 
 .component-compare-card {
   display: grid;
-  gap: 8px;
+  gap: 5px;
   align-content: start;
-  min-height: 250px;
-  padding: 18px;
+  min-height: 138px;
+  padding: 10px;
   background: #f8f3e9;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -5549,13 +5549,13 @@ main.single-lesson-view > section:not([hidden]) {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  min-height: 34px;
+  min-height: 24px;
 }
 
 .component-card-audio {
   display: grid;
-  width: 32px;
-  height: 32px;
+  width: 25px;
+  height: 25px;
   place-items: center;
   color: var(--red);
   background: #fffdf8;
@@ -5573,14 +5573,16 @@ main.single-lesson-view > section:not([hidden]) {
 
 .compare-hanzi {
   font-family: var(--cjk);
-  font-size: clamp(76px, 8vw, 122px);
-  line-height: 0.95;
+  font-size: clamp(48px, 5vw, 74px);
+  line-height: 1;
+  text-align: center;
 }
 
 .component-compare-card b {
   color: var(--red);
-  font-size: 21px;
+  font-size: 14px;
   line-height: 1.35;
+  text-align: center;
 }
 
 .component-compare-card p,

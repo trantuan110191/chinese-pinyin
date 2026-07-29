@@ -2692,12 +2692,6 @@ function getComponentContrastGroups() {
 }
 
 function renderComponentContrastCard(item) {
-  const memoryMarkup = item.memory
-    ? `<small><strong>Mẹo nhớ:</strong> ${escapeHtml(shortenText(item.memory, 150))}</small>`
-    : "";
-  const originMarkup = item.origin
-    ? `<small><strong>Nguồn gốc:</strong> ${escapeHtml(shortenText(item.origin, 150))}</small>`
-    : "";
   const audioMarkup = item.audio
     ? `
       <button class="component-card-audio" data-hsk-audio="${escapeHtml(item.audio)}"
@@ -2713,10 +2707,7 @@ function renderComponentContrastCard(item) {
         ${audioMarkup}
       </div>
       <span class="compare-hanzi" lang="zh-Hans">${escapeHtml(item.hanzi)}</span>
-      <b>${escapeHtml(item.pinyin)} · ${escapeHtml(item.meaning)}</b>
-      <p><strong>Cấu tạo:</strong> ${escapeHtml(shortenText(item.structure, 210))}</p>
-      <p>${escapeHtml(item.compareTip || "So mảnh chung với phần còn lại để tách nghĩa.")}</p>
-      ${memoryMarkup || originMarkup}
+      <b>${escapeHtml(item.pinyin)}</b>
     </article>
   `;
 }
