@@ -2728,10 +2728,10 @@ function renderComponentContrast() {
           <span class="component-cluster-mark" lang="zh-Hans">${escapeHtml(group.mark)}</span>
           <strong>${escapeHtml(group.title)}</strong>
           <small>${escapeHtml(group.visibleItems.length)} chữ · ${escapeHtml(getComponentLevelSummary(group.visibleItems))}</small>
+          <span class="component-character-list" aria-label="Các chữ cùng bộ ${escapeHtml(group.title)}">
+            ${group.visibleItems.map(renderComponentContrastListItem).join("")}
+          </span>
         </summary>
-        <div class="component-character-list" aria-label="Các chữ cùng bộ ${escapeHtml(group.title)}">
-          ${group.visibleItems.map(renderComponentContrastListItem).join("")}
-        </div>
       </details>
     `).join("")
     : `<p class="hsk-source-note">Chưa có nhóm nào đủ từ ở cấp HSK đang chọn. Thử chọn HSK 1-3 hoặc Tất cả.</p>`;

@@ -5385,8 +5385,8 @@ main.single-lesson-view > section:not([hidden]) {
 
 .component-cluster-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 7px;
   align-items: start;
 }
 
@@ -5451,17 +5451,13 @@ main.single-lesson-view > section:not([hidden]) {
   border-radius: 10px;
 }
 
-.component-cluster[open] {
-  grid-column: 1 / -1;
-}
-
 .component-cluster summary {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 4px 12px;
+  grid-template-columns: auto minmax(170px, 270px) minmax(0, 1fr) auto;
+  gap: 3px 14px;
   align-items: center;
-  min-height: 102px;
-  padding: 14px 16px;
+  min-height: 74px;
+  padding: 10px 16px;
   cursor: pointer;
   list-style: none;
 }
@@ -5471,11 +5467,11 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .component-cluster summary::after {
-  grid-column: 3;
+  grid-column: 4;
   grid-row: 1;
   justify-self: end;
   align-self: start;
-  margin-top: 2px;
+  margin-top: 8px;
   color: var(--blue);
   font-weight: 900;
   content: "›";
@@ -5486,16 +5482,16 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .component-cluster[open] summary {
-  min-height: 76px;
+  min-height: 74px;
   background: #f8f3e9;
 }
 
 .component-cluster-mark {
   grid-row: span 2;
-  min-width: 54px;
+  min-width: 48px;
   color: var(--ink);
   font-family: var(--cjk);
-  font-size: 52px;
+  font-size: 44px;
   line-height: 1;
   text-align: center;
 }
@@ -5509,7 +5505,7 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .component-cluster summary small {
-  grid-column: 2 / 4;
+  grid-column: 2;
   color: var(--muted);
   font-size: 13px;
 }
@@ -5519,25 +5515,35 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .component-character-list {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: none;
+  grid-column: 3;
+  grid-row: 1 / 3;
+  min-width: 0;
+  align-items: center;
   gap: 6px;
-  padding: 10px 14px 14px;
-  background: #f8f3e9;
-  border-top: 1px solid var(--line);
+  overflow-x: auto;
+  padding: 4px 2px;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
+.component-cluster[open] .component-character-list {
+  display: flex;
 }
 
 .component-list-hanzi {
-  display: grid;
-  width: 100%;
-  min-height: 48px;
+  display: inline-grid;
+  flex: 0 0 auto;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 10px;
   place-items: center;
   color: var(--ink);
   background: #fffdf8;
   border: 1px solid rgba(41, 77, 102, 0.16);
   border-radius: 8px;
   font-family: var(--cjk);
-  font-size: 34px;
+  font-size: 30px;
   line-height: 1;
   cursor: pointer;
 }
@@ -7476,30 +7482,30 @@ footer p {
   }
 
   .component-cluster-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 
   .component-cluster summary {
     position: relative;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    min-height: 116px;
-    padding: 12px 10px;
-    text-align: center;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    justify-items: start;
+    min-height: 68px;
+    padding: 10px 12px;
+    text-align: left;
   }
 
   .component-cluster summary::after {
-    position: absolute;
-    top: 7px;
-    right: 10px;
-    grid-column: auto;
+    position: static;
+    grid-column: 3;
+    grid-row: 1;
     margin-top: 0;
   }
 
   .component-cluster-mark {
+    grid-row: span 2;
     min-width: 0;
-    font-size: 42px;
+    font-size: 38px;
     text-align: center;
   }
 
@@ -7508,15 +7514,12 @@ footer p {
   }
 
   .component-cluster summary small {
-    grid-column: 1;
+    grid-column: 2;
     font-size: 11px;
   }
 
   .component-cluster[open] summary {
-    grid-template-columns: auto minmax(0, 1fr);
-    justify-items: start;
-    min-height: 74px;
-    text-align: left;
+    min-height: 68px;
   }
 
   .component-cluster[open] summary small {
@@ -7524,17 +7527,20 @@ footer p {
   }
 
   .component-cluster[open] summary::after {
-    top: 12px;
-    right: 14px;
+    grid-column: 3;
   }
 
   .component-character-list {
-    padding: 8px 10px 12px;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    width: 100%;
+    padding: 6px 0 0;
   }
 
   .component-list-hanzi {
-    min-height: 44px;
-    font-size: 31px;
+    min-width: 39px;
+    height: 39px;
+    font-size: 28px;
   }
 
   .quiz-stage {
