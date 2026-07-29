@@ -393,7 +393,9 @@ function bootstrapAdminCloudSync() {
   if (profileCloudSyncBootstrapped || !isAdminProfile()) return;
   profileCloudSyncBootstrapped = true;
   if (!getAdminCloudToken()) {
-    setProfileCloudStatus("Nhập lại mật khẩu Admin một lần để bật cloud sync trên máy này.", true);
+    const message = "Nhập mật khẩu Admin một lần để bật cloud sync trên máy này.";
+    setProfileCloudStatus(message, true);
+    window.setTimeout(() => showProfileGate(message), 250);
     return;
   }
   pullAdminProgressFromCloud({ auto: true });
