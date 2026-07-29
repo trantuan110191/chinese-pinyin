@@ -17,7 +17,11 @@ const learningProfiles = {
   admin: { id: "admin", label: "Admin" },
 };
 const learningProfileStorageKey = "hanziLearningProfile";
-const adminProfilePassword = "110191";
+const adminProfilePasswordHash = "42300028619154ebc2b40ace6c0d8675ae824a7fc8fff0dd83993eea0b49179f";
+const adminCloudTokenStorageKey = "hanziAdminCloudSyncToken";
+const profileCloudSyncBaseUrl = "https://hanzi-admin-sync.pages.dev";
+const profileCloudSyncEndpoint = `${profileCloudSyncBaseUrl}/api/progress`;
+const profileCloudSessionEndpoint = `${profileCloudSyncBaseUrl}/api/session`;
 const profileScopedStorageKeys = new Set([
   "activeLesson",
   "topicWorkshopActive",
@@ -42,6 +46,19 @@ const profileScopedStorageKeys = new Set([
   "neededNotesDate",
   "neededNotesTopic",
 ]);
+const profileMergeStorageKeys = new Set([
+  "topicKnownWords",
+  "topicMemoryRatings",
+  "topicReviewSchedule",
+  "topicWorkshopProgress",
+  "neededNotesKnownWords",
+  "neededNotesMemoryRatings",
+]);
+let profileCloudSyncTimer = null;
+let profileCloudSyncInFlight = false;
+let profileCloudSyncPending = false;
+let profileCloudSyncSuppressed = false;
+let profileCloudSyncBootstrapped = false;
 
 function readLearningProfile() {
   try {
@@ -66,10 +83,12 @@ function getAppStorage(key) {
 
 function setAppStorage(key, value) {
   localStorage.setItem(getProfileStorageKey(key), value);
+  scheduleAdminCloudSync(`set:${key}`, key);
 }
 
 function removeAppStorage(key) {
   localStorage.removeItem(getProfileStorageKey(key));
+  scheduleAdminCloudSync(`remove:${key}`, key);
 }
 
 function encodeProgressPayload(payload) {
@@ -112,17 +131,272 @@ function exportAdminProgressCode() {
 
 function importAdminProgressCode(code) {
   const payload = decodeProgressPayload(code);
+  applyAdminProgressPayload(payload, { merge: false });
+}
+
+function parseProgressObject(rawValue) {
+  if (typeof rawValue !== "string" || !rawValue.trim()) return null;
+  try {
+    const parsed = JSON.parse(rawValue);
+    if (!parsed || Array.isArray(parsed) || typeof parsed !== "object") return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+function mergeProfileStorageValue(key, localValue, cloudValue) {
+  if (!profileMergeStorageKeys.has(key)) return cloudValue;
+  const localObject = parseProgressObject(localValue);
+  const cloudObject = parseProgressObject(cloudValue);
+  if (!localObject && !cloudObject) return localValue || cloudValue;
+  if (!localObject) return cloudValue;
+  if (!cloudObject) return localValue;
+  return JSON.stringify({ ...cloudObject, ...localObject });
+}
+
+function applyAdminProgressPayload(payload, options = {}) {
   if (payload?.kind !== "admin-progress" || !payload.data || typeof payload.data !== "object") {
     throw new Error("invalid");
   }
-  profileScopedStorageKeys.forEach((key) => {
-    if (typeof payload.data[key] === "string") {
-      localStorage.setItem(getProfileStorageKey(key, "admin"), payload.data[key]);
-    } else if (payload.data[key] === null) {
-      localStorage.removeItem(getProfileStorageKey(key, "admin"));
-    }
-  });
+  const { merge = false } = options;
+  let changed = false;
+  profileCloudSyncSuppressed = true;
+  try {
+    profileScopedStorageKeys.forEach((key) => {
+      const profileKey = getProfileStorageKey(key, "admin");
+      const currentValue = localStorage.getItem(profileKey);
+      const incomingValue = payload.data[key];
+      let nextValue = currentValue;
+
+      if (typeof incomingValue === "string") {
+        nextValue = merge ? mergeProfileStorageValue(key, currentValue, incomingValue) : incomingValue;
+      } else if (!merge && incomingValue === null) {
+        nextValue = null;
+      } else if (merge && currentValue === null && incomingValue === null) {
+        nextValue = null;
+      }
+
+      if (typeof nextValue === "string") {
+        if (currentValue !== nextValue) {
+          localStorage.setItem(profileKey, nextValue);
+          changed = true;
+        }
+      } else if (nextValue === null && currentValue !== null) {
+        localStorage.removeItem(profileKey);
+        changed = true;
+      }
+    });
+  } finally {
+    profileCloudSyncSuppressed = false;
+  }
   saveLearningProfile("admin");
+  return changed;
+}
+
+function hasLocalAdminProgress() {
+  return Array.from(profileScopedStorageKeys).some((key) => {
+    const value = localStorage.getItem(getProfileStorageKey(key, "admin"));
+    return value !== null && value !== "" && value !== "{}";
+  });
+}
+
+function hasProgressPayloadData(data) {
+  if (!data || typeof data !== "object") return false;
+  return Array.from(profileScopedStorageKeys).some((key) => {
+    const value = data[key];
+    return value !== null && typeof value !== "undefined" && value !== "" && value !== "{}";
+  });
+}
+
+async function hashTextSha256(text) {
+  const bytes = new TextEncoder().encode(text);
+  const digest = await window.crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+async function isAdminPasswordValid(password) {
+  if (!window.crypto?.subtle) return false;
+  return await hashTextSha256(password) === adminProfilePasswordHash;
+}
+
+function getAdminCloudToken() {
+  return localStorage.getItem(adminCloudTokenStorageKey) || "";
+}
+
+function setAdminCloudToken(token) {
+  if (typeof token === "string" && token.trim()) {
+    localStorage.setItem(adminCloudTokenStorageKey, token.trim());
+  }
+}
+
+function formatCloudSyncTime(isoDate) {
+  const date = isoDate ? new Date(isoDate) : new Date();
+  if (Number.isNaN(date.getTime())) return "vừa xong";
+  return date.toLocaleString("vi-VN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    day: "2-digit",
+    month: "2-digit",
+  });
+}
+
+function setProfileCloudStatus(message, isError = false) {
+  if (!profileCloudStatus) return;
+  profileCloudStatus.textContent = message || "Cloud sync sẵn sàng cho Admin.";
+  profileCloudStatus.classList.toggle("is-error", Boolean(isError));
+}
+
+async function requestAdminCloudSession(password) {
+  const response = await fetch(profileCloudSessionEndpoint, {
+    method: "POST",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ password }),
+  });
+  const text = await response.text();
+  let body = {};
+  try {
+    body = text ? JSON.parse(text) : {};
+  } catch {
+    body = { error: text };
+  }
+  if (!response.ok || typeof body.token !== "string") {
+    throw new Error(body.error || `Cloud session lỗi ${response.status}`);
+  }
+  setAdminCloudToken(body.token);
+  setProfileCloudStatus("Đã bật cloud sync cho máy này.");
+  return body.token;
+}
+
+async function requestAdminCloudSync(method, payload = null) {
+  const token = getAdminCloudToken();
+  if (!token) {
+    throw new Error("missing-cloud-token");
+  }
+  const headers = {
+    "Accept": "application/json",
+    "X-Admin-Sync-Token": token,
+  };
+  const requestOptions = { method, headers };
+  if (payload) {
+    headers["Content-Type"] = "application/json";
+    requestOptions.body = JSON.stringify(payload);
+  }
+  const response = await fetch(profileCloudSyncEndpoint, requestOptions);
+  const text = await response.text();
+  let body = {};
+  try {
+    body = text ? JSON.parse(text) : {};
+  } catch {
+    body = { error: text };
+  }
+  if (!response.ok) {
+    throw new Error(body.error || `Cloud sync lỗi ${response.status}`);
+  }
+  return body;
+}
+
+function scheduleAdminCloudSync(reason = "progress", key = "") {
+  if (profileCloudSyncSuppressed || !isAdminProfile()) return;
+  if (key && !profileScopedStorageKeys.has(key)) return;
+  if (!getAdminCloudToken()) {
+    setProfileCloudStatus("Máy này chưa có token cloud. Mở Người học và nhập lại mật khẩu Admin một lần để bật sync.", true);
+    return;
+  }
+  window.clearTimeout(profileCloudSyncTimer);
+  profileCloudSyncTimer = window.setTimeout(() => {
+    pushAdminProgressToCloud(reason);
+  }, 900);
+  setProfileCloudStatus("Đang chờ đẩy tiến độ lên cloud...");
+}
+
+async function pushAdminProgressToCloud(reason = "manual") {
+  if (!isAdminProfile()) return false;
+  if (!getAdminCloudToken()) {
+    setProfileCloudStatus("Máy này chưa có token cloud. Nhập lại mật khẩu Admin một lần để bật sync.", true);
+    return false;
+  }
+  if (profileCloudSyncInFlight) {
+    profileCloudSyncPending = true;
+    return false;
+  }
+  profileCloudSyncInFlight = true;
+  window.clearTimeout(profileCloudSyncTimer);
+  setProfileCloudStatus(reason === "manual" ? "Đang đẩy tiến độ lên cloud..." : "Đang tự lưu tiến độ lên cloud...");
+  try {
+    const result = await requestAdminCloudSync("POST", { payload: collectProfileProgress("admin") });
+    setProfileCloudStatus(`Đã lưu lên cloud lúc ${formatCloudSyncTime(result.updatedAt)}.`);
+    return true;
+  } catch (error) {
+    console.warn("Admin cloud push failed", error);
+    setProfileCloudStatus("Chưa lưu được lên cloud. App vẫn giữ tiến độ trên máy này.", true);
+    return false;
+  } finally {
+    profileCloudSyncInFlight = false;
+    if (profileCloudSyncPending) {
+      profileCloudSyncPending = false;
+      scheduleAdminCloudSync("pending");
+    }
+  }
+}
+
+async function pullAdminProgressFromCloud(options = {}) {
+  if (!isAdminProfile()) return false;
+  if (!getAdminCloudToken()) {
+    setProfileCloudStatus("Máy này chưa có token cloud. Nhập lại mật khẩu Admin một lần để bật sync.", true);
+    return false;
+  }
+  const { auto = false } = options;
+  if (profileCloudSyncInFlight) {
+    profileCloudSyncPending = true;
+    return false;
+  }
+  profileCloudSyncInFlight = true;
+  window.clearTimeout(profileCloudSyncTimer);
+  setProfileCloudStatus(auto ? "Đang kiểm tra tiến độ cloud..." : "Đang kéo tiến độ từ cloud...");
+  try {
+    const result = await requestAdminCloudSync("GET");
+    if (!result.payload || !hasProgressPayloadData(result.payload.data)) {
+      if (hasLocalAdminProgress()) {
+        setProfileCloudStatus("Cloud đang trống, đang đẩy tiến độ máy này lên...");
+        profileCloudSyncInFlight = false;
+        return pushAdminProgressToCloud("bootstrap");
+      }
+      setProfileCloudStatus("Cloud đang trống. Học vài từ, app sẽ tự lưu lên cloud.");
+      return false;
+    }
+    const changed = applyAdminProgressPayload(result.payload, { merge: true });
+    if (changed) {
+      setProfileCloudStatus(`Đã kéo và gộp tiến độ cloud lúc ${formatCloudSyncTime(result.updatedAt)}. App sẽ tải lại...`);
+      profileCloudSyncInFlight = false;
+      await pushAdminProgressToCloud("merge");
+      window.setTimeout(() => window.location.reload(), 650);
+      return true;
+    }
+    setProfileCloudStatus(`Tiến độ đã khớp cloud lúc ${formatCloudSyncTime(result.updatedAt)}.`);
+    return false;
+  } catch (error) {
+    console.warn("Admin cloud pull failed", error);
+    setProfileCloudStatus("Chưa kéo được cloud. App vẫn dùng tiến độ đang có trên máy này.", true);
+    return false;
+  } finally {
+    if (profileCloudSyncInFlight) profileCloudSyncInFlight = false;
+  }
+}
+
+function bootstrapAdminCloudSync() {
+  if (profileCloudSyncBootstrapped || !isAdminProfile()) return;
+  profileCloudSyncBootstrapped = true;
+  if (!getAdminCloudToken()) {
+    setProfileCloudStatus("Nhập lại mật khẩu Admin một lần để bật cloud sync trên máy này.", true);
+    return;
+  }
+  pullAdminProgressFromCloud({ auto: true });
 }
 
 function saveLearningProfile(profileId) {
@@ -1578,6 +1852,9 @@ const profileGuestButton = document.querySelector("#profile-guest");
 const profileAdminForm = document.querySelector("#profile-admin-form");
 const profilePassword = document.querySelector("#profile-password");
 const profileSync = document.querySelector("#profile-sync");
+const profileCloudStatus = document.querySelector("#profile-cloud-status");
+const profileCloudPull = document.querySelector("#profile-cloud-pull");
+const profileCloudPush = document.querySelector("#profile-cloud-push");
 const profileSyncCode = document.querySelector("#profile-sync-code");
 const profileExportProgress = document.querySelector("#profile-export-progress");
 const profileCopyProgress = document.querySelector("#profile-copy-progress");
@@ -1859,7 +2136,7 @@ function isAdminProfile() {
 
 function setProfileMessage(message, isError = false) {
   if (!profileMessage) return;
-  profileMessage.textContent = message || "Mật khẩu Admin chỉ mở hồ sơ trên máy này. Muốn sang máy khác, dùng phần Đồng bộ tiến độ Admin.";
+  profileMessage.textContent = message || "Cloud sync sẽ tự lưu tiến độ Admin khi bạn học. Mã sao lưu chỉ dùng khi cần.";
   profileMessage.classList.toggle("is-error", Boolean(isError));
 }
 
@@ -1908,7 +2185,7 @@ function stopLessonAudio() {
 function showLesson(id, options = {}) {
   let targetId = lessonSectionIds.includes(id) ? id : "top";
   if (adminOnlyLessonIds.has(targetId) && !isAdminProfile()) {
-    showProfileGate("Mục “Ghi chú từ cần học” dành cho Admin. Nhập mật khẩu 110191 để mở.");
+    showProfileGate("Mục “Ghi chú từ cần học” dành cho Admin. Nhập mật khẩu Admin để mở.");
     const storedId = getAppStorage("activeLesson");
     targetId = lessonLabels[storedId] && !adminOnlyLessonIds.has(storedId) ? storedId : "top";
     if (window.location.hash.slice(1) !== targetId) {
@@ -6860,6 +7137,7 @@ async function loadLearningLibraries() {
   renderSentences();
   renderTopicWorkshop();
   renderNeededNotes();
+  bootstrapAdminCloudSync();
 }
 
 function createChineseUtterance(text, rate) {
@@ -7115,14 +7393,22 @@ profileGuestButton?.addEventListener("click", () => {
   switchLearningProfile("guest");
 });
 
-profileAdminForm?.addEventListener("submit", (event) => {
+profileAdminForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
-  if ((profilePassword?.value || "").trim() !== adminProfilePassword) {
+  const password = (profilePassword?.value || "").trim();
+  if (!await isAdminPasswordValid(password)) {
     setProfileMessage("Mật khẩu admin chưa đúng.", true);
     profilePassword?.select();
     return;
   }
-  switchLearningProfile("admin");
+  setProfileMessage("Đúng mật khẩu. Đang bật cloud sync cho máy này...");
+  try {
+    await requestAdminCloudSession(password);
+  } catch (error) {
+    console.warn("Admin cloud session failed", error);
+    setProfileMessage("Đúng mật khẩu, nhưng chưa lấy được token cloud. Bạn vẫn vào Admin và có thể bấm lại Đẩy/Kéo cloud sau.", true);
+  }
+  switchLearningProfile("admin", { reload: true });
 });
 
 profileExportProgress?.addEventListener("click", () => {
@@ -7148,11 +7434,20 @@ profileCopyProgress?.addEventListener("click", async () => {
   }
 });
 
-profileImportProgress?.addEventListener("click", () => {
+profileCloudPull?.addEventListener("click", () => {
+  pullAdminProgressFromCloud({ auto: false });
+});
+
+profileCloudPush?.addEventListener("click", () => {
+  pushAdminProgressToCloud("manual");
+});
+
+profileImportProgress?.addEventListener("click", async () => {
   if (!profileSyncCode) return;
   try {
     importAdminProgressCode(profileSyncCode.value);
-    setProfileMessage("Đã nhập tiến độ Admin. App sẽ tải lại để dùng dữ liệu mới.");
+    setProfileMessage("Đã nhập tiến độ Admin. App sẽ đẩy lên cloud rồi tải lại.");
+    await pushAdminProgressToCloud("import");
     window.setTimeout(() => window.location.reload(), 650);
   } catch {
     setProfileMessage("Mã tiến độ chưa đúng hoặc bị thiếu ký tự. Copy lại toàn bộ mã rồi nhập lại nhé.", true);
@@ -7283,7 +7578,7 @@ document.addEventListener("click", (event) => {
   if (neededRevealButton) toggleNeededNotesReveal();
   if (neededRatingButton) rateNeededNotesFlashcard(neededRatingButton.dataset.neededRate);
   if (neededAudioButton) playNeededNoteAudio(neededAudioButton.dataset.neededAudio, neededAudioButton);
-  if (adminProfileButton) showProfileGate("Nhập mật khẩu Admin 110191 để mở mục ghi chú từ cần học.");
+  if (adminProfileButton) showProfileGate("Nhập mật khẩu Admin để mở mục ghi chú từ cần học.");
   if (dictationPlayButton) playDictationItem(Number(dictationPlayButton.dataset.dictationPlay), dictationPlayButton);
   if (dictationCheckButton) checkDictationAnswer(Number(dictationCheckButton.dataset.dictationCheck));
   if (dictationRevealButton) revealDictationAnswer(Number(dictationRevealButton.dataset.dictationReveal));

@@ -8,8 +8,8 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260729c" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20260729c" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260729d" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260729d" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -34,10 +34,18 @@
             <button type="submit">Vào admin</button>
           </form>
         </div>
-        <section class="profile-sync" id="profile-sync" hidden aria-label="Sao lưu và khôi phục tiến độ Admin">
+        <section class="profile-sync" id="profile-sync" hidden aria-label="Đồng bộ, sao lưu và khôi phục tiến độ Admin">
           <div class="profile-sync-head">
-            <strong>Đồng bộ tiến độ Admin</strong>
-            <small>App tĩnh nên mật khẩu chỉ mở hồ sơ trên máy này. Muốn học tiếp ở máy khác, hãy tạo mã sao lưu rồi nhập mã đó ở máy mới.</small>
+            <strong>Cloud sync Admin</strong>
+            <small id="profile-cloud-status">Đăng nhập Admin để app tự kéo và đẩy tiến độ giữa các máy.</small>
+          </div>
+          <div class="profile-sync-actions">
+            <button id="profile-cloud-pull" type="button">Kéo từ cloud</button>
+            <button id="profile-cloud-push" type="button">Đẩy lên cloud</button>
+          </div>
+          <div class="profile-sync-head profile-sync-head-manual">
+            <strong>Sao lưu thủ công</strong>
+            <small>Dùng mã này như đường lui khi mạng hoặc cloud tạm lỗi.</small>
           </div>
           <div class="profile-sync-actions">
             <button id="profile-export-progress" type="button">Tạo mã sao lưu</button>
@@ -50,7 +58,7 @@
           </label>
         </section>
         <p class="profile-note" id="profile-message">
-          Mật khẩu Admin chỉ mở hồ sơ trên máy này. Muốn sang máy khác, dùng phần Đồng bộ tiến độ Admin.
+          Cloud sync sẽ tự lưu tiến độ Admin khi bạn học. Mã sao lưu chỉ dùng khi cần.
         </p>
       </div>
     </section>
@@ -515,6 +523,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20260729c"></script>
+    <script src="app.js?v=clarity-20260729d"></script>
   </body>
 </html>

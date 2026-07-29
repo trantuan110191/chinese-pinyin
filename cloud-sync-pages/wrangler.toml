@@ -1,0 +1,7 @@
+name = "hanzi-admin-sync"
+compatibility_date = "2026-07-29"
+pages_build_output_dir = "public"
+
+[[kv_namespaces]]
+binding = "HANZI_PROGRESS"
+id = "b164b3fbe9284323afd2e61abdb7b9a7"

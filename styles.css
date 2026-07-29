@@ -230,6 +230,17 @@ a {
   line-height: 1.5;
 }
 
+.profile-sync-head small.is-error {
+  color: var(--red);
+  font-weight: 800;
+}
+
+.profile-sync-head-manual {
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(41, 77, 102, 0.14);
+}
+
 .profile-sync-actions {
   display: flex;
   flex-wrap: wrap;
