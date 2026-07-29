@@ -5388,6 +5388,60 @@ main.single-lesson-view > section:not([hidden]) {
   gap: 14px;
 }
 
+.component-contrast-app {
+  display: grid;
+  gap: 16px;
+}
+
+.component-contrast-toolbar {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: #f4efe5;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.component-level-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.component-level-button {
+  min-height: 40px;
+  padding: 0 16px;
+  color: var(--blue);
+  background: #fffdf8;
+  border: 1px solid rgba(41, 77, 102, 0.22);
+  border-radius: 999px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.component-level-button.active {
+  color: #fffdf8;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.component-contrast-toolbar p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.component-contrast-toolbar p strong {
+  color: var(--green);
+  font-size: 18px;
+}
+
+.component-contrast-toolbar p span {
+  color: var(--red);
+  font-weight: 800;
+}
+
 .component-cluster {
   overflow: hidden;
   background: #fffdf8;
@@ -5444,6 +5498,29 @@ main.single-lesson-view > section:not([hidden]) {
   font-size: 15px;
 }
 
+.component-cluster-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+  margin: 0 20px 16px;
+  padding: 12px 14px;
+  background: rgba(41, 77, 102, 0.07);
+  border-left: 4px solid var(--blue);
+}
+
+.component-cluster-note p,
+.component-cluster-note span {
+  margin: 0;
+  color: var(--green);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.component-cluster-note span {
+  color: var(--muted);
+}
+
 .component-compare-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -5454,7 +5531,8 @@ main.single-lesson-view > section:not([hidden]) {
 .component-compare-card {
   display: grid;
   gap: 8px;
-  min-height: 220px;
+  align-content: start;
+  min-height: 250px;
   padding: 18px;
   background: #f8f3e9;
   border: 1px solid var(--line);
@@ -5466,22 +5544,50 @@ main.single-lesson-view > section:not([hidden]) {
   border-color: rgba(41, 77, 102, 0.32);
 }
 
+.component-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+}
+
+.component-card-audio {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  color: var(--red);
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.component-card-audio.is-playing {
+  color: #fffdf8;
+  background: var(--green);
+}
+
 .compare-hanzi {
   font-family: var(--cjk);
-  font-size: clamp(72px, 8vw, 118px);
+  font-size: clamp(76px, 8vw, 122px);
   line-height: 0.95;
 }
 
 .component-compare-card b {
   color: var(--red);
-  font-size: 20px;
+  font-size: 21px;
+  line-height: 1.35;
 }
 
 .component-compare-card p,
 .component-compare-card small {
   margin: 0;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 16.5px;
   line-height: 1.55;
 }
 

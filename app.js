@@ -1972,6 +1972,7 @@ const topicChoice = document.querySelector("#topic-choice");
 const topicStage = document.querySelector("#topic-stage");
 const topicDrill = document.querySelector("#topic-drill");
 const neededNotesApp = document.querySelector("#needed-notes-app");
+const componentContrastApp = document.querySelector("#component-contrast-app");
 
 const lessonLabels = {
   top: "Chọn mục học",
@@ -2018,6 +2019,8 @@ let sentenceActiveTopic = "all";
 let sentenceVisibleLimit = 24;
 const revealedSentenceItems = new Set();
 let hskPlayingButton = null;
+let componentContrastData = null;
+let componentContrastLevel = getAppStorage("componentContrastLevel") || "1-3";
 let activeQuestionGuideGroup = "all";
 let activeInterrogativeGuideId = null;
 let pinyinDictionaryTone = "all";
@@ -2632,6 +2635,139 @@ function toggleHskWordReveal(hanzi) {
     revealedHskWords.add(hanzi);
   }
   renderHskWords();
+}
+
+const componentContrastLevelOptions = [
+  ["1-3", "HSK 1-3"],
+  ["1", "HSK 1"],
+  ["2", "HSK 2"],
+  ["3", "HSK 3"],
+  ["4-6", "HSK 4-6"],
+  ["7-9", "HSK 7-9"],
+  ["all", "Tất cả"],
+];
+
+function getComponentContrastLevels(levelKey = componentContrastLevel) {
+  if (levelKey === "all") return new Set(["1", "2", "3", "4", "5", "6", "7-9"]);
+  if (levelKey === "1-3") return new Set(["1", "2", "3"]);
+  if (levelKey === "4-6") return new Set(["4", "5", "6"]);
+  return new Set([levelKey]);
+}
+
+function getComponentLevelLabel(level) {
+  return level === "7-9" ? "HSK 7-9" : `HSK ${level}`;
+}
+
+function shortenText(value, maxLength = 190) {
+  const text = String(value || "").trim();
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength).trim()}...`;
+}
+
+function getComponentLevelSummary(items) {
+  const counts = items.reduce((result, item) => {
+    result[item.level] = (result[item.level] || 0) + 1;
+    return result;
+  }, {});
+  return Object.entries(counts)
+    .sort(([a], [b]) => {
+      const rankA = a === "7-9" ? 7 : Number(a);
+      const rankB = b === "7-9" ? 7 : Number(b);
+      return rankA - rankB;
+    })
+    .map(([level, count]) => `${getComponentLevelLabel(level)}: ${count}`)
+    .join(" · ");
+}
+
+function getComponentContrastGroups() {
+  if (!componentContrastData?.groups) return [];
+  const selectedLevels = getComponentContrastLevels();
+  return componentContrastData.groups
+    .map((group) => ({
+      ...group,
+      visibleItems: (group.items || []).filter((item) => selectedLevels.has(String(item.level))),
+    }))
+    .filter((group) => group.visibleItems.length >= 2)
+    .sort((a, b) => a.priority - b.priority || b.visibleItems.length - a.visibleItems.length);
+}
+
+function renderComponentContrastCard(item) {
+  const memoryMarkup = item.memory
+    ? `<small><strong>Mẹo nhớ:</strong> ${escapeHtml(shortenText(item.memory, 150))}</small>`
+    : "";
+  const originMarkup = item.origin
+    ? `<small><strong>Nguồn gốc:</strong> ${escapeHtml(shortenText(item.origin, 150))}</small>`
+    : "";
+  const audioMarkup = item.audio
+    ? `
+      <button class="component-card-audio" data-hsk-audio="${escapeHtml(item.audio)}"
+        data-hsk-label="${escapeHtml(item.hanzi)} · ${escapeHtml(item.pinyin)}" type="button"
+        aria-label="Nghe ${escapeHtml(item.hanzi)}">▶</button>
+    `
+    : "";
+
+  return `
+    <article class="component-compare-card">
+      <div class="component-card-top">
+        <span class="hsk-word-level">${escapeHtml(getComponentLevelLabel(item.level))}</span>
+        ${audioMarkup}
+      </div>
+      <span class="compare-hanzi" lang="zh-Hans">${escapeHtml(item.hanzi)}</span>
+      <b>${escapeHtml(item.pinyin)} · ${escapeHtml(item.meaning)}</b>
+      <p><strong>Cấu tạo:</strong> ${escapeHtml(shortenText(item.structure, 210))}</p>
+      <p>${escapeHtml(item.compareTip || "So mảnh chung với phần còn lại để tách nghĩa.")}</p>
+      ${memoryMarkup || originMarkup}
+    </article>
+  `;
+}
+
+function renderComponentContrast() {
+  if (!componentContrastApp) return;
+  if (!componentContrastData) {
+    componentContrastApp.innerHTML = `<p class="hsk-source-note">Đang dựng nhóm chữ dễ nhầm từ dữ liệu cấu tạo...</p>`;
+    return;
+  }
+
+  const groups = getComponentContrastGroups();
+  const uniqueHanzi = new Set(groups.flatMap((group) => group.visibleItems.map((item) => item.hanzi)));
+  const levelButtons = componentContrastLevelOptions.map(([level, label]) => `
+    <button class="component-level-button${level === componentContrastLevel ? " active" : ""}"
+      data-component-level="${escapeHtml(level)}" type="button">${escapeHtml(label)}</button>
+  `).join("");
+
+  const groupMarkup = groups.length
+    ? groups.map((group, index) => `
+      <details class="component-cluster" ${index === 0 ? "open" : ""}>
+        <summary>
+          <span class="component-cluster-mark" lang="zh-Hans">${escapeHtml(group.mark)}</span>
+          <strong>${escapeHtml(group.title)}</strong>
+          <small>${escapeHtml(group.visibleItems.length)} chữ · ${escapeHtml(getComponentLevelSummary(group.visibleItems))}</small>
+        </summary>
+        <div class="component-cluster-note">
+          <p>${escapeHtml(group.hint)}</p>
+          <span>${escapeHtml(group.focus)}</span>
+        </div>
+        <div class="component-compare-grid">
+          ${group.visibleItems.map(renderComponentContrastCard).join("")}
+        </div>
+      </details>
+    `).join("")
+    : `<p class="hsk-source-note">Chưa có nhóm nào đủ từ ở cấp HSK đang chọn. Thử chọn HSK 1-3 hoặc Tất cả.</p>`;
+
+  componentContrastApp.innerHTML = `
+    <div class="component-contrast-toolbar">
+      <div class="component-level-row" aria-label="Lọc nhóm chữ dễ nhầm theo HSK">
+        ${levelButtons}
+      </div>
+      <p>
+        Đang hiện <strong>${groups.length}</strong> nhóm, <strong>${uniqueHanzi.size}</strong> chữ.
+        Nguồn: <span>hanzi-voice-dictionary · ${escapeHtml(String(componentContrastData.singleCharacterCount || 0))} chữ đơn đã đọc cấu tạo</span>.
+      </p>
+    </div>
+    <div class="component-cluster-list">
+      ${groupMarkup}
+    </div>
+  `;
 }
 
 function renderPinyinToneFilter() {
@@ -7165,22 +7301,24 @@ function openHskWord(hanzi) {
 async function loadLearningLibraries() {
   learningLibrariesReady = false;
   learningLibrariesFailed = false;
-  const [hskResponse, sentenceResponse, explanationResponse, neededResponse] = await Promise.all([
+  const [hskResponse, sentenceResponse, explanationResponse, neededResponse, componentResponse] = await Promise.all([
     fetch("data/hsk-vocabulary.json"),
     fetch("data/common-sentences.json"),
     fetch("data/hsk-explanations.json"),
-    fetch("data/needed-words.json")
+    fetch("data/needed-words.json"),
+    fetch("data/component-contrasts.json")
   ]);
 
-  if (!hskResponse.ok || !sentenceResponse.ok || !explanationResponse.ok || !neededResponse.ok) {
-    throw new Error("Không tải được dữ liệu HSK, câu giao tiếp, phần giải thích hoặc ghi chú từ cần học.");
+  if (!hskResponse.ok || !sentenceResponse.ok || !explanationResponse.ok || !neededResponse.ok || !componentResponse.ok) {
+    throw new Error("Không tải được dữ liệu HSK, câu giao tiếp, phần giải thích, ghi chú từ cần học hoặc nhóm chữ dễ nhầm.");
   }
 
-  const [hskData, sentenceData, explanationData, neededData] = await Promise.all([
+  const [hskData, sentenceData, explanationData, neededData, componentData] = await Promise.all([
     hskResponse.json(),
     sentenceResponse.json(),
     explanationResponse.json(),
-    neededResponse.json()
+    neededResponse.json(),
+    componentResponse.json()
   ]);
   hskExplanationEntries = explanationData.entries || {};
   hskVocabulary = (hskData.words || []).map((word) => ({
@@ -7188,6 +7326,7 @@ async function loadLearningLibraries() {
     importedExplanation: hskExplanationEntries[word.hanzi] || null,
   }));
   commonSentenceData = sentenceData;
+  componentContrastData = componentData;
   neededNoteWords = (neededData.words || []).map((word, index) => ({
     ...word,
     id: word.id || `need-${index + 1}`,
@@ -7216,6 +7355,7 @@ async function loadLearningLibraries() {
   renderSentences();
   renderTopicWorkshop();
   renderNeededNotes();
+  renderComponentContrast();
   bootstrapAdminCloudSync();
 }
 
@@ -7407,6 +7547,14 @@ pinyinInitialShortcuts.addEventListener("click", (event) => {
 });
 
 pinyinContrastInput.addEventListener("input", renderPinyinContrast);
+
+componentContrastApp?.addEventListener("click", (event) => {
+  const levelButton = event.target.closest("[data-component-level]");
+  if (!levelButton) return;
+  componentContrastLevel = levelButton.dataset.componentLevel;
+  setAppStorage("componentContrastLevel", componentContrastLevel);
+  renderComponentContrast();
+});
 
 hskSearchInput.addEventListener("input", () => {
   hskVisibleLimit = HSK_PAGE_SIZE;
@@ -7787,6 +7935,7 @@ loadLearningLibraries().catch((error) => {
   sentenceGrid.innerHTML = `<p class="hsk-source-note">${escapeHtml(error.message)}</p>`;
   renderTopicWorkshop();
   renderNeededNotes();
+  renderComponentContrast();
 });
 renderFilters();
 renderWords();
@@ -7798,6 +7947,7 @@ renderPinyinToneFilter();
 renderPinyinInitialShortcuts();
 renderTopicWorkshop();
 renderNeededNotes();
+renderComponentContrast();
 initializeLessonView();
 if (shouldShowInitialProfileGate) {
   showProfileGate("Chọn Admin hoặc Học tự do để bắt đầu. Admin cần mật khẩu.");
