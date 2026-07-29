@@ -5385,7 +5385,9 @@ main.single-lesson-view > section:not([hidden]) {
 
 .component-cluster-list {
   display: grid;
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  align-items: start;
 }
 
 .component-contrast-app {
@@ -5449,12 +5451,17 @@ main.single-lesson-view > section:not([hidden]) {
   border-radius: 10px;
 }
 
+.component-cluster[open] {
+  grid-column: 1 / -1;
+}
+
 .component-cluster summary {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 4px 18px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 4px 12px;
   align-items: center;
-  padding: 18px 20px;
+  min-height: 102px;
+  padding: 14px 16px;
   cursor: pointer;
   list-style: none;
 }
@@ -5464,38 +5471,47 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .component-cluster summary::after {
-  grid-column: 2;
+  grid-column: 3;
+  grid-row: 1;
   justify-self: end;
-  margin-top: -34px;
+  align-self: start;
+  margin-top: 2px;
   color: var(--blue);
   font-weight: 900;
-  content: "▾";
+  content: "›";
 }
 
 .component-cluster[open] summary::after {
-  content: "▴";
+  content: "⌃";
+}
+
+.component-cluster[open] summary {
+  min-height: 88px;
+  background: #f8f3e9;
+  border-bottom: 1px solid var(--line);
 }
 
 .component-cluster-mark {
   grid-row: span 2;
-  min-width: 72px;
+  min-width: 54px;
   color: var(--ink);
   font-family: var(--cjk);
-  font-size: 64px;
+  font-size: 52px;
   line-height: 1;
   text-align: center;
 }
 
 .component-cluster summary strong {
-  padding-right: 26px;
+  padding-right: 0;
   color: var(--green);
-  font-size: 21px;
+  font-size: 17px;
   line-height: 1.25;
 }
 
 .component-cluster summary small {
+  grid-column: 2 / 4;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .component-cluster-note {
@@ -7353,18 +7369,57 @@ footer p {
     font-size: clamp(38px, 12vw, 56px);
   }
 
+  .component-cluster-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
   .component-cluster summary {
+    position: relative;
     grid-template-columns: 1fr;
+    justify-items: center;
+    min-height: 116px;
+    padding: 12px 10px;
+    text-align: center;
   }
 
   .component-cluster summary::after {
-    grid-column: 1;
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    grid-column: auto;
     margin-top: 0;
   }
 
   .component-cluster-mark {
     min-width: 0;
+    font-size: 42px;
+    text-align: center;
+  }
+
+  .component-cluster summary strong {
+    font-size: 13px;
+  }
+
+  .component-cluster summary small {
+    grid-column: 1;
+    font-size: 11px;
+  }
+
+  .component-cluster[open] summary {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: start;
+    min-height: 74px;
     text-align: left;
+  }
+
+  .component-cluster[open] summary small {
+    grid-column: 2;
+  }
+
+  .component-cluster[open] summary::after {
+    top: 12px;
+    right: 14px;
   }
 
   .quiz-stage {

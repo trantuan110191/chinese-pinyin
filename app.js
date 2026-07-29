@@ -2714,8 +2714,8 @@ function renderComponentContrast() {
   `).join("");
 
   const groupMarkup = groups.length
-    ? groups.map((group, index) => `
-      <details class="component-cluster" ${index === 0 ? "open" : ""}>
+    ? groups.map((group) => `
+      <details class="component-cluster">
         <summary>
           <span class="component-cluster-mark" lang="zh-Hans">${escapeHtml(group.mark)}</span>
           <strong>${escapeHtml(group.title)}</strong>
