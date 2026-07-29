@@ -57,6 +57,9 @@ const profileMergeStorageKeys = new Set([
   "neededNotesKnownWords",
   "neededNotesMemoryRatings",
 ]);
+const profileCloudProgressStorageKeys = new Set([
+  ...profileMergeStorageKeys,
+]);
 let profileCloudSyncTimer = null;
 let profileCloudSyncInFlight = false;
 let profileCloudSyncPending = false;
@@ -116,7 +119,7 @@ function decodeProgressPayload(code) {
 
 function collectProfileProgress(profileId = "admin") {
   const data = {};
-  profileScopedStorageKeys.forEach((key) => {
+  profileCloudProgressStorageKeys.forEach((key) => {
     const value = localStorage.getItem(getProfileStorageKey(key, profileId));
     data[key] = value;
   });
@@ -150,6 +153,27 @@ function parseProgressObject(rawValue) {
   }
 }
 
+function stableStringify(value) {
+  if (Array.isArray(value)) {
+    return `[${value.map((item) => stableStringify(item)).join(",")}]`;
+  }
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+function normalizeProgressStorageValue(key, value) {
+  if (value === null || typeof value === "undefined") return null;
+  if (!profileMergeStorageKeys.has(key)) return String(value);
+  const parsed = parseProgressObject(value);
+  return parsed ? stableStringify(parsed) : String(value);
+}
+
+function progressStorageValuesEqual(key, leftValue, rightValue) {
+  return normalizeProgressStorageValue(key, leftValue) === normalizeProgressStorageValue(key, rightValue);
+}
+
 function mergeProfileStorageValue(key, localValue, cloudValue) {
   if (!profileMergeStorageKeys.has(key)) return cloudValue;
   const localObject = parseProgressObject(localValue);
@@ -157,7 +181,7 @@ function mergeProfileStorageValue(key, localValue, cloudValue) {
   if (!localObject && !cloudObject) return localValue || cloudValue;
   if (!localObject) return cloudValue;
   if (!cloudObject) return localValue;
-  return JSON.stringify({ ...cloudObject, ...localObject });
+  return stableStringify({ ...cloudObject, ...localObject });
 }
 
 function applyAdminProgressPayload(payload, options = {}) {
@@ -169,7 +193,7 @@ function applyAdminProgressPayload(payload, options = {}) {
   let cloudNeedsPush = false;
   profileCloudSyncSuppressed = true;
   try {
-    profileScopedStorageKeys.forEach((key) => {
+    profileCloudProgressStorageKeys.forEach((key) => {
       const profileKey = getProfileStorageKey(key, "admin");
       const currentValue = localStorage.getItem(profileKey);
       const incomingValue = payload.data[key];
@@ -177,7 +201,7 @@ function applyAdminProgressPayload(payload, options = {}) {
 
       if (typeof incomingValue === "string") {
         nextValue = merge ? mergeProfileStorageValue(key, currentValue, incomingValue) : incomingValue;
-        if (merge && typeof nextValue === "string" && nextValue !== incomingValue) {
+        if (merge && typeof nextValue === "string" && !progressStorageValuesEqual(key, nextValue, incomingValue)) {
           cloudNeedsPush = true;
         }
       } else if (!merge && incomingValue === null) {
@@ -189,7 +213,7 @@ function applyAdminProgressPayload(payload, options = {}) {
       }
 
       if (typeof nextValue === "string") {
-        if (currentValue !== nextValue) {
+        if (!progressStorageValuesEqual(key, currentValue, nextValue)) {
           localStorage.setItem(profileKey, nextValue);
           changed = true;
         }
@@ -206,7 +230,7 @@ function applyAdminProgressPayload(payload, options = {}) {
 }
 
 function hasLocalAdminProgress() {
-  return Array.from(profileScopedStorageKeys).some((key) => {
+  return Array.from(profileCloudProgressStorageKeys).some((key) => {
     const value = localStorage.getItem(getProfileStorageKey(key, "admin"));
     return value !== null && value !== "" && value !== "{}";
   });
@@ -214,7 +238,7 @@ function hasLocalAdminProgress() {
 
 function hasProgressPayloadData(data) {
   if (!data || typeof data !== "object") return false;
-  return Array.from(profileScopedStorageKeys).some((key) => {
+  return Array.from(profileCloudProgressStorageKeys).some((key) => {
     const value = data[key];
     return value !== null && typeof value !== "undefined" && value !== "" && value !== "{}";
   });
@@ -327,7 +351,7 @@ async function requestAdminCloudSync(method, payload = null, options = {}) {
 
 function scheduleAdminCloudSync(reason = "progress", key = "") {
   if (profileCloudSyncSuppressed || !isAdminProfile()) return;
-  if (key && !profileScopedStorageKeys.has(key)) return;
+  if (key && !profileCloudProgressStorageKeys.has(key)) return;
   profileCloudHasPendingPush = true;
   if (!getAdminCloudToken()) {
     setProfileCloudStatus("Máy này chưa có token cloud. Mở Người học và nhập lại mật khẩu Admin một lần để bật sync.", true);
