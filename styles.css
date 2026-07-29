@@ -5523,7 +5523,7 @@ main.single-lesson-view > section:not([hidden]) {
 
 .component-compare-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
   gap: 8px;
   padding: 0 16px 16px;
 }
@@ -5532,7 +5532,7 @@ main.single-lesson-view > section:not([hidden]) {
   display: grid;
   gap: 5px;
   align-content: start;
-  min-height: 138px;
+  min-height: 112px;
   padding: 10px;
   background: #f8f3e9;
   border: 1px solid var(--line);
@@ -5552,28 +5552,9 @@ main.single-lesson-view > section:not([hidden]) {
   min-height: 24px;
 }
 
-.component-card-audio {
-  display: grid;
-  width: 25px;
-  height: 25px;
-  place-items: center;
-  color: var(--red);
-  background: #fffdf8;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  font-size: 12px;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.component-card-audio.is-playing {
-  color: #fffdf8;
-  background: var(--green);
-}
-
 .compare-hanzi {
   font-family: var(--cjk);
-  font-size: clamp(48px, 5vw, 74px);
+  font-size: clamp(54px, 5vw, 82px);
   line-height: 1;
   text-align: center;
 }

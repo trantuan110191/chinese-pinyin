@@ -2692,22 +2692,12 @@ function getComponentContrastGroups() {
 }
 
 function renderComponentContrastCard(item) {
-  const audioMarkup = item.audio
-    ? `
-      <button class="component-card-audio" data-hsk-audio="${escapeHtml(item.audio)}"
-        data-hsk-label="${escapeHtml(item.hanzi)} · ${escapeHtml(item.pinyin)}" type="button"
-        aria-label="Nghe ${escapeHtml(item.hanzi)}">▶</button>
-    `
-    : "";
-
   return `
     <article class="component-compare-card">
       <div class="component-card-top">
         <span class="hsk-word-level">${escapeHtml(getComponentLevelLabel(item.level))}</span>
-        ${audioMarkup}
       </div>
       <span class="compare-hanzi" lang="zh-Hans">${escapeHtml(item.hanzi)}</span>
-      <b>${escapeHtml(item.pinyin)}</b>
     </article>
   `;
 }
@@ -7546,6 +7536,14 @@ componentContrastApp?.addEventListener("click", (event) => {
   setAppStorage("componentContrastLevel", componentContrastLevel);
   renderComponentContrast();
 });
+
+componentContrastApp?.addEventListener("toggle", (event) => {
+  const cluster = event.target.closest?.(".component-cluster");
+  if (!cluster?.open) return;
+  componentContrastApp.querySelectorAll(".component-cluster[open]").forEach((item) => {
+    if (item !== cluster) item.open = false;
+  });
+}, true);
 
 hskSearchInput.addEventListener("input", () => {
   hskVisibleLimit = HSK_PAGE_SIZE;
