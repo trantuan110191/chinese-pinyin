@@ -2500,7 +2500,7 @@ function escapeHtml(value) {
 }
 
 function getHskLevelLabel(level) {
-  return level === 3 ? "HSK 3 · mở rộng" : `HSK ${level}`;
+  return String(level) === "3" ? "HSK 3 · mở rộng" : `HSK ${level}`;
 }
 
 const hskMeaningOverrides = {
@@ -2699,6 +2699,14 @@ function renderComponentContrastCard(item) {
   `;
 }
 
+function renderComponentContrastInlineItem(item) {
+  return `
+    <button class="component-inline-hanzi" data-component-hanzi="${escapeHtml(item.hanzi)}" type="button" aria-label="Mở chi tiết chữ ${escapeHtml(item.hanzi)}">
+      <span lang="zh-Hans">${escapeHtml(item.hanzi)}</span>
+    </button>
+  `;
+}
+
 function renderComponentContrast() {
   if (!componentContrastApp) return;
   if (!componentContrastData) {
@@ -2718,16 +2726,15 @@ function renderComponentContrast() {
       <details class="component-cluster">
         <summary>
           <span class="component-cluster-mark" lang="zh-Hans">${escapeHtml(group.mark)}</span>
-          <strong>${escapeHtml(group.title)}</strong>
+          <span class="component-cluster-titleline">
+            <strong>${escapeHtml(group.title)}</strong>
+            <span class="component-inline-list" aria-label="Các chữ cùng bộ">
+              <span class="component-inline-colon">:</span>
+              ${group.visibleItems.map(renderComponentContrastInlineItem).join("")}
+            </span>
+          </span>
           <small>${escapeHtml(group.visibleItems.length)} chữ · ${escapeHtml(getComponentLevelSummary(group.visibleItems))}</small>
         </summary>
-        <div class="component-cluster-note">
-          <p>${escapeHtml(group.hint)}</p>
-          <span>${escapeHtml(group.focus)}</span>
-        </div>
-        <div class="component-compare-grid">
-          ${group.visibleItems.map(renderComponentContrastCard).join("")}
-        </div>
       </details>
     `).join("")
     : `<p class="hsk-source-note">Chưa có nhóm nào đủ từ ở cấp HSK đang chọn. Thử chọn HSK 1-3 hoặc Tất cả.</p>`;
@@ -2746,6 +2753,47 @@ function renderComponentContrast() {
       ${groupMarkup}
     </div>
   `;
+}
+
+function findComponentContrastItem(hanzi) {
+  if (!componentContrastData?.groups) return null;
+  for (const group of componentContrastData.groups) {
+    const item = (group.items || []).find((entry) => entry.hanzi === hanzi);
+    if (item) return { group, item };
+  }
+  return null;
+}
+
+function openComponentContrastItem(hanzi) {
+  const match = findComponentContrastItem(hanzi);
+  if (!match || !dialog || !dialogContent) return;
+
+  const { group, item } = match;
+  dialogContent.innerHTML = `
+    <div class="dialog-hero hsk-quick-dialog-hero">
+      <div class="dialog-character hsk-quick-dialog-character" lang="zh-Hans">${escapeHtml(item.hanzi)}</div>
+      <div class="dialog-intro">
+        <p class="dialog-topic">${escapeHtml(getHskLevelLabel(item.level))} · ${escapeHtml(group.title)}</p>
+        <h2>${escapeHtml(item.meaning || "Chữ dễ nhầm")}</h2>
+        <p class="dialog-pinyin">${escapeHtml(item.pinyin || "")}</p>
+      </div>
+    </div>
+    <div class="dialog-body">
+      <section class="detail-section full-width">
+        <p class="detail-label detail-label-accent">Cấu tạo</p>
+        <h3>${escapeHtml(item.hanzi)}</h3>
+        <p>${escapeHtml(item.structure || "Tài liệu chưa ghi rõ cấu tạo cho chữ này.")}</p>
+      </section>
+      <section class="detail-section full-width mnemonic-box">
+        <p class="detail-label detail-label-accent">Mẹo nhớ</p>
+        <h3>${escapeHtml(item.compareTip || group.focus || group.title)}</h3>
+        <p>${escapeHtml(item.memory || group.hint || "")}</p>
+      </section>
+    </div>
+  `;
+
+  if (dialog.open) dialog.close();
+  dialog.showModal();
 }
 
 function renderPinyinToneFilter() {
@@ -7676,6 +7724,7 @@ document.addEventListener("click", (event) => {
   const clickedInsideNeededMenu = neededNotesApp?.querySelector(".needed-menu")?.contains(event.target);
   const clickedInsideNeededChoiceMenu = neededNotesApp?.querySelector(".needed-choice-menu")?.contains(event.target);
   const clickedInsideNeededFilter = neededNotesApp?.querySelector(".needed-source-filter")?.contains(event.target);
+  const componentHanziButton = event.target.closest("[data-component-hanzi]");
   const wordButton = event.target.closest("[data-word]");
   const questionButton = event.target.closest("[data-open-word]");
   const speakButton = event.target.closest("[data-speak]");
@@ -7729,6 +7778,12 @@ document.addEventListener("click", (event) => {
   const dictationCheckButton = event.target.closest("[data-dictation-check]");
   const dictationRevealButton = event.target.closest("[data-dictation-reveal]");
   const lessonLink = event.target.closest("a[href^='#']");
+  if (componentHanziButton) {
+    event.preventDefault();
+    event.stopPropagation();
+    openComponentContrastItem(componentHanziButton.dataset.componentHanzi);
+    return;
+  }
   if (wordButton) openWord(wordButton.dataset.word);
   if (questionButton) openWord(questionButton.dataset.openWord);
   if (interrogativeGuideButton) {

@@ -5486,9 +5486,8 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .component-cluster[open] summary {
-  min-height: 88px;
+  min-height: 76px;
   background: #f8f3e9;
-  border-bottom: 1px solid var(--line);
 }
 
 .component-cluster-mark {
@@ -5502,16 +5501,72 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .component-cluster summary strong {
+  min-width: 0;
   padding-right: 0;
   color: var(--green);
   font-size: 17px;
   line-height: 1.25;
 }
 
+.component-cluster-titleline {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+}
+
 .component-cluster summary small {
   grid-column: 2 / 4;
   color: var(--muted);
   font-size: 13px;
+}
+
+.component-cluster[open] summary small {
+  display: none;
+}
+
+.component-inline-list {
+  display: none;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+  overflow-x: auto;
+  padding: 3px 2px;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
+.component-cluster[open] .component-inline-list {
+  display: flex;
+}
+
+.component-inline-colon {
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.component-inline-hanzi {
+  display: inline-grid;
+  place-items: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 8px;
+  color: var(--ink);
+  background: #fffdf8;
+  border: 1px solid rgba(41, 77, 102, 0.16);
+  border-radius: 8px;
+  font-family: var(--cjk);
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.component-inline-hanzi:hover,
+.component-inline-hanzi:focus-visible {
+  color: #fffdf8;
+  background: var(--blue);
+  border-color: var(--blue);
+  outline: none;
 }
 
 .component-cluster-note {
