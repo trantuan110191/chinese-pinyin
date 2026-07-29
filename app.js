@@ -5593,10 +5593,18 @@ function normalizeNeededNotesFilters() {
 }
 
 function getNeededNotesFilteredWords() {
+  return getNeededNotesWordsForFilter({
+    month: neededNotesMonth,
+    date: neededNotesDate,
+    topic: neededNotesTopic,
+  });
+}
+
+function getNeededNotesWordsForFilter({ month = "all", date = "all", topic = "all" } = {}) {
   return neededNoteWords.filter((word) => {
-    if (neededNotesMonth !== "all" && getNeededNoteMonth(word) !== neededNotesMonth) return false;
-    if (neededNotesDate !== "all" && getNeededNoteDate(word) !== neededNotesDate) return false;
-    if (neededNotesTopic !== "all" && getNeededNoteTopic(word) !== neededNotesTopic) return false;
+    if (month !== "all" && getNeededNoteMonth(word) !== month) return false;
+    if (date !== "all" && getNeededNoteDate(word) !== date) return false;
+    if (topic !== "all" && getNeededNoteTopic(word) !== topic) return false;
     return true;
   });
 }
@@ -5607,6 +5615,55 @@ function getNeededNotesFilterSummary(total) {
   if (neededNotesDate !== "all") parts.push(neededNotesDate);
   if (neededNotesTopic !== "all") parts.push(neededNotesTopic);
   return `${parts.length ? parts.join(" · ") : "Tất cả ghi chú"} · ${total} từ`;
+}
+
+function getNeededNotesProgressStats(words) {
+  const total = words.length;
+  const learned = words.filter((word) => isNeededNoteKnown(word)).length;
+  const remaining = Math.max(0, total - learned);
+  const percent = total ? Math.round((learned / total) * 100) : 0;
+  return { total, learned, remaining, percent };
+}
+
+function getNeededNotesProgressLabel(words) {
+  const { total, learned } = getNeededNotesProgressStats(words);
+  return `${learned}/${total} học`;
+}
+
+function renderNeededNotesVolumeMeter(percent) {
+  const thresholds = [1, 25, 50, 75, 100];
+  return `
+    <span class="needed-volume-meter" aria-hidden="true">
+      ${thresholds.map((threshold) => `<i class="${percent >= threshold ? "is-on" : ""}"></i>`).join("")}
+    </span>
+  `;
+}
+
+function renderNeededNotesProgressGroup(title, rows, filterType) {
+  if (!rows.length) return "";
+  const rowMarkup = rows.map(({ value, label, words }) => {
+    const stats = getNeededNotesProgressStats(words);
+    const active = filterType === "date" ? neededNotesDate === value : neededNotesTopic === value;
+    return `
+      <button class="needed-filter-progress-row ${active ? "active" : ""}" data-needed-filter-pick="${escapeHtml(filterType)}" data-needed-filter-value="${escapeHtml(value)}" type="button">
+        <span>
+          <strong>${escapeHtml(label)}</strong>
+          <small>đã học ${stats.learned}/${stats.total} · còn ${stats.remaining}</small>
+        </span>
+        ${renderNeededNotesVolumeMeter(stats.percent)}
+      </button>
+    `;
+  }).join("");
+
+  return `
+    <div class="needed-filter-progress-group">
+      <div class="needed-filter-progress-head">
+        <strong>${escapeHtml(title)}</strong>
+        <small>Bấm một dòng để chọn nhanh</small>
+      </div>
+      <div class="needed-filter-progress-list">${rowMarkup}</div>
+    </div>
+  `;
 }
 
 function saveNeededNotesKnownWords() {
@@ -5777,34 +5834,40 @@ function renderNeededNotesNoMatches() {
 }
 
 function renderNeededNotesFilterPanel(total) {
+  const allMonthStats = getNeededNotesProgressLabel(neededNoteWords);
   const monthOptions = [
-    `<option value="all">Tất cả tháng</option>`,
+    `<option value="all">Tất cả tháng · ${escapeHtml(allMonthStats)}</option>`,
     ...getNeededNotesMonths().map((month) => {
-      const count = neededNoteWords.filter((word) => getNeededNoteMonth(word) === month).length;
-      return `<option value="${escapeHtml(month)}" ${neededNotesMonth === month ? "selected" : ""}>${escapeHtml(month)} · ${count} từ</option>`;
+      const words = getNeededNotesWordsForFilter({ month });
+      return `<option value="${escapeHtml(month)}" ${neededNotesMonth === month ? "selected" : ""}>${escapeHtml(month)} · ${escapeHtml(getNeededNotesProgressLabel(words))}</option>`;
     }),
   ].join("");
+  const allDateWords = getNeededNotesWordsForFilter({ month: neededNotesMonth });
   const dateOptions = [
-    `<option value="all">Tất cả ngày</option>`,
+    `<option value="all">Tất cả ngày · ${escapeHtml(getNeededNotesProgressLabel(allDateWords))}</option>`,
     ...getNeededNotesDates().map((date) => {
-      const count = neededNoteWords.filter((word) => {
-        if (neededNotesMonth !== "all" && getNeededNoteMonth(word) !== neededNotesMonth) return false;
-        return getNeededNoteDate(word) === date;
-      }).length;
-      return `<option value="${escapeHtml(date)}" ${neededNotesDate === date ? "selected" : ""}>${escapeHtml(date)} · ${count} từ</option>`;
+      const words = getNeededNotesWordsForFilter({ month: neededNotesMonth, date });
+      return `<option value="${escapeHtml(date)}" ${neededNotesDate === date ? "selected" : ""}>${escapeHtml(date)} · ${escapeHtml(getNeededNotesProgressLabel(words))}</option>`;
     }),
   ].join("");
+  const allTopicWords = getNeededNotesWordsForFilter({ month: neededNotesMonth, date: neededNotesDate });
   const topicOptions = [
-    `<option value="all">Tất cả chủ đề</option>`,
+    `<option value="all">Tất cả chủ đề · ${escapeHtml(getNeededNotesProgressLabel(allTopicWords))}</option>`,
     ...getNeededNotesTopics().map((topic) => {
-      const count = neededNoteWords.filter((word) => {
-        if (neededNotesMonth !== "all" && getNeededNoteMonth(word) !== neededNotesMonth) return false;
-        if (neededNotesDate !== "all" && getNeededNoteDate(word) !== neededNotesDate) return false;
-        return getNeededNoteTopic(word) === topic;
-      }).length;
-      return `<option value="${escapeHtml(topic)}" ${neededNotesTopic === topic ? "selected" : ""}>${escapeHtml(topic)} · ${count} từ</option>`;
+      const words = getNeededNotesWordsForFilter({ month: neededNotesMonth, date: neededNotesDate, topic });
+      return `<option value="${escapeHtml(topic)}" ${neededNotesTopic === topic ? "selected" : ""}>${escapeHtml(topic)} · ${escapeHtml(getNeededNotesProgressLabel(words))}</option>`;
     }),
   ].join("");
+  const dateProgressRows = getNeededNotesDates().map((date) => ({
+    value: date,
+    label: date,
+    words: getNeededNotesWordsForFilter({ month: neededNotesMonth, date }),
+  }));
+  const topicProgressRows = getNeededNotesTopics().map((topic) => ({
+    value: topic,
+    label: topic,
+    words: getNeededNotesWordsForFilter({ month: neededNotesMonth, date: neededNotesDate, topic }),
+  }));
 
   return `
     <div class="needed-source-filter ${neededNotesFilterExpanded ? "is-open" : "is-collapsed"}">
@@ -5827,6 +5890,10 @@ function renderNeededNotesFilterPanel(total) {
           <select data-needed-filter="topic">${topicOptions}</select>
         </label>
         <button data-needed-filter-reset type="button">Tất cả</button>
+        <div class="needed-filter-progress">
+          ${renderNeededNotesProgressGroup("Tiến độ theo ngày", dateProgressRows, "date")}
+          ${renderNeededNotesProgressGroup("Tiến độ theo chủ đề", topicProgressRows, "topic")}
+        </div>
       </div>
     </div>
   `;
@@ -7187,6 +7254,7 @@ document.addEventListener("click", (event) => {
   const neededChoiceMenuToggleButton = event.target.closest("[data-needed-choice-menu-toggle]");
   const neededFilterToggleButton = event.target.closest("[data-needed-filter-toggle]");
   const neededFilterResetButton = event.target.closest("[data-needed-filter-reset]");
+  const neededFilterPickButton = event.target.closest("[data-needed-filter-pick]");
   const neededModeButton = event.target.closest("[data-needed-mode]");
   const neededChoiceModeButton = event.target.closest("[data-needed-choice-mode]");
   const neededAnswerButton = event.target.closest("[data-needed-answer]");
@@ -7252,6 +7320,12 @@ document.addEventListener("click", (event) => {
   if (neededChoiceMenuToggleButton) toggleNeededNotesChoiceMenu();
   if (neededFilterToggleButton) toggleNeededNotesFilter();
   if (neededFilterResetButton) resetNeededNotesFilters();
+  if (neededFilterPickButton) {
+    setNeededNotesFilter(
+      neededFilterPickButton.dataset.neededFilterPick,
+      neededFilterPickButton.dataset.neededFilterValue
+    );
+  }
   if (neededModeButton) setNeededNotesMode(neededModeButton.dataset.neededMode);
   if (neededChoiceModeButton) setNeededNotesChoiceMode(neededChoiceModeButton.dataset.neededChoiceMode);
   if (neededAnswerButton) answerNeededNotesChoice(neededAnswerButton.dataset.neededAnswer);
