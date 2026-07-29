@@ -1962,6 +1962,7 @@ const lessonLabels = {
   "common-sentences": "Học từ trong câu thật",
   "interrogative-words": "Từ để hỏi",
   "question-guide": "Hỏi có không · this/that",
+  "component-contrast": "So sánh chữ dễ nhầm",
   "word-list": "Phân tích chuyên sâu",
 };
 const adminOnlyLessonIds = new Set(["needed-notes"]);
