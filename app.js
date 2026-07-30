@@ -2319,7 +2319,7 @@ renderQuizAutoControls();
 const normalize = (text) => text
   .normalize("NFD")
   .replace(/[\u0300-\u036f]/g, "")
-  .replace(/đ/g, "d")
+  .replace(/đ/gi, "d")
   .toLowerCase();
 
 function getRequestedTone(value) {
@@ -2429,7 +2429,10 @@ function getMeaningMatchRank(word, query) {
 }
 
 function hasMeaningMatch(query) {
-  return hskVocabulary.some((word) => Number.isFinite(getMeaningMatchRank(word, query)));
+  const normalizedQuery = normalizeSearchText(query);
+  if (!normalizedQuery) return false;
+  if (hskVocabulary.some((word) => Number.isFinite(getMeaningMatchRank(word, query)))) return true;
+  return getGlobalLookupEntries().some((entry) => getGlobalLookupMatchRank(entry, query, "meaning") < Infinity);
 }
 
 const smartVietnameseLookup = {
@@ -2484,6 +2487,233 @@ function getDictionaryLookupIntent(value) {
   );
   if (hasExactPinyin || isPinyinLookupQuery(raw)) return "pinyin";
   return "meaning";
+}
+
+const vietnameseSearchSynonymGroups = [
+  ["mua he", "mua ha"],
+  ["xe buyt", "xe bus", "buyt"],
+  ["o to", "xe hoi", "xe oto"],
+  ["nha ve sinh", "wc", "toilet"],
+  ["benh vien", "nha thuong"],
+  ["dien thoai", "so dien thoai"],
+  ["khach san", "nha nghi"],
+  ["cua hang", "tiem"],
+  ["giao vien", "thay co"],
+  ["ban cung phong", "roommate"],
+  ["dong nghiep", "colleague"],
+  ["hang xom", "neighbor"],
+  ["ban tren mang", "online friend"],
+];
+
+function normalizeSearchText(value) {
+  return normalize(String(value || ""))
+    .replace(/[^a-z0-9\u3400-\u9fff]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getVietnameseSearchVariants(value) {
+  const base = normalizeSearchText(value);
+  if (!base) return [];
+  const variants = new Set([base]);
+  vietnameseSearchSynonymGroups.forEach((group) => {
+    const normalizedGroup = group.map(normalizeSearchText).filter(Boolean);
+    normalizedGroup.forEach((from) => {
+      if (!from || !base.includes(from)) return;
+      normalizedGroup.forEach((to) => {
+        if (to && to !== from) variants.add(base.replaceAll(from, to));
+      });
+    });
+  });
+  return [...variants];
+}
+
+function normalizeLookupPinyin(value) {
+  return normalize(String(value || "")
+    .replace(/[ǖǘǚǜü]/gi, "v"))
+    .replace(/[1-5]/g, "")
+    .replace(/[^a-zv]/g, "");
+}
+
+let globalLookupEntriesCacheKey = "";
+let globalLookupEntriesCache = [];
+
+function getGlobalLookupCacheKey() {
+  return [
+    hskVocabulary.length,
+    neededNoteWords.length,
+    commonSentenceData.sentences?.length || 0,
+    componentContrastData?.matchedCharacterCount || 0,
+  ].join("|");
+}
+
+function createGlobalLookupEntry(fields) {
+  const hanzi = String(fields.hanzi || "").trim();
+  const pinyin = String(fields.pinyin || "").trim();
+  const meaning = String(fields.meaning || "").trim();
+  if (!hanzi && !pinyin && !meaning) return null;
+  const source = String(fields.source || "Trong app").trim();
+  const searchParts = [
+    hanzi,
+    pinyin,
+    meaning,
+    source,
+    fields.topic,
+    fields.date,
+    fields.chunk,
+    fields.sentence,
+    fields.extra,
+  ].filter(Boolean);
+  const searchText = [...new Set(searchParts.flatMap(getVietnameseSearchVariants))].join(" ");
+  return {
+    ...fields,
+    hanzi,
+    pinyin,
+    meaning,
+    source,
+    sourceText: [source, fields.topic, fields.date].filter(Boolean).join(" · "),
+    audioText: fields.audioText || hanzi,
+    pinyinBase: normalizeLookupPinyin(pinyin),
+    searchText,
+  };
+}
+
+function buildGlobalLookupEntries() {
+  const entries = [];
+  const seen = new Map();
+  const addEntry = (fields) => {
+    const entry = createGlobalLookupEntry(fields);
+    if (!entry) return;
+    const key = [
+      entry.hanzi,
+      entry.pinyinBase,
+      normalizeSearchText(entry.meaning),
+      entry.kind || "",
+      entry.date || "",
+    ].join("|");
+    const existing = seen.get(key);
+    if (existing) {
+      existing.sourceText = [...new Set([existing.sourceText, entry.sourceText].filter(Boolean))].join(" · ");
+      existing.searchText = [...new Set([existing.searchText, entry.searchText].filter(Boolean))].join(" ");
+      return;
+    }
+    entry.id = `global-${entries.length}`;
+    seen.set(key, entry);
+    entries.push(entry);
+  };
+
+  words.forEach((word) => addEntry({
+    kind: "analysis",
+    hanzi: word.hanzi,
+    pinyin: word.pinyin,
+    meaning: word.meaning,
+    source: "Phân tích chuyên sâu",
+    topic: categories[word.category] || word.category,
+    chunk: word.chunk,
+    sentence: word.sentence?.join(" "),
+    audioText: word.hanzi,
+  }));
+
+  topicWorkshopData.forEach((topic) => {
+    topic.words.forEach((word) => addEntry({
+      kind: "topic",
+      hanzi: word.hanzi,
+      pinyin: word.pinyin,
+      meaning: word.meaning,
+      source: "Học theo chủ đề",
+      topic: topic.label,
+      chunk: word.chunk,
+      sentence: word.sentence?.join(" "),
+      audioText: word.hanzi,
+    }));
+  });
+
+  hskVocabulary.forEach((word) => addEntry({
+    kind: "hsk",
+    hanzi: word.hanzi,
+    pinyin: word.pinyin,
+    meaning: getConciseMeaning(word),
+    source: getHskLevelLabel(word.level),
+    level: word.level,
+    audio: word.audio,
+    audioText: word.hanzi,
+  }));
+
+  neededNoteWords.forEach((word) => addEntry({
+    kind: "needed",
+    hanzi: word.hanzi,
+    pinyin: word.pinyin,
+    meaning: getNeededNoteMeaning(word),
+    source: "Ghi chú từ cần học",
+    topic: getNeededNoteTopicLabel(word),
+    date: getNeededNoteDate(word),
+    audioText: getNeededNoteAudioText(word),
+    rawId: getNeededNoteId(word),
+  }));
+
+  (commonSentenceData.sentences || []).forEach((sentence) => addEntry({
+    kind: "sentence",
+    hanzi: sentence.hanzi,
+    pinyin: sentence.pinyin,
+    meaning: sentence.meaning,
+    source: "Câu giao tiếp",
+    topic: commonSentenceData.topics?.[sentence.topic] || sentence.topic,
+    audioText: sentence.hanzi,
+  }));
+
+  (componentContrastData?.groups || []).forEach((group) => {
+    (group.items || []).forEach((item) => addEntry({
+      kind: "component",
+      hanzi: item.hanzi,
+      pinyin: item.pinyin,
+      meaning: item.meaning,
+      source: "So sánh chữ dễ nhầm",
+      topic: group.title,
+      audioText: item.hanzi,
+    }));
+  });
+
+  return entries;
+}
+
+function getGlobalLookupEntries() {
+  const cacheKey = getGlobalLookupCacheKey();
+  if (globalLookupEntriesCacheKey === cacheKey && globalLookupEntriesCache.length) return globalLookupEntriesCache;
+  globalLookupEntriesCache = buildGlobalLookupEntries();
+  globalLookupEntriesCacheKey = cacheKey;
+  return globalLookupEntriesCache;
+}
+
+function getGlobalLookupMatchRank(entry, rawQuery, intent = getDictionaryLookupIntent(rawQuery)) {
+  const raw = String(rawQuery || "").trim();
+  if (!raw) return Infinity;
+  if (/[\u3400-\u9fff]/.test(raw)) {
+    if (entry.hanzi === raw) return 0;
+    if (entry.hanzi.startsWith(raw)) return 1;
+    return entry.hanzi.includes(raw) ? 2 : Infinity;
+  }
+
+  if (intent === "pinyin") {
+    const queryBase = normalizeLookupPinyin(stripPinyinToneInput(raw));
+    if (!queryBase) return Infinity;
+    if (entry.pinyinBase === queryBase) return 0;
+    if (entry.pinyinBase.startsWith(queryBase)) return 1;
+    return entry.pinyinBase.includes(queryBase) ? 2 : Infinity;
+  }
+
+  const queryVariants = getVietnameseSearchVariants(raw);
+  if (!queryVariants.length) return Infinity;
+  const searchText = entry.searchText || "";
+  const meaningVariants = getVietnameseSearchVariants(entry.meaning);
+  if (queryVariants.some((query) => meaningVariants.includes(query))) return 0;
+  if (queryVariants.some((query) => meaningVariants.some((meaning) => meaning.startsWith(`${query} `)))) return 1;
+  if (queryVariants.some((query) => searchText.split(/\s+/).includes(query))) return 2;
+  if (queryVariants.some((query) => searchText.includes(query))) return 3;
+  return Infinity;
+}
+
+function getGlobalLookupEntryById(id) {
+  return getGlobalLookupEntries().find((entry) => entry.id === id) || null;
 }
 
 function normalizeDisplayText(value) {
@@ -2962,41 +3192,80 @@ function getPinyinDictionaryWords() {
   const rawQuery = pinyinDictionaryInput.value.trim();
   if (!rawQuery) return [];
   const intent = getDictionaryLookupIntent(rawQuery);
-  const query = intent === "pinyin" ? stripPinyinToneInput(rawQuery) : normalize(rawQuery);
-  const meaningQuery = intent === "meaning" ? rawQuery : query;
+  const query = intent === "pinyin" ? normalizeLookupPinyin(stripPinyinToneInput(rawQuery)) : normalizeSearchText(rawQuery);
   const smartTargets = intent === "meaning" ? getSmartMeaningTargets(query) : [];
-  const matches = hskVocabulary.filter((word) => {
-    const pinyinBase = normalize(String(word.pinyin).replace(/[ǖǘǚǜü]/gi, "v"));
-    const wordHaystack = normalize(`${word.hanzi} ${word.meaning}`);
-    const matchesQuery = intent === "pinyin"
-      ? pinyinBase.includes(query)
-      : smartTargets.includes(word.hanzi)
-        || normalize(word.hanzi).includes(query)
-        || Number.isFinite(getMeaningMatchRank(word, meaningQuery));
+  const entries = getGlobalLookupEntries();
+  const matches = entries.filter((entry) => {
+    const matchesQuery = smartTargets.includes(entry.hanzi)
+      || getGlobalLookupMatchRank(entry, rawQuery, intent) < Infinity;
     const matchesTone = pinyinDictionaryTone === "all"
       || (intent === "pinyin"
-        ? pinyinMatchHasTone(word.pinyin, query, pinyinDictionaryTone)
-        : getPinyinTone(word.pinyin) === pinyinDictionaryTone);
+        ? pinyinMatchHasTone(entry.pinyin, query, pinyinDictionaryTone)
+        : getPinyinTone(entry.pinyin) === pinyinDictionaryTone);
     return matchesQuery && matchesTone;
   });
   return matches.sort((left, right) => {
-    const leftPinyin = normalize(String(left.pinyin).replace(/[ǖǘǚǜü]/gi, "v"));
-    const rightPinyin = normalize(String(right.pinyin).replace(/[ǖǘǚǜü]/gi, "v"));
     if (intent === "pinyin") {
       const score = (pinyin) => pinyin === query ? 0 : pinyin.startsWith(query) ? 1 : 2;
-      return score(leftPinyin) - score(rightPinyin) || leftPinyin.length - rightPinyin.length;
+      return score(left.pinyinBase) - score(right.pinyinBase)
+        || left.pinyinBase.length - right.pinyinBase.length
+        || left.hanzi.length - right.hanzi.length;
     }
 
-    const meaningScore = (word) => {
-      const smartIndex = smartTargets.indexOf(word.hanzi);
+    const meaningScore = (entry) => {
+      const smartIndex = smartTargets.indexOf(entry.hanzi);
       if (smartIndex >= 0) return smartIndex - smartTargets.length - 2;
-      if (normalize(word.hanzi) === query) return 0;
-      return getMeaningMatchRank(word, meaningQuery);
+      if (entry.hanzi === rawQuery) return 0;
+      return getGlobalLookupMatchRank(entry, rawQuery, intent);
     };
     return meaningScore(left) - meaningScore(right)
       || Number(left.level || 99) - Number(right.level || 99)
-      || String(left.hanzi).length - String(right.hanzi).length;
+      || String(left.hanzi).length - String(right.hanzi).length
+      || left.source.localeCompare(right.source, "vi");
   });
+}
+
+function openGlobalLookupItem(entryId) {
+  const entry = getGlobalLookupEntryById(entryId);
+  if (!entry) return;
+  if (entry.kind === "hsk" && hskVocabulary.some((word) => word.hanzi === entry.hanzi)) {
+    openHskWord(entry.hanzi);
+    return;
+  }
+  if (entry.kind === "analysis" && words.some((word) => word.hanzi === entry.hanzi)) {
+    openWord(entry.hanzi);
+    return;
+  }
+
+  dialogContent.innerHTML = `
+    <div class="dialog-hero hsk-quick-dialog-hero">
+      <div class="dialog-character hsk-quick-dialog-character" lang="zh-Hans">${escapeHtml(entry.hanzi)}</div>
+      <div class="dialog-intro">
+        <p class="dialog-topic">${escapeHtml(entry.sourceText || entry.source)}</p>
+        <h2>${escapeHtml(entry.meaning || "Mục tra trong app")}</h2>
+        <p class="dialog-pinyin">${escapeHtml(entry.pinyin || "")}</p>
+        <div class="dialog-actions">
+          <button class="speak-button" data-topic-audio="${escapeHtml(entry.audioText || entry.hanzi)}" type="button">Nghe trong app</button>
+        </div>
+      </div>
+    </div>
+    <div class="dialog-body">
+      <section class="detail-section full-width">
+        <p class="detail-label detail-label-accent">Nguồn trong app</p>
+        <h3>${escapeHtml(entry.source || "Tra nội bộ")}</h3>
+        <p>${escapeHtml([entry.topic, entry.date].filter(Boolean).join(" · ") || "Tìm thấy trong kho dữ liệu đang học.")}</p>
+      </section>
+      ${entry.chunk || entry.sentence ? `
+        <section class="detail-section full-width mnemonic-box">
+          <p class="detail-label detail-label-accent">Chunk / câu</p>
+          <h3 lang="zh-Hans">${escapeHtml(entry.chunk || entry.hanzi)}</h3>
+          <p>${escapeHtml(entry.sentence || "")}</p>
+        </section>
+      ` : ""}
+    </div>
+  `;
+  if (dialog.open) dialog.close();
+  dialog.showModal();
 }
 
 function renderPinyinDictionary() {
@@ -3031,19 +3300,19 @@ function renderPinyinDictionary() {
 
   const matches = getPinyinDictionaryWords();
   pinyinResultSummary.textContent = matches.length
-    ? `Tìm thấy ${matches.length} từ. Bấm ▶ để nghe đúng bản ghi Xiaoxiao.`
-    : "Chưa có từ phù hợp trong kho 988 từ hoặc chưa có bản ghi Xiaoxiao cho âm này.";
-  pinyinResultGrid.innerHTML = matches.slice(0, 120).map((word) => `
+    ? `Tìm thấy ${matches.length} mục trong toàn bộ app. Có HSK, chủ đề, ghi chú theo ngày, câu/chunk và chữ dễ nhầm.`
+    : "Chưa có mục phù hợp trong app. Thử chữ Hán, Pinyin không dấu hoặc nghĩa Việt khác.";
+  pinyinResultGrid.innerHTML = matches.slice(0, 160).map((entry) => `
     <article class="pinyin-result-card">
-      <button class="pinyin-result-open" data-hsk-word="${escapeHtml(word.hanzi)}" type="button">
-        <span class="hsk-word-level">${getHskLevelLabel(word.level)}</span>
-        <strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>
-        <span>${escapeHtml(word.pinyin)}</span>
-        <small>${escapeHtml(getConciseMeaning(word))}</small>
+      <button class="pinyin-result-open" data-global-lookup="${escapeHtml(entry.id)}" type="button">
+        <span class="hsk-word-level">${escapeHtml(entry.source)}</span>
+        <strong lang="zh-Hans">${escapeHtml(entry.hanzi)}</strong>
+        <span>${escapeHtml(entry.pinyin)}</span>
+        <small>${escapeHtml(entry.meaning)}</small>
+        <em class="pinyin-result-source">${escapeHtml([entry.topic, entry.date].filter(Boolean).join(" · "))}</em>
       </button>
-      <button class="pinyin-result-audio" data-hsk-audio="${escapeHtml(word.audio)}"
-        data-hsk-label="${escapeHtml(word.hanzi)} · ${escapeHtml(word.pinyin)}" type="button"
-        aria-label="Nghe ${escapeHtml(word.hanzi)}">▶</button>
+      <button class="pinyin-result-audio" data-topic-audio="${escapeHtml(entry.audioText || entry.hanzi)}" type="button"
+        aria-label="Nghe ${escapeHtml(entry.hanzi)}">▶</button>
     </article>
   `).join("");
 }
@@ -4236,6 +4505,44 @@ function markTopicWordAnsweredCorrect(hanzi) {
   setTopicWordKnown(hanzi, true);
   registerTopicWordSuccess(hanzi, { wasKnown });
   return wasKnown;
+}
+
+function relearnTopicWord(hanzi) {
+  if (!hanzi) return;
+  delete topicKnownWords[hanzi];
+  topicMemoryRatings[hanzi] = 3;
+  topicReviewSchedule[hanzi] = {
+    stage: 0,
+    dueAt: 0,
+    lastReviewedAt: Math.floor(Date.now()),
+  };
+  topicFlashScheduleNeedsRefresh = true;
+  topicChoiceOrderNeedsRefresh = true;
+  saveTopicKnownWords();
+  saveTopicMemoryRatings();
+  saveTopicReviewSchedule();
+  renderTopicWorkshop();
+}
+
+function relearnAllTopicKnownWords() {
+  const learnedWords = getTopicLearnedReviewWords(getTopicReviewPool());
+  if (!learnedWords.length) return;
+  learnedWords.forEach((word) => {
+    delete topicKnownWords[word.hanzi];
+    topicMemoryRatings[word.hanzi] = 3;
+    topicReviewSchedule[word.hanzi] = {
+      stage: 0,
+      dueAt: 0,
+      lastReviewedAt: Math.floor(Date.now()),
+    };
+  });
+  topicFlashScheduleNeedsRefresh = true;
+  topicChoiceOrderNeedsRefresh = true;
+  resetTopicWorkshopPracticeState();
+  saveTopicKnownWords();
+  saveTopicMemoryRatings();
+  saveTopicReviewSchedule();
+  renderTopicWorkshop();
 }
 
 function renderTopicFilter(reviewPool = getTopicReviewPool()) {
@@ -5576,12 +5883,16 @@ function renderTopicWorkshop() {
       </summary>
       <div>
         ${learnedWords.slice(0, learnedPreviewLimit).map((word) => `
-          <button data-topic-lookup="${escapeHtml(word.hanzi)}" type="button" title="${escapeHtml(word.pinyin)} · ${escapeHtml(getTopicMeaningLabel(word.meaning))}">
-            <b lang="zh-Hans">${escapeHtml(word.hanzi)}</b>
-            <small>${escapeHtml(word.pinyin)}</small>
-          </button>
+          <span class="topic-learned-item">
+            <button data-topic-lookup="${escapeHtml(word.hanzi)}" type="button" title="${escapeHtml(word.pinyin)} · ${escapeHtml(getTopicMeaningLabel(word.meaning))}">
+              <b lang="zh-Hans">${escapeHtml(word.hanzi)}</b>
+              <small>${escapeHtml(word.pinyin)}</small>
+            </button>
+            <button class="topic-relearn-button" data-topic-relearn="${escapeHtml(word.hanzi)}" type="button">Học lại</button>
+          </span>
         `).join("")}
         ${knownCount > learnedPreviewLimit ? `<em>+${knownCount - learnedPreviewLimit} từ nữa</em>` : ""}
+        <button class="topic-relearn-all-button" data-topic-relearn-all type="button">Học lại toàn bộ ${knownCount} từ</button>
       </div>
     </details>
   ` : `
@@ -6175,6 +6486,39 @@ function setNeededNoteKnown(word, known) {
   saveNeededNotesKnownWords();
 }
 
+function relearnNeededNote(word) {
+  const id = getNeededNoteId(word);
+  if (!id) return;
+  delete neededNotesKnownWords[id];
+  neededNotesMemoryRatings[id] = 3;
+  saveNeededNotesKnownWords();
+  saveNeededNotesMemoryRatings();
+}
+
+function relearnNeededNoteById(wordId) {
+  const word = getNeededNoteById(wordId);
+  if (!word) return;
+  relearnNeededNote(word);
+  neededNotesMode = "choice";
+  setAppStorage("neededNotesMode", neededNotesMode);
+  resetNeededNotesAnswerState();
+  neededNotesIndex = Math.max(0, getNeededNotesActiveWords().findIndex((item) => getNeededNoteId(item) === wordId));
+  saveNeededNotesIndex();
+  renderNeededNotes();
+}
+
+function relearnAllNeededNotesInFilter() {
+  const learnedWords = getNeededNotesLearnedWords();
+  if (!learnedWords.length) return;
+  learnedWords.forEach(relearnNeededNote);
+  neededNotesMode = "choice";
+  setAppStorage("neededNotesMode", neededNotesMode);
+  neededNotesIndex = 0;
+  saveNeededNotesIndex();
+  resetNeededNotesAnswerState();
+  renderNeededNotes();
+}
+
 function setNeededNoteMemoryRating(word, rating) {
   const normalizedRating = normalizeTopicMemoryRating(rating);
   const id = getNeededNoteId(word);
@@ -6296,6 +6640,7 @@ function renderNeededNotesDone(total) {
       <strong>Xong ${total}/${total} từ trong bộ lọc này rồi.</strong>
       <span>Tất cả từ đang lọc đã nằm trong danh sách đã học của Admin.</span>
       <button class="topic-next-button" data-needed-mode="list" type="button">Xem danh sách đã học</button>
+      <button class="topic-next-button" data-needed-relearn-all type="button">Học lại bộ này</button>
     </article>
   `;
 }
@@ -6391,6 +6736,7 @@ function renderNeededNotesShell(innerMarkup) {
       <div class="needed-stats">
         <strong>Đã học ${learnedCount}/${total}</strong>
         <span>Còn ${remainingCount} từ trong ghi chú cần ôn</span>
+        ${learnedCount ? `<button class="needed-relearn-inline" data-needed-relearn-all type="button">Học lại ${learnedCount} từ đã học</button>` : ""}
       </div>
       <div class="needed-menu ${neededNotesMenuExpanded ? "is-open" : "is-collapsed"}">
         <button class="needed-menu-toggle topic-menu-toggle" data-needed-menu-toggle type="button" aria-expanded="${neededNotesMenuExpanded}" aria-label="Mở chọn kiểu học ghi chú, đang là ${escapeHtml(activeModeLabel)}">
@@ -6540,6 +6886,7 @@ function renderNeededNotesList() {
       <em>${escapeHtml(word.pinyin)}</em>
       <small>${escapeHtml(getNeededNoteMeaning(word))} · ${escapeHtml(getNeededNoteTopicLabel(word) || getNeededNoteDate(word))}</small>
       <b>${learned ? "đã học" : "cần học"}</b>
+      ${learned ? `<button class="needed-row-relearn" data-needed-relearn="${escapeHtml(getNeededNoteId(word))}" type="button">Học lại</button>` : ""}
     </li>
   `;
 
@@ -7326,7 +7673,7 @@ async function loadLearningLibraries() {
     fetch("data/hsk-vocabulary.json"),
     fetch("data/common-sentences.json"),
     fetch("data/hsk-explanations.json"),
-    fetch("data/needed-words.json?v=needed-20260730a"),
+    fetch("data/needed-words.json?v=needed-20260730b"),
     fetch("data/component-contrasts.json")
   ]);
 
@@ -7720,6 +8067,7 @@ document.addEventListener("click", (event) => {
   const clickedInsideNeededChoiceMenu = neededNotesApp?.querySelector(".needed-choice-menu")?.contains(event.target);
   const clickedInsideNeededFilter = neededNotesApp?.querySelector(".needed-source-filter")?.contains(event.target);
   const componentHanziButton = event.target.closest("[data-component-hanzi]");
+  const globalLookupButton = event.target.closest("[data-global-lookup]");
   const wordButton = event.target.closest("[data-word]");
   const questionButton = event.target.closest("[data-open-word]");
   const speakButton = event.target.closest("[data-speak]");
@@ -7742,6 +8090,8 @@ document.addEventListener("click", (event) => {
   const topicListenRevealButton = event.target.closest("[data-topic-listen-reveal]");
   const topicListenNextButton = event.target.closest("[data-topic-listen-next]");
   const topicKnownButton = event.target.closest("[data-topic-known]");
+  const topicRelearnButton = event.target.closest("[data-topic-relearn]");
+  const topicRelearnAllButton = event.target.closest("[data-topic-relearn-all]");
   const topicLookupButton = event.target.closest("[data-topic-lookup]");
   const topicChoiceControlsToggleButton = event.target.closest("[data-topic-choice-controls-toggle]");
   const topicChoicePracticeModeButton = event.target.closest("[data-topic-choice-practice-mode]");
@@ -7765,6 +8115,8 @@ document.addEventListener("click", (event) => {
   const neededChoiceModeButton = event.target.closest("[data-needed-choice-mode]");
   const neededAnswerButton = event.target.closest("[data-needed-answer]");
   const neededNextButton = event.target.closest("[data-needed-next]");
+  const neededRelearnButton = event.target.closest("[data-needed-relearn]");
+  const neededRelearnAllButton = event.target.closest("[data-needed-relearn-all]");
   const neededRevealButton = event.target.closest("[data-needed-reveal]");
   const neededRatingButton = event.target.closest("[data-needed-rate]");
   const neededAudioButton = event.target.closest("[data-needed-audio]");
@@ -7779,6 +8131,7 @@ document.addEventListener("click", (event) => {
     openComponentContrastItem(componentHanziButton.dataset.componentHanzi);
     return;
   }
+  if (globalLookupButton) openGlobalLookupItem(globalLookupButton.dataset.globalLookup);
   if (wordButton) openWord(wordButton.dataset.word);
   if (questionButton) openWord(questionButton.dataset.openWord);
   if (interrogativeGuideButton) {
@@ -7807,6 +8160,8 @@ document.addEventListener("click", (event) => {
     setTopicWordKnown(topicKnownButton.dataset.topicKnown, !isTopicWordKnown(topicKnownButton.dataset.topicKnown));
     renderTopicWorkshop();
   }
+  if (topicRelearnButton) relearnTopicWord(topicRelearnButton.dataset.topicRelearn);
+  if (topicRelearnAllButton) relearnAllTopicKnownWords();
   if (topicLookupButton) openTopicWord(topicLookupButton.dataset.topicLookup);
   if (topicChoiceControlsToggleButton) toggleTopicChoiceControls();
   if (topicChoicePracticeModeButton) setTopicChoicePracticeMode(topicChoicePracticeModeButton.dataset.topicChoicePracticeMode);
@@ -7835,6 +8190,8 @@ document.addEventListener("click", (event) => {
   if (neededModeButton) setNeededNotesMode(neededModeButton.dataset.neededMode);
   if (neededChoiceModeButton) setNeededNotesChoiceMode(neededChoiceModeButton.dataset.neededChoiceMode);
   if (neededAnswerButton) answerNeededNotesChoice(neededAnswerButton.dataset.neededAnswer);
+  if (neededRelearnButton) relearnNeededNoteById(neededRelearnButton.dataset.neededRelearn);
+  if (neededRelearnAllButton) relearnAllNeededNotesInFilter();
   if (neededNextButton) {
     nextNeededNote({ keepIndex: neededNotesAnswered && neededNotesSelected === neededNotesAnsweredId });
   }

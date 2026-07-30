@@ -2179,7 +2179,7 @@ main.single-lesson-view > section:not([hidden]) {
 
 .needed-word-list li {
   display: grid;
-  grid-template-columns: 36px minmax(120px, 1fr) minmax(120px, 0.8fr) minmax(180px, 1.4fr) auto;
+  grid-template-columns: 36px minmax(120px, 1fr) minmax(120px, 0.8fr) minmax(180px, 1.4fr) auto auto;
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
@@ -2219,6 +2219,31 @@ main.single-lesson-view > section:not([hidden]) {
   color: var(--blue);
   font-size: 11px;
   white-space: nowrap;
+}
+
+.needed-relearn-inline,
+.needed-row-relearn {
+  justify-self: start;
+  width: fit-content;
+  min-height: 30px;
+  padding: 0 12px;
+  color: #fffdf8;
+  background: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.needed-relearn-inline {
+  margin-top: 4px;
+}
+
+.needed-row-relearn:hover,
+.needed-relearn-inline:hover {
+  background: var(--green);
+  border-color: var(--green);
 }
 
 .topic-filter {
@@ -2701,7 +2726,7 @@ main.single-lesson-view > section:not([hidden]) {
 
 .topic-learned-list {
   position: relative;
-  display: none;
+  display: grid;
   justify-items: center;
   color: var(--muted);
   font-size: 12px;
@@ -2771,6 +2796,12 @@ main.single-lesson-view > section:not([hidden]) {
   display: flex;
 }
 
+.topic-learned-item {
+  display: inline-flex;
+  gap: 4px;
+  align-items: stretch;
+}
+
 .topic-learned-list button {
   display: inline-flex;
   align-items: center;
@@ -2787,6 +2818,20 @@ main.single-lesson-view > section:not([hidden]) {
 .topic-learned-list button:hover {
   border-color: rgba(45, 80, 106, 0.35);
   background: rgba(255, 255, 255, 0.9);
+}
+
+.topic-learned-list .topic-relearn-button,
+.topic-learned-list .topic-relearn-all-button {
+  color: #fffdf8;
+  background: var(--blue);
+  border-color: var(--blue);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.topic-learned-list .topic-relearn-all-button {
+  width: 100%;
+  justify-content: center;
 }
 
 .topic-learned-list button b {
@@ -2809,7 +2854,7 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .topic-learned-list-empty {
-  display: none;
+  display: grid;
   width: 48px;
   min-height: 34px;
   place-items: center;
@@ -5254,7 +5299,8 @@ main.single-lesson-view > section:not([hidden]) {
 
 .pinyin-result-open strong,
 .pinyin-result-open > span:not(.hsk-word-level),
-.pinyin-result-open small {
+.pinyin-result-open small,
+.pinyin-result-source {
   display: block;
 }
 
@@ -5276,8 +5322,18 @@ main.single-lesson-view > section:not([hidden]) {
 .pinyin-result-open small {
   margin-top: 6px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.4;
+}
+
+.pinyin-result-source {
+  margin-top: 8px;
+  color: var(--green);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 850;
+  line-height: 1.35;
+  text-transform: uppercase;
 }
 
 .pinyin-result-audio {
