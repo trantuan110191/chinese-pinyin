@@ -3244,9 +3244,6 @@ function openGlobalLookupItem(entryId) {
         <p class="dialog-topic">${escapeHtml(entry.sourceText || entry.source)}</p>
         <h2>${escapeHtml(entry.meaning || "Mục tra trong app")}</h2>
         <p class="dialog-pinyin">${escapeHtml(entry.pinyin || "")}</p>
-        <div class="dialog-actions">
-          <button class="speak-button" data-topic-audio="${escapeHtml(entry.audioText || entry.hanzi)}" type="button">Nghe trong app</button>
-        </div>
       </div>
     </div>
     <div class="dialog-body">
@@ -3311,8 +3308,6 @@ function renderPinyinDictionary() {
         <small>${escapeHtml(entry.meaning)}</small>
         <em class="pinyin-result-source">${escapeHtml([entry.topic, entry.date].filter(Boolean).join(" · "))}</em>
       </button>
-      <button class="pinyin-result-audio" data-topic-audio="${escapeHtml(entry.audioText || entry.hanzi)}" type="button"
-        aria-label="Nghe ${escapeHtml(entry.hanzi)}">▶</button>
     </article>
   `).join("");
 }

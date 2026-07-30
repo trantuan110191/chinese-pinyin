@@ -5290,7 +5290,7 @@ main.single-lesson-view > section:not([hidden]) {
 .pinyin-result-open {
   display: block;
   width: 100%;
-  padding: 0 40px 0 0;
+  padding: 0;
   text-align: left;
   background: transparent;
   border: 0;
@@ -5334,25 +5334,6 @@ main.single-lesson-view > section:not([hidden]) {
   font-weight: 850;
   line-height: 1.35;
   text-transform: uppercase;
-}
-
-.pinyin-result-audio {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  color: white;
-  background: var(--blue);
-  border: 0;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.pinyin-result-audio.is-playing {
-  background: var(--green);
 }
 
 .question-guide-heading > p strong {
