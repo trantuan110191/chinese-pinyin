@@ -5299,8 +5299,7 @@ main.single-lesson-view > section:not([hidden]) {
 
 .pinyin-result-open strong,
 .pinyin-result-open > span:not(.hsk-word-level),
-.pinyin-result-open small,
-.pinyin-result-source {
+.pinyin-result-open small {
   display: block;
 }
 
@@ -5324,16 +5323,6 @@ main.single-lesson-view > section:not([hidden]) {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.4;
-}
-
-.pinyin-result-source {
-  margin-top: 8px;
-  color: var(--green);
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 850;
-  line-height: 1.35;
-  text-transform: uppercase;
 }
 
 .question-guide-heading > p strong {

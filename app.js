@@ -3241,24 +3241,9 @@ function openGlobalLookupItem(entryId) {
     <div class="dialog-hero hsk-quick-dialog-hero">
       <div class="dialog-character hsk-quick-dialog-character" lang="zh-Hans">${escapeHtml(entry.hanzi)}</div>
       <div class="dialog-intro">
-        <p class="dialog-topic">${escapeHtml(entry.sourceText || entry.source)}</p>
         <h2>${escapeHtml(entry.meaning || "Mục tra trong app")}</h2>
         <p class="dialog-pinyin">${escapeHtml(entry.pinyin || "")}</p>
       </div>
-    </div>
-    <div class="dialog-body">
-      <section class="detail-section full-width">
-        <p class="detail-label detail-label-accent">Nguồn trong app</p>
-        <h3>${escapeHtml(entry.source || "Tra nội bộ")}</h3>
-        <p>${escapeHtml([entry.topic, entry.date].filter(Boolean).join(" · ") || "Tìm thấy trong kho dữ liệu đang học.")}</p>
-      </section>
-      ${entry.chunk || entry.sentence ? `
-        <section class="detail-section full-width mnemonic-box">
-          <p class="detail-label detail-label-accent">Chunk / câu</p>
-          <h3 lang="zh-Hans">${escapeHtml(entry.chunk || entry.hanzi)}</h3>
-          <p>${escapeHtml(entry.sentence || "")}</p>
-        </section>
-      ` : ""}
     </div>
   `;
   if (dialog.open) dialog.close();
@@ -3306,7 +3291,6 @@ function renderPinyinDictionary() {
         <strong lang="zh-Hans">${escapeHtml(entry.hanzi)}</strong>
         <span>${escapeHtml(entry.pinyin)}</span>
         <small>${escapeHtml(entry.meaning)}</small>
-        <em class="pinyin-result-source">${escapeHtml([entry.topic, entry.date].filter(Boolean).join(" · "))}</em>
       </button>
     </article>
   `).join("");
