@@ -1719,11 +1719,10 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .needed-filter-toggle {
-  display: inline-grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-  width: min(620px, 100%);
+  width: auto;
   padding: 10px 14px;
   color: var(--blue);
   text-align: left;
@@ -1743,6 +1742,7 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .needed-filter-toggle strong {
+  display: none;
   overflow: hidden;
   color: var(--blue);
   font-size: 14px;
@@ -1761,7 +1761,7 @@ main.single-lesson-view > section:not([hidden]) {
 
 .needed-filter-panel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   align-items: stretch;
   gap: 10px;
   max-height: 360px;
@@ -1830,9 +1830,28 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .needed-date-chip span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   color: var(--muted);
   font-size: 12px;
   line-height: 1.2;
+}
+
+.needed-date-chip em {
+  min-width: 0;
+  overflow: hidden;
+  font-style: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.needed-date-chip b {
+  flex: 0 0 auto;
+  color: currentColor;
+  font-size: 12px;
+  font-weight: 950;
 }
 
 .needed-date-chip:hover span,

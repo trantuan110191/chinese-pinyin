@@ -6427,16 +6427,44 @@ function formatNeededNoteDateShort(date) {
 }
 
 function getNeededNotesDateTopicSummary(date) {
-  if (date === "all") return "Tất cả chủ đề";
+  if (date === "all") return "toàn bộ";
   const topics = uniqueNeededNoteValues(getNeededNotesWordsForFilter({ date }), getNeededNoteTopic)
     .filter(Boolean);
   if (!topics.length) return "";
-  return topics.length === 1 ? topics[0] : `${topics[0]} +${topics.length - 1} chủ đề`;
+  const summaries = topics
+    .map(getNeededNotesTopicBrief)
+    .filter(Boolean)
+    .filter((topic, index, list) => list.indexOf(topic) === index);
+  if (!summaries.length) return "";
+  if (summaries.length === 1) return summaries[0];
+  return `${summaries.slice(0, 2).join(", ")}${summaries.length > 2 ? ` +${summaries.length - 2}` : ""}`;
 }
 
-function renderNeededNotesDateStat(words) {
-  const { total, learned, remaining } = getNeededNotesProgressStats(words);
-  return `đã ${learned}/${total} · còn ${remaining}`;
+function getNeededNotesTopicBrief(topic) {
+  const cleaned = String(topic || "")
+    .replace(/^Bài\s*\d+\s*:\s*/i, "")
+    .replace(/[“”"']/g, "")
+    .replace(/\s*&\s*/g, ", ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const withoutTail = cleaned
+    .replace(/(?:,\s*)?mẫu\b.*$/i, "")
+    .replace(/(?:,\s*)?chunk\b.*$/i, "")
+    .replace(/(?:,\s*)?công thức\b.*$/i, "")
+    .replace(/tổng hợp HSK1-HSK2/i, "tổng hợp")
+    .trim();
+  const parts = withoutTail
+    .split(/\s*,\s*/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  const selected = (parts.length ? parts : [withoutTail || cleaned || "Chưa phân loại"]).slice(0, 2);
+  const suffix = parts.length > 2 ? "..." : "";
+  return `${selected.join(", ")}${suffix}`.toLocaleLowerCase("vi");
+}
+
+function renderNeededNotesDateProgress(words) {
+  const { total, learned } = getNeededNotesProgressStats(words);
+  return `${learned}/${total}`;
 }
 
 function saveNeededNotesKnownWords() {
@@ -6645,7 +6673,7 @@ function renderNeededNotesFilterPanel(total) {
   const allButton = `
     <button class="needed-date-chip ${neededNotesDate === "all" ? "active" : ""}" data-needed-date="all" type="button">
       <strong>Tất cả ngày</strong>
-      <span>${escapeHtml(renderNeededNotesDateStat(allWords))}</span>
+      <span><em>toàn bộ ghi chú</em><b>${escapeHtml(renderNeededNotesDateProgress(allWords))}</b></span>
     </button>
   `;
   const dateButtons = getNeededNotesDates().map((date) => {
@@ -6653,8 +6681,8 @@ function renderNeededNotesFilterPanel(total) {
     const topic = getNeededNotesDateTopicSummary(date);
     return `
       <button class="needed-date-chip ${neededNotesDate === date ? "active" : ""}" data-needed-date="${escapeHtml(date)}" type="button">
-        <strong>${escapeHtml(formatNeededNoteDateShort(date))}${topic ? ` · ${escapeHtml(topic)}` : ""}</strong>
-        <span>${escapeHtml(renderNeededNotesDateStat(words))}</span>
+        <strong>Ngày ${escapeHtml(formatNeededNoteDateShort(date))}</strong>
+        <span><em>${escapeHtml(topic || "chưa phân loại")}</em><b>${escapeHtml(renderNeededNotesDateProgress(words))}</b></span>
       </button>
     `;
   }).join("");
@@ -6663,7 +6691,6 @@ function renderNeededNotesFilterPanel(total) {
     <div class="needed-source-filter ${neededNotesFilterExpanded ? "is-open" : "is-collapsed"}">
       <button class="needed-filter-toggle" data-needed-filter-toggle type="button" aria-expanded="${neededNotesFilterExpanded}">
         <span>Ngày/chủ đề</span>
-        <strong>${escapeHtml(getNeededNotesFilterSummary(total))}</strong>
         <b aria-hidden="true">${neededNotesFilterExpanded ? "▴" : "▾"}</b>
       </button>
       <div class="needed-filter-panel" ${neededNotesFilterExpanded ? "" : "hidden"}>
