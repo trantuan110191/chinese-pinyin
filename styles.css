@@ -1761,11 +1761,13 @@ main.single-lesson-view > section:not([hidden]) {
 
 .needed-filter-panel {
   display: grid;
-  grid-template-columns: 0.9fr 0.9fr minmax(220px, 1.2fr) auto;
-  align-items: end;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  align-items: stretch;
   gap: 10px;
+  max-height: 360px;
   margin-top: 10px;
   padding: 12px;
+  overflow: auto;
   background: #f7f5ee;
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -1799,13 +1801,43 @@ main.single-lesson-view > section:not([hidden]) {
 }
 
 .needed-filter-panel button {
-  padding: 11px 16px;
-  color: #fffdf8;
-  background: var(--blue);
-  border: 0;
-  border-radius: 999px;
+  display: grid;
+  gap: 4px;
+  min-height: 54px;
+  padding: 10px 12px;
+  color: var(--blue);
+  text-align: left;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 10px;
   font-weight: 900;
   cursor: pointer;
+}
+
+.needed-filter-panel button:hover,
+.needed-filter-panel button.active {
+  color: #fffdf8;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.needed-date-chip strong {
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.needed-date-chip span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.needed-date-chip:hover span,
+.needed-date-chip.active span {
+  color: rgba(255, 253, 248, 0.82);
 }
 
 .needed-filter-mini-progress {
