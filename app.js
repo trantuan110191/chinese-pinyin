@@ -6668,7 +6668,10 @@ function renderNeededNotesNoMatches() {
   `;
 }
 
-function renderNeededNotesFilterPanel(total) {
+function renderNeededNotesFilterPanel(total, menuPopoverMarkup = "") {
+  const currentSummary = neededNotesDate === "all"
+    ? "toàn bộ ghi chú"
+    : getNeededNotesDateTopicSummary(neededNotesDate);
   const allWords = getNeededNotesWordsForFilter();
   const allButton = `
     <button class="needed-date-chip ${neededNotesDate === "all" ? "active" : ""}" data-needed-date="all" type="button">
@@ -6688,11 +6691,24 @@ function renderNeededNotesFilterPanel(total) {
   }).join("");
 
   return `
-    <div class="needed-source-filter ${neededNotesFilterExpanded ? "is-open" : "is-collapsed"}">
-      <button class="needed-filter-toggle" data-needed-filter-toggle type="button" aria-expanded="${neededNotesFilterExpanded}">
-        <span>Ngày/chủ đề</span>
-        <b aria-hidden="true">${neededNotesFilterExpanded ? "▴" : "▾"}</b>
-      </button>
+    <div class="needed-topline">
+      <div class="needed-source-filter ${neededNotesFilterExpanded ? "is-open" : "is-collapsed"}">
+        <button class="needed-filter-toggle" data-needed-filter-toggle type="button" aria-expanded="${neededNotesFilterExpanded}">
+          <span>Ngày/chủ đề</span>
+          <b aria-hidden="true">${neededNotesFilterExpanded ? "▴" : "▾"}</b>
+        </button>
+      </div>
+      <p class="needed-current-topic">
+        <strong>${neededNotesDate === "all" ? "Tất cả ngày" : `Ngày ${escapeHtml(formatNeededNoteDateShort(neededNotesDate))}`}</strong>
+        <span>${escapeHtml(currentSummary || "chưa phân loại")}</span>
+      </p>
+      <div class="needed-menu ${neededNotesMenuExpanded ? "is-open" : "is-collapsed"}">
+        <button class="needed-menu-toggle topic-menu-toggle" data-needed-menu-toggle type="button" aria-expanded="${neededNotesMenuExpanded}" aria-label="Mở chọn kiểu học ghi chú">
+          <span class="topic-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="sr-only">Mở chọn kiểu học ghi chú</span>
+        </button>
+      </div>
+      ${menuPopoverMarkup}
       <div class="needed-filter-panel" ${neededNotesFilterExpanded ? "" : "hidden"}>
         ${allButton}
         ${dateButtons}
@@ -6714,6 +6730,30 @@ function renderNeededNotesShell(innerMarkup) {
       ${escapeHtml(label)}
     </button>
   `).join("");
+  const choiceModes = getNeededNotesChoiceModes();
+  const activeChoiceModeLabel = choiceModes[neededNotesChoiceMode] || choiceModes["hanzi-to-meaning"] || "Nhìn chữ chọn nghĩa";
+  const choiceModeButtons = Object.entries(choiceModes).map(([mode, label]) => `
+    <button class="${neededNotesChoiceMode === mode ? "active" : ""}" data-needed-choice-mode="${mode}" type="button">
+      ${escapeHtml(label)}
+    </button>
+  `).join("");
+  const choiceModeSection = neededNotesMode === "choice" ? `
+    <div class="topic-panel-popover-head">
+      <small>Kiểu câu</small>
+      <strong>${escapeHtml(activeChoiceModeLabel)}</strong>
+    </div>
+    <div class="needed-choice-mode">${choiceModeButtons}</div>
+  ` : "";
+  const menuPopoverMarkup = `
+    <div class="needed-menu-popover" ${neededNotesMenuExpanded ? "" : "hidden"}>
+      <div class="topic-panel-popover-head">
+        <small>Kiểu học ghi chú</small>
+        <strong>${escapeHtml(activeModeLabel)}</strong>
+      </div>
+      <div class="needed-mode-tabs">${modeButtons}</div>
+      ${choiceModeSection}
+    </div>
+  `;
 
   neededNotesApp.innerHTML = `
     <aside class="needed-progress-mini" aria-label="Tiến độ học từ ghi chú">
@@ -6727,21 +6767,8 @@ function renderNeededNotesShell(innerMarkup) {
         <span>Còn ${remainingCount} từ trong ghi chú cần ôn</span>
         ${learnedCount ? `<button class="needed-relearn-inline" data-needed-relearn-all type="button">Học lại ${learnedCount} từ đã học</button>` : ""}
       </div>
-      <div class="needed-menu ${neededNotesMenuExpanded ? "is-open" : "is-collapsed"}">
-        <button class="needed-menu-toggle topic-menu-toggle" data-needed-menu-toggle type="button" aria-expanded="${neededNotesMenuExpanded}" aria-label="Mở chọn kiểu học ghi chú, đang là ${escapeHtml(activeModeLabel)}">
-          <span class="topic-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="sr-only">Mở chọn kiểu học ghi chú, đang là ${escapeHtml(activeModeLabel)}</span>
-        </button>
-        <div class="needed-menu-popover" ${neededNotesMenuExpanded ? "" : "hidden"}>
-          <div class="topic-panel-popover-head">
-            <small>Kiểu học ghi chú</small>
-            <strong>${escapeHtml(activeModeLabel)}</strong>
-          </div>
-          <div class="needed-mode-tabs">${modeButtons}</div>
-        </div>
-      </div>
     </div>
-    ${renderNeededNotesFilterPanel(total)}
+    ${renderNeededNotesFilterPanel(total, menuPopoverMarkup)}
     ${innerMarkup}
   `;
 }
@@ -6760,13 +6787,6 @@ function renderNeededNotesChoice() {
 
   const selectedWord = getNeededNoteById(neededNotesSelected);
   const isCorrect = neededNotesAnswered && neededNotesSelected === wordId;
-  const choiceModes = getNeededNotesChoiceModes();
-  const activeChoiceModeLabel = choiceModes[neededNotesChoiceMode] || choiceModes["hanzi-to-meaning"] || "Nhìn chữ chọn nghĩa";
-  const choiceModeButtons = Object.entries(choiceModes).map(([mode, label]) => `
-    <button class="${neededNotesChoiceMode === mode ? "active" : ""}" data-needed-choice-mode="${mode}" type="button">
-      ${escapeHtml(label)}
-    </button>
-  `).join("");
   const isMeaningToHanzi = neededNotesChoiceMode === "meaning-to-hanzi";
   const options = neededNotesChoiceOptions.map((id) => {
     const optionWord = getNeededNoteById(id);
@@ -6804,24 +6824,9 @@ function renderNeededNotesChoice() {
       <div class="needed-choice-head">
         <div>
           <p class="section-kicker">GHI CHÚ · CHỌN ĐÁP ÁN · ${learnedCount}/${total}</p>
-          <span>${escapeHtml(getNeededNoteDateLabel(word))}</span>
-        </div>
-        <div class="needed-choice-menu ${neededNotesChoiceMenuExpanded ? "is-open" : "is-collapsed"}">
-          <button class="needed-choice-menu-toggle topic-menu-toggle" data-needed-choice-menu-toggle type="button" aria-expanded="${neededNotesChoiceMenuExpanded}" aria-label="Mở kiểu câu ghi chú, đang là ${escapeHtml(activeChoiceModeLabel)}">
-            <span class="topic-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="sr-only">Mở kiểu câu ghi chú, đang là ${escapeHtml(activeChoiceModeLabel)}</span>
-          </button>
-          <div class="needed-choice-menu-popover" ${neededNotesChoiceMenuExpanded ? "" : "hidden"}>
-            <div class="topic-panel-popover-head">
-              <small>Kiểu câu đang chọn</small>
-              <strong>${escapeHtml(activeChoiceModeLabel)}</strong>
-            </div>
-            <div class="needed-choice-mode">${choiceModeButtons}</div>
-          </div>
         </div>
       </div>
       <div class="needed-prompt">
-        <button class="topic-audio-button" data-needed-audio="${escapeHtml(wordId)}" type="button">▶ Nghe</button>
         ${promptMarkup}
         <button class="topic-choice-next-button" data-needed-next type="button">${escapeHtml(nextLabel)}</button>
       </div>
@@ -6835,15 +6840,12 @@ function renderNeededNotesFlashcard() {
   const total = getNeededNotesFilteredWords().length;
   const word = getNeededNotesCurrentWord();
   if (!word) return renderNeededNotesDone(total);
-  const wordId = getNeededNoteId(word);
   return `
     <article class="needed-card needed-flash">
       <div class="needed-choice-head">
         <div>
           <p class="section-kicker">GHI CHÚ · FLASH CARD</p>
-          <span>${escapeHtml(getNeededNoteDateLabel(word))}</span>
         </div>
-        <button class="topic-audio-button" data-needed-audio="${escapeHtml(wordId)}" type="button">▶ Nghe</button>
       </div>
       <div class="needed-flash-main">
         <strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>
@@ -6870,7 +6872,6 @@ function renderNeededNotesList() {
   const activeWords = getNeededNotesActiveWords();
   const renderRow = (word, learned = false) => `
     <li>
-      <button class="needed-row-audio" data-needed-audio="${escapeHtml(getNeededNoteId(word))}" type="button">▶</button>
       <span lang="zh-Hans">${escapeHtml(word.hanzi)}</span>
       <em>${escapeHtml(word.pinyin)}</em>
       <small>${escapeHtml(getNeededNoteMeaning(word))} · ${escapeHtml(getNeededNoteTopicLabel(word) || getNeededNoteDate(word))}</small>
@@ -7080,12 +7081,6 @@ function rateNeededNotesFlashcard(rating) {
 function toggleNeededNotesReveal() {
   neededNotesReveal = !neededNotesReveal;
   renderNeededNotes();
-}
-
-function playNeededNoteAudio(wordId, button) {
-  const word = getNeededNoteById(wordId);
-  if (!word) return;
-  playTopicAudio(getNeededNoteAudioText(word), button);
 }
 
 function openTopicWord(hanzi) {
@@ -8049,9 +8044,12 @@ document.addEventListener("click", (event) => {
   const clickedInsideTopicFilter = topicFilter?.contains(event.target);
   const clickedInsideTopicPanelSwitcher = topicPanelSwitcher?.contains(event.target);
   const clickedInsideTopicChoiceControls = topicChoice?.querySelector(".topic-choice-toolbar")?.contains(event.target);
-  const clickedInsideNeededMenu = neededNotesApp?.querySelector(".needed-menu")?.contains(event.target);
+  const clickedInsideNeededMenu = Boolean(
+    neededNotesApp?.querySelector(".needed-menu")?.contains(event.target)
+    || neededNotesApp?.querySelector(".needed-menu-popover")?.contains(event.target)
+  );
   const clickedInsideNeededChoiceMenu = neededNotesApp?.querySelector(".needed-choice-menu")?.contains(event.target);
-  const clickedInsideNeededFilter = neededNotesApp?.querySelector(".needed-source-filter")?.contains(event.target);
+  const clickedInsideNeededFilter = neededNotesApp?.querySelector(".needed-topline")?.contains(event.target);
   const componentHanziButton = event.target.closest("[data-component-hanzi]");
   const globalLookupButton = event.target.closest("[data-global-lookup]");
   const wordButton = event.target.closest("[data-word]");
@@ -8106,7 +8104,6 @@ document.addEventListener("click", (event) => {
   const neededRelearnAllButton = event.target.closest("[data-needed-relearn-all]");
   const neededRevealButton = event.target.closest("[data-needed-reveal]");
   const neededRatingButton = event.target.closest("[data-needed-rate]");
-  const neededAudioButton = event.target.closest("[data-needed-audio]");
   const adminProfileButton = event.target.closest("[data-open-admin-profile]");
   const dictationPlayButton = event.target.closest("[data-dictation-play]");
   const dictationCheckButton = event.target.closest("[data-dictation-check]");
@@ -8185,7 +8182,6 @@ document.addEventListener("click", (event) => {
   }
   if (neededRevealButton) toggleNeededNotesReveal();
   if (neededRatingButton) rateNeededNotesFlashcard(neededRatingButton.dataset.neededRate);
-  if (neededAudioButton) playNeededNoteAudio(neededAudioButton.dataset.neededAudio, neededAudioButton);
   if (adminProfileButton) showProfileGate("Nhập mật khẩu Admin để mở mục ghi chú từ cần học.");
   if (dictationPlayButton) playDictationItem(Number(dictationPlayButton.dataset.dictationPlay), dictationPlayButton);
   if (dictationCheckButton) checkDictationAnswer(Number(dictationCheckButton.dataset.dictationCheck));
