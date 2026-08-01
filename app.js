@@ -1952,6 +1952,9 @@ const pinyinContrastResults = document.querySelector("#pinyin-contrast-results")
 const pinyinContrastTool = document.querySelector(".pinyin-contrast-tool");
 const pinyinResultSummary = document.querySelector("#pinyin-result-summary");
 const pinyinResultGrid = document.querySelector("#pinyin-result-grid");
+const PINYIN_DICTIONARY_RENDER_LIMIT = 80;
+const PINYIN_DICTIONARY_INPUT_DELAY = 160;
+let pinyinDictionaryRenderTimer = 0;
 const dictationImport = document.querySelector("#dictation-import");
 const dictationAudioFile = document.querySelector("#dictation-audio-file");
 const dictationTranscript = document.querySelector("#dictation-transcript");
@@ -2549,6 +2552,13 @@ function getGlobalLookupCacheKey() {
   ].join("|");
 }
 
+function indexGlobalLookupEntry(entry) {
+  entry.meaningSearchVariants = getVietnameseSearchVariants(entry.meaning);
+  entry.searchTokens = String(entry.searchText || "").split(/\s+/).filter(Boolean);
+  entry.searchTokenSet = new Set(entry.searchTokens);
+  return entry;
+}
+
 function createGlobalLookupEntry(fields) {
   const hanzi = String(fields.hanzi || "").trim();
   const pinyin = String(fields.pinyin || "").trim();
@@ -2567,7 +2577,7 @@ function createGlobalLookupEntry(fields) {
     fields.extra,
   ].filter(Boolean);
   const searchText = [...new Set(searchParts.flatMap(getVietnameseSearchVariants))].join(" ");
-  return {
+  return indexGlobalLookupEntry({
     ...fields,
     hanzi,
     pinyin,
@@ -2577,7 +2587,7 @@ function createGlobalLookupEntry(fields) {
     audioText: fields.audioText || hanzi,
     pinyinBase: normalizeLookupPinyin(pinyin),
     searchText,
-  };
+  });
 }
 
 function buildGlobalLookupEntries() {
@@ -2597,6 +2607,7 @@ function buildGlobalLookupEntries() {
     if (existing) {
       existing.sourceText = [...new Set([existing.sourceText, entry.sourceText].filter(Boolean))].join(" · ");
       existing.searchText = [...new Set([existing.searchText, entry.searchText].filter(Boolean))].join(" ");
+      indexGlobalLookupEntry(existing);
       return;
     }
     entry.id = `global-${entries.length}`;
@@ -2706,10 +2717,10 @@ function getGlobalLookupMatchRank(entry, rawQuery, intent = getDictionaryLookupI
   const queryVariants = getVietnameseSearchVariants(raw);
   if (!queryVariants.length) return Infinity;
   const searchText = entry.searchText || "";
-  const meaningVariants = getVietnameseSearchVariants(entry.meaning);
+  const meaningVariants = entry.meaningSearchVariants || getVietnameseSearchVariants(entry.meaning);
   if (queryVariants.some((query) => meaningVariants.includes(query))) return 0;
   if (queryVariants.some((query) => meaningVariants.some((meaning) => meaning.startsWith(`${query} `)))) return 1;
-  if (queryVariants.some((query) => searchText.split(/\s+/).includes(query))) return 2;
+  if (queryVariants.some((query) => entry.searchTokenSet?.has(query) || searchText.split(/\s+/).includes(query))) return 2;
   if (queryVariants.some((query) => searchText.includes(query))) return 3;
   return Infinity;
 }
@@ -3200,34 +3211,32 @@ function getPinyinDictionaryWords() {
   const query = intent === "pinyin" ? normalizeLookupPinyin(stripPinyinToneInput(rawQuery)) : normalizeSearchText(rawQuery);
   const smartTargets = intent === "meaning" ? getSmartMeaningTargets(query) : [];
   const entries = getGlobalLookupEntries();
-  const matches = entries.filter((entry) => {
-    const matchesQuery = smartTargets.includes(entry.hanzi)
-      || getGlobalLookupMatchRank(entry, rawQuery, intent) < Infinity;
+  const matches = [];
+  entries.forEach((entry) => {
+    const smartIndex = smartTargets.indexOf(entry.hanzi);
+    const queryRank = smartIndex >= 0
+      ? smartIndex - smartTargets.length - 2
+      : getGlobalLookupMatchRank(entry, rawQuery, intent);
+    const matchesQuery = queryRank < Infinity;
     const matchesTone = pinyinDictionaryTone === "all"
       || (intent === "pinyin"
         ? pinyinMatchHasTone(entry.pinyin, query, pinyinDictionaryTone)
         : getPinyinTone(entry.pinyin) === pinyinDictionaryTone);
-    return matchesQuery && matchesTone;
+    if (matchesQuery && matchesTone) matches.push({ entry, queryRank });
   });
   return matches.sort((left, right) => {
     if (intent === "pinyin") {
       const score = (pinyin) => pinyin === query ? 0 : pinyin.startsWith(query) ? 1 : 2;
-      return score(left.pinyinBase) - score(right.pinyinBase)
-        || left.pinyinBase.length - right.pinyinBase.length
-        || left.hanzi.length - right.hanzi.length;
+      return score(left.entry.pinyinBase) - score(right.entry.pinyinBase)
+        || left.entry.pinyinBase.length - right.entry.pinyinBase.length
+        || left.entry.hanzi.length - right.entry.hanzi.length;
     }
 
-    const meaningScore = (entry) => {
-      const smartIndex = smartTargets.indexOf(entry.hanzi);
-      if (smartIndex >= 0) return smartIndex - smartTargets.length - 2;
-      if (entry.hanzi === rawQuery) return 0;
-      return getGlobalLookupMatchRank(entry, rawQuery, intent);
-    };
-    return meaningScore(left) - meaningScore(right)
-      || Number(left.level || 99) - Number(right.level || 99)
-      || String(left.hanzi).length - String(right.hanzi).length
-      || left.source.localeCompare(right.source, "vi");
-  });
+    return left.queryRank - right.queryRank
+      || Number(left.entry.level || 99) - Number(right.entry.level || 99)
+      || String(left.entry.hanzi).length - String(right.entry.hanzi).length
+      || left.entry.source.localeCompare(right.entry.source, "vi");
+  }).map((match) => match.entry);
 }
 
 function openGlobalLookupItem(entryId) {
@@ -3256,6 +3265,10 @@ function openGlobalLookupItem(entryId) {
 }
 
 function renderPinyinDictionary() {
+  if (pinyinDictionaryRenderTimer) {
+    window.clearTimeout(pinyinDictionaryRenderTimer);
+    pinyinDictionaryRenderTimer = 0;
+  }
   const rawQuery = pinyinDictionaryInput.value.trim();
   pinyinDictionaryTone = "all";
   if (pinyinContrastTool) pinyinContrastTool.hidden = true;
@@ -3270,16 +3283,23 @@ function renderPinyinDictionary() {
     return;
   }
 
+  if (!/[\u3400-\u9fff]/.test(rawQuery) && normalizeSearchText(rawQuery).length < 2) {
+    pinyinResultSummary.textContent = "Gõ thêm ít nhất 2 ký tự để tra nhanh và đỡ khựng.";
+    pinyinResultGrid.innerHTML = "";
+    return;
+  }
+
   if (!hskVocabulary.length) {
     pinyinResultSummary.textContent = "Đang tải kho từ trong app...";
     return;
   }
 
   const matches = getPinyinDictionaryWords();
+  const visibleMatches = matches.slice(0, PINYIN_DICTIONARY_RENDER_LIMIT);
   pinyinResultSummary.textContent = matches.length
-    ? `Tìm thấy ${matches.length} mục trong toàn bộ app. Tra được bằng Hán tự, Pinyin hoặc nghĩa Việt.`
+    ? `Tìm thấy ${matches.length} mục trong toàn bộ app${matches.length > visibleMatches.length ? `, đang hiện ${visibleMatches.length} mục đầu` : ""}.`
     : "Chưa có mục phù hợp trong app. Thử chữ Hán, Pinyin như “pao bu” hoặc nghĩa Việt như “chạy bộ”.";
-  pinyinResultGrid.innerHTML = matches.slice(0, 160).map((entry) => `
+  pinyinResultGrid.innerHTML = visibleMatches.map((entry) => `
     <article class="pinyin-result-card">
       <button class="pinyin-result-open" data-global-lookup="${escapeHtml(entry.id)}" type="button">
         <span class="hsk-word-level">${escapeHtml(entry.source)}</span>
@@ -3289,6 +3309,20 @@ function renderPinyinDictionary() {
       </button>
     </article>
   `).join("");
+}
+
+function schedulePinyinDictionaryRender() {
+  if (pinyinDictionaryRenderTimer) window.clearTimeout(pinyinDictionaryRenderTimer);
+  const rawQuery = pinyinDictionaryInput.value.trim();
+  if (!rawQuery || (!/[\u3400-\u9fff]/.test(rawQuery) && normalizeSearchText(rawQuery).length < 2)) {
+    renderPinyinDictionary();
+    return;
+  }
+  pinyinResultSummary.textContent = "Đang tra...";
+  pinyinDictionaryRenderTimer = window.setTimeout(() => {
+    pinyinDictionaryRenderTimer = 0;
+    renderPinyinDictionary();
+  }, PINYIN_DICTIONARY_INPUT_DELAY);
 }
 
 function openInternalPinyinLookup(value) {
@@ -7873,7 +7907,7 @@ pinyinDictionaryForm.addEventListener("submit", (event) => {
 
 pinyinDictionaryInput.addEventListener("input", () => {
   pinyinDictionaryTone = "all";
-  renderPinyinDictionary();
+  schedulePinyinDictionaryRender();
 });
 
 pinyinToneFilter?.addEventListener("click", (event) => {
