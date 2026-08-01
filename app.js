@@ -1976,7 +1976,7 @@ const componentContrastApp = document.querySelector("#component-contrast-app");
 
 const lessonLabels = {
   top: "Chọn mục học",
-  "pinyin-dictionary": "Tra từ · Pinyin · bốn thanh",
+  "pinyin-dictionary": "Tra tổng",
   "common-questions": "Câu hỏi hay gặp",
   pronunciation: "Luyện âm đầu",
   "initial-quiz": "Kiểm tra nghe mù",
@@ -2390,8 +2390,8 @@ function splitPinyinSyllable(value) {
 
 function isPinyinLookupQuery(value) {
   const trimmed = value.trim();
-  return !/\s/.test(trimmed)
-    && /^[a-zA-ZüÜvVāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ1-5'’-]+$/.test(trimmed);
+  return /[a-zA-ZüÜvVāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/.test(trimmed)
+    && /^[a-zA-ZüÜvVāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ1-5'’\-\s]+$/.test(trimmed);
 }
 
 function getMeaningParts(word) {
@@ -2476,16 +2476,18 @@ function getDictionaryLookupIntent(value) {
   if (/[\u3400-\u9fff]/.test(raw)) return "word";
 
   const normalizedQuery = normalize(raw);
+  const pinyinQuery = normalizeLookupPinyin(stripPinyinToneInput(raw));
+  const hasExactPinyin = Boolean(pinyinQuery) && hskVocabulary.some((word) =>
+    normalizeLookupPinyin(word.pinyin) === pinyinQuery
+  );
+  if (hasExactPinyin) return "pinyin";
+
   const hasExactMeaning = getSmartMeaningTargets(normalizedQuery).length
     || hasMeaningMatch(raw);
   if (hasExactMeaning) return "meaning";
   if (/[1-5]$/.test(raw) || /[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/i.test(raw)) return "pinyin";
 
-  const pinyinQuery = stripPinyinToneInput(raw);
-  const hasExactPinyin = hskVocabulary.some((word) =>
-    normalize(String(word.pinyin).replace(/[ǖǘǚǜü]/gi, "v")) === pinyinQuery
-  );
-  if (hasExactPinyin || isPinyinLookupQuery(raw)) return "pinyin";
+  if (isPinyinLookupQuery(raw)) return "pinyin";
   return "meaning";
 }
 
@@ -3022,6 +3024,7 @@ function openComponentContrastItem(hanzi) {
 }
 
 function renderPinyinToneFilter() {
+  if (!pinyinToneFilter) return;
   const options = [
     ["all", "Tất cả"],
     ["1", "Thanh 1 · ˉ"],
@@ -3037,6 +3040,7 @@ function renderPinyinToneFilter() {
 }
 
 function renderPinyinInitialShortcuts() {
+  if (!pinyinInitialShortcuts) return;
   pinyinInitialShortcuts.innerHTML = pinyinConfusionGroups.map((group) => `
     <span>${group.map((initial) => `
       <button type="button" data-pinyin-contrast="${initial}">${initial}</button>
@@ -3174,6 +3178,7 @@ function renderPinyinContrastItem({ raw, query }) {
 }
 
 function renderPinyinContrast() {
+  if (!pinyinContrastInput || !pinyinContrastResults) return;
   const items = parsePinyinContrastInputs(pinyinContrastInput.value);
   if (!items.length) {
     pinyinContrastResults.innerHTML = "<p>Chọn một âm đầu hoặc nhập vận mẫu để tạo bảng so sánh.</p>";
@@ -3251,39 +3256,29 @@ function openGlobalLookupItem(entryId) {
 }
 
 function renderPinyinDictionary() {
-  renderPinyinToneFilter();
   const rawQuery = pinyinDictionaryInput.value.trim();
-  const hasMainQuery = Boolean(rawQuery);
-  pinyinContrastTool.hidden = hasMainQuery;
-  pinyinToneFilter.hidden = !hasMainQuery;
-  if (!rawQuery) {
+  pinyinDictionaryTone = "all";
+  if (pinyinContrastTool) pinyinContrastTool.hidden = true;
+  if (pinyinToneFilter) pinyinToneFilter.hidden = true;
+  if (pinyinAnalysis) {
     pinyinAnalysis.hidden = true;
+    pinyinAnalysis.innerHTML = "";
+  }
+  if (!rawQuery) {
     pinyinResultSummary.textContent = "Nhập một từ hoặc âm Pinyin để bắt đầu.";
     pinyinResultGrid.innerHTML = "";
     return;
   }
 
-  const parsed = splitPinyinSyllable(rawQuery);
-  const lookupIntent = getDictionaryLookupIntent(rawQuery);
-  pinyinAnalysis.hidden = lookupIntent !== "pinyin" || !parsed.base || parsed.base.length > 6 || /[\s'’-]/.test(rawQuery.trim());
-  if (!pinyinAnalysis.hidden) {
-    pinyinAnalysis.innerHTML = `
-      <span><small>ÂM ĐANG TRA</small><strong>${escapeHtml(parsed.base)}</strong></span>
-      <span><small>ÂM ĐẦU</small><strong>${escapeHtml(parsed.initial)}</strong></span>
-      <span><small>VẬN MẪU</small><strong>${escapeHtml(parsed.final)}</strong></span>
-      <span><small>THANH</small><strong>${pinyinDictionaryTone === "all" ? "đủ thanh" : pinyinDictionaryTone === "0" ? "nhẹ" : pinyinDictionaryTone}</strong></span>
-    `;
-  }
-
   if (!hskVocabulary.length) {
-    pinyinResultSummary.textContent = "Đang tải kho từ và âm thanh Xiaoxiao...";
+    pinyinResultSummary.textContent = "Đang tải kho từ trong app...";
     return;
   }
 
   const matches = getPinyinDictionaryWords();
   pinyinResultSummary.textContent = matches.length
-    ? `Tìm thấy ${matches.length} mục trong toàn bộ app. Có HSK, chủ đề, ghi chú theo ngày, câu/chunk và chữ dễ nhầm.`
-    : "Chưa có mục phù hợp trong app. Thử chữ Hán, Pinyin không dấu hoặc nghĩa Việt khác.";
+    ? `Tìm thấy ${matches.length} mục trong toàn bộ app. Tra được bằng Hán tự, Pinyin hoặc nghĩa Việt.`
+    : "Chưa có mục phù hợp trong app. Thử chữ Hán, Pinyin như “pao bu” hoặc nghĩa Việt như “chạy bộ”.";
   pinyinResultGrid.innerHTML = matches.slice(0, 160).map((entry) => `
     <article class="pinyin-result-card">
       <button class="pinyin-result-open" data-global-lookup="${escapeHtml(entry.id)}" type="button">
@@ -3300,7 +3295,7 @@ function openInternalPinyinLookup(value) {
   const query = value.trim();
   if (!query) return;
   pinyinDictionaryInput.value = query;
-  pinyinDictionaryTone = getRequestedTone(query);
+  pinyinDictionaryTone = "all";
   history.pushState(null, "", "#pinyin-dictionary");
   showLesson("pinyin-dictionary", { smooth: true });
   renderPinyinDictionary();
@@ -7872,30 +7867,30 @@ headerLookupForm.addEventListener("submit", (event) => {
 
 pinyinDictionaryForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  pinyinDictionaryTone = getRequestedTone(pinyinDictionaryInput.value);
+  pinyinDictionaryTone = "all";
   renderPinyinDictionary();
 });
 
 pinyinDictionaryInput.addEventListener("input", () => {
-  pinyinDictionaryTone = getRequestedTone(pinyinDictionaryInput.value);
+  pinyinDictionaryTone = "all";
   renderPinyinDictionary();
 });
 
-pinyinToneFilter.addEventListener("click", (event) => {
+pinyinToneFilter?.addEventListener("click", (event) => {
   const button = event.target.closest("[data-pinyin-tone]");
   if (!button) return;
   pinyinDictionaryTone = button.dataset.pinyinTone;
   renderPinyinDictionary();
 });
 
-pinyinInitialShortcuts.addEventListener("click", (event) => {
+pinyinInitialShortcuts?.addEventListener("click", (event) => {
   const button = event.target.closest("[data-pinyin-contrast]");
   if (!button) return;
   pinyinContrastInput.value = button.dataset.pinyinContrast;
   renderPinyinContrast();
 });
 
-pinyinContrastInput.addEventListener("input", renderPinyinContrast);
+pinyinContrastInput?.addEventListener("input", renderPinyinContrast);
 
 componentContrastApp?.addEventListener("click", (event) => {
   const levelButton = event.target.closest("[data-component-level]");

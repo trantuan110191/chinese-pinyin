@@ -8,8 +8,8 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260801a" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20260801a" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260801b" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260801b" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -81,7 +81,7 @@
         </button>
         <form class="pinyin-lookup" id="pinyin-lookup">
           <label class="sr-only" for="pinyin-lookup-input">Tra từ ngay trong ứng dụng</label>
-          <input id="pinyin-lookup-input" type="search" autocomplete="off" placeholder="Tra: ma3, 中国, hàng xóm..." />
+          <input id="pinyin-lookup-input" type="search" autocomplete="off" placeholder="Tra: pao bu, 跑步, chạy bộ..." />
           <button type="submit">Tra từ</button>
         </form>
         <details class="lesson-menu" id="lesson-menu">
@@ -93,7 +93,7 @@
           </summary>
           <nav class="lesson-menu-panel" aria-label="Chọn mục học">
             <a href="#top"><b>00</b><span>Trang giới thiệu<small>Chọn một mục để bắt đầu</small></span></a>
-            <a href="#pinyin-dictionary"><b>01</b><span>Tra từ · Pinyin · bốn thanh<small>Nghe bằng giọng Xiaoxiao</small></span></a>
+            <a href="#pinyin-dictionary"><b>01</b><span>Tra tổng<small>Hán tự · Pinyin · nghĩa Việt</small></span></a>
             <a href="#common-questions"><b>02</b><span>Câu hỏi hay gặp<small>Gặp là dùng được ngay</small></span></a>
             <a href="#pronunciation"><b>03</b><span>Luyện âm đầu<small>z c s · j q x · zh ch sh r</small></span></a>
             <a href="#initial-quiz"><b>04</b><span>Kiểm tra nghe mù<small>20 câu chọn âm đầu</small></span></a>
@@ -144,42 +144,21 @@
         <div class="pinyin-dictionary-heading">
           <div>
             <p class="section-kicker">TRA NGAY TRONG ỨNG DỤNG</p>
-            <h2 id="pinyin-dictionary-title">Tra từ, Pinyin và bốn thanh</h2>
+            <h2 id="pinyin-dictionary-title">Tra tổng nghĩa của từ</h2>
           </div>
           <p>
-            Nhập <strong>mǎ</strong>, <strong>ma3</strong>, chữ Hán hoặc nghĩa Việt.
-            Mọi nút nghe đều dùng bản ghi <strong>zh-CN-XiaoxiaoNeural</strong> của app.
+            Nhập chữ Hán, Pinyin có dấu/không dấu hoặc nghĩa tiếng Việt.
+            Ví dụ <strong>pao bu</strong>, <strong>跑步</strong> hoặc <strong>chạy bộ</strong>.
           </p>
         </div>
 
         <form class="pinyin-dictionary-search" id="pinyin-dictionary-search">
           <label for="pinyin-dictionary-input">TỪ CẦN TRA</label>
           <div>
-            <input id="pinyin-dictionary-input" type="search" autocomplete="off" placeholder="Ví dụ: ma, ma3, 中国, hàng xóm..." />
+            <input id="pinyin-dictionary-input" type="search" autocomplete="off" placeholder="Ví dụ: pao bu, 跑步, chạy bộ..." />
             <button type="submit">Tìm</button>
           </div>
         </form>
-
-        <div class="pinyin-analysis" id="pinyin-analysis" hidden></div>
-        <div class="pinyin-tone-filter" id="pinyin-tone-filter" aria-label="Lọc theo thanh điệu"></div>
-
-        <section class="pinyin-contrast-tool" aria-labelledby="pinyin-contrast-title">
-          <div class="pinyin-contrast-head">
-            <div>
-              <p class="section-kicker">BẢNG PHỤ PHÁT ÂM</p>
-              <h3 id="pinyin-contrast-title">So sánh các âm dễ nhầm</h3>
-              <div class="pinyin-initial-shortcuts" id="pinyin-initial-shortcuts" aria-label="Chọn nhóm âm đầu dễ nhầm"></div>
-            </div>
-            <label class="pinyin-contrast-search" for="pinyin-contrast-input">
-              <span>ÂM ĐẦU / VẬN MẪU</span>
-              <input id="pinyin-contrast-input" type="search" autocomplete="off" placeholder="zh, ch, uan, van, zeng..." />
-            </label>
-          </div>
-          <div class="pinyin-contrast-results" id="pinyin-contrast-results">
-            <p>Chọn một âm đầu hoặc nhập vận mẫu để tạo bảng so sánh.</p>
-          </div>
-          <p class="pinyin-contrast-note">Nút nghe dùng từ mẫu trong kho 988 từ. Ô trống nghĩa là chưa có bản ghi Xiaoxiao phù hợp với thanh đó.</p>
-        </section>
 
         <p class="hsk-result-summary" id="pinyin-result-summary" aria-live="polite">Nhập một từ hoặc âm Pinyin để bắt đầu.</p>
         <div class="pinyin-result-grid" id="pinyin-result-grid"></div>
@@ -562,6 +541,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20260801a"></script>
+    <script src="app.js?v=clarity-20260801b"></script>
   </body>
 </html>
