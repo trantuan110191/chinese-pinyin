@@ -3432,6 +3432,14 @@ function updateLookupPopoverCursor(event) {
   if (!lookupPopover || lookupPopover.hidden) return;
   if (document.body.classList.contains("lookup-popover-dragging")
     || document.body.classList.contains("lookup-popover-resizing")) return;
+  if (event.target.closest(".lookup-popover-close")) {
+    lookupPopover.style.cursor = "";
+    return;
+  }
+  if (event.target.closest(".lookup-popover-head")) {
+    lookupPopover.style.cursor = "grab";
+    return;
+  }
   const resizeState = getLookupPopoverResizeState(event);
   lookupPopover.style.cursor = resizeState?.cursor || "";
 }
@@ -3619,13 +3627,14 @@ function beginLookupPopoverResize(event, edges = { right: true, bottom: true, cu
 
 function handleLookupPopoverPointerDown(event) {
   if (!lookupPopover || lookupPopover.hidden || event.target.closest(".lookup-popover-close")) return;
+  if (event.target.closest(".lookup-popover-head")) {
+    beginLookupPopoverDrag(event);
+    return;
+  }
   const resizeState = getLookupPopoverResizeState(event);
   if (resizeState) {
     beginLookupPopoverResize(event, resizeState);
     return;
-  }
-  if (event.target.closest(".lookup-popover-head")) {
-    beginLookupPopoverDrag(event);
   }
 }
 
