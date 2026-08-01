@@ -8,8 +8,8 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260801c" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20260801c" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260801d" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260801d" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -84,6 +84,18 @@
           <input id="pinyin-lookup-input" type="search" autocomplete="off" placeholder="Tra: pao bu, 跑步, chạy bộ..." />
           <button type="submit">Tra từ</button>
         </form>
+        <section class="lookup-popover" id="lookup-popover" aria-label="Tra nhanh không rời bài học" hidden>
+          <header class="lookup-popover-head" id="lookup-popover-handle">
+            <div>
+              <strong>Tra nhanh</strong>
+              <small>Kéo thanh này để di chuyển</small>
+            </div>
+            <button class="lookup-popover-close" id="lookup-popover-close" type="button" aria-label="Đóng tra nhanh">×</button>
+          </header>
+          <p class="lookup-popover-summary" id="lookup-popover-summary">Gõ Hán tự, Pinyin hoặc nghĩa Việt để tra.</p>
+          <div class="lookup-popover-results" id="lookup-popover-results"></div>
+          <span class="lookup-popover-resize" id="lookup-popover-resize" aria-hidden="true"></span>
+        </section>
         <details class="lesson-menu" id="lesson-menu">
           <summary>
             <strong id="lesson-menu-current">Chọn mục học</strong>
@@ -541,6 +553,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20260801c"></script>
+    <script src="app.js?v=clarity-20260801d"></script>
   </body>
 </html>

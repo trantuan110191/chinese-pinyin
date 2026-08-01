@@ -1942,6 +1942,12 @@ const mainContent = document.querySelector("main");
 const heroSection = document.querySelector(".hero");
 const headerLookupForm = document.querySelector("#pinyin-lookup");
 const headerLookupInput = document.querySelector("#pinyin-lookup-input");
+const lookupPopover = document.querySelector("#lookup-popover");
+const lookupPopoverHandle = document.querySelector("#lookup-popover-handle");
+const lookupPopoverClose = document.querySelector("#lookup-popover-close");
+const lookupPopoverSummary = document.querySelector("#lookup-popover-summary");
+const lookupPopoverResults = document.querySelector("#lookup-popover-results");
+const lookupPopoverResize = document.querySelector("#lookup-popover-resize");
 const pinyinDictionaryForm = document.querySelector("#pinyin-dictionary-search");
 const pinyinDictionaryInput = document.querySelector("#pinyin-dictionary-input");
 const pinyinAnalysis = document.querySelector("#pinyin-analysis");
@@ -1954,7 +1960,11 @@ const pinyinResultSummary = document.querySelector("#pinyin-result-summary");
 const pinyinResultGrid = document.querySelector("#pinyin-result-grid");
 const PINYIN_DICTIONARY_RENDER_LIMIT = 80;
 const PINYIN_DICTIONARY_INPUT_DELAY = 160;
+const LOOKUP_POPOVER_RENDER_LIMIT = 24;
+const LOOKUP_POPOVER_STORAGE_KEY = "hanziLookupPopoverRect";
 let pinyinDictionaryRenderTimer = 0;
+let lookupPopoverRenderTimer = 0;
+let lookupPopoverMoved = false;
 const dictationImport = document.querySelector("#dictation-import");
 const dictationAudioFile = document.querySelector("#dictation-audio-file");
 const dictationTranscript = document.querySelector("#dictation-transcript");
@@ -3204,8 +3214,8 @@ function renderPinyinContrast() {
   pinyinContrastResults.innerHTML = items.map(renderPinyinContrastItem).join("");
 }
 
-function getPinyinDictionaryWords() {
-  const rawQuery = pinyinDictionaryInput.value.trim();
+function getLookupWords(rawQuery, tone = "all") {
+  rawQuery = String(rawQuery || "").trim();
   if (!rawQuery) return [];
   const intent = getDictionaryLookupIntent(rawQuery);
   const query = intent === "pinyin" ? normalizeLookupPinyin(stripPinyinToneInput(rawQuery)) : normalizeSearchText(rawQuery);
@@ -3218,10 +3228,10 @@ function getPinyinDictionaryWords() {
       ? smartIndex - smartTargets.length - 2
       : getGlobalLookupMatchRank(entry, rawQuery, intent);
     const matchesQuery = queryRank < Infinity;
-    const matchesTone = pinyinDictionaryTone === "all"
+    const matchesTone = tone === "all"
       || (intent === "pinyin"
-        ? pinyinMatchHasTone(entry.pinyin, query, pinyinDictionaryTone)
-        : getPinyinTone(entry.pinyin) === pinyinDictionaryTone);
+        ? pinyinMatchHasTone(entry.pinyin, query, tone)
+        : getPinyinTone(entry.pinyin) === tone);
     if (matchesQuery && matchesTone) matches.push({ entry, queryRank });
   });
   return matches.sort((left, right) => {
@@ -3237,6 +3247,10 @@ function getPinyinDictionaryWords() {
       || String(left.entry.hanzi).length - String(right.entry.hanzi).length
       || left.entry.source.localeCompare(right.entry.source, "vi");
   }).map((match) => match.entry);
+}
+
+function getPinyinDictionaryWords() {
+  return getLookupWords(pinyinDictionaryInput.value.trim(), pinyinDictionaryTone);
 }
 
 function openGlobalLookupItem(entryId) {
@@ -3283,7 +3297,7 @@ function renderPinyinDictionary() {
     return;
   }
 
-  if (!/[\u3400-\u9fff]/.test(rawQuery) && normalizeSearchText(rawQuery).length < 2) {
+  if (isLookupQueryTooShort(rawQuery)) {
     pinyinResultSummary.textContent = "Gõ thêm ít nhất 2 ký tự để tra nhanh và đỡ khựng.";
     pinyinResultGrid.innerHTML = "";
     return;
@@ -3314,7 +3328,7 @@ function renderPinyinDictionary() {
 function schedulePinyinDictionaryRender() {
   if (pinyinDictionaryRenderTimer) window.clearTimeout(pinyinDictionaryRenderTimer);
   const rawQuery = pinyinDictionaryInput.value.trim();
-  if (!rawQuery || (!/[\u3400-\u9fff]/.test(rawQuery) && normalizeSearchText(rawQuery).length < 2)) {
+  if (!rawQuery || isLookupQueryTooShort(rawQuery)) {
     renderPinyinDictionary();
     return;
   }
@@ -3323,6 +3337,211 @@ function schedulePinyinDictionaryRender() {
     pinyinDictionaryRenderTimer = 0;
     renderPinyinDictionary();
   }, PINYIN_DICTIONARY_INPUT_DELAY);
+}
+
+function isLookupQueryTooShort(rawQuery) {
+  const query = String(rawQuery || "").trim();
+  return Boolean(query)
+    && !/[\u3400-\u9fff]/.test(query)
+    && normalizeSearchText(query).length < 2;
+}
+
+function getLookupPopoverStoredRect() {
+  try {
+    const rect = JSON.parse(localStorage.getItem(LOOKUP_POPOVER_STORAGE_KEY) || "null");
+    if (!rect || typeof rect !== "object") return null;
+    return {
+      left: Number(rect.left),
+      top: Number(rect.top),
+      width: Number(rect.width),
+      height: Number(rect.height),
+    };
+  } catch {
+    return null;
+  }
+}
+
+function clampLookupPopoverRect(rect) {
+  const margin = 12;
+  const maxWidth = Math.max(280, window.innerWidth - margin * 2);
+  const maxHeight = Math.max(240, window.innerHeight - margin * 2);
+  const width = Math.min(Math.max(Number(rect.width) || 430, 300), maxWidth);
+  const height = Math.min(Math.max(Number(rect.height) || 520, 240), maxHeight);
+  const left = Math.min(Math.max(Number(rect.left) || margin, margin), window.innerWidth - width - margin);
+  const top = Math.min(Math.max(Number(rect.top) || margin, margin), window.innerHeight - height - margin);
+  return { left, top, width, height };
+}
+
+function getLookupPopoverDefaultRect() {
+  const formRect = headerLookupForm?.getBoundingClientRect();
+  const width = Math.min(430, window.innerWidth - 28);
+  const height = Math.min(520, window.innerHeight - 108);
+  const preferredLeft = formRect ? formRect.left : window.innerWidth - width - 24;
+  const preferredTop = formRect ? formRect.bottom + 10 : 86;
+  return clampLookupPopoverRect({
+    left: preferredLeft,
+    top: preferredTop,
+    width,
+    height,
+  });
+}
+
+function applyLookupPopoverRect(rect, shouldSave = false) {
+  if (!lookupPopover) return;
+  const safeRect = clampLookupPopoverRect(rect);
+  lookupPopover.style.left = `${safeRect.left}px`;
+  lookupPopover.style.top = `${safeRect.top}px`;
+  lookupPopover.style.width = `${safeRect.width}px`;
+  lookupPopover.style.height = `${safeRect.height}px`;
+  lookupPopover.style.right = "auto";
+  if (shouldSave) {
+    localStorage.setItem(LOOKUP_POPOVER_STORAGE_KEY, JSON.stringify(safeRect));
+  }
+}
+
+function positionLookupPopover() {
+  if (!lookupPopover) return;
+  const savedRect = getLookupPopoverStoredRect();
+  applyLookupPopoverRect(savedRect || getLookupPopoverDefaultRect());
+}
+
+function renderLookupPopover(query = headerLookupInput?.value || "") {
+  if (!lookupPopoverSummary || !lookupPopoverResults) return;
+  const rawQuery = String(query || "").trim();
+  if (!rawQuery) {
+    lookupPopoverSummary.textContent = "Gõ Hán tự, Pinyin hoặc nghĩa Việt để tra.";
+    lookupPopoverResults.innerHTML = "";
+    return;
+  }
+
+  if (isLookupQueryTooShort(rawQuery)) {
+    lookupPopoverSummary.textContent = "Gõ thêm ít nhất 2 ký tự để tra nhanh.";
+    lookupPopoverResults.innerHTML = "";
+    return;
+  }
+
+  if (!hskVocabulary.length) {
+    lookupPopoverSummary.textContent = "Đang tải kho từ trong app...";
+    lookupPopoverResults.innerHTML = "";
+    return;
+  }
+
+  const matches = getLookupWords(rawQuery, "all");
+  const visibleMatches = matches.slice(0, LOOKUP_POPOVER_RENDER_LIMIT);
+  lookupPopoverSummary.textContent = matches.length
+    ? `Tìm thấy ${matches.length} mục cho “${rawQuery}”${matches.length > visibleMatches.length ? `, hiện ${visibleMatches.length} mục đầu` : ""}.`
+    : `Chưa có mục phù hợp cho “${rawQuery}”.`;
+  lookupPopoverResults.innerHTML = visibleMatches.map((entry) => `
+    <button class="lookup-popover-card" data-global-lookup="${escapeHtml(entry.id)}" type="button">
+      <strong lang="zh-Hans">${escapeHtml(entry.hanzi)}</strong>
+      <span>
+        <span>${escapeHtml(entry.pinyin)}</span>
+        <small>${escapeHtml(entry.meaning)}</small>
+        <em>${escapeHtml(entry.sourceText || entry.source)}</em>
+      </span>
+    </button>
+  `).join("");
+}
+
+function showLookupPopover(query = headerLookupInput?.value || "", { immediate = false } = {}) {
+  if (!lookupPopover) return;
+  if (lookupPopover.hidden) {
+    lookupPopover.hidden = false;
+    if (!lookupPopoverMoved) positionLookupPopover();
+  }
+  if (immediate) renderLookupPopover(query);
+  else scheduleLookupPopoverRender();
+}
+
+function closeLookupPopover() {
+  if (!lookupPopover || lookupPopover.hidden) return;
+  if (lookupPopoverRenderTimer) {
+    window.clearTimeout(lookupPopoverRenderTimer);
+    lookupPopoverRenderTimer = 0;
+  }
+  lookupPopover.hidden = true;
+}
+
+function scheduleLookupPopoverRender() {
+  if (!lookupPopover || !headerLookupInput) return;
+  if (lookupPopoverRenderTimer) window.clearTimeout(lookupPopoverRenderTimer);
+  const rawQuery = headerLookupInput.value.trim();
+  if (!rawQuery) {
+    closeLookupPopover();
+    return;
+  }
+  if (lookupPopover.hidden) {
+    lookupPopover.hidden = false;
+    if (!lookupPopoverMoved) positionLookupPopover();
+  }
+  if (isLookupQueryTooShort(rawQuery) || !hskVocabulary.length) {
+    renderLookupPopover(rawQuery);
+    return;
+  }
+  lookupPopoverSummary.textContent = "Đang tra...";
+  lookupPopoverRenderTimer = window.setTimeout(() => {
+    lookupPopoverRenderTimer = 0;
+    renderLookupPopover(rawQuery);
+  }, PINYIN_DICTIONARY_INPUT_DELAY);
+}
+
+function beginLookupPopoverDrag(event) {
+  if (!lookupPopover || event.target.closest("button")) return;
+  event.preventDefault();
+  const startX = event.clientX;
+  const startY = event.clientY;
+  const startRect = lookupPopover.getBoundingClientRect();
+  document.body.classList.add("lookup-popover-dragging");
+
+  const onPointerMove = (moveEvent) => {
+    lookupPopoverMoved = true;
+    applyLookupPopoverRect({
+      left: startRect.left + moveEvent.clientX - startX,
+      top: startRect.top + moveEvent.clientY - startY,
+      width: startRect.width,
+      height: startRect.height,
+    });
+  };
+
+  const onPointerUp = () => {
+    document.removeEventListener("pointermove", onPointerMove);
+    document.removeEventListener("pointerup", onPointerUp);
+    document.body.classList.remove("lookup-popover-dragging");
+    applyLookupPopoverRect(lookupPopover.getBoundingClientRect(), true);
+  };
+
+  document.addEventListener("pointermove", onPointerMove);
+  document.addEventListener("pointerup", onPointerUp, { once: true });
+}
+
+function beginLookupPopoverResize(event) {
+  if (!lookupPopover) return;
+  event.preventDefault();
+  event.stopPropagation();
+  const startX = event.clientX;
+  const startY = event.clientY;
+  const startRect = lookupPopover.getBoundingClientRect();
+  document.body.classList.add("lookup-popover-resizing");
+
+  const onPointerMove = (moveEvent) => {
+    lookupPopoverMoved = true;
+    applyLookupPopoverRect({
+      left: startRect.left,
+      top: startRect.top,
+      width: startRect.width + moveEvent.clientX - startX,
+      height: startRect.height + moveEvent.clientY - startY,
+    });
+  };
+
+  const onPointerUp = () => {
+    document.removeEventListener("pointermove", onPointerMove);
+    document.removeEventListener("pointerup", onPointerUp);
+    document.body.classList.remove("lookup-popover-resizing");
+    applyLookupPopoverRect(lookupPopover.getBoundingClientRect(), true);
+  };
+
+  document.addEventListener("pointermove", onPointerMove);
+  document.addEventListener("pointerup", onPointerUp, { once: true });
 }
 
 function openInternalPinyinLookup(value) {
@@ -7728,6 +7947,9 @@ async function loadLearningLibraries() {
   renderHskLevelFilter();
   renderHskWords();
   renderPinyinDictionary();
+  if (lookupPopover && !lookupPopover.hidden && headerLookupInput.value.trim()) {
+    renderLookupPopover(headerLookupInput.value);
+  }
   renderPinyinContrast();
   renderSentenceTopicFilter();
   renderSentences();
@@ -7896,8 +8118,16 @@ searchInput.addEventListener("input", renderWords);
 
 headerLookupForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  openInternalPinyinLookup(headerLookupInput.value);
+  showLookupPopover(headerLookupInput.value, { immediate: true });
 });
+
+headerLookupInput.addEventListener("input", scheduleLookupPopoverRender);
+
+lookupPopoverClose?.addEventListener("click", closeLookupPopover);
+
+lookupPopoverHandle?.addEventListener("pointerdown", beginLookupPopoverDrag);
+
+lookupPopoverResize?.addEventListener("pointerdown", beginLookupPopoverResize);
 
 pinyinDictionaryForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -7925,6 +8155,21 @@ pinyinInitialShortcuts?.addEventListener("click", (event) => {
 });
 
 pinyinContrastInput?.addEventListener("input", renderPinyinContrast);
+
+document.addEventListener("pointerdown", (event) => {
+  if (!lookupPopover || lookupPopover.hidden) return;
+  const clickedLookup = lookupPopover.contains(event.target) || headerLookupForm?.contains(event.target);
+  if (!clickedLookup) closeLookupPopover();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeLookupPopover();
+});
+
+window.addEventListener("resize", () => {
+  if (!lookupPopover || lookupPopover.hidden) return;
+  applyLookupPopoverRect(lookupPopover.getBoundingClientRect(), true);
+});
 
 componentContrastApp?.addEventListener("click", (event) => {
   const levelButton = event.target.closest("[data-component-level]");
