@@ -629,6 +629,16 @@ main.single-lesson-view > section:not([hidden]) {
   border-top: 3px solid var(--blue);
   border-radius: 8px;
   box-shadow: 0 22px 70px rgba(36, 33, 29, 0.22);
+  touch-action: none;
+}
+
+.lookup-popover::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  border: 1px solid rgba(41, 77, 102, 0.18);
+  border-radius: inherit;
 }
 
 .lookup-popover-head {
@@ -762,34 +772,10 @@ main.single-lesson-view > section:not([hidden]) {
   letter-spacing: 0.02em;
 }
 
-.lookup-popover-resize {
-  position: absolute;
-  right: 3px;
-  bottom: 3px;
-  width: 22px;
-  height: 22px;
-  cursor: nwse-resize;
-}
-
-.lookup-popover-resize::before {
-  position: absolute;
-  right: 4px;
-  bottom: 4px;
-  width: 12px;
-  height: 12px;
-  content: "";
-  border-right: 2px solid rgba(41, 77, 102, 0.5);
-  border-bottom: 2px solid rgba(41, 77, 102, 0.5);
-}
-
 body.lookup-popover-dragging,
 body.lookup-popover-resizing {
   cursor: grabbing;
   user-select: none;
-}
-
-body.lookup-popover-resizing {
-  cursor: nwse-resize;
 }
 
 .hero {

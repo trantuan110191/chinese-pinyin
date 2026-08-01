@@ -1943,11 +1943,9 @@ const heroSection = document.querySelector(".hero");
 const headerLookupForm = document.querySelector("#pinyin-lookup");
 const headerLookupInput = document.querySelector("#pinyin-lookup-input");
 const lookupPopover = document.querySelector("#lookup-popover");
-const lookupPopoverHandle = document.querySelector("#lookup-popover-handle");
 const lookupPopoverClose = document.querySelector("#lookup-popover-close");
 const lookupPopoverSummary = document.querySelector("#lookup-popover-summary");
 const lookupPopoverResults = document.querySelector("#lookup-popover-results");
-const lookupPopoverResize = document.querySelector("#lookup-popover-resize");
 const pinyinDictionaryForm = document.querySelector("#pinyin-dictionary-search");
 const pinyinDictionaryInput = document.querySelector("#pinyin-dictionary-input");
 const pinyinAnalysis = document.querySelector("#pinyin-analysis");
@@ -1962,6 +1960,7 @@ const PINYIN_DICTIONARY_RENDER_LIMIT = 80;
 const PINYIN_DICTIONARY_INPUT_DELAY = 160;
 const LOOKUP_POPOVER_RENDER_LIMIT = 24;
 const LOOKUP_POPOVER_STORAGE_KEY = "hanziLookupPopoverRect";
+const LOOKUP_POPOVER_EDGE_SIZE = 14;
 let pinyinDictionaryRenderTimer = 0;
 let lookupPopoverRenderTimer = 0;
 let lookupPopoverMoved = false;
@@ -3405,6 +3404,54 @@ function positionLookupPopover() {
   applyLookupPopoverRect(savedRect || getLookupPopoverDefaultRect());
 }
 
+function getLookupPopoverResizeState(event) {
+  if (!lookupPopover || lookupPopover.hidden) return null;
+  const rect = lookupPopover.getBoundingClientRect();
+  const nearLeft = event.clientX - rect.left <= LOOKUP_POPOVER_EDGE_SIZE;
+  const nearRight = rect.right - event.clientX <= LOOKUP_POPOVER_EDGE_SIZE;
+  const nearTop = event.clientY - rect.top <= LOOKUP_POPOVER_EDGE_SIZE;
+  const nearBottom = rect.bottom - event.clientY <= LOOKUP_POPOVER_EDGE_SIZE;
+  if (!nearLeft && !nearRight && !nearTop && !nearBottom) return null;
+
+  let cursor = "move";
+  if ((nearTop && nearLeft) || (nearBottom && nearRight)) cursor = "nwse-resize";
+  else if ((nearTop && nearRight) || (nearBottom && nearLeft)) cursor = "nesw-resize";
+  else if (nearLeft || nearRight) cursor = "ew-resize";
+  else if (nearTop || nearBottom) cursor = "ns-resize";
+
+  return {
+    left: nearLeft,
+    right: nearRight,
+    top: nearTop,
+    bottom: nearBottom,
+    cursor,
+  };
+}
+
+function updateLookupPopoverCursor(event) {
+  if (!lookupPopover || lookupPopover.hidden) return;
+  if (document.body.classList.contains("lookup-popover-dragging")
+    || document.body.classList.contains("lookup-popover-resizing")) return;
+  const resizeState = getLookupPopoverResizeState(event);
+  lookupPopover.style.cursor = resizeState?.cursor || "";
+}
+
+function captureLookupPopoverPointer(event) {
+  try {
+    lookupPopover?.setPointerCapture?.(event.pointerId);
+  } catch {
+    // Pointer capture is just a comfort feature; dragging still works without it.
+  }
+}
+
+function releaseLookupPopoverPointer(event) {
+  try {
+    lookupPopover?.releasePointerCapture?.(event.pointerId);
+  } catch {
+    // Some browsers release automatically when the pointer ends.
+  }
+}
+
 function renderLookupPopover(query = headerLookupInput?.value || "") {
   if (!lookupPopoverSummary || !lookupPopoverResults) return;
   const rawQuery = String(query || "").trim();
@@ -3459,6 +3506,7 @@ function closeLookupPopover() {
     window.clearTimeout(lookupPopoverRenderTimer);
     lookupPopoverRenderTimer = 0;
   }
+  lookupPopover.style.cursor = "";
   lookupPopover.hidden = true;
 }
 
@@ -3492,6 +3540,7 @@ function beginLookupPopoverDrag(event) {
   const startY = event.clientY;
   const startRect = lookupPopover.getBoundingClientRect();
   document.body.classList.add("lookup-popover-dragging");
+  captureLookupPopoverPointer(event);
 
   const onPointerMove = (moveEvent) => {
     lookupPopoverMoved = true;
@@ -3507,6 +3556,7 @@ function beginLookupPopoverDrag(event) {
     document.removeEventListener("pointermove", onPointerMove);
     document.removeEventListener("pointerup", onPointerUp);
     document.body.classList.remove("lookup-popover-dragging");
+    releaseLookupPopoverPointer(event);
     applyLookupPopoverRect(lookupPopover.getBoundingClientRect(), true);
   };
 
@@ -3514,22 +3564,42 @@ function beginLookupPopoverDrag(event) {
   document.addEventListener("pointerup", onPointerUp, { once: true });
 }
 
-function beginLookupPopoverResize(event) {
+function beginLookupPopoverResize(event, edges = { right: true, bottom: true, cursor: "nwse-resize" }) {
   if (!lookupPopover) return;
   event.preventDefault();
   event.stopPropagation();
   const startX = event.clientX;
   const startY = event.clientY;
   const startRect = lookupPopover.getBoundingClientRect();
+  const resizeEdges = edges || { right: true, bottom: true, cursor: "nwse-resize" };
   document.body.classList.add("lookup-popover-resizing");
+  document.body.style.cursor = resizeEdges.cursor || "nwse-resize";
+  lookupPopover.style.cursor = resizeEdges.cursor || "nwse-resize";
+  captureLookupPopoverPointer(event);
 
   const onPointerMove = (moveEvent) => {
     lookupPopoverMoved = true;
+    const deltaX = moveEvent.clientX - startX;
+    const deltaY = moveEvent.clientY - startY;
+    let nextLeft = startRect.left;
+    let nextTop = startRect.top;
+    let nextWidth = startRect.width;
+    let nextHeight = startRect.height;
+    if (resizeEdges.left) {
+      nextLeft = startRect.left + deltaX;
+      nextWidth = startRect.width - deltaX;
+    }
+    if (resizeEdges.right) nextWidth = startRect.width + deltaX;
+    if (resizeEdges.top) {
+      nextTop = startRect.top + deltaY;
+      nextHeight = startRect.height - deltaY;
+    }
+    if (resizeEdges.bottom) nextHeight = startRect.height + deltaY;
     applyLookupPopoverRect({
-      left: startRect.left,
-      top: startRect.top,
-      width: startRect.width + moveEvent.clientX - startX,
-      height: startRect.height + moveEvent.clientY - startY,
+      left: nextLeft,
+      top: nextTop,
+      width: nextWidth,
+      height: nextHeight,
     });
   };
 
@@ -3537,11 +3607,26 @@ function beginLookupPopoverResize(event) {
     document.removeEventListener("pointermove", onPointerMove);
     document.removeEventListener("pointerup", onPointerUp);
     document.body.classList.remove("lookup-popover-resizing");
+    document.body.style.cursor = "";
+    lookupPopover.style.cursor = "";
+    releaseLookupPopoverPointer(event);
     applyLookupPopoverRect(lookupPopover.getBoundingClientRect(), true);
   };
 
   document.addEventListener("pointermove", onPointerMove);
   document.addEventListener("pointerup", onPointerUp, { once: true });
+}
+
+function handleLookupPopoverPointerDown(event) {
+  if (!lookupPopover || lookupPopover.hidden || event.target.closest(".lookup-popover-close")) return;
+  const resizeState = getLookupPopoverResizeState(event);
+  if (resizeState) {
+    beginLookupPopoverResize(event, resizeState);
+    return;
+  }
+  if (event.target.closest(".lookup-popover-head")) {
+    beginLookupPopoverDrag(event);
+  }
 }
 
 function openInternalPinyinLookup(value) {
@@ -8125,9 +8210,15 @@ headerLookupInput.addEventListener("input", scheduleLookupPopoverRender);
 
 lookupPopoverClose?.addEventListener("click", closeLookupPopover);
 
-lookupPopoverHandle?.addEventListener("pointerdown", beginLookupPopoverDrag);
+lookupPopover?.addEventListener("pointermove", updateLookupPopoverCursor);
 
-lookupPopoverResize?.addEventListener("pointerdown", beginLookupPopoverResize);
+lookupPopover?.addEventListener("mousemove", updateLookupPopoverCursor);
+
+lookupPopover?.addEventListener("pointerleave", () => {
+  if (!document.body.classList.contains("lookup-popover-resizing")) lookupPopover.style.cursor = "";
+});
+
+lookupPopover?.addEventListener("pointerdown", handleLookupPopoverPointerDown);
 
 pinyinDictionaryForm.addEventListener("submit", (event) => {
   event.preventDefault();
