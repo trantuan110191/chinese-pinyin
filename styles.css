@@ -650,6 +650,7 @@ main.single-lesson-view > section:not([hidden]) {
   color: white;
   background: var(--blue);
   cursor: grab;
+  touch-action: none;
   user-select: none;
 }
 

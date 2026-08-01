@@ -1943,6 +1943,7 @@ const heroSection = document.querySelector(".hero");
 const headerLookupForm = document.querySelector("#pinyin-lookup");
 const headerLookupInput = document.querySelector("#pinyin-lookup-input");
 const lookupPopover = document.querySelector("#lookup-popover");
+const lookupPopoverHandle = document.querySelector("#lookup-popover-handle");
 const lookupPopoverClose = document.querySelector("#lookup-popover-close");
 const lookupPopoverSummary = document.querySelector("#lookup-popover-summary");
 const lookupPopoverResults = document.querySelector("#lookup-popover-results");
@@ -3541,6 +3542,67 @@ function scheduleLookupPopoverRender() {
   }, PINYIN_DICTIONARY_INPUT_DELAY);
 }
 
+function beginLookupPopoverDragAt(clientX, clientY, originalEvent) {
+  if (!lookupPopover) return;
+  originalEvent?.preventDefault?.();
+  originalEvent?.stopPropagation?.();
+  const startX = clientX;
+  const startY = clientY;
+  const startRect = lookupPopover.getBoundingClientRect();
+  document.body.classList.add("lookup-popover-dragging");
+  lookupPopover.style.cursor = "grabbing";
+
+  const moveTo = (moveX, moveY) => {
+    lookupPopoverMoved = true;
+    applyLookupPopoverRect({
+      left: startRect.left + moveX - startX,
+      top: startRect.top + moveY - startY,
+      width: startRect.width,
+      height: startRect.height,
+    });
+  };
+
+  const onMouseMove = (moveEvent) => {
+    moveTo(moveEvent.clientX, moveEvent.clientY);
+  };
+
+  const onTouchMove = (moveEvent) => {
+    const touch = moveEvent.touches?.[0];
+    if (!touch) return;
+    moveEvent.preventDefault();
+    moveTo(touch.clientX, touch.clientY);
+  };
+
+  const stopDragging = () => {
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", stopDragging);
+    document.removeEventListener("touchmove", onTouchMove);
+    document.removeEventListener("touchend", stopDragging);
+    document.removeEventListener("touchcancel", stopDragging);
+    document.body.classList.remove("lookup-popover-dragging");
+    lookupPopover.style.cursor = "";
+    applyLookupPopoverRect(lookupPopover.getBoundingClientRect(), true);
+  };
+
+  document.addEventListener("mousemove", onMouseMove);
+  document.addEventListener("mouseup", stopDragging, { once: true });
+  document.addEventListener("touchmove", onTouchMove, { passive: false });
+  document.addEventListener("touchend", stopDragging, { once: true });
+  document.addEventListener("touchcancel", stopDragging, { once: true });
+}
+
+function beginLookupPopoverHeaderMouseDrag(event) {
+  if (!lookupPopover || event.button !== 0 || event.target.closest(".lookup-popover-close")) return;
+  beginLookupPopoverDragAt(event.clientX, event.clientY, event);
+}
+
+function beginLookupPopoverHeaderTouchDrag(event) {
+  if (!lookupPopover || event.target.closest(".lookup-popover-close")) return;
+  const touch = event.touches?.[0];
+  if (!touch) return;
+  beginLookupPopoverDragAt(touch.clientX, touch.clientY, event);
+}
+
 function beginLookupPopoverDrag(event) {
   if (!lookupPopover || event.target.closest("button")) return;
   event.preventDefault();
@@ -3627,10 +3689,7 @@ function beginLookupPopoverResize(event, edges = { right: true, bottom: true, cu
 
 function handleLookupPopoverPointerDown(event) {
   if (!lookupPopover || lookupPopover.hidden || event.target.closest(".lookup-popover-close")) return;
-  if (event.target.closest(".lookup-popover-head")) {
-    beginLookupPopoverDrag(event);
-    return;
-  }
+  if (event.target.closest(".lookup-popover-head")) return;
   const resizeState = getLookupPopoverResizeState(event);
   if (resizeState) {
     beginLookupPopoverResize(event, resizeState);
@@ -8218,6 +8277,10 @@ headerLookupForm.addEventListener("submit", (event) => {
 headerLookupInput.addEventListener("input", scheduleLookupPopoverRender);
 
 lookupPopoverClose?.addEventListener("click", closeLookupPopover);
+
+lookupPopoverHandle?.addEventListener("mousedown", beginLookupPopoverHeaderMouseDrag);
+
+lookupPopoverHandle?.addEventListener("touchstart", beginLookupPopoverHeaderTouchDrag, { passive: false });
 
 lookupPopover?.addEventListener("pointermove", updateLookupPopoverCursor);
 
