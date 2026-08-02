@@ -7199,6 +7199,11 @@ function getNeededNotesAcceptedHanziAnswers(primaryHanzi, meaning, extraAnswers 
   return Array.from(answers).filter(Boolean);
 }
 
+function doNeededNotesPartsSharePrimaryHanzi(hanziParts, primaryHanzi) {
+  if (!primaryHanzi || primaryHanzi.length < 2 || hanziParts.length <= 1) return false;
+  return hanziParts.every((part) => part === primaryHanzi || part.includes(primaryHanzi));
+}
+
 function getNeededNotesTranslationTarget(word) {
   const wordId = getNeededNoteId(word);
   if (neededNotesTranslationTarget?.wordId === wordId) return neededNotesTranslationTarget;
@@ -7211,8 +7216,12 @@ function getNeededNotesTranslationTarget(word) {
   const meaningParts = definitionParts.length
     ? definitionParts
     : splitNeededNotesAlternatives(meaningSource, { allowSemicolon: true });
-  const alignsByPart = !definitionParts.length && hanziParts.length > 1 && meaningParts.length === hanziParts.length;
-  const variantCount = hanziParts.length <= 1 || definitionParts.length || alignsByPart
+  const sharesPrimaryHanzi = doNeededNotesPartsSharePrimaryHanzi(hanziParts, primaryHanzi);
+  const alignsByPart = !definitionParts.length
+    && !sharesPrimaryHanzi
+    && hanziParts.length > 1
+    && meaningParts.length === hanziParts.length;
+  const variantCount = hanziParts.length <= 1 || definitionParts.length || sharesPrimaryHanzi || alignsByPart
     ? meaningParts.length || 1
     : 1;
   const usableCount = alignsByPart
