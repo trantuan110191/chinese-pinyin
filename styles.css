@@ -10561,3 +10561,18 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
     grid-template-columns: 1fr;
   }
 }
+
+/* Home hero is now text-only; keep it compact and remove the old visual column. */
+.hero-layout {
+  grid-template-columns: minmax(0, 1fr) !important;
+  max-width: 760px;
+}
+
+.hero-description,
+.hero-visual {
+  display: none !important;
+}
+
+.hero-actions {
+  margin-top: 28px;
+}
