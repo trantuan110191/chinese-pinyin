@@ -8908,8 +8908,21 @@ main.single-lesson-view > section:not([hidden]) {
 .topic-flash-hanzi,
 .topic-listen-prompt strong {
   color: #201d1a;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.04em;
+}
+
+.hsk-word-hanzi,
+.word-card-hanzi,
+.sentence-hanzi,
+.interrogative-row-hanzi,
+.interrogative-example-hanzi,
+.component-list-hanzi,
+.quiz-reveal-hanzi,
+.topic-overview-word-head strong,
+.topic-choice-options button.topic-choice-option-hanzi,
+.needed-options button.needed-option-hanzi {
+  font-weight: 400;
 }
 
 .topic-choice-prompt strong,
