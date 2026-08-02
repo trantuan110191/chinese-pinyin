@@ -7208,7 +7208,6 @@ function renderNeededNotesChoice() {
     resetNeededNotesChoiceOptions(word);
   }
 
-  const selectedWord = getNeededNoteById(neededNotesSelected);
   const isCorrect = neededNotesAnswered && neededNotesSelected === wordId;
   const isMeaningToHanzi = neededNotesChoiceMode === "meaning-to-hanzi";
   const options = neededNotesChoiceOptions.map((id) => {
@@ -7232,17 +7231,6 @@ function renderNeededNotesChoice() {
   const promptMarkup = isMeaningToHanzi
     ? `<strong class="needed-prompt-meaning study-prompt-text ${neededPromptTextClass}" lang="vi">${escapeHtml(neededPromptText)}</strong>`
     : `<strong class="needed-prompt-hanzi study-prompt-text ${neededPromptTextClass}" lang="zh-Hans">${escapeHtml(neededPromptText)}</strong>`;
-  const feedback = neededNotesAnswered ? `
-    <div class="needed-feedback ${isCorrect ? "is-correct" : "is-wrong"}">
-      <strong>${isCorrect
-        ? "Đúng rồi. Từ này đã chuyển sang danh sách đã học của Admin."
-        : "Chưa đúng. Từ này vẫn ở danh sách cần học và sẽ quay lại sau."
-      }</strong>
-      <span lang="zh-Hans">${escapeHtml(word.hanzi)}</span>
-      <small>${escapeHtml(word.pinyin)} · ${escapeHtml(getNeededNoteMeaning(word))}</small>
-      ${selectedWord && !isCorrect ? `<small>Bạn vừa chọn: ${escapeHtml(selectedWord.hanzi)} · ${escapeHtml(selectedWord.pinyin)} · ${escapeHtml(getNeededNoteMeaning(selectedWord))}</small>` : ""}
-    </div>
-  ` : "";
 
   return `
     <article class="needed-card ${neededNotesAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
@@ -7253,7 +7241,6 @@ function renderNeededNotesChoice() {
         </button>
       </div>
       <div class="needed-options">${options}</div>
-      ${feedback}
     </article>
   `;
 }
