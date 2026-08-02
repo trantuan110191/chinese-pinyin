@@ -10271,3 +10271,33 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   backdrop-filter: blur(18px) saturate(1.05) !important;
   -webkit-backdrop-filter: blur(18px) saturate(1.05) !important;
 }
+
+/* Lesson Hanzi tuning: slightly stronger strokes, 10% smaller display size. */
+.topic-choice-prompt strong,
+.needed-prompt-hanzi,
+.topic-flash-hanzi,
+.topic-listen-prompt strong {
+  font-weight: 350;
+}
+
+.topic-choice-prompt strong,
+.needed-prompt-hanzi {
+  font-size: clamp(65px, 9vw, 106px);
+}
+
+.topic-flash-hanzi {
+  font-size: clamp(65px, 10.8vw, 115px);
+}
+
+.topic-listen-prompt strong {
+  font-size: clamp(54px, 8.1vw, 90px);
+}
+
+@media (max-width: 760px) {
+  .topic-choice-prompt strong,
+  .needed-prompt-hanzi,
+  .topic-flash-hanzi,
+  .topic-listen-prompt strong {
+    font-size: clamp(52px, 18vw, 77px);
+  }
+}
