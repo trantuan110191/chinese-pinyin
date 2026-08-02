@@ -10858,3 +10858,53 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 16px 38px rgba(31, 38, 135, 0.055);
 }
+
+/* Compact Admin badge: keep profile access beside the hamburger without taking header space. */
+.header-tools .profile-button.is-admin {
+  order: 8;
+  display: grid;
+  flex: 0 0 34px;
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  min-height: 34px;
+  place-items: center;
+  padding: 0;
+  color: #fff;
+  background: var(--green);
+  border-color: rgba(45, 70, 53, 0.18);
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(45, 70, 53, 0.16);
+  text-align: center;
+}
+
+.header-tools .profile-button.is-admin small {
+  display: none;
+}
+
+.header-tools .profile-button.is-admin strong {
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.header-tools .lesson-menu {
+  order: 9;
+}
+
+.needed-quick-mode-tabs {
+  display: none !important;
+}
+
+@media (max-width: 620px) {
+  .header-tools .profile-button.is-admin {
+    order: 3;
+    flex-basis: 34px;
+  }
+
+  .header-tools .lesson-menu {
+    order: 4;
+    flex: 1 1 120px;
+    width: auto;
+  }
+}

@@ -2220,17 +2220,20 @@ const pinyinMarkedCharacterPattern = /[a-zA-ZüÜvVāáǎàēéěèīíǐìōó�
 function renderLearningProfileUi() {
   if (!profileLabel || !profileButton) return;
   const profile = learningProfiles[currentLearningProfile.id] || learningProfiles.guest;
-  profileLabel.textContent = profile.label;
-  profileButton.classList.toggle("is-admin", profile.id === "admin");
+  const isAdmin = profile.id === "admin";
+  profileLabel.textContent = isAdmin ? "Ad" : profile.label;
+  profileButton.setAttribute("aria-label", isAdmin ? "Người học Admin" : `Người học ${profile.label}`);
+  profileButton.title = isAdmin ? "Người học Admin" : `Người học ${profile.label}`;
+  profileButton.classList.toggle("is-admin", isAdmin);
   document.body.dataset.learningProfile = profile.id;
   document.querySelectorAll("[data-admin-only]").forEach((element) => {
-    element.hidden = profile.id !== "admin";
+    element.hidden = !isAdmin;
   });
   if (profileClose) {
     profileClose.hidden = !readLearningProfile();
   }
   if (profileSync) {
-    profileSync.hidden = profile.id !== "admin";
+    profileSync.hidden = !isAdmin;
   }
 }
 
@@ -7370,11 +7373,6 @@ function renderNeededNotesShell(innerMarkup) {
       ${escapeHtml(label)}
     </button>
   `).join("");
-  const quickModeButtons = Object.entries(modes).map(([mode, label]) => `
-    <button class="${neededNotesMode === mode ? "active" : ""}" data-needed-mode="${mode}" type="button">
-      ${escapeHtml(label)}
-    </button>
-  `).join("");
   const choiceModes = getNeededNotesChoiceModes();
   const activeChoiceModeLabel = choiceModes[neededNotesChoiceMode] || choiceModes["hanzi-to-meaning"] || "Nhìn chữ chọn nghĩa";
   const choiceModeButtons = Object.entries(choiceModes).map(([mode, label]) => `
@@ -7407,9 +7405,6 @@ function renderNeededNotesShell(innerMarkup) {
       <small>còn ${remainingCount}</small>
     </aside>
     ${renderNeededNotesFilterPanel(total, menuPopoverContent)}
-    <div class="needed-quick-mode-tabs" aria-label="Chọn kiểu học ghi chú">
-      ${quickModeButtons}
-    </div>
     ${innerMarkup}
   `;
 }
