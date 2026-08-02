@@ -10301,3 +10301,58 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
     font-size: clamp(52px, 18vw, 77px);
   }
 }
+
+/* Put skip/next on the right rail of the prompt instead of under the word. */
+.topic-choice-prompt,
+.needed-prompt {
+  position: relative;
+  padding-right: 82px;
+}
+
+.prompt-side-next {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  display: grid;
+  width: 42px;
+  height: 70px;
+  place-items: center;
+  color: #ffffff;
+  background: var(--red);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(217, 76, 63, 0.16);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.prompt-side-next span {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.prompt-side-next:hover,
+.prompt-side-next:focus-visible {
+  background: var(--red-dark);
+  outline: 0;
+  transform: translateY(-50%) scale(1.03);
+}
+
+@media (max-width: 760px) {
+  .topic-choice-prompt,
+  .needed-prompt {
+    padding-right: 64px;
+  }
+
+  .prompt-side-next {
+    right: 12px;
+    width: 36px;
+    height: 56px;
+  }
+
+  .prompt-side-next span {
+    font-size: 34px;
+  }
+}

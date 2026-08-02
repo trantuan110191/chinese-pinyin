@@ -6459,8 +6459,10 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
             ? `<strong class="topic-choice-meaning" lang="vi">${escapeHtml(getTopicMeaningLabel(word.meaning))}</strong>`
             : `<strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>`
           }
-          <button class="topic-next-button topic-choice-next-button" data-topic-choice-next type="button">${topicChoiceAnswered ? "Từ tiếp theo" : "Bỏ qua từ này"}</button>
         </div>
+        <button class="prompt-side-next" data-topic-choice-next type="button" aria-label="${topicChoiceAnswered ? "Sang từ tiếp theo" : "Bỏ qua từ này"}">
+          <span aria-hidden="true">›</span>
+        </button>
       </div>
       <div class="topic-choice-options">${options}</div>
       <div class="topic-choice-feedback" ${topicChoiceAnswered ? "" : "hidden"}>
@@ -7229,7 +7231,9 @@ function renderNeededNotesChoice() {
       </div>
       <div class="needed-prompt">
         ${promptMarkup}
-        <button class="topic-choice-next-button" data-needed-next type="button">${escapeHtml(nextLabel)}</button>
+        <button class="prompt-side-next" data-needed-next type="button" aria-label="${escapeHtml(nextLabel)}">
+          <span aria-hidden="true">›</span>
+        </button>
       </div>
       <div class="needed-options">${options}</div>
       ${feedback}
