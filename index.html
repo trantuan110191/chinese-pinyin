@@ -8,14 +8,14 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260802c" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260802d" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Serif:wght@400;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=clarity-20260802c" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260802d" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -80,6 +80,13 @@
           <small>Nhìn chữ · Hiểu nghĩa · Nhớ lâu</small>
         </span>
       </a>
+      <nav class="header-nav" aria-label="Lối tắt học nhanh">
+        <a href="#pinyin-dictionary">Tra từ</a>
+        <a href="#component-contrast">Cấu tạo</a>
+        <a href="#topic-workshop">Flashcards</a>
+        <a href="#question-guide">Ngữ pháp</a>
+        <a href="#hsk-library">HSK</a>
+      </nav>
       <div class="header-tools">
         <button class="profile-button" id="profile-button" type="button">
           <small>Người học</small>
@@ -131,31 +138,101 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">HỌC CHỮ HÁN QUA HÌNH VÀ CÂU CHUYỆN</p>
-          <h1 id="hero-title">Mỗi nét chữ,<br /><em>một điều để nhớ.</em></h1>
-          <p class="hero-description">
-            Tra nhanh từ HSK bằng chữ Hán, Pinyin và nghĩa Việt; sau đó xuống kho chuyên sâu
-            để học cấu tạo chữ và mẹo liên tưởng có kiểm chứng.
-          </p>
-          <div class="hero-actions">
-            <a class="primary-button" href="#interrogative-words">Học từ để hỏi</a>
-            <span class="word-count"><strong id="total-count">0</strong> từ nền tảng</span>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">HỌC CHỮ HÁN QUA HÌNH VÀ CÂU CHUYỆN</p>
+            <h1 id="hero-title">Mỗi nét chữ,<br /><em>một điều để nhớ.</em></h1>
+            <p class="hero-description">
+              Tra nhanh từ HSK bằng chữ Hán, Pinyin và nghĩa Việt; sau đó xuống kho chuyên sâu
+              để học cấu tạo chữ và mẹo liên tưởng có kiểm chứng.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-button" href="#pronunciation">▶ Học tiếp bài 03</a>
+              <a class="secondary-button" href="#hsk-library">Xem lộ trình</a>
+              <span class="word-count"><strong id="total-count">0</strong> từ nền tảng</span>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Thẻ mảnh ghép hôm nay: chữ Gia">
+            <article class="stitch-word-card">
+              <header>
+                <span>MẢNH GHÉP HÔM NAY</span>
+                <b aria-hidden="true">▮</b>
+              </header>
+              <div class="stitch-word-main">
+                <strong lang="zh-Hans">家</strong>
+                <span>
+                  <em>jiā</em>
+                  <small>Gia · Nhà, gia đình</small>
+                </span>
+              </div>
+              <blockquote>
+                “Mái nhà 宀 giữ con vật 豕 ở dưới. Thời xưa, nhà nào có nuôi vật trong nhà là dấu hiệu của sự ấm cúng, lập nghiệp.”
+              </blockquote>
+              <figure class="stitch-memory-sketch" aria-label="Mẹo nhớ chữ Gia">
+                <svg viewBox="0 0 360 150" role="img" aria-label="Mái nhà bao quanh gia đình">
+                  <path d="M38 72 180 22 322 72" />
+                  <path d="M70 72v48h220V72" />
+                  <path d="M130 120V83h100v37" />
+                  <path d="M153 102c22-28 52-27 74 0" />
+                  <path d="M168 114h58" />
+                </svg>
+                <figcaption>Hình dung mái nhà đang giữ mọi người bên trong.</figcaption>
+              </figure>
+            </article>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="Minh họa chữ Gia, nghĩa là nhà và gia đình">
-          <div class="seal seal-one">口</div>
-          <div class="seal seal-two">人</div>
-          <div class="character-orbit">
-            <span class="orbit-label orbit-label-top">mái nhà</span>
-            <span class="hero-character">家</span>
-            <span class="orbit-label orbit-label-bottom">jiā · gia đình</span>
+        <section class="home-lessons" aria-labelledby="home-lessons-title">
+          <div class="home-lessons-head">
+            <h2 id="home-lessons-title">Chọn mục học</h2>
+            <a href="#hsk-library">Xem tất cả →</a>
           </div>
-          <svg class="brush-circle" viewBox="0 0 400 400" aria-hidden="true">
-            <path d="M328 65C252 10 139 24 73 100C9 175 24 289 104 341C181 391 290 363 340 282" />
-          </svg>
-        </div>
+          <div class="home-lesson-grid">
+            <a class="home-lesson-card" href="#pinyin-dictionary">
+              <i aria-hidden="true">⌕</i>
+              <b>01 Tra tổng</b>
+              <span>Hán tự · Pinyin · nghĩa Việt</span>
+            </a>
+            <a class="home-lesson-card" href="#pronunciation">
+              <i aria-hidden="true">♬</i>
+              <b>03 Luyện âm đầu</b>
+              <span>z c s · j q x · zh ch sh r</span>
+              <small><em style="--progress: 60%"></em>60%</small>
+            </a>
+            <a class="home-lesson-card" href="#initial-quiz">
+              <i aria-hidden="true">听</i>
+              <b>04 Kiểm tra nghe mù</b>
+              <span>20 câu chọn âm đầu</span>
+            </a>
+            <a class="home-lesson-card home-lesson-card-wide" href="#hsk-library">
+              <i aria-hidden="true">册</i>
+              <b>09 Kho từ New HSK 3.0</b>
+              <span>988 từ để tra và nghe · HSK 1-3 mở rộng</span>
+              <mark>HSK 1</mark><mark>HSK 2</mark><mark>HSK 3</mark>
+            </a>
+            <a class="home-lesson-card" href="#common-sentences">
+              <i aria-hidden="true">句</i>
+              <b>10 Học từ trong câu thật</b>
+              <span>80 câu giao tiếp</span>
+            </a>
+            <a class="home-lesson-card" href="#component-contrast">
+              <i aria-hidden="true">✣</i>
+              <b>13 Phân tích chuyên sâu</b>
+              <span>Cấu tạo chữ và cụm từ</span>
+            </a>
+            <a class="home-lesson-card" href="#topic-workshop">
+              <i aria-hidden="true">卡</i>
+              <b>05 Học từ theo chủ đề</b>
+              <span>Flash card · chọn đáp án</span>
+            </a>
+            <a class="home-lesson-card" href="#needed-notes" data-admin-only>
+              <i aria-hidden="true">记</i>
+              <b>07 Ghi chú từ cần học</b>
+              <span>Riêng cho Admin</span>
+            </a>
+          </div>
+        </section>
       </section>
 
       <section class="pinyin-dictionary" id="pinyin-dictionary" aria-labelledby="pinyin-dictionary-title">
@@ -559,6 +636,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20260802c"></script>
+    <script src="app.js?v=clarity-20260802d"></script>
   </body>
 </html>
