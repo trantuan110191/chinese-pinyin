@@ -2204,6 +2204,7 @@ body.lookup-popover-resizing {
 
 .needed-card,
 .needed-empty {
+  position: relative;
   display: grid;
   gap: 16px;
   padding: 18px;
@@ -2213,7 +2214,7 @@ body.lookup-popover-resizing {
 }
 
 .needed-card.is-correct {
-  border-top: 4px solid var(--green);
+  border-color: var(--line);
 }
 
 .needed-card.is-wrong {
@@ -10620,14 +10621,49 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 }
 
 .needed-quick-status {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  z-index: 2;
   justify-self: center;
-  min-height: 38px;
-  padding: 9px 18px;
-  color: #ffffff;
-  background: var(--green);
+  min-height: 0;
+  padding: 0;
+  color: rgba(36, 72, 61, 0.62);
+  background: transparent;
   border-radius: 999px;
-  box-shadow: 0 12px 26px rgba(45, 70, 53, 0.14);
-  font-size: 15px;
-  font-weight: 850;
-  letter-spacing: 0.02em;
+  box-shadow: none;
+  font-size: 14px;
+  font-weight: 780;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  pointer-events: none;
+  transform: translateX(-50%);
+  animation: needed-quick-fade 960ms ease forwards;
+}
+
+@keyframes needed-quick-fade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 8px) scale(0.98);
+  }
+
+  18% {
+    opacity: 0.72;
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  62% {
+    opacity: 0.5;
+    transform: translate(-50%, -2px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -10px) scale(1);
+  }
+}
+
+.needed-card.is-correct {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 16px 38px rgba(31, 38, 135, 0.055);
 }
