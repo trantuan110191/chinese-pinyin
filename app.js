@@ -2106,6 +2106,11 @@ let neededNotesAnsweredId = "";
 let neededNotesReveal = false;
 let neededNotesChoiceOptions = [];
 let neededNotesChoiceOptionForId = "";
+let neededNotesTranslationTarget = null;
+let neededNotesTranslationInput = "";
+let neededNotesTranslationVoiceMessage = "";
+let neededNotesSpeechRecognition = null;
+let neededNotesSpeechListening = false;
 let neededNotesMemoryRatings = {};
 let neededNotesAutoTimer = null;
 let neededNotesMenuExpanded = false;
@@ -6995,6 +7000,7 @@ function getNeededNotesCurrentWord() {
 function getNeededNotesModes() {
   return {
     choice: "Chọn đáp án",
+    translate: "Dịch Việt → Trung",
     flashcard: "Flash card",
     list: "Danh sách từ",
   };
@@ -7016,12 +7022,16 @@ function normalizeNeededNotesChoiceMode(mode) {
 }
 
 function resetNeededNotesAnswerState() {
+  stopNeededNotesTranslationVoice();
   neededNotesSelected = "";
   neededNotesAnswered = false;
   neededNotesAnsweredId = "";
   neededNotesReveal = false;
   neededNotesChoiceOptions = [];
   neededNotesChoiceOptionForId = "";
+  neededNotesTranslationTarget = null;
+  neededNotesTranslationInput = "";
+  neededNotesTranslationVoiceMessage = "";
 }
 
 function clearNeededNotesAutoTimer() {
@@ -7051,6 +7061,72 @@ function resetNeededNotesChoiceOptions(word = getNeededNotesCurrentWord()) {
 function getNeededNotesChoiceOptionLabel(word) {
   if (neededNotesChoiceMode === "meaning-to-hanzi") return word.hanzi;
   return getNeededNoteMeaning(word);
+}
+
+function splitNeededNotesAlternatives(value, options = {}) {
+  const text = String(value || "").trim();
+  if (!text) return [];
+  const slashPattern = options.looseSlash ? /\s*\/\s*/g : /\s+\/\s+/g;
+  const splitter = options.allowSemicolon ? new RegExp(`${slashPattern.source}|\\s*;\\s*`, "g") : slashPattern;
+  return text
+    .split(splitter)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+function cleanNeededNotesTranslationMeaning(value) {
+  return String(value || "")
+    .replace(/\s*(?:Mẫu|Nhớ|Dùng|Ghi lại|Ghi|Bổ ngữ|Công thức)\s*[:：].*$/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function cleanNeededNotesTranslationHanzi(value) {
+  return String(value || "")
+    .replace(/\s+/g, "")
+    .trim();
+}
+
+function getStableNeededNotesVariantIndex(wordId, total) {
+  if (!total || total <= 1) return 0;
+  const seed = String(wordId || "")
+    .split("")
+    .reduce((sum, char) => sum + char.charCodeAt(0), 0);
+  return seed % total;
+}
+
+function getNeededNotesTranslationTarget(word) {
+  const wordId = getNeededNoteId(word);
+  if (neededNotesTranslationTarget?.wordId === wordId) return neededNotesTranslationTarget;
+  const meaningSource = cleanNeededNotesTranslationMeaning(getNeededNoteMeaning(word));
+  const meaningParts = splitNeededNotesAlternatives(meaningSource, { allowSemicolon: true });
+  const hanziParts = splitNeededNotesAlternatives(word.hanzi, { looseSlash: true }).map(cleanNeededNotesTranslationHanzi);
+  const pinyinParts = splitNeededNotesAlternatives(word.pinyin, { looseSlash: true });
+  const usableCount = Math.max(1, Math.min(
+    meaningParts.length || 1,
+    hanziParts.length || 1,
+    pinyinParts.length || hanziParts.length || 1
+  ));
+  const index = getStableNeededNotesVariantIndex(wordId, usableCount);
+  neededNotesTranslationTarget = {
+    wordId,
+    index,
+    meaning: meaningParts[index] || meaningParts[0] || meaningSource || getNeededNoteMeaning(word),
+    hanzi: hanziParts[index] || hanziParts[0] || cleanNeededNotesTranslationHanzi(word.hanzi),
+    pinyin: pinyinParts[index] || pinyinParts[0] || word.pinyin,
+  };
+  return neededNotesTranslationTarget;
+}
+
+function normalizeNeededNotesTranslationAnswer(value) {
+  return normalizeDictationHanzi(value).replace(/[+\-/\\=]/g, "");
+}
+
+function isNeededNotesTranslationCorrect(answer, target) {
+  const normalizedAnswer = normalizeNeededNotesTranslationAnswer(answer);
+  const normalizedExpected = normalizeNeededNotesTranslationAnswer(target?.hanzi);
+  if (!normalizedAnswer || !normalizedExpected) return false;
+  return normalizedAnswer === normalizedExpected || normalizedAnswer.includes(normalizedExpected);
 }
 
 function renderNeededNotesLoading() {
@@ -7247,6 +7323,55 @@ function renderNeededNotesChoice() {
   `;
 }
 
+function renderNeededNotesTranslation() {
+  const total = getNeededNotesFilteredWords().length;
+  const word = getNeededNotesCurrentWord();
+  if (!word) return renderNeededNotesDone(total);
+
+  const wordId = getNeededNoteId(word);
+  const target = getNeededNotesTranslationTarget(word);
+  const isCorrect = neededNotesAnswered && neededNotesSelected === wordId;
+  const isWrong = neededNotesAnswered && !isCorrect;
+  const nextLabel = isCorrect ? "Qua từ tiếp theo" : isWrong ? "Từ tiếp theo" : "Bỏ qua từ này";
+  const answerValue = neededNotesTranslationInput;
+  const quickStatus = isCorrect ? `<div class="needed-quick-status" aria-live="polite">Chính xác</div>` : "";
+  const voiceLabel = neededNotesSpeechListening ? "Đang nghe..." : "Nói bằng AirPods";
+  const speechSupported = Boolean(window.SpeechRecognition || window.webkitSpeechRecognition);
+  const voiceMessage = neededNotesTranslationVoiceMessage || "Nếu AirPods đang là micro của máy, trình duyệt sẽ nhận giọng từ AirPods.";
+  const feedback = isWrong ? `
+    <div class="needed-translation-feedback is-wrong" aria-live="polite">
+      <strong>Chưa khớp.</strong>
+      <span lang="zh-Hans">${escapeHtml(target.hanzi)}</span>
+      <small>${escapeHtml(target.pinyin)}</small>
+    </div>
+  ` : "";
+
+  return `
+    <article class="needed-card needed-translation-card ${neededNotesAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
+      <div class="needed-translation-prompt">
+        <small>DỊCH VIỆT → TRUNG</small>
+        <strong lang="vi">${escapeHtml(target.meaning)}</strong>
+        <button class="prompt-side-next" data-needed-next type="button" aria-label="${escapeHtml(nextLabel)}">
+          <span aria-hidden="true">›</span>
+        </button>
+      </div>
+      <form class="needed-translation-form" id="needed-translation-form">
+        <label class="needed-translation-input-box" for="needed-translation-input">
+          <span>Gõ câu tiếng Trung</span>
+          <input id="needed-translation-input" type="text" lang="zh-Hans" autocomplete="off" spellcheck="false" value="${escapeHtml(answerValue)}" placeholder="Ví dụ: 我想好了" ${neededNotesAnswered ? "disabled" : ""} />
+        </label>
+        <button class="needed-voice-button ${neededNotesSpeechListening ? "is-listening" : ""}" data-needed-translation-voice type="button" ${neededNotesAnswered || !speechSupported ? "disabled" : ""}>
+          ${escapeHtml(voiceLabel)}
+        </button>
+        <button class="needed-translation-submit" type="submit" ${neededNotesAnswered ? "disabled" : ""}>Kiểm tra</button>
+      </form>
+      <p class="needed-voice-note ${speechSupported ? "" : "is-error"}">${escapeHtml(speechSupported ? voiceMessage : "Trình duyệt này chưa hỗ trợ nhập giọng nói, bạn gõ tay giúp mình nhé.")}</p>
+      ${feedback}
+      ${quickStatus}
+    </article>
+  `;
+}
+
 function renderNeededNotesFlashcard() {
   const total = getNeededNotesFilteredWords().length;
   const word = getNeededNotesCurrentWord();
@@ -7339,6 +7464,7 @@ function renderNeededNotes() {
   neededNotesMode = normalizeNeededNotesMode(neededNotesMode);
   const panels = {
     choice: renderNeededNotesChoice,
+    translate: renderNeededNotesTranslation,
     flashcard: renderNeededNotesFlashcard,
     list: renderNeededNotesList,
   };
@@ -7475,6 +7601,120 @@ function answerNeededNotesChoice(optionId) {
   }
   renderNeededNotes();
   if (selectedId === wordId) scheduleNeededNotesNext(wordId);
+}
+
+function getNeededNotesTranslationInputElement() {
+  return document.querySelector("#needed-translation-input");
+}
+
+function syncNeededNotesTranslationInputFromDom() {
+  const input = getNeededNotesTranslationInputElement();
+  if (input) neededNotesTranslationInput = input.value.trim();
+  return neededNotesTranslationInput;
+}
+
+function stopNeededNotesTranslationVoice() {
+  if (!neededNotesSpeechRecognition) {
+    neededNotesSpeechListening = false;
+    return;
+  }
+  const recognition = neededNotesSpeechRecognition;
+  neededNotesSpeechRecognition = null;
+  recognition.onresult = null;
+  recognition.onerror = null;
+  recognition.onend = null;
+  try {
+    recognition.stop();
+  } catch {
+    try {
+      recognition.abort();
+    } catch {
+      // Trình duyệt có thể đã tự đóng phiên nghe.
+    }
+  }
+  neededNotesSpeechListening = false;
+}
+
+function startNeededNotesTranslationVoice() {
+  syncNeededNotesTranslationInputFromDom();
+  if (neededNotesSpeechListening) {
+    stopNeededNotesTranslationVoice();
+    neededNotesTranslationVoiceMessage = "Đã dừng nghe.";
+    renderNeededNotes();
+    return;
+  }
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    neededNotesTranslationVoiceMessage = "Trình duyệt này chưa hỗ trợ nhập giọng nói, bạn gõ tay giúp mình nhé.";
+    renderNeededNotes();
+    return;
+  }
+  const recognition = new SpeechRecognition();
+  neededNotesSpeechRecognition = recognition;
+  neededNotesSpeechListening = true;
+  neededNotesTranslationVoiceMessage = "Đang nghe tiếng Trung từ micro hiện tại...";
+  recognition.lang = "zh-CN";
+  recognition.interimResults = true;
+  recognition.continuous = false;
+  recognition.maxAlternatives = 1;
+  recognition.onresult = (event) => {
+    const transcript = Array.from(event.results)
+      .map((result) => result[0]?.transcript || "")
+      .join("")
+      .trim();
+    if (!transcript) return;
+    neededNotesTranslationInput = transcript;
+    const input = getNeededNotesTranslationInputElement();
+    if (input) input.value = transcript;
+  };
+  recognition.onerror = () => {
+    neededNotesSpeechListening = false;
+    neededNotesTranslationVoiceMessage = "Chưa nghe được. Kiểm tra micro/AirPods rồi bấm lại.";
+    renderNeededNotes();
+  };
+  recognition.onend = () => {
+    neededNotesSpeechRecognition = null;
+    neededNotesSpeechListening = false;
+    neededNotesTranslationVoiceMessage = neededNotesTranslationInput
+      ? "Đã nhập giọng nói vào ô trả lời."
+      : "Chưa nghe thấy tiếng Trung rõ ràng.";
+    renderNeededNotes();
+  };
+  renderNeededNotes();
+  try {
+    recognition.start();
+  } catch {
+    neededNotesSpeechRecognition = null;
+    neededNotesSpeechListening = false;
+    neededNotesTranslationVoiceMessage = "Chưa bật được micro. Bấm lại sau khi trình duyệt cho phép dùng micro.";
+    renderNeededNotes();
+  }
+}
+
+function checkNeededNotesTranslation() {
+  if (neededNotesAnswered) return;
+  const word = getNeededNotesCurrentWord();
+  if (!word) return;
+  const wordId = getNeededNoteId(word);
+  const target = getNeededNotesTranslationTarget(word);
+  clearNeededNotesAutoTimer();
+  stopNeededNotesTranslationVoice();
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
+  neededNotesTranslationInput = syncNeededNotesTranslationInputFromDom();
+  const isCorrect = isNeededNotesTranslationCorrect(neededNotesTranslationInput, target);
+  neededNotesSelected = isCorrect ? wordId : "translation-wrong";
+  neededNotesAnswered = true;
+  neededNotesAnsweredId = wordId;
+  if (isCorrect) {
+    setNeededNoteKnown(word, true);
+    setNeededNoteMemoryRating(word, 1);
+  } else {
+    setNeededNoteMemoryRating(word, 3);
+  }
+  renderNeededNotes();
+  if (isCorrect) scheduleNeededNotesNext(wordId);
 }
 
 function rateNeededNotesFlashcard(rating) {
@@ -8272,6 +8512,10 @@ document.addEventListener("submit", (event) => {
     event.preventDefault();
     checkTopicFlashSentence();
   }
+  if (event.target.id === "needed-translation-form") {
+    event.preventDefault();
+    checkNeededNotesTranslation();
+  }
 });
 
 filters.addEventListener("click", (event) => {
@@ -8551,6 +8795,7 @@ document.addEventListener("click", (event) => {
   const neededModeButton = event.target.closest("[data-needed-mode]");
   const neededChoiceModeButton = event.target.closest("[data-needed-choice-mode]");
   const neededAnswerButton = event.target.closest("[data-needed-answer]");
+  const neededTranslationVoiceButton = event.target.closest("[data-needed-translation-voice]");
   const neededNextButton = event.target.closest("[data-needed-next]");
   const neededRelearnButton = event.target.closest("[data-needed-relearn]");
   const neededRelearnAllButton = event.target.closest("[data-needed-relearn-all]");
@@ -8627,6 +8872,7 @@ document.addEventListener("click", (event) => {
   if (neededModeButton) setNeededNotesMode(neededModeButton.dataset.neededMode);
   if (neededChoiceModeButton) setNeededNotesChoiceMode(neededChoiceModeButton.dataset.neededChoiceMode);
   if (neededAnswerButton) answerNeededNotesChoice(neededAnswerButton.dataset.neededAnswer);
+  if (neededTranslationVoiceButton) startNeededNotesTranslationVoice();
   if (neededRelearnButton) relearnNeededNoteById(neededRelearnButton.dataset.neededRelearn);
   if (neededRelearnAllButton) relearnAllNeededNotesInFilter();
   if (neededNextButton) {

@@ -2371,6 +2371,144 @@ body.lookup-popover-resizing {
   line-height: 1.45;
 }
 
+.needed-translation-card {
+  gap: 14px;
+}
+
+.needed-translation-prompt {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  min-height: 210px;
+  padding: 30px 88px 30px 30px;
+  place-items: center start;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px dashed rgba(30, 62, 83, 0.13);
+  border-radius: 24px;
+}
+
+.needed-translation-prompt small {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.needed-translation-prompt strong {
+  color: var(--blue);
+  font-family: var(--reading);
+  font-size: clamp(30px, 4.6vw, 58px);
+  font-weight: 720;
+  line-height: 1.16;
+}
+
+.needed-translation-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.needed-translation-input-box {
+  display: grid;
+  gap: 8px;
+}
+
+.needed-translation-input-box span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.needed-translation-input-box input {
+  width: 100%;
+  min-height: 58px;
+  padding: 0 18px;
+  color: var(--ink);
+  background: #fffdf8;
+  border: 1px solid rgba(30, 62, 83, 0.14);
+  border-radius: 16px;
+  font-family: var(--hanzi);
+  font-size: 28px;
+  font-weight: 380;
+}
+
+.needed-voice-button,
+.needed-translation-submit {
+  min-height: 58px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.needed-voice-button {
+  color: var(--blue);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(30, 62, 83, 0.12);
+}
+
+.needed-voice-button.is-listening {
+  color: #ffffff;
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.needed-translation-submit {
+  color: #ffffff;
+  background: var(--blue);
+}
+
+.needed-voice-button:disabled,
+.needed-translation-submit:disabled,
+.needed-translation-input-box input:disabled {
+  cursor: default;
+  opacity: 0.58;
+}
+
+.needed-voice-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.needed-voice-note.is-error {
+  color: var(--red);
+}
+
+.needed-translation-feedback {
+  display: grid;
+  gap: 6px;
+  padding: 12px 14px;
+  background: rgba(217, 76, 63, 0.08);
+  border-left: 4px solid var(--red);
+  border-radius: 16px;
+}
+
+.needed-translation-feedback strong {
+  color: var(--red);
+  font-size: 14px;
+}
+
+.needed-translation-feedback span {
+  color: var(--blue);
+  font-family: var(--hanzi);
+  font-size: 32px;
+  font-weight: 380;
+  line-height: 1.15;
+}
+
+.needed-translation-feedback small {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .needed-flash-main {
   display: grid;
   justify-items: center;
@@ -10308,7 +10446,8 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 
 /* Put skip/next on the right rail of the prompt instead of under the word. */
 .topic-choice-prompt,
-.needed-prompt {
+.needed-prompt,
+.needed-translation-prompt {
   position: relative;
   padding-right: 82px;
 }
@@ -10346,7 +10485,8 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 
 @media (max-width: 760px) {
   .topic-choice-prompt,
-  .needed-prompt {
+  .needed-prompt,
+  .needed-translation-prompt {
     padding-right: 64px;
   }
 
@@ -10358,6 +10498,26 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 
   .prompt-side-next span {
     font-size: 54px;
+  }
+}
+
+@media (max-width: 760px) {
+  .needed-translation-prompt {
+    min-height: 170px;
+    padding-left: 18px;
+  }
+
+  .needed-translation-prompt strong {
+    font-size: clamp(26px, 9vw, 42px);
+  }
+
+  .needed-translation-form {
+    grid-template-columns: 1fr;
+  }
+
+  .needed-voice-button,
+  .needed-translation-submit {
+    width: 100%;
   }
 }
 
