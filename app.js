@@ -2220,7 +2220,9 @@ const pinyinMarkedCharacterPattern = /[a-zA-ZüÜvVāáǎàēéěèīíǐìōó�
 function renderLearningProfileUi() {
   if (!profileLabel || !profileButton) return;
   const profile = learningProfiles[currentLearningProfile.id] || learningProfiles.guest;
-  profileLabel.textContent = profile.label;
+  profileLabel.textContent = profile.id === "admin" ? "Ad" : "Free";
+  profileButton.title = profile.id === "admin" ? "Người học: Admin" : "Người học tự do";
+  profileButton.setAttribute("aria-label", profileButton.title);
   profileButton.classList.toggle("is-admin", profile.id === "admin");
   document.body.dataset.learningProfile = profile.id;
   document.querySelectorAll("[data-admin-only]").forEach((element) => {
@@ -7370,11 +7372,6 @@ function renderNeededNotesShell(innerMarkup) {
       ${escapeHtml(label)}
     </button>
   `).join("");
-  const quickModeButtons = Object.entries(modes).map(([mode, label]) => `
-    <button class="${neededNotesMode === mode ? "active" : ""}" data-needed-mode="${mode}" type="button">
-      ${escapeHtml(label)}
-    </button>
-  `).join("");
   const choiceModes = getNeededNotesChoiceModes();
   const activeChoiceModeLabel = choiceModes[neededNotesChoiceMode] || choiceModes["hanzi-to-meaning"] || "Nhìn chữ chọn nghĩa";
   const choiceModeButtons = Object.entries(choiceModes).map(([mode, label]) => `
@@ -7407,9 +7404,6 @@ function renderNeededNotesShell(innerMarkup) {
       <small>còn ${remainingCount}</small>
     </aside>
     ${renderNeededNotesFilterPanel(total, menuPopoverContent)}
-    <div class="needed-quick-mode-tabs" aria-label="Chọn kiểu học ghi chú">
-      ${quickModeButtons}
-    </div>
     ${innerMarkup}
   `;
 }
