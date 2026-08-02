@@ -10584,13 +10584,13 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   display: grid;
   width: 100%;
   margin: 0;
-  padding: clamp(8px, 1.2vw, 14px);
+  padding: 0;
   place-items: center;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.76);
-  border: 1px solid rgba(30, 62, 83, 0.07);
-  border-radius: 30px;
-  box-shadow: 0 22px 60px rgba(30, 62, 83, 0.08);
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .hero-courtyard img {
