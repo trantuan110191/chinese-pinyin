@@ -10027,3 +10027,233 @@ body::after {
 .primary-button {
   font-weight: 700;
 }
+
+/* White classic correction: keep the 16:10-era structure, remove color wash, lighten type. */
+:root {
+  --ink: #1a2e3f;
+  --muted: #657482;
+  --paper: #ffffff;
+  --paper-deep: #ffffff;
+  --card: rgba(255, 255, 255, 0.92);
+  --red: #d94c3f;
+  --red-dark: #ac2c23;
+  --green: #2d4635;
+  --blue: #1e3e53;
+  --line: rgba(30, 62, 83, 0.1);
+  --shadow: 0 18px 52px rgba(31, 38, 135, 0.06);
+  --glass: rgba(255, 255, 255, 0.9);
+  --glass-strong: rgba(255, 255, 255, 0.96);
+  --glass-border: rgba(30, 62, 83, 0.09);
+  --serif: "Times New Roman", "Iowan Old Style", "Palatino Linotype", serif;
+  --hanzi: "Songti SC", STSong, "Noto Serif SC", serif;
+  --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --reading: Inter, "Noto Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  background: #ffffff !important;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body::before,
+body::after {
+  display: none !important;
+}
+
+.site-header,
+.profile-gate-card,
+.lookup-popover,
+.lesson-menu-panel,
+.hero-visual,
+.stitch-word-card,
+.pinyin-dictionary,
+.question-card,
+.pronunciation-family,
+.pronunciation-card,
+.listening-quiz,
+.quiz-card,
+.topic-workshop-shell,
+.needed-notes-shell,
+.needed-card,
+.needed-empty,
+.topic-choice-card,
+.topic-choice-setup-card,
+.topic-flash-card,
+.topic-listen-card,
+.topic-stage,
+.hsk-library,
+.sentence-library,
+.interrogative-words,
+.question-guide,
+.component-contrast,
+.library,
+.dialog-card,
+.word-card,
+.hsk-word-card,
+.sentence-card,
+.interrogative-row,
+.component-list-item,
+.component-card,
+.pinyin-result-card,
+.topic-panel-popover,
+.topic-choice-controls-popover,
+.needed-menu-popover,
+.needed-choice-menu-popover,
+.needed-filter-panel,
+.needed-filter-toggle,
+.topic-panel-switcher-toggle,
+.topic-choice-controls-toggle,
+.needed-menu-toggle,
+.needed-choice-menu-toggle,
+.home-lesson-card {
+  background: var(--glass) !important;
+  border-color: var(--glass-border);
+  box-shadow: var(--shadow);
+}
+
+.stitch-word-card,
+.lesson-menu-panel,
+.topic-listen-prompt,
+.topic-flash-main,
+.topic-choice-prompt,
+.needed-prompt {
+  background: #ffffff !important;
+}
+
+.brand-mark {
+  color: #ffffff;
+  background: var(--red) !important;
+  border-color: rgba(217, 76, 63, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.34), 0 10px 20px rgba(217, 76, 63, 0.14);
+  font-family: var(--hanzi);
+  font-weight: 300;
+}
+
+.brand strong {
+  color: var(--blue);
+  font-family: var(--serif);
+  font-weight: 600;
+}
+
+.brand small,
+.header-nav a,
+.home-lesson-card span,
+.stitch-word-main small,
+.stitch-memory-sketch figcaption {
+  color: rgba(30, 62, 83, 0.58);
+}
+
+.hero h1,
+.home-lessons-head h2 {
+  color: var(--blue);
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+.hero h1 em {
+  color: #8e4b50;
+  font-weight: 500;
+}
+
+.pinyin-lookup button,
+.lesson-menu summary,
+.primary-button,
+.topic-check-button,
+.topic-choice-next-button,
+.topic-next-button,
+.needed-relearn-inline,
+.needed-row-relearn,
+.needed-filter-panel button.active {
+  color: #ffffff;
+  background: var(--red) !important;
+  border-color: rgba(217, 76, 63, 0.2);
+  box-shadow: 0 12px 24px rgba(217, 76, 63, 0.14);
+}
+
+.pinyin-lookup button:hover,
+.lesson-menu summary:hover,
+.primary-button:hover,
+.topic-check-button:hover,
+.topic-choice-next-button:hover,
+.topic-next-button:hover,
+.needed-relearn-inline:hover,
+.needed-row-relearn:hover {
+  background: var(--red-dark) !important;
+}
+
+.lookup-popover-head {
+  background: var(--blue) !important;
+}
+
+.stitch-word-main > strong {
+  color: var(--red);
+  background: rgba(217, 76, 63, 0.08) !important;
+  font-family: var(--hanzi);
+  font-weight: 300;
+}
+
+.stitch-word-main em {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.stitch-word-card blockquote,
+.stitch-memory-sketch {
+  background: rgba(255, 255, 255, 0.82) !important;
+}
+
+.home-lesson-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.home-lesson-card:hover,
+.home-lesson-card:focus-visible {
+  background: #ffffff !important;
+}
+
+.home-lesson-card i {
+  color: var(--red);
+  background: rgba(217, 76, 63, 0.08);
+  font-weight: 500;
+}
+
+.brand small,
+.header-nav a,
+.profile-button small,
+.lesson-menu summary,
+.pinyin-lookup button,
+.section-kicker,
+.home-lessons-head a,
+.home-lesson-card b,
+.lesson-menu-panel span,
+.lesson-menu-panel b,
+.primary-button,
+.secondary-button,
+.topic-choice-options button,
+.needed-options button {
+  font-weight: 650;
+}
+
+.topic-choice-prompt strong,
+.needed-prompt-hanzi,
+.topic-flash-hanzi,
+.topic-listen-prompt strong,
+.hsk-word-hanzi,
+.word-card-hanzi,
+.sentence-hanzi,
+.interrogative-row-hanzi,
+.interrogative-example-hanzi,
+.component-list-hanzi,
+.quiz-reveal-hanzi,
+.topic-overview-word-head strong,
+.topic-choice-options button.topic-choice-option-hanzi,
+.needed-options button.needed-option-hanzi {
+  font-family: var(--hanzi);
+  font-weight: 300;
+  text-shadow: none;
+}
