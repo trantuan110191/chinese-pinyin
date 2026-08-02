@@ -8298,7 +8298,7 @@ footer p {
   --glass: rgba(255, 255, 255, 0.42);
   --glass-strong: rgba(255, 255, 255, 0.64);
   --glass-border: rgba(255, 255, 255, 0.56);
-  --serif: "Noto Serif", "Times New Roman", "Iowan Old Style", "Palatino Linotype", serif;
+  --serif: "Times New Roman", "Iowan Old Style", "Palatino Linotype", serif;
   --hanzi: "Songti SC", STSong, "Noto Serif SC", serif;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --reading: Inter, "Noto Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
