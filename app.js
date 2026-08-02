@@ -7231,6 +7231,7 @@ function renderNeededNotesChoice() {
   const promptMarkup = isMeaningToHanzi
     ? `<strong class="needed-prompt-meaning study-prompt-text ${neededPromptTextClass}" lang="vi">${escapeHtml(neededPromptText)}</strong>`
     : `<strong class="needed-prompt-hanzi study-prompt-text ${neededPromptTextClass}" lang="zh-Hans">${escapeHtml(neededPromptText)}</strong>`;
+  const quickStatus = isCorrect ? `<div class="needed-quick-status" aria-live="polite">Chính xác</div>` : "";
 
   return `
     <article class="needed-card ${neededNotesAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
@@ -7241,6 +7242,7 @@ function renderNeededNotesChoice() {
         </button>
       </div>
       <div class="needed-options">${options}</div>
+      ${quickStatus}
     </article>
   `;
 }

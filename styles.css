@@ -10576,3 +10576,16 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 .hero-actions {
   margin-top: 28px;
 }
+
+.needed-quick-status {
+  justify-self: center;
+  min-height: 38px;
+  padding: 9px 18px;
+  color: #ffffff;
+  background: var(--green);
+  border-radius: 999px;
+  box-shadow: 0 12px 26px rgba(45, 70, 53, 0.14);
+  font-size: 15px;
+  font-weight: 850;
+  letter-spacing: 0.02em;
+}
