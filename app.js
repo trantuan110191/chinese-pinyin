@@ -6943,6 +6943,9 @@ function relearnAllNeededNotesInFilter() {
   if (!learnedWords.length) return;
   learnedWords.forEach(relearnNeededNote);
   neededNotesMode = "choice";
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
   setAppStorage("neededNotesMode", neededNotesMode);
   neededNotesIndex = 0;
   saveNeededNotesIndex();
@@ -7086,10 +7089,12 @@ function renderNeededNotesNoMatches() {
   `;
 }
 
-function renderNeededNotesFilterPanel(total, menuPopoverMarkup = "") {
+function renderNeededNotesFilterPanel(total, menuPopoverContent = "") {
   const currentSummary = neededNotesDate === "all"
     ? "toàn bộ ghi chú"
     : getNeededNotesDateTopicSummary(neededNotesDate);
+  const learnedCount = getNeededNotesLearnedWords().length;
+  const remainingCount = Math.max(0, total - learnedCount);
   const allWords = getNeededNotesWordsForFilter();
   const allButton = `
     <button class="needed-date-chip ${neededNotesDate === "all" ? "active" : ""}" data-needed-date="all" type="button">
@@ -7109,27 +7114,31 @@ function renderNeededNotesFilterPanel(total, menuPopoverMarkup = "") {
   }).join("");
 
   return `
-    <div class="needed-topline">
-      <div class="needed-source-filter ${neededNotesFilterExpanded ? "is-open" : "is-collapsed"}">
-        <button class="needed-filter-toggle" data-needed-filter-toggle type="button" aria-expanded="${neededNotesFilterExpanded}">
-          <span>Ngày/chủ đề</span>
-          <b aria-hidden="true">${neededNotesFilterExpanded ? "▴" : "▾"}</b>
-        </button>
-      </div>
-      <p class="needed-current-topic">
-        <strong>${neededNotesDate === "all" ? "Tất cả ngày" : `Ngày ${escapeHtml(formatNeededNoteDateShort(neededNotesDate))}`}</strong>
-        <span>${escapeHtml(currentSummary || "chưa phân loại")}</span>
-      </p>
+    <div class="needed-topline needed-topline-menu-only">
       <div class="needed-menu ${neededNotesMenuExpanded ? "is-open" : "is-collapsed"}">
         <button class="needed-menu-toggle topic-menu-toggle" data-needed-menu-toggle type="button" aria-expanded="${neededNotesMenuExpanded}" aria-label="Mở chọn kiểu học ghi chú">
           <span class="topic-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
           <span class="sr-only">Mở chọn kiểu học ghi chú</span>
         </button>
-      </div>
-      ${menuPopoverMarkup}
-      <div class="needed-filter-panel" ${neededNotesFilterExpanded ? "" : "hidden"}>
-        ${allButton}
-        ${dateButtons}
+        <div class="needed-menu-popover needed-menu-popover-unified" ${neededNotesMenuExpanded ? "" : "hidden"}>
+          <div class="needed-menu-summary">
+            <small>Đã học ${learnedCount}/${total}</small>
+            <strong>${neededNotesDate === "all" ? "Tất cả ngày" : `Ngày ${escapeHtml(formatNeededNoteDateShort(neededNotesDate))}`}</strong>
+            <span>${escapeHtml(currentSummary || "chưa phân loại")} · còn ${remainingCount}</span>
+            ${learnedCount ? `<button class="needed-relearn-inline" data-needed-relearn-all type="button">Học lại ${learnedCount} từ đã học</button>` : ""}
+          </div>
+          <div class="needed-menu-section">
+            <div class="topic-panel-popover-head">
+              <small>Ngày/chủ đề</small>
+              <strong>Chọn ngày cần học</strong>
+            </div>
+            <div class="needed-filter-panel needed-filter-panel-in-menu">
+              ${allButton}
+              ${dateButtons}
+            </div>
+          </div>
+          ${menuPopoverContent}
+        </div>
       </div>
     </div>
   `;
@@ -7162,8 +7171,8 @@ function renderNeededNotesShell(innerMarkup) {
     </div>
     <div class="needed-choice-mode">${choiceModeButtons}</div>
   ` : "";
-  const menuPopoverMarkup = `
-    <div class="needed-menu-popover" ${neededNotesMenuExpanded ? "" : "hidden"}>
+  const menuPopoverContent = `
+    <div class="needed-menu-section">
       <div class="topic-panel-popover-head">
         <small>Kiểu học ghi chú</small>
         <strong>${escapeHtml(activeModeLabel)}</strong>
@@ -7179,14 +7188,7 @@ function renderNeededNotesShell(innerMarkup) {
       <strong>${learnedCount}</strong>
       <small>còn ${remainingCount}</small>
     </aside>
-    <div class="needed-toolbar">
-      <div class="needed-stats">
-        <strong>Đã học ${learnedCount}/${total}</strong>
-        <span>Còn ${remainingCount} từ trong ghi chú cần ôn</span>
-        ${learnedCount ? `<button class="needed-relearn-inline" data-needed-relearn-all type="button">Học lại ${learnedCount} từ đã học</button>` : ""}
-      </div>
-    </div>
-    ${renderNeededNotesFilterPanel(total, menuPopoverMarkup)}
+    ${renderNeededNotesFilterPanel(total, menuPopoverContent)}
     ${innerMarkup}
   `;
 }
@@ -7197,7 +7199,6 @@ function renderNeededNotesChoice() {
   if (!word) return renderNeededNotesDone(total);
 
   neededNotesChoiceMode = normalizeNeededNotesChoiceMode(neededNotesChoiceMode);
-  const learnedCount = getNeededNotesLearnedWords().length;
   const wordId = getNeededNoteId(word);
   if (!neededNotesChoiceOptions.length || neededNotesChoiceOptionForId !== wordId) {
     resetNeededNotesChoiceOptions(word);
@@ -7241,11 +7242,6 @@ function renderNeededNotesChoice() {
 
   return `
     <article class="needed-card ${neededNotesAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
-      <div class="needed-choice-head">
-        <div>
-          <p class="section-kicker">GHI CHÚ · CHỌN ĐÁP ÁN · ${learnedCount}/${total}</p>
-        </div>
-      </div>
       <div class="needed-prompt ${neededPromptTextClass}">
         ${promptMarkup}
         <button class="prompt-side-next" data-needed-next type="button" aria-label="${escapeHtml(nextLabel)}">
@@ -7396,6 +7392,8 @@ function setNeededNotesFilter(type, value) {
   neededNotesTopic = "all";
   neededNotesIndex = 0;
   neededNotesFilterExpanded = false;
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
   neededNotesMode = "choice";
   setAppStorage("neededNotesMode", neededNotesMode);
   applyNeededNotesFilterChange();
@@ -7406,6 +7404,9 @@ function resetNeededNotesFilters() {
   neededNotesDate = "all";
   neededNotesTopic = "all";
   neededNotesIndex = 0;
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
   applyNeededNotesFilterChange();
 }
 

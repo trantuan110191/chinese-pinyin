@@ -10436,3 +10436,128 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
     font-size: clamp(36px, 10.5vw, 52px);
   }
 }
+
+/* Admin notes: keep the study surface clean and move all controls into the single hamburger menu. */
+.needed-toolbar,
+.needed-choice-head {
+  display: none !important;
+}
+
+.needed-topline-menu-only {
+  position: absolute;
+  z-index: 90;
+  top: 16px;
+  right: 16px;
+  display: block;
+  margin: 0;
+}
+
+.needed-topline-menu-only .needed-menu {
+  position: relative;
+  z-index: 90;
+  top: auto;
+  right: auto;
+  display: grid;
+  justify-items: end;
+}
+
+.needed-topline-menu-only .needed-menu-toggle {
+  width: 42px;
+  height: 42px;
+  min-height: 42px;
+  background: #fffdf8 !important;
+  border-color: rgba(30, 62, 83, 0.12);
+  box-shadow: 0 12px 28px rgba(55, 40, 25, 0.1);
+}
+
+.needed-menu-popover-unified {
+  z-index: 100;
+  top: calc(100% + 10px);
+  right: 0;
+  align-content: start;
+  width: min(640px, calc(100vw - 72px));
+  max-height: min(76vh, 680px);
+  overflow: auto;
+  padding: 18px;
+  background: #fffdf8 !important;
+  border: 1px solid rgba(30, 62, 83, 0.1);
+  border-radius: 22px;
+  box-shadow: 0 24px 70px rgba(30, 62, 83, 0.18);
+}
+
+.needed-menu-summary {
+  display: grid;
+  gap: 5px;
+  padding: 2px 2px 12px;
+  border-bottom: 1px solid rgba(30, 62, 83, 0.09);
+}
+
+.needed-menu-summary small {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.needed-menu-summary strong {
+  color: var(--blue);
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.needed-menu-summary span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.needed-menu-summary .needed-relearn-inline {
+  width: fit-content;
+  margin-top: 6px;
+}
+
+.needed-menu-section {
+  display: grid;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.needed-menu-section + .needed-menu-section {
+  border-top: 1px solid rgba(30, 62, 83, 0.09);
+}
+
+.needed-menu-popover-unified .needed-filter-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  max-height: 310px;
+  margin: 0;
+  padding: 10px;
+  overflow: auto;
+  background: #f8f5ee !important;
+  border: 1px solid rgba(30, 62, 83, 0.09);
+  border-radius: 16px;
+}
+
+.needed-menu-popover-unified .needed-date-chip {
+  min-height: 50px;
+  border-radius: 12px;
+}
+
+@media (max-width: 760px) {
+  .needed-topline-menu-only {
+    top: 12px;
+    right: 12px;
+  }
+
+  .needed-menu-popover-unified {
+    width: calc(100vw - 44px);
+    max-height: 72vh;
+  }
+
+  .needed-menu-popover-unified .needed-filter-panel {
+    grid-template-columns: 1fr;
+  }
+}
