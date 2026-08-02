@@ -8571,7 +8571,7 @@ async function loadLearningLibraries() {
     fetch("data/hsk-vocabulary.json"),
     fetch("data/common-sentences.json"),
     fetch("data/hsk-explanations.json"),
-    fetch("data/needed-words.json?v=needed-20260802b"),
+    fetch("data/needed-words.json?v=needed-20260803d"),
     fetch("data/component-contrasts.json")
   ]);
 
