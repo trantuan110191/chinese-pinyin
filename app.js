@@ -6972,12 +6972,19 @@ function setNeededNoteMemoryRating(word, rating) {
   saveNeededNotesMemoryRatings();
 }
 
+function getNeededNotesModeWords(words = getNeededNotesFilteredWords()) {
+  if (neededNotesMode === "translate") {
+    return words.filter((word) => hasNeededNotesTranslationTargets(word));
+  }
+  return words;
+}
+
 function getNeededNotesLearnedWords() {
-  return getNeededNotesFilteredWords().filter((word) => isNeededNoteKnown(word));
+  return getNeededNotesModeWords().filter((word) => isNeededNoteKnown(word));
 }
 
 function getNeededNotesActiveWords() {
-  return getNeededNotesFilteredWords().filter((word) => !isNeededNoteKnown(word));
+  return getNeededNotesModeWords().filter((word) => !isNeededNoteKnown(word));
 }
 
 function clampNeededNotesIndex(length) {
@@ -7201,6 +7208,35 @@ function getNeededNotesAcceptedHanziAnswers(primaryHanzi, meaning, extraAnswers 
   return Array.from(answers).filter(Boolean);
 }
 
+function getNeededNotesCuratedTranslationTargets(word) {
+  const rawTargets = Array.isArray(word?.translationTargets) ? word.translationTargets : [];
+  return rawTargets
+    .map((target, index) => {
+      const targetObject = typeof target === "string" ? { hanzi: target } : target || {};
+      const hanzi = cleanNeededNotesTranslationHanzi(targetObject.hanzi || "");
+      const meaning = trimNeededNotesTranslationContext(
+        targetObject.meaning || targetObject.vi || targetObject.prompt || ""
+      );
+      const acceptedHanzi = Array.isArray(targetObject.acceptedHanzi)
+        ? targetObject.acceptedHanzi
+        : Array.isArray(targetObject.accepted)
+          ? targetObject.accepted
+          : [];
+      return {
+        index,
+        meaning,
+        hanzi,
+        pinyin: targetObject.pinyin || "",
+        acceptedHanzi: acceptedHanzi.map(cleanNeededNotesTranslationHanzi).filter(Boolean),
+      };
+    })
+    .filter((target) => target.meaning && target.hanzi);
+}
+
+function hasNeededNotesTranslationTargets(word) {
+  return getNeededNotesCuratedTranslationTargets(word).length > 0;
+}
+
 function doNeededNotesPartsSharePrimaryHanzi(hanziParts, primaryHanzi) {
   if (!primaryHanzi || primaryHanzi.length < 2 || hanziParts.length <= 1) return false;
   return hanziParts.every((part) => part === primaryHanzi || part.includes(primaryHanzi));
@@ -7265,6 +7301,19 @@ function getNeededNotesMeaningMatchedPair(hanziParts, meanings) {
 function getNeededNotesTranslationTarget(word) {
   const wordId = getNeededNoteId(word);
   if (neededNotesTranslationTarget?.wordId === wordId) return neededNotesTranslationTarget;
+  const curatedTargets = getNeededNotesCuratedTranslationTargets(word);
+  if (curatedTargets.length) {
+    const target = curatedTargets[getStableNeededNotesVariantIndex(wordId, curatedTargets.length)] || curatedTargets[0];
+    neededNotesTranslationTarget = {
+      wordId,
+      index: target.index,
+      meaning: target.meaning,
+      hanzi: target.hanzi,
+      pinyin: target.pinyin || word.pinyin,
+      acceptedHanzi: getNeededNotesAcceptedHanziAnswers(target.hanzi, target.meaning, target.acceptedHanzi),
+    };
+    return neededNotesTranslationTarget;
+  }
   const meaningSource = cleanNeededNotesTranslationMeaning(getNeededNoteMeaning(word));
   const rawHanziParts = getNeededNotesRawHanziParts(word);
   const hanziParts = getNeededNotesHanziParts(word);
@@ -7359,6 +7408,16 @@ function renderNeededNotesDone(total) {
   `;
 }
 
+function renderNeededNotesNoTranslationTargets() {
+  return `
+    <article class="needed-empty">
+      <strong>Chưa có câu dịch sát nghĩa trong bộ lọc này.</strong>
+      <span>Đổi sang Chọn đáp án hoặc Flash card để học toàn bộ ghi chú, hoặc chọn ngày khác có cặp Việt → Trung đã rà.</span>
+      <button class="topic-next-button" data-needed-mode="choice" type="button">Chuyển sang Chọn đáp án</button>
+    </article>
+  `;
+}
+
 function renderNeededNotesNoMatches() {
   return `
     <article class="needed-empty">
@@ -7425,7 +7484,7 @@ function renderNeededNotesFilterPanel(total, menuPopoverContent = "") {
 }
 
 function renderNeededNotesShell(innerMarkup) {
-  const total = getNeededNotesFilteredWords().length;
+  const total = getNeededNotesModeWords().length;
   const learnedWords = getNeededNotesLearnedWords();
   const learnedCount = learnedWords.length;
   const remainingCount = Math.max(0, total - learnedCount);
@@ -7524,7 +7583,8 @@ function renderNeededNotesChoice() {
 }
 
 function renderNeededNotesTranslation() {
-  const total = getNeededNotesFilteredWords().length;
+  const total = getNeededNotesModeWords().length;
+  if (!total) return renderNeededNotesNoTranslationTargets();
   const word = getNeededNotesCurrentWord();
   if (!word) return renderNeededNotesDone(total);
 
