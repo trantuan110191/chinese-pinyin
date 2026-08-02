@@ -8,8 +8,8 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260802o" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20260802o" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20260802p" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20260802p" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -76,9 +76,9 @@
       </a>
       <nav class="header-nav" aria-label="Lối tắt học nhanh">
         <a href="#pinyin-dictionary">Tra từ</a>
-        <a href="#component-contrast">Cấu tạo</a>
         <a href="#topic-workshop">Flashcards</a>
-        <a href="#question-guide">Ngữ pháp</a>
+        <a href="#component-contrast">Cấu tạo</a>
+        <a href="#needed-notes">Ghi chú</a>
         <a href="#hsk-library">HSK</a>
       </nav>
       <div class="header-tools">
@@ -99,20 +99,11 @@
             </span>
           </summary>
           <nav class="lesson-menu-panel" aria-label="Chọn mục học">
-            <a href="#top"><b>00</b><span>Trang giới thiệu<small>Chọn một mục để bắt đầu</small></span></a>
             <a href="#pinyin-dictionary"><b>01</b><span>Tra tổng<small>Hán tự · Pinyin · nghĩa Việt</small></span></a>
-            <a href="#common-questions"><b>02</b><span>Câu hỏi hay gặp<small>Gặp là dùng được ngay</small></span></a>
-            <a href="#pronunciation"><b>03</b><span>Luyện âm đầu<small>z c s · j q x · zh ch sh r</small></span></a>
-            <a href="#initial-quiz"><b>04</b><span>Kiểm tra nghe mù<small>20 câu chọn âm đầu</small></span></a>
-            <a href="#topic-workshop"><b>05</b><span>Học từ theo chủ đề<small>Chunk · ghép câu · nhớ lâu</small></span></a>
-            <a href="#component-contrast"><b>06</b><span>So sánh chữ dễ nhầm<small>Cùng mảnh ghép, khác bộ</small></span></a>
-            <a href="#needed-notes" data-admin-only><b>07</b><span>Ghi chú từ cần học<small>Riêng cho Admin</small></span></a>
-            <a href="#real-dictation"><b>08</b><span>Chép chính tả người thật<small>Nạp audio thật + transcript</small></span></a>
-            <a href="#hsk-library"><b>09</b><span>988 từ để tra và nghe<small>HSK 1–3 mở rộng</small></span></a>
-            <a href="#common-sentences"><b>10</b><span>Học từ trong câu thật<small>80 câu giao tiếp</small></span></a>
-            <a href="#interrogative-words"><b>11</b><span>Từ để hỏi<small>Ai, gì, nào, đâu, thế nào...</small></span></a>
-            <a href="#question-guide"><b>12</b><span>Hỏi có không · this/that<small>吗 · 呢 · 还是 · 这 · 那</small></span></a>
-            <a href="#word-list"><b>13</b><span>Phân tích chuyên sâu<small>Cấu tạo chữ và cụm từ</small></span></a>
+            <a href="#topic-workshop"><b>02</b><span>Học từ theo chủ đề<small>Flash card · chọn đáp án</small></span></a>
+            <a href="#component-contrast"><b>03</b><span>So sánh chữ dễ nhầm<small>Cùng mảnh ghép, khác bộ</small></span></a>
+            <a href="#needed-notes"><b>04</b><span>Ghi chú từ cần học<small>Riêng cho Admin</small></span></a>
+            <a href="#hsk-library"><b>05</b><span>Kho từ New HSK<small>988 từ HSK 1-3</small></span></a>
           </nav>
         </details>
       </div>
@@ -141,7 +132,7 @@
               để học cấu tạo chữ và mẹo liên tưởng có kiểm chứng.
             </p>
             <div class="hero-actions">
-              <a class="primary-button" href="#pronunciation">▶ Học tiếp bài 03</a>
+              <a class="primary-button" href="#needed-notes">Học tiếp ghi chú</a>
               <a class="secondary-button" href="#hsk-library">Xem lộ trình</a>
               <span class="word-count"><strong id="total-count">0</strong> từ nền tảng</span>
             </div>
@@ -188,55 +179,25 @@
               <b>01 Tra tổng</b>
               <span>Hán tự · Pinyin · nghĩa Việt</span>
             </a>
-            <a class="home-lesson-card" href="#common-questions">
-              <i aria-hidden="true">问</i>
-              <b>02 Câu hỏi hay gặp</b>
-              <span>Hỏi tên, tuổi, gia đình</span>
-            </a>
-            <a class="home-lesson-card" href="#pronunciation">
-              <i aria-hidden="true">♬</i>
-              <b>03 Luyện âm đầu</b>
-              <span>z c s · j q x · zh ch sh r</span>
-            </a>
-            <a class="home-lesson-card" href="#initial-quiz">
-              <i aria-hidden="true">听</i>
-              <b>04 Kiểm tra nghe mù</b>
-              <span>20 câu chọn âm đầu</span>
-            </a>
             <a class="home-lesson-card" href="#topic-workshop">
               <i aria-hidden="true">卡</i>
-              <b>05 Học từ theo chủ đề</b>
+              <b>02 Học từ theo chủ đề</b>
               <span>Flash card · chọn đáp án</span>
             </a>
             <a class="home-lesson-card" href="#component-contrast">
               <i aria-hidden="true">比</i>
-              <b>06 So sánh chữ dễ nhầm</b>
+              <b>03 So sánh chữ dễ nhầm</b>
               <span>Cùng mảnh ghép, khác bộ</span>
             </a>
-            <a class="home-lesson-card" href="#needed-notes" data-admin-only>
+            <a class="home-lesson-card" href="#needed-notes">
               <i aria-hidden="true">记</i>
-              <b>07 Ghi chú từ cần học</b>
+              <b>04 Ghi chú từ cần học</b>
               <span>Riêng cho Admin</span>
-            </a>
-            <a class="home-lesson-card" href="#real-dictation">
-              <i aria-hidden="true">写</i>
-              <b>08 Chép chính tả người thật</b>
-              <span>Audio thật · transcript</span>
             </a>
             <a class="home-lesson-card" href="#hsk-library">
               <i aria-hidden="true">册</i>
-              <b>09 Kho từ New HSK 3.0</b>
+              <b>05 Kho từ New HSK</b>
               <span>988 từ HSK 1-3 mở rộng</span>
-            </a>
-            <a class="home-lesson-card" href="#common-sentences">
-              <i aria-hidden="true">句</i>
-              <b>10 Học từ trong câu thật</b>
-              <span>80 câu giao tiếp</span>
-            </a>
-            <a class="home-lesson-card" href="#interrogative-words">
-              <i aria-hidden="true">？</i>
-              <b>11 Từ để hỏi</b>
-              <span>Ai, gì, nào, đâu</span>
             </a>
           </div>
         </section>
@@ -643,6 +604,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20260802o"></script>
+    <script src="app.js?v=clarity-20260802p"></script>
   </body>
 </html>

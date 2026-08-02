@@ -1990,22 +1990,26 @@ const componentContrastApp = document.querySelector("#component-contrast-app");
 const lessonLabels = {
   top: "Chọn mục học",
   "pinyin-dictionary": "Tra tổng",
-  "common-questions": "Câu hỏi hay gặp",
-  pronunciation: "Luyện âm đầu",
-  "initial-quiz": "Kiểm tra nghe mù",
   "topic-workshop": "Học từ theo chủ đề",
-  "needed-notes": "Ghi chú từ cần học",
-  "real-dictation": "Chép chính tả người thật",
-  "hsk-library": "988 từ để tra và nghe",
-  "common-sentences": "Học từ trong câu thật",
-  "interrogative-words": "Từ để hỏi",
-  "question-guide": "Hỏi có không · this/that",
   "component-contrast": "So sánh chữ dễ nhầm",
-  "word-list": "Phân tích chuyên sâu",
+  "needed-notes": "Ghi chú từ cần học",
+  "hsk-library": "Kho từ New HSK",
 };
 const adminOnlyLessonIds = new Set(["needed-notes"]);
 const lessonSectionIds = Object.keys(lessonLabels).filter((id) => id !== "top");
-const lessonSections = lessonSectionIds.map((id) => document.getElementById(id));
+const retiredLessonSectionIds = [
+  "common-questions",
+  "pronunciation",
+  "initial-quiz",
+  "real-dictation",
+  "common-sentences",
+  "interrogative-words",
+  "question-guide",
+  "word-list",
+];
+const lessonSections = [...new Set([...lessonSectionIds, ...retiredLessonSectionIds])]
+  .map((id) => document.getElementById(id))
+  .filter(Boolean);
 
 let activeCategory = "all";
 let activeInitial = "z";
