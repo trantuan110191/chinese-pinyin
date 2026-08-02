@@ -10359,3 +10359,80 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
     font-size: 54px;
   }
 }
+
+/* Keep study prompts visually stable: one-line words sit centered, long prompts shrink before becoming three rows. */
+.topic-choice-prompt,
+.needed-prompt {
+  align-content: center;
+  height: clamp(226px, 23vw, 286px);
+  overflow: hidden;
+}
+
+.topic-choice-hanzi-row {
+  width: 100%;
+  min-height: 172px;
+  align-items: center;
+  justify-content: center;
+}
+
+.topic-choice-prompt .study-prompt-text,
+.needed-prompt .study-prompt-text {
+  display: block;
+  max-width: min(100%, 980px);
+  margin: auto;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-break: loose;
+}
+
+.topic-choice-prompt .study-prompt-text--one,
+.needed-prompt .study-prompt-text--one {
+  font-size: clamp(76px, 9.2vw, 112px);
+  line-height: 1.04;
+}
+
+.topic-choice-prompt .study-prompt-text--two,
+.needed-prompt .study-prompt-text--two {
+  font-size: clamp(64px, 8vw, 94px);
+  line-height: 1.08;
+}
+
+.topic-choice-prompt .study-prompt-text--three,
+.needed-prompt .study-prompt-text--three {
+  max-width: min(100%, 1040px);
+  font-size: clamp(45px, 5.8vw, 70px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.needed-prompt.study-prompt-text--one {
+  place-items: center;
+}
+
+@media (max-width: 760px) {
+  .topic-choice-prompt,
+  .needed-prompt {
+    height: clamp(196px, 52vw, 238px);
+  }
+
+  .topic-choice-hanzi-row {
+    min-height: 140px;
+  }
+
+  .topic-choice-prompt .study-prompt-text--one,
+  .needed-prompt .study-prompt-text--one {
+    font-size: clamp(56px, 17vw, 78px);
+  }
+
+  .topic-choice-prompt .study-prompt-text--two,
+  .needed-prompt .study-prompt-text--two {
+    font-size: clamp(48px, 14vw, 66px);
+  }
+
+  .topic-choice-prompt .study-prompt-text--three,
+  .needed-prompt .study-prompt-text--three {
+    font-size: clamp(36px, 10.5vw, 52px);
+  }
+}

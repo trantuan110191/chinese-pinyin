@@ -2752,6 +2752,19 @@ function escapeHtml(value) {
     .replace(/'/g, "&#039;");
 }
 
+function getStudyPromptTextClass(value) {
+  const text = String(value || "").trim();
+  const cjkLength = (text.match(/[\u3400-\u9fff]/g) || []).length;
+  const nonCjkLength = text
+    .replace(/[\u3400-\u9fff]/g, "")
+    .replace(/\s+/g, "")
+    .length;
+  const score = cjkLength + Math.ceil(nonCjkLength / 2);
+  if (score <= 8) return "study-prompt-text--one";
+  if (score <= 14) return "study-prompt-text--two";
+  return "study-prompt-text--three";
+}
+
 function getHskLevelLabel(level) {
   return String(level) === "3" ? "HSK 3 · mở rộng" : `HSK ${level}`;
 }
@@ -6418,6 +6431,8 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
     `;
   }).join("");
   const isMeaningToHanzi = currentPracticeMode === "meaning-to-hanzi";
+  const topicPromptText = isMeaningToHanzi ? getTopicMeaningLabel(word.meaning) : word.hanzi;
+  const topicPromptTextClass = getStudyPromptTextClass(topicPromptText);
   const currentDisplayLabel = topicChoiceDisplayMode === "full" ? "Pinyin + Việt" : "Pinyin";
   const choiceModeButtons = [
     ["pinyin", "Pinyin"],
@@ -6452,12 +6467,12 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
           </div>
         </div>
       </div>
-      <div class="topic-choice-prompt">
+      <div class="topic-choice-prompt ${topicPromptTextClass}">
         ${isMeaningToHanzi ? "" : `<button class="topic-audio-button" data-topic-audio="${escapeHtml(word.hanzi)}" type="button">▶ Nghe</button>`}
         <div class="topic-choice-hanzi-row">
           ${isMeaningToHanzi
-            ? `<strong class="topic-choice-meaning" lang="vi">${escapeHtml(getTopicMeaningLabel(word.meaning))}</strong>`
-            : `<strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>`
+            ? `<strong class="topic-choice-meaning study-prompt-text ${topicPromptTextClass}" lang="vi">${escapeHtml(topicPromptText)}</strong>`
+            : `<strong class="study-prompt-text ${topicPromptTextClass}" lang="zh-Hans">${escapeHtml(topicPromptText)}</strong>`
           }
         </div>
         <button class="prompt-side-next" data-topic-choice-next type="button" aria-label="${topicChoiceAnswered ? "Sang từ tiếp theo" : "Bỏ qua từ này"}">
@@ -7207,9 +7222,11 @@ function renderNeededNotesChoice() {
     `;
   }).join("");
   const nextLabel = isCorrect ? "Qua từ tiếp theo" : neededNotesAnswered ? "Từ tiếp theo" : "Bỏ qua từ này";
+  const neededPromptText = isMeaningToHanzi ? getNeededNoteMeaning(word) : word.hanzi;
+  const neededPromptTextClass = getStudyPromptTextClass(neededPromptText);
   const promptMarkup = isMeaningToHanzi
-    ? `<strong class="needed-prompt-meaning" lang="vi">${escapeHtml(getNeededNoteMeaning(word))}</strong>`
-    : `<strong class="needed-prompt-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>`;
+    ? `<strong class="needed-prompt-meaning study-prompt-text ${neededPromptTextClass}" lang="vi">${escapeHtml(neededPromptText)}</strong>`
+    : `<strong class="needed-prompt-hanzi study-prompt-text ${neededPromptTextClass}" lang="zh-Hans">${escapeHtml(neededPromptText)}</strong>`;
   const feedback = neededNotesAnswered ? `
     <div class="needed-feedback ${isCorrect ? "is-correct" : "is-wrong"}">
       <strong>${isCorrect
@@ -7229,7 +7246,7 @@ function renderNeededNotesChoice() {
           <p class="section-kicker">GHI CHÚ · CHỌN ĐÁP ÁN · ${learnedCount}/${total}</p>
         </div>
       </div>
-      <div class="needed-prompt">
+      <div class="needed-prompt ${neededPromptTextClass}">
         ${promptMarkup}
         <button class="prompt-side-next" data-needed-next type="button" aria-label="${escapeHtml(nextLabel)}">
           <span aria-hidden="true">›</span>
