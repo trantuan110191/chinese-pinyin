@@ -9775,3 +9775,255 @@ footer {
     height: 118px;
   }
 }
+
+/* Calm paper refinement: less visual noise, lighter type, no pink/blue wash. */
+:root {
+  --ink: #25221e;
+  --muted: #706b62;
+  --paper: #f4efe5;
+  --paper-deep: #ebe2d4;
+  --card: #fffdf8;
+  --red: #a7332a;
+  --red-dark: #7b211c;
+  --green: #24483d;
+  --blue: #294d66;
+  --line: rgba(36, 33, 29, 0.12);
+  --shadow: 0 14px 38px rgba(55, 40, 25, 0.08);
+  --glass: rgba(255, 253, 248, 0.92);
+  --glass-strong: #fffdf8;
+  --glass-border: rgba(36, 33, 29, 0.1);
+  --serif: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  --hanzi: "Kaiti SC", "STKaiti", "KaiTi", "Songti SC", STSong, "Noto Serif SC", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --reading: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+html,
+body {
+  background: var(--paper);
+}
+
+body::before,
+body::after {
+  display: none;
+}
+
+.site-header,
+.profile-gate-card,
+.lookup-popover,
+.lesson-menu-panel,
+.hero-visual,
+.stitch-word-card,
+.pinyin-dictionary,
+.question-card,
+.pronunciation-family,
+.pronunciation-card,
+.listening-quiz,
+.topic-workshop-shell,
+.needed-notes-shell,
+.needed-card,
+.needed-empty,
+.topic-choice-card,
+.topic-choice-setup-card,
+.topic-flash-card,
+.topic-listen-card,
+.topic-stage,
+.hsk-library,
+.sentence-library,
+.interrogative-words,
+.question-guide,
+.component-contrast,
+.library,
+.dialog-card,
+.word-card,
+.hsk-word-card,
+.sentence-card,
+.interrogative-row,
+.component-list-item,
+.component-card,
+.pinyin-result-card,
+.topic-panel-popover,
+.topic-choice-controls-popover,
+.needed-menu-popover,
+.needed-choice-menu-popover,
+.needed-filter-panel,
+.needed-filter-toggle,
+.topic-panel-switcher-toggle,
+.topic-choice-controls-toggle,
+.needed-menu-toggle,
+.needed-choice-menu-toggle,
+.home-lesson-card {
+  background: var(--glass);
+  border-color: var(--glass-border);
+  box-shadow: var(--shadow);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.site-header {
+  background: rgba(255, 253, 248, 0.96);
+}
+
+.brand-mark {
+  color: var(--red);
+  background: #fffdf8;
+  border: 1px solid rgba(167, 51, 42, 0.28);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72), 0 8px 18px rgba(55, 40, 25, 0.08);
+  font-weight: 400;
+}
+
+.brand strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.brand small,
+.header-nav a,
+.home-lesson-card span,
+.stitch-word-main small,
+.stitch-memory-sketch figcaption {
+  color: var(--muted);
+}
+
+.hero h1 {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.hero h1 em {
+  color: var(--red-dark);
+  font-weight: 400;
+}
+
+.home-lessons-head h2 {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.stitch-word-card,
+.lesson-menu-panel,
+.topic-listen-prompt,
+.topic-flash-main,
+.topic-choice-prompt,
+.needed-prompt {
+  background: #fffdf8;
+}
+
+.stitch-word-main > strong {
+  color: var(--red);
+  background: #f6eee4;
+  font-weight: 300;
+}
+
+.stitch-word-main em {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.stitch-word-card blockquote,
+.stitch-memory-sketch {
+  background: #f8f3eb;
+}
+
+.stitch-memory-sketch path {
+  stroke: rgba(167, 51, 42, 0.42);
+}
+
+.profile-button,
+.pinyin-lookup,
+.lesson-menu summary,
+.secondary-button {
+  background: #fffdf8;
+  border-color: var(--glass-border);
+  box-shadow: 0 8px 18px rgba(55, 40, 25, 0.06);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.pinyin-lookup button,
+.lesson-menu summary,
+.primary-button,
+.topic-check-button,
+.topic-choice-next-button,
+.topic-next-button,
+.needed-relearn-inline,
+.needed-row-relearn,
+.needed-filter-panel button.active {
+  color: #fff;
+  background: var(--blue);
+  border-color: rgba(41, 77, 102, 0.18);
+  box-shadow: 0 10px 22px rgba(41, 77, 102, 0.14);
+}
+
+.pinyin-lookup button:hover,
+.lesson-menu summary:hover,
+.primary-button:hover,
+.topic-check-button:hover,
+.topic-choice-next-button:hover,
+.topic-next-button:hover,
+.needed-relearn-inline:hover,
+.needed-row-relearn:hover {
+  background: #203f55;
+}
+
+.lookup-popover-head {
+  background: var(--blue);
+}
+
+.home-lesson-card {
+  background: #fffdf8;
+  border-color: rgba(36, 33, 29, 0.09);
+}
+
+.home-lesson-card:hover,
+.home-lesson-card:focus-visible {
+  background: #ffffff;
+  box-shadow: 0 16px 34px rgba(55, 40, 25, 0.1);
+}
+
+.home-lesson-card i {
+  color: var(--red);
+  background: #f7eee8;
+  font-weight: 600;
+}
+
+.home-lesson-card b,
+.lesson-menu-panel span {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.home-lessons-head a,
+.lesson-menu-panel b,
+.section-kicker {
+  color: var(--red);
+}
+
+.topic-choice-prompt strong,
+.needed-prompt-hanzi,
+.topic-flash-hanzi,
+.topic-listen-prompt strong,
+.hsk-word-hanzi,
+.word-card-hanzi,
+.sentence-hanzi,
+.interrogative-row-hanzi,
+.interrogative-example-hanzi,
+.component-list-hanzi,
+.quiz-reveal-hanzi,
+.topic-overview-word-head strong,
+.topic-choice-options button.topic-choice-option-hanzi,
+.needed-options button.needed-option-hanzi,
+.brand-mark,
+.stitch-word-main > strong {
+  font-family: var(--hanzi);
+  font-weight: 300;
+  text-shadow: none;
+}
+
+.topic-choice-next-button,
+.topic-choice-options button,
+.needed-options button,
+.secondary-button,
+.primary-button {
+  font-weight: 700;
+}
