@@ -134,6 +134,13 @@ function cleanTranslationHanzi(value) {
     .trim();
 }
 
+function cleanTranslationPinyin(value) {
+  return String(value || "")
+    .replace(/\s*[,，;；]\s*(?:nói|nghe|đọc|phát âm|ghi chú).*$/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function trimTranslationContext(value) {
   return String(value || "")
     .replace(/[.。].*$/g, "")
@@ -152,6 +159,10 @@ function isWeakTranslationPrompt(value) {
   if (hanziPattern.test(text)) return true;
   if (/[=＝]/.test(text)) return true;
   if (/^(mẫu|nhớ|dùng|ghi|bổ ngữ|công thức|phát âm)\b/i.test(text)) return true;
+  const normalizedText = normalizeVietnamese(text);
+  if (/\b(noi nhanh|nghe nhu|doc la|khong doc|phan biet|ghi chu|ghi nho|cach doc|phat am|khi hoc|hay dung de|dung de nhan manh|tro tu|bo ngu|sau dong tu|chi trinh do|ket qua|noi voi)\b/.test(normalizedText)) {
+    return true;
+  }
   return false;
 }
 
@@ -188,9 +199,6 @@ function chooseSinglePrompt(hanzi, meaningParts, fallbackMeaning) {
   if (exactPrompt) return exactPrompt;
   if (hanzi.includes("早就") && hanzi.includes("想好")) return "đã nghĩ xong từ lâu rồi";
   const cleanParts = meaningParts.filter((part) => !isWeakTranslationPrompt(part));
-  if (cleanParts.length > 1) {
-    return cleanParts.slice().sort((left, right) => right.length - left.length)[0];
-  }
   return cleanParts[0] || fallbackMeaning;
 }
 
@@ -200,7 +208,7 @@ function buildTranslationTargets(meaning, hanzi, pinyin) {
     .filter((part) => part && hanziPattern.test(part) && !hasGrammarMarkup(part));
   if (!hanziParts.length) return [];
 
-  const pinyinParts = splitAlternatives(pinyin, { looseSlash: true });
+  const pinyinParts = splitAlternatives(pinyin, { looseSlash: true }).map(cleanTranslationPinyin);
   const cleanMeaning = cleanTranslationMeaning(meaning);
   const meaningParts = splitAlternatives(cleanMeaning, { allowSemicolon: true })
     .map(trimTranslationContext)
@@ -226,7 +234,7 @@ function buildTranslationTargets(meaning, hanzi, pinyin) {
     targets.push({
       meaning: prompt,
       hanzi: hanziPart,
-      pinyin: pinyinParts[index] || pinyinParts[0] || pinyin,
+      pinyin: pinyinParts[index] || pinyinParts[0] || cleanTranslationPinyin(pinyin),
     });
   });
 

@@ -1,6 +1,6 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-02T23:14:08.699Z",
+  "syncedAt": "2026-08-02T23:18:41.854Z",
   "count": 555,
   "words": [
     {
@@ -90,7 +90,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "tìm kiếm",
+          "meaning": "tìm",
           "hanzi": "找",
           "pinyin": "zhǎo"
         }
@@ -110,9 +110,9 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "nói nhanh âm cuối nhẹ đi",
+          "meaning": "có hay không",
           "hanzi": "有没有",
-          "pinyin": "yǒu méi yǒu, nói nhanh nghe như yǒu méil..."
+          "pinyin": "yǒu méi yǒu"
         }
       ]
     },
@@ -163,7 +163,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "vào trong",
+          "meaning": "đi vào",
           "hanzi": "进去",
           "pinyin": "jìnqù"
         }
@@ -263,7 +263,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "loại khác",
+          "meaning": "khác",
           "hanzi": "别的",
           "pinyin": "bié de"
         }
@@ -423,7 +423,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "đã đọc qua ba lần",
+          "meaning": "đã xem",
           "hanzi": "看过三次",
           "pinyin": "kàn guo sān cì"
         }
@@ -443,7 +443,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "có khả năng",
+          "meaning": "có thể",
           "hanzi": "可能",
           "pinyin": "kěnéng"
         }
@@ -463,7 +463,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "được phép",
+          "meaning": "có thể",
           "hanzi": "可以",
           "pinyin": "kěyǐ"
         }
@@ -545,14 +545,7 @@
       "hanzi": "得",
       "pinyin": "de",
       "audioText": "得",
-      "source": "Ghi chú từ cần học",
-      "translationTargets": [
-        {
-          "meaning": "trợ từ sau động từ, nối với bổ ngữ chỉ trình độ/kết quả",
-          "hanzi": "得",
-          "pinyin": "de"
-        }
-      ]
+      "source": "Ghi chú từ cần học"
     },
     {
       "id": "need-0029",
@@ -568,7 +561,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "bảo ai làm gì",
+          "meaning": "để",
           "hanzi": "让",
           "pinyin": "ràng"
         }
@@ -628,7 +621,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "được phép",
+          "meaning": "có thể",
           "hanzi": "可以",
           "pinyin": "kěyǐ"
         }
@@ -688,7 +681,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "được phép (nhắc lại)",
+          "meaning": "có thể",
           "hanzi": "可以",
           "pinyin": "kěyǐ"
         }
@@ -708,7 +701,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "có một chút",
+          "meaning": "hơi",
           "hanzi": "有点儿",
           "pinyin": "yǒudiǎnr"
         }
@@ -773,7 +766,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "thịt cừu",
+          "meaning": "thịt dê",
           "hanzi": "羊肉",
           "pinyin": "yángròu"
         }
@@ -873,7 +866,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "hoàn thành",
+          "meaning": "xong",
           "hanzi": "完",
           "pinyin": "wán"
         }
@@ -893,7 +886,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "không tới 1 mét",
+          "meaning": "chưa đến 1 mét",
           "hanzi": "不到一米",
           "pinyin": "bú dào yì mǐ"
         }
@@ -935,7 +928,7 @@
         {
           "meaning": "cách nghe “10 giờ”",
           "hanzi": "十点",
-          "pinyin": "shí diǎn, nói nhanh nghe gần shí dián"
+          "pinyin": "shí diǎn"
         }
       ]
     },
@@ -973,7 +966,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "đáng ghét",
+          "meaning": "ghét",
           "hanzi": "讨厌",
           "pinyin": "tǎoyàn"
         }
@@ -995,7 +988,7 @@
         {
           "meaning": "sáu giờ",
           "hanzi": "六点",
-          "pinyin": "liù diǎn, nói nhanh nghe như liu diǎn"
+          "pinyin": "liù diǎn"
         }
       ]
     },
@@ -1171,7 +1164,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "đi dạo chơi",
+          "meaning": "dạo",
           "hanzi": "逛",
           "pinyin": "guàng"
         }
@@ -1282,7 +1275,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "đi taxi",
+          "meaning": "bắt xe",
           "hanzi": "打车",
           "pinyin": "dǎ chē"
         }
@@ -1367,7 +1360,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "chính giữa",
+          "meaning": "ở giữa",
           "hanzi": "中间",
           "pinyin": "zhōngjiān"
         }
@@ -1407,7 +1400,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "đường cái",
+          "meaning": "đường",
           "hanzi": "马路",
           "pinyin": "mǎlù"
         }
@@ -1427,7 +1420,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "tầng lầu",
+          "meaning": "tòa nhà",
           "hanzi": "楼",
           "pinyin": "lóu"
         }
@@ -1460,7 +1453,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "đối với",
+          "meaning": "đúng",
           "hanzi": "对",
           "pinyin": "duì"
         }
@@ -1590,7 +1583,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "phía Tây công viên có bao nhiêu siêu thị?",
+          "meaning": "câu hỏi số lượng không cần lượng từ",
           "hanzi": "公园西边有多少超市？",
           "pinyin": "dìfang + yǒu + duōshao + míngcí"
         }
@@ -1670,7 +1663,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "giúp một tay",
+          "meaning": "giúp đỡ",
           "hanzi": "帮忙",
           "pinyin": "bāngmáng"
         }
@@ -1730,7 +1723,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "nhớ rằng",
+          "meaning": "nhớ",
           "hanzi": "记得",
           "pinyin": "jìde"
         }
@@ -1847,14 +1840,7 @@
       "hanzi": "是我",
       "pinyin": "shì wǒ",
       "audioText": "是我",
-      "source": "Ghi chú từ cần học",
-      "translationTargets": [
-        {
-          "meaning": "nói nhanh nghe như shuar",
-          "hanzi": "是我",
-          "pinyin": "shì wǒ"
-        }
-      ]
+      "source": "Ghi chú từ cần học"
     },
     {
       "id": "need-0094",
@@ -2463,14 +2449,7 @@
       "hanzi": "一些 / 一点儿",
       "pinyin": "yìxiē / yìdiǎnr",
       "audioText": "一些",
-      "source": "Ghi chú từ cần học",
-      "translationTargets": [
-        {
-          "meaning": "phân biệt “một vài” và “một chút”",
-          "hanzi": "一些",
-          "pinyin": "yìxiē"
-        }
-      ]
+      "source": "Ghi chú từ cần học"
     },
     {
       "id": "need-0124",
@@ -3034,7 +3013,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "100 đồng",
+          "meaning": "100 tệ",
           "hanzi": "一百块",
           "pinyin": "yì bǎi kuài"
         }
@@ -3564,7 +3543,14 @@
       "hanzi": "呢 / 你呢？ / 你做什么呢？",
       "pinyin": "ne / nǐ ne? / nǐ zuò shénme ne?",
       "audioText": "呢",
-      "source": "Ghi chú từ cần học"
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "còn bạn thì sao?",
+          "hanzi": "呢",
+          "pinyin": "ne"
+        }
+      ]
     },
     {
       "id": "need-0176",
@@ -4340,7 +4326,7 @@
         {
           "meaning": "đã gặp năm người bạn",
           "hanzi": "见了五个朋友",
-          "pinyin": "jiàn le wǔ ge péngyou; nói nhanh le + wǔ dễ nghe dính lại"
+          "pinyin": "jiàn le wǔ ge péngyou"
         }
       ]
     },
@@ -6301,9 +6287,19 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
+          "meaning": "hướng về",
+          "hanzi": "向",
+          "pinyin": "xiàng"
+        },
+        {
           "meaning": "xin lỗi bạn",
           "hanzi": "向你道歉",
           "pinyin": "xiàng nǐ dàoqiàn"
+        },
+        {
+          "meaning": "xin lỗi ai",
+          "hanzi": "向老师问好",
+          "pinyin": "xiàng lǎoshī wènhǎo"
         }
       ]
     },
@@ -6554,7 +6550,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "nhìn máy tính lâu quá",
+          "meaning": "xem",
           "hanzi": "看电脑时间长了",
           "pinyin": "kàn diànnǎo shíjiān cháng le"
         }
@@ -8023,7 +8019,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "thư điện tử",
+          "meaning": "email",
           "hanzi": "邮件",
           "pinyin": "yóujiàn"
         }
@@ -8839,7 +8835,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "có thể",
+          "meaning": "có lẽ",
           "hanzi": "也许",
           "pinyin": "yěxǔ"
         }
@@ -8859,7 +8855,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "trong đêm",
+          "meaning": "ban đêm",
           "hanzi": "夜里",
           "pinyin": "yèlǐ"
         }
@@ -9353,7 +9349,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "chẳng hạn như",
+          "meaning": "ví dụ như",
           "hanzi": "比如说",
           "pinyin": "bǐrú shuō"
         }
@@ -9423,7 +9419,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "chẳng hạn",
+          "meaning": "ví dụ",
           "hanzi": "例如",
           "pinyin": "lìrú"
         }
@@ -9995,7 +9991,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "hài lòng với",
+          "meaning": "hài lòng",
           "hanzi": "满意",
           "pinyin": "mǎnyì"
         }
@@ -10150,14 +10146,7 @@
       "hanzi": "你不要那样对顾客说话。",
       "pinyin": "nǐ bú yào nàyàng duì gùkè shuōhuà",
       "audioText": "你不要那样对顾客说话",
-      "source": "Ghi chú từ cần học",
-      "translationTargets": [
-        {
-          "meaning": "Đừng nói với khách hàng như vậy",
-          "hanzi": "你不要那样对顾客说话。",
-          "pinyin": "nǐ bú yào nàyàng duì gùkè shuōhuà"
-        }
-      ]
+      "source": "Ghi chú từ cần học"
     },
     {
       "id": "need-0491",
@@ -10746,7 +10735,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "thời điểm đó",
+          "meaning": "lúc đó",
           "hanzi": "那个时候",
           "pinyin": "nà ge shíhou"
         }
@@ -10779,7 +10768,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "gấu trúc khổng lồ",
+          "meaning": "gấu trúc lớn",
           "hanzi": "大熊猫",
           "pinyin": "dà xióngmāo"
         }
@@ -10852,7 +10841,7 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "y học cổ truyền Trung Quốc",
+          "meaning": "Trung y",
           "hanzi": "中医",
           "pinyin": "zhōngyī"
         }
