@@ -2174,6 +2174,34 @@ body.lookup-popover-resizing {
   border-color: var(--blue);
 }
 
+.needed-quick-mode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 10px;
+}
+
+.needed-quick-mode-tabs button {
+  min-height: 36px;
+  padding: 0 15px;
+  color: var(--blue);
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(30, 62, 83, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(31, 38, 135, 0.045);
+  font-size: 13px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.needed-quick-mode-tabs button:hover,
+.needed-quick-mode-tabs button.active {
+  color: #ffffff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
 .needed-progress-mini {
   position: absolute;
   top: 20px;
@@ -8971,6 +8999,7 @@ main.single-lesson-view > section:not([hidden]) {
 .needed-filter-panel button,
 .needed-mode-tabs button,
 .needed-choice-mode button,
+.needed-quick-mode-tabs button,
 .needed-rating button,
 .topic-panel-switcher-buttons button,
 .topic-choice-practice-mode button,
@@ -8990,6 +9019,8 @@ main.single-lesson-view > section:not([hidden]) {
 .needed-mode-tabs button.active,
 .needed-choice-mode button:hover,
 .needed-choice-mode button.active,
+.needed-quick-mode-tabs button:hover,
+.needed-quick-mode-tabs button.active,
 .needed-rating button:hover,
 .topic-panel-switcher-buttons button:hover,
 .topic-panel-switcher-buttons button.active,

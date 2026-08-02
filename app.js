@@ -7237,6 +7237,11 @@ function renderNeededNotesShell(innerMarkup) {
       ${escapeHtml(label)}
     </button>
   `).join("");
+  const quickModeButtons = Object.entries(modes).map(([mode, label]) => `
+    <button class="${neededNotesMode === mode ? "active" : ""}" data-needed-mode="${mode}" type="button">
+      ${escapeHtml(label)}
+    </button>
+  `).join("");
   const choiceModes = getNeededNotesChoiceModes();
   const activeChoiceModeLabel = choiceModes[neededNotesChoiceMode] || choiceModes["hanzi-to-meaning"] || "Nhìn chữ chọn nghĩa";
   const choiceModeButtons = Object.entries(choiceModes).map(([mode, label]) => `
@@ -7269,6 +7274,9 @@ function renderNeededNotesShell(innerMarkup) {
       <small>còn ${remainingCount}</small>
     </aside>
     ${renderNeededNotesFilterPanel(total, menuPopoverContent)}
+    <div class="needed-quick-mode-tabs" aria-label="Chọn kiểu học ghi chú">
+      ${quickModeButtons}
+    </div>
     ${innerMarkup}
   `;
 }
