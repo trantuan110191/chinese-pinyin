@@ -10257,3 +10257,17 @@ body::after {
   font-weight: 300;
   text-shadow: none;
 }
+
+/* Keep menu blur local to the dropdown, not the whole page. */
+body:has(.lesson-menu[open]) main,
+body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
+  opacity: 1 !important;
+  filter: none !important;
+  pointer-events: auto !important;
+}
+
+.lesson-menu-panel {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(18px) saturate(1.05) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.05) !important;
+}
