@@ -7206,6 +7206,62 @@ function doNeededNotesPartsSharePrimaryHanzi(hanziParts, primaryHanzi) {
   return hanziParts.every((part) => part === primaryHanzi || part.includes(primaryHanzi));
 }
 
+const neededNotesTranslationCueRules = [
+  { pattern: /\bkhong thich\b/, hanzi: "不喜欢", weight: 6 },
+  { pattern: /\bkhong the\b/, hanzi: "不能", weight: 6 },
+  { pattern: /\bkhong duoc\b/, hanzi: "不能", weight: 5 },
+  { pattern: /\bkhong\b/, hanzi: "不", weight: 3 },
+  { pattern: /\bchua\b/, hanzi: "没", weight: 3 },
+  { pattern: /\bdung\b/, hanzi: "别", weight: 5 },
+  { pattern: /\bbi\b/, hanzi: "被", weight: 5 },
+  { pattern: /\blam phien\b|\bquay ray\b/, hanzi: "打扰", weight: 5 },
+  { pattern: /\blo lang\b|\bsot ruot\b|\bvoi\b/, hanzi: "着急", weight: 4 },
+  { pattern: /\btoi\b|\bminh\b/, hanzi: "我", weight: 3 },
+  { pattern: /\bban\b/, hanzi: "你", weight: 3 },
+  { pattern: /\bthich\b/, hanzi: "喜欢", weight: 4 },
+  { pattern: /\bmuon\b/, hanzi: "想", weight: 4 },
+  { pattern: /\bdu dinh\b|\bdinh\b/, hanzi: "打算", weight: 4 },
+  { pattern: /\bon tap\b|\bon bai\b|\bon tieng trung\b/, hanzi: "复习", weight: 4 },
+  { pattern: /\btieng trung\b|\btrung van\b/, hanzi: "中文", weight: 4 },
+  { pattern: /\btieng pho thong\b|\bquan thoai\b/, hanzi: "普通话", weight: 4 },
+  { pattern: /\bnoi\b/, hanzi: "说", weight: 3 },
+  { pattern: /\bhat kinh kich\b|\bkinh kich\b/, hanzi: "唱京剧", weight: 5 },
+  { pattern: /\bmang theo\b|\bdan theo\b|\bdua ai di\b/, hanzi: "带", weight: 4 },
+  { pattern: /\bcon\b|\btre con\b/, hanzi: "孩子", weight: 3 },
+  { pattern: /\bo\b|\bdang\b/, hanzi: "在", weight: 2 },
+  { pattern: /\bsap\b/, hanzi: "就要", weight: 4 },
+  { pattern: /\bmoi\b|\bvua\b/, hanzi: "刚", weight: 3 },
+  { pattern: /\bmot chut cung khong\b|\bdu chi mot\b|\bchi mot\b/, hanzi: "一点儿", weight: 4 },
+];
+
+function getNeededNotesTranslationMeaningCueScore(hanziPart, meaning) {
+  const normalizedMeaning = normalizeSearchText(meaning);
+  if (!normalizedMeaning || !hanziPart) return 0;
+  return neededNotesTranslationCueRules.reduce((score, rule) => {
+    const hasMeaningCue = rule.pattern.test(normalizedMeaning);
+    const hasHanziCue = hanziPart.includes(rule.hanzi);
+    if (hasMeaningCue && hasHanziCue) return score + rule.weight;
+    if (!hasMeaningCue && hasHanziCue) return score - Math.max(1, rule.weight - 1);
+    return score;
+  }, 0);
+}
+
+function getNeededNotesMeaningMatchedPair(hanziParts, meanings) {
+  if (!hanziParts.length) return null;
+  const meaningList = meanings.length ? meanings : [""];
+  const scoredPairs = meaningList.flatMap((meaning, meaningIndex) => (
+    hanziParts.map((part, hanziIndex) => ({
+      hanziIndex,
+      meaningIndex,
+      score: getNeededNotesTranslationMeaningCueScore(part, meaning),
+    }))
+  )).sort((left, right) => right.score - left.score);
+  const [bestPair, nextPair] = scoredPairs;
+  if (!bestPair || bestPair.score < 4) return null;
+  if (nextPair && bestPair.score === nextPair.score) return null;
+  return bestPair;
+}
+
 function getNeededNotesTranslationTarget(word) {
   const wordId = getNeededNoteId(word);
   if (neededNotesTranslationTarget?.wordId === wordId) return neededNotesTranslationTarget;
@@ -7219,7 +7275,12 @@ function getNeededNotesTranslationTarget(word) {
     ? definitionParts
     : splitNeededNotesAlternatives(meaningSource, { allowSemicolon: true });
   const sharesPrimaryHanzi = doNeededNotesPartsSharePrimaryHanzi(hanziParts, primaryHanzi);
-  const alignsByPart = !definitionParts.length
+  const meaningMatchedPair = !definitionParts.length
+    ? getNeededNotesMeaningMatchedPair(hanziParts, meaningParts.length ? meaningParts : [meaningSource])
+    : null;
+  const alignsByMeaning = Boolean(meaningMatchedPair);
+  const alignsByPart = !alignsByMeaning
+    && !definitionParts.length
     && !sharesPrimaryHanzi
     && hanziParts.length > 1
     && meaningParts.length === hanziParts.length;
@@ -7230,17 +7291,21 @@ function getNeededNotesTranslationTarget(word) {
     ? Math.max(1, Math.min(variantCount, hanziParts.length, pinyinParts.length || hanziParts.length || 1))
     : Math.max(1, variantCount);
   const index = getStableNeededNotesVariantIndex(wordId, usableCount);
-  const targetHanzi = alignsByPart ? hanziParts[index] : primaryHanzi;
-  const targetPinyin = alignsByPart ? (pinyinParts[index] || pinyinParts[0] || word.pinyin) : (pinyinParts[0] || word.pinyin);
+  const targetIndex = alignsByMeaning ? meaningMatchedPair.hanziIndex : index;
+  const targetMeaningIndex = alignsByMeaning ? meaningMatchedPair.meaningIndex : index;
+  const targetHanzi = (alignsByMeaning || alignsByPart) ? hanziParts[targetIndex] : primaryHanzi;
+  const targetPinyin = (alignsByMeaning || alignsByPart)
+    ? (pinyinParts[targetIndex] || pinyinParts[0] || word.pinyin)
+    : (pinyinParts[0] || word.pinyin);
   const targetMeaning = trimNeededNotesTranslationContext(
-    meaningParts[index] || meaningParts[0] || meaningSource || getNeededNoteMeaning(word)
+    meaningParts[targetMeaningIndex] || meaningParts[0] || meaningSource || getNeededNoteMeaning(word)
   );
   const extraAnswers = [
-    ...getNeededNotesExtraHanziAnswers(rawHanziParts[alignsByPart ? index : 0]),
+    ...getNeededNotesExtraHanziAnswers(rawHanziParts[(alignsByMeaning || alignsByPart) ? targetIndex : 0]),
   ];
   neededNotesTranslationTarget = {
     wordId,
-    index,
+    index: targetIndex,
     meaning: targetMeaning,
     hanzi: targetHanzi,
     pinyin: targetPinyin,
