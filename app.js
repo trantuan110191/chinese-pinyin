@@ -7082,9 +7082,60 @@ function cleanNeededNotesTranslationMeaning(value) {
 }
 
 function cleanNeededNotesTranslationHanzi(value) {
-  return String(value || "")
+  const primarySide = String(value || "").split(/[=＝]/)[0] || value;
+  return String(primarySide || "")
     .replace(/\s+/g, "")
     .trim();
+}
+
+function trimNeededNotesTranslationContext(value) {
+  return String(value || "")
+    .replace(/[.。].*$/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normalizeNeededNotesExactMeaning(value) {
+  return String(value || "")
+    .normalize("NFC")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\u3400-\u9fff]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getNeededNotesRawHanziParts(word) {
+  return splitNeededNotesAlternatives(word?.hanzi, { looseSlash: true });
+}
+
+function getNeededNotesHanziParts(word) {
+  return getNeededNotesRawHanziParts(word)
+    .map(cleanNeededNotesTranslationHanzi)
+    .filter(Boolean);
+}
+
+function getNeededNotesPinyinParts(word) {
+  return splitNeededNotesAlternatives(word?.pinyin, { looseSlash: true });
+}
+
+function getNeededNotesInlineDefinitionParts(meaningSource, primaryHanzi) {
+  const text = cleanNeededNotesTranslationMeaning(meaningSource);
+  const equalIndex = text.search(/[=＝]/);
+  if (equalIndex < 0) return [];
+  const leftSide = text.slice(0, equalIndex).trim();
+  if (primaryHanzi && /[\u3400-\u9fff]/.test(leftSide) && !leftSide.includes(primaryHanzi)) {
+    return [];
+  }
+  const rightSide = trimNeededNotesTranslationContext(text.slice(equalIndex + 1));
+  return splitNeededNotesAlternatives(rightSide, { allowSemicolon: true });
+}
+
+function getNeededNotesExtraHanziAnswers(value) {
+  const [, rightSide = ""] = String(value || "").split(/[=＝]/);
+  if (!/[\u3400-\u9fff]/.test(rightSide)) return [];
+  return splitNeededNotesAlternatives(rightSide, { looseSlash: true })
+    .map(cleanNeededNotesTranslationHanzi)
+    .filter(Boolean);
 }
 
 function getStableNeededNotesVariantIndex(wordId, total) {
@@ -7095,25 +7146,94 @@ function getStableNeededNotesVariantIndex(wordId, total) {
   return seed % total;
 }
 
+function getNeededNotesTranslationSynonyms(meaning) {
+  const normalizedMeaning = normalizeSearchText(meaning);
+  const answers = new Set();
+  if (/\bco the\b/.test(normalizedMeaning)) {
+    ["可以", "会", "能", "可能"].forEach((item) => answers.add(item));
+  }
+  if (/\bco kha nang\b/.test(normalizedMeaning)) {
+    ["可能", "能", "会"].forEach((item) => answers.add(item));
+  }
+  if (/\bduoc phep\b/.test(normalizedMeaning)) {
+    answers.add("可以");
+  }
+  if (/\bbiet lam\b/.test(normalizedMeaning)) {
+    answers.add("会");
+  }
+  if (normalizedMeaning === "se" || /\bse\b/.test(normalizedMeaning)) {
+    ["会", "要"].forEach((item) => answers.add(item));
+  }
+  return Array.from(answers);
+}
+
+function getNeededNotesExactMeaningMatches(meaning) {
+  const normalizedMeaning = normalizeNeededNotesExactMeaning(meaning);
+  if (!normalizedMeaning || normalizedMeaning.length < 2) return [];
+  if (["có thể", "có khả năng", "được phép"].includes(normalizedMeaning)) return [];
+  const matches = new Set();
+  const addMatch = (word) => {
+    const rawMeaning = cleanNeededNotesTranslationMeaning(word?.meaning || "");
+    const primaryHanzi = getNeededNotesHanziParts(word)[0] || cleanNeededNotesTranslationHanzi(word?.hanzi || "");
+    if (!rawMeaning || !primaryHanzi) return;
+    const definitionParts = getNeededNotesInlineDefinitionParts(rawMeaning, primaryHanzi);
+    const meaningParts = definitionParts.length
+      ? definitionParts
+      : splitNeededNotesAlternatives(rawMeaning, { allowSemicolon: true });
+    if (meaningParts.some((part) => normalizeNeededNotesExactMeaning(trimNeededNotesTranslationContext(part)) === normalizedMeaning)) {
+      matches.add(primaryHanzi);
+    }
+  };
+  hskVocabulary.forEach(addMatch);
+  neededNoteWords.forEach(addMatch);
+  return Array.from(matches);
+}
+
+function getNeededNotesAcceptedHanziAnswers(primaryHanzi, meaning, extraAnswers = []) {
+  const answers = new Set([primaryHanzi]);
+  extraAnswers.forEach((answer) => {
+    if (answer) answers.add(answer);
+  });
+  getNeededNotesTranslationSynonyms(meaning).forEach((answer) => answers.add(answer));
+  getNeededNotesExactMeaningMatches(meaning).forEach((answer) => answers.add(answer));
+  return Array.from(answers).filter(Boolean);
+}
+
 function getNeededNotesTranslationTarget(word) {
   const wordId = getNeededNoteId(word);
   if (neededNotesTranslationTarget?.wordId === wordId) return neededNotesTranslationTarget;
   const meaningSource = cleanNeededNotesTranslationMeaning(getNeededNoteMeaning(word));
-  const meaningParts = splitNeededNotesAlternatives(meaningSource, { allowSemicolon: true });
-  const hanziParts = splitNeededNotesAlternatives(word.hanzi, { looseSlash: true }).map(cleanNeededNotesTranslationHanzi);
-  const pinyinParts = splitNeededNotesAlternatives(word.pinyin, { looseSlash: true });
-  const usableCount = Math.max(1, Math.min(
-    meaningParts.length || 1,
-    hanziParts.length || 1,
-    pinyinParts.length || hanziParts.length || 1
-  ));
+  const rawHanziParts = getNeededNotesRawHanziParts(word);
+  const hanziParts = getNeededNotesHanziParts(word);
+  const pinyinParts = getNeededNotesPinyinParts(word);
+  const primaryHanzi = hanziParts[0] || cleanNeededNotesTranslationHanzi(word.hanzi);
+  const definitionParts = getNeededNotesInlineDefinitionParts(meaningSource, primaryHanzi);
+  const meaningParts = definitionParts.length
+    ? definitionParts
+    : splitNeededNotesAlternatives(meaningSource, { allowSemicolon: true });
+  const alignsByPart = !definitionParts.length && hanziParts.length > 1 && meaningParts.length === hanziParts.length;
+  const variantCount = hanziParts.length <= 1 || definitionParts.length || alignsByPart
+    ? meaningParts.length || 1
+    : 1;
+  const usableCount = alignsByPart
+    ? Math.max(1, Math.min(variantCount, hanziParts.length, pinyinParts.length || hanziParts.length || 1))
+    : Math.max(1, variantCount);
   const index = getStableNeededNotesVariantIndex(wordId, usableCount);
+  const targetHanzi = alignsByPart ? hanziParts[index] : primaryHanzi;
+  const targetPinyin = alignsByPart ? (pinyinParts[index] || pinyinParts[0] || word.pinyin) : (pinyinParts[0] || word.pinyin);
+  const targetMeaning = trimNeededNotesTranslationContext(
+    meaningParts[index] || meaningParts[0] || meaningSource || getNeededNoteMeaning(word)
+  );
+  const extraAnswers = [
+    ...getNeededNotesExtraHanziAnswers(rawHanziParts[alignsByPart ? index : 0]),
+  ];
   neededNotesTranslationTarget = {
     wordId,
     index,
-    meaning: meaningParts[index] || meaningParts[0] || meaningSource || getNeededNoteMeaning(word),
-    hanzi: hanziParts[index] || hanziParts[0] || cleanNeededNotesTranslationHanzi(word.hanzi),
-    pinyin: pinyinParts[index] || pinyinParts[0] || word.pinyin,
+    meaning: targetMeaning,
+    hanzi: targetHanzi,
+    pinyin: targetPinyin,
+    acceptedHanzi: getNeededNotesAcceptedHanziAnswers(targetHanzi, targetMeaning, extraAnswers),
   };
   return neededNotesTranslationTarget;
 }
@@ -7124,9 +7244,13 @@ function normalizeNeededNotesTranslationAnswer(value) {
 
 function isNeededNotesTranslationCorrect(answer, target) {
   const normalizedAnswer = normalizeNeededNotesTranslationAnswer(answer);
-  const normalizedExpected = normalizeNeededNotesTranslationAnswer(target?.hanzi);
-  if (!normalizedAnswer || !normalizedExpected) return false;
-  return normalizedAnswer === normalizedExpected || normalizedAnswer.includes(normalizedExpected);
+  const expectedAnswers = target?.acceptedHanzi?.length ? target.acceptedHanzi : [target?.hanzi];
+  if (!normalizedAnswer) return false;
+  return expectedAnswers.some((expected) => {
+    const normalizedExpected = normalizeNeededNotesTranslationAnswer(expected);
+    return normalizedExpected
+      && (normalizedAnswer === normalizedExpected || normalizedAnswer.includes(normalizedExpected));
+  });
 }
 
 function renderNeededNotesLoading() {
@@ -7346,10 +7470,11 @@ function renderNeededNotesTranslation() {
   const voiceLabel = neededNotesSpeechListening ? "Đang nghe..." : "Nói bằng AirPods";
   const speechSupported = Boolean(window.SpeechRecognition || window.webkitSpeechRecognition);
   const voiceMessage = neededNotesTranslationVoiceMessage || "Nếu AirPods đang là micro của máy, trình duyệt sẽ nhận giọng từ AirPods.";
+  const acceptedAnswerText = (target.acceptedHanzi?.length ? target.acceptedHanzi : [target.hanzi]).join(" / ");
   const feedback = isWrong ? `
     <div class="needed-translation-feedback is-wrong" aria-live="polite">
       <strong>Chưa khớp.</strong>
-      <span lang="zh-Hans">${escapeHtml(target.hanzi)}</span>
+      <span lang="zh-Hans">${escapeHtml(acceptedAnswerText)}</span>
       <small>${escapeHtml(target.pinyin)}</small>
     </div>
   ` : "";
