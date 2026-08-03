@@ -7820,18 +7820,40 @@ function playPositiveDing() {
     const audioContext = positiveDingAudioContext;
     const play = () => {
       const now = audioContext.currentTime;
-      const gain = audioContext.createGain();
-      gain.gain.setValueAtTime(0.0001, now);
-      gain.gain.exponentialRampToValueAtTime(0.14, now + 0.012);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.34);
-      gain.connect(audioContext.destination);
-      [880, 1320].forEach((frequency, index) => {
+      const master = audioContext.createGain();
+      const dry = audioContext.createGain();
+      const delay = audioContext.createDelay();
+      const feedback = audioContext.createGain();
+      const wet = audioContext.createGain();
+      master.gain.setValueAtTime(0.92, now);
+      dry.gain.setValueAtTime(0.82, now);
+      wet.gain.setValueAtTime(0.28, now);
+      delay.delayTime.setValueAtTime(0.105, now);
+      feedback.gain.setValueAtTime(0.24, now);
+      dry.connect(master);
+      delay.connect(feedback);
+      feedback.connect(delay);
+      delay.connect(wet);
+      wet.connect(master);
+      master.connect(audioContext.destination);
+      [
+        { frequency: 1046.5, gain: 0.26, start: 0, duration: 0.46 },
+        { frequency: 1568, gain: 0.18, start: 0.025, duration: 0.38 },
+        { frequency: 2093, gain: 0.09, start: 0.055, duration: 0.28 },
+      ].forEach(({ frequency, gain: volume, start, duration }) => {
+        const startAt = now + start;
         const oscillator = audioContext.createOscillator();
-        oscillator.type = "sine";
-        oscillator.frequency.setValueAtTime(frequency, now + index * 0.035);
-        oscillator.connect(gain);
-        oscillator.start(now + index * 0.035);
-        oscillator.stop(now + 0.28 + index * 0.035);
+        const voiceGain = audioContext.createGain();
+        oscillator.type = "triangle";
+        oscillator.frequency.setValueAtTime(frequency, startAt);
+        voiceGain.gain.setValueAtTime(0.0001, startAt);
+        voiceGain.gain.exponentialRampToValueAtTime(volume, startAt + 0.012);
+        voiceGain.gain.exponentialRampToValueAtTime(0.0001, startAt + duration);
+        oscillator.connect(voiceGain);
+        voiceGain.connect(dry);
+        voiceGain.connect(delay);
+        oscillator.start(startAt);
+        oscillator.stop(startAt + duration + 0.04);
       });
     };
     if (audioContext.state === "suspended") {
