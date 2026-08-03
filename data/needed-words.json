@@ -1,7 +1,7 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-02T23:18:41.854Z",
-  "count": 555,
+  "syncedAt": "2026-08-03T00:08:21.314Z",
+  "count": 572,
   "words": [
     {
       "id": "need-0001",
@@ -10647,12 +10647,12 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "hình như",
+          "meaning": "hình như / dường như",
           "hanzi": "好像",
           "pinyin": "hǎoxiàng"
         },
         {
-          "meaning": "dường như",
+          "meaning": "hình như sắp mưa",
           "hanzi": "好像要下雨了",
           "pinyin": "hǎoxiàng yào xià yǔ le"
         }
@@ -11255,7 +11255,7 @@
           "pinyin": "zhèngcháng"
         },
         {
-          "meaning": "chuyện này bình thường",
+          "meaning": "đây là chuyện bình thường",
           "hanzi": "这是正常的",
           "pinyin": "zhè shì zhèngcháng de"
         }
@@ -11512,6 +11512,406 @@
           "meaning": "một món cũng không thể thiếu",
           "hanzi": "一道菜都不能少",
           "pinyin": "yí dào cài dōu bù néng shǎo"
+        }
+      ]
+    },
+    {
+      "id": "need-0556",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "phương hướng / hướng; hỏi phương hướng",
+      "hanzi": "方向 / 问方向",
+      "pinyin": "fāngxiàng / wèn fāngxiàng",
+      "audioText": "方向",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "phương hướng / hướng",
+          "hanzi": "方向",
+          "pinyin": "fāngxiàng"
+        },
+        {
+          "meaning": "hỏi phương hướng",
+          "hanzi": "问方向",
+          "pinyin": "wèn fāngxiàng"
+        }
+      ]
+    },
+    {
+      "id": "need-0557",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "về hướng tây nam",
+      "hanzi": "向西南方向",
+      "pinyin": "xiàng xīnán fāngxiàng",
+      "audioText": "向西南方向",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "về hướng tây nam",
+          "hanzi": "向西南方向",
+          "pinyin": "xiàng xīnán fāngxiàng"
+        }
+      ]
+    },
+    {
+      "id": "need-0558",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "sân vận động; đến sân vận động",
+      "hanzi": "体育场 / 到体育场",
+      "pinyin": "tǐyùchǎng / dào tǐyùchǎng",
+      "audioText": "体育场",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "sân vận động",
+          "hanzi": "体育场",
+          "pinyin": "tǐyùchǎng"
+        },
+        {
+          "meaning": "đến sân vận động",
+          "hanzi": "到体育场",
+          "pinyin": "dào tǐyùchǎng"
+        }
+      ]
+    },
+    {
+      "id": "need-0559",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "sở thú; đi sở thú",
+      "hanzi": "动物园 / 去动物园",
+      "pinyin": "dòngwùyuán / qù dòngwùyuán",
+      "audioText": "动物园",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "sở thú",
+          "hanzi": "动物园",
+          "pinyin": "dòngwùyuán"
+        },
+        {
+          "meaning": "đi sở thú",
+          "hanzi": "去动物园",
+          "pinyin": "qù dòngwùyuán"
+        }
+      ]
+    },
+    {
+      "id": "need-0560",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "hình như / dường như; hình như sắp mưa",
+      "hanzi": "好像 / 好像要下雨了",
+      "pinyin": "hǎoxiàng / hǎoxiàng yào xià yǔ le",
+      "audioText": "好像",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "hình như / dường như",
+          "hanzi": "好像",
+          "pinyin": "hǎoxiàng"
+        },
+        {
+          "meaning": "hình như sắp mưa",
+          "hanzi": "好像要下雨了",
+          "pinyin": "hǎoxiàng yào xià yǔ le"
+        }
+      ]
+    },
+    {
+      "id": "need-0561",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "bãi cỏ; một bãi cỏ",
+      "hanzi": "草地 / 一片草地",
+      "pinyin": "cǎodì / yí piàn cǎodì",
+      "audioText": "草地",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "bãi cỏ",
+          "hanzi": "草地",
+          "pinyin": "cǎodì"
+        },
+        {
+          "meaning": "một bãi cỏ",
+          "hanzi": "一片草地",
+          "pinyin": "yí piàn cǎodì"
+        }
+      ]
+    },
+    {
+      "id": "need-0562",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "biển cả; một vùng biển rộng",
+      "hanzi": "大海 / 一片大海",
+      "pinyin": "dàhǎi / yí piàn dàhǎi",
+      "audioText": "大海",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "biển cả",
+          "hanzi": "大海",
+          "pinyin": "dàhǎi"
+        },
+        {
+          "meaning": "một vùng biển rộng",
+          "hanzi": "一片大海",
+          "pinyin": "yí piàn dàhǎi"
+        }
+      ]
+    },
+    {
+      "id": "need-0563",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "vừa nãy / ban nãy",
+      "hanzi": "刚才",
+      "pinyin": "gāngcái",
+      "audioText": "刚才",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "vừa nãy / ban nãy",
+          "hanzi": "刚才",
+          "pinyin": "gāngcái"
+        }
+      ]
+    },
+    {
+      "id": "need-0564",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "đi qua / ngang qua; vừa đi ngang qua sân vận động",
+      "hanzi": "经过 / 刚才经过体育场",
+      "pinyin": "jīngguò / gāngcái jīngguò tǐyùchǎng",
+      "audioText": "经过",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đi qua / ngang qua",
+          "hanzi": "经过",
+          "pinyin": "jīngguò"
+        },
+        {
+          "meaning": "vừa đi ngang qua sân vận động",
+          "hanzi": "刚才经过体育场",
+          "pinyin": "gāngcái jīngguò tǐyùchǎng"
+        }
+      ]
+    },
+    {
+      "id": "need-0565",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "lượng từ cho mảng/vùng/miếng mỏng: một mảng cỏ, một vùng biển",
+      "hanzi": "片 / 一片草地 / 一片大海",
+      "pinyin": "piàn / yí piàn cǎodì / yí piàn dàhǎi",
+      "audioText": "片",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "mảng / vùng / miếng mỏng",
+          "hanzi": "片",
+          "pinyin": "piàn"
+        },
+        {
+          "meaning": "một bãi cỏ",
+          "hanzi": "一片草地",
+          "pinyin": "yí piàn cǎodì"
+        },
+        {
+          "meaning": "một vùng biển rộng",
+          "hanzi": "一片大海",
+          "pinyin": "yí piàn dàhǎi"
+        }
+      ]
+    },
+    {
+      "id": "need-0566",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "đỗ xe / dừng xe; chỗ đỗ xe",
+      "hanzi": "停车 / 停车场",
+      "pinyin": "tíngchē / tíngchēchǎng",
+      "audioText": "停车",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đỗ xe / dừng xe",
+          "hanzi": "停车",
+          "pinyin": "tíngchē"
+        },
+        {
+          "meaning": "chỗ đỗ xe / bãi đỗ xe",
+          "hanzi": "停车场",
+          "pinyin": "tíngchēchǎng"
+        }
+      ]
+    },
+    {
+      "id": "need-0567",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "thông / nối tới / dùng được; đường này có thông không?",
+      "hanzi": "通 / 这条路通吗？ / 电话打通了",
+      "pinyin": "tōng / zhè tiáo lù tōng ma? / diànhuà dǎ tōng le",
+      "audioText": "通",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "thông / nối tới / dùng được",
+          "hanzi": "通",
+          "pinyin": "tōng"
+        },
+        {
+          "meaning": "đường này có thông không?",
+          "hanzi": "这条路通吗？",
+          "pinyin": "zhè tiáo lù tōng ma?"
+        },
+        {
+          "meaning": "điện thoại gọi được rồi",
+          "hanzi": "电话打通了",
+          "pinyin": "diànhuà dǎ tōng le"
+        }
+      ]
+    },
+    {
+      "id": "need-0568",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "không biết dùng / không biết sử dụng",
+      "hanzi": "不会用",
+      "pinyin": "bú huì yòng",
+      "audioText": "不会用",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "không biết dùng / không biết sử dụng",
+          "hanzi": "不会用",
+          "pinyin": "bú huì yòng"
+        }
+      ]
+    },
+    {
+      "id": "need-0569",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "thường ăn như thế nào?",
+      "hanzi": "一般怎样吃？",
+      "pinyin": "yìbān zěnyàng chī?",
+      "audioText": "一般怎样吃",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "thường ăn như thế nào?",
+          "hanzi": "一般怎样吃？",
+          "pinyin": "yìbān zěnyàng chī?"
+        }
+      ]
+    },
+    {
+      "id": "need-0570",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "chỉ có thể uống",
+      "hanzi": "只能喝",
+      "pinyin": "zhǐ néng hē",
+      "audioText": "只能喝",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "chỉ có thể uống",
+          "hanzi": "只能喝",
+          "pinyin": "zhǐ néng hē"
+        }
+      ]
+    },
+    {
+      "id": "need-0571",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "buổi tối ra ngoài chơi",
+      "hanzi": "晚上出去玩儿",
+      "pinyin": "wǎnshang chūqù wánr",
+      "audioText": "晚上出去玩儿",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "buổi tối ra ngoài chơi",
+          "hanzi": "晚上出去玩儿",
+          "pinyin": "wǎnshang chūqù wánr"
+        }
+      ]
+    },
+    {
+      "id": "need-0572",
+      "date": "2026-08-03",
+      "month": "2026-08",
+      "topic": "Bài 21: Phương hướng, địa điểm & cách dùng",
+      "group": "Chunk HSK1-HSK2",
+      "time": "07:05:23",
+      "meaning": "đây là chuyện bình thường",
+      "hanzi": "这是正常的",
+      "pinyin": "zhè shì zhèngcháng de",
+      "audioText": "这是正常的",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đây là chuyện bình thường",
+          "hanzi": "这是正常的",
+          "pinyin": "zhè shì zhèngcháng de"
         }
       ]
     }
