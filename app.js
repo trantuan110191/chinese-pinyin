@@ -7617,7 +7617,6 @@ function renderNeededNotesTranslation() {
   const quickStatus = isCorrect ? `<div class="needed-quick-status" aria-live="polite">Chính xác</div>` : "";
   const voiceLabel = neededNotesSpeechListening ? "Đang nghe..." : "Nói bằng AirPods";
   const speechSupported = Boolean(window.SpeechRecognition || window.webkitSpeechRecognition);
-  const voiceMessage = neededNotesTranslationVoiceMessage || "Nếu AirPods đang là micro của máy, trình duyệt sẽ nhận giọng từ AirPods.";
   const acceptedAnswerText = (target.acceptedHanzi?.length ? target.acceptedHanzi : [target.hanzi]).join(" / ");
   const feedback = isWrong ? `
     <div class="needed-translation-feedback is-wrong" aria-live="polite">
@@ -7647,7 +7646,6 @@ function renderNeededNotesTranslation() {
         </button>
         <button class="needed-translation-submit" type="submit" ${neededNotesAnswered ? "disabled" : ""}>Kiểm tra</button>
       </form>
-      <p class="needed-voice-note ${speechSupported ? "" : "is-error"}">${escapeHtml(speechSupported ? voiceMessage : "Trình duyệt này chưa hỗ trợ nhập giọng nói, bạn gõ tay giúp mình nhé.")}</p>
       ${feedback}
     </article>
   `;
