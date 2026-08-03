@@ -10871,22 +10871,40 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 .needed-translation-prompt .needed-quick-status {
   top: 50%;
   bottom: auto;
-  display: grid;
-  min-width: min(78%, 330px);
-  min-height: 82px;
-  place-items: center;
-  padding: 0 34px;
-  color: #fffdf8;
-  background: rgba(45, 70, 53, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.52);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 50px;
+  padding: 0 24px 1px;
+  color: var(--green);
+  background: rgba(255, 253, 248, 0.9);
+  border: 1px solid rgba(36, 72, 61, 0.18);
   border-radius: 999px;
-  box-shadow: 0 22px 46px rgba(45, 70, 53, 0.2);
-  font-size: clamp(30px, 5vw, 54px);
-  font-weight: 920;
+  box-shadow: 0 14px 34px rgba(30, 62, 83, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  font-size: clamp(18px, 2.6vw, 28px);
+  font-weight: 820;
   letter-spacing: 0.01em;
   text-transform: none;
   transform: translate(-50%, -50%) scale(0.96);
   animation: needed-quick-pop 980ms ease forwards;
+}
+
+.needed-prompt .needed-quick-status::before,
+.needed-translation-prompt .needed-quick-status::before {
+  content: "✓";
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  color: #fffdf8;
+  background: var(--green);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 850;
+  line-height: 1;
 }
 
 @keyframes needed-quick-fade {
@@ -10914,7 +10932,7 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 @keyframes needed-quick-pop {
   0% {
     opacity: 0;
-    transform: translate(-50%, -44%) scale(0.94);
+    transform: translate(-50%, -42%) scale(0.96);
   }
 
   16% {
@@ -10923,13 +10941,13 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   }
 
   68% {
-    opacity: 0.96;
+    opacity: 0.94;
     transform: translate(-50%, -50%) scale(1);
   }
 
   100% {
     opacity: 0;
-    transform: translate(-50%, -58%) scale(0.98);
+    transform: translate(-50%, -56%) scale(0.98);
   }
 }
 
