@@ -2108,6 +2108,7 @@ let neededNotesChoiceOptions = [];
 let neededNotesChoiceOptionForId = "";
 let neededNotesTranslationTarget = null;
 let neededNotesTranslationInput = "";
+let neededNotesTranslationCommandPending = false;
 let neededNotesMemoryRatings = {};
 let neededNotesAutoTimer = null;
 let neededNotesMenuExpanded = false;
@@ -7879,6 +7880,34 @@ function getNeededNotesTranslationInputElement() {
   return document.querySelector("#needed-translation-input");
 }
 
+function isNeededNotesTranslationCommandKey(event) {
+  return event.key === "Meta" || event.code === "MetaLeft" || event.code === "MetaRight";
+}
+
+function canUseNeededNotesTranslationCommand(target = document.activeElement) {
+  if (neededNotesMode !== "translate") return false;
+  const input = getNeededNotesTranslationInputElement();
+  return Boolean(input && target === input);
+}
+
+function runNeededNotesTranslationEnterAction() {
+  if (neededNotesMode !== "translate") return false;
+  if (neededNotesAnswered) {
+    const nextButton = document.querySelector(".needed-translation-card [data-needed-next]");
+    if (!nextButton) return false;
+    nextButton.click();
+    return true;
+  }
+  const form = document.querySelector("#needed-translation-form");
+  if (!form) return false;
+  if (typeof form.requestSubmit === "function") {
+    form.requestSubmit();
+  } else {
+    checkNeededNotesTranslation();
+  }
+  return true;
+}
+
 function syncNeededNotesTranslationInputFromDom() {
   const input = getNeededNotesTranslationInputElement();
   if (input) neededNotesTranslationInput = input.value.trim();
@@ -9141,6 +9170,13 @@ document.addEventListener("visibilitychange", () => {
 
 document.addEventListener("keydown", (event) => {
   const target = event.target;
+  if (isNeededNotesTranslationCommandKey(event)) {
+    neededNotesTranslationCommandPending = !event.repeat && canUseNeededNotesTranslationCommand(target);
+    return;
+  }
+  if (neededNotesTranslationCommandPending && event.metaKey) {
+    neededNotesTranslationCommandPending = false;
+  }
   const isTopicPinyinInput = target instanceof HTMLInputElement
     && ["topic-listen-pinyin-input", "topic-flash-pinyin"].includes(target.id);
   if (isTopicPinyinInput && /^[1-5]$/.test(event.key)) {
@@ -9157,6 +9193,15 @@ document.addEventListener("keydown", (event) => {
     lessonMenu.open = false;
     lessonMenu.querySelector("summary").focus();
   }
+});
+
+document.addEventListener("keyup", (event) => {
+  if (!isNeededNotesTranslationCommandKey(event)) return;
+  if (!neededNotesTranslationCommandPending) return;
+  neededNotesTranslationCommandPending = false;
+  if (!canUseNeededNotesTranslationCommand(document.activeElement)) return;
+  event.preventDefault();
+  runNeededNotesTranslationEnterAction();
 });
 
 document.addEventListener("change", (event) => {
