@@ -2108,9 +2108,6 @@ let neededNotesChoiceOptions = [];
 let neededNotesChoiceOptionForId = "";
 let neededNotesTranslationTarget = null;
 let neededNotesTranslationInput = "";
-let neededNotesTranslationVoiceMessage = "";
-let neededNotesSpeechRecognition = null;
-let neededNotesSpeechListening = false;
 let neededNotesMemoryRatings = {};
 let neededNotesAutoTimer = null;
 let neededNotesMenuExpanded = false;
@@ -7051,7 +7048,6 @@ function normalizeNeededNotesChoiceMode(mode) {
 }
 
 function resetNeededNotesAnswerState() {
-  stopNeededNotesTranslationVoice();
   neededNotesSelected = "";
   neededNotesAnswered = false;
   neededNotesAnsweredId = "";
@@ -7060,7 +7056,6 @@ function resetNeededNotesAnswerState() {
   neededNotesChoiceOptionForId = "";
   neededNotesTranslationTarget = null;
   neededNotesTranslationInput = "";
-  neededNotesTranslationVoiceMessage = "";
 }
 
 function clearNeededNotesAutoTimer() {
@@ -7615,9 +7610,10 @@ function renderNeededNotesTranslation() {
   const nextLabel = isCorrect ? "Qua từ tiếp theo" : isWrong ? "Từ tiếp theo" : "Bỏ qua từ này";
   const answerValue = neededNotesTranslationInput;
   const quickStatus = isCorrect ? `<div class="needed-quick-status" aria-live="polite">Chính xác</div>` : "";
-  const voiceLabel = neededNotesSpeechListening ? "Đang nghe..." : "Nói bằng AirPods";
-  const speechSupported = Boolean(window.SpeechRecognition || window.webkitSpeechRecognition);
   const acceptedAnswerText = (target.acceptedHanzi?.length ? target.acceptedHanzi : [target.hanzi]).join(" / ");
+  const actionButton = isWrong
+    ? `<button class="needed-translation-submit is-next" data-needed-next type="button">Tiếp ›</button>`
+    : `<button class="needed-translation-submit" type="submit" ${neededNotesAnswered ? "disabled" : ""}>Kiểm tra</button>`;
   const feedback = isWrong ? `
     <div class="needed-translation-feedback is-wrong" aria-live="polite">
       <strong>Chưa khớp.</strong>
@@ -7641,10 +7637,7 @@ function renderNeededNotesTranslation() {
           <span>Gõ câu tiếng Trung</span>
           <input id="needed-translation-input" type="text" lang="zh-Hans" autocomplete="off" spellcheck="false" value="${escapeHtml(answerValue)}" placeholder="Ví dụ: 我想好了" ${neededNotesAnswered ? "disabled" : ""} />
         </label>
-        <button class="needed-voice-button ${neededNotesSpeechListening ? "is-listening" : ""}" data-needed-translation-voice type="button" ${neededNotesAnswered || !speechSupported ? "disabled" : ""}>
-          ${escapeHtml(voiceLabel)}
-        </button>
-        <button class="needed-translation-submit" type="submit" ${neededNotesAnswered ? "disabled" : ""}>Kiểm tra</button>
+        ${actionButton}
       </form>
       ${feedback}
     </article>
@@ -7892,84 +7885,6 @@ function syncNeededNotesTranslationInputFromDom() {
   return neededNotesTranslationInput;
 }
 
-function stopNeededNotesTranslationVoice() {
-  if (!neededNotesSpeechRecognition) {
-    neededNotesSpeechListening = false;
-    return;
-  }
-  const recognition = neededNotesSpeechRecognition;
-  neededNotesSpeechRecognition = null;
-  recognition.onresult = null;
-  recognition.onerror = null;
-  recognition.onend = null;
-  try {
-    recognition.stop();
-  } catch {
-    try {
-      recognition.abort();
-    } catch {
-      // Trình duyệt có thể đã tự đóng phiên nghe.
-    }
-  }
-  neededNotesSpeechListening = false;
-}
-
-function startNeededNotesTranslationVoice() {
-  syncNeededNotesTranslationInputFromDom();
-  if (neededNotesSpeechListening) {
-    stopNeededNotesTranslationVoice();
-    neededNotesTranslationVoiceMessage = "Đã dừng nghe.";
-    renderNeededNotes();
-    return;
-  }
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SpeechRecognition) {
-    neededNotesTranslationVoiceMessage = "Trình duyệt này chưa hỗ trợ nhập giọng nói, bạn gõ tay giúp mình nhé.";
-    renderNeededNotes();
-    return;
-  }
-  const recognition = new SpeechRecognition();
-  neededNotesSpeechRecognition = recognition;
-  neededNotesSpeechListening = true;
-  neededNotesTranslationVoiceMessage = "Đang nghe tiếng Trung từ micro hiện tại...";
-  recognition.lang = "zh-CN";
-  recognition.interimResults = true;
-  recognition.continuous = false;
-  recognition.maxAlternatives = 1;
-  recognition.onresult = (event) => {
-    const transcript = Array.from(event.results)
-      .map((result) => result[0]?.transcript || "")
-      .join("")
-      .trim();
-    if (!transcript) return;
-    neededNotesTranslationInput = transcript;
-    const input = getNeededNotesTranslationInputElement();
-    if (input) input.value = transcript;
-  };
-  recognition.onerror = () => {
-    neededNotesSpeechListening = false;
-    neededNotesTranslationVoiceMessage = "Chưa nghe được. Kiểm tra micro/AirPods rồi bấm lại.";
-    renderNeededNotes();
-  };
-  recognition.onend = () => {
-    neededNotesSpeechRecognition = null;
-    neededNotesSpeechListening = false;
-    neededNotesTranslationVoiceMessage = neededNotesTranslationInput
-      ? "Đã nhập giọng nói vào ô trả lời."
-      : "Chưa nghe thấy tiếng Trung rõ ràng.";
-    renderNeededNotes();
-  };
-  renderNeededNotes();
-  try {
-    recognition.start();
-  } catch {
-    neededNotesSpeechRecognition = null;
-    neededNotesSpeechListening = false;
-    neededNotesTranslationVoiceMessage = "Chưa bật được micro. Bấm lại sau khi trình duyệt cho phép dùng micro.";
-    renderNeededNotes();
-  }
-}
-
 function checkNeededNotesTranslation() {
   if (neededNotesAnswered) return;
   const word = getNeededNotesCurrentWord();
@@ -7977,7 +7892,6 @@ function checkNeededNotesTranslation() {
   const wordId = getNeededNoteId(word);
   const target = getNeededNotesTranslationTarget(word);
   clearNeededNotesAutoTimer();
-  stopNeededNotesTranslationVoice();
   neededNotesMenuExpanded = false;
   neededNotesChoiceMenuExpanded = false;
   neededNotesFilterExpanded = false;
@@ -9074,7 +8988,6 @@ document.addEventListener("click", (event) => {
   const neededModeButton = event.target.closest("[data-needed-mode]");
   const neededChoiceModeButton = event.target.closest("[data-needed-choice-mode]");
   const neededAnswerButton = event.target.closest("[data-needed-answer]");
-  const neededTranslationVoiceButton = event.target.closest("[data-needed-translation-voice]");
   const neededNextButton = event.target.closest("[data-needed-next]");
   const neededRelearnButton = event.target.closest("[data-needed-relearn]");
   const neededRelearnAllButton = event.target.closest("[data-needed-relearn-all]");
@@ -9151,7 +9064,6 @@ document.addEventListener("click", (event) => {
   if (neededModeButton) setNeededNotesMode(neededModeButton.dataset.neededMode);
   if (neededChoiceModeButton) setNeededNotesChoiceMode(neededChoiceModeButton.dataset.neededChoiceMode);
   if (neededAnswerButton) answerNeededNotesChoice(neededAnswerButton.dataset.neededAnswer);
-  if (neededTranslationVoiceButton) startNeededNotesTranslationVoice();
   if (neededRelearnButton) relearnNeededNoteById(neededRelearnButton.dataset.neededRelearn);
   if (neededRelearnAllButton) relearnAllNeededNotesInFilter();
   if (neededNextButton) {

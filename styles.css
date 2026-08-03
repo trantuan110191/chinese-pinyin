@@ -2432,7 +2432,7 @@ body.lookup-popover-resizing {
 
 .needed-translation-form {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 10px;
   align-items: end;
 }
@@ -2463,10 +2463,11 @@ body.lookup-popover-resizing {
   font-weight: 380;
 }
 
-.needed-voice-button,
 .needed-translation-submit {
   min-height: 58px;
   padding: 0 18px;
+  color: #ffffff;
+  background: var(--blue);
   border: 0;
   border-radius: 999px;
   font-size: 13px;
@@ -2474,40 +2475,14 @@ body.lookup-popover-resizing {
   cursor: pointer;
 }
 
-.needed-voice-button {
-  color: var(--blue);
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(30, 62, 83, 0.12);
-}
-
-.needed-voice-button.is-listening {
-  color: #ffffff;
+.needed-translation-submit.is-next {
   background: var(--red);
-  border-color: var(--red);
 }
 
-.needed-translation-submit {
-  color: #ffffff;
-  background: var(--blue);
-}
-
-.needed-voice-button:disabled,
 .needed-translation-submit:disabled,
 .needed-translation-input-box input:disabled {
   cursor: default;
   opacity: 0.58;
-}
-
-.needed-voice-note {
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 650;
-  line-height: 1.45;
-}
-
-.needed-voice-note.is-error {
-  color: var(--red);
 }
 
 .needed-translation-feedback {
@@ -10546,7 +10521,6 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
     grid-template-columns: 1fr;
   }
 
-  .needed-voice-button,
   .needed-translation-submit {
     width: 100%;
   }
