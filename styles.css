@@ -10862,11 +10862,13 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   animation: needed-quick-fade 960ms ease forwards;
 }
 
-.needed-prompt {
+.needed-prompt,
+.needed-translation-prompt {
   position: relative;
 }
 
-.needed-prompt .needed-quick-status {
+.needed-prompt .needed-quick-status,
+.needed-translation-prompt .needed-quick-status {
   top: 50%;
   bottom: auto;
   display: grid;

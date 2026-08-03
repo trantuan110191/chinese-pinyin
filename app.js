@@ -7632,6 +7632,7 @@ function renderNeededNotesTranslation() {
       <div class="needed-translation-prompt">
         <small>DỊCH VIỆT → TRUNG</small>
         <strong lang="vi">${escapeHtml(target.meaning)}</strong>
+        ${quickStatus}
         <button class="prompt-side-next" data-needed-next type="button" aria-label="${escapeHtml(nextLabel)}">
           <span aria-hidden="true">›</span>
         </button>
@@ -7648,7 +7649,6 @@ function renderNeededNotesTranslation() {
       </form>
       <p class="needed-voice-note ${speechSupported ? "" : "is-error"}">${escapeHtml(speechSupported ? voiceMessage : "Trình duyệt này chưa hỗ trợ nhập giọng nói, bạn gõ tay giúp mình nhé.")}</p>
       ${feedback}
-      ${quickStatus}
     </article>
   `;
 }
