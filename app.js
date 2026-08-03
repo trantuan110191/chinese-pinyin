@@ -7572,12 +7572,12 @@ function renderNeededNotesChoice() {
     <article class="needed-card ${neededNotesAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
       <div class="needed-prompt ${neededPromptTextClass}">
         ${promptMarkup}
+        ${quickStatus}
         <button class="prompt-side-next" data-needed-next type="button" aria-label="${escapeHtml(nextLabel)}">
           <span aria-hidden="true">›</span>
         </button>
       </div>
       <div class="needed-options">${options}</div>
-      ${quickStatus}
     </article>
   `;
 }

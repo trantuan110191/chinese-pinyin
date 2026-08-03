@@ -10847,6 +10847,31 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   animation: needed-quick-fade 960ms ease forwards;
 }
 
+.needed-prompt {
+  position: relative;
+}
+
+.needed-prompt .needed-quick-status {
+  top: 50%;
+  bottom: auto;
+  display: grid;
+  min-width: min(78%, 330px);
+  min-height: 82px;
+  place-items: center;
+  padding: 0 34px;
+  color: #fffdf8;
+  background: rgba(45, 70, 53, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 999px;
+  box-shadow: 0 22px 46px rgba(45, 70, 53, 0.2);
+  font-size: clamp(30px, 5vw, 54px);
+  font-weight: 920;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  transform: translate(-50%, -50%) scale(0.96);
+  animation: needed-quick-pop 980ms ease forwards;
+}
+
 @keyframes needed-quick-fade {
   0% {
     opacity: 0;
@@ -10866,6 +10891,28 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   100% {
     opacity: 0;
     transform: translate(-50%, -10px) scale(1);
+  }
+}
+
+@keyframes needed-quick-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -44%) scale(0.94);
+  }
+
+  16% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  68% {
+    opacity: 0.96;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -58%) scale(0.98);
   }
 }
 
