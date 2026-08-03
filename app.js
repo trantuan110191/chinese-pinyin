@@ -7898,6 +7898,10 @@ function runNeededNotesTranslationEnterAction() {
     nextButton.click();
     return true;
   }
+  if (!syncNeededNotesTranslationInputFromDom()) {
+    getNeededNotesTranslationInputElement()?.focus();
+    return false;
+  }
   const form = document.querySelector("#needed-translation-form");
   if (!form) return false;
   if (typeof form.requestSubmit === "function") {
