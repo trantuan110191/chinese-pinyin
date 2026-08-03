@@ -10734,23 +10734,38 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 }
 
 .needed-menu-popover-unified .needed-date-chip {
-  min-height: 50px;
-  padding-block: 9px 8px;
+  min-height: 64px;
+  align-content: center;
+  gap: 3px;
+  overflow: visible;
+  padding-block: 11px 10px;
   border-radius: 12px;
 }
 
 .needed-menu-popover-unified .needed-date-chip strong {
   display: block;
-  line-height: 1.42;
-  padding-top: 1px;
+  min-height: 22px;
+  overflow: visible;
+  line-height: 1.45;
+  padding-top: 2px;
 }
 
 .needed-menu-popover-unified .needed-date-chip span {
-  line-height: 1.35;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  line-height: 1.45;
 }
 
 .needed-menu-popover-unified .needed-date-chip em {
-  padding-top: 1px;
+  display: block;
+  min-height: 18px;
+  padding-top: 2px;
+  line-height: 1.4;
+}
+
+.needed-menu-popover-unified .needed-date-chip b {
+  line-height: 1.4;
 }
 
 @media (max-width: 760px) {

@@ -2538,6 +2538,10 @@ function normalizeSearchText(value) {
     .trim();
 }
 
+function compactSearchText(value) {
+  return normalizeSearchText(value).replace(/\s+/g, "");
+}
+
 function getVietnameseSearchVariants(value) {
   const base = normalizeSearchText(value);
   if (!base) return [];
@@ -2575,8 +2579,12 @@ function getGlobalLookupCacheKey() {
 
 function indexGlobalLookupEntry(entry) {
   entry.meaningSearchVariants = getVietnameseSearchVariants(entry.meaning);
+  entry.meaningCompactVariants = [
+    ...new Set(entry.meaningSearchVariants.map(compactSearchText).filter(Boolean)),
+  ];
   entry.searchTokens = String(entry.searchText || "").split(/\s+/).filter(Boolean);
   entry.searchTokenSet = new Set(entry.searchTokens);
+  entry.searchCompactText = compactSearchText(entry.searchText);
   return entry;
 }
 
@@ -2737,12 +2745,21 @@ function getGlobalLookupMatchRank(entry, rawQuery, intent = getDictionaryLookupI
 
   const queryVariants = getVietnameseSearchVariants(raw);
   if (!queryVariants.length) return Infinity;
+  const compactQueryVariants = [
+    ...new Set(queryVariants.map(compactSearchText).filter((query) => query.length >= 2)),
+  ];
   const searchText = entry.searchText || "";
+  const searchCompactText = entry.searchCompactText || compactSearchText(searchText);
   const meaningVariants = entry.meaningSearchVariants || getVietnameseSearchVariants(entry.meaning);
+  const meaningCompactVariants = entry.meaningCompactVariants
+    || [...new Set(meaningVariants.map(compactSearchText).filter(Boolean))];
   if (queryVariants.some((query) => meaningVariants.includes(query))) return 0;
+  if (compactQueryVariants.some((query) => meaningCompactVariants.includes(query))) return 0;
   if (queryVariants.some((query) => meaningVariants.some((meaning) => meaning.startsWith(`${query} `)))) return 1;
+  if (compactQueryVariants.some((query) => meaningCompactVariants.some((meaning) => meaning.startsWith(query)))) return 1;
   if (queryVariants.some((query) => entry.searchTokenSet?.has(query) || searchText.split(/\s+/).includes(query))) return 2;
   if (queryVariants.some((query) => searchText.includes(query))) return 3;
+  if (compactQueryVariants.some((query) => searchCompactText.includes(query))) return 4;
   return Infinity;
 }
 
@@ -4000,11 +4017,14 @@ function renderFilters() {
 }
 
 function getVisibleWords() {
-  const query = normalize(searchInput.value.trim());
+  const rawQuery = searchInput.value.trim();
+  const query = normalize(rawQuery);
+  const compactQuery = compactSearchText(rawQuery);
   return words.filter((word) => {
     const inCategory = activeCategory === "all" || word.category === activeCategory;
     const haystack = normalize(`${word.hanzi} ${word.pinyin} ${word.meaning} ${word.sino}`);
-    return inCategory && haystack.includes(query);
+    const compactHaystack = compactSearchText(`${word.hanzi} ${word.pinyin} ${word.meaning} ${word.sino}`);
+    return inCategory && (haystack.includes(query) || compactHaystack.includes(compactQuery));
   });
 }
 
