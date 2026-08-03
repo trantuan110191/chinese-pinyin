@@ -10735,7 +10735,22 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 
 .needed-menu-popover-unified .needed-date-chip {
   min-height: 50px;
+  padding-block: 9px 8px;
   border-radius: 12px;
+}
+
+.needed-menu-popover-unified .needed-date-chip strong {
+  display: block;
+  line-height: 1.42;
+  padding-top: 1px;
+}
+
+.needed-menu-popover-unified .needed-date-chip span {
+  line-height: 1.35;
+}
+
+.needed-menu-popover-unified .needed-date-chip em {
+  padding-top: 1px;
 }
 
 @media (max-width: 760px) {
