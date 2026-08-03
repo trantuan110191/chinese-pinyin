@@ -2109,6 +2109,7 @@ let neededNotesChoiceOptionForId = "";
 let neededNotesTranslationTarget = null;
 let neededNotesTranslationInput = "";
 let neededNotesTranslationCommandPending = false;
+let positiveDingAudioContext = null;
 let neededNotesMemoryRatings = {};
 let neededNotesAutoTimer = null;
 let neededNotesMenuExpanded = false;
@@ -7811,6 +7812,38 @@ function scheduleNeededNotesNext(wordId) {
   }, 1000);
 }
 
+function playPositiveDing() {
+  const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextCtor) return;
+  try {
+    positiveDingAudioContext ||= new AudioContextCtor();
+    const audioContext = positiveDingAudioContext;
+    const play = () => {
+      const now = audioContext.currentTime;
+      const gain = audioContext.createGain();
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.14, now + 0.012);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.34);
+      gain.connect(audioContext.destination);
+      [880, 1320].forEach((frequency, index) => {
+        const oscillator = audioContext.createOscillator();
+        oscillator.type = "sine";
+        oscillator.frequency.setValueAtTime(frequency, now + index * 0.035);
+        oscillator.connect(gain);
+        oscillator.start(now + index * 0.035);
+        oscillator.stop(now + 0.28 + index * 0.035);
+      });
+    };
+    if (audioContext.state === "suspended") {
+      audioContext.resume().then(play).catch(() => {});
+    } else {
+      play();
+    }
+  } catch {
+    // Audio feedback is optional; the lesson should never block on sound.
+  }
+}
+
 function setNeededNotesMode(mode) {
   neededNotesMode = normalizeNeededNotesMode(mode);
   setAppStorage("neededNotesMode", neededNotesMode);
@@ -7867,6 +7900,7 @@ function answerNeededNotesChoice(optionId) {
   neededNotesAnswered = true;
   neededNotesAnsweredId = wordId;
   if (selectedId === wordId) {
+    playPositiveDing();
     setNeededNoteKnown(word, true);
     setNeededNoteMemoryRating(word, 1);
   } else {
@@ -7884,8 +7918,21 @@ function isNeededNotesTranslationCommandKey(event) {
   return event.key === "Meta" || event.code === "MetaLeft" || event.code === "MetaRight";
 }
 
+function isEditableCommandTarget(target) {
+  return target instanceof HTMLInputElement
+    || target instanceof HTMLTextAreaElement
+    || target instanceof HTMLSelectElement
+    || Boolean(target?.isContentEditable);
+}
+
 function canUseNeededNotesTranslationCommand(target = document.activeElement) {
   if (neededNotesMode !== "translate") return false;
+  if (getAppStorage("activeLesson") !== "needed-notes") return false;
+  if (!document.querySelector(".needed-translation-card")) return false;
+  if (neededNotesAnswered) {
+    const input = getNeededNotesTranslationInputElement();
+    return !isEditableCommandTarget(target) || target === input;
+  }
   const input = getNeededNotesTranslationInputElement();
   return Boolean(input && target === input);
 }
@@ -7934,6 +7981,7 @@ function checkNeededNotesTranslation() {
   neededNotesAnswered = true;
   neededNotesAnsweredId = wordId;
   if (isCorrect) {
+    playPositiveDing();
     setNeededNoteKnown(word, true);
     setNeededNoteMemoryRating(word, 1);
   } else {
