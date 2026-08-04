@@ -2109,6 +2109,7 @@ let neededNotesChoiceOptionForId = "";
 let neededNotesTranslationTarget = null;
 let neededNotesTranslationInput = "";
 let neededNotesTranslationCommandPending = false;
+let neededNotesTranslationCommandTimer = null;
 let positiveDingAudioContext = null;
 let neededNotesMemoryRatings = {};
 let neededNotesAutoTimer = null;
@@ -7637,7 +7638,20 @@ function renderNeededNotesTranslation() {
       <form class="needed-translation-form" id="needed-translation-form">
         <label class="needed-translation-input-box" for="needed-translation-input">
           <span>Gõ câu tiếng Trung</span>
-          <input id="needed-translation-input" type="text" lang="zh-Hans" autocomplete="off" spellcheck="false" value="${escapeHtml(answerValue)}" placeholder="Ví dụ: 我想好了" ${neededNotesAnswered ? "disabled" : ""} />
+          <input
+            id="needed-translation-input"
+            type="text"
+            lang="zh-CN"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            inputmode="text"
+            enterkeyhint="send"
+            value="${escapeHtml(answerValue)}"
+            placeholder="Ví dụ: 我想好了"
+            ${neededNotesAnswered ? "disabled" : ""}
+          />
         </label>
         ${actionButton}
       </form>
@@ -7875,6 +7889,7 @@ function setNeededNotesMode(mode) {
   neededNotesFilterExpanded = false;
   resetNeededNotesAnswerState();
   renderNeededNotes();
+  focusNeededNotesTranslationInputSoon();
 }
 
 function setNeededNotesChoiceMode(mode) {
@@ -7904,6 +7919,7 @@ function nextNeededNote(options = {}) {
   saveNeededNotesIndex();
   resetNeededNotesAnswerState();
   renderNeededNotes();
+  focusNeededNotesTranslationInputSoon();
 }
 
 function answerNeededNotesChoice(optionId) {
@@ -7934,6 +7950,14 @@ function answerNeededNotesChoice(optionId) {
 
 function getNeededNotesTranslationInputElement() {
   return document.querySelector("#needed-translation-input");
+}
+
+function focusNeededNotesTranslationInputSoon() {
+  if (neededNotesMode !== "translate" || neededNotesAnswered) return;
+  window.requestAnimationFrame(() => {
+    const input = getNeededNotesTranslationInputElement();
+    input?.focus({ preventScroll: true });
+  });
 }
 
 function isNeededNotesTranslationCommandKey(event) {
@@ -7979,6 +8003,14 @@ function runNeededNotesTranslationEnterAction() {
     checkNeededNotesTranslation();
   }
   return true;
+}
+
+function scheduleNeededNotesTranslationEnterAction() {
+  window.clearTimeout(neededNotesTranslationCommandTimer);
+  neededNotesTranslationCommandTimer = window.setTimeout(() => {
+    neededNotesTranslationCommandTimer = null;
+    runNeededNotesTranslationEnterAction();
+  }, 120);
 }
 
 function syncNeededNotesTranslationInputFromDom() {
@@ -8175,7 +8207,18 @@ function renderDictationList() {
       <button class="dictation-play-button" data-dictation-play="${index}" type="button">▶ Nghe</button>
       <label class="dictation-answer-box">
         <span>Bạn nghe được gì?</span>
-        <input data-dictation-answer="${index}" type="text" autocomplete="off" placeholder="Gõ Hán tự hoặc Pinyin..." />
+        <input
+          data-dictation-answer="${index}"
+          type="text"
+          lang="zh-CN"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          inputmode="text"
+          enterkeyhint="send"
+          placeholder="Gõ Hán tự hoặc Pinyin..."
+        />
       </label>
       <div class="dictation-card-actions">
         <button data-dictation-check="${index}" type="button">Kiểm tra</button>
@@ -9275,7 +9318,7 @@ document.addEventListener("keyup", (event) => {
   neededNotesTranslationCommandPending = false;
   if (!canUseNeededNotesTranslationCommand(document.activeElement)) return;
   event.preventDefault();
-  runNeededNotesTranslationEnterAction();
+  scheduleNeededNotesTranslationEnterAction();
 });
 
 document.addEventListener("change", (event) => {
@@ -9292,6 +9335,10 @@ document.addEventListener("change", (event) => {
 document.addEventListener("input", (event) => {
   const target = event.target;
   if (!(target instanceof HTMLInputElement)) return;
+  if (target.id === "needed-translation-input") {
+    neededNotesTranslationInput = target.value;
+    return;
+  }
   if (!["topic-listen-pinyin-input", "topic-flash-pinyin"].includes(target.id)) return;
   const formatted = canonicalizePinyinSurface(target.value);
   if (formatted !== target.value) {
