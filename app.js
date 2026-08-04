@@ -1960,6 +1960,8 @@ const pinyinResultGrid = document.querySelector("#pinyin-result-grid");
 const PINYIN_DICTIONARY_RENDER_LIMIT = 80;
 const PINYIN_DICTIONARY_INPUT_DELAY = 160;
 const LOOKUP_POPOVER_RENDER_LIMIT = 24;
+const LOOKUP_POPOVER_MULTI_RENDER_LIMIT = 8;
+const LOOKUP_POPOVER_MULTI_QUERY_LIMIT = 5;
 const LOOKUP_POPOVER_STORAGE_KEY = "hanziLookupPopoverRect";
 const LOOKUP_POPOVER_EDGE_SIZE = 14;
 let pinyinDictionaryRenderTimer = 0;
@@ -3415,6 +3417,14 @@ function isLookupQueryTooShort(rawQuery) {
     && normalizeSearchText(query).length < 2;
 }
 
+function parseLookupPopoverQueries(rawQuery) {
+  return String(rawQuery || "")
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .slice(0, LOOKUP_POPOVER_MULTI_QUERY_LIMIT);
+}
+
 function getLookupPopoverStoredRect() {
   try {
     const rect = JSON.parse(localStorage.getItem(LOOKUP_POPOVER_STORAGE_KEY) || "null");
@@ -3430,6 +3440,14 @@ function getLookupPopoverStoredRect() {
   }
 }
 
+function getLookupPopoverPreferredSize(queryCount = 1) {
+  const count = Math.min(Math.max(Number(queryCount) || 1, 1), LOOKUP_POPOVER_MULTI_QUERY_LIMIT);
+  const baseWidth = 430;
+  const width = Math.min(baseWidth * count, window.innerWidth - 24);
+  const height = Math.min(count > 1 ? 600 : 520, window.innerHeight - 88);
+  return { width, height };
+}
+
 function clampLookupPopoverRect(rect) {
   const margin = 12;
   const maxWidth = Math.max(280, window.innerWidth - margin * 2);
@@ -3441,10 +3459,9 @@ function clampLookupPopoverRect(rect) {
   return { left, top, width, height };
 }
 
-function getLookupPopoverDefaultRect() {
+function getLookupPopoverDefaultRect(queryCount = 1) {
   const formRect = headerLookupForm?.getBoundingClientRect();
-  const width = Math.min(430, window.innerWidth - 28);
-  const height = Math.min(520, window.innerHeight - 108);
+  const { width, height } = getLookupPopoverPreferredSize(queryCount);
   const preferredLeft = formRect ? formRect.left : window.innerWidth - width - 24;
   const preferredTop = formRect ? formRect.bottom + 10 : 86;
   return clampLookupPopoverRect({
@@ -3468,10 +3485,28 @@ function applyLookupPopoverRect(rect, shouldSave = false) {
   }
 }
 
-function positionLookupPopover() {
+function positionLookupPopover(queryCount = 1) {
   if (!lookupPopover) return;
   const savedRect = getLookupPopoverStoredRect();
-  applyLookupPopoverRect(savedRect || getLookupPopoverDefaultRect());
+  applyLookupPopoverRect(savedRect || getLookupPopoverDefaultRect(queryCount));
+}
+
+function autoSizeLookupPopover(queryCount = 1) {
+  if (!lookupPopover || lookupPopover.hidden) return;
+  if (!lookupPopoverMoved) {
+    applyLookupPopoverRect(getLookupPopoverDefaultRect(queryCount));
+    return;
+  }
+  if (queryCount <= 1) return;
+  const desired = getLookupPopoverPreferredSize(queryCount);
+  const current = lookupPopover.getBoundingClientRect();
+  if (current.width >= desired.width - 8 && current.height >= desired.height - 8) return;
+  applyLookupPopoverRect({
+    left: current.left,
+    top: current.top,
+    width: Math.max(current.width, desired.width),
+    height: Math.max(current.height, desired.height),
+  });
 }
 
 function getLookupPopoverResizeState(event) {
@@ -3533,13 +3568,19 @@ function releaseLookupPopoverPointer(event) {
 function renderLookupPopover(query = headerLookupInput?.value || "") {
   if (!lookupPopoverSummary || !lookupPopoverResults) return;
   const rawQuery = String(query || "").trim();
+  const allQueries = String(query || "").split(",").map((part) => part.trim()).filter(Boolean);
+  const queries = parseLookupPopoverQueries(rawQuery);
+  const queryCount = Math.max(queries.length, 1);
+  lookupPopover.dataset.queryCount = String(queryCount);
+  lookupPopover.classList.toggle("is-multi-lookup", queryCount > 1);
+  autoSizeLookupPopover(queryCount);
   if (!rawQuery) {
     lookupPopoverSummary.textContent = "Gõ Hán tự, Pinyin hoặc nghĩa Việt để tra.";
     lookupPopoverResults.innerHTML = "";
     return;
   }
 
-  if (isLookupQueryTooShort(rawQuery)) {
+  if (queryCount === 1 && isLookupQueryTooShort(rawQuery)) {
     lookupPopoverSummary.textContent = "Gõ thêm ít nhất 2 ký tự để tra nhanh.";
     lookupPopoverResults.innerHTML = "";
     return;
@@ -3551,12 +3592,7 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
     return;
   }
 
-  const matches = getLookupWords(rawQuery, "all");
-  const visibleMatches = matches.slice(0, LOOKUP_POPOVER_RENDER_LIMIT);
-  lookupPopoverSummary.textContent = matches.length
-    ? `Tìm thấy ${matches.length} mục cho “${rawQuery}”${matches.length > visibleMatches.length ? `, hiện ${visibleMatches.length} mục đầu` : ""}.`
-    : `Chưa có mục phù hợp cho “${rawQuery}”.`;
-  lookupPopoverResults.innerHTML = visibleMatches.map((entry) => `
+  const renderPopoverCard = (entry) => `
     <button class="lookup-popover-card" data-global-lookup="${escapeHtml(entry.id)}" type="button">
       <strong lang="zh-Hans">${escapeHtml(entry.hanzi)}</strong>
       <span>
@@ -3565,14 +3601,65 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
         <em>${escapeHtml(entry.sourceText || entry.source)}</em>
       </span>
     </button>
-  `).join("");
+  `;
+
+  if (queryCount > 1) {
+    const groups = queries.map((item) => {
+      if (isLookupQueryTooShort(item)) {
+        return {
+          item,
+          matches: [],
+          visibleMatches: [],
+          message: "Gõ thêm ít nhất 2 ký tự.",
+        };
+      }
+      const matches = getLookupWords(item, "all");
+      return {
+        item,
+        matches,
+        visibleMatches: matches.slice(0, LOOKUP_POPOVER_MULTI_RENDER_LIMIT),
+        message: matches.length ? "" : "Chưa có mục phù hợp.",
+      };
+    });
+    const totalMatches = groups.reduce((sum, group) => sum + group.matches.length, 0);
+    const truncatedNote = allQueries.length > queries.length ? ` Chỉ lấy ${LOOKUP_POPOVER_MULTI_QUERY_LIMIT} cụm đầu.` : "";
+    lookupPopoverSummary.textContent = totalMatches
+      ? `So sánh ${queryCount} cụm: ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}`
+      : `Chưa có mục phù hợp cho ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}`;
+    lookupPopoverResults.innerHTML = `
+      <div class="lookup-popover-query-grid">
+        ${groups.map((group) => `
+          <section class="lookup-popover-query-column">
+            <header>
+              <strong>${escapeHtml(group.item)}</strong>
+              <span>${group.matches.length ? `${group.matches.length} mục${group.matches.length > group.visibleMatches.length ? ` · hiện ${group.visibleMatches.length}` : ""}` : group.message}</span>
+            </header>
+            <div class="lookup-popover-query-results">
+              ${group.visibleMatches.length
+                ? group.visibleMatches.map(renderPopoverCard).join("")
+                : `<p>${escapeHtml(group.message || "Chưa có mục phù hợp.")}</p>`}
+            </div>
+          </section>
+        `).join("")}
+      </div>
+    `;
+    return;
+  }
+
+  const matches = getLookupWords(rawQuery, "all");
+  const visibleMatches = matches.slice(0, LOOKUP_POPOVER_RENDER_LIMIT);
+  lookupPopoverSummary.textContent = matches.length
+    ? `Tìm thấy ${matches.length} mục cho “${rawQuery}”${matches.length > visibleMatches.length ? `, hiện ${visibleMatches.length} mục đầu` : ""}.`
+    : `Chưa có mục phù hợp cho “${rawQuery}”.`;
+  lookupPopoverResults.innerHTML = visibleMatches.map(renderPopoverCard).join("");
 }
 
 function showLookupPopover(query = headerLookupInput?.value || "", { immediate = false } = {}) {
   if (!lookupPopover) return;
+  const queryCount = Math.max(parseLookupPopoverQueries(query).length, 1);
   if (lookupPopover.hidden) {
     lookupPopover.hidden = false;
-    if (!lookupPopoverMoved) positionLookupPopover();
+    if (!lookupPopoverMoved) positionLookupPopover(queryCount);
   }
   if (immediate) renderLookupPopover(query);
   else scheduleLookupPopoverRender();
@@ -3598,7 +3685,7 @@ function scheduleLookupPopoverRender() {
   }
   if (lookupPopover.hidden) {
     lookupPopover.hidden = false;
-    if (!lookupPopoverMoved) positionLookupPopover();
+    if (!lookupPopoverMoved) positionLookupPopover(Math.max(parseLookupPopoverQueries(rawQuery).length, 1));
   }
   if (isLookupQueryTooShort(rawQuery) || !hskVocabulary.length) {
     renderLookupPopover(rawQuery);
