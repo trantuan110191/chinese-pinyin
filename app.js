@@ -3600,16 +3600,20 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
     return;
   }
 
-  const renderPopoverCard = (entry) => `
-    <button class="lookup-popover-card" data-global-lookup="${escapeHtml(entry.id)}" type="button">
-      <strong lang="zh-Hans">${escapeHtml(entry.hanzi)}</strong>
-      <span>
-        <span>${escapeHtml(entry.pinyin)}</span>
-        <small>${escapeHtml(entry.meaning)}</small>
-        <em>${escapeHtml(entry.sourceText || entry.source)}</em>
-      </span>
-    </button>
-  `;
+  const renderPopoverCard = (entry) => {
+    const hanzi = String(entry.hanzi || "");
+    const longClass = hanzi.length > 6 ? " lookup-popover-card--long" : "";
+    return `
+      <button class="lookup-popover-card${longClass}" data-global-lookup="${escapeHtml(entry.id)}" type="button">
+        <strong lang="zh-Hans">${escapeHtml(hanzi)}</strong>
+        <span>
+          <span>${escapeHtml(entry.pinyin)}</span>
+          <small>${escapeHtml(entry.meaning)}</small>
+          <em>${escapeHtml(entry.sourceText || entry.source)}</em>
+        </span>
+      </button>
+    `;
+  };
 
   if (queryCount > 1) {
     const groups = queries.map((item) => {
