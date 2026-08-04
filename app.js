@@ -6509,7 +6509,7 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
         ${isMeaningToHanzi ? "" : `<button class="topic-audio-button" data-topic-audio="${escapeHtml(word.hanzi)}" type="button">▶ Nghe</button>`}
         <div class="topic-choice-hanzi-row">
           ${isMeaningToHanzi
-            ? `<strong class="topic-choice-meaning study-prompt-text ${topicPromptTextClass}" lang="vi">${escapeHtml(topicPromptText)}</strong>`
+            ? `<strong class="topic-choice-meaning study-prompt-text ${topicPromptTextClass}" lang="vi">${renderTextWithHanziRuns(topicPromptText)}</strong>`
             : `<strong class="study-prompt-text ${topicPromptTextClass}" lang="zh-Hans">${escapeHtml(topicPromptText)}</strong>`
           }
         </div>
