@@ -10930,6 +10930,58 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   box-shadow: 0 16px 38px rgba(31, 38, 135, 0.055);
 }
 
+/* Translation prompt: match the calmer study prompt typography and keep Hanzi on the Hanzi font. */
+.needed-translation-prompt .needed-translation-text {
+  display: block;
+  max-width: min(100%, 980px);
+  margin: auto;
+  color: var(--blue);
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  text-align: center;
+  text-wrap: balance;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-break: loose;
+}
+
+.needed-translation-prompt .prompt-hanzi-run {
+  font-family: var(--hanzi);
+  font-weight: 380;
+  letter-spacing: 0;
+}
+
+.needed-translation-prompt .study-prompt-text--one {
+  font-size: clamp(58px, 7.6vw, 92px);
+}
+
+.needed-translation-prompt .study-prompt-text--two {
+  font-size: clamp(50px, 6.8vw, 78px);
+}
+
+.needed-translation-prompt .study-prompt-text--three {
+  font-size: clamp(38px, 5vw, 60px);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+@media (max-width: 760px) {
+  .needed-translation-prompt .study-prompt-text--one {
+    font-size: clamp(44px, 14vw, 64px);
+  }
+
+  .needed-translation-prompt .study-prompt-text--two {
+    font-size: clamp(38px, 12vw, 54px);
+  }
+
+  .needed-translation-prompt .study-prompt-text--three {
+    font-size: clamp(30px, 9.5vw, 44px);
+  }
+}
+
 /* 2026-08-03: keep study controls in menus, with a compact profile switch beside the main hamburger. */
 .header-tools {
   gap: 8px;

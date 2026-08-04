@@ -2780,6 +2780,13 @@ function escapeHtml(value) {
     .replace(/'/g, "&#039;");
 }
 
+function renderTextWithHanziRuns(value) {
+  return escapeHtml(value).replace(
+    /([\u3400-\u9fff]+)/g,
+    `<span class="prompt-hanzi-run" lang="zh-Hans">$1</span>`
+  );
+}
+
 function getStudyPromptTextClass(value) {
   const text = String(value || "").trim();
   const cjkLength = (text.match(/[\u3400-\u9fff]/g) || []).length;
@@ -7612,6 +7619,7 @@ function renderNeededNotesTranslation() {
   const isWrong = neededNotesAnswered && !isCorrect;
   const nextLabel = isCorrect ? "Qua từ tiếp theo" : isWrong ? "Từ tiếp theo" : "Bỏ qua từ này";
   const answerValue = neededNotesTranslationInput;
+  const promptTextClass = getStudyPromptTextClass(target.meaning);
   const quickStatus = isCorrect ? `<div class="needed-quick-status" aria-live="polite">Chính xác</div>` : "";
   const acceptedAnswerText = (target.acceptedHanzi?.length ? target.acceptedHanzi : [target.hanzi]).join(" / ");
   const actionButton = isWrong
@@ -7627,9 +7635,9 @@ function renderNeededNotesTranslation() {
 
   return `
     <article class="needed-card needed-translation-card ${neededNotesAnswered ? isCorrect ? "is-correct" : "is-wrong" : ""}">
-      <div class="needed-translation-prompt">
+      <div class="needed-translation-prompt ${promptTextClass}">
         <small>DỊCH VIỆT → TRUNG</small>
-        <strong lang="vi">${escapeHtml(target.meaning)}</strong>
+        <strong class="needed-translation-text study-prompt-text ${promptTextClass}" lang="vi">${renderTextWithHanziRuns(target.meaning)}</strong>
         ${quickStatus}
         <button class="prompt-side-next" data-needed-next type="button" aria-label="${escapeHtml(nextLabel)}">
           <span aria-hidden="true">›</span>
