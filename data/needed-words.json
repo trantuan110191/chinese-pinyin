@@ -1,6 +1,6 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-04T00:02:00.595Z",
+  "syncedAt": "2026-08-04T00:52:53.145Z",
   "count": 589,
   "words": [
     {
@@ -1585,7 +1585,7 @@
         {
           "meaning": "câu hỏi số lượng không cần lượng từ",
           "hanzi": "公园西边有多少超市？",
-          "pinyin": "dìfang + yǒu + duōshao + míngcí"
+          "pinyin": "gōngyuán xībian yǒu duōshao chāoshì?"
         }
       ]
     },
@@ -2768,12 +2768,12 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "cách bao lâu",
+          "meaning": "hôm nay còn cách sinh nhật của tôi bao nhiêu ngày?",
           "hanzi": "今天离我的生日有多少天？",
           "pinyin": "jīntiān lí wǒ de shēngrì yǒu duōshao tiān?"
         },
         {
-          "meaning": "khoảng cách thời gian bao lâu",
+          "meaning": "bây giờ còn bao lâu nữa đến kỳ thi?",
           "hanzi": "现在离考试还有多长时间？",
           "pinyin": "xiànzài lí kǎoshì hái yǒu duō cháng shíjiān?"
         }
@@ -3642,14 +3642,9 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "làm nhanh",
-          "hanzi": "试一下儿",
-          "pinyin": "dòngcí + yíxiàr"
-        },
-        {
           "meaning": "thử một chút",
           "hanzi": "看一下儿",
-          "pinyin": "shì yíxiàr"
+          "pinyin": "kàn yíxiàr"
         }
       ]
     },
@@ -3669,7 +3664,7 @@
         {
           "meaning": "một ít + danh từ",
           "hanzi": "一点儿水",
-          "pinyin": "yìdiǎnr + míngcí"
+          "pinyin": "yìdiǎnr shuǐ"
         }
       ]
     },
@@ -3689,7 +3684,7 @@
         {
           "meaning": "tính từ + hơn một chút",
           "hanzi": "快一点儿",
-          "pinyin": "xíngróngcí + yìdiǎnr"
+          "pinyin": "kuài yìdiǎnr"
         }
       ]
     },
@@ -3709,7 +3704,7 @@
         {
           "meaning": "làm việc gì đó",
           "hanzi": "慢一点儿走",
-          "pinyin": "xíngróngcí + yìdiǎnr + dòngcí"
+          "pinyin": "màn yìdiǎnr zǒu"
         }
       ]
     },
@@ -3864,7 +3859,7 @@
           "pinyin": "zhǎo shíjiān"
         },
         {
-          "meaning": "sắp xếp lúc nào đó",
+          "meaning": "chúng ta tìm lúc nào đó cùng ăn cơm",
           "hanzi": "我们找时间一起吃饭",
           "pinyin": "wǒmen zhǎo shíjiān yìqǐ chīfàn"
         }
@@ -3897,9 +3892,9 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "cấu trúc nhấn mạnh thông tin đã xảy ra",
+          "meaning": "tôi đến hôm qua",
           "hanzi": "我是昨天来的",
-          "pinyin": "shì ... de"
+          "pinyin": "wǒ shì zuótiān lái de"
         }
       ]
     },
@@ -4027,7 +4022,7 @@
         {
           "meaning": "vừa",
           "hanzi": "一边吃饭一边看电视",
-          "pinyin": "yìbiān ... yìbiān ..."
+          "pinyin": "yìbiān chīfàn yìbiān kàn diànshì"
         }
       ]
     },
@@ -4424,9 +4419,14 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "đã",
+          "meaning": "tôi đã đến rồi",
           "hanzi": "我已经到了",
-          "pinyin": "yǐjīng ... le"
+          "pinyin": "wǒ yǐjīng dào le"
+        },
+        {
+          "meaning": "tôi đến rồi",
+          "hanzi": "我到了",
+          "pinyin": "wǒ dào le"
         }
       ]
     },
@@ -4494,7 +4494,7 @@
           "pinyin": "shēnshang"
         },
         {
-          "meaning": "mang theo người",
+          "meaning": "ở trên người tôi / tôi đang mang theo",
           "hanzi": "在我身上",
           "pinyin": "zài wǒ shēnshang"
         }
@@ -5050,7 +5050,7 @@
           "pinyin": "jiē diànhuà"
         },
         {
-          "meaning": "nhận cuộc gọi",
+          "meaning": "tôi đang nghe điện thoại",
           "hanzi": "我在接电话",
           "pinyin": "wǒ zài jiē diànhuà"
         }
@@ -5150,7 +5150,7 @@
           "pinyin": "zhèngzài"
         },
         {
-          "meaning": "đang họp",
+          "meaning": "tôi đang họp",
           "hanzi": "我正在开会",
           "pinyin": "wǒ zhèngzài kāihuì"
         }
@@ -10858,7 +10858,14 @@
       "hanzi": "相信 / 我相信你",
       "pinyin": "xiāngxìn / wǒ xiāngxìn nǐ",
       "audioText": "相信",
-      "source": "Ghi chú từ cần học"
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "tôi tin bạn",
+          "hanzi": "我相信你",
+          "pinyin": "wǒ xiāngxìn nǐ"
+        }
+      ]
     },
     {
       "id": "need-0527",
@@ -12147,17 +12154,17 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "chạm",
+          "meaning": "chạm / đụng",
           "hanzi": "碰",
           "pinyin": "pèng"
         },
         {
-          "meaning": "đụng",
+          "meaning": "va vào / đụng phải",
           "hanzi": "碰到",
           "pinyin": "pèng dào"
         },
         {
-          "meaning": "va vào",
+          "meaning": "va vào tôi một cái",
           "hanzi": "碰了我一下",
           "pinyin": "pèng le wǒ yíxià"
         }
@@ -12177,17 +12184,17 @@
       "source": "Ghi chú từ cần học",
       "translationTargets": [
         {
-          "meaning": "giẫm",
+          "meaning": "giẫm / đạp",
           "hanzi": "踩",
           "pinyin": "cǎi"
         },
         {
-          "meaning": "đạp",
+          "meaning": "giẫm vào chân",
           "hanzi": "踩脚",
           "pinyin": "cǎi jiǎo"
         },
         {
-          "meaning": "giẫm vào chân",
+          "meaning": "giẫm vào chân tôi",
           "hanzi": "踩了我的脚",
           "pinyin": "cǎi le wǒ de jiǎo"
         }

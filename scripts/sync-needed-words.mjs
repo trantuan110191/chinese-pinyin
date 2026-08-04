@@ -88,10 +88,27 @@ const exactTranslationPrompts = new Map([
   ["对我很好", "đối xử với tôi rất tốt"],
   ["对学习有帮助", "có ích cho việc học"],
   ["向你道歉", "xin lỗi bạn"],
+  ["我相信你", "tôi tin bạn"],
   ["会说普通话", "biết nói tiếng Phổ thông"],
   ["不会唱京剧", "không biết hát Kinh kịch"],
   ["全都在中国吗？", "tất cả đều ở Trung Quốc à?"],
   ["老年人越来越多了。", "người già ngày càng nhiều rồi"],
+  ["今天离我的生日有多少天？", "hôm nay còn cách sinh nhật của tôi bao nhiêu ngày?"],
+  ["现在离考试还有多长时间？", "bây giờ còn bao lâu nữa đến kỳ thi?"],
+  ["我们找时间一起吃饭", "chúng ta tìm lúc nào đó cùng ăn cơm"],
+  ["我是昨天来的", "tôi đến hôm qua"],
+  ["我已经到了", "tôi đã đến rồi"],
+  ["我到了", "tôi đến rồi"],
+  ["在我身上", "ở trên người tôi / tôi đang mang theo"],
+  ["我在接电话", "tôi đang nghe điện thoại"],
+  ["我正在开会", "tôi đang họp"],
+  ["碰", "chạm / đụng"],
+  ["碰到", "va vào / đụng phải"],
+  ["碰了我一下", "va vào tôi một cái"],
+  ["踩", "giẫm / đạp"],
+  ["踩脚", "giẫm vào chân"],
+  ["踩了我的脚", "giẫm vào chân tôi"],
+  ["我的脚", "chân của tôi"],
 ]);
 
 const translationCueRules = [
@@ -204,11 +221,33 @@ function getTranslationCueScore(hanzi, meaning) {
   }, 0);
 }
 
+function hasHanziPersonalReference(value) {
+  const text = String(value || "")
+    .replace(/其他|其它|其他的|其他人|其它的|其它人/g, "");
+  return /(我们|咱们|我|你们|你|您|他们|她们|它们|他|她|它)/.test(text);
+}
+
+function hasVietnamesePersonalReference(value) {
+  const normalizedText = normalizeVietnamese(value);
+  return /\b(toi|minh|ta|toi day|chung toi|chung ta|bon toi|ban|cac ban|anh|chi|em|ong|ba|co ay|anh ay|chi ay|no|ho|nguoi ta)\b/.test(normalizedText);
+}
+
+function isTranslationPromptCompatible(hanzi, prompt) {
+  if (!prompt) return false;
+  if (hasHanziPersonalReference(hanzi) && !hasVietnamesePersonalReference(prompt)) return false;
+  if (/一下/.test(hanzi)) {
+    const normalizedPrompt = normalizeVietnamese(prompt);
+    if (!/\b(mot cai|mot chut|mot lan|mot lat|thu|nhe)\b/.test(normalizedPrompt)) return false;
+  }
+  return true;
+}
+
 function selectPromptForHanziPart(hanzi, meaningParts, fallbackMeaning) {
   const exactPrompt = exactTranslationPrompts.get(hanzi);
   if (exactPrompt) return exactPrompt;
 
-  const candidates = meaningParts.length ? meaningParts : [fallbackMeaning];
+  const candidates = (meaningParts.length ? meaningParts : [fallbackMeaning])
+    .filter((meaning) => isTranslationPromptCompatible(hanzi, meaning));
   const scored = candidates
     .map((meaning, index) => ({ meaning, index, score: getTranslationCueScore(hanzi, meaning) }))
     .sort((left, right) => right.score - left.score || left.index - right.index);
@@ -225,17 +264,23 @@ function chooseSinglePrompt(hanzi, meaningParts, fallbackMeaning) {
   const exactPrompt = exactTranslationPrompts.get(hanzi);
   if (exactPrompt) return exactPrompt;
   if (hanzi.includes("早就") && hanzi.includes("想好")) return "đã nghĩ xong từ lâu rồi";
-  const cleanParts = meaningParts.filter((part) => !isWeakTranslationPrompt(part));
+  const cleanParts = meaningParts.filter((part) => !isWeakTranslationPrompt(part) && isTranslationPromptCompatible(hanzi, part));
+  if (!cleanParts.length && isTranslationPromptCompatible(hanzi, fallbackMeaning)) return fallbackMeaning;
   return cleanParts[0] || fallbackMeaning;
 }
 
 function buildTranslationTargets(meaning, hanzi, pinyin) {
-  const hanziParts = splitAlternatives(hanzi, { looseSlash: true })
-    .map(cleanTranslationHanzi)
-    .filter((part) => part && hanziPattern.test(part) && !hasGrammarMarkup(part));
-  if (!hanziParts.length) return [];
-
+  const rawHanziParts = splitAlternatives(hanzi, { looseSlash: true }).map(cleanTranslationHanzi);
   const pinyinParts = splitAlternatives(pinyin, { looseSlash: true }).map(cleanTranslationPinyin);
+  const hanziItems = rawHanziParts
+    .map((hanziPart, index) => ({
+      hanziPart,
+      pinyin: pinyinParts[index] || pinyinParts[0] || cleanTranslationPinyin(pinyin),
+    }))
+    .filter((item) => item.hanziPart && hanziPattern.test(item.hanziPart) && !hasGrammarMarkup(item.hanziPart));
+  if (!hanziItems.length) return [];
+
+  const hanziParts = hanziItems.map((item) => item.hanziPart);
   const cleanMeaning = cleanTranslationMeaning(meaning);
   const meaningParts = splitAlternatives(cleanMeaning, { allowSemicolon: true })
     .map(trimTranslationContext)
@@ -244,12 +289,14 @@ function buildTranslationTargets(meaning, hanzi, pinyin) {
   if (!meaningParts.length && isWeakTranslationPrompt(fallbackMeaning)) return [];
 
   const targets = [];
-  hanziParts.forEach((hanziPart, index) => {
+  hanziItems.forEach(({ hanziPart, pinyin }, index) => {
     let prompt = exactTranslationPrompts.get(hanziPart) || "";
     if (prompt) {
       // Cặp đã biên tập tay luôn thắng, vì đây là bài dịch cần sát ý.
     } else if (hanziParts.length === meaningParts.length) {
-      prompt = meaningParts[index];
+      const indexedPrompt = meaningParts[index];
+      prompt = isTranslationPromptCompatible(hanziPart, indexedPrompt) ? indexedPrompt : "";
+      if (!prompt) prompt = selectPromptForHanziPart(hanziPart, meaningParts, fallbackMeaning);
     } else if (hanziParts.length === 1) {
       prompt = chooseSinglePrompt(hanziPart, meaningParts, fallbackMeaning);
     } else {
@@ -257,11 +304,12 @@ function buildTranslationTargets(meaning, hanzi, pinyin) {
       if (!prompt && index === 0 && meaningParts.length === 1) prompt = meaningParts[0];
     }
     prompt = trimTranslationContext(prompt);
+    if (!exactTranslationPrompts.has(hanziPart) && !isTranslationPromptCompatible(hanziPart, prompt)) return;
     if (isWeakTranslationPrompt(prompt)) return;
     targets.push({
       meaning: prompt,
       hanzi: hanziPart,
-      pinyin: pinyinParts[index] || pinyinParts[0] || cleanTranslationPinyin(pinyin),
+      pinyin,
     });
   });
 
