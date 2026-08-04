@@ -3301,6 +3301,26 @@ function getPinyinDictionaryWords() {
   return getLookupWords(pinyinDictionaryInput.value.trim(), pinyinDictionaryTone);
 }
 
+function getLookupDetailMeta(entry) {
+  const pieces = [entry.source, entry.topic].filter(Boolean);
+  if (entry.date && entry.date !== "Không rõ ngày") {
+    pieces.push(formatNeededNoteDateShort(entry.date));
+  }
+  return pieces.join(" · ") || "Tra trong app";
+}
+
+function renderLookupDetailHeader({ hanzi, pinyin, meaning, meta }) {
+  const textClass = getStudyPromptTextClass(hanzi);
+  return `
+    <header class="lookup-detail-head">
+      <p class="lookup-detail-kicker">${escapeHtml(meta || "Tra trong app")}</p>
+      <div class="lookup-detail-hanzi ${textClass}" lang="zh-Hans">${escapeHtml(hanzi)}</div>
+      <p class="lookup-detail-pinyin-line">${escapeHtml(pinyin || "Chưa có Pinyin")}</p>
+      ${meaning ? `<p class="lookup-detail-meaning-line">${escapeHtml(meaning)}</p>` : ""}
+    </header>
+  `;
+}
+
 function openGlobalLookupItem(entryId) {
   const entry = getGlobalLookupEntryById(entryId);
   if (!entry) return;
@@ -3314,13 +3334,14 @@ function openGlobalLookupItem(entryId) {
   }
 
   dialogContent.innerHTML = `
-    <div class="dialog-hero hsk-quick-dialog-hero">
-      <div class="dialog-character hsk-quick-dialog-character" lang="zh-Hans">${escapeHtml(entry.hanzi)}</div>
-      <div class="dialog-intro">
-        <h2>${escapeHtml(entry.meaning || "Mục tra trong app")}</h2>
-        <p class="dialog-pinyin">${escapeHtml(entry.pinyin || "")}</p>
-      </div>
-    </div>
+    <article class="lookup-detail-dialog">
+      ${renderLookupDetailHeader({
+        hanzi: entry.hanzi,
+        pinyin: entry.pinyin,
+        meaning: entry.meaning,
+        meta: getLookupDetailMeta(entry),
+      })}
+    </article>
   `;
   if (dialog.open) dialog.close();
   dialog.showModal();
@@ -8401,18 +8422,14 @@ function renderPhraseAnalysis(word) {
   `).join("");
 
   return `
-    <div class="dialog-hero phrase-dialog-hero">
-      <div class="dialog-character" lang="zh-Hans">${word.hanzi}</div>
-      <div class="dialog-intro">
-        <p class="dialog-topic">${categories[word.category]} · ${word.type}</p>
-        <h2>${word.meaning}</h2>
-        <p class="dialog-pinyin">${word.pinyin}</p>
-        <div class="dialog-actions">
-          <button class="speak-button" data-speak="${word.hanzi}">▶ Nghe phát âm</button>
-        </div>
-      </div>
-    </div>
-    <div class="dialog-body phrase-dialog-body">
+    <article class="lookup-detail-dialog phrase-lookup-detail-dialog">
+      ${renderLookupDetailHeader({
+        hanzi: word.hanzi,
+        pinyin: word.pinyin,
+        meaning: word.meaning,
+        meta: `${categories[word.category]} · ${word.type}`,
+      })}
+    <div class="dialog-body lookup-detail-body phrase-dialog-body">
       <section class="detail-section">
         <p class="detail-label">Cấu trúc ghép từ</p>
         <h3>${word.type}</h3>
@@ -8442,6 +8459,7 @@ function renderPhraseAnalysis(word) {
         </div>
       </section>
     </div>
+    </article>
   `;
 }
 
@@ -8456,22 +8474,15 @@ function openWord(hanzi) {
     return;
   }
 
-  const sourceUrl = `https://www.dong-chinese.com/wiki/${encodeURIComponent(word.sourceChar)}`;
   dialogContent.innerHTML = `
-    <div class="dialog-hero">
-      <div class="dialog-character" lang="zh-Hans">${word.hanzi}</div>
-      <div class="dialog-intro">
-        <p class="dialog-topic">${categories[word.category]} · ${word.type}</p>
-        <h2>${word.meaning}</h2>
-        <p class="dialog-pinyin">${word.pinyin}</p>
-        <p class="dialog-meaning">Hán Việt: ${word.sino}</p>
-        <div class="dialog-actions">
-          <button class="speak-button" data-speak="${word.hanzi}">▶ Nghe phát âm</button>
-          <a class="source-link" href="${sourceUrl}" target="_blank" rel="noreferrer">Xem nguồn chữ ↗</a>
-        </div>
-      </div>
-    </div>
-    <div class="dialog-body">
+    <article class="lookup-detail-dialog curated-lookup-detail-dialog">
+      ${renderLookupDetailHeader({
+        hanzi: word.hanzi,
+        pinyin: word.pinyin,
+        meaning: [word.meaning, word.sino ? `Hán Việt: ${word.sino}` : ""].filter(Boolean).join(" · "),
+        meta: `${categories[word.category]} · ${word.type}`,
+      })}
+    <div class="dialog-body lookup-detail-body">
       <section class="detail-section">
         <p class="detail-label">Cấu tạo chữ</p>
         <h3>${word.type}</h3>
@@ -8497,6 +8508,7 @@ function openWord(hanzi) {
         </div>
       </section>
     </div>
+    </article>
   `;
 
   if (dialog.open) dialog.close();
@@ -8624,25 +8636,21 @@ function openHskWord(hanzi) {
     : `<p class="hsk-source-note">Chưa có câu mẫu trong bộ 80 câu cho từ này.</p>`;
 
   dialogContent.innerHTML = `
-    <div class="dialog-hero hsk-quick-dialog-hero">
-      <div class="dialog-character hsk-quick-dialog-character" lang="zh-Hans">${escapeHtml(word.hanzi)}</div>
-      <div class="dialog-intro">
-        <p class="dialog-topic">${getHskLevelLabel(word.level)} · Tra nhanh</p>
-        <h2>${escapeHtml(getConciseMeaning(word))}</h2>
-        <p class="dialog-pinyin">${escapeHtml(word.pinyin)}</p>
-        <div class="dialog-actions">
-          <audio class="hsk-dialog-player" src="${escapeHtml(word.audio)}" controls preload="metadata"></audio>
-          <button class="source-link" data-lookup-pinyin="${escapeHtml(word.pinyin)}" type="button">Tra âm này trong app</button>
-        </div>
-      </div>
-    </div>
-    <div class="dialog-body">
+    <article class="lookup-detail-dialog hsk-lookup-detail-dialog">
+      ${renderLookupDetailHeader({
+        hanzi: word.hanzi,
+        pinyin: word.pinyin,
+        meaning: getConciseMeaning(word),
+        meta: `${getHskLevelLabel(word.level)} · Tra nhanh`,
+      })}
+    <div class="dialog-body lookup-detail-body">
       ${explanation ? renderImportedHskExplanation(explanation) : ""}
       <section class="detail-section full-width">
         <p class="detail-label detail-label-accent">Giao tiếp</p>
         ${exampleMarkup}
       </section>
     </div>
+    </article>
   `;
 
   if (dialog.open) dialog.close();
