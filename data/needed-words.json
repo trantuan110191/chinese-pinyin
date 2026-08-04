@@ -1,7 +1,7 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-03T00:08:21.314Z",
-  "count": 572,
+  "syncedAt": "2026-08-04T00:02:00.595Z",
+  "count": 589,
   "words": [
     {
       "id": "need-0001",
@@ -11912,6 +11912,387 @@
           "meaning": "đây là chuyện bình thường",
           "hanzi": "这是正常的",
           "pinyin": "zhè shì zhèngcháng de"
+        }
+      ]
+    },
+    {
+      "id": "need-0573",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "vừa đi qua rồi / vừa ngang qua rồi",
+      "hanzi": "刚才经过了",
+      "pinyin": "gāngcái jīngguò le",
+      "audioText": "刚才经过了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "vừa đi qua rồi",
+          "hanzi": "刚才经过了",
+          "pinyin": "gāngcái jīngguò le"
+        }
+      ]
+    },
+    {
+      "id": "need-0574",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "Bạn nhìn thấy chưa? Câu nói đời thường: ...了没 = ... chưa?",
+      "hanzi": "你看到了没？",
+      "pinyin": "nǐ kàn dào le méi?",
+      "audioText": "你看到了没",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn nhìn thấy chưa? Câu nói đời thường:",
+          "hanzi": "你看到了没？",
+          "pinyin": "nǐ kàn dào le méi?"
+        }
+      ]
+    },
+    {
+      "id": "need-0575",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "có rất nhiều",
+      "hanzi": "有许多",
+      "pinyin": "yǒu xǔduō",
+      "audioText": "有许多",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "có rất nhiều",
+          "hanzi": "有许多",
+          "pinyin": "yǒu xǔduō"
+        }
+      ]
+    },
+    {
+      "id": "need-0576",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "chỗ ngồi; một chỗ ngồi",
+      "hanzi": "座位 / 一个座位",
+      "pinyin": "zuòwèi / yí ge zuòwèi",
+      "audioText": "座位",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "chỗ ngồi",
+          "hanzi": "座位",
+          "pinyin": "zuòwèi"
+        },
+        {
+          "meaning": "một chỗ ngồi",
+          "hanzi": "一个座位",
+          "pinyin": "yí ge zuòwèi"
+        }
+      ]
+    },
+    {
+      "id": "need-0577",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "rất nhiều / khá nhiều",
+      "hanzi": "好多 / 好多人 / 好多座位",
+      "pinyin": "hǎoduō / hǎo duō rén / hǎo duō zuòwèi",
+      "audioText": "好多",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0578",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "nhiều chỗ ngồi đều bẩn",
+      "hanzi": "许多座位都是脏的",
+      "pinyin": "xǔduō zuòwèi dōu shì zāng de",
+      "audioText": "许多座位都是脏的",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "nhiều chỗ ngồi đều bẩn",
+          "hanzi": "许多座位都是脏的",
+          "pinyin": "xǔduō zuòwèi dōu shì zāng de"
+        }
+      ]
+    },
+    {
+      "id": "need-0579",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "đổ / rót; ngã. Nhớ: 倒水 đọc dào, 摔倒/倒了 thường đọc dǎo",
+      "hanzi": "倒 / 倒水 / 倒了",
+      "pinyin": "dào / dào shuǐ / dǎo le",
+      "audioText": "倒",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đổ",
+          "hanzi": "倒",
+          "pinyin": "dào"
+        },
+        {
+          "meaning": "rót",
+          "hanzi": "倒水",
+          "pinyin": "dào shuǐ"
+        },
+        {
+          "meaning": "ngã",
+          "hanzi": "倒了",
+          "pinyin": "dǎo le"
+        }
+      ]
+    },
+    {
+      "id": "need-0580",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "rơi / mất / rơi xuống",
+      "hanzi": "掉 / 掉了 / 掉在包上",
+      "pinyin": "diào / diào le / diào zài bāo shang",
+      "audioText": "掉",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "rơi",
+          "hanzi": "掉",
+          "pinyin": "diào"
+        },
+        {
+          "meaning": "mất",
+          "hanzi": "掉了",
+          "pinyin": "diào le"
+        },
+        {
+          "meaning": "rơi xuống",
+          "hanzi": "掉在包上",
+          "pinyin": "diào zài bāo shang"
+        }
+      ]
+    },
+    {
+      "id": "need-0581",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "đây là",
+      "hanzi": "这是",
+      "pinyin": "zhè shì",
+      "audioText": "这是",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đây là",
+          "hanzi": "这是",
+          "pinyin": "zhè shì"
+        }
+      ]
+    },
+    {
+      "id": "need-0582",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "bỗng nhiên / đột nhiên",
+      "hanzi": "忽然",
+      "pinyin": "hūrán",
+      "audioText": "忽然",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "bỗng nhiên",
+          "hanzi": "忽然",
+          "pinyin": "hūrán"
+        }
+      ]
+    },
+    {
+      "id": "need-0583",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "chạm / đụng / va vào",
+      "hanzi": "碰 / 碰到 / 碰了我一下",
+      "pinyin": "pèng / pèng dào / pèng le wǒ yíxià",
+      "audioText": "碰",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "chạm",
+          "hanzi": "碰",
+          "pinyin": "pèng"
+        },
+        {
+          "meaning": "đụng",
+          "hanzi": "碰到",
+          "pinyin": "pèng dào"
+        },
+        {
+          "meaning": "va vào",
+          "hanzi": "碰了我一下",
+          "pinyin": "pèng le wǒ yíxià"
+        }
+      ]
+    },
+    {
+      "id": "need-0584",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "giẫm / đạp; giẫm vào chân",
+      "hanzi": "踩 / 踩脚 / 踩了我的脚",
+      "pinyin": "cǎi / cǎi jiǎo / cǎi le wǒ de jiǎo",
+      "audioText": "踩",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "giẫm",
+          "hanzi": "踩",
+          "pinyin": "cǎi"
+        },
+        {
+          "meaning": "đạp",
+          "hanzi": "踩脚",
+          "pinyin": "cǎi jiǎo"
+        },
+        {
+          "meaning": "giẫm vào chân",
+          "hanzi": "踩了我的脚",
+          "pinyin": "cǎi le wǒ de jiǎo"
+        }
+      ]
+    },
+    {
+      "id": "need-0585",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "chân; chân của tôi",
+      "hanzi": "脚 / 我的脚",
+      "pinyin": "jiǎo / wǒ de jiǎo",
+      "audioText": "脚",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "chân",
+          "hanzi": "脚",
+          "pinyin": "jiǎo"
+        },
+        {
+          "meaning": "chân của tôi",
+          "hanzi": "我的脚",
+          "pinyin": "wǒ de jiǎo"
+        }
+      ]
+    },
+    {
+      "id": "need-0586",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "kéo; kéo cửa. Sửa ghi nhớ: 拉 là kéo, 垃 thường đi với 垃圾 = rác",
+      "hanzi": "拉 / 拉门 / 拉了两下",
+      "pinyin": "lā / lā mén / lā le liǎng xià",
+      "audioText": "拉",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0587",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "đẩy; đẩy cửa",
+      "hanzi": "推 / 推门",
+      "pinyin": "tuī / tuī mén",
+      "audioText": "推",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đẩy",
+          "hanzi": "推",
+          "pinyin": "tuī"
+        },
+        {
+          "meaning": "đẩy cửa",
+          "hanzi": "推门",
+          "pinyin": "tuī mén"
+        }
+      ]
+    },
+    {
+      "id": "need-0588",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "Tôi kéo cửa xe buýt hai lần. Mẫu: động từ + 两下 = làm hai cái/hai lần nhẹ",
+      "hanzi": "我拉了两下公共汽车的门",
+      "pinyin": "wǒ lā le liǎng xià gōnggòng qìchē de mén",
+      "audioText": "我拉了两下公共汽车的门",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi kéo cửa xe buýt hai lần",
+          "hanzi": "我拉了两下公共汽车的门",
+          "pinyin": "wǒ lā le liǎng xià gōnggòng qìchē de mén"
+        }
+      ]
+    },
+    {
+      "id": "need-0589",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Chunk HSK1-HSK2",
+      "time": "06:58:56",
+      "meaning": "Bữa sáng của ai đó vừa rơi lên túi của tôi. Mẫu: 掉在了 + nơi chốn + 上",
+      "hanzi": "刚才有人的早饭掉在了我的包上。",
+      "pinyin": "gāngcái yǒu rén de zǎofàn diào zài le wǒ de bāo shang",
+      "audioText": "刚才有人的早饭掉在了我的包上",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bữa sáng của ai đó vừa rơi lên túi của tôi",
+          "hanzi": "刚才有人的早饭掉在了我的包上。",
+          "pinyin": "gāngcái yǒu rén de zǎofàn diào zài le wǒ de bāo shang"
         }
       ]
     }
