@@ -11121,6 +11121,29 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   font-size: 22px;
 }
 
+.word-dialog.is-positioned {
+  margin: 0;
+}
+
+.word-dialog.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.word-dialog .lookup-detail-head,
+.word-dialog .dialog-hero,
+.word-dialog .component-detail-hero {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.word-dialog.is-dragging .lookup-detail-head,
+.word-dialog.is-dragging .dialog-hero,
+.word-dialog.is-dragging .component-detail-hero {
+  cursor: grabbing;
+}
+
 .lookup-detail-dialog {
   clear: both;
   display: grid;

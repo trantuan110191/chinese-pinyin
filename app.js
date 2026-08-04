@@ -1879,6 +1879,9 @@ const emptyState = document.querySelector("#empty-state");
 const dialog = document.querySelector("#word-dialog");
 const dialogContent = document.querySelector("#dialog-content");
 const closeButton = document.querySelector("#dialog-close");
+const WORD_DIALOG_POSITION_KEY = "hanzi-word-dialog-position-v1";
+const WORD_DIALOG_EDGE_MARGIN = 14;
+let wordDialogDrag = null;
 const initialFilter = document.querySelector("#initial-filter");
 const initialTip = document.querySelector("#initial-tip");
 const pronunciationGrid = document.querySelector("#pronunciation-grid");
@@ -1967,6 +1970,132 @@ const LOOKUP_POPOVER_EDGE_SIZE = 14;
 let pinyinDictionaryRenderTimer = 0;
 let lookupPopoverRenderTimer = 0;
 let lookupPopoverMoved = false;
+
+function getStoredWordDialogPosition() {
+  try {
+    const position = JSON.parse(localStorage.getItem(WORD_DIALOG_POSITION_KEY) || "null");
+    if (!position || typeof position !== "object") return null;
+    const left = Number(position.left);
+    const top = Number(position.top);
+    return Number.isFinite(left) && Number.isFinite(top) ? { left, top } : null;
+  } catch {
+    return null;
+  }
+}
+
+function clearWordDialogPositionStyles() {
+  if (!dialog) return;
+  dialog.classList.remove("is-positioned", "is-dragging");
+  dialog.style.left = "";
+  dialog.style.top = "";
+  dialog.style.right = "";
+  dialog.style.bottom = "";
+  dialog.style.margin = "";
+}
+
+function clampWordDialogPosition(left, top) {
+  const rect = dialog.getBoundingClientRect();
+  const maxLeft = Math.max(WORD_DIALOG_EDGE_MARGIN, window.innerWidth - rect.width - WORD_DIALOG_EDGE_MARGIN);
+  const maxTop = Math.max(WORD_DIALOG_EDGE_MARGIN, window.innerHeight - rect.height - WORD_DIALOG_EDGE_MARGIN);
+  return {
+    left: Math.min(Math.max(WORD_DIALOG_EDGE_MARGIN, left), maxLeft),
+    top: Math.min(Math.max(WORD_DIALOG_EDGE_MARGIN, top), maxTop),
+  };
+}
+
+function applyWordDialogPosition(left, top, shouldSave = false) {
+  if (!dialog) return;
+  const next = clampWordDialogPosition(left, top);
+  dialog.classList.add("is-positioned");
+  dialog.style.margin = "0";
+  dialog.style.left = `${next.left}px`;
+  dialog.style.top = `${next.top}px`;
+  dialog.style.right = "auto";
+  dialog.style.bottom = "auto";
+  if (shouldSave) {
+    localStorage.setItem(WORD_DIALOG_POSITION_KEY, JSON.stringify(next));
+  }
+}
+
+function positionWordDialogAfterOpen() {
+  if (!dialog?.open) return;
+  const stored = getStoredWordDialogPosition();
+  if (stored) {
+    applyWordDialogPosition(stored.left, stored.top);
+    return;
+  }
+  const rect = dialog.getBoundingClientRect();
+  applyWordDialogPosition(rect.left, rect.top);
+}
+
+function showWordDialog() {
+  if (!dialog) return;
+  if (dialog.open) dialog.close();
+  if (!getStoredWordDialogPosition()) clearWordDialogPositionStyles();
+  dialog.showModal();
+  window.requestAnimationFrame(positionWordDialogAfterOpen);
+}
+
+function closeWordDialog() {
+  wordDialogDrag = null;
+  dialog?.classList.remove("is-dragging");
+  if (dialog?.open) dialog.close();
+}
+
+function canStartWordDialogDrag(event) {
+  if (!dialog?.open || event.button !== 0) return false;
+  const target = event.target;
+  if (!(target instanceof Element)) return false;
+  if (target.closest("button, a, input, textarea, select, audio, video, summary")) return false;
+  if (target === dialog) {
+    const rect = dialog.getBoundingClientRect();
+    const insideDialog = event.clientX >= rect.left
+      && event.clientX <= rect.right
+      && event.clientY >= rect.top
+      && event.clientY <= rect.bottom;
+    return insideDialog && event.clientY - rect.top <= 96;
+  }
+  return Boolean(target.closest(".lookup-detail-head, .dialog-hero, .component-detail-hero"));
+}
+
+function startWordDialogDrag(event) {
+  if (!canStartWordDialogDrag(event)) return;
+  const rect = dialog.getBoundingClientRect();
+  wordDialogDrag = {
+    pointerId: event.pointerId,
+    startX: event.clientX,
+    startY: event.clientY,
+    left: Number.parseFloat(dialog.style.left) || rect.left,
+    top: Number.parseFloat(dialog.style.top) || rect.top,
+    moved: false,
+  };
+  dialog.classList.add("is-dragging");
+  dialog.setPointerCapture?.(event.pointerId);
+  event.preventDefault();
+}
+
+function moveWordDialogDrag(event) {
+  if (!wordDialogDrag || event.pointerId !== wordDialogDrag.pointerId) return;
+  const dx = event.clientX - wordDialogDrag.startX;
+  const dy = event.clientY - wordDialogDrag.startY;
+  if (Math.hypot(dx, dy) > 3) wordDialogDrag.moved = true;
+  applyWordDialogPosition(wordDialogDrag.left + dx, wordDialogDrag.top + dy);
+}
+
+function endWordDialogDrag(event) {
+  if (!wordDialogDrag || event.pointerId !== wordDialogDrag.pointerId) return;
+  if (wordDialogDrag.moved) {
+    applyWordDialogPosition(
+      Number.parseFloat(dialog.style.left) || dialog.getBoundingClientRect().left,
+      Number.parseFloat(dialog.style.top) || dialog.getBoundingClientRect().top,
+      true
+    );
+  }
+  dialog.releasePointerCapture?.(event.pointerId);
+  dialog.classList.remove("is-dragging");
+  wordDialogDrag = null;
+}
+
 const dictationImport = document.querySelector("#dictation-import");
 const dictationAudioFile = document.querySelector("#dictation-audio-file");
 const dictationTranscript = document.querySelector("#dictation-transcript");
@@ -3090,8 +3219,7 @@ function openComponentContrastItem(hanzi) {
     </div>
   `;
 
-  if (dialog.open) dialog.close();
-  dialog.showModal();
+  showWordDialog();
 }
 
 function renderPinyinToneFilter() {
@@ -3345,8 +3473,7 @@ function openGlobalLookupItem(entryId) {
       })}
     </article>
   `;
-  if (dialog.open) dialog.close();
-  dialog.showModal();
+  showWordDialog();
 }
 
 function renderPinyinDictionary() {
@@ -4131,8 +4258,7 @@ function openQuestionGuide(id) {
     </div>
   `;
 
-  if (dialog.open) dialog.close();
-  dialog.showModal();
+  showWordDialog();
 }
 
 function renderFilters() {
@@ -8568,8 +8694,7 @@ function openWord(hanzi) {
 
   if (word.phraseAnalysis) {
     dialogContent.innerHTML = renderPhraseAnalysis(word);
-    if (dialog.open) dialog.close();
-    dialog.showModal();
+    showWordDialog();
     return;
   }
 
@@ -8610,8 +8735,7 @@ function openWord(hanzi) {
     </article>
   `;
 
-  if (dialog.open) dialog.close();
-  dialog.showModal();
+  showWordDialog();
 }
 
 function resetHskPlayerButton() {
@@ -8752,8 +8876,7 @@ function openHskWord(hanzi) {
     </article>
   `;
 
-  if (dialog.open) dialog.close();
-  dialog.showModal();
+  showWordDialog();
 }
 
 async function loadLearningLibraries() {
@@ -9466,9 +9589,21 @@ document.addEventListener("input", (event) => {
 hskPlayer.addEventListener("ended", resetHskPlayerButton);
 hskPlayer.addEventListener("error", resetHskPlayerButton);
 
-closeButton.addEventListener("click", () => dialog.close());
-dialog.addEventListener("click", (event) => {
-  if (event.target === dialog) dialog.close();
+closeButton.addEventListener("click", closeWordDialog);
+dialog.addEventListener("cancel", (event) => {
+  event.preventDefault();
+});
+dialog.addEventListener("pointerdown", startWordDialogDrag);
+dialog.addEventListener("pointermove", moveWordDialogDrag);
+dialog.addEventListener("pointerup", endWordDialogDrag);
+dialog.addEventListener("pointercancel", endWordDialogDrag);
+window.addEventListener("resize", () => {
+  if (!dialog?.open || !dialog.classList.contains("is-positioned")) return;
+  applyWordDialogPosition(
+    Number.parseFloat(dialog.style.left) || dialog.getBoundingClientRect().left,
+    Number.parseFloat(dialog.style.top) || dialog.getBoundingClientRect().top,
+    Boolean(getStoredWordDialogPosition())
+  );
 });
 
 document.querySelector("#total-count").textContent = "988";
