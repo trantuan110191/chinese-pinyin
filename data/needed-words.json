@@ -1,7 +1,7 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-04T01:22:35.451Z",
-  "count": 589,
+  "syncedAt": "2026-08-04T23:11:48.288Z",
+  "count": 622,
   "words": [
     {
       "id": "need-0001",
@@ -12319,6 +12319,679 @@
             "刚才有个人的早饭掉在我的包上。",
             "有个人的早饭刚才掉在我的包上。"
           ]
+        }
+      ]
+    },
+    {
+      "id": "need-0590",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Câu mẫu phủ định nhấn mạnh",
+      "time": "19:44:54",
+      "meaning": "cả ngày đều không vui. Mẫu: thời gian + 都 + 不 + tính từ",
+      "hanzi": "一天都不高兴。",
+      "pinyin": "yì tiān dōu bù gāoxìng",
+      "audioText": "一天都不高兴",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "cả ngày đều không vui",
+          "hanzi": "一天都不高兴。",
+          "pinyin": "yì tiān dōu bù gāoxìng"
+        }
+      ]
+    },
+    {
+      "id": "need-0591",
+      "date": "2026-08-04",
+      "month": "2026-08",
+      "topic": "Bài 22: Xe buýt, va chạm & đồ bị rơi",
+      "group": "Câu mẫu phủ định nhấn mạnh",
+      "time": "19:44:54",
+      "meaning": "Tôi chưa ôn chút nào cả. Mẫu: 一点儿都 + 没 + động từ + 呢",
+      "hanzi": "我一点儿都没复习呢。",
+      "pinyin": "wǒ yìdiǎnr dōu méi fùxí ne",
+      "audioText": "我一点儿都没复习呢",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi chưa ôn chút nào cả",
+          "hanzi": "我一点儿都没复习呢。",
+          "pinyin": "wǒ yìdiǎnr dōu méi fùxí ne"
+        }
+      ]
+    },
+    {
+      "id": "need-0592",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Câu mẫu: Học tiếng Trung",
+      "time": "06:07:46",
+      "meaning": "Quá trình học tiếng Trung của tôi hơi khó, nhất là lúc mới bắt đầu",
+      "hanzi": "我学中文的过程有点儿难，特别是刚开始的时候。",
+      "pinyin": "wǒ xué Zhōngwén de guòchéng yǒudiǎnr nán, tèbié shì gāng kāishǐ de shíhou",
+      "audioText": "我学中文的过程有点儿难特别是刚开始的时候",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Quá trình học tiếng Trung của tôi hơi khó, nhất là lúc mới bắt đầu",
+          "hanzi": "我学中文的过程有点儿难，特别是刚开始的时候。",
+          "pinyin": "wǒ xué Zhōngwén de guòchéng yǒudiǎnr nán, tèbié shì gāng kāishǐ de shíhou"
+        }
+      ]
+    },
+    {
+      "id": "need-0593",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Câu mẫu: Học tiếng Trung",
+      "time": "06:07:46",
+      "meaning": "Tôi thấy tiếng Trung là một trong những ngôn ngữ khó học nhất",
+      "hanzi": "我觉得中文是最难学的语言之一。",
+      "pinyin": "wǒ juéde Zhōngwén shì zuì nán xué de yǔyán zhī yī",
+      "audioText": "我觉得中文是最难学的语言之一",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi thấy tiếng Trung là một trong những ngôn ngữ khó học nhất",
+          "hanzi": "我觉得中文是最难学的语言之一。",
+          "pinyin": "wǒ juéde Zhōngwén shì zuì nán xué de yǔyán zhī yī"
+        }
+      ]
+    },
+    {
+      "id": "need-0594",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Câu mẫu: Học tiếng Trung",
+      "time": "06:07:46",
+      "meaning": "thức khuya; đừng thức khuya",
+      "hanzi": "熬夜 / 别熬夜",
+      "pinyin": "áoyè / bié áoyè",
+      "audioText": "熬夜",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "thức khuya",
+          "hanzi": "熬夜",
+          "pinyin": "áoyè"
+        },
+        {
+          "meaning": "đừng thức khuya",
+          "hanzi": "别熬夜",
+          "pinyin": "bié áoyè"
+        }
+      ]
+    },
+    {
+      "id": "need-0595",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "xe cộ / phương tiện",
+      "hanzi": "车辆",
+      "pinyin": "chēliàng",
+      "audioText": "车辆",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "xe cộ",
+          "hanzi": "车辆",
+          "pinyin": "chēliàng"
+        }
+      ]
+    },
+    {
+      "id": "need-0596",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "người đi bộ",
+      "hanzi": "行人",
+      "pinyin": "xíngrén",
+      "audioText": "行人",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "người đi bộ",
+          "hanzi": "行人",
+          "pinyin": "xíngrén"
+        }
+      ]
+    },
+    {
+      "id": "need-0597",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "bắt buộc / nhất định phải; nhất định phải lái chậm một chút",
+      "hanzi": "必须 / 必须慢点儿开",
+      "pinyin": "bìxū / bìxū màn diǎnr kāi",
+      "audioText": "必须",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0598",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "đi bên phải / đi về phía bên phải. 走右边 khẩu ngữ ngắn; 往右边走 chỉ đường tự nhiên; 向右边走 trang trọng hơn",
+      "hanzi": "走右边 / 往右边走 / 向右边走",
+      "pinyin": "zǒu yòubiān / wǎng yòubiān zǒu / xiàng yòubiān zǒu",
+      "audioText": "走右边",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0599",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "vội / gấp; sao bạn vội thế?",
+      "hanzi": "急 / 你怎么这么急？ / 你怎么那么急？",
+      "pinyin": "jí / nǐ zěnme zhème jí? / nǐ zěnme nàme jí?",
+      "audioText": "急",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "vội",
+          "hanzi": "急",
+          "pinyin": "jí"
+        },
+        {
+          "meaning": "sao bạn vội thế?",
+          "hanzi": "你怎么那么急？",
+          "pinyin": "nǐ zěnme nàme jí?"
+        }
+      ]
+    },
+    {
+      "id": "need-0600",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "Bạn không cần vội như vậy",
+      "hanzi": "你不用这么急。",
+      "pinyin": "nǐ bú yòng zhème jí",
+      "audioText": "你不用这么急",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn không cần vội như vậy",
+          "hanzi": "你不用这么急。",
+          "pinyin": "nǐ bú yòng zhème jí"
+        }
+      ]
+    },
+    {
+      "id": "need-0601",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "bằng phẳng; đường bên nhà tôi cũng bằng phẳng như vậy",
+      "hanzi": "平 / 我家那边的路也这么平",
+      "pinyin": "píng / wǒ jiā nàbiān de lù yě zhème píng",
+      "audioText": "平",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "bằng phẳng",
+          "hanzi": "平",
+          "pinyin": "píng"
+        },
+        {
+          "meaning": "đường bên nhà tôi cũng bằng phẳng như vậy",
+          "hanzi": "我家那边的路也这么平",
+          "pinyin": "wǒ jiā nàbiān de lù yě zhème píng"
+        }
+      ]
+    },
+    {
+      "id": "need-0602",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "cẩn thận; không cần cẩn thận đến vậy",
+      "hanzi": "小心 / 不用那么小心",
+      "pinyin": "xiǎoxīn / bú yòng nàme xiǎoxīn",
+      "audioText": "小心",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "cẩn thận",
+          "hanzi": "小心",
+          "pinyin": "xiǎoxīn"
+        },
+        {
+          "meaning": "không cần cẩn thận đến vậy",
+          "hanzi": "不用那么小心",
+          "pinyin": "bú yòng nàme xiǎoxīn"
+        }
+      ]
+    },
+    {
+      "id": "need-0603",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "Khi bạn lái xe đừng vội như vậy",
+      "hanzi": "你开车的时候不要那么急。",
+      "pinyin": "nǐ kāichē de shíhou bú yào nàme jí",
+      "audioText": "你开车的时候不要那么急",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Khi bạn lái xe đừng vội như vậy",
+          "hanzi": "你开车的时候不要那么急。",
+          "pinyin": "nǐ kāichē de shíhou bú yào nàme jí"
+        }
+      ]
+    },
+    {
+      "id": "need-0604",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "không được đi bên này",
+      "hanzi": "不可以走这边。",
+      "pinyin": "bù kěyǐ zǒu zhèbiān",
+      "audioText": "不可以走这边",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "không được đi bên này",
+          "hanzi": "不可以走这边。",
+          "pinyin": "bù kěyǐ zǒu zhèbiān"
+        }
+      ]
+    },
+    {
+      "id": "need-0605",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "dừng / đỗ ở bên kia",
+      "hanzi": "停在那边。",
+      "pinyin": "tíng zài nàbiān",
+      "audioText": "停在那边",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "dừng",
+          "hanzi": "停在那边。",
+          "pinyin": "tíng zài nàbiān"
+        }
+      ]
+    },
+    {
+      "id": "need-0606",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "ngã tư / giao lộ phía trước; phía trước giao lộ. 前边的路口 = giao lộ phía trước; 路口前边 = phía trước giao lộ",
+      "hanzi": "前边的路口 / 路口前边",
+      "pinyin": "qiánbian de lùkǒu / lùkǒu qiánbian",
+      "audioText": "前边的路口",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0607",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "Sao ở đây có nhiều xe như vậy?",
+      "hanzi": "这里怎么有那么多车？",
+      "pinyin": "zhèlǐ zěnme yǒu nàme duō chē?",
+      "audioText": "这里怎么有那么多车",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Sao ở đây có nhiều xe như vậy?",
+          "hanzi": "这里怎么有那么多车？",
+          "pinyin": "zhèlǐ zěnme yǒu nàme duō chē?"
+        }
+      ]
+    },
+    {
+      "id": "need-0608",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Giao thông & lái xe",
+      "time": "06:07:46",
+      "meaning": "lái cẩn thận một chút / cần cẩn thận một chút",
+      "hanzi": "小心点儿开 / 要小心一点儿",
+      "pinyin": "xiǎoxīn diǎnr kāi / yào xiǎoxīn yìdiǎnr",
+      "audioText": "小心点儿开",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "lái cẩn thận một chút",
+          "hanzi": "小心点儿开",
+          "pinyin": "xiǎoxīn diǎnr kāi"
+        },
+        {
+          "meaning": "cần cẩn thận một chút",
+          "hanzi": "要小心一点儿",
+          "pinyin": "yào xiǎoxīn yìdiǎnr"
+        }
+      ]
+    },
+    {
+      "id": "need-0609",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Thời lượng hành động",
+      "time": "06:07:46",
+      "meaning": "lái rất lâu; nửa tiếng; đợi một lúc",
+      "hanzi": "开了好久 / 半个小时 / 等了一会儿",
+      "pinyin": "kāi le hǎojiǔ / bàn ge xiǎoshí / děng le yíhuìr",
+      "audioText": "开了好久",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "lái rất lâu",
+          "hanzi": "开了好久",
+          "pinyin": "kāi le hǎojiǔ"
+        },
+        {
+          "meaning": "nửa tiếng",
+          "hanzi": "半个小时",
+          "pinyin": "bàn ge xiǎoshí"
+        },
+        {
+          "meaning": "đợi một lúc",
+          "hanzi": "等了一会儿",
+          "pinyin": "děng le yíhuìr"
+        }
+      ]
+    },
+    {
+      "id": "need-0610",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Thời lượng hành động",
+      "time": "06:07:46",
+      "meaning": "Tôi đợi xe buýt nửa tiếng. Cách tự nhiên: lặp lại động từ sau tân ngữ",
+      "hanzi": "我等公共汽车等了半个小时。",
+      "pinyin": "wǒ děng gōnggòng qìchē děng le bàn ge xiǎoshí",
+      "audioText": "我等公共汽车等了半个小时",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi đợi xe buýt nửa tiếng",
+          "hanzi": "我等公共汽车等了半个小时。",
+          "pinyin": "wǒ děng gōnggòng qìchē děng le bàn ge xiǎoshí"
+        }
+      ]
+    },
+    {
+      "id": "need-0611",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Thời lượng hành động",
+      "time": "06:07:46",
+      "meaning": "Bạn đã ngồi tàu điện ngầm bao lâu?",
+      "hanzi": "你坐了多久的地铁？",
+      "pinyin": "nǐ zuò le duōjiǔ de dìtiě?",
+      "audioText": "你坐了多久的地铁",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn đã ngồi tàu điện ngầm bao lâu?",
+          "hanzi": "你坐了多久的地铁？",
+          "pinyin": "nǐ zuò le duōjiǔ de dìtiě?"
+        }
+      ]
+    },
+    {
+      "id": "need-0612",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Thời lượng hành động",
+      "time": "06:07:46",
+      "meaning": "Tôi đã đợi anh ấy rất lâu ở cửa nhà anh ấy",
+      "hanzi": "我在他家门口等了他好久。",
+      "pinyin": "wǒ zài tā jiā ménkǒu děng le tā hǎojiǔ",
+      "audioText": "我在他家门口等了他好久",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi đã đợi anh ấy rất lâu ở cửa nhà anh ấy",
+          "hanzi": "我在他家门口等了他好久。",
+          "pinyin": "wǒ zài tā jiā ménkǒu děng le tā hǎojiǔ"
+        }
+      ]
+    },
+    {
+      "id": "need-0613",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Thời lượng hành động",
+      "time": "06:07:46",
+      "meaning": "Tôi lái xe một tiếng. Câu đúng: chủ ngữ + động từ + 了 + thời lượng + 的 + tân ngữ",
+      "hanzi": "我开了一个小时的车。",
+      "pinyin": "wǒ kāi le yí ge xiǎoshí de chē",
+      "audioText": "我开了一个小时的车",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi lái xe một tiếng",
+          "hanzi": "我开了一个小时的车。",
+          "pinyin": "wǒ kāi le yí ge xiǎoshí de chē"
+        }
+      ]
+    },
+    {
+      "id": "need-0614",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Thời lượng hành động",
+      "time": "06:07:46",
+      "meaning": "Cách tách động từ-tân ngữ: 我 + 开车 + 开 + 了 + 一个小时",
+      "hanzi": "我开车开了一个小时。",
+      "pinyin": "wǒ kāichē kāi le yí ge xiǎoshí",
+      "audioText": "我开车开了一个小时",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0615",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Thời lượng hành động",
+      "time": "06:07:46",
+      "meaning": "Không tự nhiên: 我一个小时的开车 / 我一个小时的开了车",
+      "hanzi": "我一个小时的开车 / 我一个小时的开了车",
+      "pinyin": "wǒ yí ge xiǎoshí de kāichē / wǒ yí ge xiǎoshí de kāi le chē",
+      "audioText": "我一个小时的开车",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0616",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Nếu...thì: 如果 / 的话 / 就",
+      "time": "06:07:46",
+      "meaning": "Cấu trúc: nếu... thì...; có thể bỏ 如果, nhưng nếu dùng 的话 thì giữ sau điều kiện",
+      "hanzi": "如果...的话，就... / ...的话，就...",
+      "pinyin": "rúguǒ...dehuà, jiù... / ...dehuà, jiù...",
+      "audioText": "如果的话就",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0617",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Nếu...thì: 如果 / 的话 / 就",
+      "time": "06:07:46",
+      "meaning": "tiết kiệm / đỡ tốn; tiết kiệm tiền, tiết kiệm thời gian",
+      "hanzi": "省 / 省钱 / 省时间",
+      "pinyin": "shěng / shěng qián / shěng shíjiān",
+      "audioText": "省",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "tiết kiệm",
+          "hanzi": "省",
+          "pinyin": "shěng"
+        },
+        {
+          "meaning": "đỡ tốn",
+          "hanzi": "省钱",
+          "pinyin": "shěng qián"
+        },
+        {
+          "meaning": "tiết kiệm tiền, tiết kiệm thời gian",
+          "hanzi": "省时间",
+          "pinyin": "shěng shíjiān"
+        }
+      ]
+    },
+    {
+      "id": "need-0618",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Nếu...thì: 如果 / 的话 / 就",
+      "time": "06:07:46",
+      "meaning": "Nếu chúng ta đi xe buýt thì có thể tiết kiệm 50",
+      "hanzi": "如果我们坐公共汽车的话，就能省五十。",
+      "pinyin": "rúguǒ wǒmen zuò gōnggòng qìchē dehuà, jiù néng shěng wǔshí",
+      "audioText": "如果我们坐公共汽车的话就能省五十",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Nếu chúng ta đi xe buýt thì có thể tiết kiệm 50",
+          "hanzi": "如果我们坐公共汽车的话，就能省五十。",
+          "pinyin": "rúguǒ wǒmen zuò gōnggòng qìchē dehuà, jiù néng shěng wǔshí"
+        }
+      ]
+    },
+    {
+      "id": "need-0619",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Nếu...thì: 如果 / 的话 / 就",
+      "time": "06:07:46",
+      "meaning": "Nếu lúc đó chúng ta đổi sang một con đường khác thì có thể tiết kiệm rất nhiều thời gian",
+      "hanzi": "如果那个时候我们换一条路，就能省很多时间。",
+      "pinyin": "rúguǒ nà ge shíhou wǒmen huàn yì tiáo lù, jiù néng shěng hěn duō shíjiān",
+      "audioText": "如果那个时候我们换一条路就能省很多时间",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Nếu lúc đó chúng ta đổi sang một con đường khác thì có thể tiết kiệm rất nhiều thời gian",
+          "hanzi": "如果那个时候我们换一条路，就能省很多时间。",
+          "pinyin": "rúguǒ nà ge shíhou wǒmen huàn yì tiáo lù, jiù néng shěng hěn duō shíjiān"
+        }
+      ]
+    },
+    {
+      "id": "need-0620",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Nếu...thì: 如果 / 的话 / 就",
+      "time": "06:07:46",
+      "meaning": "tốn / tiêu tiền; tốn thời gian",
+      "hanzi": "花 / 花钱 / 花时间",
+      "pinyin": "huā / huā qián / huā shíjiān",
+      "audioText": "花",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "tốn",
+          "hanzi": "花",
+          "pinyin": "huā"
+        },
+        {
+          "meaning": "tiêu tiền",
+          "hanzi": "花钱",
+          "pinyin": "huā qián"
+        },
+        {
+          "meaning": "tốn thời gian",
+          "hanzi": "花时间",
+          "pinyin": "huā shíjiān"
+        }
+      ]
+    },
+    {
+      "id": "need-0621",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Nếu...thì: 如果 / 的话 / 就",
+      "time": "06:07:46",
+      "meaning": "Nếu không tắc đường thì chúng ta có thể tốn ít hơn một tiếng",
+      "hanzi": "如果不堵车的话，我们就可以少花一个小时。",
+      "pinyin": "rúguǒ bù dǔchē dehuà, wǒmen jiù kěyǐ shǎo huā yí ge xiǎoshí",
+      "audioText": "如果不堵车的话我们就可以少花一个小时",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Nếu không tắc đường thì chúng ta có thể tốn ít hơn một tiếng",
+          "hanzi": "如果不堵车的话，我们就可以少花一个小时。",
+          "pinyin": "rúguǒ bù dǔchē dehuà, wǒmen jiù kěyǐ shǎo huā yí ge xiǎoshí"
+        }
+      ]
+    },
+    {
+      "id": "need-0622",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 23: Học tiếng Trung, lái xe & 如果...就...",
+      "group": "Nếu...thì: 如果 / 的话 / 就",
+      "time": "06:07:46",
+      "meaning": "Nếu muốn tiết kiệm tiền thì chúng ta đi tàu điện ngầm",
+      "hanzi": "想省钱的话，我们就坐地铁。",
+      "pinyin": "xiǎng shěng qián dehuà, wǒmen jiù zuò dìtiě",
+      "audioText": "想省钱的话我们就坐地铁",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Nếu muốn tiết kiệm tiền thì chúng ta đi tàu điện ngầm",
+          "hanzi": "想省钱的话，我们就坐地铁。",
+          "pinyin": "xiǎng shěng qián dehuà, wǒmen jiù zuò dìtiě"
         }
       ]
     }
