@@ -7398,8 +7398,7 @@ function isNeededNotesTranslationCorrect(answer, target) {
   if (!normalizedAnswer) return false;
   return expectedAnswers.some((expected) => {
     const normalizedExpected = normalizeNeededNotesTranslationAnswer(expected);
-    return normalizedExpected
-      && (normalizedAnswer === normalizedExpected || normalizedAnswer.includes(normalizedExpected));
+    return normalizedExpected && normalizedAnswer === normalizedExpected;
   });
 }
 
@@ -8657,7 +8656,7 @@ async function loadLearningLibraries() {
     fetch("data/hsk-vocabulary.json"),
     fetch("data/common-sentences.json"),
     fetch("data/hsk-explanations.json"),
-    fetch("data/needed-words.json?v=needed-20260804c"),
+    fetch("data/needed-words.json?v=needed-20260804d"),
     fetch("data/component-contrasts.json")
   ]);
 

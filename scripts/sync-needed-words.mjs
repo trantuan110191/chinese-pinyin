@@ -122,6 +122,23 @@ const exactTranslationPrompts = new Map([
   ["推门", "đẩy cửa"],
 ]);
 
+const exactTranslationAcceptedHanzi = new Map([
+  ["刚才有人的早饭掉在了我的包上。", [
+    "刚才有人的早饭掉在了我的包上。",
+    "有人的早饭刚才掉在了我的包上。",
+    "刚才有人的早饭掉在我的包上。",
+    "有人的早饭刚才掉在我的包上。",
+    "刚才有人的早餐掉在了我的包上。",
+    "有人的早餐刚才掉在了我的包上。",
+    "刚才有人的早餐掉在我的包上。",
+    "有人的早餐刚才掉在我的包上。",
+    "刚才有个人的早饭掉在了我的包上。",
+    "有个人的早饭刚才掉在了我的包上。",
+    "刚才有个人的早饭掉在我的包上。",
+    "有个人的早饭刚才掉在我的包上。",
+  ]],
+]);
+
 const translationCueRules = [
   { pattern: /\bkhong thich\b/, hanzi: "不喜欢", weight: 7 },
   { pattern: /\blam phien\b|\bquay ray\b/, hanzi: "打扰", weight: 6 },
@@ -338,6 +355,9 @@ function buildTranslationTargets(meaning, hanzi, pinyin) {
       meaning: prompt,
       hanzi: hanziPart,
       pinyin,
+      ...(exactTranslationAcceptedHanzi.has(hanziPart)
+        ? { acceptedHanzi: exactTranslationAcceptedHanzi.get(hanziPart) }
+        : {}),
     });
   });
 
