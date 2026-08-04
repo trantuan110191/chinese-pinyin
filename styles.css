@@ -721,9 +721,6 @@ main.single-lesson-view > section:not([hidden]) {
   grid-template-columns: auto minmax(0, 1fr);
   gap: 10px;
   width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  overflow: hidden;
   padding: 10px 11px;
   text-align: left;
   background: rgba(255, 253, 248, 0.86);
@@ -744,9 +741,7 @@ main.single-lesson-view > section:not([hidden]) {
   font-family: var(--hanzi);
   font-size: 34px;
   font-weight: 500;
-  line-height: 1;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  line-height: 1.12;
 }
 
 .lookup-popover-card span,
@@ -760,11 +755,6 @@ main.single-lesson-view > section:not([hidden]) {
   font-family: var(--serif);
   font-size: 15px;
   font-style: italic;
-  min-width: 0;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-  white-space: normal;
-  word-break: break-word;
 }
 
 .lookup-popover-card small {
@@ -786,6 +776,13 @@ main.single-lesson-view > section:not([hidden]) {
 
 .lookup-popover-card--long {
   grid-template-columns: minmax(0, 1fr);
+}
+
+.lookup-popover-card--long strong {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 body.lookup-popover-dragging,
