@@ -1,6 +1,6 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-04T00:52:53.145Z",
+  "syncedAt": "2026-08-04T01:08:53.211Z",
   "count": 589,
   "words": [
     {
@@ -2109,19 +2109,7 @@
       "hanzi": "打包 / 打包带走",
       "pinyin": "dǎbāo / dǎbāo dài zǒu",
       "audioText": "打包",
-      "source": "Ghi chú từ cần học",
-      "translationTargets": [
-        {
-          "meaning": "mang về",
-          "hanzi": "打包",
-          "pinyin": "dǎbāo"
-        },
-        {
-          "meaning": "gói mang về",
-          "hanzi": "打包带走",
-          "pinyin": "dǎbāo dài zǒu"
-        }
-      ]
+      "source": "Ghi chú từ cần học"
     },
     {
       "id": "need-0108",
@@ -12059,12 +12047,12 @@
           "pinyin": "dào"
         },
         {
-          "meaning": "rót",
+          "meaning": "rót nước",
           "hanzi": "倒水",
           "pinyin": "dào shuǐ"
         },
         {
-          "meaning": "ngã",
+          "meaning": "ngã rồi",
           "hanzi": "倒了",
           "pinyin": "dǎo le"
         }
@@ -12089,12 +12077,12 @@
           "pinyin": "diào"
         },
         {
-          "meaning": "mất",
+          "meaning": "rơi mất / rơi rồi",
           "hanzi": "掉了",
           "pinyin": "diào le"
         },
         {
-          "meaning": "rơi xuống",
+          "meaning": "rơi lên túi",
           "hanzi": "掉在包上",
           "pinyin": "diào zài bāo shang"
         }
@@ -12236,7 +12224,24 @@
       "hanzi": "拉 / 拉门 / 拉了两下",
       "pinyin": "lā / lā mén / lā le liǎng xià",
       "audioText": "拉",
-      "source": "Ghi chú từ cần học"
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "kéo",
+          "hanzi": "拉",
+          "pinyin": "lā"
+        },
+        {
+          "meaning": "kéo cửa",
+          "hanzi": "拉门",
+          "pinyin": "lā mén"
+        },
+        {
+          "meaning": "kéo hai lần nhẹ",
+          "hanzi": "拉了两下",
+          "pinyin": "lā le liǎng xià"
+        }
+      ]
     },
     {
       "id": "need-0587",

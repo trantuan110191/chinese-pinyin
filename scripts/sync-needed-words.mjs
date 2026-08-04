@@ -109,6 +109,17 @@ const exactTranslationPrompts = new Map([
   ["踩脚", "giẫm vào chân"],
   ["踩了我的脚", "giẫm vào chân tôi"],
   ["我的脚", "chân của tôi"],
+  ["掉", "rơi"],
+  ["掉了", "rơi mất / rơi rồi"],
+  ["掉在包上", "rơi lên túi"],
+  ["倒", "đổ"],
+  ["倒水", "rót nước"],
+  ["倒了", "ngã rồi"],
+  ["拉", "kéo"],
+  ["拉门", "kéo cửa"],
+  ["拉了两下", "kéo hai lần nhẹ"],
+  ["推", "đẩy"],
+  ["推门", "đẩy cửa"],
 ]);
 
 const translationCueRules = [
@@ -232,11 +243,28 @@ function hasVietnamesePersonalReference(value) {
   return /\b(toi|minh|ta|toi day|chung toi|chung ta|bon toi|ban|cac ban|anh|chi|em|ong|ba|co ay|anh ay|chi ay|no|ho|nguoi ta)\b/.test(normalizedText);
 }
 
+const requiredVietnameseCueRules = [
+  { hanzi: /包/, prompt: /\b(tui|bao)\b/ },
+  { hanzi: /脚/, prompt: /\b(chan)\b/ },
+  { hanzi: /门/, prompt: /\b(cua)\b/ },
+  { hanzi: /座位/, prompt: /\b(cho ngoi|ghe|vi tri ngoi)\b/ },
+  { hanzi: /公共汽车|公交车/, prompt: /\b(xe buyt|xe bus|bus)\b/ },
+  { hanzi: /生日/, prompt: /\b(sinh nhat)\b/ },
+  { hanzi: /考试/, prompt: /\b(ky thi|ki thi|kiem tra|thi)\b/ },
+  { hanzi: /电话/, prompt: /\b(dien thoai|cuoc goi|goi dien)\b/ },
+  { hanzi: /普通话/, prompt: /\b(tieng pho thong|pho thong|quan thoai)\b/ },
+  { hanzi: /京剧/, prompt: /\b(kinh kich)\b/ },
+  { hanzi: /中文/, prompt: /\b(tieng trung|trung van)\b/ },
+];
+
 function isTranslationPromptCompatible(hanzi, prompt) {
   if (!prompt) return false;
+  const normalizedPrompt = normalizeVietnamese(prompt);
   if (hasHanziPersonalReference(hanzi) && !hasVietnamesePersonalReference(prompt)) return false;
+  if (requiredVietnameseCueRules.some((rule) => rule.hanzi.test(hanzi) && !rule.prompt.test(normalizedPrompt))) {
+    return false;
+  }
   if (/一下/.test(hanzi)) {
-    const normalizedPrompt = normalizeVietnamese(prompt);
     if (!/\b(mot cai|mot chut|mot lan|mot lat|thu|nhe)\b/.test(normalizedPrompt)) return false;
   }
   return true;
