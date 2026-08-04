@@ -3419,10 +3419,17 @@ function isLookupQueryTooShort(rawQuery) {
 
 function parseLookupPopoverQueries(rawQuery) {
   return String(rawQuery || "")
-    .split(",")
+    .split(/[,，、;\n]+/)
     .map((part) => part.trim())
     .filter(Boolean)
     .slice(0, LOOKUP_POPOVER_MULTI_QUERY_LIMIT);
+}
+
+function getAllLookupPopoverQueryParts(rawQuery) {
+  return String(rawQuery || "")
+    .split(/[,，、;\n]+/)
+    .map((part) => part.trim())
+    .filter(Boolean);
 }
 
 function getLookupPopoverStoredRect() {
@@ -3497,15 +3504,16 @@ function autoSizeLookupPopover(queryCount = 1) {
     applyLookupPopoverRect(getLookupPopoverDefaultRect(queryCount));
     return;
   }
-  if (queryCount <= 1) return;
   const desired = getLookupPopoverPreferredSize(queryCount);
   const current = lookupPopover.getBoundingClientRect();
-  if (current.width >= desired.width - 8 && current.height >= desired.height - 8) return;
+  const nextWidth = queryCount > 1 ? Math.max(current.width, desired.width) : desired.width;
+  const nextHeight = queryCount > 1 ? Math.max(current.height, desired.height) : desired.height;
+  if (Math.abs(current.width - nextWidth) < 8 && Math.abs(current.height - nextHeight) < 8) return;
   applyLookupPopoverRect({
     left: current.left,
     top: current.top,
-    width: Math.max(current.width, desired.width),
-    height: Math.max(current.height, desired.height),
+    width: nextWidth,
+    height: nextHeight,
   });
 }
 
@@ -3568,7 +3576,7 @@ function releaseLookupPopoverPointer(event) {
 function renderLookupPopover(query = headerLookupInput?.value || "") {
   if (!lookupPopoverSummary || !lookupPopoverResults) return;
   const rawQuery = String(query || "").trim();
-  const allQueries = String(query || "").split(",").map((part) => part.trim()).filter(Boolean);
+  const allQueries = getAllLookupPopoverQueryParts(rawQuery);
   const queries = parseLookupPopoverQueries(rawQuery);
   const queryCount = Math.max(queries.length, 1);
   lookupPopover.dataset.queryCount = String(queryCount);
