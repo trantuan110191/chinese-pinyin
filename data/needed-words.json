@@ -1,7 +1,7 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-04T23:11:48.288Z",
-  "count": 622,
+  "syncedAt": "2026-08-05T14:35:47.596Z",
+  "count": 666,
   "words": [
     {
       "id": "need-0001",
@@ -12994,6 +12994,934 @@
           "pinyin": "xiǎng shěng qián dehuà, wǒmen jiù zuò dìtiě"
         }
       ]
+    },
+    {
+      "id": "need-0623",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 24: Miêu tả người, tặng đồ & chụp ảnh",
+      "group": "Chunk HSK1-HSK2",
+      "time": "20:15:23",
+      "meaning": "Lớp các bạn có một học sinh có đôi mắt to, thích mặc áo đỏ không?",
+      "hanzi": "你们班有没有一个长着大眼睛、爱穿红衣服的学生？",
+      "pinyin": "nǐmen bān yǒu méiyǒu yí ge zhǎng zhe dà yǎnjing, ài chuān hóng yīfu de xuésheng?",
+      "audioText": "你们班有没有一个长着大眼睛、爱穿红衣服的学生",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Lớp các bạn có một học sinh có đôi mắt to, thích mặc áo đỏ không?",
+          "hanzi": "你们班有没有一个长着大眼睛、爱穿红衣服的学生？",
+          "pinyin": "nǐmen bān yǒu méiyǒu yí ge zhǎng zhe dà yǎnjing, ài chuān hóng yīfu de xuésheng?"
+        }
+      ]
+    },
+    {
+      "id": "need-0624",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 24: Miêu tả người, tặng đồ & chụp ảnh",
+      "group": "Chunk HSK1-HSK2",
+      "time": "20:15:23",
+      "meaning": "Cấu trúc miêu tả người: có/mang đặc điểm gì; hay/thích làm gì",
+      "hanzi": "长着 + 特点 / 爱 + 动词",
+      "pinyin": "zhǎng zhe + tèdiǎn / ài + dòngcí",
+      "audioText": "长着  特点",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0625",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 24: Miêu tả người, tặng đồ & chụp ảnh",
+      "group": "Chunk HSK1-HSK2",
+      "time": "20:15:23",
+      "meaning": "送 đọc là sòng: tặng / đưa; tặng quà / tặng cho bạn",
+      "hanzi": "送 / 送礼物 / 送给你",
+      "pinyin": "sòng / sòng lǐwù / sòng gěi nǐ",
+      "audioText": "送",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đưa",
+          "hanzi": "送",
+          "pinyin": "sòng"
+        },
+        {
+          "meaning": "tặng quà",
+          "hanzi": "送礼物",
+          "pinyin": "sòng lǐwù"
+        },
+        {
+          "meaning": "tặng cho bạn",
+          "hanzi": "送给你",
+          "pinyin": "sòng gěi nǐ"
+        }
+      ]
+    },
+    {
+      "id": "need-0626",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 24: Miêu tả người, tặng đồ & chụp ảnh",
+      "group": "Chunk HSK1-HSK2",
+      "time": "20:15:23",
+      "meaning": "Chụp vài tấm ảnh. Mẫu: chụp + số/lượng + tấm + ảnh",
+      "hanzi": "拍几张照片",
+      "pinyin": "pāi jǐ zhāng zhàopiàn",
+      "audioText": "拍几张照片",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Chụp vài tấm ảnh",
+          "hanzi": "拍几张照片",
+          "pinyin": "pāi jǐ zhāng zhàopiàn"
+        }
+      ]
+    },
+    {
+      "id": "need-0627",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "20:20:33",
+      "meaning": "chân; chân tôi đau; một chân",
+      "hanzi": "腿 / 我的腿疼 / 一条腿",
+      "pinyin": "tuǐ / wǒ de tuǐ téng / yì tiáo tuǐ",
+      "audioText": "腿",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "chân",
+          "hanzi": "腿",
+          "pinyin": "tuǐ"
+        },
+        {
+          "meaning": "chân tôi đau",
+          "hanzi": "我的腿疼",
+          "pinyin": "wǒ de tuǐ téng"
+        },
+        {
+          "meaning": "một chân",
+          "hanzi": "一条腿",
+          "pinyin": "yì tiáo tuǐ"
+        }
+      ]
+    },
+    {
+      "id": "need-0628",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "20:20:33",
+      "meaning": "dễ; không dễ; dễ học. Mẫu: 容易 + động từ",
+      "hanzi": "容易 / 不容易 / 容易学",
+      "pinyin": "róngyì / bù róngyì / róngyì xué",
+      "audioText": "容易",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "dễ",
+          "hanzi": "容易",
+          "pinyin": "róngyì"
+        },
+        {
+          "meaning": "không dễ",
+          "hanzi": "不容易",
+          "pinyin": "bù róngyì"
+        },
+        {
+          "meaning": "dễ học",
+          "hanzi": "容易学",
+          "pinyin": "róngyì xué"
+        }
+      ]
+    },
+    {
+      "id": "need-0629",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "20:20:33",
+      "meaning": "thư ký; giám đốc/quản lý; văn phòng",
+      "hanzi": "秘书 / 经理 / 办公室",
+      "pinyin": "mìshū / jīnglǐ / bàngōngshì",
+      "audioText": "秘书",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "thư ký",
+          "hanzi": "秘书",
+          "pinyin": "mìshū"
+        },
+        {
+          "meaning": "giám đốc/quản lý",
+          "hanzi": "经理",
+          "pinyin": "jīnglǐ"
+        },
+        {
+          "meaning": "văn phòng",
+          "hanzi": "办公室",
+          "pinyin": "bàngōngshì"
+        }
+      ]
+    },
+    {
+      "id": "need-0630",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "20:20:33",
+      "meaning": "Giám đốc đang ở trong văn phòng.",
+      "hanzi": "经理在办公室里。",
+      "pinyin": "jīnglǐ zài bàngōngshì li",
+      "audioText": "经理在办公室里",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Giám đốc đang ở trong văn phòng",
+          "hanzi": "经理在办公室里。",
+          "pinyin": "jīnglǐ zài bàngōngshì li"
+        }
+      ]
+    },
+    {
+      "id": "need-0631",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "20:20:33",
+      "meaning": "Thư ký đang tìm giám đốc.",
+      "hanzi": "秘书在找经理。",
+      "pinyin": "mìshū zài zhǎo jīnglǐ",
+      "audioText": "秘书在找经理",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Thư ký đang tìm giám đốc",
+          "hanzi": "秘书在找经理。",
+          "pinyin": "mìshū zài zhǎo jīnglǐ"
+        }
+      ]
+    },
+    {
+      "id": "need-0632",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "20:20:33",
+      "meaning": "thật ra / thực ra. Mẫu: 其实 + câu",
+      "hanzi": "其实 / 其实这个问题不难。",
+      "pinyin": "qíshí / qíshí zhè ge wèntí bù nán",
+      "audioText": "其实",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "thật ra",
+          "hanzi": "其实",
+          "pinyin": "qíshí"
+        },
+        {
+          "meaning": "thực ra",
+          "hanzi": "其实这个问题不难。",
+          "pinyin": "qíshí zhè ge wèntí bù nán"
+        }
+      ]
+    },
+    {
+      "id": "need-0633",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "20:20:33",
+      "meaning": "Thật ra việc này không dễ.",
+      "hanzi": "其实这件事不容易。",
+      "pinyin": "qíshí zhè jiàn shì bù róngyì",
+      "audioText": "其实这件事不容易",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Thật ra việc này không dễ",
+          "hanzi": "其实这件事不容易。",
+          "pinyin": "qíshí zhè jiàn shì bù róngyì"
+        }
+      ]
+    },
+    {
+      "id": "need-0634",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
+      "group": "Câu mẫu từ bài nghe",
+      "time": "20:34:49",
+      "meaning": "Chỗ này cách sân bay rất xa, chúng ta đi taxi đi!",
+      "hanzi": "这儿离机场很远，我们坐出租车去吧！",
+      "pinyin": "zhèr lí jīchǎng hěn yuǎn, wǒmen zuò chūzūchē qù ba",
+      "audioText": "这儿离机场很远我们坐出租车去吧",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Chỗ này cách sân bay rất xa, chúng ta đi taxi đi!",
+          "hanzi": "这儿离机场很远，我们坐出租车去吧！",
+          "pinyin": "zhèr lí jīchǎng hěn yuǎn, wǒmen zuò chūzūchē qù ba"
+        }
+      ]
+    },
+    {
+      "id": "need-0635",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
+      "group": "Câu mẫu từ bài nghe",
+      "time": "20:34:49",
+      "meaning": "Thật ra, chúng ta cũng có thể đi xe buýt, rẻ hơn.",
+      "hanzi": "其实，我们也可以坐公交车去，更便宜。",
+      "pinyin": "qíshí, wǒmen yě kěyǐ zuò gōngjiāochē qù, gèng piányi",
+      "audioText": "其实我们也可以坐公交车去更便宜",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Thật ra, chúng ta cũng có thể đi xe buýt, rẻ hơn",
+          "hanzi": "其实，我们也可以坐公交车去，更便宜。",
+          "pinyin": "qíshí, wǒmen yě kěyǐ zuò gōngjiāochē qù, gèng piányi"
+        }
+      ]
+    },
+    {
+      "id": "need-0636",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
+      "group": "Câu mẫu từ bài nghe",
+      "time": "20:34:49",
+      "meaning": "Tôi lại béo lên một chút rồi, phải làm sao đây?",
+      "hanzi": "我又胖了一点儿，怎么办啊？",
+      "pinyin": "wǒ yòu pàng le yìdiǎnr, zěnme bàn a",
+      "audioText": "我又胖了一点儿怎么办啊",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi lại béo lên một chút rồi, phải làm sao đây?",
+          "hanzi": "我又胖了一点儿，怎么办啊？",
+          "pinyin": "wǒ yòu pàng le yìdiǎnr, zěnme bàn a"
+        }
+      ]
+    },
+    {
+      "id": "need-0637",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
+      "group": "Câu mẫu từ bài nghe",
+      "time": "20:34:49",
+      "meaning": "Thật ra, bạn không béo chút nào đâu.",
+      "hanzi": "其实，你一点也不胖啊。",
+      "pinyin": "qíshí, nǐ yìdiǎn yě bú pàng a",
+      "audioText": "其实你一点也不胖啊",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Thật ra, bạn không béo chút nào đâu",
+          "hanzi": "其实，你一点也不胖啊。",
+          "pinyin": "qíshí, nǐ yìdiǎn yě bú pàng a"
+        }
+      ]
+    },
+    {
+      "id": "need-0638",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
+      "group": "Chunk hay gặp",
+      "time": "20:34:49",
+      "meaning": "cách nơi nào rất xa / rất gần",
+      "hanzi": "离机场很远 / 离公司很近",
+      "pinyin": "lí jīchǎng hěn yuǎn / lí gōngsī hěn jìn",
+      "audioText": "离机场很远",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "cách nơi nào rất xa",
+          "hanzi": "离机场很远",
+          "pinyin": "lí jīchǎng hěn yuǎn"
+        },
+        {
+          "meaning": "rất gần",
+          "hanzi": "离公司很近",
+          "pinyin": "lí gōngsī hěn jìn"
+        }
+      ]
+    },
+    {
+      "id": "need-0639",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
+      "group": "Chunk hay gặp",
+      "time": "20:34:49",
+      "meaning": "ngồi phương tiện nào đi đâu",
+      "hanzi": "坐出租车去 / 坐公交车去",
+      "pinyin": "zuò chūzūchē qù / zuò gōngjiāochē qù",
+      "audioText": "坐出租车去",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "ngồi phương tiện nào đi đâu",
+          "hanzi": "坐出租车去",
+          "pinyin": "zuò chūzūchē qù"
+        }
+      ]
+    },
+    {
+      "id": "need-0640",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
+      "group": "Chunk hay gặp",
+      "time": "20:34:49",
+      "meaning": "hơn / rẻ hơn / tốt hơn",
+      "hanzi": "更 / 更便宜 / 更好",
+      "pinyin": "gèng / gèng piányi / gèng hǎo",
+      "audioText": "更",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "hơn",
+          "hanzi": "更",
+          "pinyin": "gèng"
+        },
+        {
+          "meaning": "rẻ hơn",
+          "hanzi": "更便宜",
+          "pinyin": "gèng piányi"
+        },
+        {
+          "meaning": "tốt hơn",
+          "hanzi": "更好",
+          "pinyin": "gèng hǎo"
+        }
+      ]
+    },
+    {
+      "id": "need-0641",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
+      "group": "Chunk hay gặp",
+      "time": "20:34:49",
+      "meaning": "lại... rồi; lại béo lên một chút rồi",
+      "hanzi": "又...了 / 又胖了一点儿",
+      "pinyin": "yòu...le / yòu pàng le yìdiǎnr",
+      "audioText": "又了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "lại",
+          "hanzi": "又胖了一点儿",
+          "pinyin": "yòu pàng le yìdiǎnr"
+        }
+      ]
+    },
+    {
+      "id": "need-0642",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
+      "group": "Chunk hay gặp",
+      "time": "20:34:49",
+      "meaning": "không... chút nào",
+      "hanzi": "一点也不 + 形容词 / 一点也不胖",
+      "pinyin": "yìdiǎn yě bù + xíngróngcí / yìdiǎn yě bú pàng",
+      "audioText": "一点也不  形容词",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "không",
+          "hanzi": "一点也不胖",
+          "pinyin": "yìdiǎn yě bú pàng"
+        }
+      ]
+    },
+    {
+      "id": "need-0643",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
+      "group": "Công thức trong ảnh",
+      "time": "20:43:38",
+      "meaning": "Công thức: động từ chỉ hướng + địa điểm + 来 / 去",
+      "hanzi": "动词 + 地点 + 来 / 去",
+      "pinyin": "dòngcí + dìdiǎn + lái / qù",
+      "audioText": "动词  地点  来",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0644",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
+      "group": "Công thức trong ảnh",
+      "time": "20:43:38",
+      "meaning": "Con chó nhỏ xuống đây rồi. Không có địa điểm nên nói 下来了.",
+      "hanzi": "小狗下来了。",
+      "pinyin": "xiǎogǒu xià lái le",
+      "audioText": "小狗下来了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Con chó nhỏ xuống đây rồi",
+          "hanzi": "小狗下来了。",
+          "pinyin": "xiǎogǒu xià lái le"
+        }
+      ]
+    },
+    {
+      "id": "need-0645",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
+      "group": "Công thức trong ảnh",
+      "time": "20:43:38",
+      "meaning": "Con chó nhỏ xuống lầu đây rồi. Có địa điểm 楼 nên đặt trước 来.",
+      "hanzi": "小狗下楼来了。",
+      "pinyin": "xiǎogǒu xià lóu lái le",
+      "audioText": "小狗下楼来了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Con chó nhỏ xuống lầu đây rồi",
+          "hanzi": "小狗下楼来了。",
+          "pinyin": "xiǎogǒu xià lóu lái le"
+        }
+      ]
+    },
+    {
+      "id": "need-0646",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
+      "group": "Bảng hướng hay gặp",
+      "time": "20:43:38",
+      "meaning": "lên đây / lên kia",
+      "hanzi": "上来 / 上去",
+      "pinyin": "shàng lái / shàng qù",
+      "audioText": "上来",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "lên đây",
+          "hanzi": "上来",
+          "pinyin": "shàng lái"
+        },
+        {
+          "meaning": "lên kia",
+          "hanzi": "上去",
+          "pinyin": "shàng qù"
+        }
+      ]
+    },
+    {
+      "id": "need-0647",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
+      "group": "Bảng hướng hay gặp",
+      "time": "20:43:38",
+      "meaning": "xuống đây / xuống kia",
+      "hanzi": "下来 / 下去",
+      "pinyin": "xià lái / xià qù",
+      "audioText": "下来",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "xuống đây",
+          "hanzi": "下来",
+          "pinyin": "xià lái"
+        },
+        {
+          "meaning": "xuống kia",
+          "hanzi": "下去",
+          "pinyin": "xià qù"
+        }
+      ]
+    },
+    {
+      "id": "need-0648",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
+      "group": "Bảng hướng hay gặp",
+      "time": "20:43:38",
+      "meaning": "vào đây / vào kia",
+      "hanzi": "进来 / 进去",
+      "pinyin": "jìn lái / jìn qù",
+      "audioText": "进来",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "vào đây",
+          "hanzi": "进来",
+          "pinyin": "jìn lái"
+        },
+        {
+          "meaning": "vào kia",
+          "hanzi": "进去",
+          "pinyin": "jìn qù"
+        }
+      ]
+    },
+    {
+      "id": "need-0649",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
+      "group": "Bảng hướng hay gặp",
+      "time": "20:43:38",
+      "meaning": "ra đây / ra kia",
+      "hanzi": "出来 / 出去",
+      "pinyin": "chū lái / chū qù",
+      "audioText": "出来",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "ra đây",
+          "hanzi": "出来",
+          "pinyin": "chū lái"
+        },
+        {
+          "meaning": "ra kia",
+          "hanzi": "出去",
+          "pinyin": "chū qù"
+        }
+      ]
+    },
+    {
+      "id": "need-0650",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
+      "group": "Bảng hướng hay gặp",
+      "time": "20:43:38",
+      "meaning": "về đây / về kia",
+      "hanzi": "回来 / 回去",
+      "pinyin": "huí lái / huí qù",
+      "audioText": "回来",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "về đây",
+          "hanzi": "回来",
+          "pinyin": "huí lái"
+        },
+        {
+          "meaning": "về kia",
+          "hanzi": "回去",
+          "pinyin": "huí qù"
+        }
+      ]
+    },
+    {
+      "id": "need-0651",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
+      "group": "Bảng hướng hay gặp",
+      "time": "20:43:38",
+      "meaning": "qua đây / qua kia",
+      "hanzi": "过来 / 过去",
+      "pinyin": "guò lái / guò qù",
+      "audioText": "过来",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "qua đây",
+          "hanzi": "过来",
+          "pinyin": "guò lái"
+        },
+        {
+          "meaning": "qua kia",
+          "hanzi": "过去",
+          "pinyin": "guò qù"
+        }
+      ]
+    },
+    {
+      "id": "need-0652",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
+      "group": "Bảng hướng hay gặp",
+      "time": "20:43:38",
+      "meaning": "đứng dậy / nổi lên / bắt đầu trạng thái",
+      "hanzi": "起来",
+      "pinyin": "qǐ lái",
+      "audioText": "起来",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đứng dậy",
+          "hanzi": "起来",
+          "pinyin": "qǐ lái"
+        }
+      ]
+    },
+    {
+      "id": "need-0653",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
+      "group": "Công thức trong ảnh",
+      "time": "20:56:24",
+      "meaning": "Công thức: làm xong việc 1 thì liền làm việc 2",
+      "hanzi": "动词1 + 了...就 + 动词2...",
+      "pinyin": "dòngcí yī + le...jiù + dòngcí èr...",
+      "audioText": "动词1  了就  动词2",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0654",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
+      "group": "Công thức trong ảnh",
+      "time": "20:56:24",
+      "meaning": "Tôi thức dậy xong thì ăn sáng.",
+      "hanzi": "我起了床就吃早饭。",
+      "pinyin": "wǒ qǐ le chuáng jiù chī zǎofàn",
+      "audioText": "我起了床就吃早饭",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi thức dậy xong thì ăn sáng",
+          "hanzi": "我起了床就吃早饭。",
+          "pinyin": "wǒ qǐ le chuáng jiù chī zǎofàn"
+        }
+      ]
+    },
+    {
+      "id": "need-0655",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
+      "group": "Công thức trong ảnh",
+      "time": "20:56:24",
+      "meaning": "Tan học xong thì tôi về nhà.",
+      "hanzi": "我下了课就回家。",
+      "pinyin": "wǒ xià le kè jiù huí jiā",
+      "audioText": "我下了课就回家",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tan học xong thì tôi về nhà",
+          "hanzi": "我下了课就回家。",
+          "pinyin": "wǒ xià le kè jiù huí jiā"
+        }
+      ]
+    },
+    {
+      "id": "need-0656",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
+      "group": "Công thức trong ảnh",
+      "time": "20:56:24",
+      "meaning": "Đến công ty xong thì tôi gọi điện cho bạn.",
+      "hanzi": "我到了公司就给你打电话。",
+      "pinyin": "wǒ dào le gōngsī jiù gěi nǐ dǎ diànhuà",
+      "audioText": "我到了公司就给你打电话",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Đến công ty xong thì tôi gọi điện cho bạn",
+          "hanzi": "我到了公司就给你打电话。",
+          "pinyin": "wǒ dào le gōngsī jiù gěi nǐ dǎ diànhuà"
+        }
+      ]
+    },
+    {
+      "id": "need-0657",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
+      "group": "Công thức trong ảnh",
+      "time": "20:56:24",
+      "meaning": "Lưu ý: 起床 là động từ ly hợp, nên có thể nói 起了床.",
+      "hanzi": "起床 → 起了床",
+      "pinyin": "qǐchuáng → qǐ le chuáng",
+      "audioText": "起床 → 起了床",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0658",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
+      "group": "Công thức trong ảnh",
+      "time": "20:58:50",
+      "meaning": "Câu hỏi phản vấn: hỏi nhưng ý thường là “không thể đâu / làm sao mà... được?”",
+      "hanzi": "能 + 肯定句 + 吗？",
+      "pinyin": "néng + kěndìng jù + ma?",
+      "audioText": "能  肯定句  吗",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0659",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
+      "group": "Công thức trong ảnh",
+      "time": "20:58:50",
+      "meaning": "Bạn không luyện tập mỗi ngày thì có thể học tốt tiếng Trung không?",
+      "hanzi": "你每天不练习，能学好汉语吗？",
+      "pinyin": "nǐ měitiān bù liànxí, néng xué hǎo Hànyǔ ma?",
+      "audioText": "你每天不练习能学好汉语吗",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn không luyện tập mỗi ngày thì có thể học tốt tiếng Trung không?",
+          "hanzi": "你每天不练习，能学好汉语吗？",
+          "pinyin": "nǐ měitiān bù liànxí, néng xué hǎo Hànyǔ ma?"
+        }
+      ]
+    },
+    {
+      "id": "need-0660",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
+      "group": "Công thức trong ảnh",
+      "time": "20:58:50",
+      "meaning": "Bạn không ôn tập thì thi tốt được không?",
+      "hanzi": "你不复习，能考好吗？",
+      "pinyin": "nǐ bù fùxí, néng kǎo hǎo ma?",
+      "audioText": "你不复习能考好吗",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn không ôn tập thì thi tốt được không?",
+          "hanzi": "你不复习，能考好吗？",
+          "pinyin": "nǐ bù fùxí, néng kǎo hǎo ma?"
+        }
+      ]
+    },
+    {
+      "id": "need-0661",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
+      "group": "Công thức trong ảnh",
+      "time": "20:58:50",
+      "meaning": "Bạn ngày nào cũng thức khuya thì sức khỏe có thể tốt được không?",
+      "hanzi": "你每天熬夜，身体能好吗？",
+      "pinyin": "nǐ měitiān áoyè, shēntǐ néng hǎo ma?",
+      "audioText": "你每天熬夜身体能好吗",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn ngày nào cũng thức khuya thì sức khỏe có thể tốt được không?",
+          "hanzi": "你每天熬夜，身体能好吗？",
+          "pinyin": "nǐ měitiān áoyè, shēntǐ néng hǎo ma?"
+        }
+      ]
+    },
+    {
+      "id": "need-0662",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
+      "group": "Công thức trong ảnh",
+      "time": "20:58:50",
+      "meaning": "Xa thế này, chúng ta đi bộ thì có đến được không?",
+      "hanzi": "这么远，我们走路去，能到吗？",
+      "pinyin": "zhème yuǎn, wǒmen zǒulù qù, néng dào ma?",
+      "audioText": "这么远我们走路去能到吗",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Xa thế này, chúng ta đi bộ thì có đến được không?",
+          "hanzi": "这么远，我们走路去，能到吗？",
+          "pinyin": "zhème yuǎn, wǒmen zǒulù qù, néng dào ma?"
+        }
+      ]
+    },
+    {
+      "id": "need-0663",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 30: Cấu trúc 这样就行了",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "21:23:14",
+      "meaning": "Như vậy là được rồi / thế là ổn rồi.",
+      "hanzi": "这样就行了。",
+      "pinyin": "zhèyàng jiù xíng le",
+      "audioText": "这样就行了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Như vậy là được rồi",
+          "hanzi": "这样就行了。",
+          "pinyin": "zhèyàng jiù xíng le"
+        }
+      ]
+    },
+    {
+      "id": "need-0664",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 30: Cấu trúc 这样就行了",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "21:23:14",
+      "meaning": "Cứ làm như vậy là được rồi.",
+      "hanzi": "这样做就行了。",
+      "pinyin": "zhèyàng zuò jiù xíng le",
+      "audioText": "这样做就行了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Cứ làm như vậy là được rồi",
+          "hanzi": "这样做就行了。",
+          "pinyin": "zhèyàng zuò jiù xíng le"
+        }
+      ]
+    },
+    {
+      "id": "need-0665",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 30: Cấu trúc 这样就行了",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "21:23:14",
+      "meaning": "Bạn đợi một chút là được rồi.",
+      "hanzi": "你等一下就行了。",
+      "pinyin": "nǐ děng yíxià jiù xíng le",
+      "audioText": "你等一下就行了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn đợi một chút là được rồi",
+          "hanzi": "你等一下就行了。",
+          "pinyin": "nǐ děng yíxià jiù xíng le"
+        }
+      ]
+    },
+    {
+      "id": "need-0666",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 30: Cấu trúc 这样就行了",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "21:23:14",
+      "meaning": "Mẫu: chỉ cần làm gì đó là được.",
+      "hanzi": "动词短语 + 就行了",
+      "pinyin": "dòngcí duǎnyǔ + jiù xíng le",
+      "audioText": "动词短语  就行了",
+      "source": "Ghi chú từ cần học"
     }
   ]
 }

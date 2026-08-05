@@ -2117,12 +2117,14 @@ const topicStage = document.querySelector("#topic-stage");
 const topicDrill = document.querySelector("#topic-drill");
 const neededNotesApp = document.querySelector("#needed-notes-app");
 const componentContrastApp = document.querySelector("#component-contrast-app");
+const grammarNotesApp = document.querySelector("#grammar-notes-app");
 
 const lessonLabels = {
   top: "Chọn mục học",
   "pinyin-dictionary": "Tra tổng",
   "topic-workshop": "Học từ theo chủ đề",
   "component-contrast": "So sánh chữ dễ nhầm",
+  "grammar-notes": "Ngữ pháp",
   "needed-notes": "Ghi chú từ cần học",
   "hsk-library": "Kho từ New HSK",
 };
@@ -2168,6 +2170,8 @@ let sentenceVisibleLimit = 24;
 const revealedSentenceItems = new Set();
 let hskPlayingButton = null;
 let componentContrastData = null;
+let grammarNotesData = { notes: [] };
+let grammarNotesQuery = getAppStorage("grammarNotesQuery") || "";
 let componentContrastLevel = getAppStorage("componentContrastLevel") || "1-3";
 let activeQuestionGuideGroup = "all";
 let activeInterrogativeGuideId = null;
@@ -2703,6 +2707,7 @@ function getGlobalLookupCacheKey() {
   return [
     hskVocabulary.length,
     neededNoteWords.length,
+    grammarNotesData.notes?.length || 0,
     commonSentenceData.sentences?.length || 0,
     componentContrastData?.matchedCharacterCount || 0,
   ].join("|");
@@ -2746,6 +2751,7 @@ function createGlobalLookupEntry(fields) {
     sourceText: [source, fields.topic, fields.date].filter(Boolean).join(" · "),
     audioText: fields.audioText || hanzi,
     pinyinBase: normalizeLookupPinyin(pinyin),
+    pinyinSearchBase: normalizeLookupPinyin([pinyin, fields.pinyinSearch].filter(Boolean).join(" ")),
     searchText,
   });
 }
@@ -2824,6 +2830,24 @@ function buildGlobalLookupEntries() {
     rawId: getNeededNoteId(word),
   }));
 
+  (grammarNotesData.notes || []).forEach((note) => addEntry({
+    kind: "grammar",
+    hanzi: note.hanzi || note.title,
+    pinyin: note.pinyin || "",
+    pinyinSearch: [note.pinyinSearch, note.searchText].filter(Boolean).join(" "),
+    meaning: note.summary || note.title,
+    source: "Ngữ pháp",
+    topic: note.title,
+    extra: [
+      note.shortTitle,
+      note.formulas?.join(" "),
+      note.notes?.join(" "),
+      note.warnings?.join(" "),
+      note.searchText,
+    ].filter(Boolean).join(" "),
+    rawId: note.id,
+  }));
+
   (commonSentenceData.sentences || []).forEach((sentence) => addEntry({
     kind: "sentence",
     hanzi: sentence.hanzi,
@@ -2869,9 +2893,10 @@ function getGlobalLookupMatchRank(entry, rawQuery, intent = getDictionaryLookupI
   if (intent === "pinyin") {
     const queryBase = normalizeLookupPinyin(stripPinyinToneInput(raw));
     if (!queryBase) return Infinity;
-    if (entry.pinyinBase === queryBase) return 0;
-    if (entry.pinyinBase.startsWith(queryBase)) return 1;
-    return entry.pinyinBase.includes(queryBase) ? 2 : Infinity;
+    const pinyinBases = [entry.pinyinBase, entry.pinyinSearchBase].filter(Boolean);
+    if (pinyinBases.some((base) => base === queryBase)) return 0;
+    if (pinyinBases.some((base) => base.startsWith(queryBase))) return 1;
+    return pinyinBases.some((base) => base.includes(queryBase)) ? 2 : Infinity;
   }
 
   const queryVariants = getVietnameseSearchVariants(raw);
@@ -3184,6 +3209,67 @@ function renderComponentContrast() {
   `;
 }
 
+function renderGrammarNoteCard(note) {
+  const formulas = (note.formulas || []).slice(0, 2);
+  const examples = (note.examples || []).filter((example) => example.hanzi).slice(0, 2);
+  return `
+    <button class="grammar-note-card" data-grammar-note="${escapeHtml(note.id)}" type="button">
+      <span>${String(note.order || "").padStart(2, "0")}</span>
+      <strong>${escapeHtml(note.shortTitle || note.title)}</strong>
+      ${note.summary ? `<small>${escapeHtml(note.summary)}</small>` : ""}
+      ${formulas.length ? `
+        <div class="grammar-note-formulas">
+          ${formulas.map((formula) => `<code lang="zh-Hans">${escapeHtml(formula)}</code>`).join("")}
+        </div>
+      ` : ""}
+      ${examples.length ? `
+        <em>${examples.map((example) => escapeHtml(example.hanzi)).join(" · ")}</em>
+      ` : ""}
+    </button>
+  `;
+}
+
+function getFilteredGrammarNotes() {
+  const notes = getGrammarNotes();
+  const query = grammarNotesQuery.trim();
+  if (!query) return notes;
+  return notes
+    .map((note) => ({ note, rank: getGrammarNoteMatchRank(note, query) }))
+    .filter((item) => item.rank < Infinity)
+    .sort((left, right) => left.rank - right.rank || left.note.order - right.note.order)
+    .map((item) => item.note);
+}
+
+function renderGrammarNotes() {
+  if (!grammarNotesApp) return;
+  const notes = getGrammarNotes();
+  if (!grammarNotesData || !notes.length) {
+    grammarNotesApp.innerHTML = `<p class="hsk-source-note">Đang tải sổ ngữ pháp...</p>`;
+    return;
+  }
+
+  const filteredNotes = getFilteredGrammarNotes();
+  grammarNotesApp.innerHTML = `
+    <form class="grammar-note-search" id="grammar-note-search">
+      <label for="grammar-note-input">TRA CẤU TRÚC</label>
+      <div>
+        <input id="grammar-note-input" type="search" autocomplete="off" value="${escapeHtml(grammarNotesQuery)}" placeholder="Ví dụ: hao jiu, 好久, rất lâu..." />
+        <button type="submit">Tìm</button>
+      </div>
+    </form>
+    <p class="hsk-result-summary">
+      ${grammarNotesQuery.trim()
+        ? `Tìm thấy ${filteredNotes.length}/${notes.length} mục ngữ pháp.`
+        : `${notes.length} mục ngữ pháp · cập nhật ${escapeHtml(grammarNotesData.updatedAt || "theo file HTML")}.`}
+    </p>
+    <div class="grammar-note-grid">
+      ${filteredNotes.length
+        ? filteredNotes.map(renderGrammarNoteCard).join("")
+        : `<p class="hsk-source-note">Chưa khớp. Thử Pinyin như “hao jiu”, Hán tự như “好久”, hoặc nghĩa Việt như “rất lâu”.</p>`}
+    </div>
+  `;
+}
+
 function findComponentContrastItem(hanzi) {
   if (!componentContrastData?.groups) return null;
   for (const group of componentContrastData.groups) {
@@ -3414,9 +3500,15 @@ function getLookupWords(rawQuery, tone = "all") {
   });
   return matches.sort((left, right) => {
     if (intent === "pinyin") {
-      const score = (pinyin) => pinyin === query ? 0 : pinyin.startsWith(query) ? 1 : 2;
-      return score(left.entry.pinyinBase) - score(right.entry.pinyinBase)
-        || left.entry.pinyinBase.length - right.entry.pinyinBase.length
+      const score = (entry) => {
+        const bases = [entry.pinyinBase, entry.pinyinSearchBase].filter(Boolean);
+        if (bases.some((base) => base === query)) return 0;
+        if (bases.some((base) => base.startsWith(query))) return 1;
+        return 2;
+      };
+      const shortestBase = (entry) => Math.min(...[entry.pinyinBase, entry.pinyinSearchBase].filter(Boolean).map((base) => base.length));
+      return score(left.entry) - score(right.entry)
+        || shortestBase(left.entry) - shortestBase(right.entry)
         || left.entry.hanzi.length - right.entry.hanzi.length;
     }
 
@@ -3451,9 +3543,132 @@ function renderLookupDetailHeader({ hanzi, pinyin, meaning, meta }) {
   `;
 }
 
+function getGrammarNotes() {
+  return (grammarNotesData.notes || []).slice().sort((left, right) => Number(left.order || 0) - Number(right.order || 0));
+}
+
+function getGrammarNoteById(id) {
+  return getGrammarNotes().find((note) => note.id === id) || null;
+}
+
+function createGrammarLookupEntry(note) {
+  if (!note) return null;
+  return createGlobalLookupEntry({
+    kind: "grammar",
+    hanzi: note.hanzi || note.title,
+    pinyin: note.pinyin || "",
+    pinyinSearch: [note.pinyinSearch, note.searchText].filter(Boolean).join(" "),
+    meaning: note.summary || note.title,
+    source: "Ngữ pháp",
+    topic: note.title,
+    extra: [
+      note.shortTitle,
+      note.formulas?.join(" "),
+      note.notes?.join(" "),
+      note.warnings?.join(" "),
+      note.searchText,
+    ].filter(Boolean).join(" "),
+    rawId: note.id,
+  });
+}
+
+function getGrammarNoteMatchRank(note, rawQuery) {
+  const query = String(rawQuery || "").trim();
+  if (!query) return 0;
+  const entry = createGrammarLookupEntry(note);
+  if (!entry) return Infinity;
+  return getGlobalLookupMatchRank(entry, query, getDictionaryLookupIntent(query));
+}
+
+function renderGrammarFormulaList(formulas = []) {
+  const uniqueFormulas = [...new Set((formulas || []).filter(Boolean))];
+  if (!uniqueFormulas.length) return "";
+  return `
+    <div class="grammar-formula-list">
+      ${uniqueFormulas.map((formula) => `<code lang="zh-Hans">${escapeHtml(formula)}</code>`).join("")}
+    </div>
+  `;
+}
+
+function renderGrammarExamples(examples = [], limit = 6) {
+  const visibleExamples = (examples || []).filter((example) => example.hanzi || example.meaning).slice(0, limit);
+  if (!visibleExamples.length) return "<p>Chưa có ví dụ trong file.</p>";
+  return `
+    <div class="grammar-example-list">
+      ${visibleExamples.map((example) => `
+        <article class="grammar-example-item">
+          ${example.hanzi ? `<strong lang="zh-Hans">${escapeHtml(example.hanzi)}</strong>` : ""}
+          ${example.pinyin ? `<span>${escapeHtml(example.pinyin)}</span>` : ""}
+          ${example.meaning ? `<small>${escapeHtml(example.meaning)}</small>` : ""}
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderGrammarSubsections(note) {
+  const subsections = (note.subsections || []).filter((item) => item.title || item.text || item.formulas?.length);
+  if (!subsections.length) return "";
+  return `
+    <section class="detail-section full-width grammar-subsection-list">
+      <p class="detail-label detail-label-accent">Cách dùng</p>
+      ${subsections.map((item) => `
+        <article class="grammar-subsection">
+          <h3>${escapeHtml(item.title)}</h3>
+          ${item.text ? `<p>${escapeHtml(item.text)}</p>` : ""}
+          ${renderGrammarFormulaList(item.formulas)}
+          ${item.examples?.length ? renderGrammarExamples(item.examples, 3) : ""}
+        </article>
+      `).join("")}
+    </section>
+  `;
+}
+
+function openGrammarNote(noteId) {
+  const note = getGrammarNoteById(noteId);
+  if (!note) return;
+  const formulaMarkup = renderGrammarFormulaList(note.formulas);
+  const noteMarkup = [...(note.notes || []), ...(note.warnings || [])]
+    .filter(Boolean)
+    .map((item) => `<p>${escapeHtml(item)}</p>`)
+    .join("");
+  dialogContent.innerHTML = `
+    <article class="lookup-detail-dialog grammar-detail-dialog">
+      ${renderLookupDetailHeader({
+        hanzi: note.hanzi || note.title,
+        pinyin: note.pinyin || "",
+        meaning: note.summary || note.title,
+        meta: ["Ngữ pháp", note.updatedAt].filter(Boolean).join(" · "),
+      })}
+      <div class="dialog-body lookup-detail-body grammar-detail-body">
+        <section class="detail-section full-width">
+          <p class="detail-label detail-label-accent">Công thức</p>
+          ${formulaMarkup || "<p>File chưa có công thức riêng cho mục này.</p>"}
+        </section>
+        ${renderGrammarSubsections(note)}
+        <section class="detail-section full-width">
+          <p class="detail-label detail-label-accent">Ví dụ</p>
+          ${renderGrammarExamples(note.examples, 8)}
+        </section>
+        ${noteMarkup ? `
+          <section class="detail-section full-width">
+            <p class="detail-label detail-label-accent">Ghi nhớ</p>
+            ${noteMarkup}
+          </section>
+        ` : ""}
+      </div>
+    </article>
+  `;
+  showWordDialog();
+}
+
 function openGlobalLookupItem(entryId) {
   const entry = getGlobalLookupEntryById(entryId);
   if (!entry) return;
+  if (entry.kind === "grammar") {
+    openGrammarNote(entry.rawId);
+    return;
+  }
   if (entry.kind === "hsk" && hskVocabulary.some((word) => word.hanzi === entry.hanzi)) {
     openHskWord(entry.hanzi);
     return;
@@ -8882,24 +9097,26 @@ function openHskWord(hanzi) {
 async function loadLearningLibraries() {
   learningLibrariesReady = false;
   learningLibrariesFailed = false;
-  const [hskResponse, sentenceResponse, explanationResponse, neededResponse, componentResponse] = await Promise.all([
+  const [hskResponse, sentenceResponse, explanationResponse, neededResponse, componentResponse, grammarResponse] = await Promise.all([
     fetch("data/hsk-vocabulary.json"),
     fetch("data/common-sentences.json"),
     fetch("data/hsk-explanations.json"),
-    fetch("data/needed-words.json?v=needed-20260805a"),
-    fetch("data/component-contrasts.json")
+    fetch("data/needed-words.json?v=needed-20260805b"),
+    fetch("data/component-contrasts.json"),
+    fetch("data/grammar-notes.json?v=grammar-20260805a")
   ]);
 
-  if (!hskResponse.ok || !sentenceResponse.ok || !explanationResponse.ok || !neededResponse.ok || !componentResponse.ok) {
-    throw new Error("Không tải được dữ liệu HSK, câu giao tiếp, phần giải thích, ghi chú từ cần học hoặc nhóm chữ dễ nhầm.");
+  if (!hskResponse.ok || !sentenceResponse.ok || !explanationResponse.ok || !neededResponse.ok || !componentResponse.ok || !grammarResponse.ok) {
+    throw new Error("Không tải được dữ liệu HSK, câu giao tiếp, phần giải thích, ghi chú từ cần học, ngữ pháp hoặc nhóm chữ dễ nhầm.");
   }
 
-  const [hskData, sentenceData, explanationData, neededData, componentData] = await Promise.all([
+  const [hskData, sentenceData, explanationData, neededData, componentData, grammarData] = await Promise.all([
     hskResponse.json(),
     sentenceResponse.json(),
     explanationResponse.json(),
     neededResponse.json(),
-    componentResponse.json()
+    componentResponse.json(),
+    grammarResponse.json()
   ]);
   hskExplanationEntries = explanationData.entries || {};
   hskVocabulary = (hskData.words || []).map((word) => ({
@@ -8908,6 +9125,14 @@ async function loadLearningLibraries() {
   }));
   commonSentenceData = sentenceData;
   componentContrastData = componentData;
+  grammarNotesData = {
+    ...grammarData,
+    notes: (grammarData.notes || []).map((note, index) => ({
+      ...note,
+      id: note.id || `grammar-${index + 1}`,
+      order: note.order || index + 1,
+    })),
+  };
   neededNoteWords = (neededData.words || []).map((word, index) => ({
     ...word,
     id: word.id || `need-${index + 1}`,
@@ -8940,6 +9165,7 @@ async function loadLearningLibraries() {
   renderTopicWorkshop();
   renderNeededNotes();
   renderComponentContrast();
+  renderGrammarNotes();
   bootstrapAdminCloudSync();
 }
 
@@ -9185,6 +9411,24 @@ componentContrastApp?.addEventListener("toggle", (event) => {
   });
 }, true);
 
+grammarNotesApp?.addEventListener("submit", (event) => {
+  if (!event.target.closest("#grammar-note-search")) return;
+  event.preventDefault();
+  renderGrammarNotes();
+});
+
+grammarNotesApp?.addEventListener("input", (event) => {
+  const input = event.target.closest("#grammar-note-input");
+  if (!input) return;
+  const cursor = input.selectionStart ?? input.value.length;
+  grammarNotesQuery = input.value;
+  setAppStorage("grammarNotesQuery", grammarNotesQuery);
+  renderGrammarNotes();
+  const nextInput = grammarNotesApp.querySelector("#grammar-note-input");
+  nextInput?.focus();
+  nextInput?.setSelectionRange?.(cursor, cursor);
+});
+
 hskSearchInput.addEventListener("input", () => {
   hskVisibleLimit = HSK_PAGE_SIZE;
   renderHskWords();
@@ -9323,6 +9567,7 @@ document.addEventListener("click", (event) => {
   const clickedInsideNeededChoiceMenu = neededNotesApp?.querySelector(".needed-choice-menu")?.contains(event.target);
   const clickedInsideNeededFilter = neededNotesApp?.querySelector(".needed-topline")?.contains(event.target);
   const componentHanziButton = event.target.closest("[data-component-hanzi]");
+  const grammarNoteButton = event.target.closest("[data-grammar-note]");
   const globalLookupButton = event.target.closest("[data-global-lookup]");
   const wordButton = event.target.closest("[data-word]");
   const questionButton = event.target.closest("[data-open-word]");
@@ -9386,6 +9631,10 @@ document.addEventListener("click", (event) => {
     event.stopPropagation();
     openComponentContrastItem(componentHanziButton.dataset.componentHanzi);
     return;
+  }
+  if (grammarNoteButton) {
+    event.preventDefault();
+    openGrammarNote(grammarNoteButton.dataset.grammarNote);
   }
   if (globalLookupButton) openGlobalLookupItem(globalLookupButton.dataset.globalLookup);
   if (wordButton) openWord(wordButton.dataset.word);
@@ -9617,6 +9866,7 @@ loadLearningLibraries().catch((error) => {
   renderTopicWorkshop();
   renderNeededNotes();
   renderComponentContrast();
+  renderGrammarNotes();
 });
 renderFilters();
 renderWords();
@@ -9629,6 +9879,7 @@ renderPinyinInitialShortcuts();
 renderTopicWorkshop();
 renderNeededNotes();
 renderComponentContrast();
+renderGrammarNotes();
 initializeLessonView();
 if (shouldShowInitialProfileGate) {
   showProfileGate("Chọn Admin hoặc Học tự do để bắt đầu. Admin cần mật khẩu.");
