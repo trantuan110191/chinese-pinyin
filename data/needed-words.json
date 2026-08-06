@@ -1,7 +1,7 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-05T14:35:47.596Z",
-  "count": 666,
+  "syncedAt": "2026-08-06T01:53:50.489Z",
+  "count": 689,
   "words": [
     {
       "id": "need-0001",
@@ -13144,6 +13144,71 @@
       "month": "2026-08",
       "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
       "group": "Chunk HSK2-HSK3 đầu",
+      "time": "22:20:10",
+      "meaning": "Cấu trúc: cái gì đó dễ làm. Đặt động từ sau 容易.",
+      "hanzi": "这个字很容易写。",
+      "pinyin": "zhè ge zì hěn róngyì xiě",
+      "audioText": "这个字很容易写",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Cấu trúc: cái gì đó dễ làm",
+          "hanzi": "这个字很容易写。",
+          "pinyin": "zhè ge zì hěn róngyì xiě"
+        }
+      ]
+    },
+    {
+      "id": "need-0630",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "22:20:10",
+      "meaning": "Học tiếng Trung không dễ.",
+      "hanzi": "学中文不容易。",
+      "pinyin": "xué Zhōngwén bù róngyì",
+      "audioText": "学中文不容易",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Học tiếng Trung không dễ",
+          "hanzi": "学中文不容易。",
+          "pinyin": "xué Zhōngwén bù róngyì"
+        }
+      ]
+    },
+    {
+      "id": "need-0631",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "22:20:10",
+      "meaning": "Dễ bị / dễ hay xảy ra: dễ tức giận, dễ quên.",
+      "hanzi": "容易生气 / 容易忘",
+      "pinyin": "róngyì shēngqì / róngyì wàng",
+      "audioText": "容易生气",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Dễ bị",
+          "hanzi": "容易生气",
+          "pinyin": "róngyì shēngqì"
+        },
+        {
+          "meaning": "dễ hay xảy ra: dễ tức giận, dễ quên",
+          "hanzi": "容易忘",
+          "pinyin": "róngyì wàng"
+        }
+      ]
+    },
+    {
+      "id": "need-0632",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
+      "group": "Chunk HSK2-HSK3 đầu",
       "time": "20:20:33",
       "meaning": "thư ký; giám đốc/quản lý; văn phòng",
       "hanzi": "秘书 / 经理 / 办公室",
@@ -13169,7 +13234,7 @@
       ]
     },
     {
-      "id": "need-0630",
+      "id": "need-0633",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
@@ -13189,7 +13254,7 @@
       ]
     },
     {
-      "id": "need-0631",
+      "id": "need-0634",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
@@ -13209,7 +13274,7 @@
       ]
     },
     {
-      "id": "need-0632",
+      "id": "need-0635",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
@@ -13234,7 +13299,7 @@
       ]
     },
     {
-      "id": "need-0633",
+      "id": "need-0636",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 25: Cơ thể, văn phòng & cách nói thật ra",
@@ -13254,7 +13319,7 @@
       ]
     },
     {
-      "id": "need-0634",
+      "id": "need-0637",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
@@ -13274,7 +13339,7 @@
       ]
     },
     {
-      "id": "need-0635",
+      "id": "need-0638",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
@@ -13294,7 +13359,7 @@
       ]
     },
     {
-      "id": "need-0636",
+      "id": "need-0639",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
@@ -13314,7 +13379,7 @@
       ]
     },
     {
-      "id": "need-0637",
+      "id": "need-0640",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
@@ -13334,7 +13399,7 @@
       ]
     },
     {
-      "id": "need-0638",
+      "id": "need-0641",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
@@ -13359,7 +13424,7 @@
       ]
     },
     {
-      "id": "need-0639",
+      "id": "need-0642",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
@@ -13379,7 +13444,7 @@
       ]
     },
     {
-      "id": "need-0640",
+      "id": "need-0643",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
@@ -13409,7 +13474,7 @@
       ]
     },
     {
-      "id": "need-0641",
+      "id": "need-0644",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
@@ -13429,7 +13494,7 @@
       ]
     },
     {
-      "id": "need-0642",
+      "id": "need-0645",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 26: Đi lại, so sánh hơn & phủ định nhấn mạnh",
@@ -13449,7 +13514,7 @@
       ]
     },
     {
-      "id": "need-0643",
+      "id": "need-0646",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
@@ -13462,7 +13527,7 @@
       "source": "Ghi chú từ cần học"
     },
     {
-      "id": "need-0644",
+      "id": "need-0647",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
@@ -13482,7 +13547,7 @@
       ]
     },
     {
-      "id": "need-0645",
+      "id": "need-0648",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
@@ -13502,7 +13567,7 @@
       ]
     },
     {
-      "id": "need-0646",
+      "id": "need-0649",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
@@ -13527,7 +13592,7 @@
       ]
     },
     {
-      "id": "need-0647",
+      "id": "need-0650",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
@@ -13552,7 +13617,7 @@
       ]
     },
     {
-      "id": "need-0648",
+      "id": "need-0651",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
@@ -13577,7 +13642,7 @@
       ]
     },
     {
-      "id": "need-0649",
+      "id": "need-0652",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
@@ -13602,7 +13667,7 @@
       ]
     },
     {
-      "id": "need-0650",
+      "id": "need-0653",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
@@ -13627,7 +13692,7 @@
       ]
     },
     {
-      "id": "need-0651",
+      "id": "need-0654",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
@@ -13652,7 +13717,7 @@
       ]
     },
     {
-      "id": "need-0652",
+      "id": "need-0655",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 27: Bổ ngữ xu hướng 来 / 去",
@@ -13672,7 +13737,7 @@
       ]
     },
     {
-      "id": "need-0653",
+      "id": "need-0656",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
@@ -13685,7 +13750,7 @@
       "source": "Ghi chú từ cần học"
     },
     {
-      "id": "need-0654",
+      "id": "need-0657",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
@@ -13705,7 +13770,7 @@
       ]
     },
     {
-      "id": "need-0655",
+      "id": "need-0658",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
@@ -13725,7 +13790,7 @@
       ]
     },
     {
-      "id": "need-0656",
+      "id": "need-0659",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
@@ -13745,7 +13810,60 @@
       ]
     },
     {
-      "id": "need-0657",
+      "id": "need-0660",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
+      "group": "Công thức trong ảnh",
+      "time": "22:33:13",
+      "meaning": "Không ngờ đến đó thì vợ bắt đầu bị ốm. Câu bạn gửi, thêm dấu phẩy và 了 cho mượt.",
+      "hanzi": "没想到到了那儿，妻子就开始生病了。",
+      "pinyin": "méi xiǎngdào dào le nàr, qīzi jiù kāishǐ shēngbìng le",
+      "audioText": "没想到到了那儿妻子就开始生病了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Không ngờ đến đó thì vợ bắt đầu bị ốm",
+          "hanzi": "没想到到了那儿，妻子就开始生病了。",
+          "pinyin": "méi xiǎngdào dào le nàr, qīzi jiù kāishǐ shēngbìng le"
+        }
+      ]
+    },
+    {
+      "id": "need-0661",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
+      "group": "Công thức trong ảnh",
+      "time": "22:33:13",
+      "meaning": "Cách tự nhiên hơn: không ngờ vừa đến đó thì vợ bị ốm.",
+      "hanzi": "没想到一到那儿，妻子就生病了。",
+      "pinyin": "méi xiǎngdào yí dào nàr, qīzi jiù shēngbìng le",
+      "audioText": "没想到一到那儿妻子就生病了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Cách tự nhiên hơn: không ngờ vừa đến đó thì vợ bị ốm",
+          "hanzi": "没想到一到那儿，妻子就生病了。",
+          "pinyin": "méi xiǎngdào yí dào nàr, qīzi jiù shēngbìng le"
+        }
+      ]
+    },
+    {
+      "id": "need-0662",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
+      "group": "Công thức trong ảnh",
+      "time": "22:33:13",
+      "meaning": "Chunk hay gặp: không ngờ...; vừa đến đó thì...",
+      "hanzi": "没想到... / 一到那儿就...",
+      "pinyin": "méi xiǎngdào... / yí dào nàr jiù...",
+      "audioText": "没想到",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0663",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 28: Cấu trúc làm xong việc 1 thì liền làm việc 2",
@@ -13758,7 +13876,7 @@
       "source": "Ghi chú từ cần học"
     },
     {
-      "id": "need-0658",
+      "id": "need-0664",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
@@ -13771,7 +13889,7 @@
       "source": "Ghi chú từ cần học"
     },
     {
-      "id": "need-0659",
+      "id": "need-0665",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
@@ -13791,7 +13909,7 @@
       ]
     },
     {
-      "id": "need-0660",
+      "id": "need-0666",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
@@ -13811,7 +13929,7 @@
       ]
     },
     {
-      "id": "need-0661",
+      "id": "need-0667",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
@@ -13831,7 +13949,7 @@
       ]
     },
     {
-      "id": "need-0662",
+      "id": "need-0668",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
@@ -13851,7 +13969,60 @@
       ]
     },
     {
-      "id": "need-0663",
+      "id": "need-0669",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
+      "group": "Công thức trong ảnh",
+      "time": "21:54:41",
+      "meaning": "Đã muộn thế này rồi, tôi có thể không sốt ruột được sao?",
+      "hanzi": "都这么晚了，我能不着急吗？",
+      "pinyin": "dōu zhème wǎn le, wǒ néng bù zháojí ma?",
+      "audioText": "都这么晚了我能不着急吗",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Đã muộn thế này rồi, tôi có thể không sốt ruột được sao?",
+          "hanzi": "都这么晚了，我能不着急吗？",
+          "pinyin": "dōu zhème wǎn le, wǒ néng bù zháojí ma?"
+        }
+      ]
+    },
+    {
+      "id": "need-0670",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
+      "group": "Công thức trong ảnh",
+      "time": "21:54:41",
+      "meaning": "Mẫu phản vấn: làm sao mà không... được? Thực chất là khẳng định mạnh.",
+      "hanzi": "能不 + 动词 / 形容词 + 吗？",
+      "pinyin": "néng bù + dòngcí / xíngróngcí + ma?",
+      "audioText": "能不  动词",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0671",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 29: Câu hỏi phản vấn 能...吗？",
+      "group": "Công thức trong ảnh",
+      "time": "21:54:41",
+      "meaning": "Mẫu nhấn mạnh: đã... rồi / đến mức... rồi.",
+      "hanzi": "都...了 / 都这么晚了",
+      "pinyin": "dōu...le / dōu zhème wǎn le",
+      "audioText": "都了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đến mức",
+          "hanzi": "都这么晚了",
+          "pinyin": "dōu zhème wǎn le"
+        }
+      ]
+    },
+    {
+      "id": "need-0672",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 30: Cấu trúc 这样就行了",
@@ -13871,7 +14042,7 @@
       ]
     },
     {
-      "id": "need-0664",
+      "id": "need-0673",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 30: Cấu trúc 这样就行了",
@@ -13891,7 +14062,7 @@
       ]
     },
     {
-      "id": "need-0665",
+      "id": "need-0674",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 30: Cấu trúc 这样就行了",
@@ -13911,7 +14082,7 @@
       ]
     },
     {
-      "id": "need-0666",
+      "id": "need-0675",
       "date": "2026-08-05",
       "month": "2026-08",
       "topic": "Bài 30: Cấu trúc 这样就行了",
@@ -13921,6 +14092,332 @@
       "hanzi": "动词短语 + 就行了",
       "pinyin": "dòngcí duǎnyǔ + jiù xíng le",
       "audioText": "动词短语  就行了",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0676",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 31: Cấu trúc V这V那",
+      "group": "Chunk khẩu ngữ",
+      "time": "22:23:19",
+      "meaning": "học cái này cái kia; học lan man nhiều thứ",
+      "hanzi": "学这学那",
+      "pinyin": "xué zhè xué nà",
+      "audioText": "学这学那",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "học cái này cái kia",
+          "hanzi": "学这学那",
+          "pinyin": "xué zhè xué nà"
+        }
+      ]
+    },
+    {
+      "id": "need-0677",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 31: Cấu trúc V这V那",
+      "group": "Chunk khẩu ngữ",
+      "time": "22:23:19",
+      "meaning": "Mẫu khẩu ngữ: làm cái này cái kia, thường có cảm giác nhiều thứ/không tập trung.",
+      "hanzi": "动词 + 这 + 动词 + 那",
+      "pinyin": "dòngcí + zhè + dòngcí + nà",
+      "audioText": "动词  这  动词  那",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0678",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 31: Cấu trúc V这V那",
+      "group": "Chunk khẩu ngữ",
+      "time": "22:23:19",
+      "meaning": "Đừng học lan man nhiều thứ, trước tiên học tốt cái này đã.",
+      "hanzi": "别学这学那，先学好这个。",
+      "pinyin": "bié xué zhè xué nà, xiān xué hǎo zhè ge",
+      "audioText": "别学这学那先学好这个",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Đừng học lan man nhiều thứ, trước tiên học tốt cái này đã",
+          "hanzi": "别学这学那，先学好这个。",
+          "pinyin": "bié xué zhè xué nà, xiān xué hǎo zhè ge"
+        }
+      ]
+    },
+    {
+      "id": "need-0679",
+      "date": "2026-08-05",
+      "month": "2026-08",
+      "topic": "Bài 31: Cấu trúc V这V那",
+      "group": "Chunk khẩu ngữ",
+      "time": "22:23:19",
+      "meaning": "Cách nói tự nhiên hơn, rõ hơn: cái này cũng học, cái kia cũng học.",
+      "hanzi": "这也学，那也学。",
+      "pinyin": "zhè yě xué, nà yě xué",
+      "audioText": "这也学那也学",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Cách nói tự nhiên hơn, rõ hơn: cái này cũng học, cái kia cũng học",
+          "hanzi": "这也学，那也学。",
+          "pinyin": "zhè yě xué, nà yě xué"
+        }
+      ]
+    },
+    {
+      "id": "need-0680",
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "topic": "Bài 32: Đại sứ quán, visa & xử lý giấy tờ",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "08:50:41",
+      "meaning": "đại sứ quán; đi đến đại sứ quán",
+      "hanzi": "大使馆 / 去大使馆",
+      "pinyin": "dàshǐguǎn / qù dàshǐguǎn",
+      "audioText": "大使馆",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đại sứ quán",
+          "hanzi": "大使馆",
+          "pinyin": "dàshǐguǎn"
+        },
+        {
+          "meaning": "đi đến đại sứ quán",
+          "hanzi": "去大使馆",
+          "pinyin": "qù dàshǐguǎn"
+        }
+      ]
+    },
+    {
+      "id": "need-0681",
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "topic": "Bài 32: Đại sứ quán, visa & xử lý giấy tờ",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "08:50:41",
+      "meaning": "tin tức; xem tin tức; trang web tin tức",
+      "hanzi": "新闻 / 看新闻 / 新闻网站",
+      "pinyin": "xīnwén / kàn xīnwén / xīnwén wǎngzhàn",
+      "audioText": "新闻",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "tin tức",
+          "hanzi": "新闻",
+          "pinyin": "xīnwén"
+        },
+        {
+          "meaning": "xem tin tức",
+          "hanzi": "看新闻",
+          "pinyin": "kàn xīnwén"
+        },
+        {
+          "meaning": "trang web tin tức",
+          "hanzi": "新闻网站",
+          "pinyin": "xīnwén wǎngzhàn"
+        }
+      ]
+    },
+    {
+      "id": "need-0682",
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "topic": "Bài 32: Đại sứ quán, visa & xử lý giấy tờ",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "08:50:41",
+      "meaning": "rút tiền; đi rút tiền",
+      "hanzi": "取钱 / 去取钱",
+      "pinyin": "qǔ qián / qù qǔ qián",
+      "audioText": "取钱",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "rút tiền",
+          "hanzi": "取钱",
+          "pinyin": "qǔ qián"
+        },
+        {
+          "meaning": "đi rút tiền",
+          "hanzi": "去取钱",
+          "pinyin": "qù qǔ qián"
+        }
+      ]
+    },
+    {
+      "id": "need-0683",
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "topic": "Bài 32: Đại sứ quán, visa & xử lý giấy tờ",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "08:50:41",
+      "meaning": "có một cuộc họp. 有个会 tự nhiên, nhanh hơn 有一个会.",
+      "hanzi": "有个会 / 有一个会",
+      "pinyin": "yǒu ge huì / yǒu yí ge huì",
+      "audioText": "有个会",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "có một cuộc họp",
+          "hanzi": "有个会",
+          "pinyin": "yǒu ge huì"
+        }
+      ]
+    },
+    {
+      "id": "need-0684",
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "topic": "Bài 32: Đại sứ quán, visa & xử lý giấy tờ",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "08:50:41",
+      "meaning": "visa; làm visa; đi làm việc/xử lý giấy tờ",
+      "hanzi": "签证 / 办签证 / 办事",
+      "pinyin": "qiānzhèng / bàn qiānzhèng / bàn shì",
+      "audioText": "签证",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "visa",
+          "hanzi": "签证",
+          "pinyin": "qiānzhèng"
+        },
+        {
+          "meaning": "làm visa",
+          "hanzi": "办签证",
+          "pinyin": "bàn qiānzhèng"
+        },
+        {
+          "meaning": "đi làm việc/xử lý giấy tờ",
+          "hanzi": "办事",
+          "pinyin": "bàn shì"
+        }
+      ]
+    },
+    {
+      "id": "need-0685",
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "topic": "Bài 32: Đại sứ quán, visa & xử lý giấy tờ",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "08:50:41",
+      "meaning": "hộ chiếu; mang hộ chiếu; kiểm tra hộ chiếu",
+      "hanzi": "护照 / 带护照 / 查护照",
+      "pinyin": "hùzhào / dài hùzhào / chá hùzhào",
+      "audioText": "护照",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "hộ chiếu",
+          "hanzi": "护照",
+          "pinyin": "hùzhào"
+        },
+        {
+          "meaning": "mang hộ chiếu",
+          "hanzi": "带护照",
+          "pinyin": "dài hùzhào"
+        },
+        {
+          "meaning": "kiểm tra hộ chiếu",
+          "hanzi": "查护照",
+          "pinyin": "chá hùzhào"
+        }
+      ]
+    },
+    {
+      "id": "need-0686",
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "topic": "Bài 32: Đại sứ quán, visa & xử lý giấy tờ",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "08:50:41",
+      "meaning": "viên thuốc; uống một viên thuốc",
+      "hanzi": "药片 / 吃一片药",
+      "pinyin": "yàopiàn / chī yí piàn yào",
+      "audioText": "药片",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "viên thuốc",
+          "hanzi": "药片",
+          "pinyin": "yàopiàn"
+        },
+        {
+          "meaning": "uống một viên thuốc",
+          "hanzi": "吃一片药",
+          "pinyin": "chī yí piàn yào"
+        }
+      ]
+    },
+    {
+      "id": "need-0687",
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "topic": "Bài 32: Đại sứ quán, visa & xử lý giấy tờ",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "08:50:41",
+      "meaning": "trang web; kiểm tra trang web; tên trang web",
+      "hanzi": "网站 / 查网站 / 网站名称",
+      "pinyin": "wǎngzhàn / chá wǎngzhàn / wǎngzhàn míngchēng",
+      "audioText": "网站",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "trang web",
+          "hanzi": "网站",
+          "pinyin": "wǎngzhàn"
+        },
+        {
+          "meaning": "kiểm tra trang web",
+          "hanzi": "查网站",
+          "pinyin": "chá wǎngzhàn"
+        },
+        {
+          "meaning": "tên trang web",
+          "hanzi": "网站名称",
+          "pinyin": "wǎngzhàn míngchēng"
+        }
+      ]
+    },
+    {
+      "id": "need-0688",
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "topic": "Bài 32: Đại sứ quán, visa & xử lý giấy tờ",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "08:50:41",
+      "meaning": "trả lời tin nhắn; trả lời tin nhắn của bạn",
+      "hanzi": "回短信 / 回你的短信",
+      "pinyin": "huí duǎnxìn / huí nǐ de duǎnxìn",
+      "audioText": "回短信",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "trả lời tin nhắn",
+          "hanzi": "回短信",
+          "pinyin": "huí duǎnxìn"
+        },
+        {
+          "meaning": "trả lời tin nhắn của bạn",
+          "hanzi": "回你的短信",
+          "pinyin": "huí nǐ de duǎnxìn"
+        }
+      ]
+    },
+    {
+      "id": "need-0689",
+      "date": "2026-08-06",
+      "month": "2026-08",
+      "topic": "Bài 32: Đại sứ quán, visa & xử lý giấy tờ",
+      "group": "Chunk HSK2-HSK3 đầu",
+      "time": "08:50:41",
+      "meaning": "tra / kiểm tra; tên gọi / tên mục",
+      "hanzi": "查 / 名称",
+      "pinyin": "chá / míngchēng",
+      "audioText": "查",
       "source": "Ghi chú từ cần học"
     }
   ]

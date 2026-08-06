@@ -117,6 +117,7 @@ function getSearchText(note) {
   const parts = [
     note.title,
     note.shortTitle,
+    note.pinyinAliases.join(" "),
     note.summary,
     note.formulas.join(" "),
     note.notes.join(" "),
@@ -125,6 +126,28 @@ function getSearchText(note) {
     note.examples.map((item) => [item.meaning, item.hanzi, item.pinyin, item.cells?.join(" ")].join(" ")).join(" "),
   ];
   return parts.filter(Boolean).join(" ");
+}
+
+function getGrammarPinyinAliases(id, title, formulas = []) {
+  const text = [id, title, ...(formulas || [])].join(" ");
+  const aliases = [];
+  const add = (...items) => aliases.push(...items.filter(Boolean));
+  if (/好久/.test(text)) add("hao jiu", "hǎojiǔ");
+  if (/了.*就|le-jiu/.test(text)) add("le jiu", "le ... jiu", "dong ci le jiu dong ci");
+  if (/就行了/.test(text)) add("jiu xing le", "jiù xíng le");
+  if (/^jiu-| phó từ 就|就/.test(text)) add("jiu", "jiù");
+  if (/能.*吗/.test(text)) add("neng ma", "néng ma", "neng bu ma");
+  if (/容易/.test(text)) add("rong yi", "róngyì", "bu rong yi", "bù róngyì");
+  if (/V这V那|这.*那/.test(text)) add("v zhe v na", "zhe na", "zhe zhe na na");
+  if (/来\s*\/\s*去|来|去/.test(text)) add("lai qu", "lái qù", "lai", "qu");
+  if (/其实/.test(text)) add("qi shi", "qíshí");
+  if (/更/.test(text)) add("geng", "gèng");
+  if (/又/.test(text)) add("you le", "yòu le");
+  if (/一点/.test(text)) add("yi dian ye bu", "yìdiǎn yě bù", "yi dian dou bu");
+  if (/结果补语/.test(text)) add("jie guo bu yu", "jiéguǒ bǔyǔ");
+  if (/状态补语/.test(text)) add("zhuang tai bu yu", "zhuàngtài bǔyǔ");
+  if (/得/.test(text)) add("de", "dong ci de");
+  return [...new Set(aliases)];
 }
 
 function parseGrammarNotes(html) {
@@ -145,6 +168,7 @@ function parseGrammarNotes(html) {
     const subsections = splitSubsections(sectionHtml);
     const representative = formulas[0] || examples.find((example) => example.hanzi)?.hanzi || title;
     const pinyinSearch = examples.map((example) => example.pinyin).filter(Boolean).join(" ");
+    const pinyinAliases = getGrammarPinyinAliases(rawId, title, formulas);
     const note = {
       id: rawId || slugify(title, `grammar-${index + 1}`),
       order: index + 1,
@@ -152,7 +176,8 @@ function parseGrammarNotes(html) {
       shortTitle: title.replace(/^Cách dùng\s+/i, "").replace(/^Cấu trúc\s+/i, ""),
       hanzi: representative,
       pinyin: examples.find((example) => example.pinyin)?.pinyin || "",
-      pinyinSearch,
+      pinyinSearch: [pinyinSearch, pinyinAliases.join(" ")].filter(Boolean).join(" "),
+      pinyinAliases,
       summary: intro.join(" "),
       formulas,
       notes,
