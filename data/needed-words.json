@@ -1,7 +1,7 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-06T01:53:50.489Z",
-  "count": 689,
+  "syncedAt": "2026-08-06T22:54:21.389Z",
+  "count": 713,
   "words": [
     {
       "id": "need-0001",
@@ -14419,6 +14419,554 @@
       "pinyin": "chá / míngchēng",
       "audioText": "查",
       "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0690",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Bây giờ bạn không ở ngân hàng à?",
+      "hanzi": "你现在不在银行吗？",
+      "pinyin": "nǐ xiànzài bú zài yínháng ma?",
+      "audioText": "你现在不在银行吗",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bây giờ bạn không ở ngân hàng à?",
+          "hanzi": "你现在不在银行吗？",
+          "pinyin": "nǐ xiànzài bú zài yínháng ma?"
+        }
+      ]
+    },
+    {
+      "id": "need-0691",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Sau khi tan học/tan làm thì tôi sẽ qua chỗ bạn. Sửa: 下个后 không đúng.",
+      "hanzi": "下课后我就过来。 / 下班后我就过来。",
+      "pinyin": "xiàkè hòu wǒ jiù guòlái / xiàbān hòu wǒ jiù guòlái",
+      "audioText": "下课后我就过来",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Sau khi tan học/tan làm thì tôi sẽ qua chỗ bạn",
+          "hanzi": "下课后我就过来。",
+          "pinyin": "xiàkè hòu wǒ jiù guòlái"
+        }
+      ]
+    },
+    {
+      "id": "need-0692",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Tôi sẽ đến ngay một lát nữa. Tự nhiên hơn câu 我不一会儿就能到.",
+      "hanzi": "我一会儿就能到。",
+      "pinyin": "wǒ yíhuìr jiù néng dào",
+      "audioText": "我一会儿就能到",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi sẽ đến ngay một lát nữa",
+          "hanzi": "我一会儿就能到。",
+          "pinyin": "wǒ yíhuìr jiù néng dào"
+        }
+      ]
+    },
+    {
+      "id": "need-0693",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Một lát sau, tôi đã đến rồi. 不一会儿 thường đứng đầu câu.",
+      "hanzi": "不一会儿，我就到了。",
+      "pinyin": "bù yíhuìr, wǒ jiù dào le",
+      "audioText": "不一会儿我就到了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Một lát sau, tôi đã đến rồi",
+          "hanzi": "不一会儿，我就到了。",
+          "pinyin": "bù yíhuìr, wǒ jiù dào le"
+        }
+      ]
+    },
+    {
+      "id": "need-0694",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Năm phút nữa tôi sẽ qua đó.",
+      "hanzi": "我五分钟后就过去。",
+      "pinyin": "wǒ wǔ fēnzhōng hòu jiù guòqù",
+      "audioText": "我五分钟后就过去",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Năm phút nữa tôi sẽ qua đó",
+          "hanzi": "我五分钟后就过去。",
+          "pinyin": "wǒ wǔ fēnzhōng hòu jiù guòqù"
+        }
+      ]
+    },
+    {
+      "id": "need-0695",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Đừng đợi tôi nữa.",
+      "hanzi": "你别等我了。",
+      "pinyin": "nǐ bié děng wǒ le",
+      "audioText": "你别等我了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Đừng đợi tôi nữa",
+          "hanzi": "你别等我了。",
+          "pinyin": "nǐ bié děng wǒ le"
+        }
+      ]
+    },
+    {
+      "id": "need-0696",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Đừng dựa vào người tôi nữa.",
+      "hanzi": "你别靠在我身上了。",
+      "pinyin": "nǐ bié kào zài wǒ shēnshang le",
+      "audioText": "你别靠在我身上了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Đừng dựa vào người tôi nữa",
+          "hanzi": "你别靠在我身上了。",
+          "pinyin": "nǐ bié kào zài wǒ shēnshang le"
+        }
+      ]
+    },
+    {
+      "id": "need-0697",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Bạn có thể đi vào từ cửa bên cạnh.",
+      "hanzi": "你可以从旁边的门进去。",
+      "pinyin": "nǐ kěyǐ cóng pángbiān de mén jìnqù",
+      "audioText": "你可以从旁边的门进去",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn có thể đi vào từ cửa bên cạnh",
+          "hanzi": "你可以从旁边的门进去。",
+          "pinyin": "nǐ kěyǐ cóng pángbiān de mén jìnqù"
+        }
+      ]
+    },
+    {
+      "id": "need-0698",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Sắp có tín hiệu ngay rồi.",
+      "hanzi": "马上就有信号了。",
+      "pinyin": "mǎshàng jiù yǒu xìnhào le",
+      "audioText": "马上就有信号了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Sắp có tín hiệu ngay rồi",
+          "hanzi": "马上就有信号了。",
+          "pinyin": "mǎshàng jiù yǒu xìnhào le"
+        }
+      ]
+    },
+    {
+      "id": "need-0699",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Người của trung tâm dịch vụ sẽ đến tìm bạn ngay.",
+      "hanzi": "服务中心的人马上就来找你。",
+      "pinyin": "fúwù zhōngxīn de rén mǎshàng jiù lái zhǎo nǐ",
+      "audioText": "服务中心的人马上就来找你",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Người của trung tâm dịch vụ sẽ đến tìm bạn ngay",
+          "hanzi": "服务中心的人马上就来找你。",
+          "pinyin": "fúwù zhōngxīn de rén mǎshàng jiù lái zhǎo nǐ"
+        }
+      ]
+    },
+    {
+      "id": "need-0700",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Câu mẫu đã chỉnh",
+      "time": "05:40:09",
+      "meaning": "Anh ấy không thể qua tham gia buổi tụ họp, phải làm sao?",
+      "hanzi": "他不能过来参加聚会，怎么办？",
+      "pinyin": "tā bù néng guòlái cānjiā jùhuì, zěnme bàn?",
+      "audioText": "他不能过来参加聚会怎么办",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Anh ấy không thể qua tham gia buổi tụ họp, phải làm sao?",
+          "hanzi": "他不能过来参加聚会，怎么办？",
+          "pinyin": "tā bù néng guòlái cānjiā jùhuì, zěnme bàn?"
+        }
+      ]
+    },
+    {
+      "id": "need-0701",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "tươi mới; rau tươi; tin mới",
+      "hanzi": "新鲜 / 新鲜蔬菜 / 新鲜新闻",
+      "pinyin": "xīnxiān / xīnxiān shūcài / xīnxiān xīnwén",
+      "audioText": "新鲜",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "tươi mới",
+          "hanzi": "新鲜",
+          "pinyin": "xīnxiān"
+        },
+        {
+          "meaning": "rau tươi",
+          "hanzi": "新鲜蔬菜",
+          "pinyin": "xīnxiān shūcài"
+        },
+        {
+          "meaning": "tin mới",
+          "hanzi": "新鲜新闻",
+          "pinyin": "xīnxiān xīnwén"
+        }
+      ]
+    },
+    {
+      "id": "need-0702",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "nghỉ hè; trong kỳ nghỉ hè",
+      "hanzi": "暑假 / 暑假的时候",
+      "pinyin": "shǔjià / shǔjià de shíhou",
+      "audioText": "暑假",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "nghỉ hè",
+          "hanzi": "暑假",
+          "pinyin": "shǔjià"
+        },
+        {
+          "meaning": "trong kỳ nghỉ hè",
+          "hanzi": "暑假的时候",
+          "pinyin": "shǔjià de shíhou"
+        }
+      ]
+    },
+    {
+      "id": "need-0703",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "bị lạc đường; tôi bị lạc rồi",
+      "hanzi": "迷路 / 我迷路了",
+      "pinyin": "mílù / wǒ mílù le",
+      "audioText": "迷路",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "bị lạc đường",
+          "hanzi": "迷路",
+          "pinyin": "mílù"
+        },
+        {
+          "meaning": "tôi bị lạc rồi",
+          "hanzi": "我迷路了",
+          "pinyin": "wǒ mílù le"
+        }
+      ]
+    },
+    {
+      "id": "need-0704",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "muốn đi; muốn đi Bắc Kinh; đi Bắc Kinh du lịch",
+      "hanzi": "想去 / 想去北京 / 去北京旅游",
+      "pinyin": "xiǎng qù / xiǎng qù Běijīng / qù Běijīng lǚyóu",
+      "audioText": "想去",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "muốn đi",
+          "hanzi": "想去",
+          "pinyin": "xiǎng qù"
+        },
+        {
+          "meaning": "muốn đi Bắc Kinh",
+          "hanzi": "想去北京",
+          "pinyin": "xiǎng qù Běijīng"
+        },
+        {
+          "meaning": "đi Bắc Kinh du lịch",
+          "hanzi": "去北京旅游",
+          "pinyin": "qù Běijīng lǚyóu"
+        }
+      ]
+    },
+    {
+      "id": "need-0705",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "phân biệt: muốn đi khác với đi nghĩ/nghĩ thử",
+      "hanzi": "想去 / 去想想",
+      "pinyin": "xiǎng qù / qù xiǎngxiang",
+      "audioText": "想去",
+      "source": "Ghi chú từ cần học"
+    },
+    {
+      "id": "need-0706",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "gọi điện; du lịch; thường xuyên; nhưng",
+      "hanzi": "打电话 / 旅游 / 经常 / 但是",
+      "pinyin": "dǎ diànhuà / lǚyóu / jīngcháng / dànshì",
+      "audioText": "打电话",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "gọi điện",
+          "hanzi": "打电话",
+          "pinyin": "dǎ diànhuà"
+        },
+        {
+          "meaning": "du lịch",
+          "hanzi": "旅游",
+          "pinyin": "lǚyóu"
+        },
+        {
+          "meaning": "thường xuyên",
+          "hanzi": "经常",
+          "pinyin": "jīngcháng"
+        },
+        {
+          "meaning": "nhưng",
+          "hanzi": "但是",
+          "pinyin": "dànshì"
+        }
+      ]
+    },
+    {
+      "id": "need-0707",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "phải làm sao; làm thế nào đây",
+      "hanzi": "怎么办",
+      "pinyin": "zěnme bàn",
+      "audioText": "怎么办",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "phải làm sao",
+          "hanzi": "怎么办",
+          "pinyin": "zěnme bàn"
+        }
+      ]
+    },
+    {
+      "id": "need-0708",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "giám đốc Vương trong văn phòng",
+      "hanzi": "办公室里的王经理",
+      "pinyin": "bàngōngshì li de Wáng jīnglǐ",
+      "audioText": "办公室里的王经理",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "giám đốc Vương trong văn phòng",
+          "hanzi": "办公室里的王经理",
+          "pinyin": "bàngōngshì li de Wáng jīnglǐ"
+        }
+      ]
+    },
+    {
+      "id": "need-0709",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "tín hiệu; có tín hiệu; không có tín hiệu",
+      "hanzi": "信号 / 有信号 / 没有信号",
+      "pinyin": "xìnhào / yǒu xìnhào / méiyǒu xìnhào",
+      "audioText": "信号",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "tín hiệu",
+          "hanzi": "信号",
+          "pinyin": "xìnhào"
+        },
+        {
+          "meaning": "có tín hiệu",
+          "hanzi": "有信号",
+          "pinyin": "yǒu xìnhào"
+        },
+        {
+          "meaning": "không có tín hiệu",
+          "hanzi": "没有信号",
+          "pinyin": "méiyǒu xìnhào"
+        }
+      ]
+    },
+    {
+      "id": "need-0710",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "trung tâm; trung tâm dịch vụ; trung tâm visa",
+      "hanzi": "中心 / 服务中心 / 签证中心",
+      "pinyin": "zhōngxīn / fúwù zhōngxīn / qiānzhèng zhōngxīn",
+      "audioText": "中心",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "trung tâm",
+          "hanzi": "中心",
+          "pinyin": "zhōngxīn"
+        },
+        {
+          "meaning": "trung tâm dịch vụ",
+          "hanzi": "服务中心",
+          "pinyin": "fúwù zhōngxīn"
+        },
+        {
+          "meaning": "trung tâm visa",
+          "hanzi": "签证中心",
+          "pinyin": "qiānzhèng zhōngxīn"
+        }
+      ]
+    },
+    {
+      "id": "need-0711",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "than phiền / phàn nàn",
+      "hanzi": "抱怨",
+      "pinyin": "bàoyuàn",
+      "audioText": "抱怨",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "than phiền",
+          "hanzi": "抱怨",
+          "pinyin": "bàoyuàn"
+        }
+      ]
+    },
+    {
+      "id": "need-0712",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "gào/gọi to; cứ đang hét/gọi to mãi",
+      "hanzi": "喊 / 一直在喊",
+      "pinyin": "hǎn / yìzhí zài hǎn",
+      "audioText": "喊",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "gào/gọi to",
+          "hanzi": "喊",
+          "pinyin": "hǎn"
+        },
+        {
+          "meaning": "cứ đang hét/gọi to mãi",
+          "hanzi": "一直在喊",
+          "pinyin": "yìzhí zài hǎn"
+        }
+      ]
+    },
+    {
+      "id": "need-0713",
+      "date": "2026-08-07",
+      "month": "2026-08",
+      "topic": "Bài 33: Ngân hàng, đi đường & trung tâm dịch vụ",
+      "group": "Từ vựng & chunk hay gặp",
+      "time": "05:40:09",
+      "meaning": "dựa vào; dựa trên người tôi",
+      "hanzi": "靠 / 靠在我身上",
+      "pinyin": "kào / kào zài wǒ shēnshang",
+      "audioText": "靠",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "dựa vào",
+          "hanzi": "靠",
+          "pinyin": "kào"
+        },
+        {
+          "meaning": "dựa trên người tôi",
+          "hanzi": "靠在我身上",
+          "pinyin": "kào zài wǒ shēnshang"
+        }
+      ]
     }
   ]
 }
