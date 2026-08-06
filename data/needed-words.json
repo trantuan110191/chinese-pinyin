@@ -14438,7 +14438,8 @@
           "hanzi": "你现在不在银行吗？",
           "pinyin": "nǐ xiànzài bú zài yínháng ma?"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/97c12c5a8541b25f60.mp3"
     },
     {
       "id": "need-0691",
@@ -14458,7 +14459,8 @@
           "hanzi": "下课后我就过来。",
           "pinyin": "xiàkè hòu wǒ jiù guòlái"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/75da1b02dd00ad5812.mp3"
     },
     {
       "id": "need-0692",
@@ -14478,7 +14480,8 @@
           "hanzi": "我一会儿就能到。",
           "pinyin": "wǒ yíhuìr jiù néng dào"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/684165470827c54e02.mp3"
     },
     {
       "id": "need-0693",
@@ -14498,7 +14501,8 @@
           "hanzi": "不一会儿，我就到了。",
           "pinyin": "bù yíhuìr, wǒ jiù dào le"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/fc45c775d68be56e59.mp3"
     },
     {
       "id": "need-0694",
@@ -14518,7 +14522,8 @@
           "hanzi": "我五分钟后就过去。",
           "pinyin": "wǒ wǔ fēnzhōng hòu jiù guòqù"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/45e33eeacd15d7d01e.mp3"
     },
     {
       "id": "need-0695",
@@ -14538,7 +14543,8 @@
           "hanzi": "你别等我了。",
           "pinyin": "nǐ bié děng wǒ le"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/cfe3bd134601d3cc31.mp3"
     },
     {
       "id": "need-0696",
@@ -14558,7 +14564,8 @@
           "hanzi": "你别靠在我身上了。",
           "pinyin": "nǐ bié kào zài wǒ shēnshang le"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/53c54c4c6f08ba2890.mp3"
     },
     {
       "id": "need-0697",
@@ -14578,7 +14585,8 @@
           "hanzi": "你可以从旁边的门进去。",
           "pinyin": "nǐ kěyǐ cóng pángbiān de mén jìnqù"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/2e19d14f198e5e7a6c.mp3"
     },
     {
       "id": "need-0698",
@@ -14598,7 +14606,8 @@
           "hanzi": "马上就有信号了。",
           "pinyin": "mǎshàng jiù yǒu xìnhào le"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/586841a118c2cd5150.mp3"
     },
     {
       "id": "need-0699",
@@ -14618,7 +14627,8 @@
           "hanzi": "服务中心的人马上就来找你。",
           "pinyin": "fúwù zhōngxīn de rén mǎshàng jiù lái zhǎo nǐ"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/3728e9f5bcfcf70d54.mp3"
     },
     {
       "id": "need-0700",
@@ -14638,7 +14648,8 @@
           "hanzi": "他不能过来参加聚会，怎么办？",
           "pinyin": "tā bù néng guòlái cānjiā jùhuì, zěnme bàn?"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/52f23b986438217226.mp3"
     },
     {
       "id": "need-0701",
@@ -14668,7 +14679,8 @@
           "hanzi": "新鲜新闻",
           "pinyin": "xīnxiān xīnwén"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/467bc8d4310adb077d.mp3"
     },
     {
       "id": "need-0702",
@@ -14693,7 +14705,8 @@
           "hanzi": "暑假的时候",
           "pinyin": "shǔjià de shíhou"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/c388d337b4fe63b584.mp3"
     },
     {
       "id": "need-0703",
@@ -14718,7 +14731,8 @@
           "hanzi": "我迷路了",
           "pinyin": "wǒ mílù le"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/ee1ab019639712fcfa.mp3"
     },
     {
       "id": "need-0704",
@@ -14748,7 +14762,8 @@
           "hanzi": "去北京旅游",
           "pinyin": "qù Běijīng lǚyóu"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/4956d0dc8ee48fe3a9.mp3"
     },
     {
       "id": "need-0705",
@@ -14761,7 +14776,8 @@
       "hanzi": "想去 / 去想想",
       "pinyin": "xiǎng qù / qù xiǎngxiang",
       "audioText": "想去",
-      "source": "Ghi chú từ cần học"
+      "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/4956d0dc8ee48fe3a9.mp3"
     },
     {
       "id": "need-0706",
@@ -14796,7 +14812,8 @@
           "hanzi": "但是",
           "pinyin": "dànshì"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/aab40b763414f3c954.mp3"
     },
     {
       "id": "need-0707",
@@ -14816,7 +14833,8 @@
           "hanzi": "怎么办",
           "pinyin": "zěnme bàn"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/e32df4992baf8262f9.mp3"
     },
     {
       "id": "need-0708",
@@ -14836,7 +14854,8 @@
           "hanzi": "办公室里的王经理",
           "pinyin": "bàngōngshì li de Wáng jīnglǐ"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/cf998ab99aec675f43.mp3"
     },
     {
       "id": "need-0709",
@@ -14866,7 +14885,8 @@
           "hanzi": "没有信号",
           "pinyin": "méiyǒu xìnhào"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/932fcb57bfb7eeb58c.mp3"
     },
     {
       "id": "need-0710",
@@ -14896,7 +14916,8 @@
           "hanzi": "签证中心",
           "pinyin": "qiānzhèng zhōngxīn"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/e8f9160a720c38db40.mp3"
     },
     {
       "id": "need-0711",
@@ -14916,7 +14937,8 @@
           "hanzi": "抱怨",
           "pinyin": "bàoyuàn"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/5154a66af88a6dfbf1.mp3"
     },
     {
       "id": "need-0712",
@@ -14941,7 +14963,8 @@
           "hanzi": "一直在喊",
           "pinyin": "yìzhí zài hǎn"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/4c0f20eea6f90add02.mp3"
     },
     {
       "id": "need-0713",
@@ -14966,7 +14989,16 @@
           "hanzi": "靠在我身上",
           "pinyin": "kào zài wǒ shēnshang"
         }
-      ]
+      ],
+      "audio": "audio/needed-edge/3f86892169c6494923.mp3"
     }
-  ]
+  ],
+  "audio": {
+    "provider": "edge-tts",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "-5%",
+    "directory": "audio/needed-edge",
+    "updatedAt": "2026-08-06T23:14:29.356Z",
+    "available": 24
+  }
 }

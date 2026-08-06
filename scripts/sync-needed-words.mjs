@@ -1,9 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 
 const defaultSourcePath = path.resolve("..", "..", "Folders", "Từ cần học", "tu_can_hoc.html");
 const sourcePath = path.resolve(process.argv[2] || process.env.NEEDED_WORDS_SOURCE || defaultSourcePath);
 const outputPath = path.resolve("data/needed-words.json");
+const edgeAudioPublicDir = "audio/needed-edge";
 
 function decodeHtml(value) {
   return String(value || "")
@@ -25,6 +27,32 @@ function getAudioText(hanzi) {
     .replace(/[A-Za-z]+/g, "")
     .replace(/[?？!！,，.。:：;；()（）+]/g, "")
     .trim() || firstVariant.trim();
+}
+
+function normalizeAudioText(value) {
+  return String(value || "")
+    .normalize("NFC")
+    .replace(/[→]+/g, "到")
+    .replace(/[=＝]/g, "等于")
+    .replace(/[+＋]/g, "加")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getEdgeAudioPath(audioText) {
+  const text = normalizeAudioText(audioText);
+  if (!text) return "";
+  const hash = crypto.createHash("sha1").update(text).digest("hex").slice(0, 18);
+  return `${edgeAudioPublicDir}/${hash}.mp3`;
+}
+
+function getExistingEdgeAudioPath(audioText) {
+  const audioPath = getEdgeAudioPath(audioText);
+  if (!audioPath) return "";
+  const absolutePath = path.resolve(audioPath);
+  if (!fs.existsSync(absolutePath)) return "";
+  const stat = fs.statSync(absolutePath);
+  return stat.size > 128 ? audioPath : "";
 }
 
 const hanziPattern = /[\u3400-\u9fff]/;
@@ -411,6 +439,8 @@ while ((match = tokenPattern.exec(html))) {
   const month = /^\d{4}-\d{2}/.test(currentDate) ? currentDate.slice(0, 7) : "Không rõ tháng";
   const translationTargets = buildTranslationTargets(meaning, hanzi, pinyin);
 
+  const audioText = getAudioText(hanzi);
+  const existingAudio = getExistingEdgeAudioPath(audioText);
   const entry = {
     id: `need-${String(entries.length + 1).padStart(4, "0")}`,
     date: currentDate || "Không rõ ngày",
@@ -421,9 +451,10 @@ while ((match = tokenPattern.exec(html))) {
     meaning,
     hanzi,
     pinyin,
-    audioText: getAudioText(hanzi),
+    audioText,
     source: "Ghi chú từ cần học",
   };
+  if (existingAudio) entry.audio = existingAudio;
   if (translationTargets.length) entry.translationTargets = translationTargets;
   entries.push(entry);
 }

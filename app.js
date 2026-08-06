@@ -2826,6 +2826,7 @@ function buildGlobalLookupEntries() {
     source: "Ghi chú từ cần học",
     topic: getNeededNoteTopicLabel(word),
     date: getNeededNoteDate(word),
+    audio: word.audio,
     audioText: getNeededNoteAudioText(word),
     rawId: getNeededNoteId(word),
   }));
@@ -7189,12 +7190,28 @@ function selectTopicOverview(topicId) {
 }
 
 function playTopicAudio(hanzi, button) {
-  const hskWord = hskVocabulary.find((word) => word.hanzi === hanzi);
+  const audioText = String(hanzi || "").trim();
+  const audioButton = button || document.createElement("button");
+  const hskWord = hskVocabulary.find((word) => word.hanzi === audioText || word.audioText === audioText);
   if (hskWord?.audio) {
-    playHskAudio(hskWord.audio, button, hanzi);
+    playHskAudio(hskWord.audio, audioButton, audioText);
     return;
   }
-  speakChinese(hanzi, 0.76);
+  const neededWord = neededNoteWords.find((word) => {
+    if (!word?.audio) return false;
+    const candidates = [
+      word.hanzi,
+      word.audioText,
+      getNeededNoteAudioText(word),
+      ...String(word.hanzi || "").split(/\s*[\/／|｜]\s*/),
+    ].map((item) => String(item || "").trim()).filter(Boolean);
+    return candidates.includes(audioText);
+  });
+  if (neededWord?.audio) {
+    playHskAudio(neededWord.audio, audioButton, audioText);
+    return;
+  }
+  speakChinese(audioText, 0.76);
 }
 
 function getNeededNoteId(word) {
@@ -9101,7 +9118,7 @@ async function loadLearningLibraries() {
     fetch("data/hsk-vocabulary.json"),
     fetch("data/common-sentences.json"),
     fetch("data/hsk-explanations.json"),
-    fetch("data/needed-words.json?v=needed-20260807a"),
+    fetch("data/needed-words.json?v=needed-20260807b"),
     fetch("data/component-contrasts.json"),
     fetch("data/grammar-notes.json?v=grammar-20260807a")
   ]);
