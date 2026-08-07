@@ -337,8 +337,8 @@
         <aside class="status-card">
           <p class="card-kicker">CẦN MỞ SERVER</p>
           <strong id="server-status-title">Đang kiểm tra server...</strong>
-          <code id="server-command">node scripts/tts-server.mjs</code>
-          <p class="hint" id="server-status-text">Nếu báo chưa kết nối, mở Terminal trong project rồi chạy lệnh trên.</p>
+          <code id="server-command">Bấm đúp start-tts-server.command</code>
+          <p class="hint" id="server-status-text">Hoặc mở Terminal trong project rồi chạy: node scripts/tts-server.mjs</p>
         </aside>
       </section>
 
@@ -414,7 +414,7 @@
           statusText.textContent = `Giọng: ${data.voice || "zh-CN-XiaoxiaoNeural"}, tốc độ: ${data.rate || "-5%"}.`;
         } catch {
           statusTitle.textContent = "Chưa thấy server local";
-          statusText.textContent = "Mở Terminal trong project và chạy: node scripts/tts-server.mjs";
+          statusText.textContent = "Bấm đúp start-tts-server.command, hoặc mở Terminal và chạy: node scripts/tts-server.mjs";
         }
       }
 
@@ -455,7 +455,7 @@
           downloadLink.removeAttribute("aria-disabled");
           setMessage("Xong rồi. Bạn có thể nghe thử hoặc tải MP3 về.", "good");
         } catch (error) {
-          setMessage(`${error.message} Nếu chưa mở server, chạy: node scripts/tts-server.mjs`, "bad");
+          setMessage(`${error.message} Nếu chưa mở server, bấm đúp start-tts-server.command hoặc chạy: node scripts/tts-server.mjs`, "bad");
         } finally {
           generateButton.disabled = false;
         }
