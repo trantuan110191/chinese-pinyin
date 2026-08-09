@@ -8394,7 +8394,7 @@ function playPositiveDing() {
     positiveDingAudioElement ||= new Audio(positiveDingAudioUrl);
     positiveDingAudioElement.preload = "auto";
     const sound = positiveDingAudioElement.cloneNode(true);
-    sound.volume = 0.92;
+    sound.volume = 0.74;
     const playPromise = sound.play();
     if (playPromise?.catch) playPromise.catch(playFallbackPositiveDing);
     return;
