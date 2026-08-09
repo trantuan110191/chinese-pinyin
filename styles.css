@@ -2576,10 +2576,58 @@ body.lookup-popover-resizing {
 }
 
 .needed-list-card summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   padding: 12px 14px;
   cursor: pointer;
   color: var(--blue);
   font-weight: 850;
+}
+
+.needed-list-card summary::marker {
+  content: "";
+}
+
+.needed-list-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.needed-list-title::before {
+  content: "▸";
+  display: inline-block;
+  width: 16px;
+  margin-right: 3px;
+}
+
+.needed-list-card details[open] .needed-list-title::before {
+  content: "▾";
+}
+
+.needed-copy-hanzi {
+  min-height: 30px;
+  padding: 0 12px;
+  color: var(--blue);
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.needed-copy-hanzi.is-copied {
+  color: var(--green);
+  background: rgba(36, 72, 61, 0.08);
+  border-color: rgba(36, 72, 61, 0.22);
+}
+
+.needed-copy-hanzi.is-error {
+  color: var(--red);
+  background: rgba(167, 51, 42, 0.08);
+  border-color: rgba(167, 51, 42, 0.22);
 }
 
 .needed-word-list {

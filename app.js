@@ -8175,6 +8175,74 @@ function renderNeededNotesFlashcard() {
   `;
 }
 
+function getNeededNotesListWordsForCopy(kind) {
+  const words = kind === "learned"
+    ? getNeededNotesLearnedWords()
+      .sort((left, right) => Number(neededNotesKnownWords[getNeededNoteId(right)]?.knownAt || 0) - Number(neededNotesKnownWords[getNeededNoteId(left)]?.knownAt || 0))
+    : getNeededNotesActiveWords();
+  return words.filter((word) => String(word?.hanzi || "").trim());
+}
+
+function getNeededNotesHanziCopyText(kind) {
+  return getNeededNotesListWordsForCopy(kind)
+    .map((word) => String(word.hanzi || "").trim())
+    .filter(Boolean)
+    .join("\n");
+}
+
+async function writeTextToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return true;
+  }
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.inset = "auto auto 0 0";
+  textarea.style.width = "1px";
+  textarea.style.height = "1px";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  const copied = document.execCommand?.("copy");
+  textarea.remove();
+  if (!copied) throw new Error("copy failed");
+  return true;
+}
+
+function flashNeededCopyButton(button, text, state = "copied") {
+  if (!button) return;
+  const originalText = button.dataset.originalLabel || button.textContent;
+  button.dataset.originalLabel = originalText;
+  button.textContent = text;
+  button.classList.remove("is-copied", "is-error");
+  button.classList.add(state === "error" ? "is-error" : "is-copied");
+  window.clearTimeout(Number(button.dataset.resetTimer || 0));
+  const timer = window.setTimeout(() => {
+    button.textContent = button.dataset.originalLabel || originalText;
+    button.classList.remove("is-copied", "is-error");
+    delete button.dataset.resetTimer;
+  }, 1400);
+  button.dataset.resetTimer = String(timer);
+}
+
+async function copyNeededNotesHanziList(kind, button) {
+  const words = getNeededNotesListWordsForCopy(kind);
+  const text = getNeededNotesHanziCopyText(kind);
+  if (!text) {
+    flashNeededCopyButton(button, "Chưa có chữ", "error");
+    return;
+  }
+  try {
+    await writeTextToClipboard(text);
+    flashNeededCopyButton(button, `Đã copy ${words.length}`);
+  } catch {
+    flashNeededCopyButton(button, "Không copy được", "error");
+  }
+}
+
 function renderNeededNotesList() {
   const learnedWords = getNeededNotesLearnedWords()
     .sort((left, right) => Number(neededNotesKnownWords[getNeededNoteId(right)]?.knownAt || 0) - Number(neededNotesKnownWords[getNeededNoteId(left)]?.knownAt || 0));
@@ -8198,11 +8266,17 @@ function renderNeededNotesList() {
         </div>
       </div>
       <details open>
-        <summary>Cần học (${activeWords.length})</summary>
+        <summary>
+          <span class="needed-list-title">Cần học (${activeWords.length})</span>
+          <button class="needed-copy-hanzi" data-needed-copy-hanzi="active" type="button">Copy chữ Hán</button>
+        </summary>
         <ul class="needed-word-list">${activeWords.slice(0, 160).map((word) => renderRow(word)).join("")}</ul>
       </details>
       <details>
-        <summary>Đã học (${learnedWords.length})</summary>
+        <summary>
+          <span class="needed-list-title">Đã học (${learnedWords.length})</span>
+          <button class="needed-copy-hanzi" data-needed-copy-hanzi="learned" type="button">Copy chữ Hán</button>
+        </summary>
         <ul class="needed-word-list">${learnedWords.slice(0, 160).map((word) => renderRow(word, true)).join("")}</ul>
       </details>
     </article>
@@ -9638,6 +9712,7 @@ document.addEventListener("click", (event) => {
   const neededRelearnAllButton = event.target.closest("[data-needed-relearn-all]");
   const neededRevealButton = event.target.closest("[data-needed-reveal]");
   const neededRatingButton = event.target.closest("[data-needed-rate]");
+  const neededCopyHanziButton = event.target.closest("[data-needed-copy-hanzi]");
   const adminProfileButton = event.target.closest("[data-open-admin-profile]");
   const dictationPlayButton = event.target.closest("[data-dictation-play]");
   const dictationCheckButton = event.target.closest("[data-dictation-check]");
@@ -9713,6 +9788,12 @@ document.addEventListener("click", (event) => {
   if (neededModeButton) setNeededNotesMode(neededModeButton.dataset.neededMode);
   if (neededChoiceModeButton) setNeededNotesChoiceMode(neededChoiceModeButton.dataset.neededChoiceMode);
   if (neededAnswerButton) answerNeededNotesChoice(neededAnswerButton.dataset.neededAnswer);
+  if (neededCopyHanziButton) {
+    event.preventDefault();
+    event.stopPropagation();
+    copyNeededNotesHanziList(neededCopyHanziButton.dataset.neededCopyHanzi, neededCopyHanziButton);
+    return;
+  }
   if (neededRelearnButton) relearnNeededNoteById(neededRelearnButton.dataset.neededRelearn);
   if (neededRelearnAllButton) relearnAllNeededNotesInFilter();
   if (neededNextButton) {
