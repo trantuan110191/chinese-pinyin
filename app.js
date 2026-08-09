@@ -2245,6 +2245,8 @@ let neededNotesTranslationTarget = null;
 let neededNotesTranslationInput = "";
 let neededNotesTranslationCommandPending = false;
 let neededNotesTranslationCommandTimer = null;
+const positiveDingAudioUrl = "audio/sfx/correct.mp3?v=correct-20260809a";
+let positiveDingAudioElement = null;
 let positiveDingAudioContext = null;
 let neededNotesMemoryRatings = {};
 let neededNotesAutoTimer = null;
@@ -4683,6 +4685,7 @@ function answerQuiz() {
   const expectedAnswer = expectedInitials.join(" · ");
   const isCorrect = quizSelection.length === expectedInitials.length
     && quizSelection.every((initial, index) => initial === expectedInitials[index]);
+  if (isCorrect) playPositiveDing();
   quizScore += isCorrect ? 1 : 0;
   quizStreak = isCorrect ? quizStreak + 1 : 0;
 
@@ -5390,6 +5393,7 @@ function setTopicWordMemoryRating(hanzi, rating) {
 }
 
 function markTopicWordAnsweredCorrect(hanzi) {
+  playPositiveDing();
   const wasKnown = isTopicWordKnown(hanzi);
   if (getTopicWordMemoryRating(hanzi) === 3) {
     topicMemoryRatings[hanzi] = 2;
@@ -8386,6 +8390,20 @@ function scheduleNeededNotesNext(wordId) {
 }
 
 function playPositiveDing() {
+  try {
+    positiveDingAudioElement ||= new Audio(positiveDingAudioUrl);
+    positiveDingAudioElement.preload = "auto";
+    const sound = positiveDingAudioElement.cloneNode(true);
+    sound.volume = 0.92;
+    const playPromise = sound.play();
+    if (playPromise?.catch) playPromise.catch(playFallbackPositiveDing);
+    return;
+  } catch {
+    playFallbackPositiveDing();
+  }
+}
+
+function playFallbackPositiveDing() {
   const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
   if (!AudioContextCtor) return;
   try {
@@ -8863,7 +8881,9 @@ function checkDictationAnswer(index) {
   const answer = input.value.trim();
   const hanziMatch = normalizeDictationHanzi(answer) === normalizeDictationHanzi(item.hanzi);
   const pinyinMatch = item.pinyin && normalizeDictationPinyin(answer) === normalizeDictationPinyin(item.pinyin);
-  revealDictationAnswer(index, Boolean(hanziMatch || pinyinMatch));
+  const isCorrect = Boolean(hanziMatch || pinyinMatch);
+  if (isCorrect) playPositiveDing();
+  revealDictationAnswer(index, isCorrect);
 }
 
 function clearDictationPractice() {
