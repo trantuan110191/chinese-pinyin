@@ -1,7 +1,7 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-07T23:18:42.430Z",
-  "count": 730,
+  "syncedAt": "2026-08-09T03:11:46.734Z",
+  "count": 747,
   "words": [
     {
       "id": "need-0001",
@@ -15707,6 +15707,7 @@
       "pinyin": "guǎnggào / kàn guǎnggào",
       "audioText": "广告",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/aa4be2da33c9141dcf.mp3",
       "translationTargets": [
         {
           "meaning": "quảng cáo",
@@ -15718,8 +15719,7 @@
           "hanzi": "看广告",
           "pinyin": "kàn guǎnggào"
         }
-      ],
-      "audio": "audio/needed-edge/aa4be2da33c9141dcf.mp3"
+      ]
     },
     {
       "id": "need-0716",
@@ -15747,14 +15747,14 @@
       "pinyin": "nǐ gěi biérén jiǎng guo zhè ge xiàohua ma?",
       "audioText": "你给别人讲过这个笑话吗",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/fecfad1e6e4196b6d4.mp3",
       "translationTargets": [
         {
           "meaning": "Bạn đã từng kể truyện cười này cho người khác chưa?",
           "hanzi": "你给别人讲过这个笑话吗？",
           "pinyin": "nǐ gěi biérén jiǎng guo zhè ge xiàohua ma?"
         }
-      ],
-      "audio": "audio/needed-edge/fecfad1e6e4196b6d4.mp3"
+      ]
     },
     {
       "id": "need-0718",
@@ -15768,6 +15768,7 @@
       "pinyin": "tīngshuō / tīngshuō tā kuài lái le",
       "audioText": "听说",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/2c27a0b0560029e743.mp3",
       "translationTargets": [
         {
           "meaning": "nghe nói",
@@ -15779,8 +15780,7 @@
           "hanzi": "听说他快来了。",
           "pinyin": "tīngshuō tā kuài lái le"
         }
-      ],
-      "audio": "audio/needed-edge/2c27a0b0560029e743.mp3"
+      ]
     },
     {
       "id": "need-0719",
@@ -15794,6 +15794,7 @@
       "pinyin": "jiémù / yí duàn yīnyuè / yǐngpiàn",
       "audioText": "节目",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/43aee930ff61b4e4a2.mp3",
       "translationTargets": [
         {
           "meaning": "chương trình",
@@ -15810,8 +15811,7 @@
           "hanzi": "影片",
           "pinyin": "yǐngpiàn"
         }
-      ],
-      "audio": "audio/needed-edge/43aee930ff61b4e4a2.mp3"
+      ]
     },
     {
       "id": "need-0720",
@@ -15825,6 +15825,7 @@
       "pinyin": "zài shuìjiào qián / zài shuìjiào qián tīng yí duàn yīnyuè",
       "audioText": "在睡觉前",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/595d20afb4e6d55ff9.mp3",
       "translationTargets": [
         {
           "meaning": "trước khi ngủ",
@@ -15836,8 +15837,7 @@
           "hanzi": "在睡觉前听一段音乐",
           "pinyin": "zài shuìjiào qián tīng yí duàn yīnyuè"
         }
-      ],
-      "audio": "audio/needed-edge/595d20afb4e6d55ff9.mp3"
+      ]
     },
     {
       "id": "need-0721",
@@ -15851,6 +15851,7 @@
       "pinyin": "hǎorén / huàirén / zhēnzhèng de huàirén",
       "audioText": "好人",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/7ae04cef2d2f51b099.mp3",
       "translationTargets": [
         {
           "meaning": "người tốt",
@@ -15867,8 +15868,7 @@
           "hanzi": "真正的坏人",
           "pinyin": "zhēnzhèng de huàirén"
         }
-      ],
-      "audio": "audio/needed-edge/7ae04cef2d2f51b099.mp3"
+      ]
     },
     {
       "id": "need-0722",
@@ -15882,6 +15882,7 @@
       "pinyin": "zhēnzhèng de hǎorén / chūxiàn",
       "audioText": "真正的好人",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/8f58e6274f9f0a4c43.mp3",
       "translationTargets": [
         {
           "meaning": "người tốt thật sự",
@@ -15893,8 +15894,7 @@
           "hanzi": "出现",
           "pinyin": "chūxiàn"
         }
-      ],
-      "audio": "audio/needed-edge/8f58e6274f9f0a4c43.mp3"
+      ]
     },
     {
       "id": "need-0723",
@@ -15922,6 +15922,7 @@
       "pinyin": "hǎochu / huàichu / zhèyàng zuò de huàichu",
       "audioText": "好处",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/5a003513fd89b9096f.mp3",
       "translationTargets": [
         {
           "meaning": "lợi ích",
@@ -15938,8 +15939,7 @@
           "hanzi": "这样做的坏处",
           "pinyin": "zhèyàng zuò de huàichu"
         }
-      ],
-      "audio": "audio/needed-edge/5a003513fd89b9096f.mp3"
+      ]
     },
     {
       "id": "need-0725",
@@ -15953,14 +15953,14 @@
       "pinyin": "pèngdào / dédào",
       "audioText": "碰到",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/eac7fd0e767ea8933c.mp3",
       "translationTargets": [
         {
           "meaning": "va vào / đụng phải",
           "hanzi": "碰到",
           "pinyin": "pèngdào"
         }
-      ],
-      "audio": "audio/needed-edge/eac7fd0e767ea8933c.mp3"
+      ]
     },
     {
       "id": "need-0726",
@@ -15974,6 +15974,7 @@
       "pinyin": "dédào hǎochu de rén / jiǎ míngzi",
       "audioText": "得到好处的人",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/7b296acabae400af21.mp3",
       "translationTargets": [
         {
           "meaning": "người nhận được lợi ích",
@@ -15985,8 +15986,7 @@
           "hanzi": "假名字",
           "pinyin": "jiǎ míngzi"
         }
-      ],
-      "audio": "audio/needed-edge/7b296acabae400af21.mp3"
+      ]
     },
     {
       "id": "need-0727",
@@ -16000,14 +16000,14 @@
       "pinyin": "shéi dédào de hǎochu zuì duō?",
       "audioText": "谁得到的好处最多",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/e2d39ac6d79059f779.mp3",
       "translationTargets": [
         {
           "meaning": "Ai nhận được nhiều lợi ích nhất?",
           "hanzi": "谁得到的好处最多？",
           "pinyin": "shéi dédào de hǎochu zuì duō?"
         }
-      ],
-      "audio": "audio/needed-edge/e2d39ac6d79059f779.mp3"
+      ]
     },
     {
       "id": "need-0728",
@@ -16021,6 +16021,7 @@
       "pinyin": "quánbù / quánbù de rén",
       "audioText": "全部",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/778fc8f99453571cd4.mp3",
       "translationTargets": [
         {
           "meaning": "toàn bộ",
@@ -16032,8 +16033,7 @@
           "hanzi": "全部的人",
           "pinyin": "quánbù de rén"
         }
-      ],
-      "audio": "audio/needed-edge/778fc8f99453571cd4.mp3"
+      ]
     },
     {
       "id": "need-0729",
@@ -16047,6 +16047,7 @@
       "pinyin": "kěnéng jiù bù xiǎng / kěnéng jiù bù xiǎng qù le",
       "audioText": "可能就不想",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/cb01a13e6bdd424b77.mp3",
       "translationTargets": [
         {
           "meaning": "có thể sẽ không muốn",
@@ -16058,8 +16059,7 @@
           "hanzi": "可能就不想去了",
           "pinyin": "kěnéng jiù bù xiǎng qù le"
         }
-      ],
-      "audio": "audio/needed-edge/cb01a13e6bdd424b77.mp3"
+      ]
     },
     {
       "id": "need-0730",
@@ -16074,6 +16074,394 @@
       "audioText": "也许",
       "source": "Ghi chú từ cần học",
       "audio": "audio/needed-edge/1a2aee6322b00ff7de.mp3"
+    },
+    {
+      "id": "need-0731",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Câu hỏi với 什么样的",
+      "time": "07:31:30",
+      "meaning": "Bạn muốn sống trong căn nhà như thế nào?",
+      "hanzi": "你想住在什么样的房子里？",
+      "pinyin": "nǐ xiǎng zhù zài shénme yàng de fángzi li?",
+      "audioText": "你想住在什么样的房子里",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn muốn sống trong căn nhà như thế nào?",
+          "hanzi": "你想住在什么样的房子里？",
+          "pinyin": "nǐ xiǎng zhù zài shénme yàng de fángzi li?"
+        }
+      ],
+      "audio": "audio/needed-edge/157158c74de1649663.mp3"
+    },
+    {
+      "id": "need-0732",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Câu hỏi với 什么样的",
+      "time": "07:31:30",
+      "meaning": "vườn hoa; Bạn thấy vườn hoa như thế nào là đẹp nhất?",
+      "hanzi": "花园 / 你觉得什么样的花园最好看？",
+      "pinyin": "huāyuán / nǐ juéde shénme yàng de huāyuán zuì hǎokàn?",
+      "audioText": "花园",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "vườn hoa",
+          "hanzi": "花园",
+          "pinyin": "huāyuán"
+        },
+        {
+          "meaning": "Bạn thấy vườn hoa như thế nào là đẹp nhất?",
+          "hanzi": "你觉得什么样的花园最好看？",
+          "pinyin": "nǐ juéde shénme yàng de huāyuán zuì hǎokàn?"
+        }
+      ],
+      "audio": "audio/needed-edge/3e9fb541f0b2753e30.mp3"
+    },
+    {
+      "id": "need-0733",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Câu hỏi với 什么样的",
+      "time": "07:31:30",
+      "meaning": "sân; Bạn muốn một cái sân như thế nào?",
+      "hanzi": "院子 / 你想要一个什么样的院子？",
+      "pinyin": "yuànzi / nǐ xiǎng yào yí ge shénme yàng de yuànzi?",
+      "audioText": "院子",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "sân",
+          "hanzi": "院子",
+          "pinyin": "yuànzi"
+        },
+        {
+          "meaning": "Bạn muốn một cái sân như thế nào?",
+          "hanzi": "你想要一个什么样的院子？",
+          "pinyin": "nǐ xiǎng yào yí ge shénme yàng de yuànzi?"
+        }
+      ],
+      "audio": "audio/needed-edge/e741badf62474fe945.mp3"
+    },
+    {
+      "id": "need-0734",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Câu hỏi với 什么样的",
+      "time": "07:31:30",
+      "meaning": "Bạn thấy trong vườn nên có loại hoa như thế nào?",
+      "hanzi": "你觉得花园里应该有什么样的花？",
+      "pinyin": "nǐ juéde huāyuán li yīnggāi yǒu shénme yàng de huā?",
+      "audioText": "你觉得花园里应该有什么样的花",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn thấy trong vườn nên có loại hoa như thế nào?",
+          "hanzi": "你觉得花园里应该有什么样的花？",
+          "pinyin": "nǐ juéde huāyuán li yīnggāi yǒu shénme yàng de huā?"
+        }
+      ],
+      "audio": "audio/needed-edge/02b557a305ed524c77.mp3"
+    },
+    {
+      "id": "need-0735",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Câu hỏi với 什么样的",
+      "time": "07:31:30",
+      "meaning": "Bạn thấy căn nhà như thế nào là phù hợp nhất? Sửa: 面子 là thể diện, ở đây nên là 房子.",
+      "hanzi": "你觉得什么样的房子最合适？",
+      "pinyin": "nǐ juéde shénme yàng de fángzi zuì héshì?",
+      "audioText": "你觉得什么样的房子最合适",
+      "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/0606f7a1cde6fc4e63.mp3"
+    },
+    {
+      "id": "need-0736",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Nhà thuê, đồ đạc & vị trí",
+      "time": "07:31:30",
+      "meaning": "đồ nội thất; tiền thuê nhà; nhà có nội thất",
+      "hanzi": "家具 / 房租 / 有家具的房子",
+      "pinyin": "jiājù / fángzū / yǒu jiājù de fángzi",
+      "audioText": "家具",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "đồ nội thất",
+          "hanzi": "家具",
+          "pinyin": "jiājù"
+        },
+        {
+          "meaning": "tiền thuê nhà",
+          "hanzi": "房租",
+          "pinyin": "fángzū"
+        },
+        {
+          "meaning": "nhà có nội thất",
+          "hanzi": "有家具的房子",
+          "pinyin": "yǒu jiājù de fángzi"
+        }
+      ],
+      "audio": "audio/needed-edge/6addbecb12a08699f0.mp3"
+    },
+    {
+      "id": "need-0737",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Nhà thuê, đồ đạc & vị trí",
+      "time": "07:31:30",
+      "meaning": "Bạn muốn sống trong một căn nhà có nội thất không?",
+      "hanzi": "你想住在一个有家具的房子里吗？",
+      "pinyin": "nǐ xiǎng zhù zài yí ge yǒu jiājù de fángzi li ma?",
+      "audioText": "你想住在一个有家具的房子里吗",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Bạn muốn sống trong một căn nhà có nội thất không?",
+          "hanzi": "你想住在一个有家具的房子里吗？",
+          "pinyin": "nǐ xiǎng zhù zài yí ge yǒu jiājù de fángzi li ma?"
+        }
+      ],
+      "audio": "audio/needed-edge/50488c44e93920144e.mp3"
+    },
+    {
+      "id": "need-0738",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Nhà thuê, đồ đạc & vị trí",
+      "time": "07:31:30",
+      "meaning": "Nhà có nội thất thì đắt hơn.",
+      "hanzi": "有家具的房子更贵。",
+      "pinyin": "yǒu jiājù de fángzi gèng guì",
+      "audioText": "有家具的房子更贵",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Nhà có nội thất thì đắt hơn",
+          "hanzi": "有家具的房子更贵。",
+          "pinyin": "yǒu jiājù de fángzi gèng guì"
+        }
+      ],
+      "audio": "audio/needed-edge/5b2e6e71fa13b48cde.mp3"
+    },
+    {
+      "id": "need-0739",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Nhà thuê, đồ đạc & vị trí",
+      "time": "07:31:30",
+      "meaning": "bãi đỗ xe; Nhà gần bãi đỗ xe có đắt hơn không?",
+      "hanzi": "停车场 / 离停车场近的房子更贵吗？",
+      "pinyin": "tíngchēchǎng / lí tíngchēchǎng jìn de fángzi gèng guì ma?",
+      "audioText": "停车场",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "chỗ đỗ xe / bãi đỗ xe",
+          "hanzi": "停车场",
+          "pinyin": "tíngchēchǎng"
+        },
+        {
+          "meaning": "Nhà gần bãi đỗ xe có đắt hơn không?",
+          "hanzi": "离停车场近的房子更贵吗？",
+          "pinyin": "lí tíngchēchǎng jìn de fángzi gèng guì ma?"
+        }
+      ],
+      "audio": "audio/needed-edge/58b33c53494877b6f7.mp3"
+    },
+    {
+      "id": "need-0740",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Nhà thuê, đồ đạc & vị trí",
+      "time": "07:31:30",
+      "meaning": "Tôi muốn thuê một căn nhà có tiền thuê không quá đắt.",
+      "hanzi": "我想租一个房租不那么贵的房子。",
+      "pinyin": "wǒ xiǎng zū yí ge fángzū bù nàme guì de fángzi",
+      "audioText": "我想租一个房租不那么贵的房子",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi muốn thuê một căn nhà có tiền thuê không quá đắt",
+          "hanzi": "我想租一个房租不那么贵的房子。",
+          "pinyin": "wǒ xiǎng zū yí ge fángzū bù nàme guì de fángzi"
+        }
+      ],
+      "audio": "audio/needed-edge/ae79072e04913dbcd1.mp3"
+    },
+    {
+      "id": "need-0741",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Nhà thuê, đồ đạc & vị trí",
+      "time": "07:31:30",
+      "meaning": "Tôi muốn thuê một căn nhà gần bãi đỗ xe.",
+      "hanzi": "我想租一个离停车场近的房子。",
+      "pinyin": "wǒ xiǎng zū yí ge lí tíngchēchǎng jìn de fángzi",
+      "audioText": "我想租一个离停车场近的房子",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tôi muốn thuê một căn nhà gần bãi đỗ xe",
+          "hanzi": "我想租一个离停车场近的房子。",
+          "pinyin": "wǒ xiǎng zū yí ge lí tíngchēchǎng jìn de fángzi"
+        }
+      ],
+      "audio": "audio/needed-edge/356b2132766e6f5ae9.mp3"
+    },
+    {
+      "id": "need-0742",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Phòng ốc & 虽然...但是/不过...",
+      "time": "07:31:30",
+      "meaning": "phòng ngủ; phòng khách; phòng bếp; nhà vệ sinh; ban công",
+      "hanzi": "卧室 / 客厅 / 厨房 / 卫生间 / 阳台",
+      "pinyin": "wòshì / kètīng / chúfáng / wèishēngjiān / yángtái",
+      "audioText": "卧室",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "phòng ngủ",
+          "hanzi": "卧室",
+          "pinyin": "wòshì"
+        },
+        {
+          "meaning": "phòng khách",
+          "hanzi": "客厅",
+          "pinyin": "kètīng"
+        },
+        {
+          "meaning": "phòng bếp",
+          "hanzi": "厨房",
+          "pinyin": "chúfáng"
+        },
+        {
+          "meaning": "nhà vệ sinh",
+          "hanzi": "卫生间",
+          "pinyin": "wèishēngjiān"
+        },
+        {
+          "meaning": "ban công",
+          "hanzi": "阳台",
+          "pinyin": "yángtái"
+        }
+      ],
+      "audio": "audio/needed-edge/bf713fdbe5a712ec82.mp3"
+    },
+    {
+      "id": "need-0743",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Phòng ốc & 虽然...但是/不过...",
+      "time": "07:31:30",
+      "meaning": "Tuy phòng khách của căn nhà này rất lớn, nhưng tiền thuê quá đắt.",
+      "hanzi": "虽然这个房子的客厅很大，但是房租太贵了。",
+      "pinyin": "suīrán zhè ge fángzi de kètīng hěn dà, dànshì fángzū tài guì le",
+      "audioText": "虽然这个房子的客厅很大但是房租太贵了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tuy phòng khách của căn nhà này rất lớn, nhưng tiền thuê quá đắt",
+          "hanzi": "虽然这个房子的客厅很大，但是房租太贵了。",
+          "pinyin": "suīrán zhè ge fángzi de kètīng hěn dà, dànshì fángzū tài guì le"
+        }
+      ],
+      "audio": "audio/needed-edge/8627bbab0ae5e6d33c.mp3"
+    },
+    {
+      "id": "need-0744",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Phòng ốc & 虽然...但是/不过...",
+      "time": "07:31:30",
+      "meaning": "Căn nhà này tuy có ba phòng ngủ, nhưng không có phòng khách.",
+      "hanzi": "这个房子虽然有三个卧室，但是没有客厅。",
+      "pinyin": "zhè ge fángzi suīrán yǒu sān ge wòshì, dànshì méiyǒu kètīng",
+      "audioText": "这个房子虽然有三个卧室但是没有客厅",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Căn nhà này tuy có ba phòng ngủ, nhưng không có phòng khách",
+          "hanzi": "这个房子虽然有三个卧室，但是没有客厅。",
+          "pinyin": "zhè ge fángzi suīrán yǒu sān ge wòshì, dànshì méiyǒu kètīng"
+        }
+      ],
+      "audio": "audio/needed-edge/a8c5311e70ca0ebf67.mp3"
+    },
+    {
+      "id": "need-0745",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Phòng ốc & 虽然...但是/不过...",
+      "time": "07:31:30",
+      "meaning": "Tuy căn nhà này có nội thất, nhưng phòng khách của nó quá nhỏ. Sửa: căn nhà dùng 它的, không dùng 他的.",
+      "hanzi": "虽然这个房子里有家具，但是它的客厅太小了。",
+      "pinyin": "suīrán zhè ge fángzi li yǒu jiājù, dànshì tā de kètīng tài xiǎo le",
+      "audioText": "虽然这个房子里有家具但是它的客厅太小了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Tuy căn nhà này có nội thất, nhưng phòng khách của nó quá nhỏ",
+          "hanzi": "虽然这个房子里有家具，但是它的客厅太小了。",
+          "pinyin": "suīrán zhè ge fángzi li yǒu jiājù, dànshì tā de kètīng tài xiǎo le"
+        }
+      ],
+      "audio": "audio/needed-edge/10b574af9df50ef993.mp3"
+    },
+    {
+      "id": "need-0746",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Phòng ốc & 虽然...但是/不过...",
+      "time": "07:31:30",
+      "meaning": "Phòng ngủ của căn nhà này rất lớn, nhưng nhà vệ sinh quá nhỏ.",
+      "hanzi": "这个房子的卧室很大，不过卫生间太小了。",
+      "pinyin": "zhè ge fángzi de wòshì hěn dà, búguò wèishēngjiān tài xiǎo le",
+      "audioText": "这个房子的卧室很大不过卫生间太小了",
+      "source": "Ghi chú từ cần học",
+      "translationTargets": [
+        {
+          "meaning": "Phòng ngủ của căn nhà này rất lớn, nhưng nhà vệ sinh quá nhỏ",
+          "hanzi": "这个房子的卧室很大，不过卫生间太小了。",
+          "pinyin": "zhè ge fángzi de wòshì hěn dà, búguò wèishēngjiān tài xiǎo le"
+        }
+      ],
+      "audio": "audio/needed-edge/9392622a441e24a05f.mp3"
+    },
+    {
+      "id": "need-0747",
+      "date": "2026-08-09",
+      "month": "2026-08",
+      "topic": "Bài 35: Nhà thuê, phòng ốc & sân vườn",
+      "group": "Phòng ốc & 虽然...但是/不过...",
+      "time": "07:31:30",
+      "meaning": "nhưng / tuy nhiên. Không cần lặp 可是可是.",
+      "hanzi": "可是 / 不过 / 但是",
+      "pinyin": "kěshì / búguò / dànshì",
+      "audioText": "可是",
+      "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/0e01567957bc6ce545.mp3"
     }
   ],
   "audio": {
@@ -16081,7 +16469,7 @@
     "voice": "zh-CN-XiaoxiaoNeural",
     "rate": "-5%",
     "directory": "audio/needed-edge",
-    "updatedAt": "2026-08-07T23:19:33.956Z",
-    "available": 730
+    "updatedAt": "2026-08-09T03:12:32.979Z",
+    "available": 747
   }
 }

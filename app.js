@@ -9192,9 +9192,9 @@ async function loadLearningLibraries() {
     fetch("data/hsk-vocabulary.json"),
     fetch("data/common-sentences.json"),
     fetch("data/hsk-explanations.json"),
-    fetch("data/needed-words.json?v=needed-20260808a"),
+    fetch("data/needed-words.json?v=needed-20260809b"),
     fetch("data/component-contrasts.json"),
-    fetch("data/grammar-notes.json?v=grammar-20260808a")
+    fetch("data/grammar-notes.json?v=grammar-20260809b")
   ]);
 
   if (!hskResponse.ok || !sentenceResponse.ok || !explanationResponse.ok || !neededResponse.ok || !componentResponse.ok || !grammarResponse.ok) {
