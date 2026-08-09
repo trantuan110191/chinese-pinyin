@@ -7242,7 +7242,7 @@ function getNeededNoteDateLabel(word) {
 }
 
 function getNeededNoteDate(word) {
-  return word?.date || "Không rõ ngày";
+  return word?.dateKey || word?.lessonDate || word?.date || "Không rõ ngày";
 }
 
 function getNeededNoteMonth(word) {
@@ -7341,7 +7341,7 @@ function getNeededNotesFilterSummary(total) {
   const { learned, remaining } = getNeededNotesProgressStats(words);
   const label = neededNotesDate === "all"
     ? "Tất cả ngày"
-    : [formatNeededNoteDateShort(neededNotesDate), getNeededNotesDateTopicSummary(neededNotesDate)].filter(Boolean).join(" · ");
+    : [getNeededNoteDateDisplay(neededNotesDate), getNeededNotesDateTopicSummary(neededNotesDate)].filter(Boolean).join(" · ");
   return `${label} · đã ${learned}/${total} · còn ${remaining}`;
 }
 
@@ -7359,9 +7359,19 @@ function getNeededNotesProgressLabel(words) {
 }
 
 function formatNeededNoteDateShort(date) {
-  const match = String(date || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const match = String(date || "").match(/^(\d{4})-(\d{2})-(\d{2})(?:(?:[-_](lan[-_]?\d+))|\s*[-–—]\s*(.+))?$/i);
   if (!match) return date || "Không rõ ngày";
-  return `${match[3]}/${match[2]}`;
+  const suffix = String(match[4] || match[5] || "")
+    .replace(/^lan[-_]?/i, "lần ")
+    .replace(/[-_]+/g, " ")
+    .toLocaleLowerCase("vi")
+    .trim();
+  return `${match[3]}/${match[2]}${suffix ? ` ${suffix}` : ""}`;
+}
+
+function getNeededNoteDateDisplay(date) {
+  const labeledWord = neededNoteWords.find((word) => getNeededNoteDate(word) === date && word?.dateLabel);
+  return labeledWord?.dateLabel || formatNeededNoteDateShort(date);
 }
 
 function getNeededNotesDateTopicSummary(date) {
@@ -7516,12 +7526,20 @@ function getNeededNotesCurrentWord() {
 }
 
 function getNeededNotesModes() {
-  return {
+  const modes = {
     choice: "Chọn đáp án",
-    translate: "Dịch Việt → Trung",
     flashcard: "Flash card",
     list: "Danh sách từ",
   };
+  if (getNeededNotesFilteredWords().some((word) => hasNeededNotesTranslationTargets(word))) {
+    return {
+      choice: modes.choice,
+      translate: "Dịch Việt → Trung",
+      flashcard: modes.flashcard,
+      list: modes.list,
+    };
+  }
+  return modes;
 }
 
 function normalizeNeededNotesMode(mode) {
@@ -7741,6 +7759,7 @@ function getNeededNotesCuratedTranslationTargets(word) {
 }
 
 function hasNeededNotesTranslationTargets(word) {
+  if (word?.disableTranslation) return false;
   return getNeededNotesCuratedTranslationTargets(word).length > 0;
 }
 
@@ -7952,7 +7971,7 @@ function renderNeededNotesFilterPanel(total, menuPopoverContent = "") {
     const topic = getNeededNotesDateTopicSummary(date);
     return `
       <button class="needed-date-chip ${neededNotesDate === date ? "active" : ""}" data-needed-date="${escapeHtml(date)}" type="button">
-        <strong>Ngày ${escapeHtml(formatNeededNoteDateShort(date))}</strong>
+        <strong>Ngày ${escapeHtml(getNeededNoteDateDisplay(date))}</strong>
         <span><em>${escapeHtml(topic || "chưa phân loại")}</em><b>${escapeHtml(renderNeededNotesDateProgress(words))}</b></span>
       </button>
     `;
@@ -7968,7 +7987,7 @@ function renderNeededNotesFilterPanel(total, menuPopoverContent = "") {
         <div class="needed-menu-popover needed-menu-popover-unified" ${neededNotesMenuExpanded ? "" : "hidden"}>
           <div class="needed-menu-summary">
             <small>Đã học ${learnedCount}/${total}</small>
-            <strong>${neededNotesDate === "all" ? "Tất cả ngày" : `Ngày ${escapeHtml(formatNeededNoteDateShort(neededNotesDate))}`}</strong>
+            <strong>${neededNotesDate === "all" ? "Tất cả ngày" : `Ngày ${escapeHtml(getNeededNoteDateDisplay(neededNotesDate))}`}</strong>
             <span>${escapeHtml(currentSummary || "chưa phân loại")} · còn ${remainingCount}</span>
             ${learnedCount ? `<button class="needed-relearn-inline" data-needed-relearn-all type="button">Học lại ${learnedCount} từ đã học</button>` : ""}
           </div>
@@ -9212,9 +9231,9 @@ async function loadLearningLibraries() {
     fetch("data/hsk-vocabulary.json"),
     fetch("data/common-sentences.json"),
     fetch("data/hsk-explanations.json"),
-    fetch("data/needed-words.json?v=needed-20260809b"),
+    fetch("data/needed-words.json?v=needed-20260809c"),
     fetch("data/component-contrasts.json"),
-    fetch("data/grammar-notes.json?v=grammar-20260809b")
+    fetch("data/grammar-notes.json?v=grammar-20260809c")
   ]);
 
   if (!hskResponse.ok || !sentenceResponse.ok || !explanationResponse.ok || !neededResponse.ok || !componentResponse.ok || !grammarResponse.ok) {

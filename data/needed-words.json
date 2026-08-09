@@ -1,7 +1,7 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-09T03:11:46.734Z",
-  "count": 747,
+  "syncedAt": "2026-08-09T08:13:47.671Z",
+  "count": 782,
   "words": [
     {
       "id": "need-0001",
@@ -16087,14 +16087,14 @@
       "pinyin": "nǐ xiǎng zhù zài shénme yàng de fángzi li?",
       "audioText": "你想住在什么样的房子里",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/157158c74de1649663.mp3",
       "translationTargets": [
         {
           "meaning": "Bạn muốn sống trong căn nhà như thế nào?",
           "hanzi": "你想住在什么样的房子里？",
           "pinyin": "nǐ xiǎng zhù zài shénme yàng de fángzi li?"
         }
-      ],
-      "audio": "audio/needed-edge/157158c74de1649663.mp3"
+      ]
     },
     {
       "id": "need-0732",
@@ -16108,6 +16108,7 @@
       "pinyin": "huāyuán / nǐ juéde shénme yàng de huāyuán zuì hǎokàn?",
       "audioText": "花园",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/3e9fb541f0b2753e30.mp3",
       "translationTargets": [
         {
           "meaning": "vườn hoa",
@@ -16119,8 +16120,7 @@
           "hanzi": "你觉得什么样的花园最好看？",
           "pinyin": "nǐ juéde shénme yàng de huāyuán zuì hǎokàn?"
         }
-      ],
-      "audio": "audio/needed-edge/3e9fb541f0b2753e30.mp3"
+      ]
     },
     {
       "id": "need-0733",
@@ -16134,6 +16134,7 @@
       "pinyin": "yuànzi / nǐ xiǎng yào yí ge shénme yàng de yuànzi?",
       "audioText": "院子",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/e741badf62474fe945.mp3",
       "translationTargets": [
         {
           "meaning": "sân",
@@ -16145,8 +16146,7 @@
           "hanzi": "你想要一个什么样的院子？",
           "pinyin": "nǐ xiǎng yào yí ge shénme yàng de yuànzi?"
         }
-      ],
-      "audio": "audio/needed-edge/e741badf62474fe945.mp3"
+      ]
     },
     {
       "id": "need-0734",
@@ -16160,14 +16160,14 @@
       "pinyin": "nǐ juéde huāyuán li yīnggāi yǒu shénme yàng de huā?",
       "audioText": "你觉得花园里应该有什么样的花",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/02b557a305ed524c77.mp3",
       "translationTargets": [
         {
           "meaning": "Bạn thấy trong vườn nên có loại hoa như thế nào?",
           "hanzi": "你觉得花园里应该有什么样的花？",
           "pinyin": "nǐ juéde huāyuán li yīnggāi yǒu shénme yàng de huā?"
         }
-      ],
-      "audio": "audio/needed-edge/02b557a305ed524c77.mp3"
+      ]
     },
     {
       "id": "need-0735",
@@ -16195,6 +16195,7 @@
       "pinyin": "jiājù / fángzū / yǒu jiājù de fángzi",
       "audioText": "家具",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/6addbecb12a08699f0.mp3",
       "translationTargets": [
         {
           "meaning": "đồ nội thất",
@@ -16211,8 +16212,7 @@
           "hanzi": "有家具的房子",
           "pinyin": "yǒu jiājù de fángzi"
         }
-      ],
-      "audio": "audio/needed-edge/6addbecb12a08699f0.mp3"
+      ]
     },
     {
       "id": "need-0737",
@@ -16226,14 +16226,14 @@
       "pinyin": "nǐ xiǎng zhù zài yí ge yǒu jiājù de fángzi li ma?",
       "audioText": "你想住在一个有家具的房子里吗",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/50488c44e93920144e.mp3",
       "translationTargets": [
         {
           "meaning": "Bạn muốn sống trong một căn nhà có nội thất không?",
           "hanzi": "你想住在一个有家具的房子里吗？",
           "pinyin": "nǐ xiǎng zhù zài yí ge yǒu jiājù de fángzi li ma?"
         }
-      ],
-      "audio": "audio/needed-edge/50488c44e93920144e.mp3"
+      ]
     },
     {
       "id": "need-0738",
@@ -16247,14 +16247,14 @@
       "pinyin": "yǒu jiājù de fángzi gèng guì",
       "audioText": "有家具的房子更贵",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/5b2e6e71fa13b48cde.mp3",
       "translationTargets": [
         {
           "meaning": "Nhà có nội thất thì đắt hơn",
           "hanzi": "有家具的房子更贵。",
           "pinyin": "yǒu jiājù de fángzi gèng guì"
         }
-      ],
-      "audio": "audio/needed-edge/5b2e6e71fa13b48cde.mp3"
+      ]
     },
     {
       "id": "need-0739",
@@ -16268,6 +16268,7 @@
       "pinyin": "tíngchēchǎng / lí tíngchēchǎng jìn de fángzi gèng guì ma?",
       "audioText": "停车场",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/58b33c53494877b6f7.mp3",
       "translationTargets": [
         {
           "meaning": "chỗ đỗ xe / bãi đỗ xe",
@@ -16279,8 +16280,7 @@
           "hanzi": "离停车场近的房子更贵吗？",
           "pinyin": "lí tíngchēchǎng jìn de fángzi gèng guì ma?"
         }
-      ],
-      "audio": "audio/needed-edge/58b33c53494877b6f7.mp3"
+      ]
     },
     {
       "id": "need-0740",
@@ -16294,14 +16294,14 @@
       "pinyin": "wǒ xiǎng zū yí ge fángzū bù nàme guì de fángzi",
       "audioText": "我想租一个房租不那么贵的房子",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/ae79072e04913dbcd1.mp3",
       "translationTargets": [
         {
           "meaning": "Tôi muốn thuê một căn nhà có tiền thuê không quá đắt",
           "hanzi": "我想租一个房租不那么贵的房子。",
           "pinyin": "wǒ xiǎng zū yí ge fángzū bù nàme guì de fángzi"
         }
-      ],
-      "audio": "audio/needed-edge/ae79072e04913dbcd1.mp3"
+      ]
     },
     {
       "id": "need-0741",
@@ -16315,14 +16315,14 @@
       "pinyin": "wǒ xiǎng zū yí ge lí tíngchēchǎng jìn de fángzi",
       "audioText": "我想租一个离停车场近的房子",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/356b2132766e6f5ae9.mp3",
       "translationTargets": [
         {
           "meaning": "Tôi muốn thuê một căn nhà gần bãi đỗ xe",
           "hanzi": "我想租一个离停车场近的房子。",
           "pinyin": "wǒ xiǎng zū yí ge lí tíngchēchǎng jìn de fángzi"
         }
-      ],
-      "audio": "audio/needed-edge/356b2132766e6f5ae9.mp3"
+      ]
     },
     {
       "id": "need-0742",
@@ -16336,6 +16336,7 @@
       "pinyin": "wòshì / kètīng / chúfáng / wèishēngjiān / yángtái",
       "audioText": "卧室",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/bf713fdbe5a712ec82.mp3",
       "translationTargets": [
         {
           "meaning": "phòng ngủ",
@@ -16362,8 +16363,7 @@
           "hanzi": "阳台",
           "pinyin": "yángtái"
         }
-      ],
-      "audio": "audio/needed-edge/bf713fdbe5a712ec82.mp3"
+      ]
     },
     {
       "id": "need-0743",
@@ -16377,14 +16377,14 @@
       "pinyin": "suīrán zhè ge fángzi de kètīng hěn dà, dànshì fángzū tài guì le",
       "audioText": "虽然这个房子的客厅很大但是房租太贵了",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/8627bbab0ae5e6d33c.mp3",
       "translationTargets": [
         {
           "meaning": "Tuy phòng khách của căn nhà này rất lớn, nhưng tiền thuê quá đắt",
           "hanzi": "虽然这个房子的客厅很大，但是房租太贵了。",
           "pinyin": "suīrán zhè ge fángzi de kètīng hěn dà, dànshì fángzū tài guì le"
         }
-      ],
-      "audio": "audio/needed-edge/8627bbab0ae5e6d33c.mp3"
+      ]
     },
     {
       "id": "need-0744",
@@ -16398,14 +16398,14 @@
       "pinyin": "zhè ge fángzi suīrán yǒu sān ge wòshì, dànshì méiyǒu kètīng",
       "audioText": "这个房子虽然有三个卧室但是没有客厅",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/a8c5311e70ca0ebf67.mp3",
       "translationTargets": [
         {
           "meaning": "Căn nhà này tuy có ba phòng ngủ, nhưng không có phòng khách",
           "hanzi": "这个房子虽然有三个卧室，但是没有客厅。",
           "pinyin": "zhè ge fángzi suīrán yǒu sān ge wòshì, dànshì méiyǒu kètīng"
         }
-      ],
-      "audio": "audio/needed-edge/a8c5311e70ca0ebf67.mp3"
+      ]
     },
     {
       "id": "need-0745",
@@ -16419,14 +16419,14 @@
       "pinyin": "suīrán zhè ge fángzi li yǒu jiājù, dànshì tā de kètīng tài xiǎo le",
       "audioText": "虽然这个房子里有家具但是它的客厅太小了",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/10b574af9df50ef993.mp3",
       "translationTargets": [
         {
           "meaning": "Tuy căn nhà này có nội thất, nhưng phòng khách của nó quá nhỏ",
           "hanzi": "虽然这个房子里有家具，但是它的客厅太小了。",
           "pinyin": "suīrán zhè ge fángzi li yǒu jiājù, dànshì tā de kètīng tài xiǎo le"
         }
-      ],
-      "audio": "audio/needed-edge/10b574af9df50ef993.mp3"
+      ]
     },
     {
       "id": "need-0746",
@@ -16440,14 +16440,14 @@
       "pinyin": "zhè ge fángzi de wòshì hěn dà, búguò wèishēngjiān tài xiǎo le",
       "audioText": "这个房子的卧室很大不过卫生间太小了",
       "source": "Ghi chú từ cần học",
+      "audio": "audio/needed-edge/9392622a441e24a05f.mp3",
       "translationTargets": [
         {
           "meaning": "Phòng ngủ của căn nhà này rất lớn, nhưng nhà vệ sinh quá nhỏ",
           "hanzi": "这个房子的卧室很大，不过卫生间太小了。",
           "pinyin": "zhè ge fángzi de wòshì hěn dà, búguò wèishēngjiān tài xiǎo le"
         }
-      ],
-      "audio": "audio/needed-edge/9392622a441e24a05f.mp3"
+      ]
     },
     {
       "id": "need-0747",
@@ -16462,6 +16462,531 @@
       "audioText": "可是",
       "source": "Ghi chú từ cần học",
       "audio": "audio/needed-edge/0e01567957bc6ce545.mp3"
+    },
+    {
+      "id": "need-0748",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Trước/sau khi nuôi chó",
+      "time": "14:44:49",
+      "meaning": "có ích / lợi ích. Hay dùng trong 有益.",
+      "hanzi": "益 / 有益",
+      "pinyin": "yì / yǒuyì",
+      "audioText": "益",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/d6b3f2d60675501401.mp3"
+    },
+    {
+      "id": "need-0749",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Trước/sau khi nuôi chó",
+      "time": "14:44:49",
+      "meaning": "sợ; sợ chó; đặc biệt sợ chó",
+      "hanzi": "怕 / 怕狗 / 特别怕狗",
+      "pinyin": "pà / pà gǒu / tèbié pà gǒu",
+      "audioText": "怕",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/bc1c58b84b5a695b4b.mp3"
+    },
+    {
+      "id": "need-0750",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Trước/sau khi nuôi chó",
+      "time": "14:44:49",
+      "meaning": "Trước khi tôi nuôi chó, bạn trai tôi đặc biệt sợ chó.",
+      "hanzi": "在我养狗以前，我的男朋友特别怕狗。",
+      "pinyin": "zài wǒ yǎng gǒu yǐqián, wǒ de nánpéngyou tèbié pà gǒu",
+      "audioText": "在我养狗以前我的男朋友特别怕狗",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/8011de2b4cc918bd50.mp3"
+    },
+    {
+      "id": "need-0751",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Trước/sau khi nuôi chó",
+      "time": "14:44:49",
+      "meaning": "Trước khi nuôi chó, tôi đặc biệt không thích chó.",
+      "hanzi": "在养狗以前，我特别不喜欢狗。",
+      "pinyin": "zài yǎng gǒu yǐqián, wǒ tèbié bù xǐhuan gǒu",
+      "audioText": "在养狗以前我特别不喜欢狗",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/5084e3c9f8873b9179.mp3"
+    },
+    {
+      "id": "need-0752",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Trước/sau khi nuôi chó",
+      "time": "14:44:49",
+      "meaning": "Trước khi chúng tôi quen nhau, tôi đặc biệt sợ chó.",
+      "hanzi": "在我们认识以前，我特别怕狗。",
+      "pinyin": "zài wǒmen rènshi yǐqián, wǒ tèbié pà gǒu",
+      "audioText": "在我们认识以前我特别怕狗",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/8df3cfdee534eccbd2.mp3"
+    },
+    {
+      "id": "need-0753",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Trước/sau khi nuôi chó",
+      "time": "14:44:49",
+      "meaning": "Trước khi nuôi chó, tôi đặc biệt không thích ra ngoài.",
+      "hanzi": "养狗以前，我特别不喜欢出门。",
+      "pinyin": "yǎng gǒu yǐqián, wǒ tèbié bù xǐhuan chūmén",
+      "audioText": "养狗以前我特别不喜欢出门",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/d94b862bbd1abdc600.mp3"
+    },
+    {
+      "id": "need-0754",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Trước/sau khi nuôi chó",
+      "time": "14:44:49",
+      "meaning": "Trước khi nuôi chó, tôi đặc biệt sợ gặp người xấu.",
+      "hanzi": "养狗前，我特别怕碰到坏人。",
+      "pinyin": "yǎng gǒu qián, wǒ tèbié pà pèngdào huàirén",
+      "audioText": "养狗前我特别怕碰到坏人",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/48f131d26b9c4d20fd.mp3"
+    },
+    {
+      "id": "need-0755",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Trước/sau khi nuôi chó",
+      "time": "14:44:49",
+      "meaning": "sau khi nuôi chó; tất cả; tất cả chó đều rất thân thiện",
+      "hanzi": "养狗以后 / 所有 / 所有的狗都很友好",
+      "pinyin": "yǎng gǒu yǐhòu / suǒyǒu / suǒyǒu de gǒu dōu hěn yǒuhǎo",
+      "audioText": "养狗以后",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/dca933e8e80ae8d22e.mp3"
+    },
+    {
+      "id": "need-0756",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Trước/sau khi nuôi chó",
+      "time": "14:44:49",
+      "meaning": "Sau khi nuôi chó, tôi thấy tất cả chó đều rất thân thiện.",
+      "hanzi": "养狗以后，我觉得所有的狗都很友好。",
+      "pinyin": "yǎng gǒu yǐhòu, wǒ juéde suǒyǒu de gǒu dōu hěn yǒuhǎo",
+      "audioText": "养狗以后我觉得所有的狗都很友好",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/8dc202747b2eed3858.mp3"
+    },
+    {
+      "id": "need-0757",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Trước/sau khi nuôi chó",
+      "time": "14:44:49",
+      "meaning": "Sau khi nuôi chó, tôi không sợ chó nữa.",
+      "hanzi": "养狗以后，我不怕狗了。",
+      "pinyin": "yǎng gǒu yǐhòu, wǒ bú pà gǒu le",
+      "audioText": "养狗以后我不怕狗了",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/1861c3bb9d021bdfba.mp3"
+    },
+    {
+      "id": "need-0758",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Khi... thì...",
+      "time": "14:44:49",
+      "meaning": "Khi tôi không ở nhà, chó của tôi sẽ yên lặng ngồi trên đất.",
+      "hanzi": "当我不在家的时候，我的狗会安静地坐在地上。",
+      "pinyin": "dāng wǒ bú zài jiā de shíhou, wǒ de gǒu huì ānjìng de zuò zài dì shang",
+      "audioText": "当我不在家的时候我的狗会安静地坐在地上",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/028153b4c0a397fc4d.mp3"
+    },
+    {
+      "id": "need-0759",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Khi... thì...",
+      "time": "14:44:49",
+      "meaning": "to tiếng; nhỏ tiếng / nói nhỏ",
+      "hanzi": "大声 / 小声",
+      "pinyin": "dàshēng / xiǎoshēng",
+      "audioText": "大声",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/4a7e09793f03873194.mp3"
+    },
+    {
+      "id": "need-0760",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Khi... thì...",
+      "time": "14:44:49",
+      "meaning": "khách; khi trong nhà có khách",
+      "hanzi": "客人 / 当家里有客人的时候",
+      "pinyin": "kèrén / dāng jiā li yǒu kèrén de shíhou",
+      "audioText": "客人",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/8fe92a4bb133ba072b.mp3"
+    },
+    {
+      "id": "need-0761",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Khi... thì...",
+      "time": "14:44:49",
+      "meaning": "Khi tôi nói to, mèo của tôi sẽ kêu nhỏ.",
+      "hanzi": "当我大声地说话的时候，我的猫会小声地叫。",
+      "pinyin": "dāng wǒ dàshēng de shuōhuà de shíhou, wǒ de māo huì xiǎoshēng de jiào",
+      "audioText": "当我大声地说话的时候我的猫会小声地叫",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/a3f05aa8b53ce2d385.mp3"
+    },
+    {
+      "id": "need-0762",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Khi... thì...",
+      "time": "14:44:49",
+      "meaning": "Khi chó của tôi đói, nó sẽ kêu to.",
+      "hanzi": "当我的狗饿了的时候，它会大声地叫。",
+      "pinyin": "dāng wǒ de gǒu è le de shíhou, tā huì dàshēng de jiào",
+      "audioText": "当我的狗饿了的时候它会大声地叫",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/f090c98f32c6cf3fae.mp3"
+    },
+    {
+      "id": "need-0763",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Khi... thì...",
+      "time": "14:44:49",
+      "meaning": "Khi tôi gọi to tên chó của tôi, nó sẽ quay lại bên cạnh tôi.",
+      "hanzi": "当我大声地喊我的狗的名字的时候，它会回到我身边。",
+      "pinyin": "dāng wǒ dàshēng de hǎn wǒ de gǒu de míngzi de shíhou, tā huì huí dào wǒ shēnbiān",
+      "audioText": "当我大声地喊我的狗的名字的时候它会回到我身边",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/81f0a5be9fb71dcfae.mp3"
+    },
+    {
+      "id": "need-0764",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Khi... thì...",
+      "time": "14:44:49",
+      "meaning": "Khi trong nhà có khách, chó của tôi thường kêu to.",
+      "hanzi": "当家里有客人的时候，我的狗经常大声地叫。",
+      "pinyin": "dāng jiā li yǒu kèrén de shíhou, wǒ de gǒu jīngcháng dàshēng de jiào",
+      "audioText": "当家里有客人的时候我的狗经常大声地叫",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/4edf4d9d79c0779e27.mp3"
+    },
+    {
+      "id": "need-0765",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Khi... thì...",
+      "time": "14:44:49",
+      "meaning": "Khi bên cạnh có người, chó của tôi sẽ kêu to.",
+      "hanzi": "当身边有人的时候，我的狗会大声地叫。",
+      "pinyin": "dāng shēnbiān yǒu rén de shíhou, wǒ de gǒu huì dàshēng de jiào",
+      "audioText": "当身边有人的时候我的狗会大声地叫",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/49f484b55a9260e3eb.mp3"
+    },
+    {
+      "id": "need-0766",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "không ở bên cạnh anh ấy; tôi sẽ luôn ở bên cạnh bạn",
+      "hanzi": "不在他身边 / 我会一直在你身边",
+      "pinyin": "bú zài tā shēnbiān / wǒ huì yìzhí zài nǐ shēnbiān",
+      "audioText": "不在他身边",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/a5b5735055130ac074.mp3"
+    },
+    {
+      "id": "need-0767",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Sao tôi nghe thấy tiếng mèo kêu ở nhà bạn?",
+      "hanzi": "我怎么在你家听见了猫叫的声音？",
+      "pinyin": "wǒ zěnme zài nǐ jiā tīngjiàn le māo jiào de shēngyīn?",
+      "audioText": "我怎么在你家听见了猫叫的声音",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/626d1fe9063df6636e.mp3"
+    },
+    {
+      "id": "need-0768",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Một tuần trước, bạn tôi cho tôi một con mèo.",
+      "hanzi": "一个星期以前，我朋友给了我一只猫。",
+      "pinyin": "yí ge xīngqī yǐqián, wǒ péngyou gěi le wǒ yì zhī māo",
+      "audioText": "一个星期以前我朋友给了我一只猫",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/7ec9a916f3408a67bd.mp3"
+    },
+    {
+      "id": "need-0769",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "cứ kêu mãi; chó của tôi đặc biệt sợ mèo. Sửa: 我都狗 → 我的狗.",
+      "hanzi": "一直在叫 / 我的狗特别怕猫",
+      "pinyin": "yìzhí zài jiào / wǒ de gǒu tèbié pà māo",
+      "audioText": "一直在叫",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/e7be293620aa9d0595.mp3"
+    },
+    {
+      "id": "need-0770",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Bạn có thể nói nhỏ một chút được không?",
+      "hanzi": "你可不可以小声一点？",
+      "pinyin": "nǐ kě bù kěyǐ xiǎoshēng yìdiǎn?",
+      "audioText": "你可不可以小声一点",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/92bf7a8480f4016a9d.mp3"
+    },
+    {
+      "id": "need-0771",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "bên đường; ngửi; chủ nhân; cảm giác",
+      "hanzi": "路边 / 闻 / 主人 / 感觉",
+      "pinyin": "lùbiān / wén / zhǔrén / gǎnjué",
+      "audioText": "路边",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/edf95a7258593bcb58.mp3"
+    },
+    {
+      "id": "need-0772",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Trong công viên này chỗ nào cũng có chó.",
+      "hanzi": "这个公园里到处都有狗。",
+      "pinyin": "zhè ge gōngyuán li dàochù dōu yǒu gǒu",
+      "audioText": "这个公园里到处都有狗",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/e570f20196865d8e3d.mp3"
+    },
+    {
+      "id": "need-0773",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Chó của tôi thích ngửi khắp nơi bên đường.",
+      "hanzi": "我的狗喜欢在路边到处闻。",
+      "pinyin": "wǒ de gǒu xǐhuan zài lùbiān dàochù wén",
+      "audioText": "我的狗喜欢在路边到处闻",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/43293b275e5e93f8c8.mp3"
+    },
+    {
+      "id": "need-0774",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "không đáng sợ; chó của tôi trông không đáng sợ.",
+      "hanzi": "不可怕 / 我的狗长得不可怕。",
+      "pinyin": "bù kěpà / wǒ de gǒu zhǎng de bù kěpà",
+      "audioText": "不可怕",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/38c60aa011c2edb679.mp3"
+    },
+    {
+      "id": "need-0775",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Con chó này trông quá to, hơi đáng sợ.",
+      "hanzi": "这只狗长得太大了，有点可怕。",
+      "pinyin": "zhè zhī gǒu zhǎng de tài dà le, yǒudiǎn kěpà",
+      "audioText": "这只狗长得太大了有点可怕",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/8a26d38a9f5bc5580b.mp3"
+    },
+    {
+      "id": "need-0776",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Tôi đặc biệt muốn nuôi một con mèo màu trắng.",
+      "hanzi": "我特别想养一只白色的猫。",
+      "pinyin": "wǒ tèbié xiǎng yǎng yì zhī báisè de māo",
+      "audioText": "我特别想养一只白色的猫",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/bec7de352350b53ed1.mp3"
+    },
+    {
+      "id": "need-0777",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Đừng sợ, nó không cắn người.",
+      "hanzi": "你别怕，它不会咬人。",
+      "pinyin": "nǐ bié pà, tā bú huì yǎo rén",
+      "audioText": "你别怕它不会咬人",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/d71b6cfdfb3d3eb5cd.mp3"
+    },
+    {
+      "id": "need-0778",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Chó của bạn trông hơi đáng sợ.",
+      "hanzi": "你的狗长得有点可怕。",
+      "pinyin": "nǐ de gǒu zhǎng de yǒudiǎn kěpà",
+      "audioText": "你的狗长得有点可怕",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/ee663137e00d80dc17.mp3"
+    },
+    {
+      "id": "need-0779",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Vừa nãy có một con chó chạy qua bên cạnh tôi, nó chạy đặc biệt nhanh.",
+      "hanzi": "刚才一只狗从我身边经过，它跑得特别快。",
+      "pinyin": "gāngcái yì zhī gǒu cóng wǒ shēnbiān jīngguò, tā pǎo de tèbié kuài",
+      "audioText": "刚才一只狗从我身边经过它跑得特别快",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/8c724470c438c7db54.mp3"
+    },
+    {
+      "id": "need-0780",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Nó ăn đặc biệt nhiều.",
+      "hanzi": "它吃得特别多。",
+      "pinyin": "tā chī de tèbié duō",
+      "audioText": "它吃得特别多",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/ce841d537343a70fee.mp3"
+    },
+    {
+      "id": "need-0781",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Chó của tôi chỉ thích những vị khách trông rất đẹp.",
+      "hanzi": "我的狗只喜欢长得很好看的客人。",
+      "pinyin": "wǒ de gǒu zhǐ xǐhuan zhǎng de hěn hǎokàn de kèrén",
+      "audioText": "我的狗只喜欢长得很好看的客人",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/2dc8446c6929fb1d88.mp3"
+    },
+    {
+      "id": "need-0782",
+      "date": "2026-08-09 - Lần 2",
+      "month": "2026-08",
+      "topic": "Bài 36: Chó mèo, sợ hãi & 当...的时候",
+      "group": "Âm thanh, bên cạnh & miêu tả chó mèo",
+      "time": "14:44:49",
+      "meaning": "Nói chuyện khác một chút nhé. Tự nhiên hơn: 说点别的话吧.",
+      "hanzi": "你说一下别的话 / 说点别的话吧",
+      "pinyin": "nǐ shuō yíxià bié de huà / shuō diǎn bié de huà ba",
+      "audioText": "你说一下别的话",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/457b592efcecd3a838.mp3"
     }
   ],
   "audio": {
@@ -16469,7 +16994,7 @@
     "voice": "zh-CN-XiaoxiaoNeural",
     "rate": "-5%",
     "directory": "audio/needed-edge",
-    "updatedAt": "2026-08-09T03:12:32.979Z",
-    "available": 747
+    "updatedAt": "2026-08-09T08:15:21.603Z",
+    "available": 782
   }
 }

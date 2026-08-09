@@ -1,8 +1,8 @@
 {
   "source": "Từ cần học/ngu_phap_tieng_trung.html",
-  "syncedAt": "2026-08-09T03:11:46.703Z",
+  "syncedAt": "2026-08-09T08:13:47.712Z",
   "updatedAt": "2026-08-09",
-  "count": 17,
+  "count": 20,
   "notes": [
     {
       "id": "on-ngu-phap",
@@ -2124,8 +2124,176 @@
       "searchText": "Cấu trúc 虽然...但是 / 不过... 虽然...但是 / 不过... 虽然 mở vế “tuy là...”, còn 但是 / 不过 / 可是 nối vế “nhưng...”. Trong nói thường ngày, 不过 rất tự nhiên. 虽然 + vế 1，但是 + vế 2 vế 1，不过 + vế 2 可是 / 不过 / 但是 đều là “nhưng”, không cần lặp 可是可是 . Tuy phòng khách của căn nhà này rất lớn, nhưng tiền thuê quá đắt. 虽然这个房子的客厅很大，但是房租太贵了。 suīrán zhè ge fángzi de kètīng hěn dà, dànshì fángzū tài guì le Tuy phòng khách của căn nhà này rất lớn, nhưng tiền thuê quá đắt. 虽然这个房子的客厅很大，但是房租太贵了。 suīrán zhè ge fángzi de kètīng hěn dà, dànshì fángzū tài guì le Căn nhà này tuy có ba phòng ngủ, nhưng không có phòng khách. 这个房子虽然有三个卧室，但是没有客厅。 zhè ge fángzi suīrán yǒu sān ge wòshì, dànshì méiyǒu kètīng Căn nhà này tuy có ba phòng ngủ, nhưng không có phòng khách. 这个房子虽然有三个卧室，但是没有客厅。 zhè ge fángzi suīrán yǒu sān ge wòshì, dànshì méiyǒu kètīng Tuy căn nhà này có nội thất, nhưng phòng khách của nó quá nhỏ. 虽然这个房子里有家具，但是它的客厅太小了。 suīrán zhè ge fángzi li yǒu jiājù, dànshì tā de kètīng tài xiǎo le Tuy căn nhà này có nội thất, nhưng phòng khách của nó quá nhỏ. 虽然这个房子里有家具，但是它的客厅太小了。 suīrán zhè ge fángzi li yǒu jiājù, dànshì tā de kètīng tài xiǎo le Phòng ngủ của căn nhà này rất lớn, nhưng nhà vệ sinh quá nhỏ. 这个房子的卧室很大，不过卫生间太小了。 zhè ge fángzi de wòshì hěn dà, búguò wèishēngjiān tài xiǎo le Phòng ngủ của căn nhà này rất lớn, nhưng nhà vệ sinh quá nhỏ. 这个房子的卧室很大，不过卫生间太小了。 zhè ge fángzi de wòshì hěn dà, búguò wèishēngjiān tài xiǎo le"
     },
     {
-      "id": "cheat-sheet",
+      "id": "yiqian-yihou",
       "order": 17,
+      "title": "Cấu trúc 在...以前 / 以后",
+      "shortTitle": "在...以前 / 以后",
+      "hanzi": "在 + hành động/sự việc + 以前，...",
+      "pinyin": "zài wǒ yǎng gǒu yǐqián, wǒ de nánpéngyou tèbié pà gǒu",
+      "pinyinSearch": "zài wǒ yǎng gǒu yǐqián, wǒ de nánpéngyou tèbié pà gǒu yǎng gǒu yǐqián, wǒ tèbié bù xǐhuan chūmén yǎng gǒu yǐhòu, wǒ juéde suǒyǒu de gǒu dōu hěn yǒuhǎo",
+      "pinyinAliases": [],
+      "summary": "Dùng để nói trước hoặc sau một mốc/hành động. Có thể nói 在...以前 hoặc rút gọn thành ...以前 .",
+      "formulas": [
+        "在 + hành động/sự việc + 以前，...",
+        "hành động/sự việc + 以后，..."
+      ],
+      "notes": [],
+      "warnings": [],
+      "examples": [
+        {
+          "meaning": "Trước khi tôi nuôi chó, bạn trai tôi đặc biệt sợ chó.",
+          "hanzi": "在我养狗以前，我的男朋友特别怕狗。",
+          "pinyin": "zài wǒ yǎng gǒu yǐqián, wǒ de nánpéngyou tèbié pà gǒu",
+          "cells": [
+            "Trước khi tôi nuôi chó, bạn trai tôi đặc biệt sợ chó.",
+            "在我养狗以前，我的男朋友特别怕狗。",
+            "zài wǒ yǎng gǒu yǐqián, wǒ de nánpéngyou tèbié pà gǒu"
+          ]
+        },
+        {
+          "meaning": "Trước khi nuôi chó, tôi đặc biệt không thích ra ngoài.",
+          "hanzi": "养狗以前，我特别不喜欢出门。",
+          "pinyin": "yǎng gǒu yǐqián, wǒ tèbié bù xǐhuan chūmén",
+          "cells": [
+            "Trước khi nuôi chó, tôi đặc biệt không thích ra ngoài.",
+            "养狗以前，我特别不喜欢出门。",
+            "yǎng gǒu yǐqián, wǒ tèbié bù xǐhuan chūmén"
+          ]
+        },
+        {
+          "meaning": "Sau khi nuôi chó, tôi thấy tất cả chó đều rất thân thiện.",
+          "hanzi": "养狗以后，我觉得所有的狗都很友好。",
+          "pinyin": "yǎng gǒu yǐhòu, wǒ juéde suǒyǒu de gǒu dōu hěn yǒuhǎo",
+          "cells": [
+            "Sau khi nuôi chó, tôi thấy tất cả chó đều rất thân thiện.",
+            "养狗以后，我觉得所有的狗都很友好。",
+            "yǎng gǒu yǐhòu, wǒ juéde suǒyǒu de gǒu dōu hěn yǒuhǎo"
+          ]
+        }
+      ],
+      "subsections": [],
+      "updatedAt": "2026-08-09",
+      "searchText": "Cấu trúc 在...以前 / 以后 在...以前 / 以后 Dùng để nói trước hoặc sau một mốc/hành động. Có thể nói 在...以前 hoặc rút gọn thành ...以前 . 在 + hành động/sự việc + 以前，... hành động/sự việc + 以后，... Trước khi tôi nuôi chó, bạn trai tôi đặc biệt sợ chó. 在我养狗以前，我的男朋友特别怕狗。 zài wǒ yǎng gǒu yǐqián, wǒ de nánpéngyou tèbié pà gǒu Trước khi tôi nuôi chó, bạn trai tôi đặc biệt sợ chó. 在我养狗以前，我的男朋友特别怕狗。 zài wǒ yǎng gǒu yǐqián, wǒ de nánpéngyou tèbié pà gǒu Trước khi nuôi chó, tôi đặc biệt không thích ra ngoài. 养狗以前，我特别不喜欢出门。 yǎng gǒu yǐqián, wǒ tèbié bù xǐhuan chūmén Trước khi nuôi chó, tôi đặc biệt không thích ra ngoài. 养狗以前，我特别不喜欢出门。 yǎng gǒu yǐqián, wǒ tèbié bù xǐhuan chūmén Sau khi nuôi chó, tôi thấy tất cả chó đều rất thân thiện. 养狗以后，我觉得所有的狗都很友好。 yǎng gǒu yǐhòu, wǒ juéde suǒyǒu de gǒu dōu hěn yǒuhǎo Sau khi nuôi chó, tôi thấy tất cả chó đều rất thân thiện. 养狗以后，我觉得所有的狗都很友好。 yǎng gǒu yǐhòu, wǒ juéde suǒyǒu de gǒu dōu hěn yǒuhǎo"
+    },
+    {
+      "id": "dang-de-shihou",
+      "order": 18,
+      "title": "Cấu trúc 当...的时候",
+      "shortTitle": "当...的时候",
+      "hanzi": "当 + câu 1 + 的时候，câu 2",
+      "pinyin": "dāng wǒ bú zài jiā de shíhou, wǒ de gǒu huì ānjìng de zuò zài dì shang",
+      "pinyinSearch": "dāng wǒ bú zài jiā de shíhou, wǒ de gǒu huì ānjìng de zuò zài dì shang dāng wǒ de gǒu è le de shíhou, tā huì dàshēng de jiào dāng jiā li yǒu kèrén de shíhou, wǒ de gǒu jīngcháng dàshēng de jiào",
+      "pinyinAliases": [],
+      "summary": "当...的时候 dùng để nói “khi... thì...”. Trong khẩu ngữ, nhiều khi có thể chỉ nói ...的时候 .",
+      "formulas": [
+        "当 + câu 1 + 的时候，câu 2"
+      ],
+      "notes": [],
+      "warnings": [],
+      "examples": [
+        {
+          "meaning": "Khi tôi không ở nhà, chó của tôi sẽ yên lặng ngồi trên đất.",
+          "hanzi": "当我不在家的时候，我的狗会安静地坐在地上。",
+          "pinyin": "dāng wǒ bú zài jiā de shíhou, wǒ de gǒu huì ānjìng de zuò zài dì shang",
+          "cells": [
+            "Khi tôi không ở nhà, chó của tôi sẽ yên lặng ngồi trên đất.",
+            "当我不在家的时候，我的狗会安静地坐在地上。",
+            "dāng wǒ bú zài jiā de shíhou, wǒ de gǒu huì ānjìng de zuò zài dì shang"
+          ]
+        },
+        {
+          "meaning": "Khi chó của tôi đói, nó sẽ kêu to.",
+          "hanzi": "当我的狗饿了的时候，它会大声地叫。",
+          "pinyin": "dāng wǒ de gǒu è le de shíhou, tā huì dàshēng de jiào",
+          "cells": [
+            "Khi chó của tôi đói, nó sẽ kêu to.",
+            "当我的狗饿了的时候，它会大声地叫。",
+            "dāng wǒ de gǒu è le de shíhou, tā huì dàshēng de jiào"
+          ]
+        },
+        {
+          "meaning": "Khi trong nhà có khách, chó của tôi thường kêu to.",
+          "hanzi": "当家里有客人的时候，我的狗经常大声地叫。",
+          "pinyin": "dāng jiā li yǒu kèrén de shíhou, wǒ de gǒu jīngcháng dàshēng de jiào",
+          "cells": [
+            "Khi trong nhà có khách, chó của tôi thường kêu to.",
+            "当家里有客人的时候，我的狗经常大声地叫。",
+            "dāng jiā li yǒu kèrén de shíhou, wǒ de gǒu jīngcháng dàshēng de jiào"
+          ]
+        }
+      ],
+      "subsections": [],
+      "updatedAt": "2026-08-09",
+      "searchText": "Cấu trúc 当...的时候 当...的时候 当...的时候 dùng để nói “khi... thì...”. Trong khẩu ngữ, nhiều khi có thể chỉ nói ...的时候 . 当 + câu 1 + 的时候，câu 2 Khi tôi không ở nhà, chó của tôi sẽ yên lặng ngồi trên đất. 当我不在家的时候，我的狗会安静地坐在地上。 dāng wǒ bú zài jiā de shíhou, wǒ de gǒu huì ānjìng de zuò zài dì shang Khi tôi không ở nhà, chó của tôi sẽ yên lặng ngồi trên đất. 当我不在家的时候，我的狗会安静地坐在地上。 dāng wǒ bú zài jiā de shíhou, wǒ de gǒu huì ānjìng de zuò zài dì shang Khi chó của tôi đói, nó sẽ kêu to. 当我的狗饿了的时候，它会大声地叫。 dāng wǒ de gǒu è le de shíhou, tā huì dàshēng de jiào Khi chó của tôi đói, nó sẽ kêu to. 当我的狗饿了的时候，它会大声地叫。 dāng wǒ de gǒu è le de shíhou, tā huì dàshēng de jiào Khi trong nhà có khách, chó của tôi thường kêu to. 当家里有客人的时候，我的狗经常大声地叫。 dāng jiā li yǒu kèrén de shíhou, wǒ de gǒu jīngcháng dàshēng de jiào Khi trong nhà có khách, chó của tôi thường kêu to. 当家里有客人的时候，我的狗经常大声地叫。 dāng jiā li yǒu kèrén de shíhou, wǒ de gǒu jīngcháng dàshēng de jiào"
+    },
+    {
+      "id": "de-miaoshu",
+      "order": 19,
+      "title": "长得 / 跑得 / 吃得",
+      "shortTitle": "长得 / 跑得 / 吃得",
+      "hanzi": "长得 + tính từ",
+      "pinyin": "wǒ de gǒu zhǎng de bù kěpà",
+      "pinyinSearch": "wǒ de gǒu zhǎng de bù kěpà nǐ de gǒu zhǎng de yǒudiǎn kěpà tā pǎo de tèbié kuài tā chī de tèbié duō de dong ci de",
+      "pinyinAliases": [
+        "de",
+        "dong ci de"
+      ],
+      "summary": "Nhóm này đều dùng 得 sau động từ để miêu tả trạng thái hoặc mức độ. 长得 nói “trông/ngoại hình như thế nào”; 跑得/吃得 nói chạy/ăn ra sao.",
+      "formulas": [
+        "长得 + tính từ",
+        "动词 + 得 + mức độ/trạng thái"
+      ],
+      "notes": [],
+      "warnings": [],
+      "examples": [
+        {
+          "meaning": "Chó của tôi trông không đáng sợ.",
+          "hanzi": "我的狗长得不可怕。",
+          "pinyin": "wǒ de gǒu zhǎng de bù kěpà",
+          "cells": [
+            "Chó của tôi trông không đáng sợ.",
+            "我的狗长得不可怕。",
+            "wǒ de gǒu zhǎng de bù kěpà"
+          ]
+        },
+        {
+          "meaning": "Chó của bạn trông hơi đáng sợ.",
+          "hanzi": "你的狗长得有点可怕。",
+          "pinyin": "nǐ de gǒu zhǎng de yǒudiǎn kěpà",
+          "cells": [
+            "Chó của bạn trông hơi đáng sợ.",
+            "你的狗长得有点可怕。",
+            "nǐ de gǒu zhǎng de yǒudiǎn kěpà"
+          ]
+        },
+        {
+          "meaning": "Nó chạy đặc biệt nhanh.",
+          "hanzi": "它跑得特别快。",
+          "pinyin": "tā pǎo de tèbié kuài",
+          "cells": [
+            "Nó chạy đặc biệt nhanh.",
+            "它跑得特别快。",
+            "tā pǎo de tèbié kuài"
+          ]
+        },
+        {
+          "meaning": "Nó ăn đặc biệt nhiều.",
+          "hanzi": "它吃得特别多。",
+          "pinyin": "tā chī de tèbié duō",
+          "cells": [
+            "Nó ăn đặc biệt nhiều.",
+            "它吃得特别多。",
+            "tā chī de tèbié duō"
+          ]
+        }
+      ],
+      "subsections": [],
+      "updatedAt": "2026-08-09",
+      "searchText": "长得 / 跑得 / 吃得 长得 / 跑得 / 吃得 de dong ci de Nhóm này đều dùng 得 sau động từ để miêu tả trạng thái hoặc mức độ. 长得 nói “trông/ngoại hình như thế nào”; 跑得/吃得 nói chạy/ăn ra sao. 长得 + tính từ 动词 + 得 + mức độ/trạng thái Chó của tôi trông không đáng sợ. 我的狗长得不可怕。 wǒ de gǒu zhǎng de bù kěpà Chó của tôi trông không đáng sợ. 我的狗长得不可怕。 wǒ de gǒu zhǎng de bù kěpà Chó của bạn trông hơi đáng sợ. 你的狗长得有点可怕。 nǐ de gǒu zhǎng de yǒudiǎn kěpà Chó của bạn trông hơi đáng sợ. 你的狗长得有点可怕。 nǐ de gǒu zhǎng de yǒudiǎn kěpà Nó chạy đặc biệt nhanh. 它跑得特别快。 tā pǎo de tèbié kuài Nó chạy đặc biệt nhanh. 它跑得特别快。 tā pǎo de tèbié kuài Nó ăn đặc biệt nhiều. 它吃得特别多。 tā chī de tèbié duō Nó ăn đặc biệt nhiều. 它吃得特别多。 tā chī de tèbié duō"
+    },
+    {
+      "id": "cheat-sheet",
+      "order": 20,
       "title": "Thẻ nhớ nhanh",
       "shortTitle": "Thẻ nhớ nhanh",
       "hanzi": "Thẻ nhớ nhanh",

@@ -2,10 +2,75 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 
+const rawArgs = process.argv.slice(2);
+const optionArgs = new Map();
+const positionalArgs = [];
+
+for (let index = 0; index < rawArgs.length; index += 1) {
+  const arg = rawArgs[index];
+  if (!arg.startsWith("--")) {
+    positionalArgs.push(arg);
+    continue;
+  }
+  const eqIndex = arg.indexOf("=");
+  if (eqIndex !== -1) {
+    optionArgs.set(arg.slice(2, eqIndex), arg.slice(eqIndex + 1));
+    continue;
+  }
+  const name = arg.slice(2);
+  const next = rawArgs[index + 1];
+  if (next && !next.startsWith("--")) {
+    optionArgs.set(name, next);
+    index += 1;
+  } else {
+    optionArgs.set(name, "true");
+  }
+}
+
 const defaultSourcePath = path.resolve("..", "..", "Folders", "Từ cần học", "tu_can_hoc.html");
-const sourcePath = path.resolve(process.argv[2] || process.env.NEEDED_WORDS_SOURCE || defaultSourcePath);
-const outputPath = path.resolve("data/needed-words.json");
+const sourcePath = path.resolve(
+  optionArgs.get("source") || positionalArgs[0] || process.env.NEEDED_WORDS_SOURCE || defaultSourcePath
+);
+const outputPath = path.resolve(optionArgs.get("output") || "data/needed-words.json");
+const batchDate = optionArgs.get("batch-date") || process.env.NEEDED_WORDS_BATCH_DATE || "";
+const batchKey = optionArgs.get("batch-key") || process.env.NEEDED_WORDS_BATCH_KEY || "";
+const batchLabel = optionArgs.get("batch-label") || process.env.NEEDED_WORDS_BATCH_LABEL || "";
+const disableNewTranslations = !optionArgs.has("enable-new-translations")
+  && process.env.NEEDED_WORDS_ENABLE_NEW_TRANSLATIONS !== "1";
 const edgeAudioPublicDir = "audio/needed-edge";
+
+function getEntryStableKey({ date, time, hanzi, meaning }) {
+  return [date || "Không rõ ngày", time || "", hanzi || "", meaning || ""].join("::");
+}
+
+function loadPreviousEntries() {
+  if (!fs.existsSync(outputPath)) return [];
+  try {
+    const payload = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    return Array.isArray(payload.words) ? payload.words : [];
+  } catch {
+    return [];
+  }
+}
+
+const previousEntries = loadPreviousEntries();
+const previousByStableKey = new Map(previousEntries.map((entry) => [getEntryStableKey(entry), entry]));
+const usedEntryIds = new Set(previousEntries.map((entry) => entry.id).filter(Boolean));
+let nextEntryIdNumber = previousEntries.reduce((max, entry) => {
+  const match = String(entry.id || "").match(/^need-(\d+)$/);
+  return match ? Math.max(max, Number(match[1])) : max;
+}, 0) + 1;
+
+function getNextEntryId() {
+  let id = `need-${String(nextEntryIdNumber).padStart(4, "0")}`;
+  while (usedEntryIds.has(id)) {
+    nextEntryIdNumber += 1;
+    id = `need-${String(nextEntryIdNumber).padStart(4, "0")}`;
+  }
+  usedEntryIds.add(id);
+  nextEntryIdNumber += 1;
+  return id;
+}
 
 function decodeHtml(value) {
   return String(value || "")
@@ -432,17 +497,19 @@ while ((match = tokenPattern.exec(html))) {
   const pinyin = decodeHtml(match[7]);
   if (!hanzi || !meaning) continue;
 
-  const key = `${currentDate}::${time}::${hanzi}::${meaning}`;
+  const key = getEntryStableKey({ date: currentDate, time, hanzi, meaning });
   if (seenKeys.has(key)) continue;
   seenKeys.add(key);
+  const previousEntry = previousByStableKey.get(key);
 
   const month = /^\d{4}-\d{2}/.test(currentDate) ? currentDate.slice(0, 7) : "Không rõ tháng";
   const translationTargets = buildTranslationTargets(meaning, hanzi, pinyin);
 
   const audioText = getAudioText(hanzi);
-  const existingAudio = getExistingEdgeAudioPath(audioText);
+  const existingAudio = getExistingEdgeAudioPath(audioText) || previousEntry?.audio || "";
+  const shouldDisableTranslation = previousEntry ? Boolean(previousEntry.disableTranslation) : disableNewTranslations;
   const entry = {
-    id: `need-${String(entries.length + 1).padStart(4, "0")}`,
+    id: previousEntry?.id || getNextEntryId(),
     date: currentDate || "Không rõ ngày",
     month,
     topic: currentTopic || "Chưa phân loại",
@@ -454,8 +521,15 @@ while ((match = tokenPattern.exec(html))) {
     audioText,
     source: "Ghi chú từ cần học",
   };
+  if (previousEntry?.dateKey) entry.dateKey = previousEntry.dateKey;
+  if (previousEntry?.dateLabel) entry.dateLabel = previousEntry.dateLabel;
+  if (!previousEntry && batchDate && currentDate === batchDate && batchKey) {
+    entry.dateKey = batchKey;
+    if (batchLabel) entry.dateLabel = batchLabel;
+  }
+  if (shouldDisableTranslation) entry.disableTranslation = true;
   if (existingAudio) entry.audio = existingAudio;
-  if (translationTargets.length) entry.translationTargets = translationTargets;
+  if (translationTargets.length && !shouldDisableTranslation) entry.translationTargets = translationTargets;
   entries.push(entry);
 }
 
