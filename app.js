@@ -2976,6 +2976,22 @@ function resetStudyPromptFitClass(element) {
   }
 }
 
+function getStudyPromptRenderedLineCount(element) {
+  const range = document.createRange();
+  range.selectNodeContents(element);
+  const rects = Array.from(range.getClientRects())
+    .filter((rect) => rect.width > 1 && rect.height > 1);
+  range.detach?.();
+
+  const lineTops = [];
+  rects.forEach((rect) => {
+    if (!lineTops.some((top) => Math.abs(top - rect.top) < 5)) {
+      lineTops.push(rect.top);
+    }
+  });
+  return lineTops.length;
+}
+
 function fitStudyPromptText(root = document) {
   const promptTexts = root.querySelectorAll?.(
     ".topic-choice-prompt .study-prompt-text, .needed-prompt .study-prompt-text"
@@ -2986,13 +3002,15 @@ function fitStudyPromptText(root = document) {
 
     const promptBox = element.closest(".topic-choice-prompt, .needed-prompt");
     const lineHeight = getStudyPromptLineHeight(element);
-    const lines = Math.ceil(element.scrollHeight / lineHeight);
+    const renderedLines = getStudyPromptRenderedLineCount(element);
+    const fallbackLines = Math.round(element.scrollHeight / lineHeight);
+    const lines = renderedLines || fallbackLines;
     const promptBoxHeight = promptBox?.clientHeight || 0;
-    const availableHeight = promptBoxHeight ? Math.max(0, promptBoxHeight - 44) : Infinity;
-    const overTwoLines = element.scrollHeight > (lineHeight * 2) + 4;
-    const overBox = Number.isFinite(availableHeight) && element.scrollHeight > availableHeight;
+    const availableHeight = promptBoxHeight ? Math.max(0, promptBoxHeight - 18) : Infinity;
+    const elementHeight = element.getBoundingClientRect().height;
+    const overBox = Number.isFinite(availableHeight) && elementHeight > availableHeight;
 
-    if (lines > 2 || overTwoLines || overBox) {
+    if (lines > 2 || overBox) {
       element.classList.add("study-prompt-text--three");
     }
   });
