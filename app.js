@@ -2955,7 +2955,7 @@ function getStudyPromptTextClass(value) {
     .length;
   const score = cjkLength + Math.ceil(nonCjkLength / 2);
   if (score <= 8) return "study-prompt-text--one";
-  if (score <= 14) return "study-prompt-text--two";
+  if (score <= 22) return "study-prompt-text--two";
   return "study-prompt-text--three";
 }
 

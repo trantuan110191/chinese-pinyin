@@ -10830,8 +10830,8 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 
 .topic-choice-prompt .study-prompt-text--two,
 .needed-prompt .study-prompt-text--two {
-  font-size: clamp(64px, 8vw, 94px);
-  line-height: 1.08;
+  font-size: clamp(76px, 9.2vw, 112px);
+  line-height: 1.04;
 }
 
 .topic-choice-prompt .study-prompt-text--three,
@@ -10863,7 +10863,7 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 
   .topic-choice-prompt .study-prompt-text--two,
   .needed-prompt .study-prompt-text--two {
-    font-size: clamp(48px, 14vw, 66px);
+    font-size: clamp(56px, 17vw, 78px);
   }
 
   .topic-choice-prompt .study-prompt-text--three,
