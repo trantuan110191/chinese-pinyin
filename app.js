@@ -2955,8 +2955,55 @@ function getStudyPromptTextClass(value) {
     .length;
   const score = cjkLength + Math.ceil(nonCjkLength / 2);
   if (score <= 8) return "study-prompt-text--one";
-  if (score <= 22) return "study-prompt-text--two";
-  return "study-prompt-text--three";
+  return "study-prompt-text--two";
+}
+
+let studyPromptFitFrame = 0;
+
+function getStudyPromptLineHeight(element) {
+  const style = window.getComputedStyle(element);
+  const lineHeight = Number.parseFloat(style.lineHeight);
+  if (Number.isFinite(lineHeight) && lineHeight > 0) return lineHeight;
+  const fontSize = Number.parseFloat(style.fontSize);
+  return Number.isFinite(fontSize) && fontSize > 0 ? fontSize * 1.08 : 1;
+}
+
+function resetStudyPromptFitClass(element) {
+  element.classList.remove("study-prompt-text--three");
+  if (!element.classList.contains("study-prompt-text--one")
+    && !element.classList.contains("study-prompt-text--two")) {
+    element.classList.add("study-prompt-text--two");
+  }
+}
+
+function fitStudyPromptText(root = document) {
+  const promptTexts = root.querySelectorAll?.(
+    ".topic-choice-prompt .study-prompt-text, .needed-prompt .study-prompt-text"
+  ) || [];
+  promptTexts.forEach((element) => {
+    if (!element.isConnected || !element.getClientRects().length) return;
+    resetStudyPromptFitClass(element);
+
+    const promptBox = element.closest(".topic-choice-prompt, .needed-prompt");
+    const lineHeight = getStudyPromptLineHeight(element);
+    const lines = Math.ceil(element.scrollHeight / lineHeight);
+    const promptBoxHeight = promptBox?.clientHeight || 0;
+    const availableHeight = promptBoxHeight ? Math.max(0, promptBoxHeight - 44) : Infinity;
+    const overTwoLines = element.scrollHeight > (lineHeight * 2) + 4;
+    const overBox = Number.isFinite(availableHeight) && element.scrollHeight > availableHeight;
+
+    if (lines > 2 || overTwoLines || overBox) {
+      element.classList.add("study-prompt-text--three");
+    }
+  });
+}
+
+function scheduleStudyPromptTextFit(root = document) {
+  if (studyPromptFitFrame) window.cancelAnimationFrame(studyPromptFitFrame);
+  studyPromptFitFrame = window.requestAnimationFrame(() => {
+    studyPromptFitFrame = 0;
+    fitStudyPromptText(root);
+  });
 }
 
 function getHskLevelLabel(level) {
@@ -7003,6 +7050,7 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
       </div>
     </article>
   `;
+  scheduleStudyPromptTextFit(topicChoice);
 }
 
 function answerTopicChoice(hanzi) {
@@ -8055,6 +8103,7 @@ function renderNeededNotesShell(innerMarkup) {
     ${renderNeededNotesFilterPanel(total, menuPopoverContent)}
     ${innerMarkup}
   `;
+  scheduleStudyPromptTextFit(neededNotesApp);
 }
 
 function renderNeededNotesChoice() {
@@ -9991,6 +10040,7 @@ window.addEventListener("resize", () => {
     Boolean(getStoredWordDialogPosition())
   );
 });
+window.addEventListener("resize", () => scheduleStudyPromptTextFit(document));
 
 document.querySelector("#total-count").textContent = "988";
 renderLearningProfileUi();
