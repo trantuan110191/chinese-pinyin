@@ -7298,8 +7298,43 @@ function getNeededNoteAudioText(word) {
     .trim();
 }
 
+function getDelimitedNeededNoteParts(value, delimiterPattern) {
+  return String(value || "")
+    .split(delimiterPattern)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+function normalizeNeededNoteDisplayMeaningPart(value) {
+  return String(value || "")
+    .replace(/đi\s*[/／]\s*vào/gi, "đi vào")
+    .replace(/\s+[/／]\s+/g, " hoặc ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getAlignedNeededNoteDisplayMeaning(word) {
+  const hanziParts = getDelimitedNeededNoteParts(word?.hanzi, /\s*[/／]\s*/);
+  if (hanziParts.length <= 1) return "";
+
+  const text = String(word?.meaning || "").trim();
+  if (!text) return "";
+
+  const semicolonParts = getDelimitedNeededNoteParts(text, /\s*[;；]\s*/);
+  if (semicolonParts.length >= 2) {
+    return semicolonParts.map(normalizeNeededNoteDisplayMeaningPart).join(" / ");
+  }
+
+  const slashParts = getDelimitedNeededNoteParts(text, /\s+[/／]\s+/);
+  if (slashParts.length === hanziParts.length) {
+    return slashParts.map(normalizeNeededNoteDisplayMeaningPart).join(" / ");
+  }
+
+  return "";
+}
+
 function getNeededNoteMeaning(word) {
-  return getTopicMeaningLabel(word?.meaning || "");
+  return word?.displayMeaning || getAlignedNeededNoteDisplayMeaning(word) || getTopicMeaningLabel(word?.meaning || "");
 }
 
 function getNeededNoteDateLabel(word) {

@@ -1,7 +1,7 @@
 {
   "source": "Từ cần học/tu_can_hoc.html",
-  "syncedAt": "2026-08-12T00:30:54.017Z",
-  "count": 833,
+  "syncedAt": "2026-08-12T23:12:56.537Z",
+  "count": 861,
   "words": [
     {
       "id": "need-0001",
@@ -526,6 +526,7 @@
       "pinyin": "jìnlái / jìnqù",
       "audioText": "进来",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đi vào / vào trong",
       "audio": "audio/needed-edge/f9980e7c4502d30ccf.mp3",
       "translationTargets": [
         {
@@ -776,6 +777,7 @@
       "pinyin": "zhè liǎng tiān / zhè jǐ tiān",
       "audioText": "这两天",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hai ngày nay / mấy ngày này",
       "audio": "audio/needed-edge/b8bc549bffbb2e8bcd.mp3",
       "translationTargets": [
         {
@@ -1152,6 +1154,7 @@
       "pinyin": "méi / méiyǒu",
       "audioText": "没",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "rút gọn 没有 thành 没 / chưa hoặc không có",
       "audio": "audio/needed-edge/ca0bc5e27c656c19f0.mp3",
       "translationTargets": [
         {
@@ -1311,6 +1314,7 @@
       "pinyin": "jīngcháng / yìqǐ",
       "audioText": "经常",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thường xuyên / cùng nhau",
       "audio": "audio/needed-edge/8947a57389baa3051d.mp3",
       "translationTargets": [
         {
@@ -1358,6 +1362,7 @@
       "pinyin": "děng / xiǎo",
       "audioText": "等",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đợi / nhỏ",
       "audio": "audio/needed-edge/3d3e17a162e710c76f.mp3",
       "translationTargets": [
         {
@@ -1510,6 +1515,7 @@
       "pinyin": "jiā / ge",
       "audioText": "家",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "家 dùng cho cửa hàng/công ty / 个 là lượng từ chung",
       "audio": "audio/needed-edge/7de8177ce74b123ce9.mp3"
     },
     {
@@ -1608,6 +1614,7 @@
       "pinyin": "yǒu duōshao / xiàmiàn / shàngmiàn",
       "audioText": "有多少",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "có bao nhiêu / bên dưới / bên trên",
       "audio": "audio/needed-edge/caaaeb5cec1deba997.mp3",
       "translationTargets": [
         {
@@ -1660,6 +1667,7 @@
       "pinyin": "dìfang + yǒu + duōshao + míngcí / gōngyuán xībian yǒu duōshao chāoshì?",
       "audioText": "地方  有  多少  名词",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "câu hỏi số lượng không cần lượng từ / phía Tây công viên có bao nhiêu siêu thị?",
       "audio": "audio/needed-edge/0b579918c02e4a112b.mp3",
       "translationTargets": [
         {
@@ -2136,6 +2144,7 @@
       "pinyin": "nǚshì / nǚshì, nǐ hǎo",
       "audioText": "女士",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cô hoặc quý cô / chào cô",
       "audio": "audio/needed-edge/15c6330dae625cee4f.mp3"
     },
     {
@@ -2150,6 +2159,7 @@
       "pinyin": "jìn / qǐng jìn",
       "audioText": "进",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vào / mời vào",
       "audio": "audio/needed-edge/681ba11d21729b170e.mp3",
       "translationTargets": [
         {
@@ -2176,6 +2186,7 @@
       "pinyin": "qǐng / qǐng zuò",
       "audioText": "请",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mời hoặc xin / mời ngồi",
       "audio": "audio/needed-edge/18f5d6e11ca7690b57.mp3"
     },
     {
@@ -2190,6 +2201,7 @@
       "pinyin": "diǎn cài / wǒ yào diǎn cài",
       "audioText": "点菜",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "gọi món / tôi muốn gọi món",
       "audio": "audio/needed-edge/8a55e358bb66328643.mp3",
       "translationTargets": [
         {
@@ -2216,6 +2228,7 @@
       "pinyin": "dǎbāo / dǎbāo dài zǒu",
       "audioText": "打包",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mang về / gói mang về",
       "audio": "audio/needed-edge/aa2221c188daf2f755.mp3"
     },
     {
@@ -2230,6 +2243,7 @@
       "pinyin": "bú kèqi / bú yòng kèqi",
       "audioText": "不客气",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "không có gì / không cần khách sáo",
       "audio": "audio/needed-edge/bbc044d7ea1321245a.mp3",
       "translationTargets": [
         {
@@ -2256,6 +2270,7 @@
       "pinyin": "fúwùyuán / fúwùyuán, diǎn cài",
       "audioText": "服务员",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nhân viên phục vụ / gọi phục vụ",
       "audio": "audio/needed-edge/c31abccbf3a5c14070.mp3",
       "translationTargets": [
         {
@@ -2282,6 +2297,7 @@
       "pinyin": "mǎidān / qǐng mǎidān",
       "audioText": "买单",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thanh toán / tính tiền giúp tôi",
       "audio": "audio/needed-edge/024ae83a6e574e35bf.mp3",
       "translationTargets": [
         {
@@ -2308,6 +2324,7 @@
       "pinyin": "tāng / yì wǎn tāng",
       "audioText": "汤",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "canh hoặc súp / một bát canh",
       "audio": "audio/needed-edge/fc4ef67147b2538fd4.mp3"
     },
     {
@@ -2322,6 +2339,7 @@
       "pinyin": "càidān / kàn càidān",
       "audioText": "菜单",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thực đơn / xem thực đơn",
       "audio": "audio/needed-edge/70824562078a4ebe47.mp3",
       "translationTargets": [
         {
@@ -2348,6 +2366,7 @@
       "pinyin": "sháozi / yí ge sháozi",
       "audioText": "勺子",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thìa hoặc muỗng / một cái thìa",
       "audio": "audio/needed-edge/ed224c6e847cfee64d.mp3"
     },
     {
@@ -2362,6 +2381,7 @@
       "pinyin": "chāzi / yí ge chāzi",
       "audioText": "叉子",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nĩa / một cái nĩa",
       "audio": "audio/needed-edge/244371193d549c0751.mp3",
       "translationTargets": [
         {
@@ -2388,6 +2408,7 @@
       "pinyin": "ná / bāng wǒ ná yíxià",
       "audioText": "拿",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lấy hoặc cầm / lấy giúp tôi",
       "audio": "audio/needed-edge/748adc7ea108e93779.mp3"
     },
     {
@@ -2402,6 +2423,7 @@
       "pinyin": "pánzi / yí ge pánzi",
       "audioText": "盘子",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đĩa / một cái đĩa",
       "audio": "audio/needed-edge/257d6c3f819fce1e9c.mp3",
       "translationTargets": [
         {
@@ -2428,6 +2450,7 @@
       "pinyin": "huàn / huàn yí ge",
       "audioText": "换",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đổi hoặc thay / đổi một cái",
       "audio": "audio/needed-edge/19c7002c782255ce0d.mp3"
     },
     {
@@ -2442,6 +2465,7 @@
       "pinyin": "dǎkāi / dǎkāi mén",
       "audioText": "打开",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mở ra / mở cửa",
       "audio": "audio/needed-edge/65fc81e161198bc670.mp3",
       "translationTargets": [
         {
@@ -2468,6 +2492,7 @@
       "pinyin": "bīngkuài / jiā bīngkuài",
       "audioText": "冰块",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đá viên / thêm đá",
       "audio": "audio/needed-edge/de4ad1941b656093d5.mp3",
       "translationTargets": [
         {
@@ -2494,6 +2519,7 @@
       "pinyin": "xiǎofèi / gěi xiǎofèi",
       "audioText": "小费",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tiền tip / tiền boa",
       "audio": "audio/needed-edge/39e472474c1af7a181.mp3",
       "translationTargets": [
         {
@@ -2520,6 +2546,7 @@
       "pinyin": "cānjīnzhǐ / qǐng gěi wǒ cānjīnzhǐ",
       "audioText": "餐巾纸",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khăn giấy ăn / xin cho tôi khăn giấy ăn",
       "audio": "audio/needed-edge/c5ef4ada6ea8469224.mp3",
       "translationTargets": [
         {
@@ -2546,6 +2573,7 @@
       "pinyin": "yìxiē / yìxiē wèntí",
       "audioText": "一些",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "một vài hoặc một số / một vài câu hỏi",
       "audio": "audio/needed-edge/b86b2e837c6f03acdd.mp3"
     },
     {
@@ -2574,6 +2602,7 @@
       "pinyin": "xīn / jiù / xīn shū / jiù shū",
       "audioText": "新",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mới hoặc cũ / sách mới hoặc sách cũ",
       "audio": "audio/needed-edge/7b8a6bebd3076cdffa.mp3",
       "translationTargets": [
         {
@@ -2610,6 +2639,7 @@
       "pinyin": "kèběn / Zhōngwén kèběn",
       "audioText": "课本",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sách giáo khoa / sách tiếng Trung",
       "audio": "audio/needed-edge/1bdbdeef93f48fe3f3.mp3",
       "translationTargets": [
         {
@@ -2636,6 +2666,7 @@
       "pinyin": "wèntí / yǒu wèntí",
       "audioText": "问题",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "câu hỏi hoặc vấn đề / có câu hỏi",
       "audio": "audio/needed-edge/2fb49eec39bc67339b.mp3"
     },
     {
@@ -2650,6 +2681,7 @@
       "pinyin": "kèwén / dú kèwén",
       "audioText": "课文",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bài khóa hoặc bài đọc / đọc bài khóa",
       "audio": "audio/needed-edge/3d16056d2ab95aadc8.mp3"
     },
     {
@@ -2664,6 +2696,7 @@
       "pinyin": "huídá / huídá wèntí",
       "audioText": "回答",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trả lời / trả lời câu hỏi",
       "audio": "audio/needed-edge/065b45705084c0ac49.mp3",
       "translationTargets": [
         {
@@ -2690,6 +2723,7 @@
       "pinyin": "jiāo / jiāo Zhōngwén",
       "audioText": "教",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "dạy / dạy tiếng Trung",
       "audio": "audio/needed-edge/aa03e08180f2bcf366.mp3",
       "translationTargets": [
         {
@@ -2716,6 +2750,7 @@
       "pinyin": "yǔyán / xué yǔyán",
       "audioText": "语言",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ngôn ngữ / học ngôn ngữ",
       "audio": "audio/needed-edge/cd99b225a08ea013db.mp3",
       "translationTargets": [
         {
@@ -2742,6 +2777,7 @@
       "pinyin": "chà / wǒ de Zhōngwén hěn chà",
       "audioText": "差",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "kém hoặc tệ / tiếng Trung của tôi còn kém",
       "audio": "audio/needed-edge/ca49e01ddf4344bb74.mp3",
       "translationTargets": [
         {
@@ -2763,6 +2799,7 @@
       "pinyin": "kǎoshì / Zhōngwén kǎoshì",
       "audioText": "考试",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thi hoặc kiểm tra / thi tiếng Trung",
       "audio": "audio/needed-edge/e53aad0f9cca8e9455.mp3",
       "translationTargets": [
         {
@@ -2784,6 +2821,7 @@
       "pinyin": "jiǎndān / zhège jùzi hěn jiǎndān",
       "audioText": "简单",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đơn giản hoặc dễ / câu này rất dễ",
       "audio": "audio/needed-edge/64ef687a167f78cacd.mp3"
     },
     {
@@ -2798,6 +2836,7 @@
       "pinyin": "nán / zhè kè hěn nán",
       "audioText": "难",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khó / bài này rất khó",
       "audio": "audio/needed-edge/ed2da64971b62897ad.mp3",
       "translationTargets": [
         {
@@ -2824,6 +2863,7 @@
       "pinyin": "jiù / nà jiù zuò ba",
       "audioText": "就",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thì hoặc liền hoặc ngay / vậy thì làm luôn",
       "audio": "audio/needed-edge/cc4858af41b5ce3e08.mp3"
     },
     {
@@ -2838,6 +2878,7 @@
       "pinyin": "hái zài / hái zài xuéxí",
       "audioText": "还在",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vẫn đang / vẫn đang học",
       "audio": "audio/needed-edge/6234e8f5c3a578fb85.mp3",
       "translationTargets": [
         {
@@ -2864,6 +2905,7 @@
       "pinyin": "hái yǒu / hái yǒu wèntí ma",
       "audioText": "还有",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "còn có hoặc vẫn còn / còn câu hỏi không?",
       "audio": "audio/needed-edge/1cb39e3827f79e9e52.mp3"
     },
     {
@@ -2878,6 +2920,7 @@
       "pinyin": "háishi / háishi wǒ qù ba",
       "audioText": "还是",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vẫn là hoặc hay là / vẫn là tôi đi nhé",
       "audio": "audio/needed-edge/31fd0bc3de91bbaca1.mp3"
     },
     {
@@ -2892,6 +2935,7 @@
       "pinyin": "jīntiān lí wǒ de shēngrì yǒu duōshao tiān? / xiànzài lí kǎoshì hái yǒu duō cháng shíjiān?",
       "audioText": "今天离我的生日有多少天",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cách bao lâu / khoảng cách thời gian bao lâu",
       "audio": "audio/needed-edge/658ee887f972efcb26.mp3",
       "translationTargets": [
         {
@@ -2939,6 +2983,7 @@
       "pinyin": "shūcài / duō chī shūcài",
       "audioText": "蔬菜",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "rau / ăn nhiều rau",
       "audio": "audio/needed-edge/9c7cf0762dce0739b0.mp3",
       "translationTargets": [
         {
@@ -2965,6 +3010,7 @@
       "pinyin": "xiā / yǒu xiā ma?",
       "audioText": "虾",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tôm / có tôm không?",
       "audio": "audio/needed-edge/5a5889521338b1985a.mp3",
       "translationTargets": [
         {
@@ -2991,6 +3037,7 @@
       "pinyin": "yǐnliào / diǎn yǐnliào",
       "audioText": "饮料",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đồ uống / gọi đồ uống",
       "audio": "audio/needed-edge/0175b1cd369e18e5e0.mp3",
       "translationTargets": [
         {
@@ -3017,6 +3064,7 @@
       "pinyin": "bié de dōngxi / hái yǒu bié de dōngxi ma?",
       "audioText": "别的东西",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thứ khác / đồ khác",
       "audio": "audio/needed-edge/1f073d59679d446a5a.mp3",
       "translationTargets": [
         {
@@ -3043,6 +3091,7 @@
       "pinyin": "bié de / bié de rén",
       "audioText": "别的",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khác / cái khác",
       "audio": "audio/needed-edge/90de15c36a0bdce2b4.mp3",
       "translationTargets": [
         {
@@ -3069,6 +3118,7 @@
       "pinyin": "língshí / mǎi língshí",
       "audioText": "零食",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đồ ăn vặt / mua đồ ăn vặt",
       "audio": "audio/needed-edge/1c4aac7c1f3415519e.mp3",
       "translationTargets": [
         {
@@ -3095,6 +3145,7 @@
       "pinyin": "sān / sān ge",
       "audioText": "三",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "số 3 / ba cái",
       "audio": "audio/needed-edge/49ddb069d5b8358521.mp3",
       "translationTargets": [
         {
@@ -3121,6 +3172,7 @@
       "pinyin": "píjiǔ / yì píng píjiǔ",
       "audioText": "啤酒",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bia / một chai bia",
       "audio": "audio/needed-edge/c738607c0e86d33243.mp3",
       "translationTargets": [
         {
@@ -3189,6 +3241,7 @@
       "pinyin": "xìnyòngkǎ / yòng xìnyòngkǎ",
       "audioText": "信用卡",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thẻ tín dụng / dùng thẻ tín dụng",
       "audio": "audio/needed-edge/9a589a05072cd2e30c.mp3",
       "translationTargets": [
         {
@@ -3210,6 +3263,7 @@
       "pinyin": "xiànjīn / fù xiànjīn",
       "audioText": "现金",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tiền mặt / trả tiền mặt",
       "audio": "audio/needed-edge/6548450b8d162d153e.mp3",
       "translationTargets": [
         {
@@ -3236,6 +3290,7 @@
       "pinyin": "Zhīfùbǎo / yòng Zhīfùbǎo",
       "audioText": "支付宝",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Alipay / dùng Alipay",
       "audio": "audio/needed-edge/66f1177d677b5bdc09.mp3",
       "translationTargets": [
         {
@@ -3257,6 +3312,7 @@
       "pinyin": "Wēixìn / yòng Wēixìn zhīfù",
       "audioText": "微信",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "WeChat / dùng WeChat thanh toán",
       "audio": "audio/needed-edge/68406df395e4974a29.mp3",
       "translationTargets": [
         {
@@ -3278,6 +3334,7 @@
       "pinyin": "tīng shùzì / tīng jiàgé",
       "audioText": "听数字",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nghe số còn yếu / luyện nghe giá tiền",
       "audio": "audio/needed-edge/3c4d693588756108d3.mp3",
       "translationTargets": [
         {
@@ -3304,6 +3361,7 @@
       "pinyin": "yìdiǎnr / diǎnr",
       "audioText": "一点儿",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "một chút / 一点儿 đầy đủ hơn 点儿",
       "audio": "audio/needed-edge/b34e4ca73460f59e2a.mp3",
       "translationTargets": [
         {
@@ -3325,6 +3383,7 @@
       "pinyin": "fángzi / zū fángzi",
       "audioText": "房子",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nhà hoặc căn nhà / thuê nhà",
       "audio": "audio/needed-edge/fdc419e58e3521cbe4.mp3"
     },
     {
@@ -3339,6 +3398,7 @@
       "pinyin": "shēngqì / bié shēngqì",
       "audioText": "生气",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tức giận / đừng giận",
       "audio": "audio/needed-edge/0cfa09d980cbc16ea2.mp3",
       "translationTargets": [
         {
@@ -3365,6 +3425,7 @@
       "pinyin": "shàngwǎng / wǒ yào shàngwǎng",
       "audioText": "上网",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lên mạng / tôi muốn lên mạng",
       "audio": "audio/needed-edge/359828d949fa36e02e.mp3",
       "translationTargets": [
         {
@@ -3391,6 +3452,7 @@
       "pinyin": "qù yí cì / yào qù yí cì",
       "audioText": "去一次",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đi một lần / nói nhanh dễ nghe mất 一",
       "audio": "audio/needed-edge/3e9338479674ce2d40.mp3",
       "translationTargets": [
         {
@@ -3412,6 +3474,7 @@
       "pinyin": "huódòng / cānjiā huódòng",
       "audioText": "活动",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hoạt động / tham gia hoạt động",
       "audio": "audio/needed-edge/b2548636f02421de87.mp3",
       "translationTargets": [
         {
@@ -3438,6 +3501,7 @@
       "pinyin": "yīntiān / jīntiān shì yīntiān",
       "audioText": "阴天",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trời âm u / nhiều mây",
       "audio": "audio/needed-edge/bae5555301b1e15c59.mp3",
       "translationTargets": [
         {
@@ -3506,6 +3570,7 @@
       "pinyin": "màn / màn yìdiǎnr",
       "audioText": "慢",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "chậm / nói chậm một chút",
       "audio": "audio/needed-edge/9aadfb450091e59df1.mp3",
       "translationTargets": [
         {
@@ -3553,6 +3618,7 @@
       "pinyin": "guān / guān mén",
       "audioText": "关",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đóng hoặc tắt / đóng cửa",
       "audio": "audio/needed-edge/a3332f1c946792333b.mp3"
     },
     {
@@ -3567,6 +3633,7 @@
       "pinyin": "chuānghu / dǎkāi chuānghu / guān chuānghu",
       "audioText": "窗户",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cửa sổ / mở/đóng cửa sổ",
       "audio": "audio/needed-edge/08fcbc0dac1be83338.mp3"
     },
     {
@@ -3581,6 +3648,7 @@
       "pinyin": "yíxià / yìdiǎn / yìxiē / yìdiǎnr",
       "audioText": "一下",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "một chút hoặc một vài / phân biệt lượng ít",
       "audio": "audio/needed-edge/a682cf4c9cd887e492.mp3"
     },
     {
@@ -3616,6 +3684,7 @@
       "pinyin": "yíhuìr / děng yíhuìr",
       "audioText": "一会儿",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "một lát hoặc một lúc / đợi một lát",
       "audio": "audio/needed-edge/133c0e3dfc8bb82611.mp3"
     },
     {
@@ -3630,6 +3699,7 @@
       "pinyin": "zài / zài chī yìdiǎnr",
       "audioText": "再",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lại hoặc thêm / ăn thêm một chút",
       "audio": "audio/needed-edge/95fd8be0d9916deca7.mp3"
     },
     {
@@ -3644,6 +3714,7 @@
       "pinyin": "chuān / chuān yīfu / chuān xié",
       "audioText": "穿",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mặc hoặc đi giày / mặc quần áo",
       "audio": "audio/needed-edge/a4021ccf1a94f93453.mp3",
       "translationTargets": [
         {
@@ -3675,6 +3746,7 @@
       "pinyin": "zài / zài chī yìdiǎnr / zài lái yí cì",
       "audioText": "再",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lại / thêm / lần nữa",
       "audio": "audio/needed-edge/95fd8be0d9916deca7.mp3",
       "translationTargets": [
         {
@@ -3706,6 +3778,7 @@
       "pinyin": "ne / nǐ ne? / nǐ zuò shénme ne?",
       "audioText": "呢",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trợ từ ngữ khí / còn bạn thì sao?",
       "audio": "audio/needed-edge/dcf66dcd6087fd64f2.mp3",
       "translationTargets": [
         {
@@ -3727,6 +3800,7 @@
       "pinyin": "pīsà / chī pīsà",
       "audioText": "披萨",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "pizza / ăn pizza",
       "audio": "audio/needed-edge/9d757127452d8d23ca.mp3",
       "translationTargets": [
         {
@@ -3753,6 +3827,7 @@
       "pinyin": "hànbǎo / yí ge hànbǎo",
       "audioText": "汉堡",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hamburger / một cái hamburger",
       "audio": "audio/needed-edge/c9a1ca14ab9cdccf9c.mp3",
       "translationTargets": [
         {
@@ -3779,6 +3854,7 @@
       "pinyin": "tuījiàn / nǐ tuījiàn shénme?",
       "audioText": "推荐",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "giới thiệu hoặc đề xuất / bạn đề xuất món gì?",
       "audio": "audio/needed-edge/62b46f24ae40207267.mp3"
     },
     {
@@ -3793,6 +3869,7 @@
       "pinyin": "zhǒng / nǎ zhǒng / zhè zhǒng / yì zhǒng",
       "audioText": "种",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "loại hoặc chủng loại / loại nào?",
       "audio": "audio/needed-edge/f09a897c5cc2c83760.mp3"
     },
     {
@@ -3905,6 +3982,7 @@
       "pinyin": "jiàng / jiā jiàng / bú yào jiàng",
       "audioText": "酱",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nước sốt / thêm sốt hoặc không lấy sốt",
       "audio": "audio/needed-edge/4f281adaf9b170cc10.mp3",
       "translationTargets": [
         {
@@ -3950,6 +4028,7 @@
       "pinyin": "yǒu yìxiē / yǒu yìxiē wèntí",
       "audioText": "有一些",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "có một vài / có một ít",
       "audio": "audio/needed-edge/76cdb4b12f1b49ccbf.mp3",
       "translationTargets": [
         {
@@ -3976,6 +4055,7 @@
       "pinyin": "sānmíngzhì / yí ge sānmíngzhì",
       "audioText": "三明治",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sandwich / một cái sandwich",
       "audio": "audio/needed-edge/e1c01e83dffd338c1b.mp3",
       "translationTargets": [
         {
@@ -4002,6 +4082,7 @@
       "pinyin": "yìmiàn / yí fèn yìmiàn",
       "audioText": "意面",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mì Ý hoặc pasta / một phần mì Ý",
       "audio": "audio/needed-edge/ba5118f8ccbfc50c2f.mp3"
     },
     {
@@ -4016,6 +4097,7 @@
       "pinyin": "shìqing / wǒ yǒu shìqing",
       "audioText": "事情",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "việc hoặc sự việc / tôi có việc",
       "audio": "audio/needed-edge/133792ee413863b282.mp3"
     },
     {
@@ -4030,6 +4112,7 @@
       "pinyin": "zhǎo shíjiān / wǒmen zhǎo shíjiān yìqǐ chīfàn",
       "audioText": "找时间",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tìm thời gian / sắp xếp lúc nào đó",
       "audio": "audio/needed-edge/4d0d45d65db01ae79c.mp3",
       "translationTargets": [
         {
@@ -4056,6 +4139,7 @@
       "pinyin": "zài / zài shuō / míngtiān zài qù",
       "audioText": "再",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lại hoặc thêm hoặc hẵng / để sau nói",
       "audio": "audio/needed-edge/95fd8be0d9916deca7.mp3"
     },
     {
@@ -4105,6 +4189,7 @@
       "pinyin": "kāi huì / jīntiān kāi huì",
       "audioText": "开会",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "họp / hôm nay họp",
       "audio": "audio/needed-edge/059bee4782c004cc4a.mp3",
       "translationTargets": [
         {
@@ -4131,6 +4216,7 @@
       "pinyin": "zhèngzài / zài / zhèngzài kāi huì / zài kāi huì",
       "audioText": "正在",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đang / 正在 nhấn mạnh đang xảy ra hơn 在",
       "audio": "audio/needed-edge/eb1e6e551f08cbbeaf.mp3",
       "translationTargets": [
         {
@@ -4152,6 +4238,7 @@
       "pinyin": "shuōhuà / bié shuōhuà",
       "audioText": "说话",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nói chuyện / đừng nói chuyện",
       "audio": "audio/needed-edge/7a25e2662147e172ca.mp3",
       "translationTargets": [
         {
@@ -4178,6 +4265,7 @@
       "pinyin": "xǐzǎo / qù xǐzǎo",
       "audioText": "洗澡",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tắm / đi tắm",
       "audio": "audio/needed-edge/92ee129ca370eeeb83.mp3",
       "translationTargets": [
         {
@@ -4246,6 +4334,7 @@
       "pinyin": "xiào / děng / xiào yi xiào / děng yíxià",
       "audioText": "笑",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cười và đợi / cười một cái hoặc đợi một chút",
       "audio": "audio/needed-edge/740d1fff9cdebbc2e9.mp3"
     },
     {
@@ -4260,6 +4349,7 @@
       "pinyin": "jiǔdiàn / zhù jiǔdiàn",
       "audioText": "酒店",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khách sạn / ở khách sạn",
       "audio": "audio/needed-edge/f01540c8a609b00632.mp3",
       "translationTargets": [
         {
@@ -4307,6 +4397,7 @@
       "pinyin": "xíngli / xíngli hěn zhòng",
       "audioText": "行李",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hành lý / hành lý rất nặng",
       "audio": "audio/needed-edge/d585218ece321d766e.mp3",
       "translationTargets": [
         {
@@ -4333,6 +4424,7 @@
       "pinyin": "xiān / xiān mǎi piào",
       "audioText": "先",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trước tiên / trước tiên mua vé",
       "audio": "audio/needed-edge/82d45ef2106fae32c4.mp3",
       "translationTargets": [
         {
@@ -4359,6 +4451,7 @@
       "pinyin": "jīpiào / mǎi jīpiào",
       "audioText": "机票",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vé máy bay / mua vé máy bay",
       "audio": "audio/needed-edge/7cc726e20e06fbd84f.mp3",
       "translationTargets": [
         {
@@ -4385,6 +4478,7 @@
       "pinyin": "huàn / huàn qián / huàn zuòwèi",
       "audioText": "换",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đổi hoặc thay / đổi tiền hoặc đổi chỗ ngồi",
       "audio": "audio/needed-edge/19c7002c782255ce0d.mp3"
     },
     {
@@ -4399,6 +4493,7 @@
       "pinyin": "tuōyùn / tuōyùn xíngli",
       "audioText": "托运",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ký gửi / ký gửi hành lý",
       "audio": "audio/needed-edge/8543082ea095788317.mp3",
       "translationTargets": [
         {
@@ -4425,6 +4520,7 @@
       "pinyin": "qǔ / qǔ xíngli",
       "audioText": "取",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lấy hoặc nhận / lấy hành lý",
       "audio": "audio/needed-edge/91a52122717605702a.mp3"
     },
     {
@@ -4439,6 +4535,7 @@
       "pinyin": "Chángchéng / qù Chángchéng",
       "audioText": "长城",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Vạn Lý Trường Thành / đi Trường Thành",
       "audio": "audio/needed-edge/c2ea37363bcf73472f.mp3",
       "translationTargets": [
         {
@@ -4465,6 +4562,7 @@
       "pinyin": "zhòng / zhège hěn zhòng",
       "audioText": "重",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nặng / cái này rất nặng",
       "audio": "audio/needed-edge/3be8888544d57810bc.mp3",
       "translationTargets": [
         {
@@ -4491,6 +4589,7 @@
       "pinyin": "cì / qù yí cì",
       "audioText": "次",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lần / đi một lần",
       "audio": "audio/needed-edge/5e5b8169eee6523a5d.mp3",
       "translationTargets": [
         {
@@ -4538,6 +4637,7 @@
       "pinyin": "dài / dài dìtú / dài ěrjī",
       "audioText": "带",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mang theo / mang bản đồ hoặc tai nghe",
       "audio": "audio/needed-edge/35d40b6e6f674710ad.mp3",
       "translationTargets": [
         {
@@ -4569,6 +4669,7 @@
       "pinyin": "dìtú / kàn dìtú",
       "audioText": "地图",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bản đồ / xem bản đồ",
       "audio": "audio/needed-edge/46e1efeb268a3e005e.mp3",
       "translationTargets": [
         {
@@ -4595,6 +4696,7 @@
       "pinyin": "jìzhù / jìzhù zhège cí",
       "audioText": "记住",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nhớ kỹ / nhớ kỹ từ này",
       "audio": "audio/needed-edge/18b75770b6b84fa7c3.mp3",
       "translationTargets": [
         {
@@ -4621,6 +4723,7 @@
       "pinyin": "yǐjīng ... le / wǒ yǐjīng dào le / wǒ dào le",
       "audioText": "已经……了",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đã... rồi / 已经 thường đi với 了",
       "audio": "audio/needed-edge/d18eb0acfd07377039.mp3",
       "translationTargets": [
         {
@@ -4647,6 +4750,7 @@
       "pinyin": "shù / yì kē shù",
       "audioText": "树",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cây / một cái cây",
       "audio": "audio/needed-edge/78039feab96ef49f78.mp3",
       "translationTargets": [
         {
@@ -4694,6 +4798,7 @@
       "pinyin": "shēnshang / zài wǒ shēnshang",
       "audioText": "身上",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trên người / mang theo người",
       "audio": "audio/needed-edge/3a11ee6f3abc73aaa6.mp3",
       "translationTargets": [
         {
@@ -4720,6 +4825,7 @@
       "pinyin": "ěrjī / dài ěrjī",
       "audioText": "耳机",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tai nghe / đeo tai nghe",
       "audio": "audio/needed-edge/d5ca969dc391f046f8.mp3",
       "translationTargets": [
         {
@@ -4746,6 +4852,7 @@
       "pinyin": "ǎi / bǐ wǒ ǎi",
       "audioText": "矮",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thấp hoặc lùn / thấp hơn tôi",
       "audio": "audio/needed-edge/dec76ebf11f4c434b8.mp3"
     },
     {
@@ -4760,6 +4867,7 @@
       "pinyin": "pàng / yǒudiǎnr pàng",
       "audioText": "胖",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "béo hoặc mập / hơi mập",
       "audio": "audio/needed-edge/9cae6363156a322a56.mp3"
     },
     {
@@ -4774,6 +4882,7 @@
       "pinyin": "qióng / bù fùyǒu",
       "audioText": "穷",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nghèo / không giàu",
       "audio": "audio/needed-edge/6f3b33a864c7ca4ad0.mp3",
       "translationTargets": [
         {
@@ -4800,6 +4909,7 @@
       "pinyin": "niánqīng / hěn niánqīng",
       "audioText": "年轻",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trẻ hoặc trẻ tuổi / rất trẻ",
       "audio": "audio/needed-edge/68edd2411850b0ca43.mp3"
     },
     {
@@ -4814,6 +4924,7 @@
       "pinyin": "gāo / bǐ wǒ gāo",
       "audioText": "高",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cao / cao hơn tôi",
       "audio": "audio/needed-edge/b096b3f5acd628b953.mp3",
       "translationTargets": [
         {
@@ -4861,6 +4972,7 @@
       "pinyin": "shòu / tài shòu",
       "audioText": "瘦",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "gầy hoặc ốm / quá gầy",
       "audio": "audio/needed-edge/ea2d31a04ef0de88fc.mp3"
     },
     {
@@ -4875,6 +4987,7 @@
       "pinyin": "xíguàn / xíguàn le / bù xíguàn",
       "audioText": "习惯",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "quen hoặc thói quen / quen rồi",
       "audio": "audio/needed-edge/0c5992442bf181e30a.mp3",
       "translationTargets": [
         {
@@ -4906,6 +5019,7 @@
       "pinyin": "xiǎngfǎ / wǒ de xiǎngfǎ",
       "audioText": "想法",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ý tưởng hoặc cách nghĩ / ý tưởng của tôi",
       "audio": "audio/needed-edge/e7729017d8830f133e.mp3"
     },
     {
@@ -4920,6 +5034,7 @@
       "pinyin": "zhīshi / xué zhīshi",
       "audioText": "知识",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "kiến thức / học kiến thức",
       "audio": "audio/needed-edge/afd92514501762a8c8.mp3",
       "translationTargets": [
         {
@@ -4946,6 +5061,7 @@
       "pinyin": "jiātíng / wǒ de jiātíng",
       "audioText": "家庭",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "gia đình / gia đình tôi",
       "audio": "audio/needed-edge/7cc8d6a5089fcaf08d.mp3",
       "translationTargets": [
         {
@@ -4972,6 +5088,7 @@
       "pinyin": "zhòngyào / hěn zhòngyào",
       "audioText": "重要",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "quan trọng / rất quan trọng",
       "audio": "audio/needed-edge/b7f46707527b869589.mp3",
       "translationTargets": [
         {
@@ -4998,6 +5115,7 @@
       "pinyin": "báitiān / cóng báitiān dào xiànzài",
       "audioText": "白天",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ban ngày / từ ban ngày đến bây giờ",
       "audio": "audio/needed-edge/9dd6c2d4dee4fe2038.mp3",
       "translationTargets": [
         {
@@ -5024,6 +5142,7 @@
       "pinyin": "jiāwù / zuò jiāwù",
       "audioText": "家务",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "việc nhà / làm việc nhà",
       "audio": "audio/needed-edge/199bb53d0c36b872a2.mp3",
       "translationTargets": [
         {
@@ -5071,6 +5190,7 @@
       "pinyin": "kùn / wǒ kùn le",
       "audioText": "困",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "buồn ngủ / tôi buồn ngủ rồi",
       "audio": "audio/needed-edge/ad5b9e62f29e6415b8.mp3",
       "translationTargets": [
         {
@@ -5097,6 +5217,7 @@
       "pinyin": "kě / wǒ kě le",
       "audioText": "渴",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khát / tôi khát rồi",
       "audio": "audio/needed-edge/f019851ab420e491d7.mp3",
       "translationTargets": [
         {
@@ -5144,6 +5265,7 @@
       "pinyin": "mǎshàng / mǎshàng lái",
       "audioText": "马上",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ngay lập tức / lập tức đến",
       "audio": "audio/needed-edge/4a7a8bebcfa08444fd.mp3",
       "translationTargets": [
         {
@@ -5170,6 +5292,7 @@
       "pinyin": "zāng / hěn zāng",
       "audioText": "脏",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bẩn / rất bẩn",
       "audio": "audio/needed-edge/d94bb488cdd7f8898f.mp3",
       "translationTargets": [
         {
@@ -5196,6 +5319,7 @@
       "pinyin": "nánshēng / yí ge nánshēng",
       "audioText": "男生",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nam sinh / con trai",
       "audio": "audio/needed-edge/4f65b69b24200093ec.mp3",
       "translationTargets": [
         {
@@ -5222,6 +5346,7 @@
       "pinyin": "fàng / fàng zài zhèlǐ",
       "audioText": "放",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đặt hoặc để / đặt ở đây",
       "audio": "audio/needed-edge/6967b59e3d6331c36c.mp3"
     },
     {
@@ -5236,6 +5361,7 @@
       "pinyin": "guān shang / guān shang mén",
       "audioText": "关上",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đóng lại / đóng cửa lại",
       "audio": "audio/needed-edge/4782a70343e645c2c2.mp3",
       "translationTargets": [
         {
@@ -5262,6 +5388,7 @@
       "pinyin": "fàngjià / míngtiān fàngjià",
       "audioText": "放假",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nghỉ hoặc được nghỉ / ngày mai nghỉ",
       "audio": "audio/needed-edge/5f191c3d9473d1c077.mp3"
     },
     {
@@ -5276,6 +5403,7 @@
       "pinyin": "jiē diànhuà / wǒ zài jiē diànhuà",
       "audioText": "接电话",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nghe điện thoại / nhận cuộc gọi",
       "audio": "audio/needed-edge/7a2601fb487db49946.mp3",
       "translationTargets": [
         {
@@ -5302,6 +5430,7 @@
       "pinyin": "liǎn / xǐ liǎn",
       "audioText": "脸",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mặt / rửa mặt",
       "audio": "audio/needed-edge/925cf693697f60df17.mp3",
       "translationTargets": [
         {
@@ -5328,6 +5457,7 @@
       "pinyin": "yǒu de rén / yǒu de rén xǐhuan ānjìng",
       "audioText": "有的人",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "có người / có vài người",
       "audio": "audio/needed-edge/f2092d281d214d06c0.mp3",
       "translationTargets": [
         {
@@ -5354,6 +5484,7 @@
       "pinyin": "wàngjì / wǒ wàngjì le",
       "audioText": "忘记",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "quên / tôi quên rồi",
       "audio": "audio/needed-edge/c1e9b49e17c14c507d.mp3",
       "translationTargets": [
         {
@@ -5380,6 +5511,7 @@
       "pinyin": "zhèngzài / wǒ zhèngzài kāihuì",
       "audioText": "正在",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đang làm một hành động / đang họp",
       "audio": "audio/needed-edge/eb1e6e551f08cbbeaf.mp3",
       "translationTargets": [
         {
@@ -5406,6 +5538,7 @@
       "pinyin": "zhe / kāi zhe / mén kāi zhe ne, qǐng jìn",
       "audioText": "着",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đang ở trạng thái / cửa đang mở đấy, mời vào",
       "audio": "audio/needed-edge/cceb350d8ed576ed16.mp3"
     },
     {
@@ -5420,6 +5553,7 @@
       "pinyin": "míngbai / míngbai le",
       "audioText": "明白",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hiểu / hiểu rồi",
       "audio": "audio/needed-edge/b3b23d1a808d783ebc.mp3",
       "translationTargets": [
         {
@@ -5446,6 +5580,7 @@
       "pinyin": "shēngyīn / shēngyīn yǒudiǎnr dà",
       "audioText": "声音",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "âm thanh hoặc giọng nói / âm thanh hơi lớn",
       "audio": "audio/needed-edge/ab9ff81dac9b1eb8ac.mp3"
     },
     {
@@ -5460,6 +5595,7 @@
       "pinyin": "yǎo / yǎo yì kǒu",
       "audioText": "咬",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cắn / cắn một miếng",
       "audio": "audio/needed-edge/b6bdac54fa39dcfa00.mp3",
       "translationTargets": [
         {
@@ -5507,6 +5643,7 @@
       "pinyin": "niǎo / yì zhī niǎo",
       "audioText": "鸟",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "chim / một con chim",
       "audio": "audio/needed-edge/9acc91a1f9a59bac59.mp3",
       "translationTargets": [
         {
@@ -5533,6 +5670,7 @@
       "pinyin": "fùmǔ / wǒ de fùmǔ",
       "audioText": "父母",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bố mẹ / bố mẹ tôi",
       "audio": "audio/needed-edge/4590bfff3e784906fb.mp3",
       "translationTargets": [
         {
@@ -5559,6 +5697,7 @@
       "pinyin": "shuìjiào / zhù zài / zuò zhe / zhàn zhe",
       "audioText": "睡觉",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ngủ, ở, ngồi, đứng / nhớ dạng trạng thái",
       "audio": "audio/needed-edge/6380260a652b9e4edb.mp3"
     },
     {
@@ -5573,6 +5712,7 @@
       "pinyin": "yǒuhǎo / hěn yǒuhǎo",
       "audioText": "友好",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thân thiện / rất thân thiện",
       "audio": "audio/needed-edge/161633debb75137a6f.mp3",
       "translationTargets": [
         {
@@ -5620,6 +5760,7 @@
       "pinyin": "rèqíng / hěn rèqíng",
       "audioText": "热情",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nhiệt tình / rất nhiệt tình",
       "audio": "audio/needed-edge/fe2161f91d58cb32b7.mp3",
       "translationTargets": [
         {
@@ -5646,6 +5787,7 @@
       "pinyin": "tèbié / tèbié hǎo",
       "audioText": "特别",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đặc biệt / đặc biệt tốt",
       "audio": "audio/needed-edge/6748705dbad7a5335e.mp3",
       "translationTargets": [
         {
@@ -5672,6 +5814,7 @@
       "pinyin": "kū / bié kū",
       "audioText": "哭",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khóc / đừng khóc",
       "audio": "audio/needed-edge/f0f1f867ec9cbb59b6.mp3",
       "translationTargets": [
         {
@@ -5698,6 +5841,7 @@
       "pinyin": "ānjìng / hěn ānjìng",
       "audioText": "安静",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "yên tĩnh / rất yên tĩnh",
       "audio": "audio/needed-edge/67ce17274604017d03.mp3",
       "translationTargets": [
         {
@@ -5724,6 +5868,7 @@
       "pinyin": "rènzhēn / rènzhēn xuéxí",
       "audioText": "认真",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nghiêm túc hoặc chăm chú / học nghiêm túc",
       "audio": "audio/needed-edge/1c258d12c2fc11ac1c.mp3"
     },
     {
@@ -5738,6 +5883,7 @@
       "pinyin": "qíngkuàng / shénme qíngkuàng?",
       "audioText": "情况",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tình hình hoặc tình huống / tình hình thế nào?",
       "audio": "audio/needed-edge/bfb2d254b48e45a15b.mp3"
     },
     {
@@ -5773,6 +5919,7 @@
       "pinyin": "dàoqiàn / xiàng nǐ dàoqiàn",
       "audioText": "道歉",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "xin lỗi hoặc nói lời xin lỗi / xin lỗi bạn",
       "audio": "audio/needed-edge/d6ea3efab0a538791e.mp3",
       "translationTargets": [
         {
@@ -5794,6 +5941,7 @@
       "pinyin": "qǐngjià / qǐng yì tiān jià",
       "audioText": "请假",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "xin nghỉ / xin nghỉ một ngày",
       "audio": "audio/needed-edge/b847a1b638e2b95de6.mp3",
       "translationTargets": [
         {
@@ -5820,6 +5968,7 @@
       "pinyin": "kāi wánxiào / wǒ zài kāi wánxiào",
       "audioText": "开玩笑",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đùa / tôi đang nói đùa",
       "audio": "audio/needed-edge/170e6d8c40d4390785.mp3",
       "translationTargets": [
         {
@@ -5846,6 +5995,7 @@
       "pinyin": "biéren / biéren de dōngxi",
       "audioText": "别人",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "người khác / đồ của người khác",
       "audio": "audio/needed-edge/93f7d8b0826533568f.mp3",
       "translationTargets": [
         {
@@ -5872,6 +6022,7 @@
       "pinyin": "shàng cì / shàng cì jiànmiàn",
       "audioText": "上次",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lần trước / lần trước gặp mặt",
       "audio": "audio/needed-edge/20275ef27d3abc401b.mp3",
       "translationTargets": [
         {
@@ -5898,6 +6049,7 @@
       "pinyin": "yuánliàng / qǐng yuánliàng wǒ",
       "audioText": "原谅",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tha thứ / xin hãy tha thứ cho tôi",
       "audio": "audio/needed-edge/7a842b7833a419eaf5.mp3",
       "translationTargets": [
         {
@@ -5924,6 +6076,7 @@
       "pinyin": "yào / wǒ yào qù",
       "audioText": "要",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sẽ hoặc định / tôi định đi",
       "audio": "audio/needed-edge/93e27107a133fb3ec7.mp3"
     },
     {
@@ -5938,6 +6091,7 @@
       "pinyin": "hái yào / wǒ hái yào yì bēi shuǐ",
       "audioText": "还要",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "còn muốn hoặc còn phải / tôi còn muốn thêm một cốc nước",
       "audio": "audio/needed-edge/198947aa2a30443d21.mp3"
     },
     {
@@ -5952,6 +6106,7 @@
       "pinyin": "huānyíng / huānyíng nǐ lái wǒ jiā",
       "audioText": "欢迎",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hoan nghênh hoặc chào mừng / hoan nghênh bạn đến nhà tôi",
       "audio": "audio/needed-edge/45557f52bf1dc92d54.mp3"
     },
     {
@@ -5966,6 +6121,7 @@
       "pinyin": "dǒng / tīng dǒng le / nǐ dǒng ma?",
       "audioText": "懂",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hiểu / nghe hiểu rồi",
       "audio": "audio/needed-edge/632b654b592f3ed0e0.mp3"
     },
     {
@@ -5980,6 +6136,7 @@
       "pinyin": "xīwàng / xīwàng nǐ néng lái",
       "audioText": "希望",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hy vọng / hy vọng bạn có thể đến",
       "audio": "audio/needed-edge/e895e44af9f9bc0582.mp3",
       "translationTargets": [
         {
@@ -6006,6 +6163,7 @@
       "pinyin": "yìzhí / tā yìzhí zài xuéxí",
       "audioText": "一直",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "luôn luôn hoặc suốt / vẫn luôn đang học",
       "audio": "audio/needed-edge/0e4d5f3a92d75cc4f1.mp3"
     },
     {
@@ -6020,6 +6178,7 @@
       "pinyin": "zhǐ yǒu / zhǐ yǒu nǐ néng lái",
       "audioText": "只有",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "chỉ có / chỉ có bạn mới có thể đến",
       "audio": "audio/needed-edge/570663ad137ebb222c.mp3",
       "translationTargets": [
         {
@@ -6046,6 +6205,7 @@
       "pinyin": "jiàoxué lóu / zài jiàoxué lóu",
       "audioText": "教学楼",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tòa nhà dạy học / ở tòa nhà dạy học",
       "audio": "audio/needed-edge/16308dfc40eda599b1.mp3",
       "translationTargets": [
         {
@@ -6072,6 +6232,7 @@
       "pinyin": "sùshè / huí sùshè",
       "audioText": "宿舍",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ký túc xá / về ký túc xá",
       "audio": "audio/needed-edge/4522b4650788d48224.mp3",
       "translationTargets": [
         {
@@ -6098,6 +6259,7 @@
       "pinyin": "shítáng / zài shítáng chī fàn",
       "audioText": "食堂",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nhà ăn / ăn ở nhà ăn",
       "audio": "audio/needed-edge/a203225b0390a358dc.mp3",
       "translationTargets": [
         {
@@ -6124,6 +6286,7 @@
       "pinyin": "jiàoshì / jìn jiàoshì",
       "audioText": "教室",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "phòng học / vào phòng học",
       "audio": "audio/needed-edge/f3255b3073cf98aa59.mp3",
       "translationTargets": [
         {
@@ -6150,6 +6313,7 @@
       "pinyin": "wǎng dōng zǒu / yìzhí wǎng dōng zǒu",
       "audioText": "往东走",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đi về phía đông / cứ đi về phía đông",
       "audio": "audio/needed-edge/5e76819a959727cdb1.mp3",
       "translationTargets": [
         {
@@ -6176,6 +6340,7 @@
       "pinyin": "guǎi / wǎng zuǒ guǎi / wǎng yòu guǎi",
       "audioText": "拐",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "rẽ / rẽ trái hoặc rẽ phải",
       "audio": "audio/needed-edge/41aacc6d482a7134a9.mp3",
       "translationTargets": [
         {
@@ -6207,6 +6372,7 @@
       "pinyin": "tuì / wǎng hòu tuì yí bù",
       "audioText": "退",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lùi hoặc trả lại / lùi lại một bước",
       "audio": "audio/needed-edge/1121a49df68bf24a4e.mp3"
     },
     {
@@ -6221,6 +6387,7 @@
       "pinyin": "mógu / chī mógu",
       "audioText": "蘑菇",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nấm / ăn nấm",
       "audio": "audio/needed-edge/b128ea5330a0f52447.mp3",
       "translationTargets": [
         {
@@ -6247,6 +6414,7 @@
       "pinyin": "huángguā / yì gēn huángguā",
       "audioText": "黄瓜",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "dưa chuột / một quả dưa chuột",
       "audio": "audio/needed-edge/a4d8e39c59818c0744.mp3",
       "translationTargets": [
         {
@@ -6273,6 +6441,7 @@
       "pinyin": "làjiāo / fàng làjiāo",
       "audioText": "辣椒",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ớt / bỏ ớt",
       "audio": "audio/needed-edge/c003e163d87f29a994.mp3",
       "translationTargets": [
         {
@@ -6299,6 +6468,7 @@
       "pinyin": "suàn / fàng suàn",
       "audioText": "蒜",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tỏi / bỏ tỏi",
       "audio": "audio/needed-edge/e85895ea1bfee3bb3b.mp3",
       "translationTargets": [
         {
@@ -6325,6 +6495,7 @@
       "pinyin": "yángcōng / qiē yángcōng",
       "audioText": "洋葱",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hành tây / cắt hành tây",
       "audio": "audio/needed-edge/25c1afe5619f8aeaba.mp3",
       "translationTargets": [
         {
@@ -6351,6 +6522,7 @@
       "pinyin": "gòu / gòu bu gòu? / bú gòu",
       "audioText": "够",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đủ / đủ chưa?",
       "audio": "audio/needed-edge/a69bf3c14fe83508d8.mp3"
     },
     {
@@ -6379,6 +6551,7 @@
       "pinyin": "dào / dào yóu / bǎ yóu dào jìn guō li",
       "audioText": "倒",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đổ hoặc rót / đổ dầu vào nồi",
       "audio": "audio/needed-edge/40e2c152cdbfb07780.mp3",
       "translationTargets": [
         {
@@ -6410,6 +6583,7 @@
       "pinyin": "yóu / yìdiǎnr yóu",
       "audioText": "油",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "dầu / một chút dầu",
       "audio": "audio/needed-edge/240732edf662b8b748.mp3",
       "translationTargets": [
         {
@@ -6436,6 +6610,7 @@
       "pinyin": "yīnggāi / yīnggāi zhèyàng zuò",
       "audioText": "应该",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nên hoặc phải / nên làm thế này",
       "audio": "audio/needed-edge/2478f6fe38a6d76f3b.mp3"
     },
     {
@@ -6450,6 +6625,7 @@
       "pinyin": "táng / fàng táng",
       "audioText": "糖",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đường / bỏ đường",
       "audio": "audio/needed-edge/3d8cd510d07e66b22f.mp3",
       "translationTargets": [
         {
@@ -6476,6 +6652,7 @@
       "pinyin": "yán / fàng yán",
       "audioText": "盐",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "muối / bỏ muối",
       "audio": "audio/needed-edge/1629217f3c7679d86b.mp3",
       "translationTargets": [
         {
@@ -6523,6 +6700,7 @@
       "pinyin": "zhèyàng / zhèyàng zuò",
       "audioText": "这样",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "như thế này / làm như thế này",
       "audio": "audio/needed-edge/99f139291361fa56ef.mp3",
       "translationTargets": [
         {
@@ -6549,6 +6727,7 @@
       "pinyin": "zěnyàng / yīnggāi zěnyàng zuò?",
       "audioText": "怎样",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "như thế nào / nên làm thế nào?",
       "audio": "audio/needed-edge/f719b11954dd13e488.mp3",
       "translationTargets": [
         {
@@ -6575,6 +6754,7 @@
       "pinyin": "xiàng / xiàng nǐ dàoqiàn / xiàng lǎoshī wènhǎo",
       "audioText": "向",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hướng về hoặc với hoặc nói với ai / xin lỗi ai",
       "audio": "audio/needed-edge/6dbcceb7f0060a797f.mp3",
       "translationTargets": [
         {
@@ -6627,6 +6807,7 @@
       "pinyin": "bāngzhù / bāngzhù biéren",
       "audioText": "帮助",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "giúp đỡ / giúp người khác",
       "audio": "audio/needed-edge/adf465ebf0e6d7fa66.mp3",
       "translationTargets": [
         {
@@ -6653,6 +6834,7 @@
       "pinyin": "bié / bié xǐ le",
       "audioText": "别",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đừng / đừng giặt/rửa nữa",
       "audio": "audio/needed-edge/f162f3278f4828573f.mp3",
       "translationTargets": [
         {
@@ -6679,6 +6861,7 @@
       "pinyin": "zhèngzài / zhèngzài xǐzǎo",
       "audioText": "正在",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đang / đang tắm",
       "audio": "audio/needed-edge/eb1e6e551f08cbbeaf.mp3",
       "translationTargets": [
         {
@@ -6705,6 +6888,7 @@
       "pinyin": "xǐ / xǐ yīfu",
       "audioText": "洗",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "rửa hoặc giặt / giặt quần áo",
       "audio": "audio/needed-edge/cef2673e62826c974f.mp3"
     },
     {
@@ -6803,6 +6987,7 @@
       "pinyin": "hěn kuài jiù / wǒ hěn kuài jiù huílái",
       "audioText": "很快就",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "rất nhanh sẽ... / tôi sẽ quay lại rất nhanh",
       "audio": "audio/needed-edge/d24f585c90498aa90b.mp3",
       "translationTargets": [
         {
@@ -6934,6 +7119,7 @@
       "pinyin": "wēndù / wēndù hěn gāo / wēndù hěn dī",
       "audioText": "温度",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nhiệt độ / nhiệt độ cao hoặc thấp",
       "audio": "audio/needed-edge/d3bea9efb1b9edf6ac.mp3",
       "translationTargets": [
         {
@@ -6965,6 +7151,7 @@
       "pinyin": "xìng / nǐ xìng shénme?",
       "audioText": "姓",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "họ / bạn họ gì?",
       "audio": "audio/needed-edge/003e1ac943eff00eb0.mp3",
       "translationTargets": [
         {
@@ -6991,6 +7178,7 @@
       "pinyin": "jiào / nǐ jiào shénme míngzi?",
       "audioText": "叫",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tên là hoặc gọi là / bạn tên là gì?",
       "audio": "audio/needed-edge/793f8679d7b028e411.mp3"
     },
     {
@@ -7005,6 +7193,7 @@
       "pinyin": "tián / hěn tián",
       "audioText": "甜",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ngọt / rất ngọt",
       "audio": "audio/needed-edge/ab950a21e5a8833a32.mp3",
       "translationTargets": [
         {
@@ -7031,6 +7220,7 @@
       "pinyin": "là / tài là",
       "audioText": "辣",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cay / cay quá",
       "audio": "audio/needed-edge/e50be909f385917a34.mp3",
       "translationTargets": [
         {
@@ -7057,6 +7247,7 @@
       "pinyin": "kǔ / yǒudiǎnr kǔ",
       "audioText": "苦",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đắng / hơi đắng",
       "audio": "audio/needed-edge/f3c1000292ffd1e6d4.mp3",
       "translationTargets": [
         {
@@ -7083,6 +7274,7 @@
       "pinyin": "xián / zhè ge cài yǒudiǎnr xián",
       "audioText": "咸",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mặn / món này hơi mặn",
       "audio": "audio/needed-edge/71800dec90aee485f9.mp3",
       "translationTargets": [
         {
@@ -7123,6 +7315,7 @@
       "pinyin": "gòu / gòu le / bú gòu",
       "audioText": "够",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đủ / đủ rồi hoặc không đủ",
       "audio": "audio/needed-edge/a69bf3c14fe83508d8.mp3",
       "translationTargets": [
         {
@@ -7154,6 +7347,7 @@
       "pinyin": "ruǎn / hěn ruǎn",
       "audioText": "软",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mềm / rất mềm",
       "audio": "audio/needed-edge/6a8a30887abcda9cae.mp3",
       "translationTargets": [
         {
@@ -7180,6 +7374,7 @@
       "pinyin": "qítā / qítā de / qítā rén",
       "audioText": "其他",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khác hoặc cái khác / người khác",
       "audio": "audio/needed-edge/1a26edf94a81a7a43e.mp3",
       "translationTargets": [
         {
@@ -7211,6 +7406,7 @@
       "pinyin": "tiánpǐn / chī tiánpǐn",
       "audioText": "甜品",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đồ ngọt hoặc món tráng miệng / ăn đồ ngọt",
       "audio": "audio/needed-edge/01ed721a3648448735.mp3"
     },
     {
@@ -7246,6 +7442,7 @@
       "pinyin": "shùyè / lǜ shùyè",
       "audioText": "树叶",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lá cây / lá cây màu xanh",
       "audio": "audio/needed-edge/4fd2598d38a36152c3.mp3",
       "translationTargets": [
         {
@@ -7272,6 +7469,7 @@
       "pinyin": "lǜ / lǜsè",
       "audioText": "绿",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "xanh lá / màu xanh lá",
       "audio": "audio/needed-edge/579625d5ac904b19e8.mp3",
       "translationTargets": [
         {
@@ -7340,6 +7538,7 @@
       "pinyin": "yuèliang / yuèliang hěn liàng",
       "audioText": "月亮",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mặt trăng / mặt trăng rất sáng",
       "audio": "audio/needed-edge/a6a01d14a2b3e60b78.mp3",
       "translationTargets": [
         {
@@ -7366,6 +7565,7 @@
       "pinyin": "tàiyáng / tàiyáng chūlái le",
       "audioText": "太阳",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mặt trời / mặt trời mọc rồi",
       "audio": "audio/needed-edge/89da31469ce67ef581.mp3",
       "translationTargets": [
         {
@@ -7413,6 +7613,7 @@
       "pinyin": "liàng / hěn liàng",
       "audioText": "亮",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sáng / rất sáng",
       "audio": "audio/needed-edge/caf3447b27ccb28ef8.mp3",
       "translationTargets": [
         {
@@ -7460,6 +7661,7 @@
       "pinyin": "shàngyī / chuān shàngyī",
       "audioText": "上衣",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "áo trên hoặc áo / mặc áo trên",
       "audio": "audio/needed-edge/0a35768503b7309b13.mp3"
     },
     {
@@ -7474,6 +7676,7 @@
       "pinyin": "qúnzi / yì tiáo qúnzi",
       "audioText": "裙子",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "váy / một chiếc váy",
       "audio": "audio/needed-edge/3ea9aedcc85b62649c.mp3",
       "translationTargets": [
         {
@@ -7500,6 +7703,7 @@
       "pinyin": "kùzi / yì tiáo kùzi",
       "audioText": "裤子",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "quần / một chiếc quần",
       "audio": "audio/needed-edge/d5855ecdee78c47937.mp3",
       "translationTargets": [
         {
@@ -7526,6 +7730,7 @@
       "pinyin": "tǐng hǎokàn / tǐng hǎokàn de",
       "audioText": "挺好看",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khá đẹp / nhìn khá đẹp",
       "audio": "audio/needed-edge/aee2778314a6459ff8.mp3",
       "translationTargets": [
         {
@@ -7573,6 +7778,7 @@
       "pinyin": "xié / yì shuāng xié / chuān xié",
       "audioText": "鞋",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "giày / một đôi giày / đi giày",
       "audio": "audio/needed-edge/010642fdeb65ac8f47.mp3",
       "translationTargets": [
         {
@@ -7604,6 +7810,7 @@
       "pinyin": "shūfu / chuān zhe hěn shūfu",
       "audioText": "舒服",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thoải mái / mang/đi vào rất thoải mái",
       "audio": "audio/needed-edge/7e12d98a34909264b6.mp3",
       "translationTargets": [
         {
@@ -7630,6 +7837,7 @@
       "pinyin": "héshì / dàxiǎo héshì / hěn héshì",
       "audioText": "合适",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "phù hợp hoặc vừa / kích cỡ vừa",
       "audio": "audio/needed-edge/e523b6ab39473bd5fe.mp3",
       "translationTargets": [
         {
@@ -7661,6 +7869,7 @@
       "pinyin": "bùtóng / yánsè bùtóng",
       "audioText": "不同",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khác nhau / màu sắc khác nhau",
       "audio": "audio/needed-edge/b3d980b349fa8358c1.mp3",
       "translationTargets": [
         {
@@ -7687,6 +7896,7 @@
       "pinyin": "xiāngtóng / dàxiǎo xiāngtóng",
       "audioText": "相同",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "giống nhau / kích cỡ giống nhau",
       "audio": "audio/needed-edge/c31c24546e914e3b2f.mp3",
       "translationTargets": [
         {
@@ -7713,6 +7923,7 @@
       "pinyin": "yàngzi / yàngzi tǐng hǎokàn",
       "audioText": "样子",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "kiểu dáng hoặc hình dáng / kiểu dáng khá đẹp",
       "audio": "audio/needed-edge/7344c4a4f339a46741.mp3"
     },
     {
@@ -7727,6 +7938,7 @@
       "pinyin": "chàbuduō / zhè liǎng ge chàbuduō",
       "audioText": "差不多",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "gần giống hoặc xấp xỉ / hai cái này gần giống nhau",
       "audio": "audio/needed-edge/27a2e7c57f49ee7cdd.mp3"
     },
     {
@@ -7741,6 +7953,7 @@
       "pinyin": "dàxiǎo / dàxiǎo zěnmeyàng?",
       "audioText": "大小",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "kích cỡ hoặc to nhỏ / kích cỡ thế nào?",
       "audio": "audio/needed-edge/fd20702c73d1ea928b.mp3"
     },
     {
@@ -7755,6 +7968,7 @@
       "pinyin": "qiúxié / yì shuāng qiúxié",
       "audioText": "球鞋",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "giày thể thao / một đôi giày thể thao",
       "audio": "audio/needed-edge/3ff6114a18b82621d4.mp3",
       "translationTargets": [
         {
@@ -7781,6 +7995,7 @@
       "pinyin": "chènshān / yí jiàn chènshān",
       "audioText": "衬衫",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "áo sơ mi / một chiếc áo sơ mi",
       "audio": "audio/needed-edge/5fde9baa493b99f80d.mp3",
       "translationTargets": [
         {
@@ -7807,6 +8022,7 @@
       "pinyin": "màozi / yì dǐng màozi",
       "audioText": "帽子",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mũ / một chiếc mũ",
       "audio": "audio/needed-edge/8dccc4a2e6ce3e6ecb.mp3",
       "translationTargets": [
         {
@@ -7833,6 +8049,7 @@
       "pinyin": "dài / dài màozi / dài shǒutào",
       "audioText": "戴",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đội hoặc đeo / đội mũ / đeo găng tay",
       "audio": "audio/needed-edge/eba355ed10eb108731.mp3"
     },
     {
@@ -7847,6 +8064,7 @@
       "pinyin": "bú yòng / bú yòng mǎi le / bú yòng dài",
       "audioText": "不用",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "không cần / không cần mua nữa",
       "audio": "audio/needed-edge/78ac1ae08fe6cea921.mp3"
     },
     {
@@ -7861,6 +8079,7 @@
       "pinyin": "wéijīn / wéi wéijīn",
       "audioText": "围巾",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khăn quàng / quàng khăn",
       "audio": "audio/needed-edge/925da12e8bee8106ad.mp3",
       "translationTargets": [
         {
@@ -7887,6 +8106,7 @@
       "pinyin": "shǒutào / yí fù shǒutào / dài shǒutào",
       "audioText": "手套",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "găng tay / một đôi găng tay / đeo găng tay",
       "audio": "audio/needed-edge/77b1a53aa25eea5505.mp3",
       "translationTargets": [
         {
@@ -7918,6 +8138,7 @@
       "pinyin": "kuài yào / kuài yào xiàkè le",
       "audioText": "快要",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sắp hoặc sắp...rồi / sắp tan học rồi",
       "audio": "audio/needed-edge/be0bfcce4652e37928.mp3"
     },
     {
@@ -7932,6 +8153,7 @@
       "pinyin": "xīcān / chī xīcān",
       "audioText": "西餐",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đồ Tây / ăn đồ Tây",
       "audio": "audio/needed-edge/0832888e3a33a3fb1a.mp3",
       "translationTargets": [
         {
@@ -7958,6 +8180,7 @@
       "pinyin": "zánmen / zánmen qù chī huǒguō ba",
       "audioText": "咱们",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "chúng ta / chúng ta đi ăn lẩu nhé",
       "audio": "audio/needed-edge/49b6b146d2510d6d99.mp3",
       "translationTargets": [
         {
@@ -7984,6 +8207,7 @@
       "pinyin": "huǒguō / chī huǒguō",
       "audioText": "火锅",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lẩu / ăn lẩu",
       "audio": "audio/needed-edge/8ade4cc2d29fa5c061.mp3",
       "translationTargets": [
         {
@@ -8010,6 +8234,7 @@
       "pinyin": "huòzhě / chī chǎofàn huòzhě kuàicān",
       "audioText": "或者",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hoặc / ăn cơm rang hoặc đồ ăn nhanh",
       "audio": "audio/needed-edge/3fbe3edfc56b79487c.mp3",
       "translationTargets": [
         {
@@ -8036,6 +8261,7 @@
       "pinyin": "chǎofàn / yí fèn chǎofàn",
       "audioText": "炒饭",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cơm rang / một phần cơm rang",
       "audio": "audio/needed-edge/dbc05e88428ff35308.mp3",
       "translationTargets": [
         {
@@ -8062,6 +8288,7 @@
       "pinyin": "niúbāi / hěn niúbāi",
       "audioText": "牛掰",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đỉnh hoặc xịn, từ lóng / rất xịn",
       "audio": "audio/needed-edge/e5678a9ee2f87622b5.mp3"
     },
     {
@@ -8076,6 +8303,7 @@
       "pinyin": "qǐngkè / jīntiān wǒ qǐngkè",
       "audioText": "请客",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mời khách hoặc đãi / hôm nay tôi mời",
       "audio": "audio/needed-edge/9a6e28556918daf51e.mp3"
     },
     {
@@ -8132,6 +8360,7 @@
       "pinyin": "kuàicān / chī kuàicān",
       "audioText": "快餐",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đồ ăn nhanh / ăn đồ ăn nhanh",
       "audio": "audio/needed-edge/6aa8330402c3a40882.mp3",
       "translationTargets": [
         {
@@ -8158,6 +8387,7 @@
       "pinyin": "bīngjilíng / chī bīngjilíng",
       "audioText": "冰激凌",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "kem / ăn kem",
       "audio": "audio/needed-edge/b8978c76bbd150a782.mp3",
       "translationTargets": [
         {
@@ -8184,6 +8414,7 @@
       "pinyin": "bàngōngshì / zài bàngōngshì",
       "audioText": "办公室",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "văn phòng / ở trong văn phòng. Sửa ghi nhớ: office là 办公室, không phải 办公司",
       "audio": "audio/needed-edge/728fef49550fa07f17.mp3",
       "translationTargets": [
         {
@@ -8210,6 +8441,7 @@
       "pinyin": "líkāi / líkāi bàngōngshì",
       "audioText": "离开",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "rời khỏi / rời khỏi văn phòng",
       "audio": "audio/needed-edge/0ba189053c0dc676ef.mp3",
       "translationTargets": [
         {
@@ -8341,6 +8573,7 @@
       "pinyin": "tǐng / tǐng hǎo de / tǐng hǎochī de",
       "audioText": "挺",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khá hoặc rất / khá tốt, khá ngon",
       "audio": "audio/needed-edge/d80cdfc60fa748c769.mp3",
       "translationTargets": [
         {
@@ -8372,6 +8605,7 @@
       "pinyin": "fā / fā yóujiàn",
       "audioText": "发",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "gửi hoặc phát / gửi email",
       "audio": "audio/needed-edge/b089c8f1559e6ed07a.mp3"
     },
     {
@@ -8407,6 +8641,7 @@
       "pinyin": "dìzhǐ / dìzhǐ zài nǎr?",
       "audioText": "地址",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "địa chỉ / địa chỉ ở đâu?",
       "audio": "audio/needed-edge/67d2d7970f4a51911f.mp3",
       "translationTargets": [
         {
@@ -8433,6 +8668,7 @@
       "pinyin": "yóuxiāng / yóuxiāng dìzhǐ",
       "audioText": "邮箱",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hộp thư hoặc email / địa chỉ email",
       "audio": "audio/needed-edge/9ed627bcf63dc7f5ee.mp3"
     },
     {
@@ -8447,6 +8683,7 @@
       "pinyin": "hàomǎ / diànhuà hàomǎ",
       "audioText": "号码",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "số / số điện thoại",
       "audio": "audio/needed-edge/fda225c58826b7f657.mp3",
       "translationTargets": [
         {
@@ -8487,6 +8724,7 @@
       "pinyin": "bīnguǎn / zhù bīnguǎn",
       "audioText": "宾馆",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khách sạn hoặc nhà nghỉ / ở khách sạn",
       "audio": "audio/needed-edge/9b0ac79476d9b62367.mp3"
     },
     {
@@ -8501,6 +8739,7 @@
       "pinyin": "téng / tóu téng",
       "audioText": "疼",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đau / đau đầu",
       "audio": "audio/needed-edge/060d89797a02a494a0.mp3",
       "translationTargets": [
         {
@@ -8527,6 +8766,7 @@
       "pinyin": "quánshēn / quánshēn nánshòu",
       "audioText": "全身",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "toàn thân / toàn thân khó chịu",
       "audio": "audio/needed-edge/15598fb229f98d5479.mp3",
       "translationTargets": [
         {
@@ -8574,6 +8814,7 @@
       "pinyin": "tóu / tóu hǎo téng",
       "audioText": "头",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đầu / đầu đau quá",
       "audio": "audio/needed-edge/f366635ad280467112.mp3",
       "translationTargets": [
         {
@@ -8600,6 +8841,7 @@
       "pinyin": "nánshòu / wǒ hěn nánshòu",
       "audioText": "难受",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khó chịu / tôi thấy khó chịu",
       "audio": "audio/needed-edge/4556b8fdaf05fae960.mp3",
       "translationTargets": [
         {
@@ -8647,6 +8889,7 @@
       "pinyin": "dǎ pēntì / lǎoshì dǎ pēntì",
       "audioText": "打喷嚏",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hắt hơi / cứ hắt hơi",
       "audio": "audio/needed-edge/9b4f5c48ec70e4fe62.mp3",
       "translationTargets": [
         {
@@ -8694,6 +8937,7 @@
       "pinyin": "késou / lǎoshì késou",
       "audioText": "咳嗽",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ho / cứ ho",
       "audio": "audio/needed-edge/148eac2886c3e9200c.mp3",
       "translationTargets": [
         {
@@ -8720,6 +8964,7 @@
       "pinyin": "bù / méi / méiyǒu",
       "audioText": "不",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "phủ định 不 và 没: 不 dùng cho thói quen/ý muốn/tương lai / 没/没有 dùng cho việc chưa xảy ra/chưa làm/không có",
       "audio": "audio/needed-edge/8fa7401e9077e3abfd.mp3"
     },
     {
@@ -8734,6 +8979,7 @@
       "pinyin": "guòmǐn / guòmǐn le",
       "audioText": "过敏",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "dị ứng / bị dị ứng",
       "audio": "audio/needed-edge/8dd2da7a687d02c34c.mp3",
       "translationTargets": [
         {
@@ -8760,6 +9006,7 @@
       "pinyin": "gǎnmào / gǎnmào le",
       "audioText": "感冒",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cảm cúm hoặc cảm lạnh / bị cảm",
       "audio": "audio/needed-edge/226a6d45b021fe0fc2.mp3"
     },
     {
@@ -8774,6 +9021,7 @@
       "pinyin": "fāshāo / fāshāo le",
       "audioText": "发烧",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sốt / bị sốt",
       "audio": "audio/needed-edge/0d4dc9cf30262633c8.mp3",
       "translationTargets": [
         {
@@ -8800,6 +9048,7 @@
       "pinyin": "áoyè / bié áoyè",
       "audioText": "熬夜",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thức khuya / đừng thức khuya",
       "audio": "audio/needed-edge/fc6b5b07254334976b.mp3",
       "translationTargets": [
         {
@@ -8826,6 +9075,7 @@
       "pinyin": "chōuyān / bié chōuyān",
       "audioText": "抽烟",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hút thuốc / đừng hút thuốc",
       "audio": "audio/needed-edge/908ebdb66b1f2a4e78.mp3",
       "translationTargets": [
         {
@@ -8908,6 +9158,7 @@
       "pinyin": "hái lǎoshì / hái lǎoshì késou",
       "audioText": "还老是",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vẫn cứ hoặc còn cứ / vẫn cứ ho",
       "audio": "audio/needed-edge/a74188bef7d2257b1b.mp3"
     },
     {
@@ -8922,6 +9173,7 @@
       "pinyin": "qiānbǐ / yì zhī qiānbǐ",
       "audioText": "铅笔",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bút chì / một cây bút chì",
       "audio": "audio/needed-edge/cd52d6c26eac71f33e.mp3",
       "translationTargets": [
         {
@@ -9011,6 +9263,7 @@
       "pinyin": "dī / wēndù dī",
       "audioText": "低",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thấp / nhiệt độ thấp",
       "audio": "audio/needed-edge/b9ee259b7f6c09793b.mp3",
       "translationTargets": [
         {
@@ -9037,6 +9290,7 @@
       "pinyin": "nuǎnhuo / tiānqì nuǎnhuo",
       "audioText": "暖和",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ấm áp / thời tiết ấm áp",
       "audio": "audio/needed-edge/b8cb28d665d43a571e.mp3",
       "translationTargets": [
         {
@@ -9084,6 +9338,7 @@
       "pinyin": "liángkuai / hěn liángkuai",
       "audioText": "凉快",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mát mẻ / rất mát mẻ",
       "audio": "audio/needed-edge/c84e01ee939ff936f1.mp3",
       "translationTargets": [
         {
@@ -9173,6 +9428,7 @@
       "pinyin": "chāoguò / chāoguò shí dù",
       "audioText": "超过",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vượt quá / hơn mười độ",
       "audio": "audio/needed-edge/84b78fb00785f3589d.mp3",
       "translationTargets": [
         {
@@ -9325,6 +9581,7 @@
       "pinyin": "dōu = yǐjīng / dōu sān diǎn le",
       "audioText": "都 = 已经",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "都 có thể nhấn mạnh nghĩa đã / đến mức đã, gần 已经 trong nhiều câu",
       "audio": "audio/needed-edge/2ebbf0317a14548a06.mp3"
     },
     {
@@ -9353,6 +9610,7 @@
       "pinyin": "wǒ yào qù / kuài yào xià yǔ le / nǐ yào duō xiūxi / hái yào",
       "audioText": "我要去",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "要 = muốn / cần / sắp / nên. Nhìn ngữ cảnh để đoán nghĩa",
       "audio": "audio/needed-edge/cb84cc1319ce1dd238.mp3"
     },
     {
@@ -9459,6 +9717,7 @@
       "pinyin": "zǒu ba / zánmen qù chī huǒguō ba / xíng ba / shì ba",
       "audioText": "走吧",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "吧 = gợi ý / rủ / đoán nhẹ / xin đồng ý. Làm câu mềm hơn",
       "audio": "audio/needed-edge/e5b95dce0f78a1712c.mp3"
     },
     {
@@ -9508,6 +9767,7 @@
       "pinyin": "hái yǒu / hái yǒu bié de ma? / hái yǒu wèntí ma?",
       "audioText": "还有",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "还 = vẫn / còn / thêm. 还有 = vẫn còn có, ngoài ra còn...",
       "audio": "audio/needed-edge/1cb39e3827f79e9e52.mp3"
     },
     {
@@ -9522,6 +9782,7 @@
       "pinyin": "háishì / nǐ hē chá háishì hē kāfēi? / háishì qù ba",
       "audioText": "还是",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "还是 = vẫn là / hoặc là / hay là. Hay dùng khi chọn giữa hai khả năng",
       "audio": "audio/needed-edge/31fd0bc3de91bbaca1.mp3"
     },
     {
@@ -9536,6 +9797,7 @@
       "pinyin": "hái hǎo / wǒ hái hǎo / hái hǎo méi xià yǔ",
       "audioText": "还好",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "还好 = tạm ổn / may mà. Nghĩa gốc: vẫn tốt, chưa đến mức xấu",
       "audio": "audio/needed-edge/143f23526995440124.mp3",
       "translationTargets": [
         {
@@ -9578,6 +9840,7 @@
       "pinyin": "hái yào / hái yào yì bēi shuǐ / míngtiān hái yào shàngkè",
       "audioText": "还要",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "还要 = còn muốn / còn cần / còn sẽ. Nhấn mạnh chưa dừng lại",
       "audio": "audio/needed-edge/198947aa2a30443d21.mp3"
     },
     {
@@ -9592,6 +9855,7 @@
       "pinyin": "jiù yào / jiù yào xiàkè le / wǒ jiù yào zǒu le",
       "audioText": "就要",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "就 = ngay / chính là / tiếp theo tự nhiên. 就要 = sắp...rồi, rất gần xảy ra",
       "audio": "audio/needed-edge/1fb24683609cad427d.mp3"
     },
     {
@@ -9760,6 +10024,7 @@
       "pinyin": "huá xuě / qù huá xuě",
       "audioText": "滑雪",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trượt tuyết / đi trượt tuyết",
       "audio": "audio/needed-edge/503e89ba492d9215ed.mp3",
       "translationTargets": [
         {
@@ -9807,6 +10072,7 @@
       "pinyin": "xiǎoshuō / kàn xiǎoshuō",
       "audioText": "小说",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tiểu thuyết / đọc tiểu thuyết",
       "audio": "audio/needed-edge/6eb705b4ce3f073551.mp3",
       "translationTargets": [
         {
@@ -9833,6 +10099,7 @@
       "pinyin": "dòngwù / xǐhuan dòngwù",
       "audioText": "动物",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "động vật / thích động vật",
       "audio": "audio/needed-edge/41ac3e62afaaaacda4.mp3",
       "translationTargets": [
         {
@@ -9880,6 +10147,7 @@
       "pinyin": "zài huàr zhōng de rén hěn hǎokàn / huà zhōng de rén hěn hǎokàn",
       "audioText": "在画儿中的人很好看",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "người trong tranh rất đẹp / rất ưa nhìn",
       "audio": "audio/needed-edge/a49b103c2415e33715.mp3",
       "translationTargets": [
         {
@@ -9906,6 +10174,7 @@
       "pinyin": "bōkè / tīng bōkè",
       "audioText": "播客",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "podcast / nghe podcast",
       "audio": "audio/needed-edge/3155bb706d1b4158db.mp3",
       "translationTargets": [
         {
@@ -9932,6 +10201,7 @@
       "pinyin": "shénme de / bōkè, diànshìjù shénme de",
       "audioText": "什么的",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vân vân hoặc kiểu như... / podcast, phim truyền hình gì đó",
       "audio": "audio/needed-edge/db09f61b50cb5c7900.mp3"
     },
     {
@@ -9946,6 +10216,7 @@
       "pinyin": "diànshìjù / kàn diànshìjù",
       "audioText": "电视剧",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "phim truyền hình / xem phim truyền hình",
       "audio": "audio/needed-edge/a7db207fc15e65c29f.mp3",
       "translationTargets": [
         {
@@ -9972,6 +10243,7 @@
       "pinyin": "sànbù / sàn yíxià bù",
       "audioText": "散步",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đi dạo / đi dạo một chút",
       "audio": "audio/needed-edge/ae65e4c0874c9be3fd.mp3",
       "translationTargets": [
         {
@@ -9998,6 +10270,7 @@
       "pinyin": "yǒu kòng / shénme shíhou yǒu kòng?",
       "audioText": "有空",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "có thời gian rảnh / lúc nào rảnh?",
       "audio": "audio/needed-edge/e0c4497086cddeb735.mp3",
       "translationTargets": [
         {
@@ -10024,6 +10297,7 @@
       "pinyin": "yìbān / wǒ báitiān yìbān bù chūmén",
       "audioText": "一般",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thường hoặc thông thường / ban ngày tôi thường không ra khỏi nhà",
       "audio": "audio/needed-edge/f0aaccbc0dcda37daa.mp3"
     },
     {
@@ -10038,6 +10312,7 @@
       "pinyin": "bō / shuō / bōkè / shuōhuà",
       "audioText": "播",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Phát âm: 播 bō và 说 shuō khác phụ âm đầu / phần vần đều tròn môi gần uo. Sau b/p/m/f pinyin viết o, không viết uo",
       "audio": "audio/needed-edge/541e965ff5d83fb3d8.mp3"
     },
     {
@@ -10052,6 +10327,7 @@
       "pinyin": "huǒguō / chī huǒguō",
       "audioText": "火锅",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lẩu / ăn lẩu",
       "audio": "audio/needed-edge/8ade4cc2d29fa5c061.mp3",
       "translationTargets": [
         {
@@ -10078,6 +10354,7 @@
       "pinyin": "niúpái / chī niúpái",
       "audioText": "牛排",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bít tết / ăn bít tết",
       "audio": "audio/needed-edge/1dad319dfd997e679c.mp3",
       "translationTargets": [
         {
@@ -10104,6 +10381,7 @@
       "pinyin": "jiē / jiē rén / jiē diànhuà",
       "audioText": "接",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đón / nhận / nghe điện thoại",
       "audio": "audio/needed-edge/e3bfe44b315d2d0e6c.mp3",
       "translationTargets": [
         {
@@ -10135,6 +10413,7 @@
       "pinyin": "chuán / zuò chuán",
       "audioText": "船",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thuyền hoặc tàu / đi thuyền",
       "audio": "audio/needed-edge/2eaf3458232ba34d20.mp3"
     },
     {
@@ -10149,6 +10428,7 @@
       "pinyin": "chūfā / bā diǎn chūfā",
       "audioText": "出发",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "xuất phát / tám giờ xuất phát",
       "audio": "audio/needed-edge/986b2ca2dfb8a15ae6.mp3",
       "translationTargets": [
         {
@@ -10175,6 +10455,7 @@
       "pinyin": "chídào / bú yào chídào",
       "audioText": "迟到",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đến muộn / đừng đến muộn",
       "audio": "audio/needed-edge/8e1767595e569ebfb4.mp3",
       "translationTargets": [
         {
@@ -10201,6 +10482,7 @@
       "pinyin": "lái / dào / nǐ lái le ma? / wǒ dào le",
       "audioText": "来",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "来 = đến về phía người nói / 到 = đến/tới một địa điểm, nhấn mạnh đã tới nơi",
       "audio": "audio/needed-edge/4b1d6193e4982da861.mp3"
     },
     {
@@ -10215,6 +10497,7 @@
       "pinyin": "cuòguò / cuòguò fēijī / cuòguò chuán",
       "audioText": "错过",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bỏ lỡ / lỡ chuyến bay hoặc lỡ tàu",
       "audio": "audio/needed-edge/561a5b4979fd638ebe.mp3",
       "translationTargets": [
         {
@@ -10246,6 +10529,7 @@
       "pinyin": "jiàngluò / fēijī jiàngluò le",
       "audioText": "降落",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hạ cánh / máy bay hạ cánh rồi",
       "audio": "audio/needed-edge/cabf6c7a69abf4bbc2.mp3",
       "translationTargets": [
         {
@@ -10272,6 +10556,7 @@
       "pinyin": "qǐfēi / fēijī jiù yào qǐfēi le",
       "audioText": "起飞",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cất cánh / máy bay sắp cất cánh rồi",
       "audio": "audio/needed-edge/b1910f831bf24e02f9.mp3",
       "translationTargets": [
         {
@@ -10298,6 +10583,7 @@
       "pinyin": "dǔchē / lù shang dǔchē",
       "audioText": "堵车",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tắc đường / trên đường bị tắc",
       "audio": "audio/needed-edge/3b226ca7bc29713062.mp3",
       "translationTargets": [
         {
@@ -10324,6 +10610,7 @@
       "pinyin": "yìzhí zài / wǒ yìzhí zài děng nǐ",
       "audioText": "一直在",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "liên tục đang hoặc vẫn luôn đang / tôi vẫn luôn đợi bạn",
       "audio": "audio/needed-edge/3e5037d363eff2e340.mp3"
     },
     {
@@ -10338,6 +10625,7 @@
       "pinyin": "bù hǎoyìsi / bù hǎoyìsi, wǒ chídào le",
       "audioText": "不好意思",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ngại quá hoặc xin lỗi / xin lỗi, tôi đến muộn rồi",
       "audio": "audio/needed-edge/ffb2a15a3c0da5cfda.mp3"
     },
     {
@@ -10352,6 +10640,7 @@
       "pinyin": "jiùshì, dé guo liǎng cì bìng le / jiùshì, shēng guo liǎng cì bìng le",
       "audioText": "就是得过两次病了",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Chính là hoặc tức là, đã từng bị bệnh hai lần rồi. Ghi nhớ: 得病 = mắc bệnh / 生病 = bị ốm, tự nhiên hơn trong nói thường ngày",
       "audio": "audio/needed-edge/599843d5dbed67cda0.mp3",
       "translationTargets": [
         {
@@ -10378,6 +10667,7 @@
       "pinyin": "huánjìng / zhè jiā diàn de huánjìng",
       "audioText": "环境",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "môi trường hoặc không gian / môi trường của cửa hàng này",
       "audio": "audio/needed-edge/aa3833ea2a46ce6ec3.mp3"
     },
     {
@@ -10392,6 +10682,7 @@
       "pinyin": "shíwù / zhè jiā diàn de shíwù",
       "audioText": "食物",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đồ ăn / đồ ăn của cửa hàng này",
       "audio": "audio/needed-edge/8183773155bce0f2d2.mp3",
       "translationTargets": [
         {
@@ -10418,6 +10709,7 @@
       "pinyin": "tàidu / fúwù tàidu",
       "audioText": "态度",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thái độ / thái độ phục vụ",
       "audio": "audio/needed-edge/2177ae3024b64deed4.mp3",
       "translationTargets": [
         {
@@ -10444,6 +10736,7 @@
       "pinyin": "wèidao / zhè dào cài de wèidao zěnmeyàng?",
       "audioText": "味道",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mùi vị hoặc vị / vị của món này thế nào?",
       "audio": "audio/needed-edge/dfb96efbf11ec754f8.mp3"
     },
     {
@@ -10458,6 +10751,7 @@
       "pinyin": "mǎnyì / duì...mǎnyì",
       "audioText": "满意",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hài lòng / hài lòng với...",
       "audio": "audio/needed-edge/fda7539bde8cad4014.mp3",
       "translationTargets": [
         {
@@ -10479,6 +10773,7 @@
       "pinyin": "bùmǎn / hěn bùmǎn",
       "audioText": "不满",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bất mãn hoặc không hài lòng / rất không hài lòng",
       "audio": "audio/needed-edge/961c44ebcb09282629.mp3"
     },
     {
@@ -10598,6 +10893,7 @@
       "pinyin": "gùkè / zhè jiā diàn de gùkè",
       "audioText": "顾客",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khách hàng / khách của cửa hàng",
       "audio": "audio/needed-edge/cd31feba04bef46301.mp3",
       "translationTargets": [
         {
@@ -10806,6 +11102,7 @@
       "pinyin": "liáng / shuǐ liáng le",
       "audioText": "凉",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mát hoặc nguội / nước nguội rồi",
       "audio": "audio/needed-edge/885bc754a8863e2490.mp3"
     },
     {
@@ -10820,6 +11117,7 @@
       "pinyin": "bǎo / chī bǎo le",
       "audioText": "饱",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "no / ăn no rồi",
       "audio": "audio/needed-edge/6dab19c5c688d6bc98.mp3",
       "translationTargets": [
         {
@@ -10846,6 +11144,7 @@
       "pinyin": "mǎn / mǎn le",
       "audioText": "满",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đầy hoặc tràn hoặc mãn / đầy rồi",
       "audio": "audio/needed-edge/71e78b6eb00142af80.mp3"
     },
     {
@@ -10860,6 +11159,7 @@
       "pinyin": "zhào xiàng / zhào yì zhāng xiàng",
       "audioText": "照相",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "chụp ảnh / chụp một tấm ảnh",
       "audio": "audio/needed-edge/4138b940c60c0303d6.mp3",
       "translationTargets": [
         {
@@ -10886,6 +11186,7 @@
       "pinyin": "liáotiān / hé péngyou liáotiān",
       "audioText": "聊天",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trò chuyện / trò chuyện với bạn",
       "audio": "audio/needed-edge/5358b2ddde5a561578.mp3",
       "translationTargets": [
         {
@@ -10912,6 +11213,7 @@
       "pinyin": "pái duì / zhèngzài pái duì",
       "audioText": "排队",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "xếp hàng / đang xếp hàng",
       "audio": "audio/needed-edge/cfb281f66b01aefbdb.mp3",
       "translationTargets": [
         {
@@ -10938,6 +11240,7 @@
       "pinyin": "tàitai / tā de tàitai",
       "audioText": "太太",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vợ hoặc bà / vợ của anh ấy",
       "audio": "audio/needed-edge/fd7cdfdac94521005f.mp3"
     },
     {
@@ -10952,6 +11255,7 @@
       "pinyin": "chéng / chéngwéi / chéng le zǔzhǎng",
       "audioText": "成",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thành hoặc trở thành hoặc xong, được / trở thành trưởng nhóm",
       "audio": "audio/needed-edge/bb3578629d93a23670.mp3"
     },
     {
@@ -10987,6 +11291,7 @@
       "pinyin": "xiǎozǔ / wǒmen xiǎozǔ",
       "audioText": "小组",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nhóm nhỏ / nhóm chúng tôi",
       "audio": "audio/needed-edge/b1c85706b211adf191.mp3",
       "translationTargets": [
         {
@@ -11013,6 +11318,7 @@
       "pinyin": "zhùyuàn / tā zhùyuàn le",
       "audioText": "住院",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nằm viện / anh ấy nằm viện rồi",
       "audio": "audio/needed-edge/e5f4c2a948050f5dbc.mp3",
       "translationTargets": [
         {
@@ -11039,6 +11345,7 @@
       "pinyin": "lǎo péngyou / yí ge lǎo péngyou",
       "audioText": "老朋友",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bạn cũ / một người bạn cũ",
       "audio": "audio/needed-edge/78313e758c9e52382b.mp3",
       "translationTargets": [
         {
@@ -11107,6 +11414,7 @@
       "pinyin": "shú / nǐ hé tā shú bu shú?",
       "audioText": "熟",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "quen hoặc thân hoặc rành / bạn có thân với anh ấy không?",
       "audio": "audio/needed-edge/b6a781ab19c03cc832.mp3"
     },
     {
@@ -11121,6 +11429,7 @@
       "pinyin": "qiúduì / wǒmen qiúduì",
       "audioText": "球队",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đội bóng / đội bóng của chúng tôi",
       "audio": "audio/needed-edge/19c0828eac806bfaff.mp3",
       "translationTargets": [
         {
@@ -11147,6 +11456,7 @@
       "pinyin": "hǎoxiàng / hǎoxiàng yào xià yǔ le",
       "audioText": "好像",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hình như / dường như",
       "audio": "audio/needed-edge/041005a1deede88a44.mp3",
       "translationTargets": [
         {
@@ -11173,6 +11483,7 @@
       "pinyin": "liú / liú xiàlai / liú zài zhèlǐ",
       "audioText": "留",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ở lại / giữ lại / để lại",
       "audio": "audio/needed-edge/0990e460add3b1546c.mp3",
       "translationTargets": [
         {
@@ -11225,6 +11536,7 @@
       "pinyin": "dānwèi / gōngzuò dānwèi",
       "audioText": "单位",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đơn vị hoặc cơ quan / đơn vị làm việc",
       "audio": "audio/needed-edge/8ec8c8c712be301c1d.mp3"
     },
     {
@@ -11337,6 +11649,7 @@
       "pinyin": "yàngzi / yàngzi hěn kě'ài",
       "audioText": "样子",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "dáng vẻ hoặc kiểu dáng / dáng vẻ rất đáng yêu",
       "audio": "audio/needed-edge/7344c4a4f339a46741.mp3"
     },
     {
@@ -11372,6 +11685,7 @@
       "pinyin": "xiāngxìn / wǒ xiāngxìn nǐ",
       "audioText": "相信",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tin hoặc tin tưởng / tôi tin bạn",
       "audio": "audio/needed-edge/698993204521c50191.mp3",
       "translationTargets": [
         {
@@ -11414,6 +11728,7 @@
       "pinyin": "huì / huì shuō pǔtōnghuà / bú huì chàng jīngjù",
       "audioText": "会",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "会 = biết làm / có thể / sẽ. 会 + động từ: biết làm gì hoặc có khả năng sẽ xảy ra",
       "audio": "audio/needed-edge/577cfff2988c0089fc.mp3",
       "translationTargets": [
         {
@@ -11440,6 +11755,7 @@
       "pinyin": "lǎonián / lǎonián rén",
       "audioText": "老年",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "người già / tuổi già",
       "audio": "audio/needed-edge/3944201136337aa0cf.mp3",
       "translationTargets": [
         {
@@ -11466,6 +11782,7 @@
       "pinyin": "jīngjù / chàng jīngjù",
       "audioText": "京剧",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Kinh kịch / hát Kinh kịch",
       "audio": "audio/needed-edge/c9f5d74e11054cc12f.mp3",
       "translationTargets": [
         {
@@ -11534,6 +11851,7 @@
       "pinyin": "kǎoyā / Běijīng kǎoyā",
       "audioText": "烤鸭",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vịt quay / vịt quay Bắc Kinh",
       "audio": "audio/needed-edge/e1d61ab42437137f0e.mp3",
       "translationTargets": [
         {
@@ -11665,6 +11983,7 @@
       "pinyin": "fāngyán / shuō fāngyán",
       "audioText": "方言",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "phương ngữ hoặc tiếng địa phương / nói phương ngữ",
       "audio": "audio/needed-edge/9261fa6496816b195d.mp3"
     },
     {
@@ -11721,6 +12040,7 @@
       "pinyin": "bú tài / bú tài chángjiàn",
       "audioText": "不太",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "không quá / không lắm",
       "audio": "audio/needed-edge/7ce37a8bcda75e057f.mp3",
       "translationTargets": [
         {
@@ -11747,6 +12067,7 @@
       "pinyin": "liúxíng / hěn liúxíng",
       "audioText": "流行",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thịnh hành hoặc phổ biến / rất thịnh hành",
       "audio": "audio/needed-edge/b9d0a6d84f152cbd03.mp3"
     },
     {
@@ -11761,6 +12082,7 @@
       "pinyin": "wǔshuì / wǔshuì xíguàn",
       "audioText": "午睡",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ngủ trưa / thói quen ngủ trưa",
       "audio": "audio/needed-edge/a54ba0ea2f7e4113a8.mp3",
       "translationTargets": [
         {
@@ -11787,6 +12109,7 @@
       "pinyin": "zhèngcháng / zhè shì zhèngcháng de",
       "audioText": "正常",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bình thường / chuyện này bình thường",
       "audio": "audio/needed-edge/f78d037abccd3e07a6.mp3",
       "translationTargets": [
         {
@@ -11827,6 +12150,7 @@
       "pinyin": "zháojí / bié zháojí / wǒ yǒudiǎnr zháojí",
       "audioText": "着急",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lo lắng / sốt ruột / vội. Nhớ: 着 trong 着急 đọc là zháo, không đọc zhe",
       "audio": "audio/needed-edge/c7c2ac37ffbf17fef8.mp3",
       "translationTargets": [
         {
@@ -11858,6 +12182,7 @@
       "pinyin": "wàng / wàng le / bié wàng le / wǒ wàng le dài sǎn",
       "audioText": "忘",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "quên / quên rồi / đừng quên / tôi quên mang ô rồi",
       "audio": "audio/needed-edge/178747962b409899a8.mp3",
       "translationTargets": [
         {
@@ -11961,6 +12286,7 @@
       "pinyin": "fùxí / dǎsuàn fùxí / wǒ dǎsuàn fùxí Zhōngwén / tiānqì yuè lái yuè nuǎnhuo le",
       "audioText": "复习",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ôn tập / dự định ôn bài hoặc ôn tiếng Trung. Ghi lại cùng 打算 và 暖和 để luyện câu",
       "audio": "audio/needed-edge/09703f32b97c78e872.mp3",
       "translationTargets": [
         {
@@ -12077,6 +12403,7 @@
       "pinyin": "fāngxiàng / wèn fāngxiàng",
       "audioText": "方向",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "phương hướng hoặc hướng / hỏi phương hướng",
       "audio": "audio/needed-edge/a88d531f329efc8164.mp3",
       "translationTargets": [
         {
@@ -12124,6 +12451,7 @@
       "pinyin": "tǐyùchǎng / dào tǐyùchǎng",
       "audioText": "体育场",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sân vận động / đến sân vận động",
       "audio": "audio/needed-edge/bb0aafe69446fdd363.mp3",
       "translationTargets": [
         {
@@ -12150,6 +12478,7 @@
       "pinyin": "dòngwùyuán / qù dòngwùyuán",
       "audioText": "动物园",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sở thú / đi sở thú",
       "audio": "audio/needed-edge/25a46fe708e044cd40.mp3",
       "translationTargets": [
         {
@@ -12176,6 +12505,7 @@
       "pinyin": "hǎoxiàng / hǎoxiàng yào xià yǔ le",
       "audioText": "好像",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hình như hoặc dường như / hình như sắp mưa",
       "audio": "audio/needed-edge/041005a1deede88a44.mp3",
       "translationTargets": [
         {
@@ -12202,6 +12532,7 @@
       "pinyin": "cǎodì / yí piàn cǎodì",
       "audioText": "草地",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bãi cỏ / một bãi cỏ",
       "audio": "audio/needed-edge/e9247fd0e9aa664ec9.mp3",
       "translationTargets": [
         {
@@ -12228,6 +12559,7 @@
       "pinyin": "dàhǎi / yí piàn dàhǎi",
       "audioText": "大海",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "biển cả / một vùng biển rộng",
       "audio": "audio/needed-edge/17b7d656712ce926c0.mp3",
       "translationTargets": [
         {
@@ -12275,6 +12607,7 @@
       "pinyin": "jīngguò / gāngcái jīngguò tǐyùchǎng",
       "audioText": "经过",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đi qua hoặc ngang qua / vừa đi ngang qua sân vận động",
       "audio": "audio/needed-edge/bfc2cb157cb5b52e23.mp3",
       "translationTargets": [
         {
@@ -12332,6 +12665,7 @@
       "pinyin": "tíngchē / tíngchēchǎng",
       "audioText": "停车",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đỗ xe hoặc dừng xe / chỗ đỗ xe",
       "audio": "audio/needed-edge/c7d813c9d19aab6946.mp3",
       "translationTargets": [
         {
@@ -12358,6 +12692,7 @@
       "pinyin": "tōng / zhè tiáo lù tōng ma? / diànhuà dǎ tōng le",
       "audioText": "通",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thông hoặc nối tới hoặc dùng được / đường này có thông không?",
       "audio": "audio/needed-edge/bef21932fe01c8ac36.mp3",
       "translationTargets": [
         {
@@ -12557,6 +12892,7 @@
       "pinyin": "zuòwèi / yí ge zuòwèi",
       "audioText": "座位",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "chỗ ngồi / một chỗ ngồi",
       "audio": "audio/needed-edge/d3b8067d9253dc6381.mp3",
       "translationTargets": [
         {
@@ -12618,6 +12954,7 @@
       "pinyin": "dào / dào shuǐ / dǎo le",
       "audioText": "倒",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đổ hoặc rót / ngã. Nhớ: 倒水 đọc dào, 摔倒/倒了 thường đọc dǎo",
       "audio": "audio/needed-edge/40e2c152cdbfb07780.mp3",
       "translationTargets": [
         {
@@ -12649,6 +12986,7 @@
       "pinyin": "diào / diào le / diào zài bāo shang",
       "audioText": "掉",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "rơi / mất / rơi xuống",
       "audio": "audio/needed-edge/dd73235331a6a9d68b.mp3",
       "translationTargets": [
         {
@@ -12722,6 +13060,7 @@
       "pinyin": "pèng / pèng dào / pèng le wǒ yíxià",
       "audioText": "碰",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "chạm / đụng / va vào",
       "audio": "audio/needed-edge/ff02437f1c6543d108.mp3",
       "translationTargets": [
         {
@@ -12753,6 +13092,7 @@
       "pinyin": "cǎi / cǎi jiǎo / cǎi le wǒ de jiǎo",
       "audioText": "踩",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "giẫm hoặc đạp / giẫm vào chân",
       "audio": "audio/needed-edge/f422011de680ca067f.mp3",
       "translationTargets": [
         {
@@ -12784,6 +13124,7 @@
       "pinyin": "jiǎo / wǒ de jiǎo",
       "audioText": "脚",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "chân / chân của tôi",
       "audio": "audio/needed-edge/e2a6d2606a0a399dd4.mp3",
       "translationTargets": [
         {
@@ -12810,6 +13151,7 @@
       "pinyin": "lā / lā mén / lā le liǎng xià",
       "audioText": "拉",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "kéo / kéo cửa. Sửa ghi nhớ: 拉 là kéo, 垃 thường đi với 垃圾 = rác",
       "audio": "audio/needed-edge/d6cd1c8761b620b46b.mp3",
       "translationTargets": [
         {
@@ -12841,6 +13183,7 @@
       "pinyin": "tuī / tuī mén",
       "audioText": "推",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đẩy / đẩy cửa",
       "audio": "audio/needed-edge/5b22f1c7dba2a31ed2.mp3",
       "translationTargets": [
         {
@@ -13007,6 +13350,7 @@
       "pinyin": "áoyè / bié áoyè",
       "audioText": "熬夜",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thức khuya / đừng thức khuya",
       "audio": "audio/needed-edge/fc6b5b07254334976b.mp3",
       "translationTargets": [
         {
@@ -13075,6 +13419,7 @@
       "pinyin": "bìxū / bìxū màn diǎnr kāi",
       "audioText": "必须",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bắt buộc hoặc nhất định phải / nhất định phải lái chậm một chút",
       "audio": "audio/needed-edge/890e87b370cd34ba2a.mp3"
     },
     {
@@ -13089,6 +13434,7 @@
       "pinyin": "zǒu yòubiān / wǎng yòubiān zǒu / xiàng yòubiān zǒu",
       "audioText": "走右边",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đi bên phải hoặc đi về phía bên phải. 走右边 khẩu ngữ ngắn / 往右边走 chỉ đường tự nhiên / 向右边走 trang trọng hơn",
       "audio": "audio/needed-edge/9ec15a416aa05bd832.mp3"
     },
     {
@@ -13103,6 +13449,7 @@
       "pinyin": "jí / nǐ zěnme zhème jí? / nǐ zěnme nàme jí?",
       "audioText": "急",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vội hoặc gấp / sao bạn vội thế?",
       "audio": "audio/needed-edge/eec997cbbb9cc92a72.mp3",
       "translationTargets": [
         {
@@ -13150,6 +13497,7 @@
       "pinyin": "píng / wǒ jiā nàbiān de lù yě zhème píng",
       "audioText": "平",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bằng phẳng / đường bên nhà tôi cũng bằng phẳng như vậy",
       "audio": "audio/needed-edge/3c9abaf959cc289cf1.mp3",
       "translationTargets": [
         {
@@ -13176,6 +13524,7 @@
       "pinyin": "xiǎoxīn / bú yòng nàme xiǎoxīn",
       "audioText": "小心",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cẩn thận / không cần cẩn thận đến vậy",
       "audio": "audio/needed-edge/964f6656ee3d0cc75e.mp3",
       "translationTargets": [
         {
@@ -13265,6 +13614,7 @@
       "pinyin": "qiánbian de lùkǒu / lùkǒu qiánbian",
       "audioText": "前边的路口",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ngã tư hoặc giao lộ phía trước / phía trước giao lộ. 前边的路口 = giao lộ phía trước / 路口前边 = phía trước giao lộ",
       "audio": "audio/needed-edge/5c297c43ee4ddc463b.mp3"
     },
     {
@@ -13300,6 +13650,7 @@
       "pinyin": "xiǎoxīn diǎnr kāi / yào xiǎoxīn yìdiǎnr",
       "audioText": "小心点儿开",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lái cẩn thận một chút / cần cẩn thận một chút",
       "audio": "audio/needed-edge/f4b8c4eeb3515a982c.mp3",
       "translationTargets": [
         {
@@ -13326,6 +13677,7 @@
       "pinyin": "kāi le hǎojiǔ / bàn ge xiǎoshí / děng le yíhuìr",
       "audioText": "开了好久",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lái rất lâu / nửa tiếng / đợi một lúc",
       "audio": "audio/needed-edge/7ca2449b9ce5c46b9c.mp3",
       "translationTargets": [
         {
@@ -13455,6 +13807,7 @@
       "pinyin": "wǒ yí ge xiǎoshí de kāichē / wǒ yí ge xiǎoshí de kāi le chē",
       "audioText": "我一个小时的开车",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Không tự nhiên: 我一个小时的开车 / 我一个小时的开了车",
       "audio": "audio/needed-edge/26ae4801d895c6585c.mp3"
     },
     {
@@ -13469,6 +13822,7 @@
       "pinyin": "rúguǒ...dehuà, jiù... / ...dehuà, jiù...",
       "audioText": "如果的话就",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Cấu trúc: nếu... thì... / có thể bỏ 如果, nhưng nếu dùng 的话 thì giữ sau điều kiện",
       "audio": "audio/needed-edge/fd32a1c337066735ec.mp3"
     },
     {
@@ -13483,6 +13837,7 @@
       "pinyin": "shěng / shěng qián / shěng shíjiān",
       "audioText": "省",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tiết kiệm hoặc đỡ tốn / tiết kiệm tiền, tiết kiệm thời gian",
       "audio": "audio/needed-edge/45ad4f70b62e979fb7.mp3",
       "translationTargets": [
         {
@@ -13556,6 +13911,7 @@
       "pinyin": "huā / huā qián / huā shíjiān",
       "audioText": "花",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tốn hoặc tiêu tiền / tốn thời gian",
       "audio": "audio/needed-edge/9be4611e164ba0e592.mp3",
       "translationTargets": [
         {
@@ -13650,6 +14006,7 @@
       "pinyin": "zhǎng zhe + tèdiǎn / ài + dòngcí",
       "audioText": "长着  特点",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Cấu trúc miêu tả người: có/mang đặc điểm gì / hay/thích làm gì",
       "audio": "audio/needed-edge/7a4ed4ac3faac86b77.mp3"
     },
     {
@@ -13664,6 +14021,7 @@
       "pinyin": "sòng / sòng lǐwù / sòng gěi nǐ",
       "audioText": "送",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "送 đọc là sòng: tặng hoặc đưa / tặng quà hoặc tặng cho bạn",
       "audio": "audio/needed-edge/550e7d255d652c3c85.mp3",
       "translationTargets": [
         {
@@ -13716,6 +14074,7 @@
       "pinyin": "tuǐ / wǒ de tuǐ téng / yì tiáo tuǐ",
       "audioText": "腿",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "chân / chân tôi đau / một chân",
       "audio": "audio/needed-edge/4c87ff7c7c1fd8eea3.mp3",
       "translationTargets": [
         {
@@ -13747,6 +14106,7 @@
       "pinyin": "róngyì / bù róngyì / róngyì xué",
       "audioText": "容易",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "dễ / không dễ / dễ học. Mẫu: 容易 + động từ",
       "audio": "audio/needed-edge/d293c4d7ec5d63014a.mp3",
       "translationTargets": [
         {
@@ -13820,6 +14180,7 @@
       "pinyin": "róngyì shēngqì / róngyì wàng",
       "audioText": "容易生气",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Dễ bị / dễ hay xảy ra: dễ tức giận, dễ quên.",
       "audio": "audio/needed-edge/50eda3eae0599b9672.mp3",
       "translationTargets": [
         {
@@ -13846,6 +14207,7 @@
       "pinyin": "mìshū / jīnglǐ / bàngōngshì",
       "audioText": "秘书",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thư ký / giám đốc/quản lý / văn phòng",
       "audio": "audio/needed-edge/2a68c68c4e8ef606d3.mp3",
       "translationTargets": [
         {
@@ -13919,6 +14281,7 @@
       "pinyin": "qíshí / qíshí zhè ge wèntí bù nán",
       "audioText": "其实",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thật ra / thực ra. Mẫu: 其实 + câu",
       "audio": "audio/needed-edge/b533bc82709e0ccb16.mp3",
       "translationTargets": [
         {
@@ -14050,6 +14413,7 @@
       "pinyin": "lí jīchǎng hěn yuǎn / lí gōngsī hěn jìn",
       "audioText": "离机场很远",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cách nơi nào rất xa / rất gần",
       "audio": "audio/needed-edge/2e6cc39347e8c6ff81.mp3",
       "translationTargets": [
         {
@@ -14097,6 +14461,7 @@
       "pinyin": "gèng / gèng piányi / gèng hǎo",
       "audioText": "更",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hơn / rẻ hơn / tốt hơn",
       "audio": "audio/needed-edge/16f2481170f0d6d7c8.mp3",
       "translationTargets": [
         {
@@ -14128,6 +14493,7 @@
       "pinyin": "yòu...le / yòu pàng le yìdiǎnr",
       "audioText": "又了",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lại... rồi / lại béo lên một chút rồi",
       "audio": "audio/needed-edge/5110af28292869ac3f.mp3",
       "translationTargets": [
         {
@@ -14170,6 +14536,7 @@
       "pinyin": "dòngcí + dìdiǎn + lái / qù",
       "audioText": "动词  地点  来",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Công thức: động từ chỉ hướng + địa điểm + 来 / 去",
       "audio": "audio/needed-edge/9114d6aa7cc7a28514.mp3"
     },
     {
@@ -14226,6 +14593,7 @@
       "pinyin": "shàng lái / shàng qù",
       "audioText": "上来",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lên đây / lên kia",
       "audio": "audio/needed-edge/403b249574be11e77b.mp3",
       "translationTargets": [
         {
@@ -14252,6 +14620,7 @@
       "pinyin": "xià lái / xià qù",
       "audioText": "下来",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "xuống đây / xuống kia",
       "audio": "audio/needed-edge/189aa6bfae22b32ac9.mp3",
       "translationTargets": [
         {
@@ -14278,6 +14647,7 @@
       "pinyin": "jìn lái / jìn qù",
       "audioText": "进来",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vào đây / vào kia",
       "audio": "audio/needed-edge/f9980e7c4502d30ccf.mp3",
       "translationTargets": [
         {
@@ -14304,6 +14674,7 @@
       "pinyin": "chū lái / chū qù",
       "audioText": "出来",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ra đây / ra kia",
       "audio": "audio/needed-edge/b48f5ba68462241462.mp3",
       "translationTargets": [
         {
@@ -14330,6 +14701,7 @@
       "pinyin": "huí lái / huí qù",
       "audioText": "回来",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "về đây / về kia",
       "audio": "audio/needed-edge/7e70076acf4489ddb0.mp3",
       "translationTargets": [
         {
@@ -14356,6 +14728,7 @@
       "pinyin": "guò lái / guò qù",
       "audioText": "过来",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "qua đây / qua kia",
       "audio": "audio/needed-edge/14d91611670d8c225c.mp3",
       "translationTargets": [
         {
@@ -14522,6 +14895,7 @@
       "pinyin": "méi xiǎngdào... / yí dào nàr jiù...",
       "audioText": "没想到",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Chunk hay gặp: không ngờ... / vừa đến đó thì...",
       "audio": "audio/needed-edge/5e4705c4a5b7ffb963.mp3"
     },
     {
@@ -14683,6 +15057,7 @@
       "pinyin": "dōu...le / dōu zhème wǎn le",
       "audioText": "都了",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "Mẫu nhấn mạnh: đã... rồi / đến mức... rồi.",
       "audio": "audio/needed-edge/bd37501b082780e438.mp3",
       "translationTargets": [
         {
@@ -14858,6 +15233,7 @@
       "pinyin": "dàshǐguǎn / qù dàshǐguǎn",
       "audioText": "大使馆",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đại sứ quán / đi đến đại sứ quán",
       "audio": "audio/needed-edge/2655b6496780a1e328.mp3",
       "translationTargets": [
         {
@@ -14884,6 +15260,7 @@
       "pinyin": "xīnwén / kàn xīnwén / xīnwén wǎngzhàn",
       "audioText": "新闻",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tin tức / xem tin tức / trang web tin tức",
       "audio": "audio/needed-edge/76484b3b88e3b8b08a.mp3",
       "translationTargets": [
         {
@@ -14915,6 +15292,7 @@
       "pinyin": "qǔ qián / qù qǔ qián",
       "audioText": "取钱",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "rút tiền / đi rút tiền",
       "audio": "audio/needed-edge/d88317df67f4746818.mp3",
       "translationTargets": [
         {
@@ -14962,6 +15340,7 @@
       "pinyin": "qiānzhèng / bàn qiānzhèng / bàn shì",
       "audioText": "签证",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "visa / làm visa / đi làm việc/xử lý giấy tờ",
       "audio": "audio/needed-edge/bafe7e20c77d9e8083.mp3",
       "translationTargets": [
         {
@@ -14993,6 +15372,7 @@
       "pinyin": "hùzhào / dài hùzhào / chá hùzhào",
       "audioText": "护照",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "hộ chiếu / mang hộ chiếu / kiểm tra hộ chiếu",
       "audio": "audio/needed-edge/20c9f8a410a8b0adb5.mp3",
       "translationTargets": [
         {
@@ -15024,6 +15404,7 @@
       "pinyin": "yàopiàn / chī yí piàn yào",
       "audioText": "药片",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "viên thuốc / uống một viên thuốc",
       "audio": "audio/needed-edge/49a42cb7e046554625.mp3",
       "translationTargets": [
         {
@@ -15050,6 +15431,7 @@
       "pinyin": "wǎngzhàn / chá wǎngzhàn / wǎngzhàn míngchēng",
       "audioText": "网站",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trang web / kiểm tra trang web / tên trang web",
       "audio": "audio/needed-edge/9155ff656c51c8ffce.mp3",
       "translationTargets": [
         {
@@ -15081,6 +15463,7 @@
       "pinyin": "huí duǎnxìn / huí nǐ de duǎnxìn",
       "audioText": "回短信",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trả lời tin nhắn / trả lời tin nhắn của bạn",
       "audio": "audio/needed-edge/1a0144d7917b68a5e3.mp3",
       "translationTargets": [
         {
@@ -15107,6 +15490,7 @@
       "pinyin": "chá / míngchēng",
       "audioText": "查",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tra hoặc kiểm tra / tên gọi hoặc tên mục",
       "audio": "audio/needed-edge/a4f0863f4bb87d0eb6.mp3"
     },
     {
@@ -15352,6 +15736,7 @@
       "pinyin": "xīnxiān / xīnxiān shūcài / xīnxiān xīnwén",
       "audioText": "新鲜",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tươi mới / rau tươi / tin mới",
       "audio": "audio/needed-edge/467bc8d4310adb077d.mp3",
       "translationTargets": [
         {
@@ -15383,6 +15768,7 @@
       "pinyin": "shǔjià / shǔjià de shíhou",
       "audioText": "暑假",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nghỉ hè / trong kỳ nghỉ hè",
       "audio": "audio/needed-edge/c388d337b4fe63b584.mp3",
       "translationTargets": [
         {
@@ -15409,6 +15795,7 @@
       "pinyin": "mílù / wǒ mílù le",
       "audioText": "迷路",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bị lạc đường / tôi bị lạc rồi",
       "audio": "audio/needed-edge/ee1ab019639712fcfa.mp3",
       "translationTargets": [
         {
@@ -15435,6 +15822,7 @@
       "pinyin": "xiǎng qù / xiǎng qù Běijīng / qù Běijīng lǚyóu",
       "audioText": "想去",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "muốn đi / muốn đi Bắc Kinh / đi Bắc Kinh du lịch",
       "audio": "audio/needed-edge/4956d0dc8ee48fe3a9.mp3",
       "translationTargets": [
         {
@@ -15480,6 +15868,7 @@
       "pinyin": "dǎ diànhuà / lǚyóu / jīngcháng / dànshì",
       "audioText": "打电话",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "gọi điện / du lịch / thường xuyên / nhưng",
       "audio": "audio/needed-edge/aab40b763414f3c954.mp3",
       "translationTargets": [
         {
@@ -15558,6 +15947,7 @@
       "pinyin": "xìnhào / yǒu xìnhào / méiyǒu xìnhào",
       "audioText": "信号",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "tín hiệu / có tín hiệu / không có tín hiệu",
       "audio": "audio/needed-edge/932fcb57bfb7eeb58c.mp3",
       "translationTargets": [
         {
@@ -15589,6 +15979,7 @@
       "pinyin": "zhōngxīn / fúwù zhōngxīn / qiānzhèng zhōngxīn",
       "audioText": "中心",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trung tâm / trung tâm dịch vụ / trung tâm visa",
       "audio": "audio/needed-edge/e8f9160a720c38db40.mp3",
       "translationTargets": [
         {
@@ -15641,6 +16032,7 @@
       "pinyin": "hǎn / yìzhí zài hǎn",
       "audioText": "喊",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "gào/gọi to / cứ đang hét/gọi to mãi",
       "audio": "audio/needed-edge/4c0f20eea6f90add02.mp3",
       "translationTargets": [
         {
@@ -15667,6 +16059,7 @@
       "pinyin": "kào / kào zài wǒ shēnshang",
       "audioText": "靠",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "dựa vào / dựa trên người tôi",
       "audio": "audio/needed-edge/3f86892169c6494923.mp3",
       "translationTargets": [
         {
@@ -15693,6 +16086,7 @@
       "pinyin": "jiǎng / jiǎng gùshi / jiǎng xiàohua",
       "audioText": "讲",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "kể hoặc nói / kể chuyện / kể truyện cười",
       "audio": "audio/needed-edge/860fe2bcd431febcdf.mp3"
     },
     {
@@ -15707,6 +16101,7 @@
       "pinyin": "guǎnggào / kàn guǎnggào",
       "audioText": "广告",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "quảng cáo / xem quảng cáo",
       "audio": "audio/needed-edge/aa4be2da33c9141dcf.mp3",
       "translationTargets": [
         {
@@ -15768,6 +16163,7 @@
       "pinyin": "tīngshuō / tīngshuō tā kuài lái le",
       "audioText": "听说",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "nghe nói / nghe nói anh ấy sắp đến",
       "audio": "audio/needed-edge/2c27a0b0560029e743.mp3",
       "translationTargets": [
         {
@@ -15794,6 +16190,7 @@
       "pinyin": "jiémù / yí duàn yīnyuè / yǐngpiàn",
       "audioText": "节目",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "chương trình / một đoạn nhạc / phim",
       "audio": "audio/needed-edge/43aee930ff61b4e4a2.mp3",
       "translationTargets": [
         {
@@ -15825,6 +16222,7 @@
       "pinyin": "zài shuìjiào qián / zài shuìjiào qián tīng yí duàn yīnyuè",
       "audioText": "在睡觉前",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trước khi ngủ / nghe một đoạn nhạc trước khi ngủ",
       "audio": "audio/needed-edge/595d20afb4e6d55ff9.mp3",
       "translationTargets": [
         {
@@ -15851,6 +16249,7 @@
       "pinyin": "hǎorén / huàirén / zhēnzhèng de huàirén",
       "audioText": "好人",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "người tốt / người xấu / người xấu thật sự",
       "audio": "audio/needed-edge/7ae04cef2d2f51b099.mp3",
       "translationTargets": [
         {
@@ -15882,6 +16281,7 @@
       "pinyin": "zhēnzhèng de hǎorén / chūxiàn",
       "audioText": "真正的好人",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "người tốt thật sự / xuất hiện",
       "audio": "audio/needed-edge/8f58e6274f9f0a4c43.mp3",
       "translationTargets": [
         {
@@ -15908,6 +16308,7 @@
       "pinyin": "mùdì / jiéguǒ / yuányīn",
       "audioText": "目的",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mục đích / kết quả / nguyên nhân",
       "audio": "audio/needed-edge/881d5275d9dc51973f.mp3"
     },
     {
@@ -15922,6 +16323,7 @@
       "pinyin": "hǎochu / huàichu / zhèyàng zuò de huàichu",
       "audioText": "好处",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "lợi ích / tác hại/điểm xấu / tác hại của việc làm như vậy",
       "audio": "audio/needed-edge/5a003513fd89b9096f.mp3",
       "translationTargets": [
         {
@@ -15953,6 +16355,7 @@
       "pinyin": "pèngdào / dédào",
       "audioText": "碰到",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "gặp phải hoặc đụng phải / nhận được hoặc có được",
       "audio": "audio/needed-edge/eac7fd0e767ea8933c.mp3",
       "translationTargets": [
         {
@@ -15974,6 +16377,7 @@
       "pinyin": "dédào hǎochu de rén / jiǎ míngzi",
       "audioText": "得到好处的人",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "người nhận được lợi ích / tên giả",
       "audio": "audio/needed-edge/7b296acabae400af21.mp3",
       "translationTargets": [
         {
@@ -16021,6 +16425,7 @@
       "pinyin": "quánbù / quánbù de rén",
       "audioText": "全部",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "toàn bộ / tất cả mọi người",
       "audio": "audio/needed-edge/778fc8f99453571cd4.mp3",
       "translationTargets": [
         {
@@ -16047,6 +16452,7 @@
       "pinyin": "kěnéng jiù bù xiǎng / kěnéng jiù bù xiǎng qù le",
       "audioText": "可能就不想",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "có thể sẽ không muốn / có thể sẽ không muốn đi nữa",
       "audio": "audio/needed-edge/cb01a13e6bdd424b77.mp3",
       "translationTargets": [
         {
@@ -16073,6 +16479,7 @@
       "pinyin": "yěxǔ / kù",
       "audioText": "也许",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "có lẽ hoặc có thể / rất ngầu",
       "audio": "audio/needed-edge/1a2aee6322b00ff7de.mp3"
     },
     {
@@ -16108,6 +16515,7 @@
       "pinyin": "huāyuán / nǐ juéde shénme yàng de huāyuán zuì hǎokàn?",
       "audioText": "花园",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "vườn hoa / Bạn thấy vườn hoa như thế nào là đẹp nhất?",
       "audio": "audio/needed-edge/3e9fb541f0b2753e30.mp3",
       "translationTargets": [
         {
@@ -16134,6 +16542,7 @@
       "pinyin": "yuànzi / nǐ xiǎng yào yí ge shénme yàng de yuànzi?",
       "audioText": "院子",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sân / Bạn muốn một cái sân như thế nào?",
       "audio": "audio/needed-edge/e741badf62474fe945.mp3",
       "translationTargets": [
         {
@@ -16195,6 +16604,7 @@
       "pinyin": "jiājù / fángzū / yǒu jiājù de fángzi",
       "audioText": "家具",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đồ nội thất / tiền thuê nhà / nhà có nội thất",
       "audio": "audio/needed-edge/6addbecb12a08699f0.mp3",
       "translationTargets": [
         {
@@ -16268,6 +16678,7 @@
       "pinyin": "tíngchēchǎng / lí tíngchēchǎng jìn de fángzi gèng guì ma?",
       "audioText": "停车场",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bãi đỗ xe / Nhà gần bãi đỗ xe có đắt hơn không?",
       "audio": "audio/needed-edge/58b33c53494877b6f7.mp3",
       "translationTargets": [
         {
@@ -16336,6 +16747,7 @@
       "pinyin": "wòshì / kètīng / chúfáng / wèishēngjiān / yángtái",
       "audioText": "卧室",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "phòng ngủ / phòng khách / phòng bếp / nhà vệ sinh / ban công",
       "audio": "audio/needed-edge/bf713fdbe5a712ec82.mp3",
       "translationTargets": [
         {
@@ -16475,6 +16887,7 @@
       "pinyin": "yì / yǒuyì",
       "audioText": "益",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "có ích / lợi ích. Hay dùng trong 有益.",
       "disableTranslation": true,
       "audio": "audio/needed-edge/d6b3f2d60675501401.mp3"
     },
@@ -16490,6 +16903,7 @@
       "pinyin": "pà / pà gǒu / tèbié pà gǒu",
       "audioText": "怕",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sợ / sợ chó / đặc biệt sợ chó",
       "disableTranslation": true,
       "audio": "audio/needed-edge/bc1c58b84b5a695b4b.mp3"
     },
@@ -16580,6 +16994,7 @@
       "pinyin": "yǎng gǒu yǐhòu / suǒyǒu / suǒyǒu de gǒu dōu hěn yǒuhǎo",
       "audioText": "养狗以后",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "sau khi nuôi chó / tất cả / tất cả chó đều rất thân thiện",
       "disableTranslation": true,
       "audio": "audio/needed-edge/dca933e8e80ae8d22e.mp3"
     },
@@ -16640,6 +17055,7 @@
       "pinyin": "dàshēng / xiǎoshēng",
       "audioText": "大声",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "to tiếng / nhỏ tiếng hoặc nói nhỏ",
       "disableTranslation": true,
       "audio": "audio/needed-edge/4a7e09793f03873194.mp3"
     },
@@ -16655,6 +17071,7 @@
       "pinyin": "kèrén / dāng jiā li yǒu kèrén de shíhou",
       "audioText": "客人",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "khách / khi trong nhà có khách",
       "disableTranslation": true,
       "audio": "audio/needed-edge/8fe92a4bb133ba072b.mp3"
     },
@@ -16745,6 +17162,7 @@
       "pinyin": "bú zài tā shēnbiān / wǒ huì yìzhí zài nǐ shēnbiān",
       "audioText": "不在他身边",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "không ở bên cạnh anh ấy / tôi sẽ luôn ở bên cạnh bạn",
       "disableTranslation": true,
       "audio": "audio/needed-edge/a5b5735055130ac074.mp3"
     },
@@ -16790,6 +17208,7 @@
       "pinyin": "yìzhí zài jiào / wǒ de gǒu tèbié pà māo",
       "audioText": "一直在叫",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cứ kêu mãi / chó của tôi đặc biệt sợ mèo. Sửa: 我都狗 → 我的狗.",
       "disableTranslation": true,
       "audio": "audio/needed-edge/e7be293620aa9d0595.mp3"
     },
@@ -16820,6 +17239,7 @@
       "pinyin": "lùbiān / wén / zhǔrén / gǎnjué",
       "audioText": "路边",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "bên đường / ngửi / chủ nhân / cảm giác",
       "disableTranslation": true,
       "audio": "audio/needed-edge/edf95a7258593bcb58.mp3"
     },
@@ -16865,6 +17285,7 @@
       "pinyin": "bù kěpà / wǒ de gǒu zhǎng de bù kěpà",
       "audioText": "不可怕",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "không đáng sợ / chó của tôi trông không đáng sợ.",
       "disableTranslation": true,
       "audio": "audio/needed-edge/38c60aa011c2edb679.mp3"
     },
@@ -17017,6 +17438,7 @@
       "pinyin": "wǎngqiú / yǔmáoqiú / bàngqiú",
       "audioText": "网球",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "quần vợt / cầu lông / bóng chày",
       "dateKey": "2026-08-09-bai-37",
       "dateLabel": "09/08 · Bài 37",
       "disableTranslation": true,
@@ -17034,6 +17456,7 @@
       "pinyin": "tī / tī zúqiú",
       "audioText": "踢",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đá / đá bóng",
       "dateKey": "2026-08-09-bai-37",
       "dateLabel": "09/08 · Bài 37",
       "disableTranslation": true,
@@ -17051,6 +17474,7 @@
       "pinyin": "dǎ yǔmáoqiú / dǎ pīngpāngqiú / dǎ lánqiú",
       "audioText": "打羽毛球",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "đánh cầu lông / đánh bóng bàn / đánh bóng rổ",
       "dateKey": "2026-08-09-bai-37",
       "dateLabel": "09/08 · Bài 37",
       "disableTranslation": true,
@@ -17068,6 +17492,7 @@
       "pinyin": "yújiā / liàn yújiā / jiànshēnfáng",
       "audioText": "瑜伽",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "yoga / tập yoga / phòng gym",
       "dateKey": "2026-08-09-bai-37",
       "dateLabel": "09/08 · Bài 37",
       "disableTranslation": true,
@@ -17085,6 +17510,7 @@
       "pinyin": "bǐsài / yì chǎng bǐsài / pīngpāngqiú",
       "audioText": "比赛",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "trận đấu / một trận đấu / bóng bàn",
       "dateKey": "2026-08-09-bai-37",
       "dateLabel": "09/08 · Bài 37",
       "disableTranslation": true,
@@ -17302,6 +17728,7 @@
       "pinyin": "hòulái / gǎibiàn",
       "audioText": "后来",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "về sau / thay đổi",
       "disableTranslation": true,
       "audio": "audio/needed-edge/4858d49e58b2bfcc9a.mp3"
     },
@@ -17332,6 +17759,7 @@
       "pinyin": "yǎnjing / yǎnjìng",
       "audioText": "眼睛",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "mắt / kính mắt. Nhớ khác âm cuối: 眼睛 nhẹ hơn, 眼镜 thanh 4.",
       "disableTranslation": true,
       "audio": "audio/needed-edge/f3a75d548dc29a0c4f.mp3"
     },
@@ -17362,6 +17790,7 @@
       "pinyin": "yǔyán / duì... gǎn xìngqù",
       "audioText": "语言",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "ngôn ngữ / có hứng thú với...",
       "disableTranslation": true,
       "audio": "audio/needed-edge/cd99b225a08ea013db.mp3"
     },
@@ -17392,6 +17821,7 @@
       "pinyin": "tǐyù / kēxué / dà zìrán",
       "audioText": "体育",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "thể thao / khoa học / thiên nhiên",
       "disableTranslation": true,
       "audio": "audio/needed-edge/82d0f5fd4e270b2c6b.mp3"
     },
@@ -17437,6 +17867,7 @@
       "pinyin": "juédìng / zuò juédìng",
       "audioText": "决定",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "quyết định / đưa ra quyết định",
       "disableTranslation": true,
       "audio": "audio/needed-edge/1375012f2db23b682a.mp3"
     },
@@ -17452,6 +17883,7 @@
       "pinyin": "zuìhòu / yì míng jiàoshī",
       "audioText": "最后",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "cuối cùng / một giáo viên",
       "disableTranslation": true,
       "audio": "audio/needed-edge/321e225c634ecac275.mp3"
     },
@@ -17467,6 +17899,7 @@
       "pinyin": "jiàoshī / sījī / shāngrén",
       "audioText": "教师",
       "source": "Ghi chú từ cần học",
+      "displayMeaning": "giáo viên / tài xế / thương nhân hoặc doanh nhân",
       "disableTranslation": true,
       "audio": "audio/needed-edge/aa5533ff4a9d4f261e.mp3"
     },
@@ -17482,9 +17915,10 @@
       "pinyin": "lǚkè / yí wèi lǚkè",
       "audioText": "旅客",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
+      "displayMeaning": "hành khách / một vị hành khách",
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/30ab32fea9952e6f0a.mp3"
     },
     {
@@ -17499,9 +17933,10 @@
       "pinyin": "quántǐ / quántǐ lǚkè",
       "audioText": "全体",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
+      "displayMeaning": "toàn thể / toàn thể hành khách",
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/85c0ff38694740dfdc.mp3"
     },
     {
@@ -17516,9 +17951,9 @@
       "pinyin": "chēng",
       "audioText": "称",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/91f5154738f7eba38b.mp3"
     },
     {
@@ -17533,9 +17968,10 @@
       "pinyin": "rùkǒu / jìnrù / jìnrù fángjiān",
       "audioText": "入口",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
+      "displayMeaning": "lối vào / đi vào trong / vào phòng",
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/38e9cd1ffb95359c2d.mp3"
     },
     {
@@ -17550,9 +17986,9 @@
       "pinyin": "chūkǒu",
       "audioText": "出口",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/dd877ebcea7c2e08bf.mp3"
     },
     {
@@ -17567,9 +18003,9 @@
       "pinyin": "jiēxiàlái",
       "audioText": "接下来",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/997fc05c121ed68f27.mp3"
     },
     {
@@ -17584,9 +18020,9 @@
       "pinyin": "jiēxiàlái, nín kěyǐ cóng zhè ge rùkǒu jìnqù",
       "audioText": "接下来您可以从这个入口进去",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/9556f0dbc36f29926b.mp3"
     },
     {
@@ -17601,9 +18037,9 @@
       "pinyin": "jiēxiàlái, qǐng nín cóng nà biān de rùkǒu jìnrù fángjiān",
       "audioText": "接下来请您从那边的入口进入房间",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/8b12496cefb12fea1b.mp3"
     },
     {
@@ -17618,9 +18054,9 @@
       "pinyin": "shuōmíng",
       "audioText": "说明",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/26670dda421f5c59af.mp3"
     },
     {
@@ -17635,9 +18071,9 @@
       "pinyin": "yuányīn hé mùdì",
       "audioText": "原因和目的",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/b2251d9202b5d664e6.mp3"
     },
     {
@@ -17652,9 +18088,9 @@
       "pinyin": "qǐng nín shuōmíng nín chūguó de yuányīn",
       "audioText": "请您说明您出国的原因",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/209db6c09c10e39177.mp3"
     },
     {
@@ -17669,9 +18105,10 @@
       "pinyin": "liúxià / liúxià jiātíng dìzhǐ hé shǒujī hàomǎ",
       "audioText": "留下",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
+      "displayMeaning": "để lại / để lại địa chỉ nhà và số điện thoại",
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/14d722bad906959f3a.mp3"
     },
     {
@@ -17686,9 +18123,10 @@
       "pinyin": "jiātíng dìzhǐ / shǒujī hàomǎ",
       "audioText": "家庭地址",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
+      "displayMeaning": "địa chỉ nhà / số điện thoại di động",
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/8bfd4779034b10a682.mp3"
     },
     {
@@ -17703,9 +18141,10 @@
       "pinyin": "chōngdiànbǎo / yǔsǎn",
       "audioText": "充电宝",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
+      "displayMeaning": "sạc dự phòng / ô hoặc dù",
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/1d541ad45e9f9c363f.mp3"
     },
     {
@@ -17720,10 +18159,10 @@
       "pinyin": "děng",
       "audioText": "等",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
-      "audio": "audio/needed-edge/3d3e17a162e710c76f.mp3",
       "dateKey": "2026-08-12-bai-39",
-      "dateLabel": "12/08 · Bài 39"
+      "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/3d3e17a162e710c76f.mp3"
     },
     {
       "id": "need-0828",
@@ -17737,9 +18176,9 @@
       "pinyin": "náchū",
       "audioText": "拿出",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/ea5deba01e6453d6a6.mp3"
     },
     {
@@ -17754,9 +18193,9 @@
       "pinyin": "qǐng nín náchū xíngli li de diànnǎo, shǒujī děng",
       "audioText": "请您拿出行李里的电脑、手机等",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/ca7b7741e3f8ca309f.mp3"
     },
     {
@@ -17771,9 +18210,10 @@
       "pinyin": "guānjī / kāijī",
       "audioText": "关机",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
+      "displayMeaning": "tắt máy / bật máy",
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/f96455d5274f83503e.mp3"
     },
     {
@@ -17788,9 +18228,9 @@
       "pinyin": "pèng yíxià zhèlǐ jiù kěyǐ kāijī",
       "audioText": "碰一下这里就可以开机",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/cae5d2f91045384d08.mp3"
     },
     {
@@ -17805,9 +18245,10 @@
       "pinyin": "shí diǎn yí kè / yí duì rén",
       "audioText": "十点一刻",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
+      "displayMeaning": "10 giờ 15 / một hàng hoặc một đội người",
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/a8c789361282ae1d1f.mp3"
     },
     {
@@ -17822,10 +18263,493 @@
       "pinyin": "fēijī huì zài shí diǎn yí kè jiàngluò",
       "audioText": "飞机会在十点一刻降落",
       "source": "Ghi chú từ cần học",
-      "disableTranslation": true,
       "dateKey": "2026-08-12-bai-39",
       "dateLabel": "12/08 · Bài 39",
+      "disableTranslation": true,
       "audio": "audio/needed-edge/92aab4c19e70ca7cc8.mp3"
+    },
+    {
+      "id": "need-0834",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Cụm nền: người, chăm sóc & thay đổi",
+      "time": "06:05:21",
+      "meaning": "khách hàng; chăm sóc",
+      "hanzi": "顾客 / 照顾",
+      "pinyin": "gùkè / zhàogu",
+      "audioText": "顾客",
+      "source": "Ghi chú từ cần học",
+      "displayMeaning": "khách hàng / chăm sóc",
+      "disableTranslation": true,
+      "audio": "audio/needed-edge/cd31feba04bef46301.mp3",
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40"
+    },
+    {
+      "id": "need-0835",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Cụm nền: người, chăm sóc & thay đổi",
+      "time": "06:05:21",
+      "meaning": "thuốc hạ sốt",
+      "hanzi": "退烧药",
+      "pinyin": "tuìshāoyào",
+      "audioText": "退烧药",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/76ac61c835afb96d1e.mp3"
+    },
+    {
+      "id": "need-0836",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Cụm nền: người, chăm sóc & thay đổi",
+      "time": "06:05:21",
+      "meaning": "làm việc chăm chỉ vì con",
+      "hanzi": "为孩子努力工作",
+      "pinyin": "wèi háizi nǔlì gōngzuò",
+      "audioText": "为孩子努力工作",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/05909c43f85afa4a86.mp3"
+    },
+    {
+      "id": "need-0837",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Cụm nền: người, chăm sóc & thay đổi",
+      "time": "06:05:21",
+      "meaning": "đương nhiên",
+      "hanzi": "当然",
+      "pinyin": "dāngrán",
+      "audioText": "当然",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/a084ce6d9eac675595.mp3"
+    },
+    {
+      "id": "need-0838",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Cụm nền: người, chăm sóc & thay đổi",
+      "time": "06:05:21",
+      "meaning": "ngày càng...; anh ấy chạy ngày càng nhiều",
+      "hanzi": "越来越 / 他跑得越来越多。",
+      "pinyin": "yuè lái yuè / tā pǎo de yuè lái yuè duō",
+      "audioText": "越来越",
+      "source": "Ghi chú từ cần học",
+      "displayMeaning": "ngày càng... / anh ấy chạy ngày càng nhiều",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/7a353aa2ea6584a63d.mp3"
+    },
+    {
+      "id": "need-0839",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Khoảng cách, độ cao, độ rộng, độ sâu",
+      "time": "06:05:21",
+      "meaning": "ki-lô-mét; đường cái / đường lớn",
+      "hanzi": "公里 / 公路",
+      "pinyin": "gōnglǐ / gōnglù",
+      "audioText": "公里",
+      "source": "Ghi chú từ cần học",
+      "displayMeaning": "ki-lô-mét / đường cái hoặc đường lớn",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/dc2437dd55ccfd0373.mp3"
+    },
+    {
+      "id": "need-0840",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Khoảng cách, độ cao, độ rộng, độ sâu",
+      "time": "06:05:21",
+      "meaning": "Từ nhà tôi đến công ty xa 30 km.",
+      "hanzi": "从我家到公司有三十公里远。",
+      "pinyin": "cóng wǒ jiā dào gōngsī yǒu sānshí gōnglǐ yuǎn",
+      "audioText": "从我家到公司有三十公里远",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/23b49b5a2798d83d67.mp3"
+    },
+    {
+      "id": "need-0841",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Khoảng cách, độ cao, độ rộng, độ sâu",
+      "time": "06:05:21",
+      "meaning": "Từ nhà tôi đến sân bay gần nhất xa 50 km.",
+      "hanzi": "从我家到最近的机场有五十公里远。",
+      "pinyin": "cóng wǒ jiā dào zuìjìn de jīchǎng yǒu wǔshí gōnglǐ yuǎn",
+      "audioText": "从我家到最近的机场有五十公里远",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/c20a0ef975293811c2.mp3"
+    },
+    {
+      "id": "need-0842",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Khoảng cách, độ cao, độ rộng, độ sâu",
+      "time": "06:05:21",
+      "meaning": "rộng; sâu; hồ; sông",
+      "hanzi": "宽 / 深 / 湖 / 河",
+      "pinyin": "kuān / shēn / hú / hé",
+      "audioText": "宽",
+      "source": "Ghi chú từ cần học",
+      "displayMeaning": "rộng / sâu / hồ / sông",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/6395f44b735756d7f3.mp3"
+    },
+    {
+      "id": "need-0843",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Khoảng cách, độ cao, độ rộng, độ sâu",
+      "time": "06:05:21",
+      "meaning": "Cái hồ đó có phải rộng hơn 300 mét không? Nhớ: 壶 là cái ấm, 湖 là hồ.",
+      "hanzi": "那个湖是不是有三百多米宽？",
+      "pinyin": "nà ge hú shì bu shì yǒu sānbǎi duō mǐ kuān?",
+      "audioText": "那个湖是不是有三百多米宽",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/1933461702629f8277.mp3"
+    },
+    {
+      "id": "need-0844",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Khoảng cách, độ cao, độ rộng, độ sâu",
+      "time": "06:05:21",
+      "meaning": "Ngọn núi đó cao 900 mét.",
+      "hanzi": "那座山有九百米高。",
+      "pinyin": "nà zuò shān yǒu jiǔbǎi mǐ gāo",
+      "audioText": "那座山有九百米高",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/53c38c08baab9e3d77.mp3"
+    },
+    {
+      "id": "need-0845",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Khoảng cách, độ cao, độ rộng, độ sâu",
+      "time": "06:05:21",
+      "meaning": "ba tòa nhà; tòa nhà ba tầng",
+      "hanzi": "三座楼 / 三层楼",
+      "pinyin": "sān zuò lóu / sān céng lóu",
+      "audioText": "三座楼",
+      "source": "Ghi chú từ cần học",
+      "displayMeaning": "ba tòa nhà / tòa nhà ba tầng",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/9a1e745580214d2eae.mp3"
+    },
+    {
+      "id": "need-0846",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "Khoảng cách, độ cao, độ rộng, độ sâu",
+      "time": "06:05:21",
+      "meaning": "Những ngọn núi chúng tôi từng đi qua có 50 ngọn.",
+      "hanzi": "我们去过的山有五十座。",
+      "pinyin": "wǒmen qù guo de shān yǒu wǔshí zuò",
+      "audioText": "我们去过的山有五十座",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/cba7dd6bc070f2daeb.mp3"
+    },
+    {
+      "id": "need-0847",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "So sánh với 比",
+      "time": "06:05:21",
+      "meaning": "đường phố; sân bóng",
+      "hanzi": "街 / 球场",
+      "pinyin": "jiē / qiúchǎng",
+      "audioText": "街",
+      "source": "Ghi chú từ cần học",
+      "displayMeaning": "đường phố / sân bóng",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/e5dd1a0b8f21982bca.mp3"
+    },
+    {
+      "id": "need-0848",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "So sánh với 比",
+      "time": "06:05:21",
+      "meaning": "Cái hồ này sâu hơn cái hồ kia hơn 20 mét.",
+      "hanzi": "这个湖比那个湖深二十多米。",
+      "pinyin": "zhè ge hú bǐ nà ge hú shēn èrshí duō mǐ",
+      "audioText": "这个湖比那个湖深二十多米",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/9e0daf73822f0e3dd7.mp3"
+    },
+    {
+      "id": "need-0849",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "So sánh với 比",
+      "time": "06:05:21",
+      "meaning": "Trong cốc có một chút xíu nước.",
+      "hanzi": "杯子里有一点点水。",
+      "pinyin": "bēizi li yǒu yìdiǎndiǎn shuǐ",
+      "audioText": "杯子里有一点点水",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/c8f116f1723a4fe101.mp3"
+    },
+    {
+      "id": "need-0850",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "So sánh với 比",
+      "time": "06:05:21",
+      "meaning": "Trong cốc có khá nhiều nước.",
+      "hanzi": "杯子里有不少水。",
+      "pinyin": "bēizi li yǒu bù shǎo shuǐ",
+      "audioText": "杯子里有不少水",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/661288f24946262102.mp3"
+    },
+    {
+      "id": "need-0851",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "So sánh với 比",
+      "time": "06:05:21",
+      "meaning": "Tôi thấy con phố này rộng hơn con phố chúng tôi vừa đi qua rất nhiều.",
+      "hanzi": "我觉得这条街比我们刚去过的那条街宽很多。",
+      "pinyin": "wǒ juéde zhè tiáo jiē bǐ wǒmen gāng qù guo de nà tiáo jiē kuān hěn duō",
+      "audioText": "我觉得这条街比我们刚去过的那条街宽很多",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/dd4fb9ba0a0dc1fb71.mp3"
+    },
+    {
+      "id": "need-0852",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "So sánh với 比",
+      "time": "06:05:21",
+      "meaning": "Trung tâm thương mại này lớn hơn trung tâm thương mại tôi thường đi khá nhiều.",
+      "hanzi": "这个商场比我经常去的那个商场大不少。",
+      "pinyin": "zhè ge shāngchǎng bǐ wǒ jīngcháng qù de nà ge shāngchǎng dà bù shǎo",
+      "audioText": "这个商场比我经常去的那个商场大不少",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/a34d0985097a3b39f2.mp3"
+    },
+    {
+      "id": "need-0853",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "So sánh với 比",
+      "time": "06:05:21",
+      "meaning": "Trong những quán ăn bạn giới thiệu, quán nào rẻ hơn?",
+      "hanzi": "在你推荐的饭馆中，哪个饭馆更便宜？",
+      "pinyin": "zài nǐ tuījiàn de fànguǎn zhōng, nǎ ge fànguǎn gèng piányi?",
+      "audioText": "在你推荐的饭馆中哪个饭馆更便宜",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/9a1615838051718c57.mp3"
+    },
+    {
+      "id": "need-0854",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "就是 / 叫作 / 面前",
+      "time": "06:05:21",
+      "meaning": "nhà thi đấu; phía trước mặt; chính là",
+      "hanzi": "体育馆 / 面前 / 就是",
+      "pinyin": "tǐyùguǎn / miànqián / jiùshì",
+      "audioText": "体育馆",
+      "source": "Ghi chú từ cần học",
+      "displayMeaning": "nhà thi đấu / phía trước mặt / chính là",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/be14eac4f24da6bddd.mp3"
+    },
+    {
+      "id": "need-0855",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "就是 / 叫作 / 面前",
+      "time": "06:05:21",
+      "meaning": "Đây chính là nơi tôi làm việc.",
+      "hanzi": "这里就是我工作的地方。",
+      "pinyin": "zhèlǐ jiùshì wǒ gōngzuò de dìfang",
+      "audioText": "这里就是我工作的地方",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/e71e021064513d8a15.mp3"
+    },
+    {
+      "id": "need-0856",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "就是 / 叫作 / 面前",
+      "time": "06:05:21",
+      "meaning": "gọi là / được gọi là",
+      "hanzi": "叫作",
+      "pinyin": "jiàozuò",
+      "audioText": "叫作",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/7d27d523726571cc7e.mp3"
+    },
+    {
+      "id": "need-0857",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "就是 / 叫作 / 面前",
+      "time": "06:05:21",
+      "meaning": "Nhà thi đấu ở ngay trước mặt bạn.",
+      "hanzi": "体育馆就在你面前。",
+      "pinyin": "tǐyùguǎn jiù zài nǐ miànqián",
+      "audioText": "体育馆就在你面前",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/871b7aa4f0f840e22b.mp3"
+    },
+    {
+      "id": "need-0858",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "就是 / 叫作 / 面前",
+      "time": "06:05:21",
+      "meaning": "quảng trường",
+      "hanzi": "广场",
+      "pinyin": "guǎngchǎng",
+      "audioText": "广场",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/a8776899a4b48b4f50.mp3"
+    },
+    {
+      "id": "need-0859",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "就是 / 叫作 / 面前",
+      "time": "06:05:21",
+      "meaning": "Đó chính là quảng trường nổi tiếng nhất ở chỗ chúng tôi.",
+      "hanzi": "那就是我们这里最有名的广场。",
+      "pinyin": "nà jiùshì wǒmen zhèlǐ zuì yǒumíng de guǎngchǎng",
+      "audioText": "那就是我们这里最有名的广场",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/260ca96e3d20f6fb30.mp3"
+    },
+    {
+      "id": "need-0860",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "就是 / 叫作 / 面前",
+      "time": "06:05:21",
+      "meaning": "Đây chính là con đường rộng nhất bên bạn à?",
+      "hanzi": "这就是你们这边最宽的公路吗？",
+      "pinyin": "zhè jiùshì nǐmen zhè biān zuì kuān de gōnglù ma?",
+      "audioText": "这就是你们这边最宽的公路吗",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/b0ad55d8937d704229.mp3"
+    },
+    {
+      "id": "need-0861",
+      "date": "2026-08-13",
+      "month": "2026-08",
+      "topic": "Bài 40: So sánh, đo lường & địa điểm",
+      "group": "就是 / 叫作 / 面前",
+      "time": "06:05:21",
+      "meaning": "Đây chính là con đường dài hơn 500 mét đó. Câu này cần thêm danh từ nếu nói rõ: 公路 / 街.",
+      "hanzi": "这就是那条五百多米长的公路。",
+      "pinyin": "zhè jiùshì nà tiáo wǔbǎi duō mǐ cháng de gōnglù",
+      "audioText": "这就是那条五百多米长的公路",
+      "source": "Ghi chú từ cần học",
+      "disableTranslation": true,
+      "dateKey": "2026-08-13-bai-40",
+      "dateLabel": "13/08 · Bài 40",
+      "audio": "audio/needed-edge/44cd7fe3c64d028d18.mp3"
     }
   ],
   "audio": {
@@ -17833,7 +18757,7 @@
     "voice": "zh-CN-XiaoxiaoNeural",
     "rate": "-5%",
     "directory": "audio/needed-edge",
-    "updatedAt": "2026-08-12T00:32:04.912Z",
-    "available": 833
+    "updatedAt": "2026-08-12T23:13:50.492Z",
+    "available": 861
   }
 }
