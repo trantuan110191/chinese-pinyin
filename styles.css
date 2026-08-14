@@ -2605,6 +2605,63 @@ body.lookup-popover-resizing {
   content: "▾";
 }
 
+.needed-copy-batches {
+  display: grid;
+  gap: 8px;
+  max-height: 260px;
+  padding: 10px 12px;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.62);
+  border-top: 1px solid var(--line);
+}
+
+.needed-copy-batch {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 7px 9px;
+  background: #ffffff;
+  border: 1px solid rgba(36, 33, 29, 0.08);
+  border-radius: 14px;
+}
+
+.needed-copy-batch.has-copied {
+  border-color: rgba(36, 72, 61, 0.22);
+  box-shadow: inset 3px 0 0 rgba(36, 72, 61, 0.78);
+}
+
+.needed-copy-range {
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.needed-copy-preview {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: var(--hanzi);
+  font-size: 22px;
+  font-weight: 380;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.needed-copy-count {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.needed-copy-batch.has-copied .needed-copy-count {
+  color: var(--green);
+}
+
 .needed-copy-hanzi {
   min-height: 30px;
   padding: 0 12px;
@@ -8089,6 +8146,15 @@ footer p {
   .needed-options,
   .needed-word-list li {
     grid-template-columns: 1fr;
+  }
+
+  .needed-copy-batch {
+    grid-template-columns: 52px minmax(0, 1fr);
+  }
+
+  .needed-copy-count,
+  .needed-copy-batch .needed-copy-hanzi {
+    justify-self: start;
   }
 
   .pinyin-result-grid {

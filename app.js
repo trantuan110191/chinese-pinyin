@@ -45,6 +45,7 @@ const profileScopedStorageKeys = new Set([
   "neededNotesMode",
   "neededNotesChoiceMode",
   "neededNotesMemoryRatings",
+  "neededNotesCopyCounts",
   "neededNotesMonth",
   "neededNotesDate",
   "neededNotesTopic",
@@ -56,6 +57,7 @@ const profileMergeStorageKeys = new Set([
   "topicWorkshopProgress",
   "neededNotesKnownWords",
   "neededNotesMemoryRatings",
+  "neededNotesCopyCounts",
 ]);
 const profileCloudProgressStorageKeys = new Set([
   ...profileMergeStorageKeys,
@@ -181,6 +183,20 @@ function mergeProfileStorageValue(key, localValue, cloudValue) {
   if (!localObject && !cloudObject) return localValue || cloudValue;
   if (!localObject) return cloudValue;
   if (!cloudObject) return localValue;
+  if (key === "neededNotesCopyCounts") {
+    const merged = { ...cloudObject };
+    Object.entries(localObject).forEach(([entryKey, localEntry]) => {
+      const cloudEntry = merged[entryKey];
+      const localCount = Number(localEntry?.count || 0);
+      const cloudCount = Number(cloudEntry?.count || 0);
+      const localCopiedAt = Number(localEntry?.copiedAt || 0);
+      const cloudCopiedAt = Number(cloudEntry?.copiedAt || 0);
+      if (localCount > cloudCount || (localCount === cloudCount && localCopiedAt > cloudCopiedAt)) {
+        merged[entryKey] = localEntry;
+      }
+    });
+    return stableStringify(merged);
+  }
   return stableStringify({ ...cloudObject, ...localObject });
 }
 
@@ -2249,6 +2265,7 @@ const positiveDingAudioUrl = "audio/sfx/correct.mp3?v=correct-20260809a";
 let positiveDingAudioElement = null;
 let positiveDingAudioContext = null;
 let neededNotesMemoryRatings = {};
+let neededNotesCopyCounts = {};
 let neededNotesAutoTimer = null;
 let neededNotesMenuExpanded = false;
 let neededNotesChoiceMenuExpanded = false;
@@ -2312,6 +2329,15 @@ try {
   }
 } catch {
   neededNotesMemoryRatings = {};
+}
+
+try {
+  neededNotesCopyCounts = JSON.parse(getAppStorage("neededNotesCopyCounts") || "{}") || {};
+  if (!neededNotesCopyCounts || Array.isArray(neededNotesCopyCounts) || typeof neededNotesCopyCounts !== "object") {
+    neededNotesCopyCounts = {};
+  }
+} catch {
+  neededNotesCopyCounts = {};
 }
 
 const HSK_PAGE_SIZE = 60;
@@ -8300,6 +8326,8 @@ function renderNeededNotesFlashcard() {
   `;
 }
 
+const NEEDED_COPY_CHUNK_SIZE = 5;
+
 function getNeededNotesListWordsForCopy(kind) {
   const words = kind === "learned"
     ? getNeededNotesLearnedWords()
@@ -8308,11 +8336,49 @@ function getNeededNotesListWordsForCopy(kind) {
   return words.filter((word) => String(word?.hanzi || "").trim());
 }
 
-function getNeededNotesHanziCopyText(kind) {
-  return getNeededNotesListWordsForCopy(kind)
+function getNeededNotesHanziCopyText(words) {
+  return words
     .map((word) => String(word.hanzi || "").trim())
     .filter(Boolean)
     .join("\n");
+}
+
+function getNeededCopyHash(text) {
+  let hash = 2166136261;
+  for (let index = 0; index < text.length; index += 1) {
+    hash ^= text.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(36);
+}
+
+function getNeededNotesCopyChunkKey(kind, words) {
+  const ids = words.map((word) => getNeededNoteId(word)).join("|");
+  return `${kind}:${getNeededCopyHash(ids)}`;
+}
+
+function getNeededNotesCopyChunkRecord(key) {
+  const record = neededNotesCopyCounts[key];
+  if (!record || typeof record !== "object") return { count: 0, copiedAt: 0 };
+  return {
+    count: Math.max(0, Number(record.count) || 0),
+    copiedAt: Math.max(0, Number(record.copiedAt) || 0),
+  };
+}
+
+function saveNeededNotesCopyCounts() {
+  setAppStorage("neededNotesCopyCounts", JSON.stringify(neededNotesCopyCounts));
+}
+
+function chunkNeededNotesWords(words, size = NEEDED_COPY_CHUNK_SIZE) {
+  const chunks = [];
+  for (let index = 0; index < words.length; index += size) {
+    chunks.push({
+      start: index,
+      words: words.slice(index, index + size),
+    });
+  }
+  return chunks;
 }
 
 async function writeTextToClipboard(text) {
@@ -8337,9 +8403,9 @@ async function writeTextToClipboard(text) {
   return true;
 }
 
-function flashNeededCopyButton(button, text, state = "copied") {
+function flashNeededCopyButton(button, text, state = "copied", resetText = "") {
   if (!button) return;
-  const originalText = button.dataset.originalLabel || button.textContent;
+  const originalText = resetText || button.dataset.originalLabel || button.textContent;
   button.dataset.originalLabel = originalText;
   button.textContent = text;
   button.classList.remove("is-copied", "is-error");
@@ -8353,16 +8419,58 @@ function flashNeededCopyButton(button, text, state = "copied") {
   button.dataset.resetTimer = String(timer);
 }
 
-async function copyNeededNotesHanziList(kind, button) {
+function renderNeededCopyBatches(kind, words) {
+  const chunks = chunkNeededNotesWords(words);
+  if (!chunks.length) return "";
+  return `
+    <div class="needed-copy-batches" aria-label="Copy chữ Hán theo từng cụm 5 mục">
+      ${chunks.map(({ start, words: chunkWords }) => {
+        const end = start + chunkWords.length;
+        const key = getNeededNotesCopyChunkKey(kind, chunkWords);
+        const record = getNeededNotesCopyChunkRecord(key);
+        const range = `${String(start + 1).padStart(2, "0")}-${String(end).padStart(2, "0")}`;
+        const preview = chunkWords.map((word) => String(word.hanzi || "").trim()).filter(Boolean).join(" · ");
+        return `
+          <div class="needed-copy-batch ${record.count ? "has-copied" : ""}">
+            <span class="needed-copy-range">${range}</span>
+            <strong class="needed-copy-preview" lang="zh-Hans">${escapeHtml(preview)}</strong>
+            <small class="needed-copy-count" data-needed-copy-count="${escapeHtml(key)}">
+              ${record.count ? `Đã copy ${record.count} lần` : "Chưa copy"}
+            </small>
+            <button class="needed-copy-hanzi" data-needed-copy-hanzi="${escapeHtml(kind)}" data-needed-copy-start="${start}" type="button">
+              ${record.count ? "Copy lại" : "Copy"}
+            </button>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+async function copyNeededNotesHanziChunk(kind, start, button) {
   const words = getNeededNotesListWordsForCopy(kind);
-  const text = getNeededNotesHanziCopyText(kind);
+  const chunkStart = Math.max(0, Math.floor(Number(start) || 0));
+  const chunkWords = words.slice(chunkStart, chunkStart + NEEDED_COPY_CHUNK_SIZE);
+  const text = getNeededNotesHanziCopyText(chunkWords);
   if (!text) {
     flashNeededCopyButton(button, "Chưa có chữ", "error");
     return;
   }
   try {
     await writeTextToClipboard(text);
-    flashNeededCopyButton(button, `Đã copy ${words.length}`);
+    const key = getNeededNotesCopyChunkKey(kind, chunkWords);
+    const currentRecord = getNeededNotesCopyChunkRecord(key);
+    const nextCount = currentRecord.count + 1;
+    neededNotesCopyCounts[key] = {
+      count: nextCount,
+      copiedAt: Date.now(),
+    };
+    saveNeededNotesCopyCounts();
+    const countLabel = Array.from(button?.closest(".needed-copy-batch")?.querySelectorAll("[data-needed-copy-count]") || [])
+      .find((element) => element.dataset.neededCopyCount === key);
+    if (countLabel) countLabel.textContent = `Đã copy ${nextCount} lần`;
+    button?.closest(".needed-copy-batch")?.classList.add("has-copied");
+    flashNeededCopyButton(button, `Lần ${nextCount}`, "copied", "Copy lại");
   } catch {
     flashNeededCopyButton(button, "Không copy được", "error");
   }
@@ -8393,15 +8501,15 @@ function renderNeededNotesList() {
       <details open>
         <summary>
           <span class="needed-list-title">Cần học (${activeWords.length})</span>
-          <button class="needed-copy-hanzi" data-needed-copy-hanzi="active" type="button">Copy chữ Hán</button>
         </summary>
+        ${renderNeededCopyBatches("active", activeWords)}
         <ul class="needed-word-list">${activeWords.slice(0, 160).map((word) => renderRow(word)).join("")}</ul>
       </details>
       <details>
         <summary>
           <span class="needed-list-title">Đã học (${learnedWords.length})</span>
-          <button class="needed-copy-hanzi" data-needed-copy-hanzi="learned" type="button">Copy chữ Hán</button>
         </summary>
+        ${renderNeededCopyBatches("learned", learnedWords)}
         <ul class="needed-word-list">${learnedWords.slice(0, 160).map((word) => renderRow(word, true)).join("")}</ul>
       </details>
     </article>
@@ -9932,7 +10040,11 @@ document.addEventListener("click", (event) => {
   if (neededCopyHanziButton) {
     event.preventDefault();
     event.stopPropagation();
-    copyNeededNotesHanziList(neededCopyHanziButton.dataset.neededCopyHanzi, neededCopyHanziButton);
+    copyNeededNotesHanziChunk(
+      neededCopyHanziButton.dataset.neededCopyHanzi,
+      neededCopyHanziButton.dataset.neededCopyStart,
+      neededCopyHanziButton,
+    );
     return;
   }
   if (neededRelearnButton) relearnNeededNoteById(neededRelearnButton.dataset.neededRelearn);
