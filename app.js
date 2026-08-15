@@ -6235,7 +6235,7 @@ function getCurrentTopicChoiceWord(reviewPool = getTopicReviewPool()) {
 function getTopicChoiceOptionHanzi(reviewPool = getTopicReviewPool()) {
   const word = getCurrentTopicChoiceWord(reviewPool);
   if (!word) return [];
-  const optionCount = Math.min(8, reviewPool.length);
+  const optionCount = Math.min(4, reviewPool.length);
   const distractors = shuffle(
     reviewPool
       .filter((item) => item.hanzi !== word.hanzi)
@@ -7722,7 +7722,7 @@ function resetNeededNotesChoiceOptions(word = getNeededNotesCurrentWord()) {
     return;
   }
   const optionPool = getNeededNotesFilteredWords();
-  const optionCount = Math.min(8, optionPool.length || 1);
+  const optionCount = Math.min(4, optionPool.length || 1);
   const currentId = getNeededNoteId(word);
   const distractors = shuffle(
     optionPool
