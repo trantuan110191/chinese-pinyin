@@ -7787,6 +7787,10 @@ function getPinyinReadingToneLabel(reading) {
   return "âm nhẹ";
 }
 
+function shouldShowNeededNotesReadingHint(actualReading) {
+  return getPinyinReadingToneLabel(actualReading) !== "âm nhẹ";
+}
+
 function getNeededNotesPolyphonicHints(word) {
   const hanzi = String(word?.hanzi || "");
   const pinyin = String(word?.pinyin || "");
@@ -7798,6 +7802,7 @@ function getNeededNotesPolyphonicHints(word) {
     if (seen.has(character)) return;
     const actualReading = readings.find((reading) => neededNotesPinyinIncludesReading(pinyin, reading));
     if (!actualReading) return;
+    if (!shouldShowNeededNotesReadingHint(actualReading)) return;
     seen.add(character);
     const otherReadings = readings.filter((reading) => reading !== actualReading).join(" / ");
     const otherNote = otherReadings ? `; còn có ${otherReadings}` : "";
