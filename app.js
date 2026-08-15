@@ -6282,6 +6282,18 @@ function getTopicChoiceOptionLabel(word, practiceMode = topicChoicePracticeMode)
   return word.pinyin;
 }
 
+function renderTopicChoiceOptionContent(word, practiceMode = topicChoicePracticeMode, readingHints = getNeededNotesPolyphonicHints(word)) {
+  const label = escapeHtml(getTopicChoiceOptionLabel(word, practiceMode));
+  const language = practiceMode === "meaning-to-hanzi" ? "zh-Hans" : "vi";
+  const hints = readingHints.length
+    ? `<small class="topic-choice-option-reading">${readingHints.map(escapeHtml).join(" · ")}</small>`
+    : "";
+  return `
+    <span class="topic-choice-option-main" lang="${language}">${label}</span>
+    ${hints}
+  `;
+}
+
 function getTopicFlashModes() {
   return {
     both: {
@@ -7016,12 +7028,14 @@ function renderTopicChoice(reviewPool = getTopicReviewPool()) {
     const isSelected = hanzi === topicChoiceSelected;
     const isAnswer = hanzi === word.hanzi;
     const optionVariantClass = currentPracticeMode === "meaning-to-hanzi" ? "topic-choice-option-hanzi" : "";
+    const readingHints = getNeededNotesPolyphonicHints(optionWord);
+    const readingClass = readingHints.length ? "has-reading-note" : "";
     const className = topicChoiceAnswered
       ? isAnswer ? "is-correct" : isSelected ? "is-wrong" : ""
       : "";
     return `
-      <button class="${[className, optionVariantClass].filter(Boolean).join(" ")}" data-topic-choice-answer="${escapeHtml(hanzi)}" type="button" ${topicChoiceAnswered ? "disabled" : ""}>
-        ${escapeHtml(getTopicChoiceOptionLabel(optionWord, currentPracticeMode))}
+      <button class="${[className, optionVariantClass, readingClass].filter(Boolean).join(" ")}" data-topic-choice-answer="${escapeHtml(hanzi)}" type="button" ${topicChoiceAnswered ? "disabled" : ""}>
+        ${renderTopicChoiceOptionContent(optionWord, currentPracticeMode, readingHints)}
       </button>
     `;
   }).join("");
@@ -7724,6 +7738,86 @@ function getNeededNotesChoiceOptionLabel(word) {
   return getNeededNoteMeaning(word);
 }
 
+const neededNotesPolyphonicReadings = {
+  背: ["bēi", "bèi"],
+  长: ["cháng", "zhǎng"],
+  着: ["zhe", "zháo", "zhāo", "zhuó"],
+  得: ["de", "dé", "děi"],
+  还: ["hái", "huán"],
+  行: ["xíng", "háng"],
+  重: ["zhòng", "chóng"],
+  发: ["fā", "fà"],
+  了: ["le", "liǎo"],
+  数: ["shù", "shǔ"],
+  当: ["dāng", "dàng"],
+  地: ["de", "dì"],
+  只: ["zhǐ", "zhī"],
+  好: ["hǎo", "hào"],
+  教: ["jiāo", "jiào"],
+  觉: ["jué", "jiào"],
+  为: ["wèi", "wéi"],
+  要: ["yào", "yāo"],
+  给: ["gěi", "jǐ"],
+  中: ["zhōng", "zhòng"],
+  少: ["shǎo", "shào"],
+  看: ["kàn", "kān"],
+};
+
+function normalizeNeededNotesPinyinReading(value) {
+  return String(value || "")
+    .normalize("NFC")
+    .toLowerCase()
+    .replace(/u:/g, "ü")
+    .replace(/v/g, "ü")
+    .trim();
+}
+
+function neededNotesPinyinIncludesReading(pinyin, reading) {
+  const source = normalizeNeededNotesPinyinReading(pinyin);
+  const target = normalizeNeededNotesPinyinReading(reading);
+  if (!source || !target) return false;
+  return source.includes(target);
+}
+
+function getPinyinReadingToneLabel(reading) {
+  for (const character of String(reading || "")) {
+    const tone = toneMarkNumbers[character];
+    if (tone) return `thanh ${tone}`;
+  }
+  return "âm nhẹ";
+}
+
+function getNeededNotesPolyphonicHints(word) {
+  const hanzi = String(word?.hanzi || "");
+  const pinyin = String(word?.pinyin || "");
+  if (!hanzi || !pinyin) return [];
+  const hints = [];
+  const seen = new Set();
+  Object.entries(neededNotesPolyphonicReadings).forEach(([character, readings]) => {
+    if (!hanzi.includes(character)) return;
+    if (seen.has(character)) return;
+    const actualReading = readings.find((reading) => neededNotesPinyinIncludesReading(pinyin, reading));
+    if (!actualReading) return;
+    seen.add(character);
+    const otherReadings = readings.filter((reading) => reading !== actualReading).join(" / ");
+    const otherNote = otherReadings ? `; còn có ${otherReadings}` : "";
+    hints.push(`${character} đọc ${actualReading} (${getPinyinReadingToneLabel(actualReading)}${otherNote})`);
+  });
+  return hints.slice(0, 3);
+}
+
+function renderNeededNotesChoiceOptionContent(word, isMeaningToHanzi, readingHints = getNeededNotesPolyphonicHints(word)) {
+  const label = escapeHtml(getNeededNotesChoiceOptionLabel(word));
+  const language = isMeaningToHanzi ? "zh-Hans" : "vi";
+  const hints = readingHints.length
+    ? `<small class="needed-option-reading">${readingHints.map(escapeHtml).join(" · ")}</small>`
+    : "";
+  return `
+    <span class="needed-option-main" lang="${language}">${label}</span>
+    ${hints}
+  `;
+}
+
 function splitNeededNotesAlternatives(value, options = {}) {
   const text = String(value || "").trim();
   if (!text) return [];
@@ -8207,9 +8301,11 @@ function renderNeededNotesChoice() {
       ? isAnswer ? "is-correct" : isSelected ? "is-wrong" : ""
       : "";
     const hanziClass = isMeaningToHanzi ? "needed-option-hanzi" : "";
+    const readingHints = getNeededNotesPolyphonicHints(optionWord);
+    const readingClass = readingHints.length ? "has-reading-note" : "";
     return `
-      <button class="${[stateClass, hanziClass].filter(Boolean).join(" ")}" data-needed-answer="${escapeHtml(id)}" type="button" ${neededNotesAnswered ? "disabled" : ""}>
-        ${escapeHtml(getNeededNotesChoiceOptionLabel(optionWord))}
+      <button class="${[stateClass, hanziClass, readingClass].filter(Boolean).join(" ")}" data-needed-answer="${escapeHtml(id)}" type="button" ${neededNotesAnswered ? "disabled" : ""}>
+        ${renderNeededNotesChoiceOptionContent(optionWord, isMeaningToHanzi, readingHints)}
       </button>
     `;
   }).join("");
