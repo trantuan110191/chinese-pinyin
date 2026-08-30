@@ -12125,6 +12125,34 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   color: var(--blue);
 }
 
+.needed-menu-popover-unified .needed-date-chip.active {
+  color: var(--blue) !important;
+  background: #fffdf8 !important;
+  border-color: rgba(30, 62, 83, 0.12) !important;
+  box-shadow: none !important;
+}
+
+.needed-menu-popover-unified .needed-date-chip.active span {
+  color: var(--muted) !important;
+}
+
+.needed-menu-popover-unified .needed-date-chip:hover,
+.needed-menu-popover-unified .needed-date-item.is-previewed .needed-date-chip {
+  color: #fffdf8 !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), transparent 42%),
+    var(--red) !important;
+  border-color: rgba(217, 76, 63, 0.24) !important;
+  box-shadow: 0 14px 30px rgba(217, 76, 63, 0.18) !important;
+}
+
+.needed-menu-popover-unified .needed-date-chip:hover strong,
+.needed-menu-popover-unified .needed-date-chip:hover span,
+.needed-menu-popover-unified .needed-date-item.is-previewed .needed-date-chip strong,
+.needed-menu-popover-unified .needed-date-item.is-previewed .needed-date-chip span {
+  color: #fffdf8 !important;
+}
+
 .needed-flash-main > .needed-flash-prompt-meaning {
   max-width: min(920px, 100%);
   color: var(--blue);

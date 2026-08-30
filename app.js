@@ -8296,6 +8296,7 @@ function renderNeededNotesNoMatches() {
 function renderNeededNotesFilterPanel(total) {
   neededNotesActionDate = normalizeNeededNotesActionDate(neededNotesActionDate);
   const actionDate = neededNotesActionDate;
+  const previewDate = neededNotesActionPanelOpen ? actionDate : "";
   const currentSummary = neededNotesDate === "all"
     ? "toàn bộ ghi chú"
     : getNeededNotesDateTopicSummary(neededNotesDate);
@@ -8303,7 +8304,7 @@ function renderNeededNotesFilterPanel(total) {
   const remainingCount = Math.max(0, total - learnedCount);
   const allWords = getNeededNotesWordsForFilter();
   const allButton = `
-    <div class="needed-date-item ${actionDate === "all" ? "is-previewed" : ""}">
+    <div class="needed-date-item ${previewDate === "all" ? "is-previewed" : ""}">
       <button class="needed-date-chip ${neededNotesDate === "all" ? "active" : ""}" data-needed-date-preview="all" data-needed-date-default="all" type="button">
         <strong>Tất cả ngày</strong>
         <span><em>toàn bộ ghi chú</em><b>${escapeHtml(renderNeededNotesDateProgress(allWords))}</b></span>
@@ -8314,7 +8315,7 @@ function renderNeededNotesFilterPanel(total) {
     const words = getNeededNotesWordsForFilter({ date });
     const topic = getNeededNotesDateTopicSummary(date);
     return `
-      <div class="needed-date-item ${actionDate === date ? "is-previewed" : ""}">
+      <div class="needed-date-item ${previewDate === date ? "is-previewed" : ""}">
         <button class="needed-date-chip ${neededNotesDate === date ? "active" : ""}" data-needed-date-preview="${escapeHtml(date)}" data-needed-date-default="${escapeHtml(date)}" type="button">
           <strong>Ngày ${escapeHtml(getNeededNoteDateDisplay(date))}</strong>
           <span><em>${escapeHtml(topic || "chưa phân loại")}</em><b>${escapeHtml(renderNeededNotesDateProgress(words))}</b></span>
