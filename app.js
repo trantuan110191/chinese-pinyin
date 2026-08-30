@@ -2273,6 +2273,10 @@ let neededNotesFilterExpanded = false;
 let neededNotesMonth = getAppStorage("neededNotesMonth") || "all";
 let neededNotesDate = getAppStorage("neededNotesDate") || "all";
 let neededNotesActionDate = neededNotesDate;
+let neededNotesActionPanelOpen = false;
+let neededNotesActionPanelTop = 0;
+let neededNotesActionPanelLeft = 0;
+let neededNotesActionPanelSide = "right";
 let neededNotesTopic = getAppStorage("neededNotesTopic") || "all";
 let learningLibrariesReady = false;
 let learningLibrariesFailed = false;
@@ -7597,15 +7601,23 @@ function renderNeededNotesDateActionButton(date, mode, choiceMode, label, option
 }
 
 function renderNeededNotesDateActionPanel(date = neededNotesActionDate) {
+  if (!neededNotesActionPanelOpen) return "";
   const actionDate = normalizeNeededNotesActionDate(date);
   const words = getNeededNotesWordsForActionDate(actionDate);
   const stats = getNeededNotesProgressStats(words);
   const topic = actionDate === "all" ? "toàn bộ ghi chú" : getNeededNotesDateTopicSummary(actionDate);
   const isDone = Boolean(stats.total && stats.remaining === 0);
   const doneHint = isDone ? "Đã học xong, có thể học lại ngay" : `${stats.remaining} mục còn học`;
+  const top = Math.max(8, Math.round(neededNotesActionPanelTop || 0));
+  const left = Math.round(neededNotesActionPanelLeft || 0);
+  const sideClass = neededNotesActionPanelSide === "left" ? " is-left" : " is-right";
 
   return `
-    <section class="needed-date-action-panel" aria-label="Chọn kiểu học cho ngày đang rê chuột">
+    <section
+      class="needed-date-action-panel${sideClass}"
+      style="--needed-action-top: ${top}px; --needed-action-left: ${left}px;"
+      aria-label="Chọn kiểu học cho ngày đang rê chuột"
+    >
       <div class="needed-date-action-head">
         <small>Popup phụ</small>
         <strong>${escapeHtml(getNeededNotesActionDateTitle(actionDate))}</strong>
@@ -7638,9 +7650,36 @@ function renderNeededNotesDateActionPanel(date = neededNotesActionDate) {
           ${renderNeededNotesDateActionButton(actionDate, "list", "", "Mở danh sách từ")}
         </article>
       </div>
-      <p class="needed-date-action-guide">Rê chuột hoặc tap một thẻ ngày để đổi popup phụ. Đúp chuột vào thẻ ngày để học nhanh: Chọn đáp án · Nhìn chữ chọn nghĩa.</p>
+      <p class="needed-date-action-guide">Đúp chuột vào thẻ ngày để học nhanh: Chọn đáp án · Nhìn chữ chọn nghĩa.</p>
     </section>
   `;
+}
+
+function updateNeededNotesActionPanelAnchor(trigger) {
+  const chip = trigger?.closest?.("[data-needed-date-preview]");
+  const popover = chip?.closest?.(".needed-menu-popover-unified");
+  if (!chip || !popover) {
+    neededNotesActionPanelTop = 112;
+    neededNotesActionPanelLeft = 24;
+    neededNotesActionPanelSide = "right";
+    return;
+  }
+  const chipRect = chip.getBoundingClientRect();
+  const popoverRect = popover.getBoundingClientRect();
+  const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1280;
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 760;
+  const gap = 14;
+  const panelWidth = 560;
+  const panelHeight = 310;
+  const canOpenRight = chipRect.right + gap + panelWidth <= viewportWidth - 12;
+  neededNotesActionPanelSide = canOpenRight ? "right" : "left";
+  const rawLeft = canOpenRight
+    ? chipRect.right - popoverRect.left + gap
+    : chipRect.left - popoverRect.left - panelWidth - gap;
+  const rawTop = chipRect.top - popoverRect.top - 14;
+  const maxTop = Math.max(8, viewportHeight - popoverRect.top - panelHeight - 12);
+  neededNotesActionPanelTop = Math.max(8, Math.min(rawTop, maxTop));
+  neededNotesActionPanelLeft = Math.round(rawLeft);
 }
 
 function saveNeededNotesKnownWords() {
@@ -8684,6 +8723,7 @@ function renderNeededNotes() {
   if (!neededNotesApp) return;
   if (!isAdminProfile()) {
     neededNotesMenuExpanded = false;
+    neededNotesActionPanelOpen = false;
     neededNotesChoiceMenuExpanded = false;
     neededNotesFilterExpanded = false;
     renderNeededNotesLocked();
@@ -8691,6 +8731,7 @@ function renderNeededNotes() {
   }
   if (!neededNoteWords.length) {
     neededNotesMenuExpanded = false;
+    neededNotesActionPanelOpen = false;
     neededNotesChoiceMenuExpanded = false;
     neededNotesFilterExpanded = false;
     renderNeededNotesLoading();
@@ -8701,6 +8742,7 @@ function renderNeededNotes() {
   const filteredWords = getNeededNotesFilteredWords();
   if (!filteredWords.length) {
     neededNotesMenuExpanded = false;
+    neededNotesActionPanelOpen = false;
     neededNotesChoiceMenuExpanded = false;
     renderNeededNotesShell(renderNeededNotesNoMatches());
     return;
@@ -8720,6 +8762,7 @@ function toggleNeededNotesMenu() {
   neededNotesMenuExpanded = shouldOpen;
   if (shouldOpen) {
     neededNotesActionDate = normalizeNeededNotesActionDate(neededNotesDate);
+    neededNotesActionPanelOpen = false;
   }
   neededNotesChoiceMenuExpanded = false;
   neededNotesFilterExpanded = false;
@@ -8729,6 +8772,7 @@ function toggleNeededNotesMenu() {
 function toggleNeededNotesChoiceMenu() {
   neededNotesChoiceMenuExpanded = !neededNotesChoiceMenuExpanded;
   neededNotesMenuExpanded = false;
+  neededNotesActionPanelOpen = false;
   neededNotesFilterExpanded = false;
   renderNeededNotes();
 }
@@ -8736,6 +8780,7 @@ function toggleNeededNotesChoiceMenu() {
 function toggleNeededNotesFilter() {
   neededNotesFilterExpanded = !neededNotesFilterExpanded;
   neededNotesMenuExpanded = false;
+  neededNotesActionPanelOpen = false;
   neededNotesChoiceMenuExpanded = false;
   renderNeededNotes();
 }
@@ -8755,6 +8800,7 @@ function setNeededNotesFilter(type, value) {
   if (type === "date") {
     neededNotesDate = normalizedValue;
     neededNotesActionDate = normalizedValue;
+    neededNotesActionPanelOpen = false;
   }
   neededNotesMonth = "all";
   neededNotesTopic = "all";
@@ -8773,6 +8819,7 @@ function resetNeededNotesFilters() {
   neededNotesMonth = "all";
   neededNotesDate = "all";
   neededNotesActionDate = "all";
+  neededNotesActionPanelOpen = false;
   neededNotesTopic = "all";
   neededNotesIndex = 0;
   neededNotesMenuExpanded = false;
@@ -8870,10 +8917,12 @@ function setNeededNotesMode(mode) {
   focusNeededNotesTranslationInputSoon();
 }
 
-function previewNeededNotesDate(date) {
+function previewNeededNotesDate(date, trigger) {
   const normalizedDate = normalizeNeededNotesActionDate(date);
-  if (neededNotesActionDate === normalizedDate && neededNotesMenuExpanded) return;
+  updateNeededNotesActionPanelAnchor(trigger);
+  if (neededNotesActionDate === normalizedDate && neededNotesMenuExpanded && neededNotesActionPanelOpen) return;
   neededNotesActionDate = normalizedDate;
+  neededNotesActionPanelOpen = true;
   neededNotesMenuExpanded = true;
   neededNotesChoiceMenuExpanded = false;
   neededNotesFilterExpanded = false;
@@ -8894,6 +8943,7 @@ function applyNeededNotesDateAction(date, options = {}) {
   neededNotesMonth = "all";
   neededNotesDate = normalizedDate;
   neededNotesActionDate = normalizedDate;
+  neededNotesActionPanelOpen = false;
   neededNotesTopic = "all";
   neededNotesMode = mode;
   if (mode === "choice" || mode === "flashcard") {
@@ -10120,13 +10170,13 @@ profileImportProgress?.addEventListener("click", async () => {
 document.addEventListener("pointerover", (event) => {
   const neededDatePreviewButton = event.target.closest?.("[data-needed-date-preview]");
   if (!neededDatePreviewButton || !neededNotesApp?.contains(neededDatePreviewButton)) return;
-  previewNeededNotesDate(neededDatePreviewButton.dataset.neededDatePreview);
+  previewNeededNotesDate(neededDatePreviewButton.dataset.neededDatePreview, neededDatePreviewButton);
 });
 
 document.addEventListener("focusin", (event) => {
   const neededDatePreviewButton = event.target.closest?.("[data-needed-date-preview]");
   if (!neededDatePreviewButton || !neededNotesApp?.contains(neededDatePreviewButton)) return;
-  previewNeededNotesDate(neededDatePreviewButton.dataset.neededDatePreview);
+  previewNeededNotesDate(neededDatePreviewButton.dataset.neededDatePreview, neededDatePreviewButton);
 });
 
 document.addEventListener("dblclick", (event) => {
@@ -10286,7 +10336,7 @@ document.addEventListener("click", (event) => {
   }
   if (neededDatePreviewButton) {
     event.preventDefault();
-    previewNeededNotesDate(neededDatePreviewButton.dataset.neededDatePreview);
+    previewNeededNotesDate(neededDatePreviewButton.dataset.neededDatePreview, neededDatePreviewButton);
     return;
   }
   if (neededFilterResetButton) resetNeededNotesFilters();
@@ -10340,6 +10390,7 @@ document.addEventListener("click", (event) => {
   }
   if (neededNotesMenuExpanded && !clickedInsideNeededMenu) {
     neededNotesMenuExpanded = false;
+    neededNotesActionPanelOpen = false;
     renderNeededNotes();
   }
   if (neededNotesChoiceMenuExpanded && !clickedInsideNeededChoiceMenu) {

@@ -11943,19 +11943,47 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   }
 }
 
-/* Admin day picker: action panel first, day list second. */
+/* Admin day picker: main popup plus a contextual side popup for each day. */
 .needed-menu-popover-unified {
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 .needed-date-action-panel {
+  position: absolute;
+  z-index: 120;
+  top: var(--needed-action-top, 120px);
+  left: var(--needed-action-left, calc(100% + 14px));
   display: grid;
   gap: 12px;
+  width: min(560px, calc(100vw - 32px));
+  max-height: min(72vh, 520px);
+  overflow: auto;
   padding: 14px;
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(30, 62, 83, 0.1);
   border-radius: 18px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 70px rgba(30, 62, 83, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.needed-date-action-panel::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: -7px;
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(30, 62, 83, 0.1);
+  border-left: 1px solid rgba(30, 62, 83, 0.1);
+  transform: rotate(45deg);
+}
+
+.needed-date-action-panel.is-left::before {
+  right: -7px;
+  left: auto;
+  border: 0;
+  border-top: 1px solid rgba(30, 62, 83, 0.1);
+  border-right: 1px solid rgba(30, 62, 83, 0.1);
 }
 
 .needed-date-action-head {
@@ -12074,7 +12102,7 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 }
 
 .needed-menu-popover-unified .needed-filter-panel {
-  max-height: min(34vh, 300px) !important;
+  max-height: min(52vh, 420px) !important;
   overflow-x: hidden !important;
   overflow-y: auto !important;
 }
@@ -12118,6 +12146,17 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
 @media (max-width: 760px) {
   .needed-menu-popover-unified {
     overflow: auto !important;
+  }
+
+  .needed-date-action-panel {
+    position: static;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .needed-date-action-panel::before {
+    display: none;
   }
 
   .needed-date-action-grid {
