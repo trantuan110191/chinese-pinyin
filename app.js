@@ -8628,12 +8628,20 @@ function renderNeededCopyBatches(kind, words) {
   if (!chunks.length) return "";
   return `
     <div class="needed-copy-batches" aria-label="Copy chữ Hán theo từng cụm 5 mục">
-      ${chunks.map(({ start, words: chunkWords }) => {
+      <div class="needed-copy-batches-head">
+        <strong>Copy chữ Hán</strong>
+        <span>Mỗi nút lấy 5 mục, chỉ copy chữ Hán.</span>
+      </div>
+      <div class="needed-copy-grid">
+        ${chunks.map(({ start, words: chunkWords }) => {
         const end = start + chunkWords.length;
         const key = getNeededNotesCopyChunkKey(kind, chunkWords);
         const record = getNeededNotesCopyChunkRecord(key);
         const range = `${String(start + 1).padStart(2, "0")}-${String(end).padStart(2, "0")}`;
-        const preview = chunkWords.map((word) => String(word.hanzi || "").trim()).filter(Boolean).join(" · ");
+        const previewItems = chunkWords.map((word) => String(word.hanzi || "").trim()).filter(Boolean);
+        const preview = previewItems.length > 2
+          ? `${previewItems.slice(0, 2).join(" · ")} · ...`
+          : previewItems.join(" · ");
         return `
           <div class="needed-copy-batch ${record.count ? "has-copied" : ""}">
             <span class="needed-copy-range">${range}</span>
@@ -8646,7 +8654,8 @@ function renderNeededCopyBatches(kind, words) {
             </button>
           </div>
         `;
-      }).join("")}
+        }).join("")}
+      </div>
     </div>
   `;
 }
@@ -8685,12 +8694,19 @@ function renderNeededNotesList() {
     .sort((left, right) => Number(neededNotesKnownWords[getNeededNoteId(right)]?.knownAt || 0) - Number(neededNotesKnownWords[getNeededNoteId(left)]?.knownAt || 0));
   const activeWords = getNeededNotesActiveWords();
   const renderRow = (word, learned = false) => `
-    <li>
-      <span lang="zh-Hans">${escapeHtml(word.hanzi)}</span>
-      <em>${escapeHtml(word.pinyin)}</em>
-      <small>${escapeHtml(getNeededNoteMeaning(word))} · ${escapeHtml(getNeededNoteTopicLabel(word) || getNeededNoteDate(word))}</small>
-      <b>${learned ? "đã học" : "cần học"}</b>
-      ${learned ? `<button class="needed-row-relearn" data-needed-relearn="${escapeHtml(getNeededNoteId(word))}" type="button">Học lại</button>` : ""}
+    <li class="needed-word-row ${learned ? "is-learned" : "is-active"}">
+      <div class="needed-word-main">
+        <span class="needed-word-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</span>
+        <em class="needed-word-pinyin">${escapeHtml(word.pinyin)}</em>
+      </div>
+      <div class="needed-word-detail">
+        <small>${escapeHtml(getNeededNoteMeaning(word))}</small>
+        <i>${escapeHtml(getNeededNoteTopicLabel(word) || getNeededNoteDate(word))}</i>
+      </div>
+      <div class="needed-word-actions">
+        <b>${learned ? "đã học" : "cần học"}</b>
+        ${learned ? `<button class="needed-row-relearn" data-needed-relearn="${escapeHtml(getNeededNoteId(word))}" type="button">Học lại</button>` : ""}
+      </div>
     </li>
   `;
 
@@ -8702,14 +8718,14 @@ function renderNeededNotesList() {
           <span>${activeWords.length} từ cần học · ${learnedWords.length} từ đã học</span>
         </div>
       </div>
-      <details open>
+      <details class="needed-list-section is-active" open>
         <summary>
           <span class="needed-list-title">Cần học (${activeWords.length})</span>
         </summary>
         ${renderNeededCopyBatches("active", activeWords)}
         <ul class="needed-word-list">${activeWords.map((word) => renderRow(word)).join("")}</ul>
       </details>
-      <details open>
+      <details class="needed-list-section is-learned" open>
         <summary>
           <span class="needed-list-title">Đã học (${learnedWords.length})</span>
         </summary>
