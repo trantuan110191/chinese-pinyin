@@ -2272,6 +2272,7 @@ let neededNotesChoiceMenuExpanded = false;
 let neededNotesFilterExpanded = false;
 let neededNotesMonth = getAppStorage("neededNotesMonth") || "all";
 let neededNotesDate = getAppStorage("neededNotesDate") || "all";
+let neededNotesActionDate = neededNotesDate;
 let neededNotesTopic = getAppStorage("neededNotesTopic") || "all";
 let learningLibrariesReady = false;
 let learningLibrariesFailed = false;
@@ -7556,6 +7557,92 @@ function renderNeededNotesDateProgress(words) {
   return `${learned}/${total}`;
 }
 
+function normalizeNeededNotesActionDate(date = neededNotesActionDate) {
+  const dates = getNeededNotesDates();
+  const availableDates = new Set(dates);
+  const value = date || neededNotesDate || "all";
+  if (value === "all") return "all";
+  if (availableDates.has(value)) return value;
+  if (neededNotesDate !== "all" && availableDates.has(neededNotesDate)) return neededNotesDate;
+  return dates[0] || "all";
+}
+
+function getNeededNotesWordsForActionDate(date) {
+  const normalizedDate = normalizeNeededNotesActionDate(date);
+  return normalizedDate === "all"
+    ? getNeededNotesWordsForFilter()
+    : getNeededNotesWordsForFilter({ date: normalizedDate });
+}
+
+function getNeededNotesActionDateTitle(date) {
+  return date === "all" ? "Tất cả ngày" : `Ngày ${getNeededNoteDateDisplay(date)}`;
+}
+
+function renderNeededNotesDateActionButton(date, mode, choiceMode, label, options = {}) {
+  const modeAttr = `data-needed-action-mode="${escapeHtml(mode)}"`;
+  const choiceModeAttr = choiceMode ? ` data-needed-action-choice-mode="${escapeHtml(choiceMode)}"` : "";
+  const relearnAttr = options.relearn ? " data-needed-action-relearn=\"1\"" : "";
+  const className = options.relearn ? "needed-date-action-button is-relearn" : "needed-date-action-button";
+  return `
+    <button
+      class="${className}"
+      data-needed-date-action="${escapeHtml(date)}"
+      ${modeAttr}${choiceModeAttr}${relearnAttr}
+      type="button"
+    >
+      <span>${escapeHtml(label)}</span>
+      ${options.note ? `<small>${escapeHtml(options.note)}</small>` : ""}
+    </button>
+  `;
+}
+
+function renderNeededNotesDateActionPanel(date = neededNotesActionDate) {
+  const actionDate = normalizeNeededNotesActionDate(date);
+  const words = getNeededNotesWordsForActionDate(actionDate);
+  const stats = getNeededNotesProgressStats(words);
+  const topic = actionDate === "all" ? "toàn bộ ghi chú" : getNeededNotesDateTopicSummary(actionDate);
+  const isDone = Boolean(stats.total && stats.remaining === 0);
+  const doneHint = isDone ? "Đã học xong, có thể học lại ngay" : `${stats.remaining} mục còn học`;
+
+  return `
+    <section class="needed-date-action-panel" aria-label="Chọn kiểu học cho ngày đang rê chuột">
+      <div class="needed-date-action-head">
+        <small>Popup phụ</small>
+        <strong>${escapeHtml(getNeededNotesActionDateTitle(actionDate))}</strong>
+        <span>${escapeHtml(topic || "chưa phân loại")} · đã ${stats.learned}/${stats.total} · ${escapeHtml(doneHint)}</span>
+      </div>
+      <div class="needed-date-action-grid">
+        <article class="needed-date-action-card">
+          <header>
+            <strong>Chọn đáp án</strong>
+            <small>mặc định khi đúp chuột</small>
+          </header>
+          ${renderNeededNotesDateActionButton(actionDate, "choice", "hanzi-to-meaning", "Nhìn chữ chọn nghĩa")}
+          ${renderNeededNotesDateActionButton(actionDate, "choice", "meaning-to-hanzi", "Nhìn nghĩa chọn chữ")}
+          ${isDone ? renderNeededNotesDateActionButton(actionDate, "choice", "hanzi-to-meaning", "Học lại", { relearn: true, note: "xóa tiến độ của ngày này" }) : ""}
+        </article>
+        <article class="needed-date-action-card">
+          <header>
+            <strong>Flash card</strong>
+            <small>tự lật và tự chấm nhớ</small>
+          </header>
+          ${renderNeededNotesDateActionButton(actionDate, "flashcard", "hanzi-to-meaning", "Nhìn chữ chọn nghĩa")}
+          ${renderNeededNotesDateActionButton(actionDate, "flashcard", "meaning-to-hanzi", "Nhìn nghĩa chọn chữ")}
+          ${isDone ? renderNeededNotesDateActionButton(actionDate, "flashcard", "hanzi-to-meaning", "Học lại", { relearn: true, note: "học lại bằng flash card" }) : ""}
+        </article>
+        <article class="needed-date-action-card is-simple">
+          <header>
+            <strong>Danh sách từ</strong>
+            <small>xem/copy toàn bộ chữ Hán</small>
+          </header>
+          ${renderNeededNotesDateActionButton(actionDate, "list", "", "Mở danh sách từ")}
+        </article>
+      </div>
+      <p class="needed-date-action-guide">Rê chuột hoặc tap một thẻ ngày để đổi popup phụ. Đúp chuột vào thẻ ngày để học nhanh: Chọn đáp án · Nhìn chữ chọn nghĩa.</p>
+    </section>
+  `;
+}
+
 function saveNeededNotesKnownWords() {
   setAppStorage("neededNotesKnownWords", JSON.stringify(neededNotesKnownWords));
 }
@@ -7633,9 +7720,6 @@ function setNeededNoteMemoryRating(word, rating) {
 }
 
 function getNeededNotesModeWords(words = getNeededNotesFilteredWords()) {
-  if (neededNotesMode === "translate") {
-    return words.filter((word) => hasNeededNotesTranslationTargets(word));
-  }
   return words;
 }
 
@@ -7667,20 +7751,11 @@ function getNeededNotesCurrentWord() {
 }
 
 function getNeededNotesModes() {
-  const modes = {
+  return {
     choice: "Chọn đáp án",
     flashcard: "Flash card",
     list: "Danh sách từ",
   };
-  if (getNeededNotesFilteredWords().some((word) => hasNeededNotesTranslationTargets(word))) {
-    return {
-      choice: modes.choice,
-      translate: "Dịch Việt → Trung",
-      flashcard: modes.flashcard,
-      list: modes.list,
-    };
-  }
-  return modes;
 }
 
 function normalizeNeededNotesMode(mode) {
@@ -8179,7 +8254,9 @@ function renderNeededNotesNoMatches() {
   `;
 }
 
-function renderNeededNotesFilterPanel(total, menuPopoverContent = "") {
+function renderNeededNotesFilterPanel(total) {
+  neededNotesActionDate = normalizeNeededNotesActionDate(neededNotesActionDate);
+  const actionDate = neededNotesActionDate;
   const currentSummary = neededNotesDate === "all"
     ? "toàn bộ ghi chú"
     : getNeededNotesDateTopicSummary(neededNotesDate);
@@ -8187,19 +8264,23 @@ function renderNeededNotesFilterPanel(total, menuPopoverContent = "") {
   const remainingCount = Math.max(0, total - learnedCount);
   const allWords = getNeededNotesWordsForFilter();
   const allButton = `
-    <button class="needed-date-chip ${neededNotesDate === "all" ? "active" : ""}" data-needed-date="all" type="button">
-      <strong>Tất cả ngày</strong>
-      <span><em>toàn bộ ghi chú</em><b>${escapeHtml(renderNeededNotesDateProgress(allWords))}</b></span>
-    </button>
+    <div class="needed-date-item ${actionDate === "all" ? "is-previewed" : ""}">
+      <button class="needed-date-chip ${neededNotesDate === "all" ? "active" : ""}" data-needed-date-preview="all" data-needed-date-default="all" type="button">
+        <strong>Tất cả ngày</strong>
+        <span><em>toàn bộ ghi chú</em><b>${escapeHtml(renderNeededNotesDateProgress(allWords))}</b></span>
+      </button>
+    </div>
   `;
   const dateButtons = getNeededNotesDates().map((date) => {
     const words = getNeededNotesWordsForFilter({ date });
     const topic = getNeededNotesDateTopicSummary(date);
     return `
-      <button class="needed-date-chip ${neededNotesDate === date ? "active" : ""}" data-needed-date="${escapeHtml(date)}" type="button">
-        <strong>Ngày ${escapeHtml(getNeededNoteDateDisplay(date))}</strong>
-        <span><em>${escapeHtml(topic || "chưa phân loại")}</em><b>${escapeHtml(renderNeededNotesDateProgress(words))}</b></span>
-      </button>
+      <div class="needed-date-item ${actionDate === date ? "is-previewed" : ""}">
+        <button class="needed-date-chip ${neededNotesDate === date ? "active" : ""}" data-needed-date-preview="${escapeHtml(date)}" data-needed-date-default="${escapeHtml(date)}" type="button">
+          <strong>Ngày ${escapeHtml(getNeededNoteDateDisplay(date))}</strong>
+          <span><em>${escapeHtml(topic || "chưa phân loại")}</em><b>${escapeHtml(renderNeededNotesDateProgress(words))}</b></span>
+        </button>
+      </div>
     `;
   }).join("");
 
@@ -8217,6 +8298,7 @@ function renderNeededNotesFilterPanel(total, menuPopoverContent = "") {
             <span>${escapeHtml(currentSummary || "chưa phân loại")} · còn ${remainingCount}</span>
             ${learnedCount ? `<button class="needed-relearn-inline" data-needed-relearn-all type="button">Học lại ${learnedCount} từ đã học</button>` : ""}
           </div>
+          ${renderNeededNotesDateActionPanel(actionDate)}
           <div class="needed-menu-section">
             <div class="topic-panel-popover-head">
               <small>Ngày/chủ đề</small>
@@ -8227,7 +8309,6 @@ function renderNeededNotesFilterPanel(total, menuPopoverContent = "") {
               ${dateButtons}
             </div>
           </div>
-          ${menuPopoverContent}
         </div>
       </div>
     </div>
@@ -8240,37 +8321,6 @@ function renderNeededNotesShell(innerMarkup) {
   const learnedCount = learnedWords.length;
   const remainingCount = Math.max(0, total - learnedCount);
   const percent = total ? Math.round((learnedCount / total) * 100) : 0;
-  const modes = getNeededNotesModes();
-  const activeModeLabel = modes[neededNotesMode] || modes.choice || "Chọn đáp án";
-  const modeButtons = Object.entries(modes).map(([mode, label]) => `
-    <button class="${neededNotesMode === mode ? "active" : ""}" data-needed-mode="${mode}" type="button">
-      ${escapeHtml(label)}
-    </button>
-  `).join("");
-  const choiceModes = getNeededNotesChoiceModes();
-  const activeChoiceModeLabel = choiceModes[neededNotesChoiceMode] || choiceModes["hanzi-to-meaning"] || "Nhìn chữ chọn nghĩa";
-  const choiceModeButtons = Object.entries(choiceModes).map(([mode, label]) => `
-    <button class="${neededNotesChoiceMode === mode ? "active" : ""}" data-needed-choice-mode="${mode}" type="button">
-      ${escapeHtml(label)}
-    </button>
-  `).join("");
-  const choiceModeSection = neededNotesMode === "choice" ? `
-    <div class="topic-panel-popover-head">
-      <small>Kiểu câu</small>
-      <strong>${escapeHtml(activeChoiceModeLabel)}</strong>
-    </div>
-    <div class="needed-choice-mode">${choiceModeButtons}</div>
-  ` : "";
-  const menuPopoverContent = `
-    <div class="needed-menu-section">
-      <div class="topic-panel-popover-head">
-        <small>Kiểu học ghi chú</small>
-        <strong>${escapeHtml(activeModeLabel)}</strong>
-      </div>
-      <div class="needed-mode-tabs">${modeButtons}</div>
-      ${choiceModeSection}
-    </div>
-  `;
 
   neededNotesApp.innerHTML = `
     <aside class="needed-progress-mini" aria-label="Tiến độ học từ ghi chú">
@@ -8278,7 +8328,7 @@ function renderNeededNotesShell(innerMarkup) {
       <strong>${learnedCount}</strong>
       <small>còn ${remainingCount}</small>
     </aside>
-    ${renderNeededNotesFilterPanel(total, menuPopoverContent)}
+    ${renderNeededNotesFilterPanel(total)}
     ${innerMarkup}
   `;
   scheduleStudyPromptTextFit(neededNotesApp);
@@ -8401,6 +8451,20 @@ function renderNeededNotesFlashcard() {
   const total = getNeededNotesFilteredWords().length;
   const word = getNeededNotesCurrentWord();
   if (!word) return renderNeededNotesDone(total);
+  neededNotesChoiceMode = normalizeNeededNotesChoiceMode(neededNotesChoiceMode);
+  const isMeaningToHanzi = neededNotesChoiceMode === "meaning-to-hanzi";
+  const promptText = isMeaningToHanzi ? getNeededNoteMeaning(word) : word.hanzi;
+  const promptClass = isMeaningToHanzi ? "needed-flash-prompt-meaning" : "needed-flash-prompt-hanzi";
+  const revealLabel = isMeaningToHanzi ? "Hiện chữ Hán và Pinyin" : "Hiện Pinyin và nghĩa";
+  const answerMarkup = isMeaningToHanzi
+    ? `
+      <strong class="needed-flash-answer-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>
+      <span>${escapeHtml(word.pinyin)}</span>
+    `
+    : `
+      <span>${escapeHtml(word.pinyin)}</span>
+      <p>${escapeHtml(getNeededNoteMeaning(word))}</p>
+    `;
   return `
     <article class="needed-card needed-flash">
       <div class="needed-choice-head">
@@ -8408,14 +8472,13 @@ function renderNeededNotesFlashcard() {
           <p class="section-kicker">GHI CHÚ · FLASH CARD</p>
         </div>
       </div>
-      <div class="needed-flash-main">
-        <strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>
+      <div class="needed-flash-main ${isMeaningToHanzi ? "is-meaning-to-hanzi" : "is-hanzi-to-meaning"}">
+        <strong class="${promptClass}" lang="${isMeaningToHanzi ? "vi" : "zh-Hans"}">${escapeHtml(promptText)}</strong>
         <button class="topic-inline-toggle" data-needed-reveal type="button">
-          ${neededNotesReveal ? "▾ Ẩn đáp án" : "▸ Hiện Pinyin và nghĩa"}
+          ${neededNotesReveal ? "▾ Ẩn đáp án" : `▸ ${revealLabel}`}
         </button>
         <div class="needed-flash-answer" ${neededNotesReveal ? "" : "hidden"}>
-          <span>${escapeHtml(word.pinyin)}</span>
-          <p>${escapeHtml(getNeededNoteMeaning(word))}</p>
+          ${answerMarkup}
         </div>
       </div>
       <div class="needed-rating">
@@ -8653,7 +8716,11 @@ function renderNeededNotes() {
 }
 
 function toggleNeededNotesMenu() {
-  neededNotesMenuExpanded = !neededNotesMenuExpanded;
+  const shouldOpen = !neededNotesMenuExpanded;
+  neededNotesMenuExpanded = shouldOpen;
+  if (shouldOpen) {
+    neededNotesActionDate = normalizeNeededNotesActionDate(neededNotesDate);
+  }
   neededNotesChoiceMenuExpanded = false;
   neededNotesFilterExpanded = false;
   renderNeededNotes();
@@ -8687,6 +8754,7 @@ function setNeededNotesFilter(type, value) {
   const normalizedValue = value || "all";
   if (type === "date") {
     neededNotesDate = normalizedValue;
+    neededNotesActionDate = normalizedValue;
   }
   neededNotesMonth = "all";
   neededNotesTopic = "all";
@@ -8695,13 +8763,16 @@ function setNeededNotesFilter(type, value) {
   neededNotesMenuExpanded = false;
   neededNotesChoiceMenuExpanded = false;
   neededNotesMode = "choice";
+  neededNotesChoiceMode = "hanzi-to-meaning";
   setAppStorage("neededNotesMode", neededNotesMode);
+  setAppStorage("neededNotesChoiceMode", neededNotesChoiceMode);
   applyNeededNotesFilterChange();
 }
 
 function resetNeededNotesFilters() {
   neededNotesMonth = "all";
   neededNotesDate = "all";
+  neededNotesActionDate = "all";
   neededNotesTopic = "all";
   neededNotesIndex = 0;
   neededNotesMenuExpanded = false;
@@ -8797,6 +8868,55 @@ function setNeededNotesMode(mode) {
   resetNeededNotesAnswerState();
   renderNeededNotes();
   focusNeededNotesTranslationInputSoon();
+}
+
+function previewNeededNotesDate(date) {
+  const normalizedDate = normalizeNeededNotesActionDate(date);
+  if (neededNotesActionDate === normalizedDate && neededNotesMenuExpanded) return;
+  neededNotesActionDate = normalizedDate;
+  neededNotesMenuExpanded = true;
+  neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
+  renderNeededNotes();
+}
+
+function applyNeededNotesDateAction(date, options = {}) {
+  const normalizedDate = normalizeNeededNotesActionDate(date);
+  const mode = normalizeNeededNotesMode(options.mode || "choice");
+  const nextChoiceMode = options.choiceMode ? normalizeNeededNotesChoiceMode(options.choiceMode) : neededNotesChoiceMode;
+  const shouldRelearn = Boolean(options.relearn);
+  clearNeededNotesAutoTimer();
+  if (shouldRelearn) {
+    getNeededNotesWordsForActionDate(normalizedDate).forEach((word) => {
+      if (isNeededNoteKnown(word)) relearnNeededNote(word);
+    });
+  }
+  neededNotesMonth = "all";
+  neededNotesDate = normalizedDate;
+  neededNotesActionDate = normalizedDate;
+  neededNotesTopic = "all";
+  neededNotesMode = mode;
+  if (mode === "choice" || mode === "flashcard") {
+    neededNotesChoiceMode = nextChoiceMode || "hanzi-to-meaning";
+    setAppStorage("neededNotesChoiceMode", neededNotesChoiceMode);
+  }
+  neededNotesIndex = 0;
+  neededNotesMenuExpanded = false;
+  neededNotesChoiceMenuExpanded = false;
+  neededNotesFilterExpanded = false;
+  setAppStorage("neededNotesMode", neededNotesMode);
+  saveNeededNotesFilters();
+  saveNeededNotesIndex();
+  resetNeededNotesAnswerState();
+  renderNeededNotes();
+  focusNeededNotesTranslationInputSoon();
+}
+
+function startNeededNotesDateDefault(date) {
+  applyNeededNotesDateAction(date, {
+    mode: "choice",
+    choiceMode: "hanzi-to-meaning",
+  });
 }
 
 function setNeededNotesChoiceMode(mode) {
@@ -9997,6 +10117,26 @@ profileImportProgress?.addEventListener("click", async () => {
   }
 });
 
+document.addEventListener("pointerover", (event) => {
+  const neededDatePreviewButton = event.target.closest?.("[data-needed-date-preview]");
+  if (!neededDatePreviewButton || !neededNotesApp?.contains(neededDatePreviewButton)) return;
+  previewNeededNotesDate(neededDatePreviewButton.dataset.neededDatePreview);
+});
+
+document.addEventListener("focusin", (event) => {
+  const neededDatePreviewButton = event.target.closest?.("[data-needed-date-preview]");
+  if (!neededDatePreviewButton || !neededNotesApp?.contains(neededDatePreviewButton)) return;
+  previewNeededNotesDate(neededDatePreviewButton.dataset.neededDatePreview);
+});
+
+document.addEventListener("dblclick", (event) => {
+  const neededDateDefaultButton = event.target.closest?.("[data-needed-date-default]");
+  if (!neededDateDefaultButton || !neededNotesApp?.contains(neededDateDefaultButton)) return;
+  event.preventDefault();
+  event.stopPropagation();
+  startNeededNotesDateDefault(neededDateDefaultButton.dataset.neededDateDefault);
+});
+
 document.addEventListener("click", (event) => {
   const clickedInsideTopicFilter = topicFilter?.contains(event.target);
   const clickedInsideTopicPanelSwitcher = topicPanelSwitcher?.contains(event.target);
@@ -10052,7 +10192,8 @@ document.addEventListener("click", (event) => {
   const neededMenuToggleButton = event.target.closest("[data-needed-menu-toggle]");
   const neededChoiceMenuToggleButton = event.target.closest("[data-needed-choice-menu-toggle]");
   const neededFilterToggleButton = event.target.closest("[data-needed-filter-toggle]");
-  const neededDateButton = event.target.closest("[data-needed-date]");
+  const neededDatePreviewButton = event.target.closest("[data-needed-date-preview]");
+  const neededDateActionButton = event.target.closest("[data-needed-date-action]");
   const neededFilterResetButton = event.target.closest("[data-needed-filter-reset]");
   const neededModeButton = event.target.closest("[data-needed-mode]");
   const neededChoiceModeButton = event.target.closest("[data-needed-choice-mode]");
@@ -10133,7 +10274,21 @@ document.addEventListener("click", (event) => {
   if (neededMenuToggleButton) toggleNeededNotesMenu();
   if (neededChoiceMenuToggleButton) toggleNeededNotesChoiceMenu();
   if (neededFilterToggleButton) toggleNeededNotesFilter();
-  if (neededDateButton) setNeededNotesFilter("date", neededDateButton.dataset.neededDate);
+  if (neededDateActionButton) {
+    event.preventDefault();
+    event.stopPropagation();
+    applyNeededNotesDateAction(neededDateActionButton.dataset.neededDateAction, {
+      mode: neededDateActionButton.dataset.neededActionMode,
+      choiceMode: neededDateActionButton.dataset.neededActionChoiceMode,
+      relearn: neededDateActionButton.dataset.neededActionRelearn === "1",
+    });
+    return;
+  }
+  if (neededDatePreviewButton) {
+    event.preventDefault();
+    previewNeededNotesDate(neededDatePreviewButton.dataset.neededDatePreview);
+    return;
+  }
   if (neededFilterResetButton) resetNeededNotesFilters();
   if (neededModeButton) setNeededNotesMode(neededModeButton.dataset.neededMode);
   if (neededChoiceModeButton) setNeededNotesChoiceMode(neededChoiceModeButton.dataset.neededChoiceMode);

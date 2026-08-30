@@ -11942,3 +11942,193 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
     grid-template-columns: repeat(var(--lookup-mobile-columns, 2), minmax(0, 1fr));
   }
 }
+
+/* Admin day picker: action panel first, day list second. */
+.needed-menu-popover-unified {
+  overflow: hidden !important;
+}
+
+.needed-date-action-panel {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(30, 62, 83, 0.1);
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.needed-date-action-head {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.needed-date-action-head small {
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.needed-date-action-head strong {
+  color: var(--blue);
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.08;
+}
+
+.needed-date-action-head span,
+.needed-date-action-guide {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.needed-date-action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.needed-date-action-card {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  min-width: 0;
+  padding: 12px;
+  background: #fffdf8;
+  border: 1px solid rgba(30, 62, 83, 0.1);
+  border-radius: 15px;
+}
+
+.needed-date-action-card header {
+  display: grid;
+  gap: 2px;
+}
+
+.needed-date-action-card header strong {
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 950;
+  line-height: 1.2;
+}
+
+.needed-date-action-card header small {
+  color: rgba(30, 62, 83, 0.58);
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1.3;
+}
+
+.needed-date-action-button {
+  display: grid;
+  gap: 2px;
+  min-height: 36px;
+  padding: 8px 10px;
+  color: var(--blue);
+  text-align: left;
+  background: rgba(30, 62, 83, 0.045);
+  border: 1px solid rgba(30, 62, 83, 0.1);
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+.needed-date-action-button span {
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.needed-date-action-button small {
+  color: rgba(30, 62, 83, 0.6);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.needed-date-action-button:hover {
+  color: #ffffff;
+  background: var(--blue);
+  border-color: rgba(41, 77, 102, 0.22);
+  box-shadow: 0 10px 20px rgba(41, 77, 102, 0.12);
+}
+
+.needed-date-action-button:hover small {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.needed-date-action-button.is-relearn {
+  color: var(--red);
+  background: rgba(217, 76, 63, 0.08);
+  border-color: rgba(217, 76, 63, 0.16);
+}
+
+.needed-date-action-button.is-relearn:hover {
+  color: #ffffff;
+  background: var(--red);
+  border-color: rgba(217, 76, 63, 0.22);
+}
+
+.needed-menu-popover-unified .needed-filter-panel {
+  max-height: min(34vh, 300px) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+.needed-date-item {
+  min-width: 0;
+}
+
+.needed-date-item .needed-date-chip {
+  width: 100%;
+  height: 100%;
+}
+
+.needed-date-item.is-previewed .needed-date-chip:not(.active) {
+  border-color: rgba(41, 77, 102, 0.34);
+  box-shadow: inset 0 0 0 1px rgba(41, 77, 102, 0.12), 0 10px 22px rgba(41, 77, 102, 0.08);
+}
+
+.needed-date-item.is-previewed .needed-date-chip:not(.active) strong {
+  color: var(--blue);
+}
+
+.needed-flash-main > .needed-flash-prompt-meaning {
+  max-width: min(920px, 100%);
+  color: var(--blue);
+  font-family: var(--sans);
+  font-size: clamp(32px, 4.8vw, 58px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.needed-flash-answer .needed-flash-answer-hanzi {
+  color: var(--ink);
+  font-family: var(--hanzi);
+  font-size: clamp(54px, 8vw, 92px);
+  font-weight: 420;
+  line-height: 1.05;
+}
+
+@media (max-width: 760px) {
+  .needed-menu-popover-unified {
+    overflow: auto !important;
+  }
+
+  .needed-date-action-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .needed-date-action-head strong {
+    font-size: 20px;
+  }
+
+  .needed-menu-popover-unified .needed-filter-panel {
+    max-height: 42vh !important;
+  }
+}
