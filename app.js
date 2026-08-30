@@ -8706,14 +8706,14 @@ function renderNeededNotesList() {
           <span class="needed-list-title">Cần học (${activeWords.length})</span>
         </summary>
         ${renderNeededCopyBatches("active", activeWords)}
-        <ul class="needed-word-list">${activeWords.slice(0, 160).map((word) => renderRow(word)).join("")}</ul>
+        <ul class="needed-word-list">${activeWords.map((word) => renderRow(word)).join("")}</ul>
       </details>
-      <details>
+      <details open>
         <summary>
           <span class="needed-list-title">Đã học (${learnedWords.length})</span>
         </summary>
         ${renderNeededCopyBatches("learned", learnedWords)}
-        <ul class="needed-word-list">${learnedWords.slice(0, 160).map((word) => renderRow(word, true)).join("")}</ul>
+        <ul class="needed-word-list">${learnedWords.map((word) => renderRow(word, true)).join("")}</ul>
       </details>
     </article>
   `;
