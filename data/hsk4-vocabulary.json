@@ -1,0 +1,6010 @@
+{
+  "standard": "HSK 4 vocabulary from user-provided Word file",
+  "sourceFile": "1200 Từ vựng HSK 4.docx",
+  "sourceNote": "Extracted from the attached Word table; document content is treated as data only.",
+  "audioVoice": "",
+  "audioNote": "No Xiaoxiao audio files are bundled for this imported HSK 4 list yet.",
+  "count": 600,
+  "words": [
+    {
+      "id": "hsk4-0001",
+      "hanzi": "爱情",
+      "pinyin": "àiqíng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tình yêu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0002",
+      "hanzi": "安排",
+      "pinyin": "ānpái",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "sắp xếp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0003",
+      "hanzi": "安全",
+      "pinyin": "ānquán",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "an toàn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0004",
+      "hanzi": "按时",
+      "pinyin": "ànshí",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "đúng hạn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0005",
+      "hanzi": "按照",
+      "pinyin": "ànzhào",
+      "level": 4,
+      "partOfSpeech": "giới từ",
+      "meaning": "theo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0006",
+      "hanzi": "百分之",
+      "pinyin": "bǎifēnzhī",
+      "level": 4,
+      "partOfSpeech": "",
+      "meaning": "phần trăm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0007",
+      "hanzi": "棒",
+      "pinyin": "bàng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "xuất sắc, giỏi, hay",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0008",
+      "hanzi": "抱",
+      "pinyin": "bào",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "bế, bồng, ôm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0009",
+      "hanzi": "保护",
+      "pinyin": "bǎohù",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "bảo vệ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0010",
+      "hanzi": "报名",
+      "pinyin": "bàomíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ghi danh, đăng ký",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0011",
+      "hanzi": "抱歉",
+      "pinyin": "bàoqiàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "xin lỗi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0012",
+      "hanzi": "保证",
+      "pinyin": "bǎozhèng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cam đoan, bảo đảm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0013",
+      "hanzi": "包子",
+      "pinyin": "bāozi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "bánh bao",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0014",
+      "hanzi": "倍",
+      "pinyin": "bèi",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "lần",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0015",
+      "hanzi": "笨",
+      "pinyin": "bèn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "đần, ngốc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0016",
+      "hanzi": "本来",
+      "pinyin": "běnlái",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "lúc đầu, trước đây",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0017",
+      "hanzi": "遍",
+      "pinyin": "biàn",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "lần, lượt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0018",
+      "hanzi": "表格",
+      "pinyin": "biǎogé",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "bản kê khai, mẫu đơn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0019",
+      "hanzi": "表示",
+      "pinyin": "biǎoshì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "có ý nghĩa, biểu thị",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0020",
+      "hanzi": "表演",
+      "pinyin": "biǎoyǎn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "biểu diễn, trình diễn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0021",
+      "hanzi": "表扬",
+      "pinyin": "biǎoyáng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "khen ngợi, biểu dương",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0022",
+      "hanzi": "标准",
+      "pinyin": "biāozhǔn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tiêu chuẩn, chuẩn mực",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0023",
+      "hanzi": "饼干",
+      "pinyin": "bǐnggān",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "bánh quy",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0024",
+      "hanzi": "并且",
+      "pinyin": "bìngqiě",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "đồng thời, và",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0025",
+      "hanzi": "比如",
+      "pinyin": "bǐrú",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ví dụ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0026",
+      "hanzi": "毕业",
+      "pinyin": "bìyè",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tốt nghiệp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0027",
+      "hanzi": "博士",
+      "pinyin": "bóshì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tiến sĩ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0028",
+      "hanzi": "不得不",
+      "pinyin": "bùdébù",
+      "level": 4,
+      "partOfSpeech": "",
+      "meaning": "phải, không thể không",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0029",
+      "hanzi": "部分",
+      "pinyin": "bùfen",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "phần, bộ phận",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0030",
+      "hanzi": "不管",
+      "pinyin": "bùguǎn",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "bất kể, bất luận",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0031",
+      "hanzi": "不过",
+      "pinyin": "búguò",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "nhưng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0032",
+      "hanzi": "不仅",
+      "pinyin": "bùjǐn",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "không những…",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0033",
+      "hanzi": "擦",
+      "pinyin": "cā",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "lau chùi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0034",
+      "hanzi": "猜",
+      "pinyin": "cāi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đoán",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0035",
+      "hanzi": "材料",
+      "pinyin": "cáiliào",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tư liệu, tài liệu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0036",
+      "hanzi": "参观",
+      "pinyin": "cānguān",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tham quan",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0037",
+      "hanzi": "餐厅",
+      "pinyin": "cāntīng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nhà hàng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0038",
+      "hanzi": "厕所",
+      "pinyin": "cèsuǒ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nhà vệ sinh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0039",
+      "hanzi": "差不多",
+      "pinyin": "chàbuduō",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "gần như, hầu như",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0040",
+      "hanzi": "场",
+      "pinyin": "chǎng",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "trận (được dùng cho thể thao hay các hoạt động giải trí)",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0041",
+      "hanzi": "尝",
+      "pinyin": "cháng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thưởng thức, nếm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0042",
+      "hanzi": "长城",
+      "pinyin": "Chángchéng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "Trường Thành",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0043",
+      "hanzi": "长江",
+      "pinyin": "Chángjiāng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "Sông Trường Giang",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0044",
+      "hanzi": "超过",
+      "pinyin": "chāoguò",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "vượt quá",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0045",
+      "hanzi": "成功",
+      "pinyin": "chénggōng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "thành công",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0046",
+      "hanzi": "诚实",
+      "pinyin": "chéngshí",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "thành thật",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0047",
+      "hanzi": "成为",
+      "pinyin": "chéngwéi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "trở thành",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0048",
+      "hanzi": "乘坐",
+      "pinyin": "chéngzuò",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đi, đáp(xe buýt..)",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0049",
+      "hanzi": "吃惊",
+      "pinyin": "chī jīng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "kinh ngạc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0050",
+      "hanzi": "重新",
+      "pinyin": "chóngxīn",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "lần nữa, lại một lần nữa",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0051",
+      "hanzi": "抽烟",
+      "pinyin": "chōuyān",
+      "level": 4,
+      "partOfSpeech": "",
+      "meaning": "hút thuốc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0052",
+      "hanzi": "窗户",
+      "pinyin": "chuānghu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cửa sổ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0053",
+      "hanzi": "传真",
+      "pinyin": "chuánzhēn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "gửi fax",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0054",
+      "hanzi": "出差",
+      "pinyin": "chūchāi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đi công tác",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0055",
+      "hanzi": "出发",
+      "pinyin": "chūfā",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "xuất phát, khởi hành",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0056",
+      "hanzi": "厨房",
+      "pinyin": "chúfáng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nhà bếp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0057",
+      "hanzi": "出生",
+      "pinyin": "chūshēng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ra đời, sinh ra",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0058",
+      "hanzi": "出现",
+      "pinyin": "chūxiàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "xuất hiện, nảy sinh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0059",
+      "hanzi": "词语",
+      "pinyin": "cíyǔ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "từ ngữ, cách diễn đạt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0060",
+      "hanzi": "从来",
+      "pinyin": "cónglái",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "từ trước đến nay, từ trước đến giờ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0061",
+      "hanzi": "存",
+      "pinyin": "cún",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "gửi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0062",
+      "hanzi": "错误",
+      "pinyin": "cuòwù",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "sai",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0063",
+      "hanzi": "粗心",
+      "pinyin": "cūxīn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "cẩu thả",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0064",
+      "hanzi": "打招呼",
+      "pinyin": "dǎ zhāohu",
+      "level": 4,
+      "partOfSpeech": "",
+      "meaning": "chào hỏi, chào",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0065",
+      "hanzi": "打针",
+      "pinyin": "dǎ zhēn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tiêm, chích",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0066",
+      "hanzi": "答案",
+      "pinyin": "dá'àn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "đáp án",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0067",
+      "hanzi": "打扮",
+      "pinyin": "dǎban",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "trang điểm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0068",
+      "hanzi": "大概",
+      "pinyin": "dàgài",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "khoảng chừng, có lẽ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0069",
+      "hanzi": "戴",
+      "pinyin": "dài",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đeo, mang",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0070",
+      "hanzi": "大夫",
+      "pinyin": "dàifu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "bác sĩ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0071",
+      "hanzi": "当",
+      "pinyin": "dāng",
+      "level": 4,
+      "partOfSpeech": "giới từ",
+      "meaning": "khi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0072",
+      "hanzi": "当时",
+      "pinyin": "dāngshí",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "lúc đó",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0073",
+      "hanzi": "倒",
+      "pinyin": "dào",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "(chỉ sự tương phản) nhưng, lại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0074",
+      "hanzi": "刀",
+      "pinyin": "dāo",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "con dao",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0075",
+      "hanzi": "到处",
+      "pinyin": "dàochù",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "khắp nơi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0076",
+      "hanzi": "到底",
+      "pinyin": "dàodǐ",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "rốt cuộc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0077",
+      "hanzi": "道歉",
+      "pinyin": "dàoqiàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "xin lỗi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0078",
+      "hanzi": "导游",
+      "pinyin": "dǎoyóu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "hướng dẫn viên du lịch",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0079",
+      "hanzi": "打扰",
+      "pinyin": "dǎrǎo",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "quấy rầy, làm phiền",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0080",
+      "hanzi": "大使馆",
+      "pinyin": "dàshǐguǎn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "đại sứ quán",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0081",
+      "hanzi": "打印",
+      "pinyin": "dǎyìn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "in",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0082",
+      "hanzi": "大约",
+      "pinyin": "dàyuē",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "khoảng chừng, ước chừng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0083",
+      "hanzi": "打折",
+      "pinyin": "dǎzhé",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "giảm giá",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0084",
+      "hanzi": "得",
+      "pinyin": "děi",
+      "level": 4,
+      "partOfSpeech": "động từ năng nguyện",
+      "meaning": "phải",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0085",
+      "hanzi": "等",
+      "pinyin": "děng",
+      "level": 4,
+      "partOfSpeech": "trợ từ",
+      "meaning": "vân vân",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0086",
+      "hanzi": "登机牌",
+      "pinyin": "dēngjīpái",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "thẻ lên máy bay",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0087",
+      "hanzi": "得意",
+      "pinyin": "déyì",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "đắc chí",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0088",
+      "hanzi": "底",
+      "pinyin": "dǐ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "đáy",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0089",
+      "hanzi": "低",
+      "pinyin": "dī",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "thấp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0090",
+      "hanzi": "掉",
+      "pinyin": "diào",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "mất, đi, hết",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0091",
+      "hanzi": "调查",
+      "pinyin": "diàochá",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "điều tra, khảo sát",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0092",
+      "hanzi": "地点",
+      "pinyin": "dìdiǎn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "địa điểm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0093",
+      "hanzi": "地球",
+      "pinyin": "dìqiú",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "trái đất",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0094",
+      "hanzi": "丢",
+      "pinyin": "diū",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ném, vứt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0095",
+      "hanzi": "地址",
+      "pinyin": "dìzhǐ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "địa chỉ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0096",
+      "hanzi": "动作",
+      "pinyin": "dòngzuò",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "động tác, hành động",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0097",
+      "hanzi": "短信",
+      "pinyin": "duǎnxìn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tin nhắn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0098",
+      "hanzi": "堵车",
+      "pinyin": "dǔchē",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "kẹt xe",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0099",
+      "hanzi": "对话",
+      "pinyin": "duìhuà",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "đối thoại, tiếp xúc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0100",
+      "hanzi": "对面",
+      "pinyin": "duìmiàn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "đối diện, trước mặt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0101",
+      "hanzi": "对于",
+      "pinyin": "duìyú",
+      "level": 4,
+      "partOfSpeech": "giới từ",
+      "meaning": "đối với",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0102",
+      "hanzi": "肚子",
+      "pinyin": "dùzi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "bụng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0103",
+      "hanzi": "而",
+      "pinyin": "ér",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "trong khi đó, mà",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0104",
+      "hanzi": "儿童",
+      "pinyin": "értóng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "trẻ em",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0105",
+      "hanzi": "法律",
+      "pinyin": "fǎlǜ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "pháp luật, luật",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0106",
+      "hanzi": "反对",
+      "pinyin": "fǎnduì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "phản đối",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0107",
+      "hanzi": "房东",
+      "pinyin": "fángdōng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "chủ nhà (nhà cho thuê)",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0108",
+      "hanzi": "方法",
+      "pinyin": "fāngfǎ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "phương pháp, cách thức",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0109",
+      "hanzi": "方面",
+      "pinyin": "fāngmiàn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "khía cạnh, phương diện",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0110",
+      "hanzi": "放弃",
+      "pinyin": "fàngqì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "từ bỏ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0111",
+      "hanzi": "放暑假",
+      "pinyin": "fàngshǔjià",
+      "level": 4,
+      "partOfSpeech": "",
+      "meaning": "nghỉ hè",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0112",
+      "hanzi": "放松",
+      "pinyin": "fàngsōng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thả lỏng, thư giãn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0113",
+      "hanzi": "方向",
+      "pinyin": "fāngxiàng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "phương hướng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0114",
+      "hanzi": "烦恼",
+      "pinyin": "fánnǎo",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "phiền muộn, buồn phiền",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0115",
+      "hanzi": "翻译",
+      "pinyin": "fānyì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "phiên dịch viên",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0116",
+      "hanzi": "发生",
+      "pinyin": "fāshēng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "xảy ra",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0117",
+      "hanzi": "发展",
+      "pinyin": "fāzhǎn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "phát triển",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0118",
+      "hanzi": "份",
+      "pinyin": "fèn",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "tờ, bản",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0119",
+      "hanzi": "丰富",
+      "pinyin": "fēngfù",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "làm phong phú",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0120",
+      "hanzi": "否则",
+      "pinyin": "fǒuzé",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "nếu không thì, bằng không",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0121",
+      "hanzi": "富",
+      "pinyin": "fù",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "giàu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0122",
+      "hanzi": "符合",
+      "pinyin": "fúhé",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "phù hợp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0123",
+      "hanzi": "付款",
+      "pinyin": "fùkuǎn",
+      "level": 4,
+      "partOfSpeech": "",
+      "meaning": "trả tiền",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0124",
+      "hanzi": "父亲",
+      "pinyin": "fùqīn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cha, bố",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0125",
+      "hanzi": "复印",
+      "pinyin": "fùyìn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "photocopy, sao chụp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0126",
+      "hanzi": "复杂",
+      "pinyin": "fùzá",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "phức tạp, rắc rối",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0127",
+      "hanzi": "负责",
+      "pinyin": "fùzé",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "phụ trách, chịu trách nhiệm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0128",
+      "hanzi": "改变",
+      "pinyin": "gǎibiàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thay đổi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0129",
+      "hanzi": "干",
+      "pinyin": "gàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "làm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0130",
+      "hanzi": "赶",
+      "pinyin": "gǎn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "vội, gấp rút",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0131",
+      "hanzi": "敢",
+      "pinyin": "gǎn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "dám",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0132",
+      "hanzi": "干杯",
+      "pinyin": "gānbēi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cạn ly",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0133",
+      "hanzi": "感动",
+      "pinyin": "gǎndòng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cảm động, làm xúc động",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0134",
+      "hanzi": "刚",
+      "pinyin": "gāng",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "vừa, vừa mới",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0135",
+      "hanzi": "感觉",
+      "pinyin": "gǎnjué",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cảm giác, cảm nghĩ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0136",
+      "hanzi": "感情",
+      "pinyin": "gǎnqíng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tiình cảm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0137",
+      "hanzi": "感谢",
+      "pinyin": "gǎnxiè",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cảm ơn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0138",
+      "hanzi": "高速公路",
+      "pinyin": "gāosùgōnglù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "đường cao tốc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0139",
+      "hanzi": "各",
+      "pinyin": "gè",
+      "level": 4,
+      "partOfSpeech": "đại từ",
+      "meaning": "các, mọi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0140",
+      "hanzi": "胳膊",
+      "pinyin": "gēbo",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cánh tay",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0141",
+      "hanzi": "功夫",
+      "pinyin": "gōngfu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "võ thuật, môn võ kungfu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0142",
+      "hanzi": "公里",
+      "pinyin": "gōnglǐ",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "kilomet",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0143",
+      "hanzi": "共同",
+      "pinyin": "gòngtóng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "chung, cùng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0144",
+      "hanzi": "工资",
+      "pinyin": "gōngzī",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tiền lương",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0145",
+      "hanzi": "够",
+      "pinyin": "gòu",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đủ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0146",
+      "hanzi": "购物",
+      "pinyin": "gòuwù",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "mua sắm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0147",
+      "hanzi": "挂",
+      "pinyin": "guà",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "treo, móc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0148",
+      "hanzi": "逛",
+      "pinyin": "guàng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đi dạo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0149",
+      "hanzi": "光",
+      "pinyin": "guāng",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "chỉ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0150",
+      "hanzi": "广播",
+      "pinyin": "guǎngbō",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "chương trình phát thanh/truyền hình",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0151",
+      "hanzi": "广告",
+      "pinyin": "guǎnggào",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "quảng cáo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0152",
+      "hanzi": "关键",
+      "pinyin": "guānjiàn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "điều quan trọng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0153",
+      "hanzi": "管理",
+      "pinyin": "guǎnlǐ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "quản lý",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0154",
+      "hanzi": "观众",
+      "pinyin": "guānzhòng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "khán giả",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0155",
+      "hanzi": "规定",
+      "pinyin": "guīdìng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "quy định",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0156",
+      "hanzi": "估计",
+      "pinyin": "gūjì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đoán chừng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0157",
+      "hanzi": "顾客",
+      "pinyin": "gùkè",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "khách hàng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0158",
+      "hanzi": "鼓励",
+      "pinyin": "gǔlì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "khuyến khích",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0159",
+      "hanzi": "过程",
+      "pinyin": "guòchéng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "quá trình",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0160",
+      "hanzi": "国籍",
+      "pinyin": "guójí",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "quốc tịch",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0161",
+      "hanzi": "国际",
+      "pinyin": "guójì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "quốc tế",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0162",
+      "hanzi": "果汁",
+      "pinyin": "guǒzhī",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nước trái cây",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0163",
+      "hanzi": "故意",
+      "pinyin": "gùyì",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "cố tình, cố ý",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0164",
+      "hanzi": "害羞",
+      "pinyin": "hàixiū",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ngượng ngùng, thẹn thùng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0165",
+      "hanzi": "海洋",
+      "pinyin": "hǎiyáng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "biển, đại dương",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0166",
+      "hanzi": "汗",
+      "pinyin": "hàn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "mồ hôi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0167",
+      "hanzi": "航班",
+      "pinyin": "hángbān",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "chuyến bay",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0168",
+      "hanzi": "寒假",
+      "pinyin": "hánjià",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kỳ nghỉ đông",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0169",
+      "hanzi": "好处",
+      "pinyin": "hǎochù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "lợi ích, điều tốt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0170",
+      "hanzi": "号码",
+      "pinyin": "hàomǎ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "số",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0171",
+      "hanzi": "好像",
+      "pinyin": "hǎoxiàng",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "giống như, dường như",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0172",
+      "hanzi": "合格",
+      "pinyin": "hégé",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "đạt tiêu chuẩn, đạt yêu cầu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0173",
+      "hanzi": "合适",
+      "pinyin": "héshì",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "thích hợp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0174",
+      "hanzi": "盒子",
+      "pinyin": "hézi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "hộp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0175",
+      "hanzi": "厚",
+      "pinyin": "hòu",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "dày, sâu nặng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0176",
+      "hanzi": "后悔",
+      "pinyin": "hòuhuǐ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ân hận",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0177",
+      "hanzi": "怀疑",
+      "pinyin": "huáiyí",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nghi ngờ, hoài nghi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0178",
+      "hanzi": "回忆",
+      "pinyin": "huíyì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nhớ lại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0179",
+      "hanzi": "互联网",
+      "pinyin": "hùliánwǎng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "mạng internet",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0180",
+      "hanzi": "火",
+      "pinyin": "huǒ",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "chạy, đắt, được nhiều người ưa chuộng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0181",
+      "hanzi": "获得",
+      "pinyin": "huòdé",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "được, lấy được",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0182",
+      "hanzi": "活动",
+      "pinyin": "huódòng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "hoạt động",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0183",
+      "hanzi": "活泼",
+      "pinyin": "huópō",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "hoạt bát, nhanh nhẹn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0184",
+      "hanzi": "护士",
+      "pinyin": "hùshi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "y tá",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0185",
+      "hanzi": "互相",
+      "pinyin": "hùxiāng",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "lẫn nhau, qua lại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0186",
+      "hanzi": "寄",
+      "pinyin": "jì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "gửi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0187",
+      "hanzi": "假",
+      "pinyin": "jiǎ",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "giả dối, không thật",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0188",
+      "hanzi": "加班",
+      "pinyin": "jiābān",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tăng ca",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0189",
+      "hanzi": "价格",
+      "pinyin": "jiàgé",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "giá cả",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0190",
+      "hanzi": "家具",
+      "pinyin": "jiājù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "đồ dùng trong nhà",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0191",
+      "hanzi": "坚持",
+      "pinyin": "jiānchí",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "kiên trì",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0192",
+      "hanzi": "减肥",
+      "pinyin": "jiǎnféi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "giảm cân",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0193",
+      "hanzi": "降低",
+      "pinyin": "jiàngdī",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "giảm, hạ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0194",
+      "hanzi": "奖金",
+      "pinyin": "jiǎngjīn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tiền thưởng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0195",
+      "hanzi": "将来",
+      "pinyin": "jiānglái",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tương lai",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0196",
+      "hanzi": "降落",
+      "pinyin": "jiàngluò",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đáp xuống, hạ cánh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0197",
+      "hanzi": "减少",
+      "pinyin": "jiǎnshǎo",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "giảm bớt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0198",
+      "hanzi": "建议",
+      "pinyin": "jiànyì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kiến nghị",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0199",
+      "hanzi": "交",
+      "pinyin": "jiāo",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "kết giao",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0200",
+      "hanzi": "骄傲",
+      "pinyin": "jiào'ào",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "kiêu ngạo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0201",
+      "hanzi": "交流",
+      "pinyin": "jiāoliú",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "giao lưu, trao đổi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0202",
+      "hanzi": "郊区",
+      "pinyin": "jiāoqū",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "vùng ngoại ô",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0203",
+      "hanzi": "教授",
+      "pinyin": "jiàoshòu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "giáo sư",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0204",
+      "hanzi": "交通",
+      "pinyin": "jiāotōng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "giao thông, thông tin liên lạc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0205",
+      "hanzi": "教育",
+      "pinyin": "jiàoyù",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "giáo dục, dạy dỗ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0206",
+      "hanzi": "饺子",
+      "pinyin": "jiǎozi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "bánh chẻo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0207",
+      "hanzi": "加油站",
+      "pinyin": "jiāyóuzhàn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "trạm xăng dầu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0208",
+      "hanzi": "基础",
+      "pinyin": "jīchǔ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nền tảng, căn bản",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0209",
+      "hanzi": "激动",
+      "pinyin": "jīdòng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "cảm động",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0210",
+      "hanzi": "节",
+      "pinyin": "jié",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "tiết (học)",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0211",
+      "hanzi": "结果",
+      "pinyin": "jiéguǒ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kết quả",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0212",
+      "hanzi": "解释",
+      "pinyin": "jiěshì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "giải thích",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0213",
+      "hanzi": "接受",
+      "pinyin": "jiēshòu",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "chấp nhận",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0214",
+      "hanzi": "节约",
+      "pinyin": "jiéyuè",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tiết kiệm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0215",
+      "hanzi": "接着",
+      "pinyin": "jiēzhe",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "ngay sau đó",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0216",
+      "hanzi": "计划",
+      "pinyin": "jìhuà",
+      "level": 4,
+      "partOfSpeech": "danh từ, động từ",
+      "meaning": "kế hoạch, lập kế hoạch",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0217",
+      "hanzi": "积极",
+      "pinyin": "jījí",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "tích cực",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0218",
+      "hanzi": "积累",
+      "pinyin": "jīlěi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tích lũy",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0219",
+      "hanzi": "精彩",
+      "pinyin": "jīngcǎi",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "tuyệt vời, xuất sắc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0220",
+      "hanzi": "警察",
+      "pinyin": "jǐngchá",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cảnh sát",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0221",
+      "hanzi": "经济",
+      "pinyin": "jīngjì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kinh tế",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0222",
+      "hanzi": "京剧",
+      "pinyin": "jīngjù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kinh kịch",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0223",
+      "hanzi": "经历",
+      "pinyin": "jīnglì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "trải qua",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0224",
+      "hanzi": "竟然",
+      "pinyin": "jìngrán",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "không ngờ, mà, vậy mà",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0225",
+      "hanzi": "景色",
+      "pinyin": "jǐngsè",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "phong cảnh, cảnh vật",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0226",
+      "hanzi": "尽管",
+      "pinyin": "jǐnguǎn",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "cho dù, mặc dù",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0227",
+      "hanzi": "经验",
+      "pinyin": "jīngyàn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kinh nghiệm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0228",
+      "hanzi": "竞争",
+      "pinyin": "jìngzhèng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cạnh tranh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0229",
+      "hanzi": "镜子",
+      "pinyin": "jìngzi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "gương, gương soi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0230",
+      "hanzi": "进行",
+      "pinyin": "jìnxíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tiến hành, thực hiện",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0231",
+      "hanzi": "紧张",
+      "pinyin": "jǐnzhāng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "hồi hộp, căng thẳng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0232",
+      "hanzi": "禁止",
+      "pinyin": "jìnzhǐ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cấm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0233",
+      "hanzi": "既然",
+      "pinyin": "jìrán",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "vì, đã... thì...",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0234",
+      "hanzi": "及时",
+      "pinyin": "jíshí",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "đúng lúc, kịp thời",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0235",
+      "hanzi": "即使",
+      "pinyin": "jíshǐ",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "cho dù",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0236",
+      "hanzi": "技术",
+      "pinyin": "jìshù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kỹ thuật, công nghệ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0237",
+      "hanzi": "究竟",
+      "pinyin": "jiūjìng",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "rốt cuộc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0238",
+      "hanzi": "继续",
+      "pinyin": "jìxù",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tiếp tục",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0239",
+      "hanzi": "记者",
+      "pinyin": "jìzhě",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "phóng viên, nhà báo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0240",
+      "hanzi": "举",
+      "pinyin": "jǔ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nêu, đưa ra",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0241",
+      "hanzi": "举办",
+      "pinyin": "jǔbàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tổ chức, tiến hành",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0242",
+      "hanzi": "聚会",
+      "pinyin": "jùhuì",
+      "level": 4,
+      "partOfSpeech": "động từ/danh từ",
+      "meaning": "gặp gỡ, cuộc gặp mặt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0243",
+      "hanzi": "拒绝",
+      "pinyin": "jùjué",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "từ chối",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0244",
+      "hanzi": "距离",
+      "pinyin": "jùlí",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "khoảng cách",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0245",
+      "hanzi": "举行",
+      "pinyin": "jǔxíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tổ chức",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0246",
+      "hanzi": "开玩笑",
+      "pinyin": "kāi wánxiào",
+      "level": 4,
+      "partOfSpeech": "",
+      "meaning": "nói đùa, đùa",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0247",
+      "hanzi": "开心",
+      "pinyin": "kāixīn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "vui vẻ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0248",
+      "hanzi": "看法",
+      "pinyin": "kànfǎ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "quan điểm, cách nhìn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0249",
+      "hanzi": "考虑",
+      "pinyin": "kǎolǜ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "suy xét, cân nhắc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0250",
+      "hanzi": "烤鸭",
+      "pinyin": "kǎoyā",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "vịt quay",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0251",
+      "hanzi": "棵",
+      "pinyin": "kē",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "cây, ngọn (dược dùng cho thực vật)",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0252",
+      "hanzi": "可怜",
+      "pinyin": "kělián",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "đáng thương, tội nghiệp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0253",
+      "hanzi": "肯定",
+      "pinyin": "kěndìng",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "chắc chắn, nhất định",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0254",
+      "hanzi": "可是",
+      "pinyin": "kěshì",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "nhưng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0255",
+      "hanzi": "咳嗽",
+      "pinyin": "késou",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ho",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0256",
+      "hanzi": "客厅",
+      "pinyin": "kètīng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "phòng khách",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0257",
+      "hanzi": "可惜",
+      "pinyin": "kěxī",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "đáng tiếc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0258",
+      "hanzi": "科学",
+      "pinyin": "kēxué",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "khoa học",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0259",
+      "hanzi": "空",
+      "pinyin": "kōng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "trống, rỗng, không",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0260",
+      "hanzi": "恐怕",
+      "pinyin": "kǒngpà",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "e rằng, có lẽ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0261",
+      "hanzi": "空气",
+      "pinyin": "kōngqì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "không khí",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0262",
+      "hanzi": "苦",
+      "pinyin": "kǔ",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "đắng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0263",
+      "hanzi": "矿泉水",
+      "pinyin": "kuàngquánshuǐ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nước suối",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0264",
+      "hanzi": "困",
+      "pinyin": "kùn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "buồn ngủ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0265",
+      "hanzi": "困难",
+      "pinyin": "kùnnan",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "khó khăn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0266",
+      "hanzi": "辣",
+      "pinyin": "là",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "cay",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0267",
+      "hanzi": "拉",
+      "pinyin": "lā",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "kéo, lôi, dắt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0268",
+      "hanzi": "来不及",
+      "pinyin": "láibují",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "không kịp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0269",
+      "hanzi": "来得及",
+      "pinyin": "láidejí",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "kịp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0270",
+      "hanzi": "来自",
+      "pinyin": "láizì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đến từ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0271",
+      "hanzi": "垃圾桶",
+      "pinyin": "lājītǒng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "thùng rác",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0272",
+      "hanzi": "懒",
+      "pinyin": "lǎn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "lười, lười nhác",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0273",
+      "hanzi": "浪费",
+      "pinyin": "làngfèi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "lãng phí, hoang phí",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0274",
+      "hanzi": "浪漫",
+      "pinyin": "làngmàn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "lãng mạn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0275",
+      "hanzi": "老虎",
+      "pinyin": "lǎohǔ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "hổ, cọp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0276",
+      "hanzi": "冷静",
+      "pinyin": "lěngjìng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "bình tĩnh, điềm tĩnh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0277",
+      "hanzi": "俩",
+      "pinyin": "liǎ",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "hai",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0278",
+      "hanzi": "连",
+      "pinyin": "lián",
+      "level": 4,
+      "partOfSpeech": "giới từ",
+      "meaning": "ngay cả",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0279",
+      "hanzi": "凉快",
+      "pinyin": "liángkuai",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "mát mẻ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0280",
+      "hanzi": "联系",
+      "pinyin": "liánxì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "liên hệ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0281",
+      "hanzi": "礼拜天",
+      "pinyin": "lǐbàitiān",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "chủ nhật",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0282",
+      "hanzi": "理发",
+      "pinyin": "lǐfà",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cắt tóc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0283",
+      "hanzi": "厉害",
+      "pinyin": "lìhai",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "lợi hại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0284",
+      "hanzi": "理解",
+      "pinyin": "lǐjiě",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "hiểu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0285",
+      "hanzi": "礼貌",
+      "pinyin": "lǐmào",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "lễ phép, lịch sự",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0286",
+      "hanzi": "零钱",
+      "pinyin": "língqián",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tiền lẻ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0287",
+      "hanzi": "另外",
+      "pinyin": "lìngwài",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "ngoài ra",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0288",
+      "hanzi": "力气",
+      "pinyin": "lìqi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "sức lực, hơi sức",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0289",
+      "hanzi": "例如",
+      "pinyin": "lìrú",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "lấy ví dụ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0290",
+      "hanzi": "留",
+      "pinyin": "liú",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "để lại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0291",
+      "hanzi": "流利",
+      "pinyin": "liúlì",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "lưu loát, trôi chảy",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0292",
+      "hanzi": "流行",
+      "pinyin": "liúxíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "được nhiều người ưa chuộng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0293",
+      "hanzi": "理想",
+      "pinyin": "lǐxiǎng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "lí tưởng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0294",
+      "hanzi": "乱",
+      "pinyin": "luàn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "lộn xộn, lúng túng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0295",
+      "hanzi": "律师",
+      "pinyin": "lǜshī",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "luật sư",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0296",
+      "hanzi": "旅行",
+      "pinyin": "lǚxíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "du lịch",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0297",
+      "hanzi": "麻烦",
+      "pinyin": "máfan",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "làm phiền",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0298",
+      "hanzi": "马虎",
+      "pinyin": "mǎhu",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "cẩu thả, lơ đễnh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0299",
+      "hanzi": "满",
+      "pinyin": "mǎn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đủ, đầy, tròn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0300",
+      "hanzi": "毛",
+      "pinyin": "máo",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "lông",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0301",
+      "hanzi": "毛巾",
+      "pinyin": "máojīn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "khăn lau",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0302",
+      "hanzi": "美丽",
+      "pinyin": "měilì",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "đẹp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0303",
+      "hanzi": "梦",
+      "pinyin": "mèng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "giấc mơ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0304",
+      "hanzi": "免费",
+      "pinyin": "miǎnfèi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "miễn phí",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0305",
+      "hanzi": "秒",
+      "pinyin": "miǎo",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "giây",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0306",
+      "hanzi": "迷路",
+      "pinyin": "mílù",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "lạc đường",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0307",
+      "hanzi": "密码",
+      "pinyin": "mìmǎ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "mật mã",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0308",
+      "hanzi": "民族",
+      "pinyin": "mínzú",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "dân tộc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0309",
+      "hanzi": "目的",
+      "pinyin": "mùdì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "mục đích",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0310",
+      "hanzi": "母亲",
+      "pinyin": "mǔqīn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "mẹ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0311",
+      "hanzi": "耐心",
+      "pinyin": "nàixīn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "lòng kiên nhẫn, sự nhẫn nại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0312",
+      "hanzi": "难道",
+      "pinyin": "nándào",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "dùng trong câu hỏi tu từ để nhấn mạnh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0313",
+      "hanzi": "难受",
+      "pinyin": "nánshòu",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "bực bội, buồn rầu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0314",
+      "hanzi": "内",
+      "pinyin": "nèi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "trong",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0315",
+      "hanzi": "内容",
+      "pinyin": "nèiróng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nội dung",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0316",
+      "hanzi": "能力",
+      "pinyin": "nénglì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "năng lực, khả năng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0317",
+      "hanzi": "年龄",
+      "pinyin": "niánlíng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tuổi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0318",
+      "hanzi": "弄",
+      "pinyin": "nòng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "làm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0319",
+      "hanzi": "暖和",
+      "pinyin": "nuǎnhuo",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "ấm áp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0320",
+      "hanzi": "偶尔",
+      "pinyin": "ǒu'ěr",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "thỉnh thoảng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0321",
+      "hanzi": "排队",
+      "pinyin": "páiduì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "xếp hàng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0322",
+      "hanzi": "排列",
+      "pinyin": "páiliè",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "sắp xếp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0323",
+      "hanzi": "判断",
+      "pinyin": "pànduàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nhận xét, đánh giá",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0324",
+      "hanzi": "陪",
+      "pinyin": "péi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đi cùng, ở bên cạnh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0325",
+      "hanzi": "骗",
+      "pinyin": "piàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "lừa gạt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0326",
+      "hanzi": "篇",
+      "pinyin": "piān",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "bài, tờ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0327",
+      "hanzi": "皮肤",
+      "pinyin": "pífū",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "da",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0328",
+      "hanzi": "乒乓球",
+      "pinyin": "pīngpāngqiú",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "bóng bàn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0329",
+      "hanzi": "平时",
+      "pinyin": "píngshí",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "lúc thường, ngày thường",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0330",
+      "hanzi": "批评",
+      "pinyin": "pīpíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "phê bình",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0331",
+      "hanzi": "脾气",
+      "pinyin": "píqi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tính tình, tính khí",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0332",
+      "hanzi": "破",
+      "pinyin": "pò",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "bị đứt, bị thủng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0333",
+      "hanzi": "普遍",
+      "pinyin": "pǔbiàn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "phổ biến",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0334",
+      "hanzi": "葡萄",
+      "pinyin": "pútao",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "quả nho",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0335",
+      "hanzi": "普通话",
+      "pinyin": "pǔtōnghuà",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tiếng phổ thông, tiếng Quan Thoại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0336",
+      "hanzi": "千万",
+      "pinyin": "qiānwàn",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "nhất thiết phải",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0337",
+      "hanzi": "签证",
+      "pinyin": "qiānzhèng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "thị thực, visa",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0338",
+      "hanzi": "桥",
+      "pinyin": "qiáo",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cầu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0339",
+      "hanzi": "敲",
+      "pinyin": "qiāo",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "gõ, khua",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0340",
+      "hanzi": "巧克力",
+      "pinyin": "qiǎokèlì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "sô cô la",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0341",
+      "hanzi": "其次",
+      "pinyin": "qícì",
+      "level": 4,
+      "partOfSpeech": "đại từ",
+      "meaning": "thứ hai, sau đó",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0342",
+      "hanzi": "气候",
+      "pinyin": "qìhòu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "khí hậu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0343",
+      "hanzi": "轻",
+      "pinyin": "qīng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "nhẹ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0344",
+      "hanzi": "情况",
+      "pinyin": "qíngkuàng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tình hình, tình huống",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0345",
+      "hanzi": "轻松",
+      "pinyin": "qīngsōng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "nhẹ nhàng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0346",
+      "hanzi": "亲戚",
+      "pinyin": "qīnqi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "họ hàng thân thích",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0347",
+      "hanzi": "穷",
+      "pinyin": "qióng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "nghèo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0348",
+      "hanzi": "其中",
+      "pinyin": "qízhōng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "trong đó",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0349",
+      "hanzi": "取",
+      "pinyin": "qǔ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đạt được",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0350",
+      "hanzi": "全部",
+      "pinyin": "quánbù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "toàn bộ, tất cả",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0351",
+      "hanzi": "区别",
+      "pinyin": "qūbié",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "sự khác biệt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0352",
+      "hanzi": "却",
+      "pinyin": "què",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "lại, nhưng mà",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0353",
+      "hanzi": "缺点",
+      "pinyin": "quēdiǎn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "khuyết điểm, thiếu sót",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0354",
+      "hanzi": "缺少",
+      "pinyin": "quēshǎo",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thiếu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0355",
+      "hanzi": "确实",
+      "pinyin": "quèshí",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "thực sự",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0356",
+      "hanzi": "然而",
+      "pinyin": "rán'ér",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "nhưng, song",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0357",
+      "hanzi": "热闹",
+      "pinyin": "rènao",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "náo nhiệt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0358",
+      "hanzi": "扔",
+      "pinyin": "rēng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "vứt bỏ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0359",
+      "hanzi": "仍然",
+      "pinyin": "réngrán",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "vẫn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0360",
+      "hanzi": "任何",
+      "pinyin": "rènhé",
+      "level": 4,
+      "partOfSpeech": "đại từ",
+      "meaning": "bất cứ, bất kì",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0361",
+      "hanzi": "任务",
+      "pinyin": "rènwu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nhiệm vụ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0362",
+      "hanzi": "日记",
+      "pinyin": "rìjì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nhật ký",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0363",
+      "hanzi": "入口",
+      "pinyin": "rùkǒu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cổng vào",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0364",
+      "hanzi": "散步",
+      "pinyin": "sànbù",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đi dạo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0365",
+      "hanzi": "森林",
+      "pinyin": "sēnlín",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "rừng rậm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0366",
+      "hanzi": "沙发",
+      "pinyin": "shāfā",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "ghế sofa",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0367",
+      "hanzi": "商量",
+      "pinyin": "shāngliang",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thương lượng, bàn bạc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0368",
+      "hanzi": "伤心",
+      "pinyin": "shāngxīn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "đau lòng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0369",
+      "hanzi": "稍微",
+      "pinyin": "shāowēi",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "hơi, một chút",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0370",
+      "hanzi": "勺子",
+      "pinyin": "sháozi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cái muôi, cái thìa",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0371",
+      "hanzi": "社会",
+      "pinyin": "shèhuì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "xã hội",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0372",
+      "hanzi": "深",
+      "pinyin": "shēn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "sâu sắc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0373",
+      "hanzi": "剩",
+      "pinyin": "shèng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "còn lại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0374",
+      "hanzi": "省",
+      "pinyin": "shěng",
+      "level": 4,
+      "partOfSpeech": "danh từ, động từ",
+      "meaning": "tỉnh, tiết kiệm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0375",
+      "hanzi": "生活",
+      "pinyin": "shēnghuó",
+      "level": 4,
+      "partOfSpeech": "danh từ/động từ",
+      "meaning": "cuộc sống, sống",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0376",
+      "hanzi": "生命",
+      "pinyin": "shēngmìng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "sự sống, sinh mệnh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0377",
+      "hanzi": "生意",
+      "pinyin": "shēngyi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "việc kinh doanh, buôn bán",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0378",
+      "hanzi": "申请",
+      "pinyin": "shēnqǐng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "xin",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0379",
+      "hanzi": "甚至",
+      "pinyin": "shènzhì",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "thậm chí",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0380",
+      "hanzi": "使",
+      "pinyin": "shǐ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "khiến cho, làm cho",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0381",
+      "hanzi": "失败",
+      "pinyin": "shībài",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thất bại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0382",
+      "hanzi": "十分",
+      "pinyin": "shífēn",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "rất, vô cùng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0383",
+      "hanzi": "是否",
+      "pinyin": "shìfǒu",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "hay không",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0384",
+      "hanzi": "师傅",
+      "pinyin": "shīfu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "sư phụ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0385",
+      "hanzi": "适合",
+      "pinyin": "shìhé",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "phù hợp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0386",
+      "hanzi": "世纪",
+      "pinyin": "shìjì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "thế kỷ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0387",
+      "hanzi": "实际",
+      "pinyin": "shíjì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "thực tế",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0388",
+      "hanzi": "失望",
+      "pinyin": "shīwàng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thất vọng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0389",
+      "hanzi": "适应",
+      "pinyin": "shìyìng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thích nghi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0390",
+      "hanzi": "使用",
+      "pinyin": "shǐyòng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "sử dụng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0391",
+      "hanzi": "实在",
+      "pinyin": "shízài",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "kì thực, quả thực",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0392",
+      "hanzi": "收",
+      "pinyin": "shōu",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nhận",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0393",
+      "hanzi": "受不了",
+      "pinyin": "shòubuliǎo",
+      "level": 4,
+      "partOfSpeech": "",
+      "meaning": "chịu không nổi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0394",
+      "hanzi": "受到",
+      "pinyin": "shòudào",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nhận được",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0395",
+      "hanzi": "首都",
+      "pinyin": "shǒudū",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "thủ đô",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0396",
+      "hanzi": "售货员",
+      "pinyin": "shòuhuòyuán",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nhân viên bán hàng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0397",
+      "hanzi": "收入",
+      "pinyin": "shōurù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "thu nhập",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0398",
+      "hanzi": "收拾",
+      "pinyin": "shōushi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thu dọn, sắp xếp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0399",
+      "hanzi": "首先",
+      "pinyin": "shǒuxiān",
+      "level": 4,
+      "partOfSpeech": "đại từ",
+      "meaning": "trước hết, trước tiên",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0400",
+      "hanzi": "输",
+      "pinyin": "shū",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thua",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0401",
+      "hanzi": "帅",
+      "pinyin": "shuài",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "đẹp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0402",
+      "hanzi": "数量",
+      "pinyin": "shùliàng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "số lượng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0403",
+      "hanzi": "顺便",
+      "pinyin": "shùnbiàn",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "nhân tiện",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0404",
+      "hanzi": "顺利",
+      "pinyin": "shùnlì",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "thuận lợi, suôn sẻ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0405",
+      "hanzi": "顺序",
+      "pinyin": "shùnxù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "trật tự, thứ tự",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0406",
+      "hanzi": "说明",
+      "pinyin": "shuōmíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "giải thích rõ, nói rõ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0407",
+      "hanzi": "硕士",
+      "pinyin": "shuòshì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "thạc sĩ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0408",
+      "hanzi": "熟悉",
+      "pinyin": "shúxi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "hiểu rõ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0409",
+      "hanzi": "数字",
+      "pinyin": "shùzì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "con số",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0410",
+      "hanzi": "死",
+      "pinyin": "sǐ",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "cố định, cứng nhắc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0411",
+      "hanzi": "酸",
+      "pinyin": "suān",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "chua",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0412",
+      "hanzi": "速度",
+      "pinyin": "sùdù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tốc độ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0413",
+      "hanzi": "随便",
+      "pinyin": "suíbiàn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "tình cờ, tùy tiện",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0414",
+      "hanzi": "随着",
+      "pinyin": "suízhe",
+      "level": 4,
+      "partOfSpeech": "giới từ",
+      "meaning": "cùng với",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0415",
+      "hanzi": "塑料袋",
+      "pinyin": "sùliàodài",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "túi nilong, túi nhựa",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0416",
+      "hanzi": "孙子",
+      "pinyin": "sūnzi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cháu nội trai",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0417",
+      "hanzi": "所有",
+      "pinyin": "suǒyǒu",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "tất cả, toàn bộ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0418",
+      "hanzi": "抬",
+      "pinyin": "tái",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "giơ lên, đưa lên",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0419",
+      "hanzi": "台",
+      "pinyin": "tái",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "(dùng cho máy móc) cái, chiếc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0420",
+      "hanzi": "态度",
+      "pinyin": "tàidù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "thái dộ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0421",
+      "hanzi": "谈",
+      "pinyin": "tán",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nói chuyện, thảo luận",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0422",
+      "hanzi": "弹钢琴",
+      "pinyin": "tán gāngqín",
+      "level": 4,
+      "partOfSpeech": "",
+      "meaning": "chơi đàn dương cầm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0423",
+      "hanzi": "糖",
+      "pinyin": "táng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kẹo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0424",
+      "hanzi": "趟",
+      "pinyin": "tàng",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "lần, chuyến",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0425",
+      "hanzi": "躺",
+      "pinyin": "tǎng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nằm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0426",
+      "hanzi": "汤",
+      "pinyin": "tāng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "canh, súp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0427",
+      "hanzi": "讨论",
+      "pinyin": "tǎolùn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thảo luận, bàn bạc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0428",
+      "hanzi": "讨厌",
+      "pinyin": "tǎoyàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ghét, không thích",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0429",
+      "hanzi": "特点",
+      "pinyin": "tèdiǎn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "đặc điểm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0430",
+      "hanzi": "提",
+      "pinyin": "tí",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nhắc đến",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0431",
+      "hanzi": "填空",
+      "pinyin": "tiánkòng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "điền vào chỗ trống",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0432",
+      "hanzi": "条件",
+      "pinyin": "tiáojiàn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "điều kiện",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0433",
+      "hanzi": "提供",
+      "pinyin": "tígōng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cung cấp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0434",
+      "hanzi": "停",
+      "pinyin": "tíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ngừng, cúp, cắt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0435",
+      "hanzi": "挺",
+      "pinyin": "tǐng",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "rất",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0436",
+      "hanzi": "提前",
+      "pinyin": "tíqián",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "làm việc gì đó sớm hơn quy định, trước thời hạn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0437",
+      "hanzi": "提醒",
+      "pinyin": "tíxǐng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nhắc nhở",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0438",
+      "hanzi": "通过",
+      "pinyin": "tōngguò",
+      "level": 4,
+      "partOfSpeech": "giới từ",
+      "meaning": "qua, nhờ vào",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0439",
+      "hanzi": "同情",
+      "pinyin": "tóngqíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thông cảm, đồng tình",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0440",
+      "hanzi": "同时",
+      "pinyin": "tóngshí",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "đồng thời, hơn nữa",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0441",
+      "hanzi": "通知",
+      "pinyin": "tōngzhī",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "báo tin, thông báo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0442",
+      "hanzi": "推",
+      "pinyin": "tuī",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "hoãn lại, đẩy, triển khai",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0443",
+      "hanzi": "推迟",
+      "pinyin": "tuīchí",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "hoãn lại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0444",
+      "hanzi": "脱",
+      "pinyin": "tuō",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cởi ra",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0445",
+      "hanzi": "网球",
+      "pinyin": "wǎngqiú",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "quần vợt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0446",
+      "hanzi": "往往",
+      "pinyin": "wǎngwǎng",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "thường thường",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0447",
+      "hanzi": "网站",
+      "pinyin": "wǎngzhàn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "trang web",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0448",
+      "hanzi": "完全",
+      "pinyin": "wánquán",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "hoàn toàn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0449",
+      "hanzi": "袜子",
+      "pinyin": "wàzi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tất, vớ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0450",
+      "hanzi": "味道",
+      "pinyin": "wèidào",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "mùi vị",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0451",
+      "hanzi": "卫生间",
+      "pinyin": "wèishēngjiān",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nhà vệ sinh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0452",
+      "hanzi": "危险",
+      "pinyin": "wēixiǎn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "nguy hiểm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0453",
+      "hanzi": "温度",
+      "pinyin": "wēndù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nhiệt độ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0454",
+      "hanzi": "文章",
+      "pinyin": "wénzhāng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "bài văn, bài báo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0455",
+      "hanzi": "无",
+      "pinyin": "wú",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "không có, không",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0456",
+      "hanzi": "误会",
+      "pinyin": "wùhuì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "sự hiểu lầm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0457",
+      "hanzi": "无聊",
+      "pinyin": "wúliáo",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "vô vị, nhàm chán",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0458",
+      "hanzi": "无论",
+      "pinyin": "wúlùn",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "bất kể",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0459",
+      "hanzi": "污染",
+      "pinyin": "wūrǎn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ô nhiễm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0460",
+      "hanzi": "咸",
+      "pinyin": "xián",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "mặn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0461",
+      "hanzi": "响",
+      "pinyin": "xiǎng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "reo, vang lên",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0462",
+      "hanzi": "香",
+      "pinyin": "xiāng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "thơm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0463",
+      "hanzi": "相反",
+      "pinyin": "xiāngfǎn",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "trái lại, ngược lại",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0464",
+      "hanzi": "橡皮",
+      "pinyin": "xiàngpí",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cục gôm, tẩy",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0465",
+      "hanzi": "相同",
+      "pinyin": "xiāngtóng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "giống nhau, như nhau",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0466",
+      "hanzi": "详细",
+      "pinyin": "xiángxì",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "chi tiết, tỉ mỉ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0467",
+      "hanzi": "现金",
+      "pinyin": "xiànjīn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tiền mặt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0468",
+      "hanzi": "羡慕",
+      "pinyin": "xiànmù",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ước ao, ngưỡng mộ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0469",
+      "hanzi": "小吃",
+      "pinyin": "xiǎochī",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "món ăn vặt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0470",
+      "hanzi": "效果",
+      "pinyin": "xiàoguǒ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "hiệu quả",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0471",
+      "hanzi": "笑话",
+      "pinyin": "xiàohua",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "truyện cười",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0472",
+      "hanzi": "小伙子",
+      "pinyin": "xiǎohuǒzi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "chàng trai",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0473",
+      "hanzi": "小说",
+      "pinyin": "xiǎoshuō",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tiểu thuyết",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0474",
+      "hanzi": "消息",
+      "pinyin": "xiāoxi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tin tức",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0475",
+      "hanzi": "西红柿",
+      "pinyin": "xīhóngshì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cà chua",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0476",
+      "hanzi": "信封",
+      "pinyin": "xìnfēng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "phong thư, bì thư",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0477",
+      "hanzi": "行",
+      "pinyin": "xíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "được, đồng ý",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0478",
+      "hanzi": "醒",
+      "pinyin": "xǐng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thức dậy, tỉnh dậy",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0479",
+      "hanzi": "性别",
+      "pinyin": "xìngbié",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "giới tính",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0480",
+      "hanzi": "兴奋",
+      "pinyin": "xīngfèn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "hăng hái, phấn khởi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0481",
+      "hanzi": "幸福",
+      "pinyin": "xìngfú",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "hạnh phúc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0482",
+      "hanzi": "性格",
+      "pinyin": "xìnggé",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tính cách",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0483",
+      "hanzi": "辛苦",
+      "pinyin": "xīnkǔ",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "vất vả, cực nhọc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0484",
+      "hanzi": "心情",
+      "pinyin": "xīnqíng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tâm trạng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0485",
+      "hanzi": "信息",
+      "pinyin": "xìnxī",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tin tức, thông tin",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0486",
+      "hanzi": "信心",
+      "pinyin": "xìnxīn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "lòng tin, sự tự tin",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0487",
+      "hanzi": "修理",
+      "pinyin": "xiūlǐ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "sửa chữa",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0488",
+      "hanzi": "吸引",
+      "pinyin": "xīyǐn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "hấp dẫn, thu hút",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0489",
+      "hanzi": "许多",
+      "pinyin": "xǔduō",
+      "level": 4,
+      "partOfSpeech": "số từ",
+      "meaning": "rất nhiều",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0490",
+      "hanzi": "学期",
+      "pinyin": "xuéqī",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "học kỳ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0491",
+      "hanzi": "呀",
+      "pinyin": "ya",
+      "level": 4,
+      "partOfSpeech": "trợ từ",
+      "meaning": "(biến thể của 啊, dùng ở cuối câu làm cho giọng điệu nhẹ nhàng hơn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0492",
+      "hanzi": "亚洲",
+      "pinyin": "Yàzhōu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "Châu Á",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0493",
+      "hanzi": "牙膏",
+      "pinyin": "yágāo",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kem đánh răng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0494",
+      "hanzi": "压力",
+      "pinyin": "yālì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "áp lực",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0495",
+      "hanzi": "盐",
+      "pinyin": "yán",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "muối",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0496",
+      "hanzi": "演出",
+      "pinyin": "yǎnchū",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "biểu diễn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0497",
+      "hanzi": "养成",
+      "pinyin": "yǎngchéng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "hình thành/ tạo",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0498",
+      "hanzi": "严格",
+      "pinyin": "yángé",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "nghiêm khắc, nghiêm ngặt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0499",
+      "hanzi": "阳光",
+      "pinyin": "yángguāng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "lạc quan,vui vẻ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0500",
+      "hanzi": "样子",
+      "pinyin": "yàngzi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kiểu dáng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0501",
+      "hanzi": "眼镜",
+      "pinyin": "yǎnjìng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "mắt kính",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0502",
+      "hanzi": "研究",
+      "pinyin": "yánjiū",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "nghiên cứu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0503",
+      "hanzi": "演员",
+      "pinyin": "yǎnyuán",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "diễn viên",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0504",
+      "hanzi": "严重",
+      "pinyin": "yánzhòng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "nghiêm trọng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0505",
+      "hanzi": "邀请",
+      "pinyin": "yāoqǐng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "mời",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0506",
+      "hanzi": "钥匙",
+      "pinyin": "yàoshi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "chìa khóa",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0507",
+      "hanzi": "要是",
+      "pinyin": "yàoshi",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "nếu như",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0508",
+      "hanzi": "页",
+      "pinyin": "yè",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "trang",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0509",
+      "hanzi": "也许",
+      "pinyin": "yěxǔ",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "có lẽ, may ra",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0510",
+      "hanzi": "叶子",
+      "pinyin": "yèzi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "lá cây",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0511",
+      "hanzi": "以",
+      "pinyin": "yǐ",
+      "level": 4,
+      "partOfSpeech": "giới từ",
+      "meaning": "dựa vào, bằng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0512",
+      "hanzi": "意见",
+      "pinyin": "yìjiàn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "ý kiến",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0513",
+      "hanzi": "因此",
+      "pinyin": "yīncǐ",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "do đó, vì vậy",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0514",
+      "hanzi": "赢",
+      "pinyin": "yíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thắng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0515",
+      "hanzi": "应聘",
+      "pinyin": "yìngpìn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "xin việc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0516",
+      "hanzi": "引起",
+      "pinyin": "yǐnqǐ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "gây ra, dẫn đến",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0517",
+      "hanzi": "印象",
+      "pinyin": "yìnxiàng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "ấn tượng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0518",
+      "hanzi": "一切",
+      "pinyin": "yíqiè",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tất cả",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0519",
+      "hanzi": "艺术",
+      "pinyin": "yìshù",
+      "level": 4,
+      "partOfSpeech": "danh từ, tính từ",
+      "meaning": "nghệ thuật, có tính nghệ thuật",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0520",
+      "hanzi": "以为",
+      "pinyin": "yǐwéi",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cho rằng, tưởng là",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0521",
+      "hanzi": "勇敢",
+      "pinyin": "yǒnggǎn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "dũng cảm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0522",
+      "hanzi": "永远",
+      "pinyin": "yǒngyuǎn",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "mãi mãi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0523",
+      "hanzi": "由",
+      "pinyin": "yóu",
+      "level": 4,
+      "partOfSpeech": "giới từ",
+      "meaning": "do",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0524",
+      "hanzi": "优点",
+      "pinyin": "yōudiǎn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "ưu điểm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0525",
+      "hanzi": "友好",
+      "pinyin": "yǒuhǎo",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "thân thiện",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0526",
+      "hanzi": "邮局",
+      "pinyin": "yóujú",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "bưu điện",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0527",
+      "hanzi": "幽默",
+      "pinyin": "yōumò",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "hóm hỉnh, khôi hài",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0528",
+      "hanzi": "尤其",
+      "pinyin": "yóuqí",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "đặc biệt là, nhất là",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0529",
+      "hanzi": "有趣",
+      "pinyin": "yǒuqù",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "thú vị, lý thú",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0530",
+      "hanzi": "优秀",
+      "pinyin": "yōuxiù",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "xuất sắc, ưu tú",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0531",
+      "hanzi": "友谊",
+      "pinyin": "yǒuyì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tình bạn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0532",
+      "hanzi": "由于",
+      "pinyin": "yóuyú",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "bởi vì",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0533",
+      "hanzi": "与",
+      "pinyin": "yǔ",
+      "level": 4,
+      "partOfSpeech": "giới từ",
+      "meaning": "với, và",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0534",
+      "hanzi": "原来",
+      "pinyin": "yuánlái",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "ban đầu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0535",
+      "hanzi": "原谅",
+      "pinyin": "yuánliàng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tha thứ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0536",
+      "hanzi": "原因",
+      "pinyin": "yuányīn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nguyên nhân",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0537",
+      "hanzi": "阅读",
+      "pinyin": "yuèdú",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đọc",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0538",
+      "hanzi": "约会",
+      "pinyin": "yuēhuì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "hẹn gặp, hẹn hò",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0539",
+      "hanzi": "语法",
+      "pinyin": "yǔfǎ",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "ngữ pháp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0540",
+      "hanzi": "愉快",
+      "pinyin": "yúkuài",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "vui vẻ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0541",
+      "hanzi": "羽毛球",
+      "pinyin": "yǔmáoqiú",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "cầu lông",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0542",
+      "hanzi": "云",
+      "pinyin": "yún",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "mây",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0543",
+      "hanzi": "允许",
+      "pinyin": "yǔnxǔ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "cho phép",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0544",
+      "hanzi": "于是",
+      "pinyin": "yúshì",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "thế là",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0545",
+      "hanzi": "预习",
+      "pinyin": "yùxí",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "chuẩn bị bài",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0546",
+      "hanzi": "语言",
+      "pinyin": "yǔyán",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "ngôn ngữ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0547",
+      "hanzi": "脏",
+      "pinyin": "zāng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "bẩn, bẩn thỉu",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0548",
+      "hanzi": "咱们",
+      "pinyin": "zánmen",
+      "level": 4,
+      "partOfSpeech": "đại từ",
+      "meaning": "chúng ta, chúng mình",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0549",
+      "hanzi": "暂时",
+      "pinyin": "zànshí",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tạm thời",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0550",
+      "hanzi": "杂志",
+      "pinyin": "zázhì",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tạp chí",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0551",
+      "hanzi": "增加",
+      "pinyin": "zēngjiā",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tăng thêm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0552",
+      "hanzi": "责任",
+      "pinyin": "zérèn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "trách nhiệm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0553",
+      "hanzi": "战线",
+      "pinyin": "zhànxiàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "(đường dây điện thoại) bận",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0554",
+      "hanzi": "照",
+      "pinyin": "zhào",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "chụp (ảnh)",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0555",
+      "hanzi": "招聘",
+      "pinyin": "zhāopìn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tuyển dụng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0556",
+      "hanzi": "正常",
+      "pinyin": "zhèngcháng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "bình thường, thông thường",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0557",
+      "hanzi": "正好",
+      "pinyin": "zhènghǎo",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "đúng lúc, được dịp, gặp dịp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0558",
+      "hanzi": "整理",
+      "pinyin": "zhěnglǐ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thu dọn, dọn dẹp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0559",
+      "hanzi": "证明",
+      "pinyin": "zhèngmíng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "chứng minh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0560",
+      "hanzi": "正确",
+      "pinyin": "zhèngquè",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "chính xác",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0561",
+      "hanzi": "正式",
+      "pinyin": "zhèngshì",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "chính thức, trang trọng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0562",
+      "hanzi": "真正",
+      "pinyin": "zhēnzhèng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "chân chính, thật sự",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0563",
+      "hanzi": "指",
+      "pinyin": "zhǐ",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "chỉ về, nói đến",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0564",
+      "hanzi": "之",
+      "pinyin": "zhī",
+      "level": 4,
+      "partOfSpeech": "trợ từ",
+      "meaning": "được dùng để nối từ bổ nghĩa và từ được bổ nghĩa",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0565",
+      "hanzi": "支持",
+      "pinyin": "zhīchí",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "ủng hộ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0566",
+      "hanzi": "值得",
+      "pinyin": "zhídé",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "đáng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0567",
+      "hanzi": "只好",
+      "pinyin": "zhǐhǎo",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "đành phải, buộc phải",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0568",
+      "hanzi": "直接",
+      "pinyin": "zhíjiē",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "trực tiếp, thẳng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0569",
+      "hanzi": "质量",
+      "pinyin": "zhìliàng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "chất lượng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0570",
+      "hanzi": "至少",
+      "pinyin": "zhìshǎo",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "ít nhất",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0571",
+      "hanzi": "知识",
+      "pinyin": "zhīshi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "kiến thức",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0572",
+      "hanzi": "植物",
+      "pinyin": "zhíwù",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "thực vật",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0573",
+      "hanzi": "只要",
+      "pinyin": "zhǐyào",
+      "level": 4,
+      "partOfSpeech": "liên từ",
+      "meaning": "chỉ cần, miễn là",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0574",
+      "hanzi": "职业",
+      "pinyin": "zhíyè",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nghề nghiệp",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0575",
+      "hanzi": "重",
+      "pinyin": "zhòng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "nặng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0576",
+      "hanzi": "重点",
+      "pinyin": "zhòngdiǎn",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "trọng điểm, trọng tâm",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0577",
+      "hanzi": "重视",
+      "pinyin": "zhòngshì",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "xem trọng, chú trọng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0578",
+      "hanzi": "周围",
+      "pinyin": "zhōuwéi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "xung quanh",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0579",
+      "hanzi": "赚",
+      "pinyin": "zhuàn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "kiếm tiền",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0580",
+      "hanzi": "转",
+      "pinyin": "zhuǎn",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "quay, xoay",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0581",
+      "hanzi": "专门",
+      "pinyin": "zhuānmén",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "đặc biệt, riêng biệt",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0582",
+      "hanzi": "专业",
+      "pinyin": "zhuānyè",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "chuyên ngành",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0583",
+      "hanzi": "祝贺",
+      "pinyin": "zhùhè",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "chúc mừng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0584",
+      "hanzi": "著名",
+      "pinyin": "zhùmíng",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "nổi tiếng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0585",
+      "hanzi": "准确",
+      "pinyin": "zhǔnquè",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "chính xác, đúng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0586",
+      "hanzi": "准时",
+      "pinyin": "zhǔnshí",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "đúng giờ",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0587",
+      "hanzi": "注意",
+      "pinyin": "zhǔyi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "ý kiến",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0588",
+      "hanzi": "自然",
+      "pinyin": "zìrán",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "đương nhiên, hiển nhiên",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0589",
+      "hanzi": "仔细",
+      "pinyin": "zǐxì",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "thận trọng, kỹ lưỡng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0590",
+      "hanzi": "自信",
+      "pinyin": "zìxìn",
+      "level": 4,
+      "partOfSpeech": "tính từ",
+      "meaning": "tự tin",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0591",
+      "hanzi": "总结",
+      "pinyin": "zǒngjié",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tổng kết",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0592",
+      "hanzi": "租",
+      "pinyin": "zū",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "thuê, cho thuê",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0593",
+      "hanzi": "最好",
+      "pinyin": "zuìhǎo",
+      "level": 4,
+      "partOfSpeech": "phó từ",
+      "meaning": "tốt nhất",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0594",
+      "hanzi": "尊重",
+      "pinyin": "zūnzhòng",
+      "level": 4,
+      "partOfSpeech": "động từ",
+      "meaning": "tôn trọng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0595",
+      "hanzi": "座",
+      "pinyin": "zuò",
+      "level": 4,
+      "partOfSpeech": "lượng từ",
+      "meaning": "tòa, hòn, cây (dùng cho cây cầu, núi, cao ốc)",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0596",
+      "hanzi": "作家",
+      "pinyin": "zuòjiā",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "nhà văn",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0597",
+      "hanzi": "座位",
+      "pinyin": "zuòwèi",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "chỗ ngồi",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0598",
+      "hanzi": "作用",
+      "pinyin": "zuòyòng",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tác dụng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0599",
+      "hanzi": "左右",
+      "pinyin": "zuǒyòu",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "khoảng, khoảng chừng",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    },
+    {
+      "id": "hsk4-0600",
+      "hanzi": "作者",
+      "pinyin": "zuòzhě",
+      "level": 4,
+      "partOfSpeech": "danh từ",
+      "meaning": "tác giả",
+      "source": "1200 Từ vựng HSK 4.docx",
+      "importedSource": "hsk4-docx"
+    }
+  ]
+}

@@ -7153,6 +7153,22 @@ body.lookup-popover-resizing {
   border-color: var(--red);
 }
 
+.hsk-word-audio:disabled,
+.hsk-word-audio.is-unavailable {
+  color: var(--muted);
+  background: var(--soft);
+  border-color: var(--line);
+  cursor: not-allowed;
+  opacity: 0.68;
+}
+
+.hsk-word-audio:disabled:hover,
+.hsk-word-audio.is-unavailable:hover {
+  color: var(--muted);
+  background: var(--soft);
+  border-color: var(--line);
+}
+
 .sentence-reveal,
 .sentence-audio {
   position: static;

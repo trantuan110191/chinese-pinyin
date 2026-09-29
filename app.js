@@ -1983,6 +1983,9 @@ const LOOKUP_POPOVER_MULTI_RENDER_LIMIT = 8;
 const LOOKUP_POPOVER_MULTI_QUERY_LIMIT = 5;
 const LOOKUP_POPOVER_STORAGE_KEY = "hanziLookupPopoverRect";
 const LOOKUP_POPOVER_EDGE_SIZE = 14;
+const HSK_BASE_EXPECTED_COUNT = 988;
+const HSK4_EXPECTED_COUNT = 600;
+const HSK4_VOCABULARY_URL = "data/hsk4-vocabulary.json?v=hsk4-20260929a";
 let pinyinDictionaryRenderTimer = 0;
 let lookupPopoverRenderTimer = 0;
 let lookupPopoverMoved = false;
@@ -2142,7 +2145,7 @@ const lessonLabels = {
   "component-contrast": "So sánh chữ dễ nhầm",
   "grammar-notes": "Ngữ pháp",
   "needed-notes": "Ghi chú từ cần học",
-  "hsk-library": "Kho từ New HSK",
+  "hsk-library": "Kho từ HSK",
 };
 const adminOnlyLessonIds = new Set(["needed-notes"]);
 const lessonSectionIds = Object.keys(lessonLabels).filter((id) => id !== "top");
@@ -2175,6 +2178,9 @@ let quizAutoAdvanceDelay = Number.isInteger(storedQuizDelay) && storedQuizDelay 
   ? storedQuizDelay
   : 6;
 let hskVocabulary = [];
+let hsk4Vocabulary = [];
+let hsk4LoadPromise = null;
+let hsk4LoadError = "";
 let hskExplanationEntries = {};
 let neededNoteWords = [];
 let hskActiveLevel = "all";
@@ -2849,6 +2855,8 @@ function buildGlobalLookupEntries() {
     level: word.level,
     audio: word.audio,
     audioText: word.hanzi,
+    extra: word.partOfSpeech,
+    rawId: getHskWordKey(word),
   }));
 
   neededNoteWords.forEach((word) => addEntry({
@@ -3056,7 +3064,46 @@ function scheduleStudyPromptTextFit(root = document) {
 }
 
 function getHskLevelLabel(level) {
-  return String(level) === "3" ? "HSK 3 · mở rộng" : `HSK ${level}`;
+  if (String(level) === "3") return "HSK 3 · mở rộng";
+  if (String(level) === "4") return "HSK 4 · file Word";
+  return `HSK ${level}`;
+}
+
+function isImportedHsk4Word(word) {
+  return String(word?.level) === "4"
+    && (word.importedSource === "hsk4-docx" || word.source === "1200 Từ vựng HSK 4.docx");
+}
+
+function getHskBaseLoadedCount() {
+  const baseCount = hskVocabulary.filter((word) => !isImportedHsk4Word(word)).length;
+  return baseCount || HSK_BASE_EXPECTED_COUNT;
+}
+
+function getTotalHskCountForDisplay() {
+  return getHskBaseLoadedCount() + (hsk4Vocabulary.length || HSK4_EXPECTED_COUNT);
+}
+
+function updateTotalVocabularyCount() {
+  const totalCount = document.querySelector("#total-count");
+  if (totalCount) totalCount.textContent = String(getTotalHskCountForDisplay());
+}
+
+function getHskWordKey(word) {
+  if (!word) return "";
+  if (word.id) return String(word.id);
+  return [
+    word.level,
+    word.hanzi,
+    word.pinyin,
+    normalizeSearchText(word.meaning),
+  ].join("|");
+}
+
+function findHskWord(identifier) {
+  const key = String(identifier || "");
+  return hskVocabulary.find((word) => getHskWordKey(word) === key)
+    || hskVocabulary.find((word) => word.hanzi === key)
+    || null;
 }
 
 const hskMeaningOverrides = {
@@ -3087,8 +3134,12 @@ const hskMeaningOverrides = {
 };
 
 function getConciseMeaning(word) {
-  const curatedWord = words.find((item) => item.hanzi === word.hanzi);
-  const meaning = hskMeaningOverrides[word.hanzi] || curatedWord?.meaning || word.meaning;
+  const curatedWord = isImportedHsk4Word(word)
+    ? null
+    : words.find((item) => item.hanzi === word.hanzi);
+  const meaning = isImportedHsk4Word(word)
+    ? word.meaning
+    : hskMeaningOverrides[word.hanzi] || curatedWord?.meaning || word.meaning;
   const uniqueParts = [];
   String(meaning).split(";").forEach((part) => {
     const cleanPart = part.trim();
@@ -3103,16 +3154,95 @@ function getConciseMeaning(word) {
   return (withoutSurname.length ? withoutSurname : uniqueParts).slice(0, 3).join("; ");
 }
 
+function normalizeHsk4Word(word, index) {
+  return {
+    ...word,
+    id: word.id || `hsk4-${String(index + 1).padStart(4, "0")}`,
+    level: 4,
+    partOfSpeech: word.partOfSpeech || "",
+    meaning: word.meaning || "",
+    source: word.source || "1200 Từ vựng HSK 4.docx",
+    importedSource: "hsk4-docx",
+    audio: word.audio || "",
+    importedExplanation: null,
+  };
+}
+
+async function loadHsk4Vocabulary() {
+  if (hsk4Vocabulary.length) return hsk4Vocabulary;
+  if (hsk4LoadPromise) return hsk4LoadPromise;
+  hsk4LoadError = "";
+  hsk4LoadPromise = fetch(HSK4_VOCABULARY_URL)
+    .then((response) => {
+      if (!response.ok) throw new Error("Không tải được file HSK 4.");
+      return response.json();
+    })
+    .then((data) => {
+      hsk4Vocabulary = (data.words || []).map(normalizeHsk4Word);
+      hskVocabulary = hskVocabulary
+        .filter((word) => !isImportedHsk4Word(word))
+        .concat(hsk4Vocabulary);
+      globalLookupEntriesCacheKey = "";
+      globalLookupEntriesCache = [];
+      return hsk4Vocabulary;
+    })
+    .catch((error) => {
+      hsk4LoadError = error.message || "Không tải được HSK 4.";
+      hsk4LoadPromise = null;
+      throw error;
+    });
+  return hsk4LoadPromise;
+}
+
+function isHsk4Loading() {
+  return Boolean(hsk4LoadPromise && !hsk4Vocabulary.length && !hsk4LoadError);
+}
+
+function getHsk4LookupStatusNote() {
+  if (isHsk4Loading()) return " Đang tải thêm HSK 4 từ file Word.";
+  if (hsk4LoadError) return " HSK 4 chưa tải được, thử tải lại trang.";
+  return "";
+}
+
+function shouldLoadHsk4ForLookup(rawQuery) {
+  const queries = getAllLookupPopoverQueryParts(rawQuery);
+  const lookupQueries = queries.length ? queries : [String(rawQuery || "").trim()].filter(Boolean);
+  return lookupQueries.some((query) => query && !isLookupQueryTooShort(query));
+}
+
+function refreshViewsAfterHsk4Load() {
+  updateTotalVocabularyCount();
+  renderHskLevelFilter();
+  renderHskWords();
+  renderPinyinContrast();
+  if (pinyinDictionaryInput?.value.trim()) renderPinyinDictionary();
+  if (lookupPopover && !lookupPopover.hidden && headerLookupInput.value.trim()) {
+    renderLookupPopover(headerLookupInput.value);
+  }
+}
+
+function requestHsk4VocabularyRefresh(rawQuery = "") {
+  if (hsk4Vocabulary.length || hsk4LoadPromise || hsk4LoadError) return;
+  if (rawQuery && !shouldLoadHsk4ForLookup(rawQuery)) return;
+  loadHsk4Vocabulary()
+    .then(refreshViewsAfterHsk4Load)
+    .catch((error) => {
+      console.error("loadHsk4Vocabulary failed", error);
+      refreshViewsAfterHsk4Load();
+    });
+}
+
 function renderHskLevelFilter() {
   const levelCounts = hskVocabulary.reduce((counts, word) => {
     counts[word.level] = (counts[word.level] || 0) + 1;
     return counts;
   }, {});
   const options = [
-    ["all", "Tất cả", hskVocabulary.length],
+    ["all", "Tất cả đã tải", hskVocabulary.length],
     ["1", "HSK 1", levelCounts[1] || 0],
     ["2", "HSK 2", levelCounts[2] || 0],
-    ["3", "HSK 3 mở rộng", levelCounts[3] || 0]
+    ["3", "HSK 3 mở rộng", levelCounts[3] || 0],
+    ["4", "HSK 4 file Word", levelCounts[4] || HSK4_EXPECTED_COUNT]
   ];
 
   hskLevelFilter.innerHTML = options.map(([level, label, count]) => `
@@ -3132,12 +3262,27 @@ function getFilteredHskWords() {
 }
 
 function renderHskWords() {
+  const rawQuery = hskSearchInput.value.trim();
+  if (hskActiveLevel === "4" && !hsk4Vocabulary.length) {
+    requestHsk4VocabularyRefresh("hsk4");
+    hskWordGrid.innerHTML = "";
+    hskResultSummary.textContent = hsk4LoadError
+      ? "Không tải được HSK 4 từ file Word. Hãy tải lại trang rồi thử lại."
+      : "Đang tải 600 từ HSK 4 từ file Word...";
+    hskLoadMore.hidden = true;
+    return;
+  }
+  if (rawQuery && shouldLoadHsk4ForLookup(rawQuery)) {
+    requestHsk4VocabularyRefresh(rawQuery);
+  }
+
   const filteredWords = getFilteredHskWords();
   const visibleWords = filteredWords.slice(0, hskVisibleLimit);
 
   hskWordGrid.innerHTML = visibleWords.map((word) => {
     const isRevealed = revealedHskWords.has(word.hanzi);
     const conciseMeaning = getConciseMeaning(word);
+    const hskWordKey = getHskWordKey(word);
     const hanziCount = [...word.hanzi].length;
     const sizeClass = hanziCount === 1
       ? " hsk-word-card--single"
@@ -3154,6 +3299,16 @@ function renderHskWords() {
         </div>
       `
       : "";
+    const audioMarkup = word.audio
+      ? `
+            <button class="hsk-word-audio" data-hsk-audio="${escapeHtml(word.audio)}"
+              data-hsk-label="${escapeHtml(word.hanzi)} · ${escapeHtml(word.pinyin)}" type="button"
+              aria-label="Nghe phát âm ${escapeHtml(word.hanzi)}">▶</button>
+      `
+      : `
+            <button class="hsk-word-audio is-unavailable" type="button" disabled
+              title="Chưa có file audio Xiaoxiao cho mục này" aria-label="Chưa có audio Xiaoxiao">–</button>
+      `;
 
     return `
       <article class="hsk-word-card${sizeClass}${isRevealed ? " is-revealed" : ""}">
@@ -3164,12 +3319,10 @@ function renderHskWords() {
               type="button" aria-pressed="${isRevealed}" aria-label="${isRevealed ? "Ẩn" : "Hiện"} Pinyin và nghĩa của ${escapeHtml(word.hanzi)}">
               <span class="sr-only">${isRevealed ? "Ẩn" : "Hiện"} Pinyin và nghĩa</span>
             </button>
-            <button class="hsk-word-audio" data-hsk-audio="${escapeHtml(word.audio)}"
-              data-hsk-label="${escapeHtml(word.hanzi)} · ${escapeHtml(word.pinyin)}" type="button"
-              aria-label="Nghe phát âm ${escapeHtml(word.hanzi)}">▶</button>
+            ${audioMarkup}
           </div>
         </div>
-        <button class="hsk-word-open" data-hsk-word="${escapeHtml(word.hanzi)}" type="button"
+        <button class="hsk-word-open" data-hsk-word="${escapeHtml(hskWordKey)}" type="button"
           aria-label="Xem ${escapeHtml(word.hanzi)}, ${escapeHtml(word.pinyin)}, ${escapeHtml(conciseMeaning)}">
           <span class="hsk-word-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</span>
           ${revealMarkup}
@@ -3179,8 +3332,8 @@ function renderHskWords() {
   }).join("");
 
   hskResultSummary.textContent = filteredWords.length
-    ? `Đang hiển thị ${visibleWords.length} / ${filteredWords.length} từ phù hợp`
-    : "Chưa tìm thấy từ phù hợp. Thử chữ Hán, Pinyin không dấu hoặc nghĩa Việt khác.";
+    ? `Đang hiển thị ${visibleWords.length} / ${filteredWords.length} từ phù hợp${getHsk4LookupStatusNote()}`
+    : `Chưa tìm thấy từ phù hợp. Thử chữ Hán, Pinyin không dấu hoặc nghĩa Việt khác.${getHsk4LookupStatusNote()}`;
   hskLoadMore.hidden = visibleWords.length >= filteredWords.length;
 }
 
@@ -3477,7 +3630,7 @@ function getMarkedPinyinPrefix(pinyin, syllable) {
 function getToneSamplesForSyllable(syllable) {
   const samples = new Map();
   hskVocabulary
-    .filter((word) => getLeadingConfusionSyllable(word.pinyin) === syllable)
+    .filter((word) => word.audio && getLeadingConfusionSyllable(word.pinyin) === syllable)
     .sort((left, right) => String(left.pinyin).length - String(right.pinyin).length)
     .forEach((word) => {
       const tone = ["1", "2", "3", "4", "0"].find((item) => pinyinMatchHasTone(word.pinyin, syllable, item));
@@ -3768,8 +3921,8 @@ function openGlobalLookupItem(entryId) {
     openGrammarNote(entry.rawId);
     return;
   }
-  if (entry.kind === "hsk" && hskVocabulary.some((word) => word.hanzi === entry.hanzi)) {
-    openHskWord(entry.hanzi);
+  if (entry.kind === "hsk" && findHskWord(entry.rawId || entry.hanzi)) {
+    openHskWord(entry.rawId || entry.hanzi);
     return;
   }
   if (entry.kind === "analysis" && words.some((word) => word.hanzi === entry.hanzi)) {
@@ -3820,11 +3973,13 @@ function renderPinyinDictionary() {
     return;
   }
 
+  requestHsk4VocabularyRefresh(rawQuery);
   const matches = getPinyinDictionaryWords();
   const visibleMatches = matches.slice(0, PINYIN_DICTIONARY_RENDER_LIMIT);
+  const hsk4Note = getHsk4LookupStatusNote();
   pinyinResultSummary.textContent = matches.length
-    ? `Tìm thấy ${matches.length} mục trong toàn bộ app${matches.length > visibleMatches.length ? `, đang hiện ${visibleMatches.length} mục đầu` : ""}.`
-    : "Chưa có mục phù hợp trong app. Thử chữ Hán, Pinyin như “pao bu” hoặc nghĩa Việt như “chạy bộ”.";
+    ? `Tìm thấy ${matches.length} mục trong toàn bộ app${matches.length > visibleMatches.length ? `, đang hiện ${visibleMatches.length} mục đầu` : ""}.${hsk4Note}`
+    : `Chưa có mục phù hợp trong app. Thử chữ Hán, Pinyin như “pao bu” hoặc nghĩa Việt như “chạy bộ”.${hsk4Note}`;
   pinyinResultGrid.innerHTML = visibleMatches.map((entry) => `
     <article class="pinyin-result-card">
       <button class="pinyin-result-open" data-global-lookup="${escapeHtml(entry.id)}" type="button">
@@ -4041,6 +4196,8 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
     return;
   }
 
+  requestHsk4VocabularyRefresh(rawQuery);
+  const hsk4Note = getHsk4LookupStatusNote();
   const renderPopoverCard = (entry) => {
     const hanzi = String(entry.hanzi || "");
     const longClass = hanzi.length > 6 ? " lookup-popover-card--long" : "";
@@ -4077,8 +4234,8 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
     const totalMatches = groups.reduce((sum, group) => sum + group.matches.length, 0);
     const truncatedNote = allQueries.length > queries.length ? ` Chỉ lấy ${LOOKUP_POPOVER_MULTI_QUERY_LIMIT} cụm đầu.` : "";
     lookupPopoverSummary.textContent = totalMatches
-      ? `So sánh ${queryCount} cụm: ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}`
-      : `Chưa có mục phù hợp cho ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}`;
+      ? `So sánh ${queryCount} cụm: ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}${hsk4Note}`
+      : `Chưa có mục phù hợp cho ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}${hsk4Note}`;
     lookupPopoverResults.innerHTML = `
       <div class="lookup-popover-query-grid">
         ${groups.map((group) => `
@@ -4102,8 +4259,8 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
   const matches = getLookupWords(rawQuery, "all");
   const visibleMatches = matches.slice(0, LOOKUP_POPOVER_RENDER_LIMIT);
   lookupPopoverSummary.textContent = matches.length
-    ? `Tìm thấy ${matches.length} mục cho “${rawQuery}”${matches.length > visibleMatches.length ? `, hiện ${visibleMatches.length} mục đầu` : ""}.`
-    : `Chưa có mục phù hợp cho “${rawQuery}”.`;
+    ? `Tìm thấy ${matches.length} mục cho “${rawQuery}”${matches.length > visibleMatches.length ? `, hiện ${visibleMatches.length} mục đầu` : ""}.${hsk4Note}`
+    : `Chưa có mục phù hợp cho “${rawQuery}”.${hsk4Note}`;
   lookupPopoverResults.innerHTML = visibleMatches.map(renderPopoverCard).join("");
 }
 
@@ -9593,6 +9750,10 @@ function resetHskPlayerButton() {
 }
 
 function playHskAudio(path, button, fallbackText = "") {
+  if (!path) {
+    resetHskPlayerButton();
+    return;
+  }
   hskPlayer.pause();
   hskPlayer.currentTime = 0;
   resetHskPlayerButton();
@@ -9679,14 +9840,16 @@ function renderImportedHskExplanation(explanation) {
   `;
 }
 
-function openHskWord(hanzi) {
+function openHskWord(identifier) {
+  const word = findHskWord(identifier);
+  const hanzi = word?.hanzi || String(identifier || "");
+  const isSpecificHskEntry = word && getHskWordKey(word) === String(identifier || "");
   const curatedWord = words.find((item) => item.hanzi === hanzi);
-  if (curatedWord) {
+  if (curatedWord && (!isSpecificHskEntry || !isImportedHsk4Word(word))) {
     openWord(hanzi);
     return;
   }
 
-  const word = hskVocabulary.find((item) => item.hanzi === hanzi);
   if (!word) return;
 
   const explanation = word.importedExplanation || hskExplanationEntries[word.hanzi] || null;
@@ -9700,6 +9863,15 @@ function openHskWord(hanzi) {
         </div>
       `).join("")
     : `<p class="hsk-source-note">Chưa có câu mẫu trong bộ 80 câu cho từ này.</p>`;
+  const partOfSpeechMarkup = word.partOfSpeech
+    ? `
+      <section class="detail-section">
+        <p class="detail-label">Từ loại</p>
+        <h3>${escapeHtml(word.partOfSpeech)}</h3>
+        <p>${isImportedHsk4Word(word) ? "Nghĩa đang giữ nguyên theo file Word HSK 4." : "Thông tin lấy từ kho HSK."}</p>
+      </section>
+    `
+    : "";
 
   dialogContent.innerHTML = `
     <article class="lookup-detail-dialog hsk-lookup-detail-dialog">
@@ -9710,6 +9882,7 @@ function openHskWord(hanzi) {
         meta: `${getHskLevelLabel(word.level)} · Tra nhanh`,
       })}
     <div class="dialog-body lookup-detail-body">
+      ${partOfSpeechMarkup}
       ${explanation ? renderImportedHskExplanation(explanation) : ""}
       <section class="detail-section full-width">
         <p class="detail-label detail-label-accent">Giao tiếp</p>
@@ -9780,7 +9953,7 @@ async function loadLearningLibraries() {
   learningLibrariesFailed = false;
   invalidateTopicWorkshopCaches();
   if (pinyinDictionaryInput.value.trim()) pinyinDictionaryTone = getRequestedTone(pinyinDictionaryInput.value);
-  document.querySelector("#total-count").textContent = hskVocabulary.length;
+  updateTotalVocabularyCount();
   renderHskLevelFilter();
   renderHskWords();
   renderPinyinDictionary();
@@ -10531,7 +10704,7 @@ window.addEventListener("resize", () => {
 });
 window.addEventListener("resize", () => scheduleStudyPromptTextFit(document));
 
-document.querySelector("#total-count").textContent = "988";
+document.querySelector("#total-count").textContent = "1588";
 renderLearningProfileUi();
 loadLearningLibraries().catch((error) => {
   learningLibrariesReady = false;
