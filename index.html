@@ -8,8 +8,8 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20261005a" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20261005a" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20261005b" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20261005b" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -137,7 +137,7 @@
             </div>
           </div>
           <figure class="hero-courtyard" aria-label="Minh họa sân nhà cổ Trung Hoa">
-            <img src="assets/hero-courtyard.png?v=clarity-20261005a" alt="Minh họa sân nhà cổ Trung Hoa" />
+            <img src="assets/hero-courtyard.png?v=clarity-20261005b" alt="Minh họa sân nhà cổ Trung Hoa" />
           </figure>
 
         </div>
@@ -201,6 +201,40 @@
             <button type="submit">Tìm</button>
           </div>
         </form>
+        <div class="lookup-scope-control">
+          <label for="lookup-scope">KHÓA PHẠM VI TRA</label>
+          <select id="lookup-scope">
+            <option value="all">Toàn bộ app</option>
+            <option value="hsk4-course">Chỉ dữ liệu HSK4 mới</option>
+            <option value="hsk4-workbook-10">HSK4 · 10 bài nghe/đề</option>
+            <option value="hsk4-textbook-2part">HSK4 · giáo trình 2 phần</option>
+            <optgroup label="10 bài nghe/đề">
+              <option value="hsk4-workbook-10:lesson:1">Bài 1 · 10 bài nghe/đề</option>
+              <option value="hsk4-workbook-10:lesson:2">Bài 2 · 10 bài nghe/đề</option>
+              <option value="hsk4-workbook-10:lesson:3">Bài 3 · 10 bài nghe/đề</option>
+              <option value="hsk4-workbook-10:lesson:4">Bài 4 · 10 bài nghe/đề</option>
+              <option value="hsk4-workbook-10:lesson:5">Bài 5 · 10 bài nghe/đề</option>
+              <option value="hsk4-workbook-10:lesson:6">Bài 6 · 10 bài nghe/đề</option>
+              <option value="hsk4-workbook-10:lesson:7">Bài 7 · 10 bài nghe/đề</option>
+              <option value="hsk4-workbook-10:lesson:8">Bài 8 · 10 bài nghe/đề</option>
+              <option value="hsk4-workbook-10:lesson:9">Bài 9 · 10 bài nghe/đề</option>
+              <option value="hsk4-workbook-10:lesson:10">Bài 10 · 10 bài nghe/đề</option>
+            </optgroup>
+            <optgroup label="Giáo trình 2 phần">
+              <option value="hsk4-textbook-2part:lesson:1">Bài 1 · giáo trình 2 phần</option>
+              <option value="hsk4-textbook-2part:lesson:2">Bài 2 · giáo trình 2 phần</option>
+              <option value="hsk4-textbook-2part:lesson:3">Bài 3 · giáo trình 2 phần</option>
+              <option value="hsk4-textbook-2part:lesson:4">Bài 4 · giáo trình 2 phần</option>
+              <option value="hsk4-textbook-2part:lesson:5">Bài 5 · giáo trình 2 phần</option>
+              <option value="hsk4-textbook-2part:lesson:6">Bài 6 · giáo trình 2 phần</option>
+              <option value="hsk4-textbook-2part:lesson:7">Bài 7 · giáo trình 2 phần</option>
+              <option value="hsk4-textbook-2part:lesson:8">Bài 8 · giáo trình 2 phần</option>
+              <option value="hsk4-textbook-2part:lesson:9">Bài 9 · giáo trình 2 phần</option>
+              <option value="hsk4-textbook-2part:lesson:10">Bài 10 · giáo trình 2 phần</option>
+            </optgroup>
+          </select>
+          <small>Phạm vi này áp dụng cả cho ô “Tra từ” trên thanh đầu trang.</small>
+        </div>
 
         <p class="hsk-result-summary" id="pinyin-result-summary" aria-live="polite">Nhập một từ hoặc âm Pinyin để bắt đầu.</p>
         <div class="pinyin-result-grid" id="pinyin-result-grid"></div>
@@ -599,6 +633,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20261005a"></script>
+    <script src="app.js?v=clarity-20261005b"></script>
   </body>
 </html>

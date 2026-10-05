@@ -1968,6 +1968,7 @@ const lookupPopoverSummary = document.querySelector("#lookup-popover-summary");
 const lookupPopoverResults = document.querySelector("#lookup-popover-results");
 const pinyinDictionaryForm = document.querySelector("#pinyin-dictionary-search");
 const pinyinDictionaryInput = document.querySelector("#pinyin-dictionary-input");
+const lookupScopeSelect = document.querySelector("#lookup-scope");
 const pinyinAnalysis = document.querySelector("#pinyin-analysis");
 const pinyinToneFilter = document.querySelector("#pinyin-tone-filter");
 const pinyinInitialShortcuts = document.querySelector("#pinyin-initial-shortcuts");
@@ -1977,12 +1978,13 @@ const pinyinContrastTool = document.querySelector(".pinyin-contrast-tool");
 const pinyinResultSummary = document.querySelector("#pinyin-result-summary");
 const pinyinResultGrid = document.querySelector("#pinyin-result-grid");
 const PINYIN_DICTIONARY_RENDER_LIMIT = 80;
-const PINYIN_DICTIONARY_INPUT_DELAY = 160;
+const PINYIN_DICTIONARY_INPUT_DELAY = 230;
 const LOOKUP_POPOVER_RENDER_LIMIT = 24;
 const LOOKUP_POPOVER_MULTI_RENDER_LIMIT = 8;
 const LOOKUP_POPOVER_MULTI_QUERY_LIMIT = 5;
 const LOOKUP_POPOVER_STORAGE_KEY = "hanziLookupPopoverRect";
 const LOOKUP_POPOVER_EDGE_SIZE = 14;
+const LOOKUP_SCOPE_STORAGE_KEY = "hanziLookupScope";
 const HSK_BASE_EXPECTED_COUNT = 988;
 const HSK4_EXPECTED_COUNT = 600;
 const HSK4_VOCABULARY_URL = "data/hsk4-vocabulary.json?v=hsk4-20260929a";
@@ -1991,6 +1993,7 @@ const HSK4_COURSE_SEARCH_URL = "data/hsk4-course-search.json?v=hsk4-course-20261
 let pinyinDictionaryRenderTimer = 0;
 let lookupPopoverRenderTimer = 0;
 let lookupPopoverMoved = false;
+let activeLookupScope = localStorage.getItem(LOOKUP_SCOPE_STORAGE_KEY) || "all";
 
 function getStoredWordDialogPosition() {
   try {
@@ -2744,6 +2747,51 @@ function normalizeLookupPinyin(value) {
     .replace(/[^a-zv]/g, "");
 }
 
+function getLookupScopeLabel(scope = activeLookupScope) {
+  if (scope === "all") return "toàn bộ app";
+  if (scope === "hsk4-course") return "dữ liệu HSK4 mới";
+  if (scope === "hsk4-workbook-10") return "HSK4 · 10 bài nghe/đề";
+  if (scope === "hsk4-textbook-2part") return "HSK4 · giáo trình 2 phần";
+  const lessonMatch = String(scope || "").match(/^(hsk4-workbook-10|hsk4-textbook-2part):lesson:(\d+)$/);
+  if (!lessonMatch) return "toàn bộ app";
+  const sourceLabel = lessonMatch[1] === "hsk4-workbook-10" ? "10 bài nghe/đề" : "giáo trình 2 phần";
+  return `Bài ${lessonMatch[2]} · ${sourceLabel}`;
+}
+
+function lookupScopeUsesHsk4Course(scope = activeLookupScope) {
+  return scope === "all"
+    || scope === "hsk4-course"
+    || scope === "hsk4-workbook-10"
+    || scope === "hsk4-textbook-2part"
+    || /^hsk4-(workbook-10|textbook-2part):lesson:\d+$/.test(String(scope || ""));
+}
+
+function lookupScopeMatchesEntry(entry, scope = activeLookupScope) {
+  if (!entry || scope === "all") return true;
+  if (scope === "hsk4-course") return entry.kind === "hsk4-course";
+  if (scope === "hsk4-workbook-10" || scope === "hsk4-textbook-2part") {
+    return entry.kind === "hsk4-course" && entry.sourceId === scope;
+  }
+  const lessonMatch = String(scope || "").match(/^(hsk4-workbook-10|hsk4-textbook-2part):lesson:(\d+)$/);
+  if (!lessonMatch) return true;
+  return entry.kind === "hsk4-course"
+    && entry.sourceId === lessonMatch[1]
+    && String(entry.lesson) === lessonMatch[2];
+}
+
+function setLookupScope(scope) {
+  const nextScope = scope || "all";
+  activeLookupScope = nextScope;
+  localStorage.setItem(LOOKUP_SCOPE_STORAGE_KEY, nextScope);
+  if (lookupScopeSelect && lookupScopeSelect.value !== nextScope) {
+    lookupScopeSelect.value = nextScope;
+  }
+  if (pinyinDictionaryInput?.value.trim()) renderPinyinDictionary();
+  if (lookupPopover && !lookupPopover.hidden && headerLookupInput.value.trim()) {
+    renderLookupPopover(headerLookupInput.value);
+  }
+}
+
 let globalLookupEntriesCacheKey = "";
 let globalLookupEntriesCache = [];
 
@@ -2759,7 +2807,9 @@ function getGlobalLookupCacheKey() {
 }
 
 function indexGlobalLookupEntry(entry) {
-  entry.meaningSearchVariants = getVietnameseSearchVariants(entry.meaning);
+  entry.meaningSearchVariants = entry.lightIndex
+    ? [normalizeSearchText(entry.meaning)].filter(Boolean)
+    : getVietnameseSearchVariants(entry.meaning);
   entry.meaningCompactVariants = [
     ...new Set(entry.meaningSearchVariants.map(compactSearchText).filter(Boolean)),
   ];
@@ -2786,7 +2836,9 @@ function createGlobalLookupEntry(fields) {
     fields.sentence,
     fields.extra,
   ].filter(Boolean);
-  const searchText = [...new Set(searchParts.flatMap(getVietnameseSearchVariants))].join(" ");
+  const searchText = fields.lightIndex
+    ? normalizeSearchText(searchParts.join(" "))
+    : [...new Set(searchParts.flatMap(getVietnameseSearchVariants))].join(" ");
   return indexGlobalLookupEntry({
     ...fields,
     hanzi,
@@ -2867,6 +2919,7 @@ function buildGlobalLookupEntries() {
 
   hsk4CourseSearchEntries.forEach((item) => addEntry({
     kind: "hsk4-course",
+    lightIndex: true,
     hanzi: item.zh,
     pinyin: item.py,
     pinyinSearch: item.py,
@@ -3862,13 +3915,14 @@ function renderPinyinContrast() {
   pinyinContrastResults.innerHTML = items.map(renderPinyinContrastItem).join("");
 }
 
-function getLookupWords(rawQuery, tone = "all") {
+function getLookupWords(rawQuery, tone = "all", options = {}) {
   rawQuery = String(rawQuery || "").trim();
   if (!rawQuery) return [];
+  const scope = options.scope || activeLookupScope;
   const intent = getDictionaryLookupIntent(rawQuery);
   const query = intent === "pinyin" ? normalizeLookupPinyin(stripPinyinToneInput(rawQuery)) : normalizeSearchText(rawQuery);
   const smartTargets = intent === "meaning" ? getSmartMeaningTargets(query) : [];
-  const entries = getGlobalLookupEntries();
+  const entries = getGlobalLookupEntries().filter((entry) => lookupScopeMatchesEntry(entry, scope));
   const matches = [];
   entries.forEach((entry) => {
     const smartIndex = smartTargets.indexOf(entry.hanzi);
@@ -3904,7 +3958,7 @@ function getLookupWords(rawQuery, tone = "all") {
 }
 
 function getPinyinDictionaryWords() {
-  return getLookupWords(pinyinDictionaryInput.value.trim(), pinyinDictionaryTone);
+  return getLookupWords(pinyinDictionaryInput.value.trim(), pinyinDictionaryTone, { scope: activeLookupScope });
 }
 
 function getLookupDetailMeta(entry) {
@@ -4136,7 +4190,7 @@ function renderPinyinDictionary() {
     pinyinAnalysis.innerHTML = "";
   }
   if (!rawQuery) {
-    pinyinResultSummary.textContent = "Nhập một từ hoặc âm Pinyin để bắt đầu.";
+    pinyinResultSummary.textContent = `Nhập một từ hoặc âm Pinyin để bắt đầu. Phạm vi: ${getLookupScopeLabel()}.`;
     pinyinResultGrid.innerHTML = "";
     return;
   }
@@ -4152,14 +4206,17 @@ function renderPinyinDictionary() {
     return;
   }
 
-  requestHsk4VocabularyRefresh(rawQuery);
-  requestHsk4CourseSearchRefresh(rawQuery);
+  if (activeLookupScope !== "hsk4-course" && !activeLookupScope.includes(":lesson:")) {
+    requestHsk4VocabularyRefresh(rawQuery);
+  }
+  if (lookupScopeUsesHsk4Course()) requestHsk4CourseSearchRefresh(rawQuery);
   const matches = getPinyinDictionaryWords();
   const visibleMatches = matches.slice(0, PINYIN_DICTIONARY_RENDER_LIMIT);
   const lookupNote = getCombinedLookupStatusNote();
+  const scopeLabel = getLookupScopeLabel();
   pinyinResultSummary.textContent = matches.length
-    ? `Tìm thấy ${matches.length} mục trong toàn bộ app${matches.length > visibleMatches.length ? `, đang hiện ${visibleMatches.length} mục đầu` : ""}.${lookupNote}`
-    : `Chưa có mục phù hợp trong app. Thử chữ Hán, Pinyin như “pao bu”, cụm HSK4 hoặc nghĩa Việt như “chạy bộ”.${lookupNote}`;
+    ? `Tìm thấy ${matches.length} mục trong ${scopeLabel}${matches.length > visibleMatches.length ? `, đang hiện ${visibleMatches.length} mục đầu` : ""}.${lookupNote}`
+    : `Chưa có mục phù hợp trong ${scopeLabel}. Thử chữ Hán, Pinyin như “pao bu”, cụm HSK4 hoặc nghĩa Việt như “chạy bộ”.${lookupNote}`;
   pinyinResultGrid.innerHTML = visibleMatches.map((entry) => `
     <article class="pinyin-result-card">
       <button class="pinyin-result-open" data-global-lookup="${escapeHtml(entry.id)}" type="button">
@@ -4225,9 +4282,9 @@ function getLookupPopoverStoredRect() {
 
 function getLookupPopoverPreferredSize(queryCount = 1) {
   const count = Math.min(Math.max(Number(queryCount) || 1, 1), LOOKUP_POPOVER_MULTI_QUERY_LIMIT);
-  const baseWidth = 430;
+  const baseWidth = count > 1 ? 430 : 640;
   const width = Math.min(baseWidth * count, window.innerWidth - 24);
-  const height = Math.min(count > 1 ? 600 : 520, window.innerHeight - 88);
+  const height = Math.min(count > 1 ? 660 : 640, window.innerHeight - 88);
   return { width, height };
 }
 
@@ -4359,7 +4416,7 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
   lookupPopover.classList.toggle("is-multi-lookup", queryCount > 1);
   autoSizeLookupPopover(queryCount);
   if (!rawQuery) {
-    lookupPopoverSummary.textContent = "Gõ Hán tự, Pinyin hoặc nghĩa Việt để tra.";
+    lookupPopoverSummary.textContent = `Gõ Hán tự, Pinyin hoặc nghĩa Việt để tra. Phạm vi: ${getLookupScopeLabel()}.`;
     lookupPopoverResults.innerHTML = "";
     return;
   }
@@ -4376,14 +4433,18 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
     return;
   }
 
-  requestHsk4VocabularyRefresh(rawQuery);
-  requestHsk4CourseSearchRefresh(rawQuery);
+  if (activeLookupScope !== "hsk4-course" && !activeLookupScope.includes(":lesson:")) {
+    requestHsk4VocabularyRefresh(rawQuery);
+  }
+  if (lookupScopeUsesHsk4Course()) requestHsk4CourseSearchRefresh(rawQuery);
   const lookupNote = getCombinedLookupStatusNote();
+  const scopeLabel = getLookupScopeLabel();
   const renderPopoverCard = (entry) => {
     const hanzi = getLookupPopoverHanziPreview(entry);
     const longClass = hanzi.length > 6 ? " lookup-popover-card--long" : "";
+    const courseClass = entry.kind === "hsk4-course" ? " lookup-popover-card--course" : "";
     return `
-      <button class="lookup-popover-card${longClass}" data-global-lookup="${escapeHtml(entry.id)}" type="button">
+      <button class="lookup-popover-card${longClass}${courseClass}" data-global-lookup="${escapeHtml(entry.id)}" type="button">
         <strong lang="zh-Hans">${escapeHtml(hanzi)}</strong>
         <span>
           <span>${escapeHtml(getLookupPopoverPinyinPreview(entry))}</span>
@@ -4404,7 +4465,7 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
           message: "Gõ thêm ít nhất 2 ký tự.",
         };
       }
-      const matches = getLookupWords(item, "all");
+      const matches = getLookupWords(item, "all", { scope: activeLookupScope });
       return {
         item,
         matches,
@@ -4415,8 +4476,8 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
     const totalMatches = groups.reduce((sum, group) => sum + group.matches.length, 0);
     const truncatedNote = allQueries.length > queries.length ? ` Chỉ lấy ${LOOKUP_POPOVER_MULTI_QUERY_LIMIT} cụm đầu.` : "";
     lookupPopoverSummary.textContent = totalMatches
-      ? `So sánh ${queryCount} cụm: ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}${lookupNote}`
-      : `Chưa có mục phù hợp cho ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}${lookupNote}`;
+      ? `So sánh ${queryCount} cụm trong ${scopeLabel}: ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}${lookupNote}`
+      : `Chưa có mục phù hợp trong ${scopeLabel} cho ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}${lookupNote}`;
     lookupPopoverResults.innerHTML = `
       <div class="lookup-popover-query-grid">
         ${groups.map((group) => `
@@ -4437,11 +4498,11 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
     return;
   }
 
-  const matches = getLookupWords(rawQuery, "all");
+  const matches = getLookupWords(rawQuery, "all", { scope: activeLookupScope });
   const visibleMatches = matches.slice(0, LOOKUP_POPOVER_RENDER_LIMIT);
   lookupPopoverSummary.textContent = matches.length
-    ? `Tìm thấy ${matches.length} mục cho “${rawQuery}”${matches.length > visibleMatches.length ? `, hiện ${visibleMatches.length} mục đầu` : ""}.${lookupNote}`
-    : `Chưa có mục phù hợp cho “${rawQuery}”.${lookupNote}`;
+    ? `Tìm thấy ${matches.length} mục trong ${scopeLabel} cho “${rawQuery}”${matches.length > visibleMatches.length ? `, hiện ${visibleMatches.length} mục đầu` : ""}.${lookupNote}`
+    : `Chưa có mục phù hợp trong ${scopeLabel} cho “${rawQuery}”.${lookupNote}`;
   lookupPopoverResults.innerHTML = visibleMatches.map(renderPopoverCard).join("");
 }
 
@@ -10345,6 +10406,15 @@ pinyinDictionaryInput.addEventListener("input", () => {
   pinyinDictionaryTone = "all";
   schedulePinyinDictionaryRender();
 });
+
+if (lookupScopeSelect) {
+  const availableLookupScopes = new Set(Array.from(lookupScopeSelect.options).map((option) => option.value));
+  if (!availableLookupScopes.has(activeLookupScope)) activeLookupScope = "all";
+  lookupScopeSelect.value = activeLookupScope;
+  lookupScopeSelect.addEventListener("change", () => {
+    setLookupScope(lookupScopeSelect.value);
+  });
+}
 
 pinyinToneFilter?.addEventListener("click", (event) => {
   const button = event.target.closest("[data-pinyin-tone]");
