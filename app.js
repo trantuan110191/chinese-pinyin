@@ -1987,7 +1987,7 @@ const LOOKUP_POPOVER_EDGE_SIZE = 14;
 const LOOKUP_SCOPE_STORAGE_KEY = "hanziLookupScope";
 const HSK_BASE_EXPECTED_COUNT = 988;
 const HSK4_EXPECTED_COUNT = 600;
-const HSK4_VOCABULARY_URL = "data/hsk4-vocabulary.json?v=hsk4-20260929a";
+const HSK4_VOCABULARY_URL = "data/hsk4-vocabulary.json?v=hsk4-20261006a";
 const HSK4_COURSE_SEARCH_EXPECTED_COUNT = 1543;
 const HSK4_COURSE_SEARCH_URL = "data/hsk4-course-search.json?v=hsk4-course-20261005a";
 let pinyinDictionaryRenderTimer = 0;
