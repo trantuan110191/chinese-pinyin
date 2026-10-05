@@ -775,6 +775,28 @@ main.single-lesson-view > section:not([hidden]) {
   letter-spacing: 0.02em;
 }
 
+.lookup-match {
+  padding: 0 0.08em;
+  color: inherit;
+  background: rgba(238, 178, 65, 0.22);
+  border-radius: 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.lookup-match--soft {
+  background: rgba(217, 76, 63, 0.1);
+}
+
+.lookup-result-english {
+  color: rgba(30, 62, 83, 0.58) !important;
+  font-family: var(--sans) !important;
+  font-size: 11px !important;
+  font-style: normal !important;
+  font-weight: 650 !important;
+  line-height: 1.45 !important;
+}
+
 .lookup-popover-card--long {
   grid-template-columns: minmax(0, 1fr);
 }

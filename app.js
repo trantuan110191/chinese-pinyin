@@ -2779,6 +2779,21 @@ function lookupScopeMatchesEntry(entry, scope = activeLookupScope) {
     && String(entry.lesson) === lessonMatch[2];
 }
 
+function getHsk4CourseSourceShort(sourceId) {
+  if (sourceId === "hsk4-workbook-10") return "10 bài";
+  if (sourceId === "hsk4-textbook-2part") return "GT 2 phần";
+  return "HSK4";
+}
+
+function getHsk4CourseResultMeta(item) {
+  return [
+    getHsk4CourseSourceShort(item.sourceId),
+    item.lesson ? `Bài ${item.lesson}` : "",
+    item.type,
+    item.qid && item.qid !== "lesson" ? item.qid.toUpperCase() : "",
+  ].filter(Boolean).join(" · ");
+}
+
 function setLookupScope(scope) {
   const nextScope = scope || "all";
   activeLookupScope = nextScope;
@@ -2813,6 +2828,12 @@ function indexGlobalLookupEntry(entry) {
   entry.meaningCompactVariants = [
     ...new Set(entry.meaningSearchVariants.map(compactSearchText).filter(Boolean)),
   ];
+  entry.englishSearchVariants = entry.lightIndex
+    ? [normalizeSearchText(entry.english)].filter(Boolean)
+    : getVietnameseSearchVariants(entry.english);
+  entry.englishCompactVariants = [
+    ...new Set(entry.englishSearchVariants.map(compactSearchText).filter(Boolean)),
+  ];
   entry.searchTokens = String(entry.searchText || "").split(/\s+/).filter(Boolean);
   entry.searchTokenSet = new Set(entry.searchTokens);
   entry.searchCompactText = compactSearchText(entry.searchText);
@@ -2823,12 +2844,14 @@ function createGlobalLookupEntry(fields) {
   const hanzi = String(fields.hanzi || "").trim();
   const pinyin = String(fields.pinyin || "").trim();
   const meaning = String(fields.meaning || "").trim();
-  if (!hanzi && !pinyin && !meaning) return null;
+  const english = String(fields.english || "").trim();
+  if (!hanzi && !pinyin && !meaning && !english) return null;
   const source = String(fields.source || "Trong app").trim();
   const searchParts = [
     hanzi,
     pinyin,
     meaning,
+    english,
     source,
     fields.topic,
     fields.date,
@@ -2844,8 +2867,9 @@ function createGlobalLookupEntry(fields) {
     hanzi,
     pinyin,
     meaning,
+    english,
     source,
-    sourceText: [source, fields.topic, fields.date].filter(Boolean).join(" · "),
+    sourceText: fields.sourceText || [source, fields.topic, fields.date].filter(Boolean).join(" · "),
     audioText: fields.audioText || hanzi,
     pinyinBase: normalizeLookupPinyin(pinyin),
     pinyinSearchBase: normalizeLookupPinyin([pinyin, fields.pinyinSearch].filter(Boolean).join(" ")),
@@ -2924,7 +2948,9 @@ function buildGlobalLookupEntries() {
     pinyin: item.py,
     pinyinSearch: item.py,
     meaning: item.vi || item.en || item.topic,
-    source: item.sourceLabel,
+    english: item.en,
+    source: "HSK4",
+    sourceText: getHsk4CourseResultMeta(item),
     topic: item.topic,
     chunk: [`Bài ${item.lesson}`, item.type, item.qid].filter(Boolean).join(" · "),
     extra: [
@@ -3033,10 +3059,17 @@ function getGlobalLookupMatchRank(entry, rawQuery, intent = getDictionaryLookupI
   const meaningVariants = entry.meaningSearchVariants || getVietnameseSearchVariants(entry.meaning);
   const meaningCompactVariants = entry.meaningCompactVariants
     || [...new Set(meaningVariants.map(compactSearchText).filter(Boolean))];
+  const englishVariants = entry.englishSearchVariants || getVietnameseSearchVariants(entry.english);
+  const englishCompactVariants = entry.englishCompactVariants
+    || [...new Set(englishVariants.map(compactSearchText).filter(Boolean))];
   if (queryVariants.some((query) => meaningVariants.includes(query))) return 0;
+  if (queryVariants.some((query) => englishVariants.includes(query))) return 0;
   if (compactQueryVariants.some((query) => meaningCompactVariants.includes(query))) return 0;
+  if (compactQueryVariants.some((query) => englishCompactVariants.includes(query))) return 0;
   if (queryVariants.some((query) => meaningVariants.some((meaning) => meaning.startsWith(`${query} `)))) return 1;
+  if (queryVariants.some((query) => englishVariants.some((english) => english.startsWith(`${query} `)))) return 1;
   if (compactQueryVariants.some((query) => meaningCompactVariants.some((meaning) => meaning.startsWith(query)))) return 1;
+  if (compactQueryVariants.some((query) => englishCompactVariants.some((english) => english.startsWith(query)))) return 1;
   if (queryVariants.some((query) => entry.searchTokenSet?.has(query) || searchText.split(/\s+/).includes(query))) return 2;
   if (queryVariants.some((query) => searchText.includes(query))) return 3;
   if (compactQueryVariants.some((query) => searchCompactText.includes(query))) return 4;
@@ -3530,32 +3563,125 @@ function shortenText(value, maxLength = 190) {
   return `${text.slice(0, maxLength).trim()}...`;
 }
 
-function getLookupPreviewText(entry, field, maxLength, courseMaxLength = maxLength) {
-  return shortenText(entry?.[field] || "", entry?.kind === "hsk4-course" ? courseMaxLength : maxLength);
+function escapeRegExp(value) {
+  return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function getLookupHanziPreview(entry) {
-  return getLookupPreviewText(entry, "hanzi", 190, 86);
+function getHighlightSearchTerms(rawQuery) {
+  const raw = String(rawQuery || "").trim();
+  if (!raw) return [];
+  if (/[\u3400-\u9fff]/.test(raw)) {
+    return [...new Set((raw.match(/[\u3400-\u9fff]+/g) || [raw]).filter(Boolean))];
+  }
+  const normalized = normalize(raw).replace(/[^\p{L}\p{N}\s]+/gu, " ").replace(/\s+/g, " ").trim();
+  const terms = [];
+  if (normalized.length >= 2) terms.push(normalized);
+  normalized.split(/\s+/).forEach((part) => {
+    if (part.length >= 2) terms.push(part);
+  });
+  return [...new Set(terms)].sort((left, right) => right.length - left.length);
 }
 
-function getLookupPinyinPreview(entry) {
-  return getLookupPreviewText(entry, "pinyin", 190, 118);
+function findLookupHighlightRanges(value, rawQuery) {
+  const text = String(value || "");
+  if (!text || !rawQuery) return [];
+  const normalizedText = normalize(text);
+  const ranges = [];
+  getHighlightSearchTerms(rawQuery).forEach((term) => {
+    const normalizedTerm = normalize(term);
+    if (!normalizedTerm) return;
+    let index = normalizedText.indexOf(normalizedTerm);
+    while (index >= 0) {
+      const end = index + normalizedTerm.length;
+      if (!ranges.some((range) => index < range.end && end > range.start)) {
+        ranges.push({ start: index, end });
+      }
+      index = normalizedText.indexOf(normalizedTerm, Math.max(index + 1, end));
+    }
+  });
+  return ranges.sort((left, right) => left.start - right.start);
 }
 
-function getLookupMeaningPreview(entry) {
-  return getLookupPreviewText(entry, "meaning", 190, 140);
+function hasLookupHighlight(value, rawQuery) {
+  return findLookupHighlightRanges(value, rawQuery).length > 0;
 }
 
-function getLookupPopoverHanziPreview(entry) {
-  return getLookupPreviewText(entry, "hanzi", 60, 36);
+function shortenTextAroundQuery(value, rawQuery, maxLength = 190) {
+  const text = String(value || "").trim();
+  if (text.length <= maxLength) return text;
+  const firstRange = findLookupHighlightRanges(text, rawQuery)[0];
+  if (!firstRange) return shortenText(text, maxLength);
+  const contextBefore = Math.max(10, Math.floor(maxLength * 0.32));
+  let start = Math.max(0, firstRange.start - contextBefore);
+  let end = Math.min(text.length, start + maxLength);
+  if (end - start < maxLength) start = Math.max(0, end - maxLength);
+  return `${start > 0 ? "..." : ""}${text.slice(start, end).trim()}${end < text.length ? "..." : ""}`;
 }
 
-function getLookupPopoverPinyinPreview(entry) {
-  return getLookupPreviewText(entry, "pinyin", 120, 68);
+function renderLookupHighlightedText(value, rawQuery, options = {}) {
+  const text = String(value || "");
+  const ranges = findLookupHighlightRanges(text, rawQuery);
+  if (!ranges.length) {
+    if (options.markWhole) {
+      return `<mark class="lookup-match lookup-match--soft">${escapeHtml(text)}</mark>`;
+    }
+    return escapeHtml(text);
+  }
+  let html = "";
+  let cursor = 0;
+  ranges.forEach((range) => {
+    html += escapeHtml(text.slice(cursor, range.start));
+    html += `<mark class="lookup-match">${escapeHtml(text.slice(range.start, range.end))}</mark>`;
+    cursor = range.end;
+  });
+  html += escapeHtml(text.slice(cursor));
+  return html;
 }
 
-function getLookupPopoverMeaningPreview(entry) {
-  return getLookupPreviewText(entry, "meaning", 120, 78);
+function shouldSoftMarkHanzi(entry, rawQuery) {
+  return entry?.kind === "hsk4-course"
+    && !/[\u3400-\u9fff]/.test(String(rawQuery || ""))
+    && (hasLookupHighlight(entry.meaning, rawQuery) || hasLookupHighlight(entry.english, rawQuery));
+}
+
+function getLookupPreviewText(entry, field, maxLength, courseMaxLength = maxLength, rawQuery = "") {
+  return shortenTextAroundQuery(entry?.[field] || "", rawQuery, entry?.kind === "hsk4-course" ? courseMaxLength : maxLength);
+}
+
+function getLookupHanziPreview(entry, rawQuery = "") {
+  return getLookupPreviewText(entry, "hanzi", 190, 86, rawQuery);
+}
+
+function getLookupPinyinPreview(entry, rawQuery = "") {
+  return getLookupPreviewText(entry, "pinyin", 190, 118, rawQuery);
+}
+
+function getLookupMeaningPreview(entry, rawQuery = "") {
+  return getLookupPreviewText(entry, "meaning", 190, 140, rawQuery);
+}
+
+function getLookupEnglishPreview(entry, rawQuery = "") {
+  return getLookupPreviewText(entry, "english", 190, 140, rawQuery);
+}
+
+function getLookupPopoverHanziPreview(entry, rawQuery = "") {
+  return getLookupPreviewText(entry, "hanzi", 60, 54, rawQuery);
+}
+
+function getLookupPopoverPinyinPreview(entry, rawQuery = "") {
+  return getLookupPreviewText(entry, "pinyin", 120, 88, rawQuery);
+}
+
+function getLookupPopoverMeaningPreview(entry, rawQuery = "") {
+  return getLookupPreviewText(entry, "meaning", 120, 96, rawQuery);
+}
+
+function getLookupPopoverEnglishPreview(entry, rawQuery = "") {
+  return getLookupPreviewText(entry, "english", 120, 96, rawQuery);
+}
+
+function getLookupResultSourceText(entry) {
+  return entry?.sourceText || entry?.source || "Tra trong app";
 }
 
 function getComponentLevelSummary(items) {
@@ -4217,16 +4343,23 @@ function renderPinyinDictionary() {
   pinyinResultSummary.textContent = matches.length
     ? `Tìm thấy ${matches.length} mục trong ${scopeLabel}${matches.length > visibleMatches.length ? `, đang hiện ${visibleMatches.length} mục đầu` : ""}.${lookupNote}`
     : `Chưa có mục phù hợp trong ${scopeLabel}. Thử chữ Hán, Pinyin như “pao bu”, cụm HSK4 hoặc nghĩa Việt như “chạy bộ”.${lookupNote}`;
-  pinyinResultGrid.innerHTML = visibleMatches.map((entry) => `
-    <article class="pinyin-result-card">
-      <button class="pinyin-result-open" data-global-lookup="${escapeHtml(entry.id)}" type="button">
-        <span class="hsk-word-level">${escapeHtml(entry.source)}</span>
-        <strong lang="zh-Hans">${escapeHtml(getLookupHanziPreview(entry))}</strong>
-        <span>${escapeHtml(getLookupPinyinPreview(entry))}</span>
-        <small>${escapeHtml(getLookupMeaningPreview(entry))}</small>
-      </button>
-    </article>
-  `).join("");
+  pinyinResultGrid.innerHTML = visibleMatches.map((entry) => {
+    const hanzi = getLookupHanziPreview(entry, rawQuery);
+    const pinyin = getLookupPinyinPreview(entry, rawQuery);
+    const meaning = getLookupMeaningPreview(entry, rawQuery);
+    const english = getLookupEnglishPreview(entry, rawQuery);
+    return `
+      <article class="pinyin-result-card">
+        <button class="pinyin-result-open" data-global-lookup="${escapeHtml(entry.id)}" type="button">
+          <span class="hsk-word-level">${escapeHtml(getLookupResultSourceText(entry))}</span>
+          <strong lang="zh-Hans">${renderLookupHighlightedText(hanzi, rawQuery, { markWhole: shouldSoftMarkHanzi(entry, rawQuery) })}</strong>
+          <span>${renderLookupHighlightedText(pinyin, rawQuery)}</span>
+          <small>${renderLookupHighlightedText(meaning, rawQuery)}</small>
+          ${english ? `<small class="lookup-result-english">EN · ${renderLookupHighlightedText(english, rawQuery)}</small>` : ""}
+        </button>
+      </article>
+    `;
+  }).join("");
 }
 
 function schedulePinyinDictionaryRender() {
@@ -4440,16 +4573,20 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
   const lookupNote = getCombinedLookupStatusNote();
   const scopeLabel = getLookupScopeLabel();
   const renderPopoverCard = (entry) => {
-    const hanzi = getLookupPopoverHanziPreview(entry);
+    const hanzi = getLookupPopoverHanziPreview(entry, rawQuery);
+    const pinyin = getLookupPopoverPinyinPreview(entry, rawQuery);
+    const meaning = getLookupPopoverMeaningPreview(entry, rawQuery);
+    const english = getLookupPopoverEnglishPreview(entry, rawQuery);
     const longClass = hanzi.length > 6 ? " lookup-popover-card--long" : "";
     const courseClass = entry.kind === "hsk4-course" ? " lookup-popover-card--course" : "";
     return `
       <button class="lookup-popover-card${longClass}${courseClass}" data-global-lookup="${escapeHtml(entry.id)}" type="button">
-        <strong lang="zh-Hans">${escapeHtml(hanzi)}</strong>
+        <strong lang="zh-Hans">${renderLookupHighlightedText(hanzi, rawQuery, { markWhole: shouldSoftMarkHanzi(entry, rawQuery) })}</strong>
         <span>
-          <span>${escapeHtml(getLookupPopoverPinyinPreview(entry))}</span>
-          <small>${escapeHtml(getLookupPopoverMeaningPreview(entry))}</small>
-          <em>${escapeHtml(entry.sourceText || entry.source)}</em>
+          <span>${renderLookupHighlightedText(pinyin, rawQuery)}</span>
+          <small>${renderLookupHighlightedText(meaning, rawQuery)}</small>
+          ${english ? `<small class="lookup-result-english">EN · ${renderLookupHighlightedText(english, rawQuery)}</small>` : ""}
+          <em>${escapeHtml(getLookupResultSourceText(entry))}</em>
         </span>
       </button>
     `;
