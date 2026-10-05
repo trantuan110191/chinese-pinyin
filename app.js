@@ -1986,6 +1986,8 @@ const LOOKUP_POPOVER_EDGE_SIZE = 14;
 const HSK_BASE_EXPECTED_COUNT = 988;
 const HSK4_EXPECTED_COUNT = 600;
 const HSK4_VOCABULARY_URL = "data/hsk4-vocabulary.json?v=hsk4-20260929a";
+const HSK4_COURSE_SEARCH_EXPECTED_COUNT = 1543;
+const HSK4_COURSE_SEARCH_URL = "data/hsk4-course-search.json?v=hsk4-course-20261005a";
 let pinyinDictionaryRenderTimer = 0;
 let lookupPopoverRenderTimer = 0;
 let lookupPopoverMoved = false;
@@ -2181,6 +2183,9 @@ let hskVocabulary = [];
 let hsk4Vocabulary = [];
 let hsk4LoadPromise = null;
 let hsk4LoadError = "";
+let hsk4CourseSearchEntries = [];
+let hsk4CourseSearchLoadPromise = null;
+let hsk4CourseSearchLoadError = "";
 let hskExplanationEntries = {};
 let neededNoteWords = [];
 let hskActiveLevel = "all";
@@ -2745,6 +2750,7 @@ let globalLookupEntriesCache = [];
 function getGlobalLookupCacheKey() {
   return [
     hskVocabulary.length,
+    hsk4CourseSearchEntries.length,
     neededNoteWords.length,
     grammarNotesData.notes?.length || 0,
     commonSentenceData.sentences?.length || 0,
@@ -2857,6 +2863,29 @@ function buildGlobalLookupEntries() {
     audioText: word.hanzi,
     extra: word.partOfSpeech,
     rawId: getHskWordKey(word),
+  }));
+
+  hsk4CourseSearchEntries.forEach((item) => addEntry({
+    kind: "hsk4-course",
+    hanzi: item.zh,
+    pinyin: item.py,
+    pinyinSearch: item.py,
+    meaning: item.vi || item.en || item.topic,
+    source: item.sourceLabel,
+    topic: item.topic,
+    chunk: [`Bài ${item.lesson}`, item.type, item.qid].filter(Boolean).join(" · "),
+    extra: [
+      item.en,
+      item.meta,
+      item.kind,
+      item.href,
+      `bai ${item.lesson}`,
+      `lesson ${item.lesson}`,
+    ].filter(Boolean).join(" "),
+    rawId: item.id,
+    lesson: item.lesson,
+    type: item.type,
+    sourceId: item.sourceId,
   }));
 
   neededNoteWords.forEach((word) => addEntry({
@@ -3232,6 +3261,81 @@ function requestHsk4VocabularyRefresh(rawQuery = "") {
     });
 }
 
+function normalizeHsk4CourseSearchItem(item, index) {
+  return {
+    ...item,
+    id: item.id || `hsk4-course-${String(index + 1).padStart(4, "0")}`,
+    sourceId: item.sourceId || "hsk4-course",
+    sourceLabel: item.sourceLabel || "HSK4 giáo trình",
+    lesson: item.lesson || "",
+    type: item.type || "Mục tra cứu",
+    topic: item.topic || item.meta || "",
+    zh: item.zh || "",
+    py: item.py || "",
+    vi: item.vi || "",
+    en: item.en || "",
+  };
+}
+
+async function loadHsk4CourseSearchEntries() {
+  if (hsk4CourseSearchEntries.length) return hsk4CourseSearchEntries;
+  if (hsk4CourseSearchLoadPromise) return hsk4CourseSearchLoadPromise;
+  hsk4CourseSearchLoadError = "";
+  hsk4CourseSearchLoadPromise = fetch(HSK4_COURSE_SEARCH_URL)
+    .then((response) => {
+      if (!response.ok) throw new Error("Không tải được dữ liệu HSK4 giáo trình.");
+      return response.json();
+    })
+    .then((data) => {
+      hsk4CourseSearchEntries = (data.items || []).map(normalizeHsk4CourseSearchItem);
+      globalLookupEntriesCacheKey = "";
+      globalLookupEntriesCache = [];
+      return hsk4CourseSearchEntries;
+    })
+    .catch((error) => {
+      hsk4CourseSearchLoadError = error.message || "Không tải được dữ liệu HSK4 giáo trình.";
+      hsk4CourseSearchLoadPromise = null;
+      throw error;
+    });
+  return hsk4CourseSearchLoadPromise;
+}
+
+function isHsk4CourseSearchLoading() {
+  return Boolean(hsk4CourseSearchLoadPromise && !hsk4CourseSearchEntries.length && !hsk4CourseSearchLoadError);
+}
+
+function getHsk4CourseLookupStatusNote() {
+  if (isHsk4CourseSearchLoading()) return " Đang tải thêm 1.543 mục HSK4 giáo trình.";
+  if (hsk4CourseSearchLoadError) return " Dữ liệu HSK4 giáo trình chưa tải được, thử tải lại trang.";
+  return "";
+}
+
+function getCombinedLookupStatusNote() {
+  return `${getHsk4LookupStatusNote()}${getHsk4CourseLookupStatusNote()}`;
+}
+
+function shouldLoadHsk4CourseSearch(rawQuery) {
+  return shouldLoadHsk4ForLookup(rawQuery);
+}
+
+function refreshViewsAfterHsk4CourseLoad() {
+  if (pinyinDictionaryInput?.value.trim()) renderPinyinDictionary();
+  if (lookupPopover && !lookupPopover.hidden && headerLookupInput.value.trim()) {
+    renderLookupPopover(headerLookupInput.value);
+  }
+}
+
+function requestHsk4CourseSearchRefresh(rawQuery = "") {
+  if (hsk4CourseSearchEntries.length || hsk4CourseSearchLoadPromise || hsk4CourseSearchLoadError) return;
+  if (rawQuery && !shouldLoadHsk4CourseSearch(rawQuery)) return;
+  loadHsk4CourseSearchEntries()
+    .then(refreshViewsAfterHsk4CourseLoad)
+    .catch((error) => {
+      console.error("loadHsk4CourseSearchEntries failed", error);
+      refreshViewsAfterHsk4CourseLoad();
+    });
+}
+
 function renderHskLevelFilter() {
   const levelCounts = hskVocabulary.reduce((counts, word) => {
     counts[word.level] = (counts[word.level] || 0) + 1;
@@ -3371,6 +3475,34 @@ function shortenText(value, maxLength = 190) {
   const text = String(value || "").trim();
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength).trim()}...`;
+}
+
+function getLookupPreviewText(entry, field, maxLength, courseMaxLength = maxLength) {
+  return shortenText(entry?.[field] || "", entry?.kind === "hsk4-course" ? courseMaxLength : maxLength);
+}
+
+function getLookupHanziPreview(entry) {
+  return getLookupPreviewText(entry, "hanzi", 190, 86);
+}
+
+function getLookupPinyinPreview(entry) {
+  return getLookupPreviewText(entry, "pinyin", 190, 118);
+}
+
+function getLookupMeaningPreview(entry) {
+  return getLookupPreviewText(entry, "meaning", 190, 140);
+}
+
+function getLookupPopoverHanziPreview(entry) {
+  return getLookupPreviewText(entry, "hanzi", 60, 36);
+}
+
+function getLookupPopoverPinyinPreview(entry) {
+  return getLookupPreviewText(entry, "pinyin", 120, 68);
+}
+
+function getLookupPopoverMeaningPreview(entry) {
+  return getLookupPreviewText(entry, "meaning", 120, 78);
 }
 
 function getComponentLevelSummary(items) {
@@ -3914,11 +4046,58 @@ function openGrammarNote(noteId) {
   showWordDialog();
 }
 
+function getHsk4CourseSearchEntryById(id) {
+  return hsk4CourseSearchEntries.find((item) => item.id === id) || null;
+}
+
+function renderHsk4CourseDetailSection(label, value, options = {}) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  return `
+    <section class="detail-section full-width hsk4-course-detail-section">
+      <p class="detail-label detail-label-accent">${escapeHtml(label)}</p>
+      <p class="hsk4-course-detail-text${options.hanzi ? " hsk4-course-detail-text--hanzi" : ""}"${options.hanzi ? ' lang="zh-Hans"' : ""}>
+        ${escapeHtml(text).replace(/\n/g, "<br>")}
+      </p>
+    </section>
+  `;
+}
+
+function openHsk4CourseSearchEntry(entryId) {
+  const item = getHsk4CourseSearchEntryById(entryId);
+  if (!item) return;
+  const meta = [
+    item.sourceLabel,
+    item.lesson ? `Bài ${item.lesson}` : "",
+    item.type,
+  ].filter(Boolean).join(" · ");
+  dialogContent.innerHTML = `
+    <article class="lookup-detail-dialog hsk4-course-detail-dialog">
+      <header class="lookup-detail-head hsk4-course-detail-head">
+        <p class="lookup-detail-kicker">${escapeHtml(meta || "HSK4 giáo trình")}</p>
+        <div class="lookup-detail-hanzi hsk4-course-detail-title">${escapeHtml(item.topic || item.meta || `Bài ${item.lesson || ""}`)}</div>
+        ${item.qid ? `<p class="lookup-detail-meaning-line">${escapeHtml([item.qid.toUpperCase(), item.kind, item.seg ? `đoạn ${item.seg}` : ""].filter(Boolean).join(" · "))}</p>` : ""}
+      </header>
+      <div class="dialog-body lookup-detail-body">
+        ${renderHsk4CourseDetailSection("Chữ Hán", item.zh, { hanzi: true })}
+        ${renderHsk4CourseDetailSection("Pinyin", item.py)}
+        ${renderHsk4CourseDetailSection("Nghĩa tiếng Việt", item.vi)}
+        ${renderHsk4CourseDetailSection("English", item.en)}
+      </div>
+    </article>
+  `;
+  showWordDialog();
+}
+
 function openGlobalLookupItem(entryId) {
   const entry = getGlobalLookupEntryById(entryId);
   if (!entry) return;
   if (entry.kind === "grammar") {
     openGrammarNote(entry.rawId);
+    return;
+  }
+  if (entry.kind === "hsk4-course") {
+    openHsk4CourseSearchEntry(entry.rawId);
     return;
   }
   if (entry.kind === "hsk" && findHskWord(entry.rawId || entry.hanzi)) {
@@ -3974,19 +4153,20 @@ function renderPinyinDictionary() {
   }
 
   requestHsk4VocabularyRefresh(rawQuery);
+  requestHsk4CourseSearchRefresh(rawQuery);
   const matches = getPinyinDictionaryWords();
   const visibleMatches = matches.slice(0, PINYIN_DICTIONARY_RENDER_LIMIT);
-  const hsk4Note = getHsk4LookupStatusNote();
+  const lookupNote = getCombinedLookupStatusNote();
   pinyinResultSummary.textContent = matches.length
-    ? `Tìm thấy ${matches.length} mục trong toàn bộ app${matches.length > visibleMatches.length ? `, đang hiện ${visibleMatches.length} mục đầu` : ""}.${hsk4Note}`
-    : `Chưa có mục phù hợp trong app. Thử chữ Hán, Pinyin như “pao bu” hoặc nghĩa Việt như “chạy bộ”.${hsk4Note}`;
+    ? `Tìm thấy ${matches.length} mục trong toàn bộ app${matches.length > visibleMatches.length ? `, đang hiện ${visibleMatches.length} mục đầu` : ""}.${lookupNote}`
+    : `Chưa có mục phù hợp trong app. Thử chữ Hán, Pinyin như “pao bu”, cụm HSK4 hoặc nghĩa Việt như “chạy bộ”.${lookupNote}`;
   pinyinResultGrid.innerHTML = visibleMatches.map((entry) => `
     <article class="pinyin-result-card">
       <button class="pinyin-result-open" data-global-lookup="${escapeHtml(entry.id)}" type="button">
         <span class="hsk-word-level">${escapeHtml(entry.source)}</span>
-        <strong lang="zh-Hans">${escapeHtml(entry.hanzi)}</strong>
-        <span>${escapeHtml(entry.pinyin)}</span>
-        <small>${escapeHtml(entry.meaning)}</small>
+        <strong lang="zh-Hans">${escapeHtml(getLookupHanziPreview(entry))}</strong>
+        <span>${escapeHtml(getLookupPinyinPreview(entry))}</span>
+        <small>${escapeHtml(getLookupMeaningPreview(entry))}</small>
       </button>
     </article>
   `).join("");
@@ -4197,16 +4377,17 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
   }
 
   requestHsk4VocabularyRefresh(rawQuery);
-  const hsk4Note = getHsk4LookupStatusNote();
+  requestHsk4CourseSearchRefresh(rawQuery);
+  const lookupNote = getCombinedLookupStatusNote();
   const renderPopoverCard = (entry) => {
-    const hanzi = String(entry.hanzi || "");
+    const hanzi = getLookupPopoverHanziPreview(entry);
     const longClass = hanzi.length > 6 ? " lookup-popover-card--long" : "";
     return `
       <button class="lookup-popover-card${longClass}" data-global-lookup="${escapeHtml(entry.id)}" type="button">
         <strong lang="zh-Hans">${escapeHtml(hanzi)}</strong>
         <span>
-          <span>${escapeHtml(entry.pinyin)}</span>
-          <small>${escapeHtml(entry.meaning)}</small>
+          <span>${escapeHtml(getLookupPopoverPinyinPreview(entry))}</span>
+          <small>${escapeHtml(getLookupPopoverMeaningPreview(entry))}</small>
           <em>${escapeHtml(entry.sourceText || entry.source)}</em>
         </span>
       </button>
@@ -4234,8 +4415,8 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
     const totalMatches = groups.reduce((sum, group) => sum + group.matches.length, 0);
     const truncatedNote = allQueries.length > queries.length ? ` Chỉ lấy ${LOOKUP_POPOVER_MULTI_QUERY_LIMIT} cụm đầu.` : "";
     lookupPopoverSummary.textContent = totalMatches
-      ? `So sánh ${queryCount} cụm: ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}${hsk4Note}`
-      : `Chưa có mục phù hợp cho ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}${hsk4Note}`;
+      ? `So sánh ${queryCount} cụm: ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}${lookupNote}`
+      : `Chưa có mục phù hợp cho ${queries.map((item) => `“${item}”`).join(", ")}.${truncatedNote}${lookupNote}`;
     lookupPopoverResults.innerHTML = `
       <div class="lookup-popover-query-grid">
         ${groups.map((group) => `
@@ -4259,8 +4440,8 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
   const matches = getLookupWords(rawQuery, "all");
   const visibleMatches = matches.slice(0, LOOKUP_POPOVER_RENDER_LIMIT);
   lookupPopoverSummary.textContent = matches.length
-    ? `Tìm thấy ${matches.length} mục cho “${rawQuery}”${matches.length > visibleMatches.length ? `, hiện ${visibleMatches.length} mục đầu` : ""}.${hsk4Note}`
-    : `Chưa có mục phù hợp cho “${rawQuery}”.${hsk4Note}`;
+    ? `Tìm thấy ${matches.length} mục cho “${rawQuery}”${matches.length > visibleMatches.length ? `, hiện ${visibleMatches.length} mục đầu` : ""}.${lookupNote}`
+    : `Chưa có mục phù hợp cho “${rawQuery}”.${lookupNote}`;
   lookupPopoverResults.innerHTML = visibleMatches.map(renderPopoverCard).join("");
 }
 

@@ -11731,6 +11731,46 @@ body:has(.lesson-menu[open]) .lookup-popover:not([hidden]) {
   font-size: 16px;
 }
 
+.hsk4-course-detail-dialog {
+  max-width: 920px;
+}
+
+.hsk4-course-detail-head {
+  text-align: left;
+}
+
+.hsk4-course-detail-title {
+  color: var(--blue);
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 760;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+}
+
+.hsk4-course-detail-section {
+  display: grid;
+  gap: 8px;
+}
+
+.hsk4-course-detail-text {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--reading);
+  font-size: 16px;
+  line-height: 1.72;
+  white-space: normal;
+}
+
+.hsk4-course-detail-text--hanzi {
+  color: var(--blue);
+  font-family: var(--hanzi);
+  font-size: clamp(23px, 3vw, 32px);
+  font-weight: 390;
+  letter-spacing: -0.01em;
+  line-height: 1.62;
+}
+
 .word-dialog .dialog-hero {
   grid-template-columns: 1fr;
   min-height: 0;
