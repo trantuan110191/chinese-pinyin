@@ -40,6 +40,10 @@ const profileScopedStorageKeys = new Set([
   "topicMemoryRatings",
   "topicReviewSchedule",
   "topicWorkshopProgress",
+  "hsk4StudyKnownWords",
+  "hsk4StudyIndex",
+  "hsk4StudyMode",
+  "hsk4StudyChoiceMode",
   "neededNotesKnownWords",
   "neededNotesIndex",
   "neededNotesMode",
@@ -55,6 +59,7 @@ const profileMergeStorageKeys = new Set([
   "topicMemoryRatings",
   "topicReviewSchedule",
   "topicWorkshopProgress",
+  "hsk4StudyKnownWords",
   "neededNotesKnownWords",
   "neededNotesMemoryRatings",
   "neededNotesCopyCounts",
@@ -2140,6 +2145,7 @@ const topicChoice = document.querySelector("#topic-choice");
 const topicStage = document.querySelector("#topic-stage");
 const topicDrill = document.querySelector("#topic-drill");
 const neededNotesApp = document.querySelector("#needed-notes-app");
+const hsk4StudyApp = document.querySelector("#hsk4-study-app");
 const componentContrastApp = document.querySelector("#component-contrast-app");
 const grammarNotesApp = document.querySelector("#grammar-notes-app");
 
@@ -2150,6 +2156,7 @@ const lessonLabels = {
   "component-contrast": "So sánh chữ dễ nhầm",
   "grammar-notes": "Ngữ pháp",
   "needed-notes": "Ghi chú từ cần học",
+  "hsk4-study": "HSK4 2.0",
   "hsk-library": "Kho từ HSK",
 };
 const adminOnlyLessonIds = new Set(["needed-notes"]);
@@ -2261,6 +2268,17 @@ let topicReviewPoolCacheKey = "";
 let topicReviewPoolCache = [];
 let topicWorkshopProgress = {};
 let topicWorkshopProgressLoadedKey = "";
+let hsk4StudyKnownWords = {};
+let hsk4StudyIndex = Math.max(0, Number(getAppStorage("hsk4StudyIndex")) || 0);
+let hsk4StudyMode = getAppStorage("hsk4StudyMode") || "choice";
+let hsk4StudyChoiceMode = getAppStorage("hsk4StudyChoiceMode") || "hanzi-to-english";
+let hsk4StudySelected = "";
+let hsk4StudyAnswered = false;
+let hsk4StudyAnsweredId = "";
+let hsk4StudyRevealVietnamese = false;
+let hsk4StudyChoiceOptions = [];
+let hsk4StudyChoiceOptionForId = "";
+let hsk4StudyVisibleLimit = 80;
 let neededNotesKnownWords = {};
 let neededNotesIndex = Math.max(0, Number(getAppStorage("neededNotesIndex")) || 0);
 let neededNotesMode = getAppStorage("neededNotesMode") || "choice";
@@ -2330,6 +2348,15 @@ try {
   }
 } catch {
   topicWorkshopProgress = {};
+}
+
+try {
+  hsk4StudyKnownWords = JSON.parse(getAppStorage("hsk4StudyKnownWords") || "{}") || {};
+  if (!hsk4StudyKnownWords || Array.isArray(hsk4StudyKnownWords) || typeof hsk4StudyKnownWords !== "object") {
+    hsk4StudyKnownWords = {};
+  }
+} catch {
+  hsk4StudyKnownWords = {};
 }
 
 try {
@@ -2494,6 +2521,9 @@ function showLesson(id, options = {}) {
     else link.removeAttribute("aria-current");
   });
   setAppStorage("activeLesson", targetId);
+  if (targetId === "hsk4-study") {
+    renderHsk4Study();
+  }
 
   if (options.stopAudio !== false) stopLessonAudio();
   if (options.scroll !== false) {
@@ -3329,6 +3359,7 @@ function refreshViewsAfterHsk4Load() {
   updateTotalVocabularyCount();
   renderHskLevelFilter();
   renderHskWords();
+  renderHsk4Study();
   renderPinyinContrast();
   if (pinyinDictionaryInput?.value.trim()) renderPinyinDictionary();
   if (lookupPopover && !lookupPopover.hidden && headerLookupInput.value.trim()) {
@@ -3534,6 +3565,420 @@ function toggleHskWordReveal(hanzi) {
     revealedHskWords.add(hanzi);
   }
   renderHskWords();
+}
+
+function getHsk4StudyWords() {
+  return hsk4Vocabulary.length
+    ? hsk4Vocabulary
+    : hskVocabulary.filter((word) => isImportedHsk4Word(word));
+}
+
+function getHsk4StudyWordId(word) {
+  return getHskWordKey(word);
+}
+
+function getHsk4StudyWordById(id) {
+  const key = String(id || "");
+  return getHsk4StudyWords().find((word) => getHsk4StudyWordId(word) === key) || null;
+}
+
+function getHsk4StudyEnglish(word) {
+  return String(word?.en || word?.english || word?.meaningEn || word?.englishMeaning || "").trim();
+}
+
+function getHsk4StudyVietnamese(word) {
+  return getConciseMeaning(word);
+}
+
+function isHsk4StudyWordKnown(wordOrId) {
+  const id = typeof wordOrId === "string" ? wordOrId : getHsk4StudyWordId(wordOrId);
+  return Boolean(id && hsk4StudyKnownWords[id]);
+}
+
+function getHsk4StudyActiveWords() {
+  return getHsk4StudyWords().filter((word) => !isHsk4StudyWordKnown(word));
+}
+
+function normalizeHsk4StudyMode(mode) {
+  return ["choice", "flashcard", "list"].includes(mode) ? mode : "choice";
+}
+
+function normalizeHsk4StudyChoiceMode(mode) {
+  return ["hanzi-to-english", "english-to-hanzi"].includes(mode) ? mode : "hanzi-to-english";
+}
+
+function saveHsk4StudyKnownWords() {
+  setAppStorage("hsk4StudyKnownWords", JSON.stringify(hsk4StudyKnownWords));
+}
+
+function saveHsk4StudyIndex() {
+  setAppStorage("hsk4StudyIndex", String(hsk4StudyIndex));
+}
+
+function resetHsk4StudyQuestionState() {
+  hsk4StudySelected = "";
+  hsk4StudyAnswered = false;
+  hsk4StudyAnsweredId = "";
+  hsk4StudyRevealVietnamese = false;
+  hsk4StudyChoiceOptions = [];
+  hsk4StudyChoiceOptionForId = "";
+}
+
+function getCurrentHsk4StudyWord() {
+  if (hsk4StudyAnswered && hsk4StudyAnsweredId) {
+    const answeredWord = getHsk4StudyWordById(hsk4StudyAnsweredId);
+    if (answeredWord) return answeredWord;
+  }
+  const words = getHsk4StudyActiveWords();
+  if (!words.length) return null;
+  if (hsk4StudyIndex >= words.length) {
+    hsk4StudyIndex = 0;
+    saveHsk4StudyIndex();
+  }
+  return words[hsk4StudyIndex] || words[0] || null;
+}
+
+function markHsk4StudyWordKnown(wordOrId) {
+  const word = typeof wordOrId === "string" ? getHsk4StudyWordById(wordOrId) : wordOrId;
+  const id = getHsk4StudyWordId(word);
+  if (!word || !id) return;
+  hsk4StudyKnownWords[id] = {
+    hanzi: word.hanzi,
+    pinyin: word.pinyin,
+    learnedAt: Date.now(),
+  };
+  saveHsk4StudyKnownWords();
+}
+
+function setHsk4StudyMode(mode) {
+  hsk4StudyMode = normalizeHsk4StudyMode(mode);
+  setAppStorage("hsk4StudyMode", hsk4StudyMode);
+  resetHsk4StudyQuestionState();
+  renderHsk4Study();
+}
+
+function setHsk4StudyChoiceMode(mode) {
+  hsk4StudyChoiceMode = normalizeHsk4StudyChoiceMode(mode);
+  setAppStorage("hsk4StudyChoiceMode", hsk4StudyChoiceMode);
+  resetHsk4StudyQuestionState();
+  renderHsk4Study();
+}
+
+function getHsk4StudyChoiceOptions(word) {
+  const id = getHsk4StudyWordId(word);
+  if (hsk4StudyChoiceOptionForId === id && hsk4StudyChoiceOptions.length) {
+    return hsk4StudyChoiceOptions;
+  }
+  const pool = getHsk4StudyWords().filter((item) => getHsk4StudyWordId(item) !== id);
+  const englishPool = pool.filter((item) => getHsk4StudyEnglish(item));
+  const sourcePool = getHsk4StudyEnglish(word) ? englishPool : pool;
+  const distractors = shuffle(sourcePool).slice(0, 3).map(getHsk4StudyWordId);
+  hsk4StudyChoiceOptions = shuffle([id, ...distractors]).filter(Boolean);
+  hsk4StudyChoiceOptionForId = id;
+  return hsk4StudyChoiceOptions;
+}
+
+function canRenderHsk4EnglishChoice(word) {
+  if (!getHsk4StudyEnglish(word)) return false;
+  const otherEnglishCount = getHsk4StudyWords()
+    .filter((item) => getHsk4StudyWordId(item) !== getHsk4StudyWordId(word) && getHsk4StudyEnglish(item))
+    .length;
+  return otherEnglishCount >= 3;
+}
+
+function answerHsk4StudyChoice(id) {
+  if (hsk4StudyAnswered) return;
+  const word = getCurrentHsk4StudyWord();
+  if (!word) return;
+  const correctId = getHsk4StudyWordId(word);
+  hsk4StudySelected = id;
+  hsk4StudyAnswered = true;
+  hsk4StudyAnsweredId = correctId;
+  hsk4StudyRevealVietnamese = true;
+  if (id === correctId) {
+    markHsk4StudyWordKnown(word);
+    playPositiveDing();
+  }
+  renderHsk4Study();
+}
+
+function nextHsk4StudyWord(options = {}) {
+  const activeWords = getHsk4StudyActiveWords();
+  if (activeWords.length) {
+    const keepIndex = Boolean(options.keepIndex);
+    hsk4StudyIndex = keepIndex
+      ? Math.min(hsk4StudyIndex, Math.max(0, activeWords.length - 1))
+      : (hsk4StudyIndex + 1) % activeWords.length;
+    saveHsk4StudyIndex();
+  }
+  resetHsk4StudyQuestionState();
+  renderHsk4Study();
+}
+
+function toggleHsk4StudyVietnamese() {
+  hsk4StudyRevealVietnamese = !hsk4StudyRevealVietnamese;
+  renderHsk4Study();
+}
+
+function markCurrentHsk4StudyKnown() {
+  const word = getCurrentHsk4StudyWord();
+  if (!word) return;
+  markHsk4StudyWordKnown(word);
+  playPositiveDing();
+  nextHsk4StudyWord({ keepIndex: true });
+}
+
+function resetHsk4StudyProgress() {
+  hsk4StudyKnownWords = {};
+  saveHsk4StudyKnownWords();
+  hsk4StudyIndex = 0;
+  saveHsk4StudyIndex();
+  resetHsk4StudyQuestionState();
+  renderHsk4Study();
+}
+
+function showMoreHsk4StudyList() {
+  hsk4StudyVisibleLimit += 80;
+  renderHsk4Study();
+}
+
+function openHsk4StudyWord(id) {
+  openHskWord(id);
+}
+
+function renderHsk4StudyToolbar(total, learned, remaining) {
+  const modeOptions = [
+    ["choice", "Chọn đáp án"],
+    ["flashcard", "Flash card"],
+    ["list", "Danh sách từ"],
+  ].map(([mode, label]) => `
+    <button class="${hsk4StudyMode === mode ? "is-active" : ""}" data-hsk4-study-mode="${mode}" type="button">
+      ${label}
+    </button>
+  `).join("");
+  const choiceModeOptions = [
+    ["hanzi-to-english", "Nhìn chữ chọn nghĩa Anh"],
+    ["english-to-hanzi", "Nhìn nghĩa Anh chọn chữ"],
+  ].map(([mode, label]) => `
+    <button class="${hsk4StudyChoiceMode === mode ? "is-active" : ""}" data-hsk4-study-choice-mode="${mode}" type="button">
+      ${label}
+    </button>
+  `).join("");
+
+  return `
+    <div class="hsk4-study-topline">
+      <div class="hsk4-study-stats">
+        <strong>${learned}/${total}</strong>
+        <span>đã học · còn ${remaining}</span>
+      </div>
+      <div class="hsk4-study-actions">
+        <button data-hsk4-study-reset type="button">Học lại từ đầu</button>
+      </div>
+    </div>
+    <div class="hsk4-study-toolbar" aria-label="Chọn kiểu học HSK4">
+      ${modeOptions}
+    </div>
+    ${hsk4StudyMode !== "list" ? `<div class="hsk4-study-choice-modes" aria-label="Chọn chiều học">${choiceModeOptions}</div>` : ""}
+  `;
+}
+
+function renderHsk4StudyVietnamese(word, forceVisible = false) {
+  const isVisible = forceVisible || hsk4StudyRevealVietnamese;
+  return `
+    <div class="hsk4-study-vi" ${isVisible ? "" : "hidden"}>
+      <span>VI</span>
+      <strong>${escapeHtml(getHsk4StudyVietnamese(word))}</strong>
+    </div>
+    ${isVisible ? "" : `
+      <button class="hsk4-study-inline" data-hsk4-study-toggle-vi type="button">
+        Xem nghĩa tiếng Việt
+      </button>
+    `}
+  `;
+}
+
+function renderHsk4StudyChoice(word, total, remaining) {
+  const correctId = getHsk4StudyWordId(word);
+  const canUseEnglish = canRenderHsk4EnglishChoice(word);
+  const english = getHsk4StudyEnglish(word);
+  const prompt = hsk4StudyChoiceMode === "english-to-hanzi"
+    ? `
+      <p class="hsk4-study-prompt-label">Nghĩa tiếng Anh</p>
+      <h3 class="hsk4-study-en">${escapeHtml(english || "Chưa có nghĩa tiếng Anh trong file nguồn")}</h3>
+    `
+    : `
+      <p class="hsk4-study-prompt-label">Chữ Hán</p>
+      <h3 class="hsk4-study-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</h3>
+      <p class="hsk4-study-pinyin">${escapeHtml(word.pinyin)}</p>
+    `;
+  const options = canUseEnglish ? getHsk4StudyChoiceOptions(word).map((id) => {
+    const optionWord = getHsk4StudyWordById(id);
+    const isSelected = hsk4StudySelected === id;
+    const isCorrect = id === correctId;
+    const className = hsk4StudyAnswered
+      ? isCorrect ? "is-correct" : isSelected ? "is-wrong" : ""
+      : "";
+    const label = hsk4StudyChoiceMode === "english-to-hanzi"
+      ? `<strong lang="zh-Hans">${escapeHtml(optionWord?.hanzi || "")}</strong><small>${escapeHtml(optionWord?.pinyin || "")}</small>`
+      : `<strong>${escapeHtml(getHsk4StudyEnglish(optionWord))}</strong>`;
+    return `
+      <button class="${className}" data-hsk4-study-answer="${escapeHtml(id)}" type="button" ${hsk4StudyAnswered ? "disabled" : ""}>
+        ${label}
+      </button>
+    `;
+  }).join("") : "";
+  const fallback = canUseEnglish ? "" : `
+    <div class="hsk4-study-missing-en">
+      <strong>File Word hiện chưa có nghĩa tiếng Anh cho bộ 600 từ.</strong>
+      <span>Mình đang giữ đúng nguồn: chưa tự dịch thêm. Bạn có thể bấm xem tiếng Việt để học tạm; khi dữ liệu có trường <code>en</code>, mục này sẽ tự thành chọn đáp án tiếng Anh.</span>
+    </div>
+  `;
+  const feedback = hsk4StudyAnswered ? `
+    <div class="hsk4-study-feedback ${hsk4StudySelected === correctId ? "is-correct" : "is-wrong"}">
+      <strong>${hsk4StudySelected === correctId ? "Đúng rồi." : "Chưa khớp."}</strong>
+      <span>${escapeHtml(word.hanzi)} · ${escapeHtml(word.pinyin)}${english ? ` · ${escapeHtml(english)}` : ""}</span>
+    </div>
+  ` : "";
+
+  return `
+    <article class="hsk4-study-card">
+      <div class="hsk4-study-counter">Còn ${remaining}/${total} từ</div>
+      <div class="hsk4-study-prompt">${prompt}</div>
+      ${fallback || `<div class="hsk4-study-options">${options}</div>`}
+      ${feedback}
+      ${renderHsk4StudyVietnamese(word, hsk4StudyAnswered)}
+      <div class="hsk4-study-card-actions">
+        <button data-hsk4-study-known type="button">Đã nhớ từ này</button>
+        <button data-hsk4-study-next type="button">${hsk4StudyAnswered ? "Từ tiếp theo" : "Bỏ qua"}</button>
+      </div>
+    </article>
+  `;
+}
+
+function renderHsk4StudyFlashcard(word, total, remaining) {
+  const english = getHsk4StudyEnglish(word);
+  return `
+    <article class="hsk4-study-card hsk4-study-card--flash">
+      <div class="hsk4-study-counter">Còn ${remaining}/${total} từ</div>
+      <p class="hsk4-study-prompt-label">Flash card</p>
+      <h3 class="hsk4-study-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</h3>
+      <p class="hsk4-study-pinyin">${escapeHtml(word.pinyin)}</p>
+      <div class="hsk4-study-answer-panel">
+        <span>EN</span>
+        <strong>${escapeHtml(english || "Chưa có nghĩa tiếng Anh trong file nguồn")}</strong>
+      </div>
+      ${renderHsk4StudyVietnamese(word)}
+      <div class="hsk4-study-card-actions">
+        <button data-hsk4-study-known type="button">Đã nhớ</button>
+        <button data-hsk4-study-next type="button">Từ tiếp theo</button>
+      </div>
+    </article>
+  `;
+}
+
+function renderHsk4StudyList(words, total, learned) {
+  const visibleWords = words.slice(0, hsk4StudyVisibleLimit);
+  const rows = visibleWords.map((word, index) => {
+    const id = getHsk4StudyWordId(word);
+    const english = getHsk4StudyEnglish(word);
+    return `
+      <article class="hsk4-study-row">
+        <span class="hsk4-study-row-index">${String(index + 1).padStart(3, "0")}</span>
+        <button data-hsk4-study-open="${escapeHtml(id)}" type="button">
+          <strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>
+          <small>${escapeHtml(word.pinyin)}</small>
+        </button>
+        <p>${escapeHtml(english || "Chưa có nghĩa Anh trong nguồn")}</p>
+        <span class="${isHsk4StudyWordKnown(word) ? "is-known" : ""}">${isHsk4StudyWordKnown(word) ? "đã học" : "chưa học"}</span>
+      </article>
+    `;
+  }).join("");
+  return `
+    <section class="hsk4-study-list">
+      <div class="hsk4-study-list-head">
+        <strong>Danh sách 600 từ HSK4 2.0</strong>
+        <small>${learned}/${total} đã học · danh sách không hiện nghĩa Việt trước.</small>
+      </div>
+      ${rows}
+      <button class="hsk4-study-more" data-hsk4-study-more type="button" ${visibleWords.length >= words.length ? "hidden" : ""}>
+        Xem thêm ${Math.min(80, words.length - visibleWords.length)} từ
+      </button>
+    </section>
+  `;
+}
+
+function isHsk4StudyActiveLesson() {
+  return window.location.hash.slice(1) === "hsk4-study" || getAppStorage("activeLesson") === "hsk4-study";
+}
+
+function renderHsk4Study() {
+  if (!hsk4StudyApp) return;
+  hsk4StudyMode = normalizeHsk4StudyMode(hsk4StudyMode);
+  hsk4StudyChoiceMode = normalizeHsk4StudyChoiceMode(hsk4StudyChoiceMode);
+  if (!learningLibrariesReady && !hsk4Vocabulary.length) {
+    hsk4StudyApp.innerHTML = `
+      <div class="hsk4-study-empty">
+        <strong>Đang nạp dữ liệu nền...</strong>
+        <span>Sau khi kho HSK 1-3 sẵn sàng, app sẽ tải riêng 600 từ HSK4 2.0.</span>
+      </div>
+    `;
+    return;
+  }
+  if (!hsk4Vocabulary.length && !hsk4LoadError && !isHsk4StudyActiveLesson()) {
+    hsk4StudyApp.innerHTML = `
+      <div class="hsk4-study-empty">
+        <strong>Mục HSK4 2.0 đã sẵn sàng.</strong>
+        <span>Mở mục này thì app mới tải 600 từ file Word, để trang chính nhẹ hơn.</span>
+      </div>
+    `;
+    return;
+  }
+  if (!hsk4Vocabulary.length && !hsk4LoadError) {
+    requestHsk4VocabularyRefresh("hsk4");
+  }
+  const words = getHsk4StudyWords();
+  if (!words.length) {
+    hsk4StudyApp.innerHTML = `
+      <div class="hsk4-study-empty">
+        <strong>${hsk4LoadError ? "Chưa tải được HSK4 2.0." : "Đang tải 600 từ HSK4 2.0..."}</strong>
+        <span>${hsk4LoadError ? escapeHtml(hsk4LoadError) : "App chỉ tải file này khi bạn mở mục học, để trang nhẹ hơn."}</span>
+        ${hsk4LoadError ? `<button data-hsk4-study-retry type="button">Tải lại HSK4</button>` : ""}
+      </div>
+    `;
+    return;
+  }
+
+  const total = words.length;
+  const learned = words.filter((word) => isHsk4StudyWordKnown(word)).length;
+  const activeWords = getHsk4StudyActiveWords();
+  const remaining = activeWords.length;
+  const toolbar = renderHsk4StudyToolbar(total, learned, remaining);
+  if (!remaining && hsk4StudyMode !== "list") {
+    hsk4StudyApp.innerHTML = `
+      <div class="hsk4-study-shell">
+        ${toolbar}
+        <div class="hsk4-study-empty">
+          <strong>Bạn đã học xong toàn bộ ${total} từ HSK4 2.0.</strong>
+          <span>Có thể bấm học lại để ôn từ đầu.</span>
+          <button data-hsk4-study-reset type="button">Học lại từ đầu</button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const currentWord = getCurrentHsk4StudyWord();
+  const content = hsk4StudyMode === "list"
+    ? renderHsk4StudyList(words, total, learned)
+    : hsk4StudyMode === "flashcard"
+      ? renderHsk4StudyFlashcard(currentWord, total, remaining)
+      : renderHsk4StudyChoice(currentWord, total, remaining);
+  hsk4StudyApp.innerHTML = `
+    <div class="hsk4-study-shell">
+      ${toolbar}
+      ${content}
+    </div>
+  `;
 }
 
 const componentContrastLevelOptions = [
@@ -10335,6 +10780,7 @@ async function loadLearningLibraries() {
   updateTotalVocabularyCount();
   renderHskLevelFilter();
   renderHskWords();
+  renderHsk4Study();
   renderPinyinDictionary();
   if (lookupPopover && !lookupPopover.hidden && headerLookupInput.value.trim()) {
     renderLookupPopover(headerLookupInput.value);
@@ -10817,6 +11263,16 @@ document.addEventListener("click", (event) => {
   const topicFlashNextButton = event.target.closest("[data-topic-flash-next]");
   const topicDrillMeaningToggle = event.target.closest("[data-topic-drill-meaning-toggle]");
   const topicStageMeaningToggle = event.target.closest("[data-topic-stage-meaning-toggle]");
+  const hsk4StudyModeButton = event.target.closest("[data-hsk4-study-mode]");
+  const hsk4StudyChoiceModeButton = event.target.closest("[data-hsk4-study-choice-mode]");
+  const hsk4StudyAnswerButton = event.target.closest("[data-hsk4-study-answer]");
+  const hsk4StudyNextButton = event.target.closest("[data-hsk4-study-next]");
+  const hsk4StudyKnownButton = event.target.closest("[data-hsk4-study-known]");
+  const hsk4StudyToggleViButton = event.target.closest("[data-hsk4-study-toggle-vi]");
+  const hsk4StudyResetButton = event.target.closest("[data-hsk4-study-reset]");
+  const hsk4StudyMoreButton = event.target.closest("[data-hsk4-study-more]");
+  const hsk4StudyOpenButton = event.target.closest("[data-hsk4-study-open]");
+  const hsk4StudyRetryButton = event.target.closest("[data-hsk4-study-retry]");
   const neededMenuToggleButton = event.target.closest("[data-needed-menu-toggle]");
   const neededChoiceMenuToggleButton = event.target.closest("[data-needed-choice-menu-toggle]");
   const neededFilterToggleButton = event.target.closest("[data-needed-filter-toggle]");
@@ -10899,6 +11355,28 @@ document.addEventListener("click", (event) => {
   if (topicFlashNextButton) nextTopicFlashcard();
   if (topicDrillMeaningToggle) toggleTopicDrillMeaning();
   if (topicStageMeaningToggle) toggleTopicStageMeaning();
+  if (hsk4StudyModeButton) setHsk4StudyMode(hsk4StudyModeButton.dataset.hsk4StudyMode);
+  if (hsk4StudyChoiceModeButton) setHsk4StudyChoiceMode(hsk4StudyChoiceModeButton.dataset.hsk4StudyChoiceMode);
+  if (hsk4StudyAnswerButton) answerHsk4StudyChoice(hsk4StudyAnswerButton.dataset.hsk4StudyAnswer);
+  if (hsk4StudyNextButton) {
+    nextHsk4StudyWord({ keepIndex: hsk4StudyAnswered && hsk4StudySelected === hsk4StudyAnsweredId });
+  }
+  if (hsk4StudyKnownButton) markCurrentHsk4StudyKnown();
+  if (hsk4StudyToggleViButton) toggleHsk4StudyVietnamese();
+  if (hsk4StudyResetButton) resetHsk4StudyProgress();
+  if (hsk4StudyMoreButton) showMoreHsk4StudyList();
+  if (hsk4StudyOpenButton) {
+    event.preventDefault();
+    event.stopPropagation();
+    openHsk4StudyWord(hsk4StudyOpenButton.dataset.hsk4StudyOpen);
+    return;
+  }
+  if (hsk4StudyRetryButton) {
+    hsk4LoadError = "";
+    hsk4LoadPromise = null;
+    requestHsk4VocabularyRefresh("hsk4");
+    renderHsk4Study();
+  }
   if (neededMenuToggleButton) toggleNeededNotesMenu();
   if (neededChoiceMenuToggleButton) toggleNeededNotesChoiceMenu();
   if (neededFilterToggleButton) toggleNeededNotesFilter();
@@ -11101,6 +11579,7 @@ loadLearningLibraries().catch((error) => {
   hskResultSummary.textContent = "Không tải được kho từ. Hãy mở trang qua máy chủ local rồi tải lại.";
   sentenceGrid.innerHTML = `<p class="hsk-source-note">${escapeHtml(error.message)}</p>`;
   renderTopicWorkshop();
+  renderHsk4Study();
   renderNeededNotes();
   renderComponentContrast();
   renderGrammarNotes();
@@ -11114,6 +11593,7 @@ renderQuestionGuides();
 renderPinyinToneFilter();
 renderPinyinInitialShortcuts();
 renderTopicWorkshop();
+renderHsk4Study();
 renderNeededNotes();
 renderComponentContrast();
 renderGrammarNotes();

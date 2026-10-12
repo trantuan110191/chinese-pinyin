@@ -8,8 +8,8 @@
       content="Kho từ vựng tiếng Trung cơ bản dành cho người Việt, có Pinyin, nghĩa, cấu tạo chữ và mẹo hình tượng."
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20261006f" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20261006f" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20261012a" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20261012a" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -77,6 +77,7 @@
       <nav class="header-nav" aria-label="Lối tắt học nhanh">
         <a href="#pinyin-dictionary">Tra từ</a>
         <a href="#topic-workshop">Flashcards</a>
+        <a href="#hsk4-study">HSK4 2.0</a>
         <a href="#component-contrast">Cấu tạo</a>
         <a href="#grammar-notes">Ngữ pháp</a>
         <a href="#needed-notes">Ghi chú</a>
@@ -101,8 +102,9 @@
             <a href="#component-contrast"><b>03</b><span>So sánh chữ dễ nhầm<small>Cùng mảnh ghép, khác bộ</small></span></a>
             <a href="#grammar-notes"><b>04</b><span>Ngữ pháp<small>Cấu trúc · ví dụ · tra nhanh</small></span></a>
             <a href="#needed-notes"><b>05</b><span>Ghi chú từ cần học<small>Riêng cho Admin</small></span></a>
-            <a href="#hsk-library"><b>06</b><span>Kho từ HSK<small>HSK 1-4 · HSK4 tải khi cần</small></span></a>
-            <a href="edge-tts.html"><b>07</b><span>Tạo MP3<small>Nhập chữ Hán · tải giọng đọc</small></span></a>
+            <a href="#hsk4-study"><b>06</b><span>HSK4 2.0<small>600 từ file Word · học riêng</small></span></a>
+            <a href="#hsk-library"><b>07</b><span>Kho từ HSK<small>HSK 1-4 · HSK4 tải khi cần</small></span></a>
+            <a href="edge-tts.html"><b>08</b><span>Tạo MP3<small>Nhập chữ Hán · tải giọng đọc</small></span></a>
           </nav>
         </details>
         <button class="profile-button" id="profile-button" type="button">
@@ -137,7 +139,7 @@
             </div>
           </div>
           <figure class="hero-courtyard" aria-label="Minh họa sân nhà cổ Trung Hoa">
-            <img src="assets/hero-courtyard.png?v=clarity-20261006f" alt="Minh họa sân nhà cổ Trung Hoa" />
+            <img src="assets/hero-courtyard.png?v=clarity-20261012a" alt="Minh họa sân nhà cổ Trung Hoa" />
           </figure>
 
         </div>
@@ -173,9 +175,14 @@
               <b>05 Ghi chú từ cần học</b>
               <span>Riêng cho Admin</span>
             </a>
+            <a class="home-lesson-card" href="#hsk4-study">
+              <i aria-hidden="true">四</i>
+              <b>06 HSK4 2.0</b>
+              <span>600 từ file Word · học riêng</span>
+            </a>
             <a class="home-lesson-card" href="#hsk-library">
               <i aria-hidden="true">册</i>
-              <b>06 Kho từ HSK</b>
+              <b>07 Kho từ HSK</b>
               <span>HSK 1-4 · HSK4 tải khi cần</span>
             </a>
           </div>
@@ -391,6 +398,22 @@
           <div class="topic-choice" id="topic-choice" aria-live="polite"></div>
           <div class="topic-stage" id="topic-stage"></div>
           <div class="topic-drill" id="topic-drill" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="hsk4-study" id="hsk4-study" aria-labelledby="hsk4-study-title">
+        <div class="hsk4-study-heading">
+          <div>
+            <p class="section-kicker">HSK4 2.0 · FILE WORD</p>
+            <h2 id="hsk4-study-title">Học riêng 600 từ HSK4</h2>
+          </div>
+          <p>
+            Mặc định là <strong>nhìn chữ chọn nghĩa tiếng Anh</strong>. Nghĩa tiếng Việt được giấu
+            cho tới khi bạn bấm xem hoặc trả lời xong, để luyện phản xạ tốt hơn.
+          </p>
+        </div>
+        <div class="hsk4-study-app" id="hsk4-study-app" aria-live="polite">
+          <p class="hsk-source-note">Đang chuẩn bị mục học HSK4 2.0...</p>
         </div>
       </section>
 
@@ -633,6 +656,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20261006f"></script>
+    <script src="app.js?v=clarity-20261012a"></script>
   </body>
 </html>
