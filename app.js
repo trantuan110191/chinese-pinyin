@@ -44,6 +44,7 @@ const profileScopedStorageKeys = new Set([
   "hsk4StudyIndex",
   "hsk4StudyMode",
   "hsk4StudyChoiceMode",
+  "hsk4StudyListFilter",
   "neededNotesKnownWords",
   "neededNotesIndex",
   "neededNotesMode",
@@ -1992,7 +1993,7 @@ const LOOKUP_POPOVER_EDGE_SIZE = 14;
 const LOOKUP_SCOPE_STORAGE_KEY = "hanziLookupScope";
 const HSK_BASE_EXPECTED_COUNT = 988;
 const HSK4_EXPECTED_COUNT = 600;
-const HSK4_VOCABULARY_URL = "data/hsk4-vocabulary.json?v=hsk4-20261006e";
+const HSK4_VOCABULARY_URL = "data/hsk4-vocabulary.json?v=hsk4-20261012b";
 const HSK4_COURSE_SEARCH_EXPECTED_COUNT = 1543;
 const HSK4_COURSE_SEARCH_URL = "data/hsk4-course-search.json?v=hsk4-course-20261005a";
 let pinyinDictionaryRenderTimer = 0;
@@ -2272,6 +2273,7 @@ let hsk4StudyKnownWords = {};
 let hsk4StudyIndex = Math.max(0, Number(getAppStorage("hsk4StudyIndex")) || 0);
 let hsk4StudyMode = getAppStorage("hsk4StudyMode") || "choice";
 let hsk4StudyChoiceMode = getAppStorage("hsk4StudyChoiceMode") || "hanzi-to-english";
+let hsk4StudyListFilter = getAppStorage("hsk4StudyListFilter") || "unknown";
 let hsk4StudySelected = "";
 let hsk4StudyAnswered = false;
 let hsk4StudyAnsweredId = "";
@@ -3607,6 +3609,10 @@ function normalizeHsk4StudyChoiceMode(mode) {
   return ["hanzi-to-english", "english-to-hanzi"].includes(mode) ? mode : "hanzi-to-english";
 }
 
+function normalizeHsk4StudyListFilter(filter) {
+  return ["unknown", "known"].includes(filter) ? filter : "unknown";
+}
+
 function saveHsk4StudyKnownWords() {
   setAppStorage("hsk4StudyKnownWords", JSON.stringify(hsk4StudyKnownWords));
 }
@@ -3650,6 +3656,13 @@ function markHsk4StudyWordKnown(wordOrId) {
   saveHsk4StudyKnownWords();
 }
 
+function unmarkHsk4StudyWordKnown(wordOrId) {
+  const id = typeof wordOrId === "string" ? wordOrId : getHsk4StudyWordId(wordOrId);
+  if (!id || !hsk4StudyKnownWords[id]) return;
+  delete hsk4StudyKnownWords[id];
+  saveHsk4StudyKnownWords();
+}
+
 function setHsk4StudyMode(mode) {
   hsk4StudyMode = normalizeHsk4StudyMode(mode);
   setAppStorage("hsk4StudyMode", hsk4StudyMode);
@@ -3661,6 +3674,13 @@ function setHsk4StudyChoiceMode(mode) {
   hsk4StudyChoiceMode = normalizeHsk4StudyChoiceMode(mode);
   setAppStorage("hsk4StudyChoiceMode", hsk4StudyChoiceMode);
   resetHsk4StudyQuestionState();
+  renderHsk4Study();
+}
+
+function setHsk4StudyListFilter(filter) {
+  hsk4StudyListFilter = normalizeHsk4StudyListFilter(filter);
+  hsk4StudyVisibleLimit = 80;
+  setAppStorage("hsk4StudyListFilter", hsk4StudyListFilter);
   renderHsk4Study();
 }
 
@@ -3742,6 +3762,16 @@ function showMoreHsk4StudyList() {
   renderHsk4Study();
 }
 
+function markHsk4StudyListKnown(id) {
+  markHsk4StudyWordKnown(id);
+  renderHsk4Study();
+}
+
+function unmarkHsk4StudyListKnown(id) {
+  unmarkHsk4StudyWordKnown(id);
+  renderHsk4Study();
+}
+
 function openHsk4StudyWord(id) {
   openHskWord(id);
 }
@@ -3769,7 +3799,7 @@ function renderHsk4StudyToolbar(total, learned, remaining) {
     <div class="hsk4-study-topline">
       <div class="hsk4-study-stats">
         <strong>${learned}/${total}</strong>
-        <span>đã học · còn ${remaining}</span>
+        <span>đã thuộc · còn ${remaining}</span>
       </div>
       <div class="hsk4-study-actions">
         <button data-hsk4-study-reset type="button">Học lại từ đầu</button>
@@ -3809,7 +3839,6 @@ function renderHsk4StudyChoice(word, total, remaining) {
     : `
       <p class="hsk4-study-prompt-label">Chữ Hán</p>
       <h3 class="hsk4-study-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</h3>
-      <p class="hsk4-study-pinyin">${escapeHtml(word.pinyin)}</p>
     `;
   const options = canUseEnglish ? getHsk4StudyChoiceOptions(word).map((id) => {
     const optionWord = getHsk4StudyWordById(id);
@@ -3819,7 +3848,7 @@ function renderHsk4StudyChoice(word, total, remaining) {
       ? isCorrect ? "is-correct" : isSelected ? "is-wrong" : ""
       : "";
     const label = hsk4StudyChoiceMode === "english-to-hanzi"
-      ? `<strong lang="zh-Hans">${escapeHtml(optionWord?.hanzi || "")}</strong><small>${escapeHtml(optionWord?.pinyin || "")}</small>`
+      ? `<strong lang="zh-Hans">${escapeHtml(optionWord?.hanzi || "")}</strong>`
       : `<strong>${escapeHtml(getHsk4StudyEnglish(optionWord))}</strong>`;
     return `
       <button class="${className}" data-hsk4-study-answer="${escapeHtml(id)}" type="button" ${hsk4StudyAnswered ? "disabled" : ""}>
@@ -3836,7 +3865,7 @@ function renderHsk4StudyChoice(word, total, remaining) {
   const feedback = hsk4StudyAnswered ? `
     <div class="hsk4-study-feedback ${hsk4StudySelected === correctId ? "is-correct" : "is-wrong"}">
       <strong>${hsk4StudySelected === correctId ? "Đúng rồi." : "Chưa khớp."}</strong>
-      <span>${escapeHtml(word.hanzi)} · ${escapeHtml(word.pinyin)}${english ? ` · ${escapeHtml(english)}` : ""}</span>
+      <span>${escapeHtml(word.hanzi)}${english ? ` · ${escapeHtml(english)}` : ""}</span>
     </div>
   ` : "";
 
@@ -3848,7 +3877,7 @@ function renderHsk4StudyChoice(word, total, remaining) {
       ${feedback}
       ${renderHsk4StudyVietnamese(word, hsk4StudyAnswered)}
       <div class="hsk4-study-card-actions">
-        <button data-hsk4-study-known type="button">Đã nhớ từ này</button>
+        <button data-hsk4-study-known type="button">Đã thuộc từ này</button>
         <button data-hsk4-study-next type="button">${hsk4StudyAnswered ? "Từ tiếp theo" : "Bỏ qua"}</button>
       </div>
     </article>
@@ -3862,14 +3891,13 @@ function renderHsk4StudyFlashcard(word, total, remaining) {
       <div class="hsk4-study-counter">Còn ${remaining}/${total} từ</div>
       <p class="hsk4-study-prompt-label">Flash card</p>
       <h3 class="hsk4-study-hanzi" lang="zh-Hans">${escapeHtml(word.hanzi)}</h3>
-      <p class="hsk4-study-pinyin">${escapeHtml(word.pinyin)}</p>
       <div class="hsk4-study-answer-panel">
         <span>EN</span>
         <strong>${escapeHtml(english || "Chưa có nghĩa tiếng Anh trong file nguồn")}</strong>
       </div>
       ${renderHsk4StudyVietnamese(word)}
       <div class="hsk4-study-card-actions">
-        <button data-hsk4-study-known type="button">Đã nhớ</button>
+        <button data-hsk4-study-known type="button">Đã thuộc</button>
         <button data-hsk4-study-next type="button">Từ tiếp theo</button>
       </div>
     </article>
@@ -3877,31 +3905,59 @@ function renderHsk4StudyFlashcard(word, total, remaining) {
 }
 
 function renderHsk4StudyList(words, total, learned) {
-  const visibleWords = words.slice(0, hsk4StudyVisibleLimit);
-  const rows = visibleWords.map((word, index) => {
+  hsk4StudyListFilter = normalizeHsk4StudyListFilter(hsk4StudyListFilter);
+  const unknownCount = total - learned;
+  const filteredWords = words.filter((word) => hsk4StudyListFilter === "known"
+    ? isHsk4StudyWordKnown(word)
+    : !isHsk4StudyWordKnown(word));
+  const visibleWords = filteredWords.slice(0, hsk4StudyVisibleLimit);
+  const listTitle = hsk4StudyListFilter === "known" ? "Đã thuộc" : "Chưa thuộc";
+  const rows = visibleWords.map((word) => {
     const id = getHsk4StudyWordId(word);
     const english = getHsk4StudyEnglish(word);
+    const originalIndex = Math.max(0, words.indexOf(word)) + 1;
+    const isKnown = isHsk4StudyWordKnown(word);
     return `
       <article class="hsk4-study-row">
-        <span class="hsk4-study-row-index">${String(index + 1).padStart(3, "0")}</span>
-        <button data-hsk4-study-open="${escapeHtml(id)}" type="button">
+        <span class="hsk4-study-row-index">${String(originalIndex).padStart(3, "0")}</span>
+        <button class="hsk4-study-row-word" data-hsk4-study-open="${escapeHtml(id)}" type="button">
           <strong lang="zh-Hans">${escapeHtml(word.hanzi)}</strong>
-          <small>${escapeHtml(word.pinyin)}</small>
         </button>
-        <p>${escapeHtml(english || "Chưa có nghĩa Anh trong nguồn")}</p>
-        <span class="${isHsk4StudyWordKnown(word) ? "is-known" : ""}">${isHsk4StudyWordKnown(word) ? "đã học" : "chưa học"}</span>
+        <p>${escapeHtml(english)}</p>
+        <button
+          class="hsk4-study-row-action ${isKnown ? "is-known" : ""}"
+          data-hsk4-study-list-${isKnown ? "unknown" : "known"}="${escapeHtml(id)}"
+          type="button"
+        >
+          ${isKnown ? "Chưa thuộc" : "Đã thuộc"}
+        </button>
       </article>
     `;
   }).join("");
+  const empty = rows ? "" : `
+    <div class="hsk4-study-empty hsk4-study-empty--compact">
+      <strong>${hsk4StudyListFilter === "known" ? "Chưa có từ nào trong nhóm đã thuộc." : "Bạn đã đưa hết từ sang nhóm đã thuộc."}</strong>
+      <span>Dùng hai nút nhóm ở trên để chuyển qua lại khi ôn.</span>
+    </div>
+  `;
   return `
     <section class="hsk4-study-list">
       <div class="hsk4-study-list-head">
-        <strong>Danh sách 600 từ HSK4 2.0</strong>
-        <small>${learned}/${total} đã học · danh sách không hiện nghĩa Việt trước.</small>
+        <strong>Danh sách HSK4 2.0 · ${listTitle}</strong>
+        <small>${learned}/${total} đã thuộc · chỉ hiện nghĩa Anh trước.</small>
+      </div>
+      <div class="hsk4-study-list-tabs" aria-label="Lọc danh sách HSK4">
+        <button class="${hsk4StudyListFilter === "unknown" ? "is-active" : ""}" data-hsk4-study-list-filter="unknown" type="button">
+          Chưa thuộc <span>${unknownCount}</span>
+        </button>
+        <button class="${hsk4StudyListFilter === "known" ? "is-active" : ""}" data-hsk4-study-list-filter="known" type="button">
+          Đã thuộc <span>${learned}</span>
+        </button>
       </div>
       ${rows}
-      <button class="hsk4-study-more" data-hsk4-study-more type="button" ${visibleWords.length >= words.length ? "hidden" : ""}>
-        Xem thêm ${Math.min(80, words.length - visibleWords.length)} từ
+      ${empty}
+      <button class="hsk4-study-more" data-hsk4-study-more type="button" ${visibleWords.length >= filteredWords.length ? "hidden" : ""}>
+        Xem thêm ${Math.min(80, filteredWords.length - visibleWords.length)} từ
       </button>
     </section>
   `;
@@ -3915,6 +3971,7 @@ function renderHsk4Study() {
   if (!hsk4StudyApp) return;
   hsk4StudyMode = normalizeHsk4StudyMode(hsk4StudyMode);
   hsk4StudyChoiceMode = normalizeHsk4StudyChoiceMode(hsk4StudyChoiceMode);
+  hsk4StudyListFilter = normalizeHsk4StudyListFilter(hsk4StudyListFilter);
   if (!learningLibrariesReady && !hsk4Vocabulary.length) {
     hsk4StudyApp.innerHTML = `
       <div class="hsk4-study-empty">
@@ -3958,7 +4015,7 @@ function renderHsk4Study() {
       <div class="hsk4-study-shell">
         ${toolbar}
         <div class="hsk4-study-empty">
-          <strong>Bạn đã học xong toàn bộ ${total} từ HSK4 2.0.</strong>
+          <strong>Toàn bộ ${total} từ HSK4 2.0 đã nằm trong nhóm đã thuộc.</strong>
           <span>Có thể bấm học lại để ôn từ đầu.</span>
           <button data-hsk4-study-reset type="button">Học lại từ đầu</button>
         </div>
@@ -11272,6 +11329,9 @@ document.addEventListener("click", (event) => {
   const hsk4StudyResetButton = event.target.closest("[data-hsk4-study-reset]");
   const hsk4StudyMoreButton = event.target.closest("[data-hsk4-study-more]");
   const hsk4StudyOpenButton = event.target.closest("[data-hsk4-study-open]");
+  const hsk4StudyListFilterButton = event.target.closest("[data-hsk4-study-list-filter]");
+  const hsk4StudyListKnownButton = event.target.closest("[data-hsk4-study-list-known]");
+  const hsk4StudyListUnknownButton = event.target.closest("[data-hsk4-study-list-unknown]");
   const hsk4StudyRetryButton = event.target.closest("[data-hsk4-study-retry]");
   const neededMenuToggleButton = event.target.closest("[data-needed-menu-toggle]");
   const neededChoiceMenuToggleButton = event.target.closest("[data-needed-choice-menu-toggle]");
@@ -11365,6 +11425,19 @@ document.addEventListener("click", (event) => {
   if (hsk4StudyToggleViButton) toggleHsk4StudyVietnamese();
   if (hsk4StudyResetButton) resetHsk4StudyProgress();
   if (hsk4StudyMoreButton) showMoreHsk4StudyList();
+  if (hsk4StudyListFilterButton) setHsk4StudyListFilter(hsk4StudyListFilterButton.dataset.hsk4StudyListFilter);
+  if (hsk4StudyListKnownButton) {
+    event.preventDefault();
+    event.stopPropagation();
+    markHsk4StudyListKnown(hsk4StudyListKnownButton.dataset.hsk4StudyListKnown);
+    return;
+  }
+  if (hsk4StudyListUnknownButton) {
+    event.preventDefault();
+    event.stopPropagation();
+    unmarkHsk4StudyListKnown(hsk4StudyListUnknownButton.dataset.hsk4StudyListUnknown);
+    return;
+  }
   if (hsk4StudyOpenButton) {
     event.preventDefault();
     event.stopPropagation();
