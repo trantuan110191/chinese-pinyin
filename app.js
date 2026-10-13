@@ -2965,6 +2965,7 @@ function buildGlobalLookupEntries() {
     hanzi: word.hanzi,
     pinyin: word.pinyin,
     meaning: getConciseMeaning(word),
+    english: word.en || word.english,
     source: getHskLevelLabel(word.level),
     level: word.level,
     audio: word.audio,
@@ -3061,6 +3062,39 @@ function getGlobalLookupEntries() {
   globalLookupEntriesCache = buildGlobalLookupEntries();
   globalLookupEntriesCacheKey = cacheKey;
   return globalLookupEntriesCache;
+}
+
+function countLookupHanziChars(value) {
+  return (String(value || "").match(/[\u3400-\u9fff]/g) || []).length;
+}
+
+function getLookupEntryLengthPriority(entry) {
+  const hanzi = String(entry?.hanzi || "");
+  const hanziCount = countLookupHanziChars(hanzi);
+  if (!hanziCount) return 4;
+  if (/[。！？?!]/.test(hanzi) || hanziCount > 12) return 4;
+  if (hanziCount <= 2) return 0;
+  if (hanziCount <= 4) return 1;
+  if (hanziCount <= 8) return 2;
+  return 3;
+}
+
+function getLookupEntryKindPriority(entry) {
+  const kind = String(entry?.kind || "");
+  if (kind === "hsk") return 0;
+  if (kind === "needed") return 1;
+  if (kind === "analysis" || kind === "topic" || kind === "component") return 2;
+  if (kind === "grammar") return 50;
+  if (kind === "sentence") return 60;
+  if (kind === "hsk4-course") return 70;
+  return 20;
+}
+
+function getLookupEntryDictionaryPriority(entry) {
+  const kindPriority = getLookupEntryKindPriority(entry);
+  const lengthPriority = getLookupEntryLengthPriority(entry);
+  if (kindPriority >= 50) return kindPriority + lengthPriority;
+  return lengthPriority * 10 + kindPriority;
 }
 
 function getGlobalLookupMatchRank(entry, rawQuery, intent = getDictionaryLookupIntent(rawQuery)) {
@@ -4565,6 +4599,7 @@ function getLookupWords(rawQuery, tone = "all", options = {}) {
     if (matchesQuery && matchesTone) matches.push({ entry, queryRank });
   });
   return matches.sort((left, right) => {
+    const priorityDiff = getLookupEntryDictionaryPriority(left.entry) - getLookupEntryDictionaryPriority(right.entry);
     if (intent === "pinyin") {
       const score = (entry) => {
         const bases = [entry.pinyinBase, entry.pinyinSearchBase].filter(Boolean);
@@ -4573,12 +4608,14 @@ function getLookupWords(rawQuery, tone = "all", options = {}) {
         return 2;
       };
       const shortestBase = (entry) => Math.min(...[entry.pinyinBase, entry.pinyinSearchBase].filter(Boolean).map((base) => base.length));
-      return score(left.entry) - score(right.entry)
+      return priorityDiff
+        || score(left.entry) - score(right.entry)
         || shortestBase(left.entry) - shortestBase(right.entry)
         || left.entry.hanzi.length - right.entry.hanzi.length;
     }
 
-    return left.queryRank - right.queryRank
+    return priorityDiff
+      || left.queryRank - right.queryRank
       || Number(left.entry.level || 99) - Number(right.entry.level || 99)
       || String(left.entry.hanzi).length - String(right.entry.hanzi).length
       || left.entry.source.localeCompare(right.entry.source, "vi");
