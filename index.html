@@ -9,7 +9,7 @@
     />
     <title>Hán Tự Ký Họa | Từ vựng tiếng Trung cơ bản</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=clarity-20261012a" />
-    <link rel="stylesheet" href="styles.css?v=clarity-20261013a" />
+    <link rel="stylesheet" href="styles.css?v=clarity-20261013b" />
   </head>
   <body>
     <section class="profile-gate" id="profile-gate" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title" hidden>
@@ -208,8 +208,8 @@
             <button type="submit">Tìm</button>
           </div>
         </form>
-        <div class="lookup-scope-control">
-          <label for="lookup-scope">KHÓA PHẠM VI TRA</label>
+        <div class="lookup-scope-control" id="lookup-scope-control">
+          <label class="lookup-scope-title" for="lookup-scope">PHẠM VI TRA</label>
           <select id="lookup-scope">
             <option value="all">Toàn bộ app</option>
             <option value="hsk4-course">Chỉ dữ liệu HSK4 mới</option>
@@ -240,7 +240,11 @@
               <option value="hsk4-textbook-2part:lesson:10">Bài 10 · giáo trình 2 phần</option>
             </optgroup>
           </select>
-          <small>Phạm vi này áp dụng cả cho ô “Tra từ” trên thanh đầu trang.</small>
+          <label class="lookup-scope-lock" for="lookup-scope-lock">
+            <input id="lookup-scope-lock" type="checkbox" />
+            <span>Khóa phạm vi</span>
+          </label>
+          <small id="lookup-scope-help">Tích để chỉ tìm trong phạm vi đang chọn, nhanh hơn khi tra trong từng bài.</small>
         </div>
 
         <p class="hsk-result-summary" id="pinyin-result-summary" aria-live="polite">Nhập một từ hoặc âm Pinyin để bắt đầu.</p>
@@ -656,6 +660,6 @@ Hoặc mỗi dòng:
       <div id="dialog-content"></div>
     </dialog>
 
-    <script src="app.js?v=clarity-20261013a"></script>
+    <script src="app.js?v=clarity-20261013b"></script>
   </body>
 </html>

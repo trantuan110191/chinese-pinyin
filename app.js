@@ -1974,7 +1974,10 @@ const lookupPopoverSummary = document.querySelector("#lookup-popover-summary");
 const lookupPopoverResults = document.querySelector("#lookup-popover-results");
 const pinyinDictionaryForm = document.querySelector("#pinyin-dictionary-search");
 const pinyinDictionaryInput = document.querySelector("#pinyin-dictionary-input");
+const lookupScopeControl = document.querySelector("#lookup-scope-control");
 const lookupScopeSelect = document.querySelector("#lookup-scope");
+const lookupScopeLock = document.querySelector("#lookup-scope-lock");
+const lookupScopeHelp = document.querySelector("#lookup-scope-help");
 const pinyinAnalysis = document.querySelector("#pinyin-analysis");
 const pinyinToneFilter = document.querySelector("#pinyin-tone-filter");
 const pinyinInitialShortcuts = document.querySelector("#pinyin-initial-shortcuts");
@@ -1991,6 +1994,7 @@ const LOOKUP_POPOVER_MULTI_QUERY_LIMIT = 5;
 const LOOKUP_POPOVER_STORAGE_KEY = "hanziLookupPopoverRect";
 const LOOKUP_POPOVER_EDGE_SIZE = 14;
 const LOOKUP_SCOPE_STORAGE_KEY = "hanziLookupScope";
+const LOOKUP_SCOPE_LOCK_STORAGE_KEY = "hanziLookupScopeLocked";
 const HSK_BASE_EXPECTED_COUNT = 988;
 const HSK4_EXPECTED_COUNT = 600;
 const HSK4_VOCABULARY_URL = "data/hsk4-vocabulary.json?v=hsk4-20261012b";
@@ -2000,6 +2004,10 @@ let pinyinDictionaryRenderTimer = 0;
 let lookupPopoverRenderTimer = 0;
 let lookupPopoverMoved = false;
 let activeLookupScope = localStorage.getItem(LOOKUP_SCOPE_STORAGE_KEY) || "all";
+const storedLookupScopeLocked = localStorage.getItem(LOOKUP_SCOPE_LOCK_STORAGE_KEY);
+let lookupScopeLocked = storedLookupScopeLocked === null
+  ? activeLookupScope !== "all"
+  : storedLookupScopeLocked === "true";
 
 function getStoredWordDialogPosition() {
   try {
@@ -2779,7 +2787,11 @@ function normalizeLookupPinyin(value) {
     .replace(/[^a-zv]/g, "");
 }
 
-function getLookupScopeLabel(scope = activeLookupScope) {
+function getEffectiveLookupScope() {
+  return lookupScopeLocked ? activeLookupScope : "all";
+}
+
+function getLookupScopeLabel(scope = getEffectiveLookupScope()) {
   if (scope === "all") return "toàn bộ app";
   if (scope === "hsk4-course") return "dữ liệu HSK4 mới";
   if (scope === "hsk4-workbook-10") return "HSK4 · 10 bài nghe/đề";
@@ -2790,7 +2802,7 @@ function getLookupScopeLabel(scope = activeLookupScope) {
   return `Bài ${lessonMatch[2]} · ${sourceLabel}`;
 }
 
-function lookupScopeUsesHsk4Course(scope = activeLookupScope) {
+function lookupScopeUsesHsk4Course(scope = getEffectiveLookupScope()) {
   return scope === "all"
     || scope === "hsk4-course"
     || scope === "hsk4-workbook-10"
@@ -2798,7 +2810,7 @@ function lookupScopeUsesHsk4Course(scope = activeLookupScope) {
     || /^hsk4-(workbook-10|textbook-2part):lesson:\d+$/.test(String(scope || ""));
 }
 
-function lookupScopeMatchesEntry(entry, scope = activeLookupScope) {
+function lookupScopeMatchesEntry(entry, scope = getEffectiveLookupScope()) {
   if (!entry || scope === "all") return true;
   if (scope === "hsk4-course") return entry.kind === "hsk4-course";
   if (scope === "hsk4-workbook-10" || scope === "hsk4-textbook-2part") {
@@ -2826,17 +2838,48 @@ function getHsk4CourseResultMeta(item) {
   ].filter(Boolean).join(" · ");
 }
 
-function setLookupScope(scope) {
-  const nextScope = scope || "all";
-  activeLookupScope = nextScope;
-  localStorage.setItem(LOOKUP_SCOPE_STORAGE_KEY, nextScope);
-  if (lookupScopeSelect && lookupScopeSelect.value !== nextScope) {
-    lookupScopeSelect.value = nextScope;
-  }
+function refreshLookupScopeResults() {
   if (pinyinDictionaryInput?.value.trim()) renderPinyinDictionary();
   if (lookupPopover && !lookupPopover.hidden && headerLookupInput.value.trim()) {
     renderLookupPopover(headerLookupInput.value);
   }
+}
+
+function syncLookupScopeControls() {
+  const effectiveScope = getEffectiveLookupScope();
+  if (lookupScopeSelect && lookupScopeSelect.value !== activeLookupScope) {
+    lookupScopeSelect.value = activeLookupScope;
+  }
+  if (lookupScopeLock) lookupScopeLock.checked = lookupScopeLocked;
+  lookupScopeControl?.classList.toggle("is-locked", lookupScopeLocked);
+  lookupScopeControl?.classList.toggle("is-unlocked", !lookupScopeLocked);
+  if (lookupScopeHelp) {
+    lookupScopeHelp.textContent = lookupScopeLocked
+      ? `Đang khóa trong ${getLookupScopeLabel(effectiveScope)}. Bỏ tích để tra toàn bộ app.`
+      : "Tích để chỉ tìm trong phạm vi đang chọn, nhanh hơn khi tra trong từng bài.";
+  }
+}
+
+function setLookupScopeLocked(locked, { refresh = true } = {}) {
+  lookupScopeLocked = Boolean(locked);
+  localStorage.setItem(LOOKUP_SCOPE_LOCK_STORAGE_KEY, lookupScopeLocked ? "true" : "false");
+  syncLookupScopeControls();
+  if (refresh) refreshLookupScopeResults();
+}
+
+function setLookupScope(scope, { autoLock = false } = {}) {
+  const nextScope = scope || "all";
+  activeLookupScope = nextScope;
+  localStorage.setItem(LOOKUP_SCOPE_STORAGE_KEY, nextScope);
+  if (nextScope === "all") {
+    lookupScopeLocked = false;
+    localStorage.setItem(LOOKUP_SCOPE_LOCK_STORAGE_KEY, "false");
+  } else if (autoLock) {
+    lookupScopeLocked = true;
+    localStorage.setItem(LOOKUP_SCOPE_LOCK_STORAGE_KEY, "true");
+  }
+  syncLookupScopeControls();
+  refreshLookupScopeResults();
 }
 
 let globalLookupEntriesCacheKey = "";
@@ -4580,7 +4623,7 @@ function renderPinyinContrast() {
 function getLookupWords(rawQuery, tone = "all", options = {}) {
   rawQuery = String(rawQuery || "").trim();
   if (!rawQuery) return [];
-  const scope = options.scope || activeLookupScope;
+  const scope = options.scope || getEffectiveLookupScope();
   const intent = getDictionaryLookupIntent(rawQuery);
   const query = intent === "pinyin" ? normalizeLookupPinyin(stripPinyinToneInput(rawQuery)) : normalizeSearchText(rawQuery);
   const smartTargets = intent === "meaning" ? getSmartMeaningTargets(query) : [];
@@ -4623,7 +4666,7 @@ function getLookupWords(rawQuery, tone = "all", options = {}) {
 }
 
 function getPinyinDictionaryWords() {
-  return getLookupWords(pinyinDictionaryInput.value.trim(), pinyinDictionaryTone, { scope: activeLookupScope });
+  return getLookupWords(pinyinDictionaryInput.value.trim(), pinyinDictionaryTone, { scope: getEffectiveLookupScope() });
 }
 
 function getLookupDetailMeta(entry) {
@@ -4871,14 +4914,15 @@ function renderPinyinDictionary() {
     return;
   }
 
-  if (activeLookupScope !== "hsk4-course" && !activeLookupScope.includes(":lesson:")) {
+  const effectiveScope = getEffectiveLookupScope();
+  if (effectiveScope !== "hsk4-course" && !effectiveScope.includes(":lesson:")) {
     requestHsk4VocabularyRefresh(rawQuery);
   }
-  if (lookupScopeUsesHsk4Course()) requestHsk4CourseSearchRefresh(rawQuery);
+  if (lookupScopeUsesHsk4Course(effectiveScope)) requestHsk4CourseSearchRefresh(rawQuery);
   const matches = getPinyinDictionaryWords();
   const visibleMatches = matches.slice(0, PINYIN_DICTIONARY_RENDER_LIMIT);
   const lookupNote = getCombinedLookupStatusNote();
-  const scopeLabel = getLookupScopeLabel();
+  const scopeLabel = getLookupScopeLabel(effectiveScope);
   pinyinResultSummary.textContent = matches.length
     ? `Tìm thấy ${matches.length} mục trong ${scopeLabel}${matches.length > visibleMatches.length ? `, đang hiện ${visibleMatches.length} mục đầu` : ""}.${lookupNote}`
     : `Chưa có mục phù hợp trong ${scopeLabel}. Thử chữ Hán, Pinyin như “pao bu”, cụm HSK4 hoặc nghĩa Việt như “chạy bộ”.${lookupNote}`;
@@ -5105,12 +5149,13 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
     return;
   }
 
-  if (activeLookupScope !== "hsk4-course" && !activeLookupScope.includes(":lesson:")) {
+  const effectiveScope = getEffectiveLookupScope();
+  if (effectiveScope !== "hsk4-course" && !effectiveScope.includes(":lesson:")) {
     requestHsk4VocabularyRefresh(rawQuery);
   }
-  if (lookupScopeUsesHsk4Course()) requestHsk4CourseSearchRefresh(rawQuery);
+  if (lookupScopeUsesHsk4Course(effectiveScope)) requestHsk4CourseSearchRefresh(rawQuery);
   const lookupNote = getCombinedLookupStatusNote();
-  const scopeLabel = getLookupScopeLabel();
+  const scopeLabel = getLookupScopeLabel(effectiveScope);
   const renderPopoverCard = (entry) => {
     const hanzi = getLookupPopoverHanziPreview(entry, rawQuery);
     const pinyin = getLookupPopoverPinyinPreview(entry, rawQuery);
@@ -5141,7 +5186,7 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
           message: "Gõ thêm ít nhất 2 ký tự.",
         };
       }
-      const matches = getLookupWords(item, "all", { scope: activeLookupScope });
+      const matches = getLookupWords(item, "all", { scope: effectiveScope });
       return {
         item,
         matches,
@@ -5174,7 +5219,7 @@ function renderLookupPopover(query = headerLookupInput?.value || "") {
     return;
   }
 
-  const matches = getLookupWords(rawQuery, "all", { scope: activeLookupScope });
+  const matches = getLookupWords(rawQuery, "all", { scope: effectiveScope });
   const visibleMatches = matches.slice(0, LOOKUP_POPOVER_RENDER_LIMIT);
   lookupPopoverSummary.textContent = matches.length
     ? `Tìm thấy ${matches.length} mục trong ${scopeLabel} cho “${rawQuery}”${matches.length > visibleMatches.length ? `, hiện ${visibleMatches.length} mục đầu` : ""}.${lookupNote}`
@@ -11087,11 +11132,15 @@ pinyinDictionaryInput.addEventListener("input", () => {
 if (lookupScopeSelect) {
   const availableLookupScopes = new Set(Array.from(lookupScopeSelect.options).map((option) => option.value));
   if (!availableLookupScopes.has(activeLookupScope)) activeLookupScope = "all";
-  lookupScopeSelect.value = activeLookupScope;
+  syncLookupScopeControls();
   lookupScopeSelect.addEventListener("change", () => {
-    setLookupScope(lookupScopeSelect.value);
+    setLookupScope(lookupScopeSelect.value, { autoLock: true });
   });
 }
+
+lookupScopeLock?.addEventListener("change", () => {
+  setLookupScopeLocked(lookupScopeLock.checked);
+});
 
 pinyinToneFilter?.addEventListener("click", (event) => {
   const button = event.target.closest("[data-pinyin-tone]");

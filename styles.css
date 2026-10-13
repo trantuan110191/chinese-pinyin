@@ -5892,14 +5892,14 @@ body.lookup-popover-resizing {
 
 .lookup-scope-control {
   display: grid;
-  grid-template-columns: minmax(130px, auto) minmax(240px, 420px) minmax(0, 1fr);
+  grid-template-columns: minmax(100px, auto) minmax(240px, 390px) auto minmax(0, 1fr);
   gap: 10px 14px;
   align-items: center;
-  max-width: 900px;
+  max-width: 980px;
   margin-top: 14px;
 }
 
-.lookup-scope-control label {
+.lookup-scope-title {
   color: rgba(30, 62, 83, 0.52);
   font-size: 9px;
   font-weight: 850;
@@ -5923,6 +5923,41 @@ body.lookup-popover-resizing {
 .lookup-scope-control select:focus {
   border-color: rgba(217, 76, 63, 0.36);
   box-shadow: 0 0 0 4px rgba(217, 76, 63, 0.08);
+}
+
+.lookup-scope-lock {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+  color: var(--blue);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(30, 62, 83, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(30, 62, 83, 0.05);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.lookup-scope-lock input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--red);
+}
+
+.lookup-scope-control.is-unlocked select {
+  opacity: 0.72;
+}
+
+.lookup-scope-control.is-locked .lookup-scope-lock {
+  color: var(--red);
+  border-color: rgba(217, 76, 63, 0.28);
+  background: rgba(217, 76, 63, 0.08);
 }
 
 .lookup-scope-control small {
