@@ -43,6 +43,7 @@ document.addEventListener('click', e => {
 }, true);
 const play = button('Phát', async () => player.audio.paused ? player.play() : player.stop());
 const repeat = button('Nghe lại', async () => { await player.select(cuesFor(q)); await player.play(); });
+repeat.title = 'Bấm rồi thả Option để nghe lại câu hiện tại';
 const enableListening = button('Xác nhận timeline & nghe ngay', async () => {
   const valid = validateCues(lesson.cues, lesson.tracks);
   if (!valid.length) return openSettings();
@@ -148,7 +149,23 @@ function markAnswers() {
   document.querySelectorAll('.letter[data-q][data-letter]').forEach(b => { const picked = lesson.progress[b.dataset.q]?.answer === b.dataset.letter; b.classList.toggle('study-picked', picked); b.setAttribute('aria-pressed', String(picked)); });
 }
 document.addEventListener('click', e => { const b = e.target.closest('.letter[data-q][data-letter]'); if (!b || !lesson) return; (lesson.progress[b.dataset.q] ||= {}).answer = b.dataset.letter; markAnswers(); save(); }, true);
+let optionPress = null;
+window.addEventListener('blur', () => optionPress = null);
+document.addEventListener('compositionstart', () => optionPress = null, true);
 document.addEventListener('keydown', e => {
+  if (e.key !== 'Alt') { optionPress = null; return; }
+  if (e.repeat) return;
+  optionPress = lesson && q <= 14 && lesson.settings.shortcuts && !dialog.open && !composing && !e.isComposing && e.keyCode !== 229 && !e.ctrlKey && !e.metaKey && !e.shiftKey
+    ? { question: q, lessonId: lesson.id } : null;
+}, true);
+document.addEventListener('keyup', e => {
+  if (e.key !== 'Alt') { optionPress = null; return; }
+  const pressed = optionPress; optionPress = null;
+  if (!pressed || !lesson || pressed.question !== q || pressed.lessonId !== lesson.id || !lesson.settings.shortcuts || dialog.open || composing || e.isComposing || e.ctrlKey || e.metaKey || e.shiftKey || repeat.disabled) return;
+  e.preventDefault(); repeat.click();
+}, true);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Alt') return;
   if (!lesson || q > 14 || dialog.open || e.isComposing || composing || e.keyCode === 229) return;
   if (e.target === $('study-typed') && e.key === 'Enter' && !e.shiftKey && lesson.settings.shortcuts && lesson.settings.enter !== 'newline') {
     e.preventDefault(); e.stopImmediatePropagation();
