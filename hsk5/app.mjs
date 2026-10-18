@@ -28,7 +28,7 @@ const player = new SegmentPlayer(source, updatePlayer, () => {
 }, fail);
 const pane = node('section'); pane.id = 'im-pane'; pane.setAttribute('aria-label', 'Nghe và chép chính tả');
 pane.innerHTML = `<div class="study-row"><h2 id="study-heading"></h2></div>
-<p id="study-track"></p><div class="study-row" id="study-controls"></div>
+<p id="study-track"></p><div id="study-setup" class="study-row"></div><div class="study-row" id="study-controls"></div>
 <input id="study-seek" aria-label="Vị trí trong đoạn nghe" type="range" min="0" max="1" step="0.001" value="0">
 <p id="study-time"></p><div class="study-row" id="study-options"></div>
 <div id="study-dictation"><label for="study-typed">Chép lại lời bạn nghe (gồm câu hỏi)</label><textarea id="study-typed" spellcheck="false" placeholder="Gõ chữ Hán ở đây…"></textarea><div class="study-row" id="study-actions"></div><div id="study-feedback" aria-live="polite"></div></div>
@@ -43,6 +43,15 @@ document.addEventListener('click', e => {
 }, true);
 const play = button('Phát', async () => player.audio.paused ? player.play() : player.stop());
 const repeat = button('Nghe lại', async () => { await player.select(cuesFor(q)); await player.play(); });
+const enableListening = button('Xác nhận timeline & nghe ngay', async () => {
+  const valid = validateCues(lesson.cues, lesson.tracks);
+  if (!valid.length) return openSettings();
+  const summary = valid.map(c => `Câu ${c.questions}: ${lesson.tracks.find(t => t.id === c.audioId).name} · ${format(c.startMs / 1000)}–${format(c.endMs / 1000)}`).join('\n');
+  if (!confirm('Xác nhận dùng các mốc sau?\n\n' + summary + '\n\nMốc do bạn cung cấp được giữ nguyên. Có thể sửa trong Thư viện & mốc nghe.')) return;
+  lesson.cues = valid; lesson.confirmed = true; await save(); await select(q); await player.play();
+  note('Đã bật nghe theo timeline. Lần sau chỉ cần bấm Phát.');
+});
+$('study-setup').append(enableListening, button('Xem / sửa mốc nghe', openSettings));
 $('study-controls').append(button('Trước', () => next(-1)), play, repeat, button('Sau', () => next(1)));
 const rate = node('select', undefined, 'study-field'); rate.ariaLabel = 'Tốc độ';
 for (const v of [.75, .85, 1, 1.1, 1.25]) { const o = node('option', v + '×'); o.value = v; rate.append(o); }
@@ -112,7 +121,10 @@ async function select(n) {
   markAnswers();
   if (q > 14) { await player.select([]); return; }
   $('study-heading').textContent = `Câu ${q} · Nghe & chép`;
-  const cues = cuesFor(q); $('study-track').textContent = cues.length ? [...new Set(cues.map(c => lesson.tracks.find(t => t.id === c.audioId)?.name))].join(' · ') : 'Chưa có mốc được xác nhận. Mở Thư viện & mốc nghe để ghép.';
+  const cues = cuesFor(q);
+  $('study-setup').hidden = !!cues.length;
+  enableListening.hidden = lesson.confirmed || !lesson.cues.length;
+  $('study-track').textContent = cues.length ? [...new Set(cues.map(c => lesson.tracks.find(t => t.id === c.audioId)?.name))].join(' · ') : lesson.cues.length && !lesson.confirmed ? 'MP3 và timeline đã có sẵn. Bấm nút bên dưới để xác nhận và bắt đầu nghe.' : 'Câu này chưa được ghép MP3. Bấm Xem / sửa mốc nghe để chọn file và thời gian.';
   $('study-typed').value = progress().typed || '';
   renderFeedback(progress().checked ? compare(progress().typed || '', textFor(q).zh, lesson.settings.numbers) : null);
   applySettings(); renderTranscript();
@@ -255,6 +267,6 @@ try {
   if (journal) { try { Object.assign(lesson, JSON.parse(journal)); } catch { note('Bỏ qua bản lưu nhanh bị hỏng; dùng tiến độ đã lưu trong thư viện.'); } }
   lesson.settings = {...defaults(),...lesson.settings}; go(lesson.current); await select(lesson.current);
   watchQuestion(n => { if (n !== q) select(n).catch(fail); });
-  if (!lesson.confirmed) { note('Timeline đã sẵn sàng. Xác nhận ghép câu và MP3 trong Thư viện & mốc nghe.'); await openSettings(); }
+  if (!lesson.confirmed) note('Bấm “Xác nhận timeline & nghe ngay” ngay trong khung nghe.');
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('hsk5-offline-sw.js').catch(fail);
 } catch (e) { fail(e); }
