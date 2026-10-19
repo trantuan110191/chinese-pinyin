@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<title>HSK5 SGK Thượng · Bài 15 · Đầy đủ và tối ưu</title>
+<style>
+:root{--bg:#ffffff;--paper:#ffffff;--faint:#faf9f8;--line:#eaeaea;--softline:#f0f0f0;--ink:#373737;--muted:#898989;--accent:#777777;--accentLight:#f5f5f5;--header:58px;--bottom:76px;--split:74%;--split-top:72%;font-synthesis:none}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--ink);font:14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif}
+button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid #9f9f9f;outline-offset:2px}button:disabled{opacity:.34;cursor:default}
+[hidden]{display:none!important}
+.topbar{height:var(--header);position:fixed;inset:0 0 auto 0;z-index:40;padding:9px clamp(10px,2.2vw,28px);display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);background:#ffffffcc;backdrop-filter:blur(9px)}
+.brand{font-size:13px;font-weight:730;white-space:nowrap;color:#515151}.brand b{color:var(--accent)}
+.toolbar-space{flex:1}.btn{border:1px solid #e4e4e4;background:white;color:#616161;padding:7px 11px;min-height:34px;border-radius:9px;white-space:nowrap;font-size:12px;font-weight:600;transition:background .12s}
+.btn:hover{background:var(--faint)}.btn.active{color:#6b6b6b;border-color:#c0c0c0;background:#fafafa}
+.langmenu{position:relative;z-index:60}.lang-menu{position:absolute;right:0;top:calc(100% + 8px);width:226px;border:1px solid #e8e8e8;border-radius:12px;background:#ffffff;padding:12px;box-shadow:0 12px 38px #3d3d3d1e}
+.lang-menu h3{margin:0 0 5px;font-size:11px;color:#8c8c8c;letter-spacing:.06em}.lang-menu label{display:flex;align-items:center;gap:10px;padding:8px 5px;border-radius:6px;cursor:pointer}.lang-menu label:hover{background:var(--faint)}.lang-menu input{accent-color:var(--accent);height:16px;width:16px}.lang-foot{font-size:10.8px;color:#959595;border-top:1px solid var(--softline);margin-top:8px;padding-top:9px;line-height:1.45}
+.workspace{position:fixed;inset:var(--header) 0 0;display:flex;flex-direction:column;padding:10px clamp(9px,1.5vw,22px) 10px;gap:8px;min-height:0}
+.intro{display:flex;align-items:center;justify-content:space-between;gap:9px;flex:none;min-height:29px;padding:1px 5px}.intro-title{font-size:14px;font-weight:710;color:#535353}.intro-title small{color:#8f8f8f;font-size:12px;font-weight:450;margin-left:5px}.intro-hint{color:#999999;font-size:11px;text-align:right}
+.split{flex:1;min-height:0;min-width:0;display:grid;grid-template-columns:minmax(0,var(--split)) 12px minmax(0,1fr);gap:0;overflow:hidden}
+.pane{min-width:0;min-height:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;background:#ffffff;overflow:hidden;container-type:inline-size}
+.pane-head{flex:none;display:flex;justify-content:space-between;align-items:center;gap:9px;min-height:48px;padding:10px 13px;border-bottom:1px solid var(--line)}
+.pane-title{font-size:12.5px;font-weight:720;color:#686868}.pane-subtitle{font-size:11px;color:#9a9a9a;white-space:nowrap}.pane-body{min-height:0;flex:1;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#d7d7d7 transparent}
+.reader{padding:3px 13px 24px}.para{margin:13px 1px 17px;border:1px solid transparent;border-bottom-color:var(--softline);border-radius:9px;padding:6px 3px 19px;scroll-margin-top:7px;transition:border-color .12s,background .12s}
+.para:last-child{border-bottom-color:transparent}.para.current{border-color:#d8d8d8;background:#fffdfd}
+.para-top{display:flex;align-items:center;gap:10px;color:#939393;font-size:11px;margin:0 0 7px}.para-top .para-number{font-size:12px;font-weight:760;color:#757575}.para-count{margin-left:auto;color:#a4a4a4;font-size:10px}
+.para-grid{display:grid;grid-template-columns:repeat(var(--language-cols,3),minmax(0,1fr));gap:0}
+.langcol{min-width:0;padding:2px 11px 2px;border-left:1px solid var(--softline)}.langcol:first-child{border-left:0;padding-left:3px}
+.langcol .label{display:none;font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:#a3a3a3;margin-bottom:3px}
+.para .zh{font-size:16.7px;line-height:2.05;letter-spacing:.012em;color:#393939;overflow-wrap:anywhere}
+.para .en,.para .vi{font-size:13.4px;line-height:1.83;overflow-wrap:break-word;color:#616161}.para .vi{color:#5b5b5b}
+.inline-word{font-size:inherit;line-height:inherit;letter-spacing:inherit;font-weight:inherit;color:inherit;display:inline;vertical-align:baseline;border:0;border-bottom:1px dashed #c6c6c6;background:transparent;padding:0 1px;margin:0;white-space:normal}.inline-word:hover{background:#f3f3f3;border-bottom-color:#777777}.inline-word.marked{background:#f0f0f0;color:#626262;border-bottom-color:#7f7f7f;box-shadow:inset 0 -1px 0 #7f7f7f}
+.splitter{width:12px;border:0;background:transparent;display:flex;align-items:center;justify-content:center;touch-action:none;cursor:col-resize;outline-offset:-1px;padding:0}.splitter::before{content:"";width:3px;height:58px;background:#d1d1d1;border-radius:5px;transition:background .12s}.splitter:hover::before,.splitter.dragging::before{background:#898989}
+.gloss-controls{flex:none;border-bottom:1px solid var(--softline);padding:9px 12px 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.search{width:100%;height:36px;min-width:0;padding:7px 11px;border-radius:8px;border:1px solid #e4e4e4;background:#ffffff;outline-offset:1px;color:#494949;font-size:12px}.search::placeholder{color:#a5a5a5}.filterrow{display:flex;align-items:center;gap:6px;flex:1}.pill{font-size:11px;color:#7e7e7e;border:1px solid #eaeaea;background:white;border-radius:7px;min-height:29px;padding:4px 9px;font-weight:600}.pill:hover{background:#faf9f8}.pill[aria-pressed=true]{border-color:#c9c9c9;color:#6e6e6e;background:#f9f9f9}.result-count{margin-left:auto;color:#9d9d9d;font-size:10.5px;white-space:nowrap}
+.glossary-list{padding:12px;display:flex;flex-direction:column;gap:6px}.wordcard{width:100%;text-align:left;display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:10px;align-items:start;border:1px solid #e9e9e9;background:#ffffff;padding:9px 11px 9px 9px;border-radius:10px;box-shadow:none;transition:border-color .12s,background .12s}
+.wordcard:hover{border-color:#c9c9c9;background:#fffdfd}.wordcard.selected{border-color:#b5b5b5;background:#fafafa}.word-num{font-size:10.5px;color:#9a9999;padding-top:4px;text-align:center;font-variant-numeric:tabular-nums}.word-main{min-width:0}.word-first{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}.word-zh{font-size:17px;font-weight:700;color:#424242;line-height:1.4}.word-vi{font-size:12.7px;line-height:1.53;color:#5c5c5c;margin-top:3px}.word-en{font-size:11.7px;color:#8e8e8e;line-height:1.52;margin-top:3px}
+.selected-note{flex:none;border-bottom:1px solid #eaeaea;padding:10px 12px;background:#fdfdfd}.selected-note-head{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.selected-note-head strong{color:#666666;font-size:19px}.selected-note p{margin:2px 0;color:#5d5d5d;font-size:12px;line-height:1.5}.selected-note p.en-note{color:#8e8e8e;font-size:11px}.selected-note button{color:#686868;font-size:11.5px;border:0;background:none;padding:3px 0;text-decoration:underline;text-underline-offset:3px}
+.empty{text-align:center;color:#9f9f9f;font-size:12px;padding:35px 12px}
+.bottom{display:flex;align-items:center;justify-content:space-between;flex:none;gap:9px;min-height:57px;border:1px solid var(--line);border-radius:12px;padding:7px 11px;background:#ffffff}
+.bottom button{touch-action:manipulation}.nav-trigger{display:grid;place-items:center;width:33px;height:33px;border:1px solid #e6e6e6;border-radius:8px;color:#878787;background:#ffffff}.nav-trigger[aria-expanded=true]{background:var(--accentLight);color:var(--accent)}
+.bottom-center{min-width:0;display:flex;align-items:center;justify-content:center;gap:8px;flex:1}.navlabel{font-size:11px;color:#929292;white-space:nowrap;font-weight:600}.steps{display:flex;align-items:center;gap:4px}.step{height:31px;min-width:31px;padding:0;border:1px solid transparent;background:transparent;color:#737373;border-radius:7px;font-size:12px;font-weight:650}.step:hover{background:#f5f5f5}.step[aria-current=step]{border-color:#c5c5c5;color:#6a6a6a;background:#f6f6f6}
+.prevnext{display:flex;align-items:center;gap:8px}.arrow{height:31px;min-width:31px;border:1px solid #e8e8e8;background:#ffffff;border-radius:7px;color:#6c6c6c;font-size:17px;line-height:1}.status{font-size:11px;color:#9e9d9c;white-space:nowrap;min-width:34px;text-align:center;font-variant-numeric:tabular-nums}
+.overlay{position:fixed;z-index:60;inset:0;background:#2a2a2a30;display:flex;justify-content:center;align-items:center;padding:14px}.toc{width:min(460px,100%);max-height:80vh;overflow:auto;background:#ffffff;border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:0 14px 50px #2b2b2b30}.toc-header{display:flex;align-items:center;justify-content:space-between;gap:10px}.toc-header h2{font-size:15px;color:#464646;margin:0}.toc-list{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:13px}.toc-list button{padding:10px 11px;text-align:left;border:1px solid #eaeaea;border-radius:8px;background:#ffffff;font-size:12px;color:#686868}.toc-list button:hover{background:#f9f9f9;border-color:#cccccc}.toc-list button b{display:block;color:#6d6d6d;margin-bottom:2px;font-size:12px}
+.footer-tip{font-size:11px;color:#a0a0a0;margin-top:11px}.invis{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@container(max-width:640px){.pane-reading .para-grid{grid-template-columns:minmax(0,1fr)!important}.pane-reading .langcol{padding:5px 4px 8px;border-left:0;border-top:1px solid #f0f0f0}.pane-reading .langcol:first-child{border-top:0}.pane-reading .langcol .label{display:block}.pane-reading .zh{font-size:16.8px;line-height:1.9}.pane-reading .en,.pane-reading .vi{font-size:13px;line-height:1.7}}
+@media(max-width:790px){:root{--header:55px}.topbar{gap:6px;padding:6px 9px}.brand{font-size:11.5px}.btn{font-size:10.5px;padding:6px 8px;min-height:32px}.workspace{padding:6px;gap:6px}.intro-title{font-size:12.5px}.intro-hint{font-size:10px}.split{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,var(--split-top,52%)) 12px minmax(0,1fr)}.splitter{width:100%;height:12px;cursor:row-resize}.splitter::before{width:55px;height:3px}.pane-head{min-height:36px;padding:7px 10px}.pane-title{font-size:11.5px}.reader{padding:2px 10px 14px}.gloss-controls{padding:6px 9px}.glossary-list{padding:8px}.wordcard{padding:6px 8px}.bottom{min-height:51px;padding:6px;gap:3px}.navlabel{display:none}.steps{gap:2px}.step{min-width:27px;height:28px;font-size:11px}.bottom-center{gap:4px}.arrow{min-width:27px;height:28px}.prevnext{gap:3px}.status{min-width:29px;font-size:10px}.toc-list{grid-template-columns:1fr 1fr}}
+@media(max-width:410px){.brand{font-size:10.5px}.intro-title small{font-size:9.5px}.intro-hint{display:none}.btn{padding:5px 6px;font-size:10px}.word-zh{font-size:16px}.lang-menu{right:-1px}.step{min-width:24px;height:25px}.nav-trigger{width:29px;height:29px}.arrow{min-width:25px;height:27px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+@media print{html,body{overflow:visible!important;height:auto!important}.topbar,.bottom,.splitter,.gloss-controls,.overlay{display:none!important}.workspace{position:static;padding:0}.split{display:block!important;overflow:visible!important}.pane{display:block!important;border:0;container-type:normal}.pane-body{overflow:visible}.pane-reading .para-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}.para{break-inside:avoid}.para.current{border-color:transparent;background:white}.glossary-list{display:grid;grid-template-columns:1fr 1fr}.wordcard{break-inside:avoid}.intro{margin:0 0 8px}}
+
+/* V2 — SBT V17-style fixed study desk; only the two pane interiors scroll. */
+html{width:100%;height:100%;overflow:hidden!important;overscroll-behavior:none!important}
+body{position:fixed;inset:0;width:100%;height:100%;overflow:hidden!important;overscroll-behavior:none!important}
+.topbar{position:absolute!important;top:0;right:0;left:0;height:var(--header);min-height:0;max-height:var(--header);z-index:40}
+.workspace{position:absolute!important;top:var(--header);right:0;bottom:0;left:0;height:auto!important;max-height:none;min-height:0;min-width:0;overflow:hidden!important;overscroll-behavior:none}
+.workspace > .intro{flex:0 0 auto;min-width:0}
+.workspace > .split{flex:1 1 0;min-width:0;min-height:0;max-height:100%;overflow:hidden!important}
+.split > .pane{height:100%;min-height:0;min-width:0;overflow:hidden!important}
+.pane > .pane-body{min-height:0;flex:1 1 0;overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.workspace > .bottom{flex:0 0 auto;width:100%;max-width:100%;min-width:0;overflow:hidden;z-index:3}
+.bottom-center,.steps,.prevnext{min-width:0}
+@supports (height:100dvh){html,body{height:100dvh}.workspace{bottom:0}}
+@media (max-width:790px){.split > .pane{height:auto!important;min-height:0!important}.topbar{height:var(--header)}.workspace{bottom:0}}
+@media print{html,body{position:static!important;height:auto!important;overflow:visible!important}.topbar{display:none!important}.workspace{position:static!important;height:auto!important;overflow:visible!important}.split,.split>.pane,.pane>.pane-body{display:block!important;height:auto!important;max-height:none!important;overflow:visible!important}}
+
+/* V3 — compact lookup, larger reading surface, optional fully collapsed vocabulary. */
+.pane-glossary .pane-head{padding:7px 9px;gap:5px;min-height:40px}
+.pane-glossary .pane-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.pane-glossary .pane-subtitle{margin-left:auto;font-size:10px;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.vocab-size-toggle{flex:0 0 29px;width:29px;height:29px;border:1px solid #e6e6e6;border-radius:7px;background:#ffffff;color:#717171;font-size:20px;line-height:1;display:grid;place-items:center;padding:0}
+.vocab-size-toggle:hover{background:#f6f6f6;border-color:#c3c3c3}
+.pane-glossary .gloss-controls{padding:6px 9px 7px;gap:5px}
+.pane-glossary .search{height:31px;padding:4px 8px;font-size:11.5px}
+.pane-glossary .pill{min-height:25px;padding:2px 7px;font-size:10.5px}
+.pane-glossary .filterrow{gap:4px}
+.pane-glossary .glossary-list{padding:7px;gap:3px}
+.pane-glossary .wordcard{border-radius:7px;padding:5px 7px;grid-template-columns:18px minmax(0,1fr);column-gap:7px;min-height:40px}
+.pane-glossary .word-num{font-size:9.5px;padding-top:4px}
+.pane-glossary .word-first{gap:3px 8px;align-items:baseline;justify-content:flex-start;flex-wrap:wrap}
+.pane-glossary .word-zh{font-size:15px;line-height:1.5;flex:0 0 auto}
+.pane-glossary .word-vi{font-size:11.5px;line-height:1.45;margin:0;color:#5b5b5b;flex:1 1 95px}
+.pane-glossary .word-en{font-size:10.5px;line-height:1.4;margin:0;color:#939393}
+.pane-glossary .selected-note{padding:6px 9px}
+.pane-glossary .selected-note-head strong{font-size:16px}
+.pane-glossary .selected-note p{font-size:11px;margin:1px 0}
+.pane-glossary .selected-note p.en-note{font-size:10.5px}
+@container(max-width:340px){.pane-glossary .pane-subtitle{display:none}.pane-glossary .pane-title{font-size:11.5px}}
+@container(max-width:200px){.pane-glossary .word-vi{flex-basis:100%}.pane-glossary .search{font-size:10px}.pane-glossary .filterrow{flex-wrap:wrap}.pane-glossary .result-count{width:100%;text-align:right}}
+.split.vocab-collapsed{grid-template-columns:minmax(0,1fr) 0 44px!important}
+.vocab-collapsed .splitter{visibility:hidden;pointer-events:none}
+.vocab-collapsed .pane-glossary .pane-head{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:6px 2px;gap:9px;border:0}
+.vocab-collapsed .pane-glossary .pane-head .pane-title,.vocab-collapsed .pane-glossary .pane-head .pane-subtitle{display:none}
+.vocab-collapsed .pane-glossary .pane-head::after{content:'TỪ MỚI';writing-mode:vertical-rl;font-size:10px;letter-spacing:.12em;color:#8c8c8c;font-weight:650}
+.vocab-collapsed .pane-glossary .gloss-controls,.vocab-collapsed .pane-glossary .selected-note,.vocab-collapsed .pane-glossary .glossary-list{display:none!important}
+@media(max-width:790px){
+ .pane-glossary .pane-head{min-height:36px}
+ .split.vocab-collapsed{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr) 0 42px!important}
+ .vocab-collapsed .pane-glossary .pane-head{flex-direction:row;justify-content:center;gap:12px;padding:5px 7px}
+ .vocab-collapsed .pane-glossary .pane-head::after{content:'Từ mới · chạm để mở';writing-mode:horizontal-tb;font-size:10px;letter-spacing:0}
+ .pane-glossary .word-vi{flex:1 1 130px}
+}
+@media print{.vocab-size-toggle{display:none!important}.split.vocab-collapsed{display:block!important}.vocab-collapsed .pane-glossary .gloss-controls,.vocab-collapsed .pane-glossary .selected-note,.vocab-collapsed .pane-glossary .glossary-list{display:grid!important}.vocab-collapsed .pane-glossary .pane-head::after{display:none}}
+
+/* V5 — Restore V3-style closed rectangular highlight, but no text shift.
+   Every paragraph reserves the SAME 1px border and EXACT SAME padding,
+   regardless of active state. Only border color and background change. */
+.pane-reading .reader{scrollbar-gutter:stable}
+.pane-reading .para,
+.pane-reading .para.current{
+  padding:6px 3px 19px!important;
+  margin:13px 1px 17px!important;
+  border-width:1px!important;
+  border-style:solid!important;
+  border-radius:9px!important;
+  box-shadow:none!important;
+  transition:none!important;
+}
+.pane-reading .para.current{
+  background:#fffdfd!important;
+  border-color:#d8d8d8!important;
+}
+.pane-reading .inline-word,
+.pane-reading .inline-word.marked{
+  border-bottom-width:1px!important;
+  font-weight:inherit!important;
+  vertical-align:baseline!important;
+}
+
+/* V9: two independent navigation levels. Item questions/grammar up top; sections at bottom. */
+.study-item-bar{position:relative;z-index:12;display:flex;align-items:center;flex:0 0 auto;
+ min-height:45px;min-width:0;gap:9px;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:#ffffff}
+.study-item-bar .nav-trigger{width:30px;height:30px;min-width:30px;flex:none}
+.study-item-title{font-size:11.5px;color:#797979;font-weight:620;white-space:nowrap;max-width:220px;overflow:hidden;text-overflow:ellipsis}
+.study-item-steps{display:flex;align-items:center;gap:5px;min-width:0;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#e6e6e6 transparent;flex:1;padding:1px 2px}
+.study-item-step{flex:none;min-width:31px;height:29px;border:1px solid #e7e7e7;border-radius:7px;background:#ffffff;color:#6d6d6d;padding:0 7px;font-size:11.5px;font-weight:620}
+.study-item-step[aria-current="step"]{background:#f4f4f4;border-color:#b6b6b6;color:#6a6a6a;font-weight:740}
+.study-item-step.done:not([aria-current="step"]){border-color:#dfdfdf;background:#f9f9f9;color:#6f6f6f}
+.study-item-step:hover{border-color:#b4b4b4;background:#fdfdfd}
+.study-item-arrows{margin-left:auto;flex:none;gap:5px}.study-item-arrows .status{font-size:11px}
+.study-item-bar .study-popup{position:absolute;top:calc(100% + 7px);bottom:auto;left:0;z-index:80;
+ display:flex;flex-direction:column;gap:4px;max-height:min(62vh,470px);width:min(425px,calc(100vw - 22px));overflow-y:auto;
+ padding:12px;box-shadow:0 10px 30px #35333325}
+.study-item-bar .study-popup .study-item-popup-title{font-size:11px;letter-spacing:.03em;color:#929293;padding:4px 3px 7px;font-weight:730}
+.study-item-bar .study-popup .study-popup-item{width:100%;display:flex;gap:9px;align-items:baseline;text-align:left;min-height:35px}
+.study-popup-item .study-popup-item-num{color:#777777;font-weight:800;min-width:26px}
+.study-popup-item .study-popup-item-info{flex:1;min-width:0;line-height:1.55;overflow-wrap:anywhere}
+.study-popup-item[aria-current="true"]{background:#f6f6f6;border-color:#c2c2c2}
+#addonBottom{justify-content:center;min-height:48px!important;padding:5px 10px!important}
+#addonBottom .study-section-nav{justify-content:center;gap:8px}
+#addonBottom .study-section-nav button{padding:6px 12px;font-size:12px}
+@media(max-width:880px){.study-item-title{max-width:145px;font-size:10.7px}.study-item-step{min-width:29px;padding:0 6px}.study-item-bar{gap:5px;padding:5px 7px}#addonBottom .study-section-nav{justify-content:flex-start;gap:3px}#addonBottom .study-section-nav button{padding:6px 8px}}
+@media(max-width:560px){.study-item-title{display:none}.study-item-steps{gap:3px}.study-item-step{min-width:27px;height:27px;font-size:11px;padding:0 4px}.study-item-arrows .status{min-width:26px}.study-item-bar{min-height:42px}.study-item-arrows .arrow{height:27px;min-width:25px}}
+@media print{.study-item-bar{display:none!important}}
+
+/* V15 — complete word options next to each fill-in sentence (no dropdowns). */
+.v10-question .v15-question-layout{
+ display:grid;grid-template-columns:minmax(0,1.05fr) minmax(350px,.95fr);
+ align-items:start;column-gap:26px;row-gap:8px;
+}
+.v10-question .v15-question-reading{min-width:0;padding-top:3px}
+.v10-question .v15-question-reading .v10-question-text{margin:0 0 10px!important}
+.v10-question .v15-question-picker{min-width:0;border-left:1px solid #ececec;padding-left:21px}
+.v15-word-groups{display:flex;flex-direction:column;gap:10px}
+.v15-word-group{min-width:0}
+.v15-word-label{color:#939393;font-size:11px;font-weight:650;letter-spacing:.04em;margin:0 0 8px}
+.v15-word-options{display:flex;flex-wrap:wrap;align-items:flex-start;gap:7px}
+.v15-word-option{appearance:none;-webkit-appearance:none;white-space:nowrap;min-width:54px;min-height:37px;
+ border:1px solid #e0e0e0;border-radius:8px;background:#ffffff;color:#474747;
+ font:600 16px/1.25 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","Microsoft YaHei",sans-serif;
+ cursor:pointer;padding:7px 12px;text-align:center;transition:background-color .12s,border-color .12s}
+.v15-word-option:hover{background:#f8f8f8;border-color:#acacac}
+.v15-word-option.selected,.v15-word-option[aria-pressed="true"]{background:#f4f4f4;border-color:#8d8d8d;color:#626262}
+.v15-word-option:focus-visible{outline:2px solid #8c8c8c;outline-offset:2px}
+.v15-question-picker .v10-qactions{margin-top:13px!important;gap:8px!important}
+@media(max-width:900px){
+ .v10-question .v15-question-layout{grid-template-columns:minmax(0,1fr);row-gap:11px}
+ .v10-question .v15-question-picker{border-left:0;border-top:1px solid #ededed;padding:10px 0 0}
+ .v15-word-option{min-height:36px;padding:6px 11px}
+}
+@media(max-width:450px){
+ .v15-word-options{gap:6px}
+ .v15-word-option{font-size:15px;min-width:48px;min-height:35px;padding:6px 9px}
+ .v15-question-picker .v10-qactions{gap:7px!important}
+}
+@media(prefers-reduced-motion:reduce){.v15-word-option{transition:none}}
+
+
+/* V16: compact single-row question header and inline word chips; no Check action. */
+.v10-question .v10-qhead{justify-content:flex-start;gap:12px;padding-bottom:9px;margin-bottom:9px}
+.v10-question .v10-qhead .v16-reveal{min-width:0!important;min-height:30px;padding:5px 11px;font-size:12px;line-height:1.3;white-space:nowrap}
+.v10-question .v15-question-layout{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);column-gap:14px;align-items:start}
+.v10-question .v15-question-picker{padding-left:12px}
+.v15-word-group{display:flex;align-items:center;gap:6px}
+.v15-word-groups{gap:7px}
+.v15-word-options{gap:5px;flex-wrap:wrap;align-items:center}
+.v15-word-option{min-width:0;min-height:33px;padding:5px 8px;font-size:15px}
+.v16-slot-tag{flex:none;white-space:nowrap;font-size:11px;font-weight:650;color:#8c8c8c}
+.v10-question .v15-question-reading .v10-question-text{margin:0 0 5px!important}
+@media(max-width:900px){
+ .v10-question .v15-question-layout{grid-template-columns:minmax(0,1fr);row-gap:7px}
+ .v10-question .v15-question-picker{padding:8px 0 0}
+}
+@media(max-width:450px){
+ .v10-question .v10-qhead .v16-reveal{padding:5px 9px;font-size:11px}
+ .v15-word-option{min-height:32px;padding:5px 7px;font-size:14px}
+ .v15-word-options{gap:4px}
+}
+
+/* V17: consistent compact layout for fill, A/B, comparison, and position tasks. */
+.v10-question .v17-question-layout{
+ display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);
+ column-gap:17px;align-items:start;min-width:0;
+}
+.v10-question .v17-question-reading{min-width:0;padding-top:2px}
+.v10-question .v17-question-reading .v10-question-text{margin:0!important}
+.v10-question .v17-question-options{min-width:0;border-left:1px solid #ececec;padding:0 0 0 14px}
+.v10-question .v17-inline-choices{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0!important}
+.v10-question .v17-inline-choices .study-choice{
+ flex:0 1 auto;min-width:65px;min-height:33px;max-width:100%;
+ padding:5px 10px;gap:7px;font-size:15px;line-height:1.35;
+ white-space:nowrap;border-radius:8px;
+}
+.v10-question .v17-inline-choices .study-choice.v12-choice-correct{border-color:#bababa;background:#f7f7f7}
+.v10-question .v17-inline-choices .study-choice b{
+  transition:border-color .16s ease,border-width .16s ease,color .16s ease,background-color .16s ease;
+ flex:0 0 23px;width:23px;height:23px;font-size:10.5px;
+}
+.v10-question .v17-inline-choices .study-choice span{overflow-wrap:anywhere}
+.v10-question .v10-qhead{flex-wrap:nowrap;gap:9px}
+.v10-question .v17-gram-header{
+ margin-left:auto!important;white-space:nowrap;flex:none;
+ padding:4px 6px;background:transparent;border:1px solid transparent;
+ border-radius:6px;color:#717171;font-size:11.5px;font-weight:580;
+ cursor:pointer;
+}
+.v10-question .v17-term-only{color:#868686;cursor:default}
+.v10-question .v17-gram-header:hover,.v10-question .v17-gram-header:focus-visible{
+ border-color:#dddddd;background:#fbfbfb;
+}
+/* Position tasks use compact A–D option chips rather than four oversized blocks. */
+.v10-question .v17-inline-choices .study-choice.v17-pos-choice{min-width:57px;justify-content:center}
+@media(max-width:920px){
+ .v10-question .v17-question-layout{grid-template-columns:minmax(0,1fr);row-gap:7px}
+ .v10-question .v17-question-options{border-left:0;border-top:1px solid #ededed;padding:8px 0 0}
+}
+@media(max-width:450px){
+ .v10-question .v17-inline-choices{gap:5px}
+ .v10-question .v17-inline-choices .study-choice{min-height:32px;padding:4px 8px;font-size:14px}
+ .v10-question .v17-gram-header{font-size:10.5px;padding:3px 4px}
+}
+@media(prefers-reduced-motion:reduce){.v10-question .v17-gram-header{transition:none!important}}
+
+/* V21: identical true 2-by-2 square icons for both reader and exercise menus. */
+#indexBtn,#studyMenuBtn{display:inline-grid!important;place-items:center!important;padding:0!important}
+#indexBtn svg,#studyMenuBtn svg{display:block!important;width:19px!important;height:19px!important;min-width:19px;flex:none;vertical-align:middle}
+#indexBtn{width:36px!important;height:36px!important;min-width:36px!important;font-size:0!important}
+#studyMenuBtn{width:38px!important;height:36px!important;min-width:38px!important;font-size:0!important}
+@media(max-width:410px){#indexBtn{width:34px!important;height:34px!important;min-width:34px!important}#studyMenuBtn{width:36px!important;height:34px!important;min-width:36px!important}}
+ .para-story{font-size:11px;color:#777777;font-weight:650;margin-left:4px;white-space:normal}
+</style>
+<style id="study-v7-styles">
+/* V6 integrated grammar/workbook, V5 reader untouched. Single viewport; independent pane scrolling. */
+.topbar .study-entry{white-space:nowrap;min-width:0}.topbar .study-entry[aria-pressed=true]{background:#f5f5f5;border-color:#bfbfbf;color:#6f6f6f}
+.study-split{flex:1 1 auto;min-height:0;min-width:0;display:grid;grid-template-columns:minmax(0,var(--study-left,57%)) 12px minmax(0,1fr);overflow:hidden;gap:0}
+.study-pane{min-width:0;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:white;border:1px solid #eaeaea;border-radius:12px;container-type:inline-size}
+.study-pane-head{min-height:46px;flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 13px;border-bottom:1px solid #eaeaea}
+.study-pane-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12.3px;font-weight:700;color:#686868}
+.study-pane-sublabel{font-size:10.7px;color:#989898;flex:none}
+.study-scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:12px clamp(10px,1.3vw,23px) 28px;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#d7d7d7 transparent}
+.study-splitter{min-width:12px;border:0;background:none;padding:0;cursor:col-resize;display:grid;place-items:center;touch-action:none}
+.study-splitter::before{content:'';width:3px;height:57px;border-radius:8px;background:#d4d4d4}.study-splitter.dragging::before,.study-splitter:hover::before{background:#8b8b8b}
+.study-kicker{font-size:10.5px;letter-spacing:.045em;font-weight:700;color:#898989;margin:2px 0 5px}
+.study-h2{font-size:23px;line-height:1.45;margin:0 0 9px;color:#474747;font-weight:750}
+.study-desc{font-size:12.3px;color:#7a7a7a;line-height:1.7;margin:2px 0 12px}
+.study-chipline{display:flex;gap:5px;flex-wrap:wrap;margin:9px 0 12px}
+.study-chip{font-size:11px;border:1px solid #e6e6e6;border-radius:7px;padding:3px 8px;background:#ffffff;color:#777777}
+.study-formula{padding:11px 14px;border-radius:8px;border:1px solid #e7e7e7;background:#fbfbfb;font:600 16px/1.7 'Noto Sans SC',sans-serif;color:#585858;margin:10px 0}
+.study-ex{padding:11px 0;border-bottom:1px solid #eeeeee}.study-ex:last-child{border-bottom:0}
+.study-zh{font-size:18px;line-height:1.9;color:#373737;overflow-wrap:anywhere;word-break:normal}
+.study-en,.study-vi{font-size:13px;line-height:1.75;padding-top:5px;color:#7a7a7a}
+.study-vi{color:#616161}.study-lang-label{font-size:9.5px;letter-spacing:.055em;font-weight:650;color:#a2a2a2;margin-right:6px;text-transform:uppercase}
+.study-note{color:#5d5d5d;font-size:13px;line-height:1.8;margin:11px 0}
+.study-inset{margin:11px 0;padding:12px;border-radius:9px;border:1px solid #e6e6e6;background:#fefdfc}
+.study-slim{font-size:12px;color:#888888;line-height:1.65}
+.study-source-marker{font-size:10.5px;color:#a0a0a0;border-top:1px solid #f0f0f0;padding-top:11px;margin-top:19px}
+.study-links{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0 8px}
+.study-link{font-size:11.5px;cursor:pointer;background:#ffffff;border:1px solid #dcdcdc;color:#737373;padding:6px 9px;border-radius:7px}
+.study-link:hover{background:#f9f9f9}
+.study-bank{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0 16px}.study-bank span{padding:4px 10px;border-radius:7px;border:1px solid #e8e8e8;color:#595959;font-size:14.2px;background:#ffffff}
+.study-prompt{border:1px solid #e8e8e8;border-radius:11px;padding:15px 15px 17px;background:#ffffff;margin:13px 0}
+.study-prompt .study-zh{font-size:21px;line-height:2;min-height:55px}
+.study-fill-mark{display:inline-block;vertical-align:baseline;border-bottom:1px dashed #969696;min-width:61px;text-align:center;color:#767676;font-weight:700;padding:0 5px}
+.study-term{border:1px solid #dedede;border-radius:7px;padding:3px 10px;color:#707070;background:#f9f9f9;font-size:18px}
+.study-pos{display:inline-block;color:#7e7e7e;border-radius:5px;padding:0 3px;font-size:19px;font-weight:800}
+.study-question-count{font-variant-numeric:tabular-nums;color:#a0a0a0;font-size:10.5px}
+.study-answer-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:13px}
+.study-choice{min-width:0;min-height:48px;background:white;border:1px solid #e6e6e6;border-radius:9px;padding:9px 12px;font-size:16px;color:#4e4e4e;text-align:left;cursor:pointer;display:flex;align-items:center;gap:10px}
+.study-choice b{
+  transition:border-color .16s ease,border-width .16s ease,color .16s ease,background-color .16s ease;display:inline-grid;place-items:center;flex:0 0 24px;width:24px;height:24px;border:1px solid #d7d7d7;border-radius:50%;font-size:11px;color:#848384}
+.study-choice.selected{background:#f8f8f8;border-color:#919191;color:#696969}
+.study-choice.selected b{background:#ffffff;border-color:#919191;color:#717171}
+.study-select-grid{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.study-select-grid label{display:flex;align-items:center;gap:6px;color:#898989;font-size:12px}
+.study-blank-select{appearance:none;min-width:112px;max-width:100%;padding:9px 30px 9px 10px;border-radius:8px;border:1px solid #d8d8d8;background:white url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="%237f777a" stroke-width="2"%3E%3Cpath d="m6 9 6 6 6-6"/%3E%3C/svg%3E') no-repeat right 8px center;color:#444444;cursor:pointer}
+.study-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:17px 0 3px}
+.study-primary{font-size:12px;font-weight:600;line-height:1.3;padding:9px 13px;min-height:34px;background:#f7f7f7;border:1px solid #cbcbcb;color:#6f6f6f;border-radius:8px;cursor:pointer}
+.study-secondary{font-size:12px;padding:8px 11px;min-height:34px;background:white;border:1px solid #e6e6e6;color:#686868;border-radius:8px;cursor:pointer}
+.study-primary:hover,.study-secondary:hover{background:#f9f9f9}
+.study-feedback{border-top:1px solid #eaeaea;margin-top:15px;padding-top:14px;line-height:1.7}
+.study-feedback strong{display:block;font-size:13px;margin-bottom:7px}
+.study-feedback.good strong{color:#686868}.study-feedback.bad strong{color:#6d6d6d}.study-feedback.neutral strong{color:#6c6c6c}
+.study-answer-line{font-size:15px;color:#676767;line-height:1.85;font-weight:650;overflow-wrap:anywhere}
+.study-feedback p{margin:6px 0;font-size:12.7px;color:#5b5b5b}
+.study-small-head{font-size:10.5px;font-weight:760;color:#989898;letter-spacing:.04em;margin-top:9px}
+.study-summary-word{margin:11px 0;border-bottom:1px solid #eeeeee;padding:9px 0;display:grid;grid-template-columns:90px 1fr;gap:8px}
+.study-summary-word strong{font-size:16px;color:#535353}.study-summary-word div{font-size:13px;line-height:1.6;color:#696969}
+.study-essay{resize:vertical;min-height:150px;width:100%;max-width:100%;padding:12px;border:1px solid #e2e2e2;border-radius:9px;color:#3e3e3e;background:white;font:16px/1.85 'Noto Sans SC',sans-serif}
+.study-discussion{padding:11px 0;border-bottom:1px solid #ebebeb;font-size:17px;line-height:1.85;color:#414141}
+.study-section-nav{display:flex;align-items:center;gap:4px;overflow-x:auto;min-width:0;flex:1;scrollbar-width:none}.study-section-nav::-webkit-scrollbar{display:none}
+.study-section-nav button{flex:none;min-height:30px;padding:5px 9px;border:1px solid transparent;border-radius:7px;background:white;white-space:nowrap;font-size:11.5px;font-weight:630;color:#7f7f7f}
+.study-section-nav button:hover{background:#f9f9f9}
+.study-section-nav button[aria-current='page']{background:#f6f6f6;border-color:#cdcdcd;color:#6b6b6b}
+#addonBottom .prevnext{flex:none}
+#addonBottom .status{min-width:40px}
+#addonBottom .nav-trigger{flex:none}
+.study-popup{position:absolute;bottom:calc(100% + 7px);left:5px;max-height:min(65vh,530px);width:min(400px,calc(100vw - 30px));overflow-y:auto;padding:12px;background:#ffffff;border:1px solid #e5e5e5;border-radius:12px;box-shadow:0 15px 40px #22222233;z-index:45;display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.study-popup button{border:1px solid #eaeaea;background:white;text-align:left;border-radius:7px;padding:9px;color:#6d6d6d;font-size:12px}
+.study-popup button:hover{background:#f9f9f9}
+.study-popup button.current{color:#6d6d6d;border-color:#c4c4c4;background:#f9f9f9}
+@media(max-width:790px){
+ .study-split{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,var(--study-top,53%)) 12px minmax(0,1fr)}
+ .study-splitter{width:100%;height:12px;cursor:row-resize}.study-splitter::before{height:3px;width:58px}
+ .study-pane-head{min-height:36px;padding:5px 9px}
+ .study-scroll{padding:9px 10px 16px}
+ .study-h2{font-size:20px}.study-zh{font-size:16px}.study-prompt .study-zh{font-size:18px}
+ .study-answer-buttons{gap:5px}.study-choice{padding:7px 9px;min-height:43px}
+ #addonBottom{gap:5px;padding:5px 7px}#addonBottom .study-section-nav button{padding:5px 7px;font-size:10px}
+ .topbar .study-entry{font-size:11px!important;padding:6px 8px!important}
+}
+@media(max-width:530px){.topbar .brand{font-size:11px}.topbar .study-entry{font-size:10px!important}.study-pane-sublabel{display:none}.study-summary-word{grid-template-columns:60px 1fr}.study-zh{font-size:16px}.study-actions{gap:5px}.study-actions button{font-size:11px}#addonBottom .navlabel{display:none}}
+body.study-no-en #addonStudy [data-slang="en"]{display:none!important}
+body.study-no-vi #addonStudy [data-slang="vi"]{display:none!important}
+body.study-no-zh #addonStudy [data-slang="zh"]{display:none!important}
+@media print{.study-split{display:block;overflow:visible!important}.study-pane,.study-scroll{overflow:visible!important;height:auto!important}.study-splitter,#addonBottom,.study-actions{display:none!important}}
+
+
+/* V8: compact but readable lexicon, six clearly separated entries */
+.study-colloc-row{
+ display:grid;grid-template-columns:76px minmax(0,1fr);align-items:start;
+ width:100%;padding:11px 12px;margin:0 0 6px;
+ border:1px solid #eaeaea;border-radius:9px;background:#ffffff;
+ text-align:left;color:#5d5d5d;cursor:pointer;line-height:1.65;
+}
+.study-colloc-row strong{font-size:16px;font-weight:680;color:#494949}
+.study-colloc-row span{font-size:12.5px;color:#7a7a7a;min-width:0;overflow-wrap:anywhere}
+.study-colloc-row:hover{border-color:#cfcfcf;background:#fdfdfd}
+.study-colloc-row.active{border-color:#bbbbbb;background:#fafafa}
+.study-colloc-row:focus-visible{outline:2px solid #989898;outline-offset:2px}
+@media(max-width:650px){.study-colloc-row{grid-template-columns:64px minmax(0,1fr);padding:8px 9px}.study-colloc-row strong{font-size:15px}.study-colloc-row span{font-size:12px}}
+
+
+/* V10 — one continuous exercise list, one global table of contents */
+#studyItemBar{display:none!important}
+#addonBottom{display:flex!important;justify-content:space-between;align-items:center;min-height:52px!important;padding:6px 11px!important;gap:11px!important}
+#addonBottom[hidden]{display:none!important}
+#addonBottom .v10-bottom-info{display:flex;flex-direction:column;gap:1px;min-width:0;flex:1;line-height:1.3}
+#v10ActiveName{font-size:12.5px;font-weight:700;color:#545454;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#v10ActiveMeta{font-size:11px;color:#8f8f8f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#studyMenuBtn{flex:none;font-size:20px;line-height:1;color:#717171;border:1px solid #dfdfdf;background:#fcfcfc;width:38px;height:36px;border-radius:9px;cursor:pointer}
+#studyMenuBtn:hover,#studyMenuBtn[aria-expanded="true"]{background:#f4f4f4;border-color:#b8b8b8}
+#addonStudy{grid-template-columns:minmax(0,var(--study-left,71%)) 12px minmax(0,1fr);flex:1 1 0;min-height:0}
+#addonStudy[hidden]{display:none!important}
+#studyLeft{scrollbar-gutter:stable;padding:15px clamp(12px,1.8vw,26px) 36px}
+#studyRight{padding:15px 13px 35px}
+.v10-all-questions{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.v10-question{border:1px solid #e9e9e9;border-radius:10px;background:#ffffff;padding:15px 17px 16px;scroll-margin-top:14px;contain:layout style}
+.v10-qhead{display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid #eeeeee;padding-bottom:8px;margin-bottom:10px}
+.v10-qhead strong{font-size:14px;color:#696969}
+.v10-question-text{font-size:19px;line-height:2!important;margin:8px 0 12px}
+.v10-question .study-answer-buttons{margin-top:10px;gap:7px}
+.v10-question .study-choice{min-height:41px;font-size:15px;padding:7px 10px}
+.v10-question .study-select-grid{margin:10px 0}
+.v10-question .study-fill-mark{min-width:38px}
+.v10-qactions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:13px}
+.v10-qfeedback{margin-top:12px}
+.v10-qfeedback .study-feedback{margin:0;padding:12px 14px;border:1px solid #e9e9e9;border-radius:9px;background:#fdfdfd}
+.v10-qfeedback .study-feedback.good{border-color:#e5e5e5;background:#fdfdfd}
+.v10-qfeedback .study-feedback.bad{border-color:#dddddd;background:#fffdfd}
+.v10-qfeedback .study-feedback p{margin:5px 0}
+.v10-bank{padding:10px 12px;border:1px solid #ebebeb;background:#fcfbfa;border-radius:9px;margin:12px 0}
+.v10-bank .study-bank{margin-bottom:0}
+.v10-study-unit{border:1px solid #e8e8e8;padding:15px 18px;border-radius:10px;margin:14px 0 18px;scroll-margin-top:16px}
+.v10-unit-n{display:flex;align-items:baseline;gap:12px;margin-bottom:7px}
+.v10-unit-n span{font-weight:750;font-size:12px;color:#747474}
+.v10-unit-n h3{margin:0;font-size:22px;color:#474747}
+.v10-colloc-example{padding:5px 0;border-bottom:1px solid #efefef;font-size:17px}
+.v10-sideblock{border-bottom:1px solid #ececec;padding:10px 0}
+.v10-sideblock strong{font-size:15px;color:#6d6d6d}
+.v10-sideblock p{font-size:12px;line-height:1.7;margin:6px 0 10px;color:#6a6a6a}
+.v10-sideblock .study-formula{font-size:13px;padding:8px}
+.v10-sidejump{background:none;border:0;color:#6c6c6c;cursor:pointer;text-align:left;padding:4px;font-size:14px}
+.v10-progress{padding:12px;border:1px solid #eaeaea;border-radius:10px;margin:18px 0 14px}
+.v10-progress strong{font-size:13px;color:#5d5d5d}
+.v10-track{height:6px;background:#efefef;border-radius:100px;overflow:hidden;margin-top:10px}
+.v10-track span{height:100%;display:block;background:#878787;border-radius:100px;transition:width .2s}
+#tocTitle{font-size:16px}
+#tocList{display:flex!important;flex-direction:column;gap:5px;margin-top:11px}
+#tocList .v10-menu-row{display:flex;align-items:center;gap:10px;width:100%;border:1px solid transparent;border-bottom-color:#efefef;background:#ffffff;padding:9px 10px;text-align:left;border-radius:8px;min-height:54px}
+#tocList .v10-menu-row:hover,#tocList .v10-menu-row[aria-current="page"]{background:#f9f9f9;border-color:#dbdbdb}
+.v10-menu-zh{min-width:59px;font-size:14px;font-weight:750;color:#6d6d6d}
+.v10-menu-main{min-width:0;display:flex;flex:1;flex-direction:column;gap:2px}
+.v10-menu-main strong{font-size:13px!important;font-weight:650;color:#4c4c4c!important;margin:0!important}
+.v10-menu-main small{font-size:11px;color:#929292}
+.v10-menu-progress{font-size:10.5px;color:#8f8f8f;white-space:nowrap}
+.v10-menu-chevron{font-size:22px;color:#b8b8b8}
+.toc{width:min(560px,100%);max-height:min(85vh,760px);padding:17px}
+@media(max-width:790px){
+ #addonStudy{display:flex!important;flex-direction:column!important}
+ #addonStudy[hidden]{display:none!important}
+ #addonStudy .study-pane:first-child{flex:1!important;height:100%!important;min-height:0!important}
+ #addonStudy .study-pane:last-child,#addonSplitter{display:none!important}
+ #studyLeft{padding:10px 13px 28px}
+ .v10-question{padding:11px 12px}
+ .v10-question-text{font-size:17px}
+ .v10-question .study-choice{font-size:14px}
+ .v10-all-questions{gap:9px}
+ .v10-menu-progress{display:none}
+}
+@media(max-width:450px){
+ #addonBottom{min-height:48px!important}
+ #v10ActiveName{font-size:11.5px}
+ #v10ActiveMeta{font-size:10px}
+ .v10-question .study-answer-buttons{grid-template-columns:1fr 1fr}
+ .v10-question .study-choice{padding:5px 7px;font-size:13px;gap:6px}
+ .v10-question .study-choice b{
+  transition:border-color .16s ease,border-width .16s ease,color .16s ease,background-color .16s ease;flex-basis:21px;width:21px;height:21px}
+ .v10-qactions .study-primary,.v10-qactions .study-secondary{font-size:11px;padding:7px 9px}
+ .toc{padding:13px}
+ .v10-menu-zh{min-width:52px;font-size:12px}
+}
+@media print{#addonBottom{display:none!important}#addonStudy{display:block!important;height:auto!important;overflow:visible!important}#addonStudy .study-pane:last-child{display:none!important}#studyLeft{overflow:visible!important;height:auto!important}}
+
+/* V11 — grammar headlines clearly marked, redundant summary pane removed */
+#addonStudy.v11-grammar-onepane{
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+ grid-template-rows:minmax(0,1fr)!important;
+}
+#addonStudy.v11-grammar-onepane #addonSplitter,
+#addonStudy.v11-grammar-onepane > .study-pane:last-child{display:none!important}
+#addonStudy.v11-grammar-onepane > .study-pane:first-child{min-width:0;min-height:0;height:100%!important}
+#addonStudy.v11-grammar-onepane #studyLeft{padding:20px clamp(15px,3.4vw,52px) 45px!important}
+.v11-grammar-wrap{width:100%;max-width:960px;margin:0 auto}
+.v11-grammar-wrap > .study-h2{margin-bottom:17px}
+.v11-grammar-unit{padding:23px 27px!important;margin:16px 0 20px!important}
+.v11-grammar-unit .v10-unit-n{
+ display:flex;align-items:center;gap:14px;padding:0 0 13px;margin-bottom:13px;
+ border-bottom:1px solid #e9e9e9;
+}
+.v11-grammar-unit .v10-unit-n span{
+ flex:none;display:inline-grid;place-items:center;width:31px;height:31px;
+ background:#f4f4f4;border:1px solid #dedede;border-radius:8px;
+ color:#717171;font-size:13px;font-weight:760;line-height:1;
+}
+.v11-grammar-unit .v10-unit-n h3{
+ margin:0;font-size:clamp(27px,2.4vw,35px);font-weight:850;line-height:1.35;
+ color:#646464;letter-spacing:.01em;
+}
+.v11-grammar-unit .study-desc{font-size:14px;margin:3px 0 16px;color:#6b6b6b}
+.v11-grammar-unit .study-small-head{margin-top:14px}
+@media(max-width:790px){
+ #addonStudy.v11-grammar-onepane{display:flex!important;flex-direction:column!important}
+ #addonStudy.v11-grammar-onepane #studyLeft{padding:13px 12px 32px!important}
+ .v11-grammar-wrap{max-width:100%}
+ .v11-grammar-unit{padding:16px 14px!important}
+ .v11-grammar-unit .v10-unit-n h3{font-size:28px}
+}
+@media print{#addonStudy.v11-grammar-onepane{display:block!important}}
+
+/* V12 — focus mode: single full-width learning column + zero-reflow answer popovers */
+#addonStudy.v12-onepane{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr)!important}
+#addonStudy.v12-onepane #addonSplitter,#addonStudy.v12-onepane>.study-pane:last-child{display:none!important}
+#addonStudy.v12-onepane>.study-pane:first-child{height:100%!important;min-width:0;min-height:0}
+#addonStudy.v12-onepane #studyLeft{padding:16px clamp(14px,3.4vw,52px) 45px!important}
+#addonStudy.v12-onepane .v10-all-questions{width:100%;max-width:1010px;margin-left:auto;margin-right:auto}
+#addonStudy.v12-onepane .study-h2,#addonStudy.v12-onepane .study-kicker,#addonStudy.v12-onepane .study-desc,#addonStudy.v12-onepane .v10-bank,#addonStudy.v12-onepane .study-inset{max-width:1010px;margin-left:auto;margin-right:auto}
+#addonStudy.v12-onepane .v11-grammar-wrap{max-width:1010px}
+.v12-gram-quick{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:#717171;font-size:11.5px;font-weight:600;line-height:1.4;cursor:pointer;padding:2px 2px;margin:2px 0 6px}
+.v12-gram-quick:hover,.v12-gram-quick:focus-visible{text-decoration:underline;text-underline-offset:3px}
+.v10-question .study-fill-mark{box-sizing:border-box;display:inline-flex!important;justify-content:center;align-items:baseline;vertical-align:baseline;width:var(--v12-blank-em,3.5em);min-width:0!important;max-width:none;white-space:nowrap;overflow:hidden;padding:0 4px;line-height:inherit;font-weight:670;font-size:inherit;border-bottom:1px dashed #9f9f9f;color:#696969;text-align:center;font-variant-numeric:tabular-nums;transition:background-color .12s}
+.v10-question .study-fill-mark.v12-filled{border-bottom-color:#828282;color:#6a6a6a;background:#f8f8f8;border-radius:3px 3px 0 0;cursor:help}
+.v10-question .study-fill-mark.v12-filled:hover,.v10-question .study-fill-mark.v12-filled:focus-visible{background:#ededed;outline:1px solid #afafaf;outline-offset:1px}
+.v10-question .study-pos.v12-pos-slot{box-sizing:border-box;display:inline-flex;align-items:baseline;justify-content:center;width:2.3em!important;min-width:2.3em!important;max-width:2.3em!important;padding:0!important;font-size:inherit!important;font-weight:750;line-height:inherit;border-radius:3px;vertical-align:baseline}
+.v10-question .study-pos.v12-pos-slot.v12-inserted{color:#686868;background:#f7f7f7;cursor:help}
+.v10-question .study-pos.v12-pos-slot.v12-inserted:hover,.v10-question .study-pos.v12-pos-slot.v12-inserted:focus-visible{outline:1px solid #afafaf}
+.v12-choice-correct{border-color:#bababa!important;background:#fcfcfc!important}
+.v12-choice-correct b{color:#6a6a6a!important;border-color:#cccccc!important}
+.v10-qactions{gap:8px!important;flex-wrap:nowrap!important}
+.v10-qactions .study-primary{min-width:77px}
+.v10-qactions .study-secondary{min-width:112px;white-space:nowrap}
+.v12-floating{position:fixed;z-index:10000;width:min(405px,calc(100vw - 20px));max-height:min(66vh,490px);overflow-y:auto;overscroll-behavior:contain;background:#ffffff;border:1px solid #e1e1e1;box-shadow:0 12px 34px #36363625;border-radius:11px;padding:15px 17px;font-size:12.8px;line-height:1.68;color:#535353}
+.v12-floating[hidden]{display:none!important}
+.v12-floating .v12-pop-head{display:flex;align-items:center;gap:9px;justify-content:space-between;margin-bottom:7px}
+.v12-floating .v12-pop-title{font-size:15px;font-weight:750;color:#686868;overflow-wrap:anywhere}
+.v12-floating .v12-pop-close{background:none;border:0;border-radius:6px;color:#939293;padding:4px 6px;cursor:pointer;font-size:19px;line-height:1}
+.v12-floating .v12-pop-close:hover{background:#f4f4f4}
+.v12-floating p{margin:7px 0;font-size:12.6px;line-height:1.7}
+.v12-floating .v12-pop-label{font-size:10px;font-weight:750;letter-spacing:.055em;color:#939393;margin:10px 0 2px}
+.v12-floating .v12-pop-zh{font-size:16px;font-weight:650;color:#393939;line-height:1.8}
+.v12-floating .v12-pop-formula{background:#f9f9f9;border:1px solid #eaeaea;border-radius:6px;padding:7px 9px;font-size:14px;color:#525252}
+.v12-floating .v12-pop-muted{color:#7d7d7d;font-size:11.5px}
+@media(max-width:790px){#addonStudy.v12-onepane{display:flex!important;flex-direction:column!important}#addonStudy.v12-onepane #studyLeft{padding:12px 13px 30px!important}.v10-qactions{gap:5px!important}.v10-qactions .study-secondary{min-width:100px}.v12-floating{padding:12px 14px;max-height:min(64vh,460px)}}
+@media(max-width:390px){.v10-qactions .study-primary{min-width:64px}.v10-qactions .study-secondary{min-width:97px}.v10-qactions button{font-size:10px!important}}
+@media print{.v12-floating{display:none!important}#addonStudy.v12-onepane{display:block!important}#addonStudy.v12-onepane #studyLeft{overflow:visible!important;height:auto!important}}
+
+
+/* V13 — comfortable explanation popover; headings in proportion to body text.
+   Visual-only overrides: no DOM changes, no question/answer edits, no new reflow in lesson text. */
+.v12-floating{
+  width:min(575px,calc(100vw - 24px))!important;
+  max-height:min(78vh,650px)!important;
+  padding:20px 22px!important;
+  font-size:16px!important;
+  line-height:1.65!important;
+}
+.v12-floating p{font-size:16px!important;line-height:1.68!important;margin:9px 0!important}
+.v12-floating .v12-pop-title{font-size:18px!important;font-weight:730!important;line-height:1.45!important}
+.v12-floating .v12-pop-label{font-size:12px!important;line-height:1.5!important;letter-spacing:.025em!important;margin-top:15px!important}
+.v12-floating .v12-pop-muted{font-size:15px!important;line-height:1.6!important}
+.v12-floating .v12-pop-zh{font-size:18px!important;line-height:1.75!important}
+.v12-floating .v12-pop-formula{font-size:16px!important;line-height:1.65!important}
+/* These grammar terms were 27–35px in V11/V12: they should only be slightly larger than body Chinese. */
+.v11-grammar-unit .v10-unit-n h3{font-size:22px!important;font-weight:750!important;line-height:1.5!important;letter-spacing:0!important}
+.v11-grammar-unit .v10-unit-n span{width:27px!important;height:27px!important}
+/* Keep Chinese question text a little larger than normal, not poster-sized. */
+.v10-question .v10-question-text.study-zh{font-size:19px!important;line-height:1.9!important}
+@media(max-width:790px){
+ .v12-floating{padding:16px 17px!important;max-height:min(74vh,590px)!important}
+ .v11-grammar-unit .v10-unit-n h3{font-size:21px!important}
+ .v10-question .v10-question-text.study-zh{font-size:18px!important}
+}
+@media(max-width:400px){
+ .v12-floating{width:calc(100vw - 16px)!important;padding:13px 14px!important}
+ .v12-floating p{font-size:15.5px!important}
+ .v12-floating .v12-pop-title{font-size:17px!important}
+ .v12-floating .v12-pop-muted{font-size:15px!important}
+}
+
+/* V14: streamlined practice controls. */
+.v10-qhead{justify-content:flex-start}
+.v10-qactions{justify-content:flex-start}
+</style>
+<style id="v18-global-answer-cleanup">
+/* V18: global reveal in the exercise heading. Remove stray grammar markers. */
+.v18-exercise-heading{display:flex;align-items:center;justify-content:space-between;
+ gap:12px;max-width:1010px;width:100%;margin:0 auto 9px}
+.v18-exercise-heading .study-h2{margin:0!important;min-width:0}
+.v18-reveal-all{flex:0 0 auto;min-width:144px;text-align:center;
+ border-color:#d1d1d1;color:#6c6c6c;font-size:12.5px;font-weight:650;
+ min-height:36px;border-radius:8px}
+.v10-question .v10-qhead{padding-bottom:7px;margin-bottom:8px}
+@media(max-width:490px){
+ .v18-exercise-heading{gap:7px}
+ .v18-exercise-heading .study-h2{font-size:19px}
+ .v18-reveal-all{min-width:116px;font-size:11.2px;padding:7px 8px}
+}
+</style>
+
+<style id="v22-circle-only-choice">
+/* V22: remove rectangular option box; highlight only the circular A/B/C/D badge */
+.study-choice{
+  min-width:auto!important;
+  border:none!important;
+  background:transparent!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  padding:4px 2px!important;
+  color:inherit!important;
+}
+.study-choice:hover,.study-choice:focus-visible,.study-choice.selected,.study-choice.v12-choice-correct{
+  border:none!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:inherit!important;
+}
+.study-choice b{
+  transition:border-color .16s ease,border-width .16s ease,color .16s ease,background-color .16s ease;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 28px!important;width:28px!important;height:28px!important;min-width:28px!important;
+  border:2px solid #cfcfcf!important;border-radius:999px!important;
+  background:#ffffff!important;color:#717171!important;
+}
+.study-choice.selected b,.study-choice.v12-choice-correct b{
+  background:#ffffff!important;
+  border:3px solid #797979!important;
+  color:#797979!important;
+}
+.study-choice span{color:#474747!important}
+.study-choice.selected span,.study-choice.v12-choice-correct span{color:#474747!important}
+.v10-question .v17-inline-choices{gap:12px!important}
+</style>
+
+<style id="v24-fill-wide-no-slot-labels">
+/* Word-bank rows correspond to successive blanks, without noisy visible slot labels.
+   Reserve only the width the compact choices really need, and give the sentence the rest. */
+@media (min-width:901px){
+  .v10-question .v15-question-layout{
+    grid-template-columns:minmax(0,1fr) clamp(306px,34%,360px)!important;
+    column-gap:12px!important;
+  }
+  .v10-question .v15-question-picker{padding-left:10px!important}
+}
+.v10-question .v15-word-groups{gap:7px!important}
+.v10-question .v15-word-group{align-items:center!important;gap:0!important}
+.v10-question .v15-word-options{gap:4px!important}
+.v10-question .v15-word-option{
+  min-width:0!important;min-height:32px!important;
+  padding:5px 7px!important;font-size:14.5px!important;
+  line-height:1.2!important;white-space:nowrap!important;
+}
+@media (max-width:900px){
+  .v10-question .v15-question-layout{grid-template-columns:minmax(0,1fr)!important}
+  .v10-question .v15-question-picker{padding:8px 0 0!important}
+}
+</style>
+<style id="v25-numbered-multiple-blanks">
+/* Index multiple blanks without extra rows or reflow. Single blanks have no label. */
+.v10-question .v15-word-group.v25-multi-blank{
+  display:flex!important;align-items:center!important;gap:6px!important;
+}
+.v10-question .v25-choice-n{
+  display:inline-flex;align-items:center;justify-content:center;
+  flex:0 0 15px;min-width:15px;width:15px;
+  font:650 12px/1 system-ui,-apple-system,sans-serif;
+  color:#848484;font-variant-numeric:tabular-nums;
+}
+.v10-question .v25-multi-blank .v15-word-options{flex:1 1 auto;min-width:0}
+.v10-question .study-fill-mark.v25-numbered-blank{position:relative;overflow:visible!important}
+.v10-question .v25-blank-n{
+  position:absolute;right:-2px;top:-7px;pointer-events:none;
+  display:block!important;width:auto;height:auto;
+  font:650 10px/1.1 system-ui,-apple-system,sans-serif;
+  color:#7b7b7b;background:#ffffff;padding:0 2px;
+  border-radius:2px;box-shadow:none;
+}
+.v10-question .study-fill-mark.v12-filled .v25-blank-n{background:#f8f8f8}
+@media (min-width:901px){
+  /* Make the sentence primary, keep choices to their natural compact width. */
+  .v10-question .v15-question-layout{
+    grid-template-columns:minmax(0,1fr) minmax(300px,34%)!important;
+    column-gap:10px!important;
+  }
+  .v10-question .v15-question-picker{padding-left:9px!important}
+}
+@media (max-width:900px){
+  .v10-question .v25-blank-n{top:-6px}
+}
+</style>
+<style id="lesson03-wide-wordbank">
+@media(min-width:901px){
+ .v10-question .v15-question-layout{grid-template-columns:minmax(0,1fr) minmax(380px,40%)!important}
+}
+</style>
+
+<style id="neutral-v8-bai15">
+/* TRẮNG-XÁM V8 · SGK THƯỢNG BÀI 15 · CHỈ TRÌNH BÀY */
+:root{--accent:#777!important;--accentLight:#f5f5f5!important;}
+/* Chỉ nhấn viền tròn cho đáp án đúng/đang chọn. Không tô cả lựa chọn. */
+.v10-question .study-choice,
+.v10-question .study-choice:hover,
+.v10-question .study-choice.selected,
+.v10-question .study-choice.v12-choice-correct,
+.study-choice.selected,.study-choice.v12-choice-correct
+{background:transparent!important;border-color:transparent!important;box-shadow:none!important;}
+.v10-question .study-choice.selected b,
+.v10-question .study-choice.v12-choice-correct b,
+.study-choice.selected b,.study-choice.v12-choice-correct b
+{background:#fff!important;border:3px solid #585858!important;color:#505050!important;box-shadow:none!important;}
+/* Dạng chọn vị trí A/B/C/D của bài SGK: giữ cách bố trí hiện tại. */
+.v10-question .v17-inline-choices .study-choice.selected,
+.v10-question .v17-inline-choices .study-choice.v12-choice-correct{background:transparent!important;border:0!important;}
+.v10-question .study-choice b{border-radius:50%!important;}
+.v12-floating .v12-pop-evidence{background:#f4f4f4!important;border-color:#d6d6d6!important;}
+.study-choice:focus-visible,.v12-reveal:focus-visible{outline:2px solid #818181!important;outline-offset:2px!important;}
+</style>
+<style id="hsk5-correct-answer-green-v2">
+/* Highlight correct answers only AFTER reveal; keep all other choices grayscale. */
+.v10-question .study-choice.v12-choice-correct,
+.v10-question .v17-inline-choices .study-choice.v12-choice-correct,
+.study-choice.v12-choice-correct,
+.study-answer-buttons .study-choice.v12-choice-correct{
+ color:#3d7056!important;background:transparent!important;border-color:transparent!important;
+}
+.v10-question .study-choice.v12-choice-correct span,
+.study-choice.v12-choice-correct span,
+.v10-question .study-choice.v12-choice-correct .study-choice-text,
+.study-choice.v12-choice-correct .study-choice-text{
+ color:#3d7056!important;font-weight:600!important;
+}
+.v10-question .study-choice.v12-choice-correct b,
+.v10-question .v17-inline-choices .study-choice.v12-choice-correct b,
+.study-choice.v12-choice-correct b{
+ border:2px solid #52575a!important;background:#52575a!important;color:#fff!important;
+ font-weight:750!important;box-shadow:none!important;
+}
+/* A selected option before revealing the answer must NOT look correct. */
+.v10-question .study-choice.selected:not(.v12-choice-correct) span,
+.study-choice.selected:not(.v12-choice-correct) span{color:#414649!important;}
+
+/* Hover preview for correct answer before showing answers */
+#v10-fixed-area .study-long .study-qcard .options-table tr.correct:hover .letter,
+#v10-fixed-area .study-long .study-qcard .options-table tr.correct:focus-within .letter,
+body.im-active #v10-fixed-area .study-long-quiz .options-table tr.correct:hover .letter,
+body.im-active #v10-fixed-area .study-long-quiz .options-table tr.correct:focus-within .letter,
+body.im-active.im-transcript-open #v10-fixed-area .study-long-quiz .options-table tr.correct:hover .letter,
+body.im-active.im-transcript-open #v10-fixed-area .study-long-quiz .options-table tr.correct:focus-within .letter{
+  border:2px solid #777!important;
+  background:#fff!important;
+  color:#222!important;
+}
+#v10-fixed-area .study-long .study-qcard .options-table tr.correct:hover td,
+#v10-fixed-area .study-long .study-qcard .options-table tr.correct:focus-within td,
+body.im-active #v10-fixed-area .study-long-quiz .options-table tr.correct:hover td,
+body.im-active #v10-fixed-area .study-long-quiz .options-table tr.correct:focus-within td,
+body.im-active.im-transcript-open #v10-fixed-area .study-long-quiz .options-table tr.correct:hover td,
+body.im-active.im-transcript-open #v10-fixed-area .study-long-quiz .options-table tr.correct:focus-within td{
+  background:transparent!important;
+}
+</style>
+<style id="sgk-bai01-vong-khuyen-chot">
+/* SGK Bài 15 — theo mẫu chốt: chọn trước khi hiện đáp án vẫn vòng trắng;
+   hover vào đúng phương án hoặc bật hiện đáp án mới hiện viền khuyên xám.
+   Nội dung và nền phương án không đổi màu; nhãn câu đủ nét để đọc rõ. */
+.v10-question .study-choice,
+.v10-question .study-choice.selected,
+.v10-question .study-choice.v12-choice-correct,
+.v10-question .v17-inline-choices .study-choice {
+  background:transparent!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+  color:#414649!important;
+}
+.v10-question .study-choice b,
+.v10-question .study-choice.selected b,
+.v10-question .v17-inline-choices .study-choice b,
+.v10-question .v17-inline-choices .study-choice.selected b {
+  border:1.5px solid #d6d9da!important;
+  background:#fff!important;
+  color:#585e62!important;
+  box-shadow:none!important;
+  font-weight:650!important;
+}
+/* Chỉ khuyên ở phương án đúng: hover/focus, hoặc đã bật hiện đáp án. */
+.v10-question .study-choice[data-correct-preview="true"]:hover b,
+.v10-question .study-choice[data-correct-preview="true"]:focus-visible b,
+.v10-question .study-choice.v12-choice-correct b,
+.v10-question .v17-inline-choices .study-choice[data-correct-preview="true"]:hover b,
+.v10-question .v17-inline-choices .study-choice[data-correct-preview="true"]:focus-visible b,
+.v10-question .v17-inline-choices .study-choice.v12-choice-correct b {
+  border:3px solid #53595d!important;
+  background:#fff!important;
+  color:#30363a!important;
+  font-weight:700!important;
+  box-shadow:none!important;
+}
+.v10-question .study-choice.selected span,
+.v10-question .study-choice.v12-choice-correct span,
+.v10-question .study-choice[data-correct-preview="true"]:hover span,
+.v10-question .study-choice span,
+.v10-question .v17-inline-choices .study-choice span {
+  color:#414649!important;
+  font-weight:400!important;
+}
+.v10-question .v10-qhead strong,
+.v10-question .study-small-head,
+.v10-question .v10-qsub,
+.v10-question .v10-qcategory {
+  color:#555c60!important;
+  font-weight:650!important;
+}
+/* Khi giải thích cho đáp án đúng, xanh trầm chỉ ở nhãn xác nhận, không ở đáp án. */
+.v10-question .study-feedback.good strong {
+  color:#467b60!important;
+}
+
+/* Same 3px ring when hovering the correct option or revealing answers. */
+#addonStudy .v10-question .study-choice[data-correct-preview="true"]:hover b,
+#addonStudy .v10-question .study-choice[data-correct-preview="true"]:focus-visible b {
+  border:3px solid #53595d!important;
+  border-radius:50%!important;
+  background:#fff!important;
+  color:#30363a!important;
+}
+</style>
+<script id="hsk-media-data" type="application/json">{"id": "sgk-thuong-15", "kind": "sgk", "lesson": 15, "tracks": [{"id": "sgk-thuong-15-1", "name": "15-1-Giáo-trình-chuẩn-HSK-5-Tập-1.mp3", "url": "../../media/sgk/15-01.mp3", "durationMs": 185504, "timelineUrl": "../../media/sgk/15-01.txt"}], "cues": [{"startMs": 10930, "endMs": 35930, "startLabel": "00:00:10.930", "endLabel": "00:00:35.930", "text": "两千七百多年前的战国末期，赵国名将赵奢有个儿子叫赵括，他从小读了不少兵书，跟别人谈论起军事来，没有人说得过他，就是父亲赵奢也难不住他。赵括因此很骄傲，自以为天下无敌，连父亲也不放在眼里。", "id": "sgk-thuong-15-1-1", "trackId": "sgk-thuong-15-1", "paragraph": 1}, {"startMs": 36070, "endMs": 63030, "startLabel": "00:00:36.070", "endLabel": "00:01:03.030", "text": "但是赵奢心里明白，自己的儿子虽然对军事理论都很了解，但是没有实际作战的经验，想法很不符合实际。他曾经偷偷对妻子说：“儿子的毛病是只会讲大道理，缺乏实际锻炼，不能当大将。如果让他当了大将，迟早会害了赵国。”", "id": "sgk-thuong-15-1-2", "trackId": "sgk-thuong-15-1", "paragraph": 2}, {"startMs": 63120, "endMs": 101760, "startLabel": "00:01:03.120", "endLabel": "00:01:41.760", "text": "几年后，赵奢去世了。这一年正好秦国军队来打赵国，赵国派老将廉颇带20万大军迎战。廉颇根据敌强我弱的形势，命令士兵们坚守阵地，绝对不可主动出战。秦军多次挑战，骂他是胆小鬼，他还是不出兵。这个办法果然非常有效，成功地把秦军拦在了国门之外。渐渐地，秦军无法快速取得胜利，粮食也快没了，有些坚持不住了。", "id": "sgk-thuong-15-1-3", "trackId": "sgk-thuong-15-1", "paragraph": 3}, {"startMs": 102070, "endMs": 121000, "startLabel": "00:01:42.070", "endLabel": "00:02:01.000", "text": "秦人深知廉颇善于用兵，如果想在短期内打败赵国，必须想办法叫赵国把廉颇调回去。于是，他们在赵国四处散布谣言，说秦军最怕赵括，别的人都不放在眼里。", "id": "sgk-thuong-15-1-4", "trackId": "sgk-thuong-15-1", "paragraph": 4}, {"startMs": 121160, "endMs": 144670, "startLabel": "00:02:01.160", "endLabel": "00:02:24.670", "text": "这时，赵王正因廉颇闭门不战而生气呢，听到外面的那些谣言，果然上当了，他派赵括去换回廉颇。赵括的母亲再三阻止赵王任命儿子为大将，说他还没有独立带兵作战的资格。可是，糊涂的赵王哪里听得进去！", "id": "sgk-thuong-15-1-5", "trackId": "sgk-thuong-15-1", "paragraph": 5}, {"startMs": 145040, "endMs": 165750, "startLabel": "00:02:25.040", "endLabel": "00:02:45.750", "text": "公元前260年，赵括带兵出战。一直盲目自信、轻视秦军的他完全改变了廉颇的作战方案，死搬兵书上的理论，主动进攻秦军，结果数十万赵军全部被杀，丢掉了宝贵的生命。", "id": "sgk-thuong-15-1-6", "trackId": "sgk-thuong-15-1", "paragraph": 6}, {"startMs": 166030, "endMs": 182123, "startLabel": "00:02:46.030", "endLabel": "00:03:02.123", "text": "这就是成语“纸上谈兵”的故事。现在常用这个成语讽刺那些只会空谈理论的人，提醒大家做事一定要灵活，要注意理论联系实际。", "id": "sgk-thuong-15-1-7", "trackId": "sgk-thuong-15-1", "paragraph": 7}], "version": "20261019-ms1"}</script><link rel="stylesheet" href="../../library/media.css"><script src="../../library/media.js" defer></script></head>
+<body>
+<header class="topbar">
+<div class="brand">HSK5 <b>· SGK Thượng</b> · Bài 15</div>
+<div class="toolbar-space"></div><button aria-pressed="false" class="btn study-entry" id="studyEntry" type="button">Ngữ pháp · Bài tập</button>
+<div class="langmenu">
+<button aria-controls="langMenu" aria-expanded="false" class="btn" id="langTrigger" type="button">文 Hán · Anh · Việt ▾</button>
+<div class="lang-menu" hidden="" id="langMenu">
+<h3>NGÔN NGỮ HIỂN THỊ</h3>
+<label><input checked="" name="lang" type="checkbox" value="zh"/> Tiếng Hán</label>
+<label><input checked="" name="lang" type="checkbox" value="en"/> English</label>
+<label><input checked="" name="lang" type="checkbox" value="vi"/> Tiếng Việt</label>
+<p class="lang-foot">Có thể chọn hiển thị một, hai hoặc cả ba ngôn ngữ.</p>
+</div>
+</div>
+<button aria-pressed="false" class="btn" id="modeBtn" type="button">Đọc từng đoạn</button>
+</header>
+<main class="workspace">
+<div class="intro"><div class="intro-title" id="introTitle">15 · 纸上谈兵 <small>Đánh trận trên giấy</small></div><div class="intro-hint" id="introHint">Khung đánh dấu kín · Chữ đứng yên khi cuộn · Từ mới thu gọn</div></div>
+<div aria-label="Bàn học chia hai khung" class="split" id="split">
+<section aria-label="Bài khóa gốc" class="pane pane-reading">
+<div class="pane-head"><div class="pane-title">课文 · Bài khóa</div><span class="pane-subtitle" id="readerSubtitle">7 đoạn · SGK tr. 135–137</span></div>
+<div class="pane-body reader" id="reader" tabindex="0"></div>
+</section>
+<div aria-label="Điều chỉnh kích thước hai khung" aria-orientation="vertical" aria-valuemax="89" aria-valuemin="44" aria-valuenow="74" class="splitter" id="splitter" role="separator" tabindex="0"></div>
+<section aria-label="Từ vựng của bài khóa" class="pane pane-glossary">
+<div class="pane-head"><div class="pane-title">生词 · Tra từ bài khóa</div><span class="pane-subtitle">39 từ · SGK tr. 135–137</span><button aria-expanded="true" aria-label="Thu gọn khung từ mới" class="vocab-size-toggle" id="vocabSizeToggle" title="Thu gọn khung từ mới" type="button">›</button></div>
+<div class="gloss-controls"><input aria-label="Tìm từ vựng" class="search" id="search" placeholder="Tìm chữ Hán, tiếng Anh hoặc tiếng Việt..." type="search"/><div class="filterrow"><button aria-pressed="true" class="pill" id="scopePara" type="button">Từ trong đoạn</button><button aria-pressed="false" class="pill" id="scopeAll" type="button">Tất cả 39 từ</button><span class="result-count" id="resultCount"></span></div></div>
+<div class="selected-note" hidden="" id="selectedNote"></div>
+<div class="pane-body glossary-list" id="glossary" tabindex="0"></div>
+</section>
+</div>
+<div aria-label="Ngữ pháp và bài tập SGK Bài 15" class="study-split" hidden="" id="addonStudy">
+<section aria-label="Tài liệu và câu hỏi" class="study-pane"><div class="study-pane-head"><span class="study-pane-title" id="studyLeftTitle">注释</span><span class="study-pane-sublabel">SGK · Bài 15</span></div><div class="study-scroll" id="studyLeft" tabindex="0"></div></section>
+<div aria-label="Chỉnh kích thước hai khung" aria-orientation="vertical" aria-valuemax="75" aria-valuemin="30" aria-valuenow="57" class="study-splitter" id="addonSplitter" role="separator" tabindex="0"></div>
+<section aria-label="Giải thích và thực hành" class="study-pane"><div class="study-pane-head"><span class="study-pane-title" id="studyRightTitle">Ghi nhớ</span><span class="study-pane-sublabel" id="studyRightSub"></span></div><div class="study-scroll" id="studyRight" tabindex="0"></div></section></div>
+<nav aria-label="Điều hướng đoạn bài khóa" class="bottom">
+<button aria-expanded="false" aria-label="Mở mục lục bài khóa" class="nav-trigger" id="indexBtn" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="7" height="7" rx="1.1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.1"/></svg></button>
+<div class="bottom-center"><span class="navlabel">课文 · Đoạn</span><div class="steps" id="steps"></div></div>
+<div class="prevnext"><button aria-label="Đoạn trước" class="arrow" id="prev" type="button">‹</button><span class="status" id="status">1/5</span><button aria-label="Đoạn tiếp" class="arrow" id="next" type="button">›</button></div>
+</nav>
+<nav aria-label="Chuyển giữa các phần ngữ pháp và bài tập của SGK Bài 15" class="bottom" hidden="" id="addonBottom"><button aria-expanded="false" aria-label="Mở mục lục toàn bộ Bài 15" id="studyMenuBtn" title="Mục lục toàn bộ Bài 15" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="7" height="7" rx="1.1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.1"/></svg></button><div class="v10-bottom-info"><span id="v10ActiveName">注释 · Ngữ pháp</span><span id="v10ActiveMeta">3 điểm · 过 / 迟早 / 再三</span></div><span style="font-size:11px;color:#a39da1;white-space:nowrap">Bài 15 · 纸上谈兵</span></nav>
+</main>
+<div id="v12Popover" class="v12-floating" hidden role="dialog" aria-label="Giải thích ngắn tại chỗ" tabindex="-1"></div>
+<div class="overlay" hidden="" id="overlay"><div aria-labelledby="tocTitle" aria-modal="true" class="toc" role="dialog"><div class="toc-header"><h2 id="tocTitle">纸上谈兵 · Mục lục</h2><button class="btn" id="closeToc" type="button">Đóng ✕</button></div><div class="toc-list" id="tocList"></div><div class="footer-tip">Đây là phần bài khóa. Để làm ngữ pháp và bài tập, bấm “Ngữ pháp · Bài tập” trên thanh trên.</div></div></div>
+<script id="studyData" type="application/json">{"grammar":[{"id":"g1","term":"过","vi":"vượt qua, hơn được","en":"surpass; able to beat","formula":"动词 + 得/不 + 过","tip":"Bổ ngữ khả năng biểu thị có hoặc không thể hơn người khác ở một việc; 说不过 là tranh luận không lại, 比不过 là không bằng.","examples":[{"zh":"跟别人谈论起军事来，没有人说得过他。","en":"Nobody could outargue him about military strategy.","vi":"Không ai tranh luận quân sự thắng được anh ta."},{"zh":"年轻人记忆力好，这一点我比不过你们。","en":"Young people have good memories; I cannot compete with you in that respect.","vi":"Người trẻ trí nhớ tốt, khoản này tôi không bằng các bạn."}]},{"id":"g2","term":"迟早","vi":"sớm muộn cũng","en":"sooner or later","formula":"迟早 + 会/要 + 动词","tip":"Phó từ chỉ điều được dự đoán chắc chắn sẽ đến vào một thời điểm sớm hay muộn.","examples":[{"zh":"如果让他当了大将，迟早会害了赵国。","en":"If he becomes general, sooner or later he will harm Zhao.","vi":"Nếu để anh ta làm đại tướng, sớm muộn cũng hại nước Triệu."},{"zh":"随着网络技术的发展，这些问题迟早都会得到解决。","en":"With advances in internet technology, these issues will eventually be solved.","vi":"Cùng với sự phát triển công nghệ mạng, sớm muộn các vấn đề này sẽ được giải quyết."}]},{"id":"g3","term":"再三","vi":"hết lần này đến lần khác","en":"repeatedly","formula":"再三 + 动词","tip":"Phó từ nhấn mạnh số lần lặp lại, thường dùng khi suy xét, yêu cầu, nhắc nhở, từ chối.","examples":[{"zh":"赵括的母亲再三阻止赵王任命儿子为大将。","en":"Zhao Kuo’s mother repeatedly warned the king not to appoint her son general.","vi":"Mẹ Triệu Quát nhiều lần ngăn vua bổ nhiệm con làm tướng."},{"zh":"朋友请他做公司的总经理，他考虑再三，最后还是客气地拒绝了。","en":"A friend asked him to be the general manager. He thought it over again and again before declining.","vi":"Bạn mời anh làm tổng giám đốc, anh suy nghĩ đi nghĩ lại rồi vẫn lịch sự từ chối."}]}],"collocations":[{"term":"轻视","uses":"对方 / 科学 / 成果 / 工作 / 知识","examples":["轻视对方","轻视科学","轻视成果","轻视工作","轻视知识"]},{"term":"善于","uses":"学习 / 发现 / 总结 / 表达 / 分析","examples":["善于学习","善于发现","善于总结","善于表达","善于分析"]},{"term":"糊涂的","uses":"孩子 / 领导 / 话 / 看法 / 脑子","examples":["糊涂的孩子","糊涂的领导","糊涂的话","糊涂的看法","糊涂的脑子"]},{"term":"宝贵的","uses":"机会 / 生命 / 经验 / 时间","examples":["宝贵的机会","宝贵的生命","宝贵的经验","宝贵的时间"]},{"term":"独立（地）","uses":"生活 / 分析 / 完成 / 开发","examples":["独立生活","独立分析","独立完成","独立开发"]},{"term":"主动（地）","uses":"表示 / 提出 / 帮助 / 学习","examples":["主动表示","主动提出","主动帮助","主动学习"]},{"term":"形势","uses":"好转 / 乐观 / 危险 / 严重","examples":["形势好转","形势乐观","形势危险","形势严重"]}],"comparison":[{"id":"l15-cmp-2","n":2,"sentence":"得民心者才会赢得这场战争的[[0]]。","answers":["胜利"],"type":"compare","vi":"Người được lòng dân mới có thể giành chiến thắng trong cuộc chiến này.","en":"Those who win the people’s support can win this war.","reason":"胜利 là danh từ “thắng lợi/chiến thắng”, thường dùng cho chiến tranh, thi đấu; 战争的胜利 là chiến thắng trong cuộc chiến.","ref":"战争的胜利 · thắng lợi trong chiến tranh"},{"id":"l15-cmp-3","n":3,"sentence":"她[[0]]地说服了丈夫放弃了搬家的打算。","answers":["成功"],"type":"compare","vi":"Cô ấy đã thuyết phục thành công chồng mình từ bỏ ý định chuyển nhà.","en":"She successfully persuaded her husband to give up moving house.","reason":"成功地 + động từ: phó từ diễn tả hành động được thực hiện thành công; 成功地说服 là thuyết phục thành công.","ref":"成功地说服 · thuyết phục thành công"},{"id":"l15-cmp-4","n":4,"sentence":"座谈会开得很[[0]]，大家交换了意见，增进了理解。","answers":["成功"],"type":"compare","vi":"Buổi tọa đàm diễn ra rất thành công, mọi người đã trao đổi ý kiến và hiểu nhau hơn.","en":"The discussion forum was very successful; everyone exchanged views and understood each other better.","reason":"开得很成功: 成功 làm tính từ nói kết quả buổi tọa đàm, không dùng 胜利 trong ngữ cảnh này.","ref":"座谈会开得很成功 · buổi tọa đàm thành công"}],"ex1":[{"id":"l15-ex1-1","n":1,"sentence":"我见朋友的小孩怎么也打不开房门，就想帮他，却被朋友[[0]]了。","answers":["阻止"],"type":"fill","vi":"Thấy con của bạn không sao mở được cửa phòng, tôi định giúp nhưng bị bạn ngăn lại.","en":"When I saw my friend’s child could not open the door, I tried to help, but my friend stopped me.","reason":"阻止 + người + hành động: ngăn cản người khác làm việc gì.","ref":"被朋友阻止了"},{"id":"l15-ex1-2","n":2,"sentence":"任何经验都是[[0]]的，但并不是任何时候都是有效的。","answers":["宝贵"],"type":"fill","vi":"Kinh nghiệm nào cũng quý báu, nhưng không phải lúc nào cũng hiệu quả.","en":"All experience is valuable, but not all of it is effective at every moment.","reason":"宝贵的经验: kinh nghiệm quý báu; cấu trúc tính từ + 的 + danh từ.","ref":"经验都是宝贵的"},{"id":"l15-ex1-3","n":3,"sentence":"社会上的成功人士，有不少都[[0]]记住别人的名字。","answers":["善于"],"type":"fill","vi":"Không ít người thành công trong xã hội giỏi nhớ tên người khác.","en":"Many successful people are good at remembering other people’s names.","reason":"善于 + động từ: giỏi, có sở trường làm việc gì.","ref":"善于记住别人的名字"},{"id":"l15-ex1-4","n":4,"sentence":"你这脑子可真[[0]]，银行卡的密码怎么能忘了呢？","answers":["糊涂"],"type":"fill","vi":"Đầu óc bạn thật hồ đồ, sao lại quên mật khẩu thẻ ngân hàng được chứ?","en":"You are so muddle-headed; how could you forget the password to your bank card?","reason":"脑子糊涂: đầu óc lẫn lộn/không minh mẫn, quên điều đáng ra phải nhớ.","ref":"脑子可真糊涂"},{"id":"l15-ex1-5","n":5,"sentence":"跳伞运动以自身的惊险和[[0]]性，被世人称为“勇敢者的运动”。","answers":["挑战"],"type":"fill","vi":"Môn nhảy dù được coi là môn thể thao của người dũng cảm nhờ tính mạo hiểm và thử thách.","en":"Skydiving is called a sport for the brave because of its risk and challenge.","reason":"挑战性 là tính thử thách (挑战 + 性) khi nói đặc tính môn thể thao.","ref":"惊险和挑战性"},{"id":"l15-ex1-6","n":6,"sentence":"家长应尽量创造一个能让孩子[[0]]生活和学习的环境。","answers":["独立"],"type":"fill","vi":"Cha mẹ nên cố gắng tạo môi trường cho trẻ tự lập trong sinh hoạt và học tập.","en":"Parents should try to create an environment in which children can live and study independently.","reason":"独立生活和学习: sống và học tập một cách tự lập.","ref":"让孩子独立生活和学习"}],"ex2":[{"id":"l15-ex2-1","n":1,"sentence":"我[[0]]以为这一生我只能做一个普普通通的工人了。","answers":["A"],"type":"choice","vi":"Trước đây tôi từng nghĩ cả đời mình chỉ có thể là một công nhân bình thường.","en":"I once believed I would only be an ordinary worker for the rest of my life.","reason":"曾经 nhấn mạnh trải nghiệm/trạng thái ở quá khứ; 已经 nhấn mạnh hành động hoặc trạng thái đã xảy ra.","ref":"曾经以为","options":[{"key":"A","value":"曾经"},{"key":"B","value":"已经"}],"wrong":"Phương án còn lại không phù hợp với cách dùng từ trong ngữ cảnh của câu nguồn."},{"id":"l15-ex2-2","n":2,"sentence":"师傅，最近我这车出了点儿[[0]]，空调总是不太凉。","answers":["B"],"type":"choice","vi":"Bác thợ ơi, dạo gần đây xe của tôi hơi có vấn đề, điều hòa không mát lắm.","en":"Sir, my car has been having some problems lately; the air conditioning is not very cool.","reason":"车出了点儿毛病 là cụm thông dụng khi nói xe bị trục trặc; 缺点 chỉ khuyết điểm/nhược điểm.","ref":"车出了点儿毛病","options":[{"key":"A","value":"缺点"},{"key":"B","value":"毛病"}],"wrong":"Phương án còn lại không phù hợp với cách dùng từ trong ngữ cảnh của câu nguồn."},{"id":"l15-ex2-3","n":3,"sentence":"父母给我讲了许多做人的[[0]]，对我的影响很大。","answers":["B"],"type":"choice","vi":"Cha mẹ dạy tôi nhiều đạo lý làm người, ảnh hưởng rất lớn đến tôi.","en":"My parents taught me many principles for living, which greatly influenced me.","reason":"做人的道理 là đạo lý làm người; 理论 chỉ lý thuyết, hệ thống lý luận.","ref":"做人的道理","options":[{"key":"A","value":"理论"},{"key":"B","value":"道理"}],"wrong":"Phương án còn lại không phù hợp với cách dùng từ trong ngữ cảnh của câu nguồn."},{"id":"l15-ex2-4","n":4,"sentence":"我相信这样的安排他是[[0]]不会同意的。","answers":["A"],"type":"choice","vi":"Tôi tin rằng anh ấy tuyệt đối sẽ không đồng ý với sự sắp xếp như vậy.","en":"I believe he would absolutely never agree to such an arrangement.","reason":"绝对不会 nhấn mạnh mức phủ định tuyệt đối; 完全不会 thiên về tính hoàn toàn, không hợp ý nhấn mạnh ở đây.","ref":"绝对不会同意","options":[{"key":"A","value":"绝对"},{"key":"B","value":"完全"}],"wrong":"Phương án còn lại không phù hợp với cách dùng từ trong ngữ cảnh của câu nguồn."}],"ex3":[{"id":"l15-ex3-1","n":1,"sentence":"克服[[0]]","answers":["毛病"],"type":"fill","bank":["毛病","命令","资格","战争","形势","经理","时间","道理"],"vi":"khắc phục khuyết điểm","en":"overcome a bad habit","reason":"克服毛病: khắc phục tật xấu/khuyết điểm.","ref":"克服毛病"},{"id":"l15-ex3-2","n":2,"sentence":"下[[0]]","answers":["命令"],"type":"fill","bank":["毛病","命令","资格","战争","形势","经理","时间","道理"],"vi":"ra mệnh lệnh","en":"issue an order","reason":"下命令: ra lệnh.","ref":"下命令"},{"id":"l15-ex3-3","n":3,"sentence":"具备[[0]]","answers":["资格"],"type":"fill","bank":["毛病","命令","资格","战争","形势","经理","时间","道理"],"vi":"có đủ tư cách","en":"have the qualification","reason":"具备资格: có đủ tư cách/đủ điều kiện.","ref":"具备资格"},{"id":"l15-ex3-4","n":4,"sentence":"阻止[[0]]","answers":["战争"],"type":"fill","bank":["毛病","命令","资格","战争","形势","经理","时间","道理"],"vi":"ngăn chặn chiến tranh","en":"prevent a war","reason":"阻止战争: ngăn chặn chiến tranh.","ref":"阻止战争"},{"id":"l15-ex3-5","n":5,"sentence":"危急的[[0]]","answers":["形势"],"type":"fill","bank":["毛病","命令","资格","战争","形势","经理","时间","道理"],"vi":"tình hình nguy cấp","en":"a critical situation","reason":"危急的形势: tình hình nguy cấp.","ref":"危急的形势"},{"id":"l15-ex3-6","n":6,"sentence":"糊涂的[[0]]","answers":["经理"],"type":"fill","bank":["毛病","命令","资格","战争","形势","经理","时间","道理"],"vi":"người quản lý hồ đồ","en":"a muddle-headed manager","reason":"糊涂的经理: người quản lý hồ đồ.","ref":"糊涂的经理"},{"id":"l15-ex3-7","n":7,"sentence":"宝贵的[[0]]","answers":["时间"],"type":"fill","bank":["毛病","命令","资格","战争","形势","经理","时间","道理"],"vi":"thời gian quý báu","en":"precious time","reason":"宝贵的时间: thời gian quý báu.","ref":"宝贵的时间"},{"id":"l15-ex3-8","n":8,"sentence":"抽象的[[0]]","answers":["道理"],"type":"fill","bank":["毛病","命令","资格","战争","形势","经理","时间","道理"],"vi":"đạo lý trừu tượng","en":"an abstract principle","reason":"抽象的道理: đạo lý trừu tượng.","ref":"抽象的道理"}],"expand":[{"id":"l15-exp-1","n":1,"sentence":"猎人被眼前的情景吓傻了，慌乱地连开了几[[0]]。","answers":["枪"],"type":"fill","vi":"Người thợ săn sợ ngây người trước cảnh tượng đó, trong cơn hoảng loạn đã bắn liền mấy phát súng.","en":"The hunter was stunned and, in panic, fired several shots in a row.","reason":"开了几枪: bắn vài phát súng; 枪 là súng hoặc phát súng tùy ngữ cảnh.","ref":"连开了几枪"},{"id":"l15-exp-2","n":2,"sentence":"我们已经走完一大半了，坚持就是[[0]]。","answers":["胜利"],"type":"fill","vi":"Chúng ta đã đi quá nửa đường rồi, kiên trì chính là chiến thắng.","en":"We are more than halfway there; perseverance is victory.","reason":"坚持就是胜利 là câu nói quen thuộc “kiên trì là chiến thắng”.","ref":"坚持就是胜利"},{"id":"l15-exp-3","n":3,"sentence":"花木兰是中国古代的女[[0]]，她替父参军并打败敌人，从而闻名天下。","answers":["英雄"],"type":"fill","vi":"Hoa Mộc Lan là nữ anh hùng thời cổ đại Trung Quốc; cô thay cha tòng quân và đánh bại kẻ địch.","en":"Hua Mulan was an ancient Chinese heroine who joined the army for her father and defeated the enemy.","reason":"女英雄 chỉ nữ anh hùng, người lập công lớn hoặc có hành động dũng cảm.","ref":"女英雄"},{"id":"l15-exp-4","n":4,"sentence":"在1896年的奥运会上，[[0]]就被列为了正式比赛项目。","answers":["射击"],"type":"fill","vi":"Bắn súng đã được đưa vào danh mục thi đấu chính thức tại Thế vận hội năm 1896.","en":"Shooting was listed as an official Olympic event in 1896.","reason":"射击 là môn bắn súng; 射击比赛 là nội dung thi đấu bắn súng.","ref":"射击被列为正式比赛项目"}],"bank":["宝贵","阻止","善于","独立","挑战","糊涂"],"expbank":["枪","胜利","英雄","射击"],"retell":[{"n":1,"topic":"赵括的特点","words":"理论、作战、毛病、骄傲、迟早"},{"n":2,"topic":"廉颇的战术","words":"敌强我弱、形势、坚守阵地、主动、胜利"},{"n":3,"topic":"秦军的计谋与赵军失败","words":"散布、谣言、再三、上当、方案、盲目"}],"apply":{"zh":"你觉得理论和实践哪个更重要？请结合自己的经历谈谈。","vi":"Nêu cách kết hợp lý thuyết và thực hành; thử dùng các từ trong bài.","en":"Which matters more, theory or practice? Discuss this using an example from your own experience.","topics":[],"writing":"你觉得理论和实践哪个更重要？请结合自己的经历谈谈。"},"comparisonNote":"胜利 thường là danh từ chỉ thắng lợi (trận chiến/cuộc thi); 成功 có thể là danh từ, tính từ hay trạng từ (成功地) để nói đạt được kết quả mong muốn. Trong HTML nguồn của mục này có câu 2–4, không có câu 1.","meta":{"lesson":"Bài 15 · 纸上谈兵","source":"Hai HTML SGK Thượng do người dùng cung cấp: bài khóa tr. 135–137; ngữ pháp tr. 137–139, bài tập tr. 141.","editorial":"Giữ nguyên bài khóa Hán–Anh–Việt, bảng từ mới và toàn bộ câu hỏi, đáp án trong HTML nguồn. Lời giải thích, bản dịch bài tập và phần ghi chú do biên tập thêm. HTML nguồn phần so sánh thiếu câu 1, không tự tạo. Chưa đối chiếu sách in chính thức."}}</script>
+<script id="lessonData" type="application/json">{"paragraphs":[{"n":1,"id":"l15-p1","zh":"两千七百多年前的战国末期，赵国名将赵奢有个儿子叫赵括，他从小读了不少兵书，跟别人谈论起军事来，没有人说得过他，就是父亲赵奢也难不住他。赵括因此很骄傲，自以为天下无敌，连父亲也不放在眼里。","en":"At the end of the Warring States period more than 2,700 years ago, the famous Zhao general Zhao She had a son named Zhao Kuo. Having read many military books, Zhao Kuo believed nobody could surpass him in military discussion, not even his father, and became arrogant.","vi":"Vào cuối thời Chiến Quốc hơn 2.700 năm trước, danh tướng nước Triệu là Triệu Xa có con trai Triệu Quát. Từ nhỏ Triệu Quát đọc nhiều binh thư, giỏi bàn chuyện quân sự đến mức ngay cả cha cũng khó bắt bẻ. Vì vậy anh rất kiêu ngạo, tự cho mình vô địch thiên hạ."},{"n":2,"id":"l15-p2","zh":"但是赵奢心里明白，自己的儿子虽然对军事理论都很了解，但是没有实际作战的经验，想法很不符合实际。他曾经偷偷对妻子说：“儿子的毛病是只会讲大道理，缺乏实际锻炼，不能当大将。如果让他当了大将，迟早会害了赵国。”","en":"But Zhao She knew his son lacked actual combat experience despite knowing theory well. He told his wife privately that their son could only talk in grand theories, could not serve as a commander, and would eventually bring disaster to Zhao.","vi":"Nhưng Triệu Xa hiểu con tuy rành lý thuyết quân sự nhưng thiếu kinh nghiệm thực chiến, suy nghĩ xa rời thực tế. Ông từng nói riêng với vợ: “Khuyết điểm của con là chỉ biết nói đạo lý, không được rèn luyện thực tế, không thể làm đại tướng. Nếu giao trọng trách cho nó, sớm muộn gì cũng hại nước Triệu.”"},{"n":3,"id":"l15-p3","zh":"几年后，赵奢去世了。这一年正好秦国军队来打赵国，赵国派老将廉颇带20万大军迎战。廉颇根据敌强我弱的形势，命令士兵们坚守阵地，绝对不可主动出战。秦军多次挑战，骂他是胆小鬼，他还是不出兵。这个办法果然非常有效，成功地把秦军拦在了国门之外。渐渐地，秦军无法快速取得胜利，粮食也快没了，有些坚持不住了。","en":"Years later Zhao She died. When Qin invaded Zhao, the veteran general Lian Po led 200,000 soldiers. Recognizing the enemy was stronger, he ordered his men to defend their positions and not attack. Although Qin repeatedly challenged and insulted him, he refused to fight, successfully holding Qin forces outside Zhao until their supplies began to run out.","vi":"Vài năm sau Triệu Xa qua đời. Quân Tần tấn công Triệu, tướng già Liêm Pha dẫn 20 vạn quân nghênh chiến. Biết địch mạnh ta yếu, ông lệnh cố thủ, tuyệt đối không chủ động xuất quân. Quân Tần liên tục khiêu khích, mắng ông nhát gan nhưng ông vẫn giữ thế phòng thủ, khiến địch không thể thắng nhanh và dần thiếu lương thảo."},{"n":4,"id":"l15-p4","zh":"秦人深知廉颇善于用兵，如果想在短期内打败赵国，必须想办法叫赵国把廉颇调回去。于是，他们在赵国四处散布谣言，说秦军最怕赵括，别的人都不放在眼里。","en":"Qin knew Lian Po was a skilled commander and spread a rumour in Zhao that Qin feared only Zhao Kuo, hoping the Zhao king would replace Lian Po.","vi":"Quân Tần biết Liêm Pha dụng binh giỏi nên muốn đánh bại Triệu nhanh phải tìm cách khiến Triệu điều ông về. Chúng tung tin khắp nước Triệu rằng quân Tần chỉ sợ Triệu Quát, còn người khác chẳng đáng ngại."},{"n":5,"id":"l15-p5","zh":"这时，赵王正因廉颇闭门不战而生气呢，听到外面的那些谣言，果然上当了，他派赵括去换回廉颇。赵括的母亲再三阻止赵王任命儿子为大将，说他还没有独立带兵作战的资格。可是，糊涂的赵王哪里听得进去！","en":"The Zhao king, already angry that Lian Po would not fight, believed the rumours and replaced him with Zhao Kuo. Zhao Kuo’s mother repeatedly warned the king that her son had never commanded an army independently, but the king would not listen.","vi":"Vua Triệu vốn tức giận vì Liêm Pha không ra đánh, nghe tin đồn liền mắc lừa, cử Triệu Quát thay tướng. Mẹ Triệu Quát nhiều lần can ngăn, nói con chưa đủ tư cách tự chỉ huy quân đội nhưng vua Triệu hồ đồ không nghe."},{"n":6,"id":"l15-p6","zh":"公元前260年，赵括带兵出战。一直盲目自信、轻视秦军的他完全改变了廉颇的作战方案，死搬兵书上的理论，主动进攻秦军，结果数十万赵军全部被杀，丢掉了宝贵的生命。","en":"In 260 BCE, Zhao Kuo took command. Overconfident and dismissive of Qin, he abandoned Lian Po’s defensive strategy, followed military theory rigidly and attacked. The Zhao army suffered a catastrophic defeat and hundreds of thousands lost their lives.","vi":"Năm 260 TCN, Triệu Quát dẫn quân xuất trận. Mù quáng tự tin và khinh địch, anh thay toàn bộ chiến lược của Liêm Pha, máy móc làm theo binh thư, chủ động tấn công và khiến hàng chục vạn quân Triệu bị giết."},{"n":7,"id":"l15-p7","zh":"这就是成语“纸上谈兵”的故事。现在常用这个成语讽刺那些只会空谈理论的人，提醒大家做事一定要灵活，要注意理论联系实际。","en":"This is the origin of the idiom “fighting on paper”, used to criticize those who discuss theory without practical experience and to remind us to connect theory with reality.","vi":"Đây là câu chuyện nguồn gốc thành ngữ “Đánh trận trên giấy”, dùng phê phán người chỉ giỏi nói lý thuyết suông, nhắc phải linh hoạt và gắn lý luận với thực tế."}],"vocabulary":[{"n":1,"zh":"纸上谈兵","vi":"đánh trận trên giấy, lý thuyết suông","en":"armchair strategizing","properName":false},{"n":2,"zh":"军事","vi":"quân sự","en":"military affairs","properName":false},{"n":3,"zh":"敌（人）","vi":"kẻ địch","en":"enemy","properName":false},{"n":4,"zh":"理论","vi":"lý luận","en":"theory","properName":false},{"n":5,"zh":"作战","vi":"tác chiến","en":"fight","properName":false},{"n":6,"zh":"毛病","vi":"khuyết điểm","en":"fault","properName":false},{"n":7,"zh":"道理","vi":"lý lẽ, đạo lý","en":"principle","properName":false},{"n":8,"zh":"迟早","vi":"sớm muộn","en":"sooner or later","properName":false},{"n":9,"zh":"军队","vi":"quân đội","en":"army","properName":false},{"n":10,"zh":"派","vi":"cử, phái đi","en":"send","properName":false},{"n":11,"zh":"弱","vi":"yếu","en":"weak","properName":false},{"n":12,"zh":"形势","vi":"tình hình","en":"situation","properName":false},{"n":13,"zh":"命令","vi":"mệnh lệnh","en":"order","properName":false},{"n":14,"zh":"守","vi":"phòng thủ","en":"guard","properName":false},{"n":15,"zh":"阵地","vi":"trận địa","en":"position","properName":false},{"n":16,"zh":"绝对","vi":"tuyệt đối","en":"absolutely","properName":false},{"n":17,"zh":"主动","vi":"chủ động","en":"proactive","properName":false},{"n":18,"zh":"挑战","vi":"khiêu chiến","en":"challenge","properName":false},{"n":19,"zh":"骂","vi":"mắng, chửi","en":"scold","properName":false},{"n":20,"zh":"胆小鬼","vi":"kẻ hèn nhát","en":"coward","properName":false},{"n":21,"zh":"胜利","vi":"chiến thắng","en":"victory","properName":false},{"n":22,"zh":"调（动）","vi":"điều động","en":"transfer","properName":false},{"n":23,"zh":"散布","vi":"tung ra, gieo rắc","en":"spread","properName":false},{"n":24,"zh":"谣言","vi":"tin đồn","en":"rumour","properName":false},{"n":25,"zh":"上当","vi":"bị lừa, mắc lừa","en":"be fooled","properName":false},{"n":26,"zh":"再三","vi":"nhiều lần, hết lần này đến lần khác","en":"repeatedly","properName":false},{"n":27,"zh":"阻止","vi":"ngăn cản","en":"stop","properName":false},{"n":28,"zh":"任命","vi":"bổ nhiệm","en":"appoint","properName":false},{"n":29,"zh":"独立","vi":"độc lập","en":"independent","properName":false},{"n":30,"zh":"资格","vi":"tư cách","en":"qualification","properName":false},{"n":31,"zh":"糊涂","vi":"hồ đồ","en":"confused","properName":false},{"n":32,"zh":"公元","vi":"công nguyên","en":"Common Era","properName":false},{"n":33,"zh":"盲目","vi":"mù quáng","en":"blind","properName":false},{"n":34,"zh":"轻视","vi":"coi thường","en":"look down on","properName":false},{"n":35,"zh":"方案","vi":"phương án","en":"plan","properName":false},{"n":36,"zh":"进攻","vi":"tấn công","en":"attack","properName":false},{"n":37,"zh":"宝贵","vi":"quý báu","en":"precious","properName":false},{"n":38,"zh":"讽刺","vi":"châm biếm","en":"satirize","properName":false},{"n":39,"zh":"灵活","vi":"linh hoạt","en":"flexible","properName":false}]}</script>
+<script>
+(()=>{'use strict';
+ const raw=document.getElementById('lessonData').textContent;
+ const {paragraphs, vocabulary}=JSON.parse(raw);
+ const $=id=>document.getElementById(id);
+ const state={current:1,scope:'para',query:'',selected:'',single:false,langs:new Set(['zh','en','vi'])};
+ const forms=w=>[w.zh];
+ const wordsByLength=vocabulary.flatMap(w=>forms(w).map(form=>({...w,form}))).sort((a,b)=>b.form.length-a.form.length||a.n-b.n);
+ const reader=$('reader'),glossary=$('glossary');
+ const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const contains=(text,term)=>String(text).normalize('NFC').toLocaleLowerCase().includes(String(term).normalize('NFC').toLocaleLowerCase());
+ const matches=p=>vocabulary.filter(w=>forms(w).some(f=>p.zh.includes(f)));
+ const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase();
+ const safeWord=s=>encodeURIComponent(s);
+ function inlines(text){
+  let result='',i=0;
+  while(i<text.length){
+   const w=wordsByLength.find(w=>text.startsWith(w.form,i));
+   if(w){const klass=w.zh===state.selected?' marked':'';result+=`<button type="button" class="inline-word${klass}" data-word="${safeWord(w.zh)}" title="Tra từ ${safe(w.zh)}">${safe(w.form)}</button>`;i+=w.form.length;}
+   else{result+=safe(text[i]);i++;}
+  }
+  return result;
+ }
+ function paragraphMarkup(p){
+   return `<article class="para${state.current===p.n?' current':''}" id="para${p.n}" data-para="${p.n}">
+      <div class="para-top"><span class="para-number">Đoạn ${p.n}</span><span class="para-count">${p.zh.length} ký tự</span></div>
+      <div class="para-grid">
+        <div class="langcol" data-lang="zh"><div class="label">中文 · Hán</div><div class="zh" lang="zh-CN">${inlines(p.zh)}</div></div>
+        <div class="langcol en" data-lang="en" lang="en"><div class="label">English</div>${safe(p.en)}</div>
+        <div class="langcol vi" data-lang="vi" lang="vi"><div class="label">Tiếng Việt</div>${safe(p.vi)}</div>
+      </div></article>`;
+ }
+ function setupReader(){reader.innerHTML=paragraphs.map(paragraphMarkup).join('');applyLanguages();applyMode();}
+ function applyLanguages(){
+  const langCount=['zh','en','vi'].filter(l=>state.langs.has(l)).length;
+  for(const card of reader.querySelectorAll('.para-grid')){
+   card.style.setProperty('--language-cols',Math.max(1,langCount));
+   for(const col of card.querySelectorAll(':scope > [data-lang]')) col.hidden=!state.langs.has(col.dataset.lang);
+  }
+  const sel=['zh','en','vi'].filter(x=>state.langs.has(x));
+  const names={zh:'Hán',en:'Anh',vi:'Việt'};
+  $('langTrigger').textContent='文 '+sel.map(l=>names[l]).join(' · ')+' ▾';
+  for(const c of document.querySelectorAll('input[name="lang"]'))c.checked=state.langs.has(c.value);
+ }
+ function applyMode(){
+  $('modeBtn').textContent=state.single?'Đọc toàn bài':'Đọc từng đoạn';
+  $('modeBtn').setAttribute('aria-pressed',String(state.single));
+  for(const p of reader.querySelectorAll('.para'))p.hidden=state.single&&Number(p.dataset.para)!==state.current;
+  $('readerSubtitle').textContent=state.single?'Đang xem đoạn '+state.current+'/7':'7 đoạn · SGK tr. 135–137';
+ }
+ function activeParagraph(next,scroll=true){
+   state.current=Math.max(1,Math.min(paragraphs.length,next));
+   for(const para of reader.querySelectorAll('.para'))para.classList.toggle('current',Number(para.dataset.para)===state.current);
+   for(const step of $('steps').querySelectorAll('button')){
+    if(Number(step.dataset.step)===state.current)step.setAttribute('aria-current','step');else step.removeAttribute('aria-current');
+   }
+   $('status').textContent=state.current+'/7';
+   $('prev').disabled=state.current===1;$('next').disabled=state.current===paragraphs.length;
+   applyMode();
+   if(scroll){
+    const el=$('para'+state.current);if(el){
+      const delta=el.getBoundingClientRect().top-reader.getBoundingClientRect().top;
+      reader.scrollTop+=delta-8;
+    }
+   }
+   renderGlossary();
+ }
+ function renderSteps(){
+  $('steps').innerHTML=paragraphs.map(p=>`<button type="button" class="step" data-step="${p.n}" title="Đến đoạn ${p.n}">${p.n}</button>`).join('');
+  $('tocList').innerHTML=paragraphs.map(p=>`<button type="button" data-go="${p.n}"><b>Đoạn ${p.n}</b>${safe(p.zh.slice(0,25))}…</button>`).join('')+'<button type="button" data-vocab="1"><b>生词 · Từ mới</b>39 từ mới của Bài 15</button>';
+ }
+ function renderGlossary(){
+  let base=state.scope==='para'?matches(paragraphs[state.current-1]):vocabulary;
+  const q=state.query.trim();
+  if(q){base=vocabulary.filter(w=>['zh','vi','en'].some(k=>contains(w[k],q)||normalize(w[k]).includes(normalize(q))));}
+  $('scopePara').setAttribute('aria-pressed',String(state.scope==='para'));
+  $('scopeAll').setAttribute('aria-pressed',String(state.scope==='all'));
+  $('resultCount').textContent=base.length+' từ';
+  if(!base.length){glossary.innerHTML=`<div class="empty">${q?'Không tìm thấy từ phù hợp.':'Đoạn này không có từ mới trong bảng gốc.'}</div>`;return;}
+  glossary.innerHTML=base.map(w=>`<button type="button" class="wordcard${w.zh===state.selected?' selected':''}" data-word="${safeWord(w.zh)}" aria-label="Tra từ ${safe(w.zh)}">
+    <div class="word-num">${String(w.n).padStart(2,'0')}</div><div class="word-main"><div class="word-first"><span class="word-zh" lang="zh-CN">${safe(w.zh)}</span><span class="word-vi">${safe(w.vi)}</span></div><div class="word-en">${safe(w.en)}</div></div></button>`).join('');
+ }
+ function showWord(word){
+   const w=vocabulary.find(x=>x.zh===word);if(!w)return;
+   if(collapsed)setCollapsed(false);
+   state.selected=word;
+   reader.querySelectorAll('.inline-word').forEach(btn=>btn.classList.toggle('marked',decodeURIComponent(btn.dataset.word)===word));
+   const matching=paragraphs.filter(p=>forms(w).some(f=>p.zh.includes(f)));
+   const first=matching[0];
+   $('selectedNote').hidden=false;
+   $('selectedNote').innerHTML=`<div class="selected-note-head"><strong lang="zh-CN">${safe(w.zh)}</strong></div><p>${safe(w.vi)}</p><p class="en-note">${safe(w.en)}</p>${first?`<button type="button" data-jump="${first.n}" data-find="${safeWord(word)}">↗ Xem trong đoạn ${first.n}${matching.length>1?' · xuất hiện trong '+matching.length+' đoạn':''}</button>`:'<p class="en-note">Từ này nằm ở tiêu đề bài khóa hoặc không xuất hiện nguyên dạng trong 10 đoạn.</p>'}`;
+   renderGlossary();
+   const result=glossary.querySelector('.wordcard.selected');if(result){glossary.scrollTop=Math.max(0,result.offsetTop-glossary.offsetTop-8);}
+ }
+ function pickParagraphByWord(word){const w=vocabulary.find(w=>w.zh===word);const p=paragraphs.find(p=>w&&forms(w).some(f=>p.zh.includes(f)));if(!p)return;activeParagraph(p.n);const el=reader.querySelector('.inline-word.marked');if(el){const delta=el.getBoundingClientRect().top-reader.getBoundingClientRect().top;reader.scrollTop+=delta-75;}}
+ reader.addEventListener('click',e=>{const b=e.target.closest('[data-word]');if(b){const v=decodeURIComponent(b.dataset.word);showWord(v);}});
+ glossary.addEventListener('click',e=>{const b=e.target.closest('[data-word]');if(b)showWord(decodeURIComponent(b.dataset.word));});
+ $('selectedNote').addEventListener('click',e=>{const b=e.target.closest('[data-jump]');if(b){const word=decodeURIComponent(b.dataset.find);state.selected=word;activeParagraph(Number(b.dataset.jump));pickParagraphByWord(word);}});
+ $('steps').addEventListener('click',e=>{const b=e.target.closest('[data-step]');if(b)activeParagraph(Number(b.dataset.step));});
+ $('prev').addEventListener('click',()=>activeParagraph(state.current-1));$('next').addEventListener('click',()=>activeParagraph(state.current+1));
+ $('modeBtn').addEventListener('click',()=>{state.single=!state.single;activeParagraph(state.current);});
+ $('scopePara').addEventListener('click',()=>{state.scope='para';renderGlossary();});
+ $('scopeAll').addEventListener('click',()=>{state.scope='all';renderGlossary();});
+ $('search').addEventListener('input',e=>{state.query=e.target.value.trim();renderGlossary();});
+ $('search').addEventListener('keydown',e=>{if(e.key==='Enter'){const b=glossary.querySelector('.wordcard');if(b)showWord(decodeURIComponent(b.dataset.word));}});
+ $('langTrigger').addEventListener('click',()=>{const open=$('langMenu').hidden;$('langMenu').hidden=!open;$('langTrigger').setAttribute('aria-expanded',String(open));});
+ $('langMenu').addEventListener('change',e=>{if(!e.target.matches('input[name="lang"]'))return;const checked=[...document.querySelectorAll('input[name="lang"]:checked')].map(c=>c.value);if(!checked.length){e.target.checked=true;return;}state.langs=new Set(checked);applyLanguages();});
+ document.addEventListener('click',e=>{if(!e.target.closest('.langmenu')){$('langMenu').hidden=true;$('langTrigger').setAttribute('aria-expanded','false');}});
+ function openToc(v){$('overlay').hidden=!v;$('indexBtn').setAttribute('aria-expanded',String(v));if(v)$('closeToc').focus();else $('indexBtn').focus();}
+ $('indexBtn').addEventListener('click',()=>openToc(true));$('closeToc').addEventListener('click',()=>openToc(false));$('overlay').addEventListener('click',e=>{if(e.target===$('overlay'))openToc(false);});
+ $('tocList').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openToc(false);if(b.dataset.go)activeParagraph(Number(b.dataset.go));if(b.dataset.vocab){state.scope='all';state.query='';$('search').value='';renderGlossary();glossary.scrollTop=0;}});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('langMenu').hidden=true;$('langTrigger').setAttribute('aria-expanded','false');if(!$('overlay').hidden)openToc(false);}});
+ // Observe manual reading scroll without interrupting user's position.
+ let scrollHandle=0;
+ reader.addEventListener('scroll',()=>{if(state.single)return;cancelAnimationFrame(scrollHandle);scrollHandle=requestAnimationFrame(()=>{
+   const top=reader.getBoundingClientRect().top;let nearest=state.current,best=1e10;
+   for(const el of reader.querySelectorAll('.para')){const dist=Math.abs(el.getBoundingClientRect().top-top-8);if(dist<best){best=dist;nearest=Number(el.dataset.para);}}
+   if(reader.scrollTop+reader.clientHeight>=reader.scrollHeight-6)nearest=paragraphs.length;
+   if(nearest!==state.current)activeParagraph(nearest,false);
+ });},{passive:true});
+ // Resizable reading-first desk. Narrow vocabulary to 150px, or collapse it to an icon rail.
+ const splitter=$('splitter'),split=$('split'),vocabToggle=$('vocabSizeToggle');
+ let dragging=false,collapsed=false;
+ let desktopPercent=74,mobilePercent=72;
+ const desktop=()=>window.matchMedia('(min-width:791px)').matches;
+ function percentFromEvent(e){const r=split.getBoundingClientRect();return desktop()?(e.clientX-r.left)/r.width*100:(e.clientY-r.top)/r.height*100;}
+ function bounds(){
+  const r=split.getBoundingClientRect();
+  if(desktop()){
+   // Always leave a reachable 150px vocabulary pane when expanded.
+   const max=Math.min(90, (r.width-12-150)/Math.max(r.width,1)*100);
+   return {min:44,max:Math.max(44,max)};
+  }
+  // On stacked iPad/phones, allow the reading pane to occupy up to 84% of the height.
+  return {min:35,max:84};
+ }
+ function resize(value){
+  if(!Number.isFinite(value))return;
+  const b=bounds(),n=Math.max(b.min,Math.min(b.max,value));
+  if(desktop()){
+   desktopPercent=n;
+   split.style.setProperty('--split',n+'%');
+  }else{
+   mobilePercent=n;
+   split.style.setProperty('--split-top',n+'%');
+  }
+  splitter.setAttribute('aria-orientation',desktop()?'vertical':'horizontal');
+  splitter.setAttribute('aria-valuemin',String(Math.round(b.min)));
+  splitter.setAttribute('aria-valuemax',String(Math.round(b.max)));
+  splitter.setAttribute('aria-valuenow',String(Math.round(n)));
+  splitter.setAttribute('aria-valuetext',`Bài đọc ${Math.round(n)} phần trăm`);
+ }
+ function setCollapsed(value){
+  collapsed=Boolean(value);split.classList.toggle('vocab-collapsed',collapsed);
+  vocabToggle.setAttribute('aria-expanded',String(!collapsed));
+  vocabToggle.setAttribute('aria-label',collapsed?'Mở lại khung từ mới':'Thu gọn khung từ mới');
+  vocabToggle.title=collapsed?'Mở lại khung từ mới':'Thu gọn khung từ mới';
+  vocabToggle.textContent=desktop()?(collapsed?'‹':'›'):(collapsed?'⌃':'⌄');
+  splitter.tabIndex=collapsed?-1:0;
+  splitter.setAttribute('aria-hidden',String(collapsed));
+  if(!collapsed)resize(desktop()?desktopPercent:mobilePercent);
+ }
+ vocabToggle.addEventListener('click',()=>setCollapsed(!collapsed));
+ splitter.addEventListener('pointerdown',e=>{
+  if(collapsed)return;
+  dragging=true;splitter.classList.add('dragging');splitter.setPointerCapture(e.pointerId);e.preventDefault();
+ });
+ splitter.addEventListener('pointermove',e=>{if(dragging)resize(percentFromEvent(e));});
+ function stopDrag(){dragging=false;splitter.classList.remove('dragging');}
+ splitter.addEventListener('pointerup',stopDrag);splitter.addEventListener('pointercancel',stopDrag);
+ splitter.addEventListener('keydown',e=>{
+  if(collapsed)return;
+  const direction={'ArrowRight':3,'ArrowLeft':-3,'ArrowDown':3,'ArrowUp':-3};
+  if(direction[e.key]){resize((desktop()?desktopPercent:mobilePercent)+direction[e.key]);e.preventDefault();}
+  if(e.key==='Home'||e.key==='End'){const b=bounds();resize(e.key==='Home'?b.min:b.max);e.preventDefault();}
+ });
+ splitter.addEventListener('dblclick',()=>setCollapsed(!collapsed));
+ window.addEventListener('resize',()=>{resize(desktop()?desktopPercent:mobilePercent);setCollapsed(collapsed);});
+ renderSteps();setupReader();activeParagraph(1,false);resize(74); // Default desktop 74% / mobile 72%.
+ if(!desktop())resize(72);
+ setCollapsed(false);
+})();
+</script>
+<script id="studyV8Script">(()=>{'use strict';
+ const $=id=>document.getElementById(id);
+ const data=JSON.parse($('studyData').textContent);
+ const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const sections=[
+  {id:'read',zh:'课文',vi:'Bài khóa',desc:'1 bài khóa · 7 đoạn · 39 từ mới'},
+  {id:'grammar',zh:'注释',vi:'Ngữ pháp',desc:'3 điểm · 过 / 迟早 / 再三'},
+  {id:'colloc',zh:'搭配',vi:'Kết hợp từ',desc:'7 nhóm kết hợp từ'},
+  {id:'compare',zh:'辨析',vi:'Phân biệt từ',desc:'胜利 / 成功 · 3 câu (nguồn thiếu câu 1)'},
+  {id:'ex1',zh:'练习一',vi:'Luyện tập 1',desc:'6 câu · Điền từ'},
+  {id:'ex2',zh:'练习二',vi:'Luyện tập 2',desc:'4 câu · Chọn A / B'},
+  {id:'ex3',zh:'练习三',vi:'Luyện tập 3',desc:'8 cặp · Ghép từ'},
+  {id:'ex4',zh:'练习四',vi:'Luyện tập 4',desc:'3 phần · Kể lại bài khóa'},
+  {id:'expand',zh:'扩展',vi:'Mở rộng',desc:'4 câu · Điền từ'},
+  {id:'apply',zh:'运用',vi:'Vận dụng',desc:'Bàn về lý thuyết và thực hành'}
+ ];
+ const grammarTips={
+ '过':{text:'动词 + 得/不 + 过: bổ ngữ khả năng chỉ vượt qua/không vượt qua người khác khi làm việc gì.',sample:'跟他讨论这个问题，我说不过他。'},
+ '迟早':{text:'迟早 + 会/要 + động từ: sớm muộn sẽ xảy ra; biểu thị dự đoán.',sample:'这个问题迟早会解决。'},
+ '再三':{text:'再三 + động từ: nhấn mạnh hành động lặp lại nhiều lần hoặc cân nhắc nhiều lượt.',sample:'他再三提醒我们要小心。'}
+ };
+ const collocTips={
+ '轻视':'轻视对方: coi thường đối phương; 轻视知识: xem nhẹ kiến thức.',
+ '善于':'善于分析 / 善于学习: giỏi phân tích/học hỏi.',
+ '糊涂的':'糊涂的领导 / 糊涂的话: lãnh đạo hồ đồ/lời nói thiếu sáng suốt.',
+ '宝贵的':'宝贵的生命 / 宝贵的时间: tính mạng/thời gian quý báu.',
+ '独立（地）':'独立生活 / 独立完成: sống độc lập/hoàn thành độc lập.',
+ '主动（地）':'主动学习 / 主动帮助: chủ động học hỏi/giúp đỡ.',
+ '形势':'形势好转 / 形势严重: tình hình cải thiện/nghiêm trọng.'
+ };
+ const groups={compare:data.comparison,ex1:data.ex1,ex2:data.ex2,ex3:data.ex3,expand:data.expand};
+ const questionSections=['compare','ex1','ex2','ex3','expand'];
+ let section='read',grades={},questionAttempts={},essay='',retellNotes={};
+ const store='hsk5-sgk-thuong-lesson15-study-v25';
+ try{const saved=JSON.parse(localStorage.getItem(store)||'{}');grades=saved.grades||{};questionAttempts=saved.questionAttempts||{};essay=saved.essay||'';retellNotes=saved.retellNotes||{};}catch(e){}
+ function save(){try{localStorage.setItem(store,JSON.stringify({grades,essay,retellNotes,questionAttempts}));}catch(e){}}
+ function state(q){const r=grades[q.id];if(r&&Array.isArray(r.selected)&&r.selected.length===(q.type==='fill'?q.answers.length:1))return r;return grades[q.id]={selected:Array(q.type==='fill'?q.answers.length:1).fill(''),checked:false,reveal:false};}
+ const lang=(l,s)=>`<div class="study-${l}" data-slang="${l}"><span class="study-lang-label">${l==='en'?'EN':'VI'}</span>${E(s)}</div>`;
+ const foot='<p class="study-source-marker">Nguồn: Hai HTML HSK5 SGK Thượng do người dùng cung cấp, Bài 15. Bài khóa, từ mới, dạng bài và đáp án giữ nguyên theo nguồn. Mục phân biệt thiếu câu 1 trong HTML nguồn. Bản dịch câu và giải thích thêm do biên tập; chưa đối chiếu với bản sách in.</p>';
+ function answerAnchor(q,slot,text,isRevealed){
+  const length=Math.max(2,Math.min(7,Array.from(q.answers[slot]||'').length));
+  const meta=isRevealed?` data-explain-q="${E(q.id)}" role="button" tabindex="0" aria-label="Giải thích đáp án câu ${q.n}"`:'';
+  const multi=(q.type==='fill'&&q.answers.length>1);
+  const slotLabel=multi?String(slot+1):'';
+  const slotTag=slotLabel&&!isRevealed?`<span class="v25-blank-n" aria-hidden="true">${slotLabel}</span>`:'';
+  return `<span class="study-fill-mark ${isRevealed?'v12-filled':''} ${multi?'v25-numbered-blank':''}" style="--v12-blank-em:${length+1.65}em"${meta}>${E(text||'____')}${slotTag}</span>`;
+ }
+ function sentence(q,selected,showCorrect=false){
+  if(q.type==='position'){
+   let z=q.sentence; // Keep the source word in parentheses inside the sentence, not in a red corner badge.
+   if(showCorrect){z=z.replace(/（[^）]+）/g,'');}
+   return z.replace(showCorrect?/\s*\b([ABCD])\b\s*/g:/\b([ABCD])\b/g,(_,key)=>{
+    if(showCorrect&&key!==q.answers[0])return '';
+    const found=showCorrect&&key===q.answers[0];
+    return `<span class="study-pos v12-pos-slot ${found?'v12-inserted':''}" ${found?`data-explain-q="${E(q.id)}" tabindex="0" role="button" aria-label="Giải thích vị trí ${key}"`:''}>${E(found?q.term:key)}</span>`;
+   }).replace(/\s+(?=[，。？！：；])/g,'').replace(/\s{2,}/g,' ');
+  }
+  const terms=showCorrect?q.type==='choice'?Array(q.sentence.match(/\[\[\d+\]\]/g)?.length||1).fill(q.options.find(x=>x.key===q.answers[0])?.value||''):q.type==='compare'&&selected?.[0]&&q.answers.includes(selected[0])?[selected[0]]:q.answers:
+    q.type==='choice'?Array(q.sentence.match(/\[\[\d+\]\]/g)?.length||1).fill(q.options.find(x=>x.key===selected?.[0])?.value||''):selected;
+  return q.sentence.split(/\[\[(\d+)\]\]/g).map((p,i)=>i%2===1?answerAnchor(q,+p,terms?.[+p],showCorrect):E(p)).join('');
+ }
+ function options(q,sec){
+  if(q.type==='fill')return q.bank|| (sec==='ex1'?data.bank:data.expbank);
+  if(q.type==='compare')return ['胜利','成功'];
+  return q.options.map(x=>x.key);
+ }
+ function ok(q,rec,sec){
+  if(rec.selected.some(x=>!x))return false;
+  if(q.type==='compare')return q.answers.includes(rec.selected[0]);
+  return q.answers.every((a,i)=>a===rec.selected[i]);
+ }
+ function answerText(q){
+  
+  if(q.type==='choice')return q.answers.map(a=>{const x=q.options.find(o=>o.key===a);return `${a}. ${x?.value||''}`}).join(' / ');
+  if(q.type==='position')return q.answers[0]+'. '+q.term;
+  return q.answers.join(' / ');
+ }
+ function explanation(q,sec,rec){
+  const matched=ok(q,rec,sec),checked=rec.checked;
+  const other='';
+  return `<div class="study-feedback ${!checked?'neutral':matched?'good':'bad'}" role="status">
+   <strong>${!checked?'Đáp án & lời giải tham khảo':matched?'✓ Đúng · Chọn phù hợp':'Chưa đúng · Xem cách dùng'}</strong>
+   <div class="study-small-head">ĐÁP ÁN TRONG HTML THAM KHẢO</div><div class="study-answer-line">${E(answerText(q))}</div>
+   <div class="study-small-head">CÂU HOÀN CHỈNH</div><div class="study-zh" data-slang="zh">${sentence(q,null,true)}</div>
+   ${lang('en',q.en)}${lang('vi',q.vi)}
+   <div class="study-small-head">VÌ SAO ĐÚNG?</div><p>${E(q.reason)}</p>
+   ${q.wrong?`<div class="study-small-head">VÌ SAO PHƯƠNG ÁN KHÁC KHÔNG PHÙ HỢP?</div><p>${E(q.wrong)}</p>`:''}
+   ${other?`<p><b>Lưu ý:</b> ${E(other)}</p>`:''}
+   <div class="study-small-head">LIÊN HỆ KIẾN THỨC</div><p>${E(q.ref)}</p>
+   ${/过|迟早|再三/.test(q.ref)?`<button class="study-link" type="button" data-go-grammar="${q.ref.includes('迟早')?'迟早':q.ref.includes('再三')?'再三':'过'}">↗ Xem ngữ pháp liên quan</button>`:''}
+  </div>`;
+ }
+ function choiceHtml(q,sec,rec){
+  if(q.type==='fill')return `<div class="v15-word-groups">${q.answers.map((_,i)=>i).map((i,k)=>`<div class="v15-word-group ${q.answers.length>1?'v25-multi-blank':''}" role="group" aria-label="Câu ${q.n}, chọn từ cho chỗ trống ${k+1}">${q.answers.length>1?`<span class="v25-choice-n" aria-hidden="true">${k+1}</span>`:''}<div class="v15-word-options">${options(q,sec).map(c=>{const selected=rec.selected[i]===c;return `<button type="button" class="v15-word-option ${selected?'selected':''}" data-word-choice="${E(c)}" data-blank-index="${i}" aria-pressed="${selected}">${E(c)}</button>`;}).join('')}</div></div>`).join('')}</div>`;
+  const opts=q.type==='compare'?['胜利','成功'].map((v,i)=>({key:v,val:v,label:String.fromCharCode(65+i)})):q.options.map(o=>({key:o.key,val:o.value,label:o.key}));
+  return `<div class="study-answer-buttons v17-inline-choices" role="group" aria-label="Lựa chọn câu ${q.n}">${opts.map(o=>`<button type="button" class="study-choice ${q.type==='position'?'v17-pos-choice':''} ${!rec.reveal&&rec.selected[0]===o.key?'selected':''} ${rec.reveal&&q.answers.includes(o.key)?'v12-choice-correct':''}" aria-pressed="${rec.selected[0]===o.key}" data-correct-preview="${q.answers.includes(o.key)?'true':'false'}" data-answer="${E(o.key)}"><b>${E(o.label)}</b>${q.type==='position'?'':`<span>${E(o.val)}</span>`}</button>`).join('')}</div>`;
+ }
+ function relatedTerm(q){
+  if(!q.ref)return '';
+  return ['过','迟早','再三'].find(term=>q.ref.includes(term))||'';
+ }
+ function question(q,sec){
+  const rec=state(q),selected=rec.selected||[];
+  return `<article class="v10-question" id="q-${E(q.id)}" data-qid="${E(q.id)}">
+   <div class="v10-qhead"><strong>Câu ${q.n}</strong></div>
+   ${q.type==='fill'?`<div class="v15-question-layout"><div class="v15-question-reading"><div class="v10-question-text study-zh" data-slang="zh">${sentence(q,selected,rec.reveal)}</div></div><div class="v15-question-picker">${choiceHtml(q,sec,rec)}</div></div>`:`<div class="v17-question-layout"><div class="v17-question-reading"><div class="v10-question-text study-zh" data-slang="zh">${sentence(q,selected,rec.reveal)}</div></div><div class="v17-question-options">${choiceHtml(q,sec,rec)}</div></div>`}
+  </article>`;
+ }
+ function sourceReference(){return `<p class="study-slim">Chọn từ, bấm “Hiện đáp án” rồi rê chuột vào từ được điền để xem giải thích.</p>`;}
+ function renderGrammar(){
+  $('studyLeft').innerHTML=`<div class="v11-grammar-wrap"><div class="study-kicker">SGK · 注释 · ĐỦ 3 ĐIỂM</div><h2 class="study-h2">Ngữ pháp cần nắm</h2>`+data.grammar.map((g,i)=>`<article class="v10-study-unit v11-grammar-unit" id="g-${i}"><div class="v10-unit-n"><span aria-label="Điểm ngữ pháp ${i+1}">${i+1}</span><h3 data-slang="zh">${E(g.term)}</h3></div><div class="study-desc">${E(g.vi)} · ${E(g.en)}</div><div class="study-small-head">CẤU TRÚC</div><div class="study-formula" data-slang="zh">${E(g.formula)}</div><p class="study-note">${E(g.tip)}</p><div class="study-small-head">VÍ DỤ TRONG SGK</div>${g.examples.map((ex,k)=>`<div class="study-ex"><div class="study-kicker">${k+1}.</div><div class="study-zh" data-slang="zh">${E(ex.zh)}</div>${lang('en',ex.en)}${lang('vi',ex.vi)}</div>`).join('')}</article>`).join('')+foot+'</div>';
+  $('studyRight').replaceChildren();
+ }
+ function renderColloc(){
+  $('studyLeft').innerHTML=`<div class="study-kicker">SGK · 词语搭配</div><h2 class="study-h2">7 nhóm kết hợp từ</h2>`+data.collocations.map((item,i)=>`<article class="v10-study-unit" id="colloc-${i}"><div class="v10-unit-n"><span>${i+1}</span><h3 data-slang="zh">${E(item.term)}</h3></div><div class="study-small-head">CÁC CỤM TỪ HOÀN CHỈNH</div>${item.examples.map(c=>`<div class="study-zh v10-colloc-example" data-slang="zh">${E(c)}</div>`).join('')}<p class="study-note">${E(collocTips[item.term]||'')}</p></article>`).join('')+foot;
+  $('studyRight').replaceChildren();
+ }
+ const exerciseLabels={
+  compare:['（三）词语辨析','胜利 / 成功','Phân biệt chiến thắng và thành công theo cách dùng trong câu.'],
+  ex1:['练习一','选择合适的词语填空','Điền từ cho trước vào chỗ trống.'],
+  ex2:['练习二','选择正确答案','Chọn A hoặc B cho từng câu.'],
+  ex3:['练习三','画线连接可以搭配的词语','Ghép 8 cặp từ bằng cách chọn vế phải phù hợp cho từng vế trái.'],
+  expand:['扩展','Quân sự · Thành ngữ','Điền các từ mở rộng vào chỗ trống.']
+ };
+ function renderExercises(sec){
+  const [heading,title,description]=exerciseLabels[sec],arr=groups[sec];
+  const bank=sec==='ex1'?data.bank:sec==='expand'?data.expbank:[];
+  // V15: the complete word bank appears next to every fill-in question, so do not duplicate it above the questions.
+  const sourceBank='';
+  const compareNote=sec==='compare'?`<div class="study-inset"><b>胜利 / 成功</b><p class="study-note">${E(data.comparisonNote)}</p></div>`:'';
+  const allRevealed=arr.every(q=>!!state(q).reveal);
+  $('studyLeft').innerHTML=`<div class="study-kicker">SGK · ${E(heading)} · ${arr.length} CÂU</div><div class="v18-exercise-heading"><h2 class="study-h2">${E(title)}</h2><button class="study-secondary v18-reveal-all" data-reveal-all type="button" aria-pressed="${allRevealed}" aria-label="${allRevealed?'Ẩn':'Hiện'} đáp án toàn bộ phần này">${allRevealed?'Ẩn tất cả đáp án':'Hiện tất cả đáp án'}</button></div><p class="study-desc">${E(description)}</p>${sourceBank}${compareNote}<div class="v10-all-questions">${arr.map(q=>question(q,sec)).join('')}</div>${foot}`;
+  $('studyRight').replaceChildren();
+ }
+ function hanCount(str){return Array.from(str).filter(c=>/\p{Script=Han}/u.test(c)).length;}
+ function updateEssay(){const n=hanCount(essay);$('studyEssayCount').textContent=`${n} chữ Hán đã viết · Yêu cầu ít nhất 100 chữ Hán`;}
+ function renderApply(){const a=data.apply;
+  $('studyLeft').innerHTML=`<div class="study-kicker">SGK · 运用</div><h2 class="study-h2">Lý thuyết & thực hành · 理论与实践</h2><div class="study-zh" data-slang="zh">${E(a.zh)}</div>${lang('en',a.en)}${lang('vi',a.vi)}<div class="study-small-head">TRẢ LỜI BẰNG TIẾNG TRUNG · 自由表达</div><textarea class="study-essay" id="studyEssay" lang="zh-CN" placeholder="在这里写你的回答……" aria-label="Trả lời bằng tiếng Trung"></textarea><div class="study-actions"><span class="study-slim" id="studyEssayCount"></span><button type="button" class="study-secondary" id="studyClearEssay">Xóa câu trả lời</button></div>${foot}`;
+  $('studyRight').replaceChildren();$('studyEssay').value=essay;updateEssay();
+ }
+ function renderRetell(){
+  $('studyLeft').innerHTML=`<div class="study-kicker">SGK · 练习四 · 课文复述</div><h2 class="study-h2">根据提示词语复述课文</h2><p class="study-desc">Kể lại bài khóa theo 3 phần và các từ gợi ý trong HTML SGK. Đây là bài mở, không có đáp án duy nhất.</p>`+
+   data.retell.map((r,i)=>`<article class="v10-study-unit v11-grammar-unit"><div class="v10-unit-n"><span>${i+1}</span><h3 style="font-size:clamp(22px,2vw,28px)" data-slang="zh">${E(r.topic)}</h3></div><div class="study-small-head">TỪ GỢI Ý · 重点词语</div><div class="study-formula" data-slang="zh">${E(r.words)}</div><textarea class="study-essay study-retell" data-retell="${i}" lang="zh-CN" placeholder="根据提示词语复述课文……" aria-label="Kể lại phần ${i+1} bằng tiếng Trung"></textarea></article>`).join('')+foot;
+  $('studyLeft').querySelectorAll('[data-retell]').forEach(el=>el.value=retellNotes[el.dataset.retell]||'');
+  $('studyRight').replaceChildren();
+ }
+ function updateNav(){
+  const nav=sections.find(x=>x.id===section);
+  $('v10ActiveName').textContent=nav.zh+' · '+nav.vi;
+  $('v10ActiveMeta').textContent=questionSections.includes(section)?`${groups[section].length} câu`:nav.desc;
+  $('studyLeftTitle').textContent=nav.zh+' · '+nav.vi;
+  $('studyRightTitle').textContent=questionSections.includes(section)?'Hướng dẫn · Tổng quan':'Ghi nhớ · Tra cứu';
+  $('studyRightSub').textContent='Bài 15';
+  $('introTitle').innerHTML=`15 · 纸上谈兵 <small>${E(nav.vi)}</small>`;
+  $('introHint').textContent='Mỗi phần hiển thị trọn vẹn · Tự cuộn để học';
+ }
+ function renderMenu(){
+  const list=sections.map(s=>{
+   const sel=s.id===section?'aria-current="page"':'';
+   return `<button class="v10-menu-row" type="button" data-open-section="${s.id}" ${sel}><span class="v10-menu-zh">${E(s.zh)}</span><span class="v10-menu-main"><strong>${E(s.vi)}</strong><small>${E(s.desc)}</small></span><span class="v10-menu-chevron">›</span></button>`;
+  }).join('');
+  $('tocTitle').textContent='Bài 15 · 纸上谈兵 · Mục lục tổng thể';
+  $('tocList').innerHTML=list;
+  document.querySelector('.footer-tip').textContent='Chọn một phần để xem tất cả nội dung trong phần đó. Không phải bấm Next từng câu.';
+ }
+ function closeMenu(){if(!$('overlay').hidden)$('closeToc').click();$('studyMenuBtn').setAttribute('aria-expanded','false');}
+ function setSection(s,opt={}){
+  if(!sections.some(x=>x.id===s))return;
+  closeMenu();if(typeof closePopover==='function')closePopover();section=s;
+  const read=s==='read';
+  // Grammar is a single reading pane; other sections retain their current layout.
+  $('addonStudy').classList.toggle('v11-grammar-onepane',s==='grammar');
+  $('addonStudy').classList.toggle('v12-onepane',!read);
+  $('split').hidden=!read;$('addonStudy').hidden=read;
+  document.querySelector('nav.bottom:not(#addonBottom)').hidden=!read;
+  $('addonBottom').hidden=read;
+  $('modeBtn').hidden=!read;
+  $('studyEntry').textContent=read?'Ngữ pháp · Bài tập':'↩ Bài khóa';
+  $('studyEntry').setAttribute('aria-pressed',String(!read));
+  if(read){$('introTitle').innerHTML='15 · 纸上谈兵 <small>Đánh trận trên giấy</small>';$('introHint').textContent='Khung đánh dấu kín · Chữ đứng yên khi cuộn · Từ mới thu gọn';
+    if(opt.p) document.querySelector(`#steps [data-step="${opt.p}"]`)?.click();
+  }else{
+    if(s==='grammar')renderGrammar();else if(s==='colloc')renderColloc();else if(s==='apply')renderApply();else if(s==='ex4')renderRetell();else renderExercises(s);
+    updateNav();$('studyLeft').scrollTop=0;$('studyRight').scrollTop=0;
+  }
+  renderMenu();syncLang();
+ }
+ function syncLang(){for(const l of ['zh','en','vi']){const checkbox=document.querySelector(`input[name="lang"][value="${l}"]`);document.body.classList.toggle('study-no-'+l,!checkbox?.checked);}}
+ function refreshCard(el,q,sec){
+  const rec=state(q),selected=rec.selected||[];
+  const currentTop=el.getBoundingClientRect().top;
+  const questionLine=el.querySelector('.v10-question-text');
+  questionLine.innerHTML=sentence(q,selected,rec.reveal);
+  el.querySelectorAll('[data-answer]').forEach(b=>{const yes=!rec.reveal&&b.dataset.answer===rec.selected[0];b.classList.toggle('selected',yes);b.setAttribute('aria-pressed',String(yes));
+   const correct=rec.reveal&&q.answers.includes(b.dataset.answer);b.classList.toggle('v12-choice-correct',correct);
+  });
+  el.querySelectorAll('[data-word-choice]').forEach(button=>{const i=+button.dataset.blankIndex;const selected=rec.selected[i]===button.dataset.wordChoice;button.classList.toggle('selected',selected);button.setAttribute('aria-pressed',String(selected));});
+  const delta=el.getBoundingClientRect().top-currentTop;
+  if(Math.abs(delta)>.5)$('studyLeft').scrollTop+=delta;
+  refreshProgress();refreshRevealAll(sec);
+ }
+ function refreshRevealAll(sec){
+  if(!questionSections.includes(sec))return;
+  const button=$('studyLeft').querySelector('[data-reveal-all]');
+  if(!button)return;
+  const allShown=groups[sec].every(q=>!!state(q).reveal);
+  button.textContent=allShown?'Ẩn tất cả đáp án':'Hiện tất cả đáp án';
+  button.setAttribute('aria-pressed',String(allShown));
+  button.setAttribute('aria-label',(allShown?'Ẩn':'Hiện')+' đáp án toàn bộ phần này');
+ }
+ function refreshProgress(){if(!questionSections.includes(section))return;
+  $('v10ActiveMeta').textContent=groups[section].length+' câu';
+ }
+ $('studyEntry').addEventListener('click',()=>setSection(section==='read'?'grammar':'read'));
+ $('studyMenuBtn').addEventListener('click',()=>{$('indexBtn').click();$('studyMenuBtn').setAttribute('aria-expanded','true');});
+ $('closeToc').addEventListener('click',()=>$('studyMenuBtn').setAttribute('aria-expanded','false'));
+ $('tocList').addEventListener('click',e=>{const button=e.target.closest('[data-open-section]');if(button){const s=button.dataset.openSection;setSection(s);}});
+ const pop=$('v12Popover');
+ let activeAnchor=null,hidePopoverTimer=null,pinnedPopover=false;
+ function closePopover(){if(hidePopoverTimer)clearTimeout(hidePopoverTimer);hidePopoverTimer=null;pop.hidden=true;activeAnchor=null;pinnedPopover=false;}
+ function explainHtml(q,sec){
+  const other='';
+  return `<div class="v12-pop-head"><span class="v12-pop-title">Câu ${q.n} · ${E(answerText(q))}</span><button type="button" class="v12-pop-close" aria-label="Đóng giải thích">×</button></div>
+   <div class="v12-pop-label">VÌ SAO DÙNG ĐÁP ÁN NÀY?</div><p>${E(q.reason)}</p>
+   ${q.wrong?`<div class="v12-pop-label">VÌ SAO KHÔNG CHỌN ĐÁP ÁN KHÁC?</div><p>${E(q.wrong)}</p>`:''}
+   ${other?`<p>${E(other)}</p>`:''}
+   <div class="v12-pop-label">NGHĨA CÂU</div><p>${E(q.vi)}</p>
+   <div class="v12-pop-label">KIẾN THỨC LIÊN QUAN</div><p class="v12-pop-muted">${E(q.ref)}</p>`;
+ }
+ function grammarHtml(term){
+  const g=data.grammar.find(x=>x.term===term);if(!g)return '';
+  const ex=g.examples[0];
+  return `<div class="v12-pop-head"><span class="v12-pop-title">${E(g.term)} · ${E(g.vi)}</span><button type="button" class="v12-pop-close" aria-label="Đóng ngữ pháp">×</button></div>
+  <div class="v12-pop-label">CẤU TRÚC</div><div class="v12-pop-formula">${E(g.formula)}</div><p>${E(g.tip)}</p>
+  <div class="v12-pop-label">VÍ DỤ</div><div class="v12-pop-zh">${E(ex.zh)}</div><p class="v12-pop-muted">${E(ex.vi)}</p>`;
+ }
+ function showPopover(anchor,content,pinned=false){
+  if(hidePopoverTimer)clearTimeout(hidePopoverTimer);
+  pop.innerHTML=content;pop.hidden=false;activeAnchor=anchor;pinnedPopover=pinned;pop.style.pointerEvents=pinned?'auto':'none';
+  const r=anchor.getBoundingClientRect();
+  pop.style.left=Math.max(10,Math.min(r.left,window.innerWidth-pop.offsetWidth-10))+'px';
+  const h=pop.offsetHeight;
+  const below=window.innerHeight-r.bottom;
+  let top=below>=Math.min(h+10,220)?r.bottom+8:r.top-h-8;
+  pop.style.top=Math.max(10,Math.min(top,window.innerHeight-h-10))+'px';
+ }
+ function openFromAnchor(el,pinned=false){
+  const anchor=el.closest('[data-go-grammar],[data-explain-q]');if(!anchor)return;
+  if(anchor.dataset.goGrammar){showPopover(anchor,grammarHtml(anchor.dataset.goGrammar),pinned);return;}
+  const q=groups[section]?.find(q=>q.id===anchor.dataset.explainQ);
+  if(q)showPopover(anchor,explainHtml(q,section),pinned);
+ }
+ $('addonStudy').addEventListener('click',e=>{
+  if(e.target.id==='studyClearEssay'){if(confirm('Xóa toàn bộ đoạn văn đã soạn?')){essay='';save();$('studyEssay').value='';updateEssay();}return;}
+  const tip=e.target.closest('[data-go-grammar],[data-explain-q]');
+  if(tip){if(activeAnchor===tip&&!pop.hidden&&pinnedPopover)closePopover();else openFromAnchor(tip,true);return;}
+  const target=e.target.closest('[data-scroll-target]');if(target){jump(target.dataset.scrollTarget);return;}
+  if(e.target.closest('[data-reveal-all]')){
+   if(!questionSections.includes(section))return;
+   const next=!groups[section].every(q=>!!state(q).reveal);
+   closePopover();
+   groups[section].forEach(q=>{const rec=state(q);rec.reveal=next;rec.checked=false;});
+   save();
+   $('studyLeft').querySelectorAll('.v10-question').forEach(card=>{
+    const q=groups[section].find(q=>q.id===card.dataset.qid);
+    if(q)refreshCard(card,q,section);
+   });
+   refreshRevealAll(section);
+   return;
+  }
+  const card=e.target.closest('.v10-question');if(!card)return;
+  const q=groups[section]?.find(x=>x.id===card.dataset.qid);if(!q)return;
+  const rec=state(q),ans=e.target.closest('[data-answer]'),word=e.target.closest('[data-word-choice]');
+  closePopover();
+  if(word){const i=+word.dataset.blankIndex,v=word.dataset.wordChoice;
+   rec.selected[i]=v;
+   rec.checked=false;save();refreshCard(card,q,section);return;}
+  if(ans){rec.selected[0]=ans.dataset.answer;rec.checked=false;save();refreshCard(card,q,section);return;}
+ });
+ $('addonStudy').addEventListener('change',e=>{
+  if(!e.target.matches('[data-blank]'))return;
+  const card=e.target.closest('.v10-question');const q=groups[section]?.find(x=>x.id===card?.dataset.qid);if(!q)return;
+  const rec=state(q);rec.selected[+e.target.dataset.blank]=e.target.value;rec.checked=false;
+  closePopover();save();refreshCard(card,q,section);
+ });
+ // Hover on a filled answer or on a grammar hint reveals a fixed overlay, without pushing text.
+ $('addonStudy').addEventListener('pointerover',e=>{
+  if(e.pointerType==='touch'||pinnedPopover)return;
+  const target=e.target.closest('[data-go-grammar],[data-explain-q]');
+  if(target&&target!==activeAnchor)openFromAnchor(target,false);
+ });
+ $('addonStudy').addEventListener('pointerout',e=>{
+  if(e.pointerType==='touch'||pinnedPopover)return;
+  const target=e.target.closest('[data-go-grammar],[data-explain-q]');
+  if(target&&!target.contains(e.relatedTarget)){
+   if(hidePopoverTimer)clearTimeout(hidePopoverTimer);
+   hidePopoverTimer=setTimeout(()=>{if(!pop.matches(':hover'))closePopover();},180);
+  }
+ });
+ pop.addEventListener('pointerenter',()=>{if(hidePopoverTimer)clearTimeout(hidePopoverTimer);});
+ pop.addEventListener('pointerleave',()=>{if(!pinnedPopover)hidePopoverTimer=setTimeout(closePopover,150);});
+ pop.addEventListener('click',e=>{if(e.target.closest('.v12-pop-close'))closePopover();});
+ document.addEventListener('click',e=>{if(!pop.hidden&&!pop.contains(e.target)&&!e.target.closest('[data-go-grammar],[data-explain-q]'))closePopover();});
+ document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')closePopover();
+  if((e.key==='Enter'||e.key===' ')&&e.target.closest('[data-explain-q]')){e.preventDefault();openFromAnchor(e.target);}
+ });
+ $('studyLeft').addEventListener('scroll',()=>{if(!pop.hidden&&!pinnedPopover)closePopover();},{passive:true});
+ window.addEventListener('resize',closePopover);
+ $('addonStudy').addEventListener('input',e=>{if(e.target.id==='studyEssay'){essay=e.target.value;save();updateEssay();}else if(e.target.matches('[data-retell]')){retellNotes[e.target.dataset.retell]=e.target.value;save();}});
+ document.querySelectorAll('input[name="lang"]').forEach(c=>c.addEventListener('change',syncLang));
+ // Existing reader remains intact. Resizing here applies ONLY to the study panes.
+ const split=$('addonStudy'),splitter=$('addonSplitter');let dragging=false;let desktopPct=71,mobilePct=55;
+ const wide=()=>window.matchMedia('(min-width:791px)').matches;
+ function resize(v){v=Math.min(83,Math.max(35,+v));if(wide()){desktopPct=v;split.style.setProperty('--study-left',v+'%');}else{mobilePct=v;split.style.setProperty('--study-top',v+'%');}splitter.setAttribute('aria-orientation',wide()?'vertical':'horizontal');splitter.setAttribute('aria-valuenow',String(Math.round(v)));}
+ splitter.addEventListener('pointerdown',e=>{dragging=true;splitter.classList.add('dragging');splitter.setPointerCapture(e.pointerId);e.preventDefault();});
+ splitter.addEventListener('pointermove',e=>{if(!dragging)return;const r=split.getBoundingClientRect();resize(wide()?(e.clientX-r.left)/r.width*100:(e.clientY-r.top)/r.height*100);});
+ const stop=()=>{dragging=false;splitter.classList.remove('dragging')};splitter.addEventListener('pointerup',stop);splitter.addEventListener('pointercancel',stop);
+ splitter.addEventListener('keydown',e=>{const dir={ArrowLeft:-3,ArrowRight:3,ArrowUp:-3,ArrowDown:3};if(dir[e.key]){resize((wide()?desktopPct:mobilePct)+dir[e.key]);e.preventDefault();}});
+ window.addEventListener('resize',()=>resize(wide()?desktopPct:mobilePct));
+ resize(71);renderMenu();syncLang();
+})();
+</script>
+</body>
+</html>
