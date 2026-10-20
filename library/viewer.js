@@ -13,9 +13,12 @@
 
   const { manifest } = config;
   const ownType = manifest.kind === 'sbt' ? 'sbt' : 'sgk-khoa';
-  const ownUrl = location.pathname.replace(/^.*?(\/books\/)/, '$1');
+  const seenLessons = new Set();
   for (const [type, volume, lesson, , url] of window.HSK_BOOKS || []) {
     if (volume !== 'thuong' || !['sbt', 'sgk-khoa'].includes(type)) continue;
+    const lessonKey = `${type}:${lesson}`;
+    if (seenLessons.has(lessonKey)) continue;
+    seenLessons.add(lessonKey);
     const option = document.createElement('option');
     option.value = new URL('../../' + url, location.href).href;
     option.textContent = `${type === 'sbt' ? 'SBT' : 'SGK'} · Bài ${String(lesson).padStart(2, '0')}`;
