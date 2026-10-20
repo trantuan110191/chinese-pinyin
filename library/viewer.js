@@ -89,6 +89,26 @@
     let activeQuestion = 0;
     let boundaryTimer = 0;
     let progressFrame = 0;
+    // Browsers expose audio.currentTime in coarse steps on some machines. Keep
+    // a display clock between those reports, then gently correct it instead of
+    // moving the native range thumb in visible jumps.
+    let displayTime = 0;
+    let displayClockAt = 0;
+    const resetProgressClock = (time = audio.currentTime) => {
+      displayTime = Number.isFinite(time) ? time : 0;
+      displayClockAt = performance.now();
+    };
+    const currentDisplayTime = now => {
+      const elapsed = Math.max(0, now - displayClockAt) / 1000;
+      const projected = displayTime + elapsed * (audio.playbackRate || 1);
+      const drift = audio.currentTime - projected;
+
+      // A seek/load needs an immediate correction. Regular audio clock drift is
+      // eased over several frames so the marker never snaps backwards/forwards.
+      displayTime = Math.abs(drift) > 0.2 ? audio.currentTime : projected + drift * 0.08;
+      displayClockAt = now;
+      return displayTime;
+    };
     const setPlayGlyph = playing => {
       play.innerHTML = playing
         ? '<span class="im-glyph im-pause-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><rect x="6" y="4.6" width="4.2" height="14.8" rx=".6"></rect><rect x="13.8" y="4.6" width="4.2" height="14.8" rx=".6"></rect></svg></span>'
@@ -147,6 +167,7 @@
         running = true;
         setPlayGlyph(true);
         updateUi();
+        resetProgressClock();
         cancelAnimationFrame(progressFrame);
         drawProgress();
         scheduleBoundary();
@@ -162,18 +183,23 @@
       const remaining = (cue.endMs - audio.currentTime * 1000) / audio.playbackRate;
       boundaryTimer = setTimeout(boundary, Math.max(1, remaining));
     }
-    function drawProgress() {
+    function drawProgress(now = performance.now()) {
       const cue = cueFor();
       if (!cue) return;
-      const ratio = (audio.currentTime * 1000 - cue.startMs) / (cue.endMs - cue.startMs);
+      const displayed = currentDisplayTime(now);
+      const ratio = (displayed * 1000 - cue.startMs) / (cue.endMs - cue.startMs);
       seek.value = String(Math.max(0, Math.min(1000, Math.round(ratio * 1000))));
-      if (running) progressFrame = requestAnimationFrame(drawProgress);
+      if (running) {
+        if (displayed * 1000 >= cue.endMs) boundary();
+        else progressFrame = requestAnimationFrame(drawProgress);
+      }
     }
     function boundary() {
       const cue = cueFor();
       if (!running || !cue || audio.currentTime * 1000 < cue.endMs - 8) return scheduleBoundary();
       if (loop.checked) {
         audio.currentTime = cue.startMs / 1000;
+        resetProgressClock();
         return scheduleBoundary();
       }
       stopPlayback();
@@ -197,9 +223,14 @@
       const cue = cueFor();
       if (!cue) return;
       audio.currentTime = (cue.startMs + (cue.endMs - cue.startMs) * Number(seek.value) / 1000) / 1000;
+      resetProgressClock();
       scheduleBoundary();
     }, true);
-    rate.addEventListener('change', () => { audio.playbackRate = Number(rate.value) || 1; scheduleBoundary(); });
+    rate.addEventListener('change', () => {
+      currentDisplayTime(performance.now());
+      audio.playbackRate = Number(rate.value) || 1;
+      scheduleBoundary();
+    });
     // Move the handle at display-frame rate; the source page only updates on
     // sparse browser timeupdate events, which is visibly jumpy.
     audio.addEventListener('timeupdate', event => {
