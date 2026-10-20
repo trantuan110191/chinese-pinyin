@@ -3,71 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
-  <title>Đang làm lại trang</title>
+  <title>HSK5 Thượng</title>
   <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fafafa; color: #333; font: 16px/1.6 system-ui, sans-serif; }
-    main { max-width: 34rem; padding: 2rem; }
-    h1 { font-size: 1.5rem; font-weight: 600; }
-    p { color: #666; }
-    #status { font-size: .875rem; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #faf9f7; color: #303432; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+    main { max-width: 780px; margin: 12vh auto; padding: 24px; }
+    h1 { margin: 0; font-size: 32px; letter-spacing: -.03em; }
+    p { color: #6b706c; margin: 6px 0 28px; }
+    nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    a { display: block; padding: 24px; background: #fff; border: 1px solid #e3e4df; border-radius: 14px; text-decoration: none; color: inherit; }
+    a:hover { background: #f3f7f4; border-color: #9eafa3; }
+    a:focus-visible { outline: 3px solid #527563; outline-offset: 4px; }
+    strong { display: block; font-size: 21px; }
+    span { display: block; margin-top: 8px; color: #6b706c; }
   </style>
 </head>
 <body>
   <main>
-    <h1>Trang đang được làm lại</h1>
-    <p>Nội dung cũ đã được gỡ. Đang chờ bộ file mới.</p>
-    <p id="status" role="status">Đang dọn dữ liệu HSK5 đã lưu trên trình duyệt…</p>
+    <h1>HSK5 Thượng</h1>
+    <p>Chọn sách để mở mục lục và bắt đầu học.</p>
+    <nav aria-label="Chọn sách">
+      <a href="hsk5-sgk-thuong/index.html"><strong>Sách giáo khoa</strong><span>18 bài · Bài khóa, từ mới và nghe chép</span></a>
+      <a href="hsk5-sbt-thuong/index.html"><strong>Sách bài tập</strong><span>18 bài · Nghe, đọc và viết</span></a>
+    </nav>
   </main>
-  <script>
-    (async () => {
-      const status = document.getElementById('status');
-      const root = new URL('./', location.href);
-      let incomplete = false;
-      const attempt = async task => {
-        try { await task(); } catch { incomplete = true; }
-      };
-      for (const name of ['localStorage', 'sessionStorage']) {
-        await attempt(() => {
-          const storage = window[name];
-          for (const key of Object.keys(storage)) {
-            if (/^(hsk5[-_]|hsk-library-|im-(work|map|input-scale|quiz-scale|source-scale|solo-settings)-HSK5_)/i.test(key)) {
-              storage.removeItem(key);
-            }
-          }
-        });
-      }
-      if ('serviceWorker' in navigator) {
-        await attempt(async () => {
-          const registrations = await navigator.serviceWorker.getRegistrations();
-          await Promise.all(registrations.filter(registration =>
-            registration.scope === root.href
-          ).map(registration => registration.unregister()));
-        });
-      }
-      if ('caches' in window) {
-        await attempt(async () => {
-          const names = await caches.keys();
-          await Promise.all(names.filter(name => name.startsWith('hsk5-offline-'))
-            .map(name => caches.delete(name)));
-        });
-      }
-      if ('indexedDB' in window) {
-        await attempt(() => Promise.all(['hsk5-offline-study', 'hsk5-dictation-mp3-v1']
-          .map(name => new Promise((resolve, reject) => {
-            const request = indexedDB.deleteDatabase(name);
-            request.onsuccess = resolve;
-            request.onerror = () => reject(request.error);
-            request.onblocked = () => {
-              incomplete = true;
-              resolve();
-            };
-          }))));
-      }
-      status.textContent = incomplete
-        ? 'Hãy đóng các tab bài học cũ rồi tải lại trang này để dọn nốt dữ liệu đang mở.'
-        : 'Đã dọn dữ liệu HSK5 đã lưu trên trình duyệt này.';
-    })();
-  </script>
 </body>
 </html>

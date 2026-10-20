@@ -1,7 +1,8 @@
-# Website reset
+# HSK5 Thuong
 
-The published website content was removed at the owner's request.
-Only a holding page and retirement of the old offline cache remain.
-Original user-supplied files are kept outside this deployment repository.
+Static deployment of the supplied WEB_READY_18_BAI_AUDIO_TIMELINE_FINAL packages.
 
-Previous published revision: efc838d5bd1ee3af249eab2af58e2ad9d827de08.
+- Textbook: `hsk5-sgk-thuong/index.html`
+- Workbook: `hsk5-sbt-thuong/index.html`
+
+All package files are published unchanged, including HTML, MP3, timelines and manifests. The root index only links to the two book indexes. No build step is required.

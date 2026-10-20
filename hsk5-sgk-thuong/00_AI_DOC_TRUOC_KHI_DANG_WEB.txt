@@ -1,0 +1,14 @@
+HSK5 SGK THƯỢNG — BẢN WEB READY
+
+MỤC TIÊU: đăng trực tiếp bộ 18 bài, không sửa nội dung, không ghép lại MP3/timeline.
+
+THỰC HIỆN NGAY:
+1) Giải nén toàn bộ nội dung ZIP vào duy nhất một thư mục website; giữ nguyên tên và cấu trúc.
+2) Phục vụ các file HTML như trang tĩnh; đặt link menu trỏ vào index.html.
+3) Giữ các thư mục audio/ và timeline/ ở đúng vị trí. Đảm bảo máy chủ phục vụ MP3 có HTTP Range.
+4) Trình nghe tự nạp audio theo từng khổ sau khi người học nhấn nút phát. Không có bước tải MP3 bằng tay.
+5) Bài 07: KHÔNG GỘP `07-1.mp3` với `07-3.mp3`. Mốc audio của hai file độc lập.
+6) Tuyệt đối không chỉnh mã HTML, CSS, transcript, nghĩa Anh/Việt, đáp án, giao diện ba chế độ.
+7) Kiểm tra thực tế theo HUONG_DAN_AI_DANG_WEB.md rồi hoàn thành.
+
+XEM: HUONG_DAN_AI_DANG_WEB.md; KET_QUA_KIEM_TRA.md; data/manifest.json
