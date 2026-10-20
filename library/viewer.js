@@ -12,17 +12,11 @@
   if (!config || !frame || !picker) return;
 
   const { manifest } = config;
-  const ownType = manifest.kind === 'sbt' ? 'sbt' : 'sgk-khoa';
-  const seenLessons = new Set();
-  for (const [type, volume, lesson, , url] of window.HSK_BOOKS || []) {
-    if (volume !== 'thuong' || !['sbt', 'sgk-khoa'].includes(type)) continue;
-    const lessonKey = `${type}:${lesson}`;
-    if (seenLessons.has(lessonKey)) continue;
-    seenLessons.add(lessonKey);
+  for (const [type, lesson, url] of window.HSK_LESSONS || []) {
     const option = document.createElement('option');
     option.value = new URL('../../' + url, location.href).href;
     option.textContent = `${type === 'sbt' ? 'SBT' : 'SGK'} · Bài ${String(lesson).padStart(2, '0')}`;
-    option.selected = type === ownType && Number(lesson) === Number(manifest.lesson);
+    option.selected = type === manifest.kind && Number(lesson) === Number(manifest.lesson);
     picker.append(option);
   }
   picker.addEventListener('change', () => { if (picker.value) location.href = picker.value; });
@@ -87,27 +81,45 @@
 
     let running = false;
     let activeQuestion = 0;
+    let activeCue;
+    const cuesByQuestion = new Map(manifest.cues.map(cue => [cue.question, cue]));
     let boundaryTimer = 0;
     let progressFrame = 0;
-    // Browsers expose audio.currentTime in coarse steps on some machines. Keep
-    // a display clock between those reports, then gently correct it instead of
-    // moving the native range thumb in visible jumps.
+    let buffering = false;
     let displayTime = 0;
     let displayClockAt = 0;
+    let displayRate = 1;
+    let clockCorrection = 0;
+    seek.step = 'any';
     const resetProgressClock = (time = audio.currentTime) => {
       displayTime = Number.isFinite(time) ? time : 0;
       displayClockAt = performance.now();
+      displayRate = audio.playbackRate || 1;
+      clockCorrection = 0;
     };
     const currentDisplayTime = now => {
       const elapsed = Math.max(0, now - displayClockAt) / 1000;
-      const projected = displayTime + elapsed * (audio.playbackRate || 1);
+      return displayTime + elapsed * displayRate + clockCorrection * (1 - Math.exp(-elapsed / 0.2));
+    };
+    const syncProgressClock = () => {
+      const now = performance.now();
+      const projected = currentDisplayTime(now);
       const drift = audio.currentTime - projected;
-
-      // A seek/load needs an immediate correction. Regular audio clock drift is
-      // eased over several frames so the marker never snaps backwards/forwards.
-      displayTime = Math.abs(drift) > 0.2 ? audio.currentTime : projected + drift * 0.08;
+      if (Math.abs(drift) > 0.25) return resetProgressClock();
+      // Correct only on a fresh audio report, not toward the same stale sample
+      // on every display frame.
+      displayTime = projected;
       displayClockAt = now;
-      return displayTime;
+      clockCorrection = drift;
+    };
+    const cancelProgress = () => {
+      cancelAnimationFrame(progressFrame);
+      progressFrame = 0;
+    };
+    const queueProgress = () => {
+      if (!progressFrame && running && !buffering && !audio.seeking && !document.hidden) {
+        progressFrame = requestAnimationFrame(drawProgress);
+      }
     };
     const setPlayGlyph = playing => {
       play.innerHTML = playing
@@ -118,7 +130,7 @@
       const selected = source.querySelector('#v10-global-nav [aria-current="true"][data-q]');
       return Number(selected?.dataset.q || $('im-number')?.textContent || 1);
     };
-    const cueFor = () => manifest.cues.find(cue => cue.question === currentQuestion());
+    const cueFor = () => activeCue;
     const updateUi = () => {
       const cue = cueFor();
       if (!cue) return;
@@ -136,7 +148,7 @@
     const stopPlayback = () => {
       running = false;
       clearTimeout(boundaryTimer);
-      cancelAnimationFrame(progressFrame);
+      cancelProgress();
       audio.pause();
       setPlayGlyph(false);
     };
@@ -165,11 +177,12 @@
         audio.playbackRate = Number(rate.value) || 1;
         await audio.play();
         running = true;
+        buffering = false;
         setPlayGlyph(true);
         updateUi();
         resetProgressClock();
-        cancelAnimationFrame(progressFrame);
-        drawProgress();
+        cancelProgress();
+        queueProgress();
         scheduleBoundary();
       } catch (error) {
         running = false;
@@ -178,21 +191,20 @@
     }
     function scheduleBoundary() {
       clearTimeout(boundaryTimer);
-      if (!running) return;
+      if (!running || buffering || audio.seeking) return;
       const cue = cueFor();
+      if (!cue) return;
       const remaining = (cue.endMs - audio.currentTime * 1000) / audio.playbackRate;
-      boundaryTimer = setTimeout(boundary, Math.max(1, remaining));
+      boundaryTimer = setTimeout(boundary, Math.max(16, remaining));
     }
     function drawProgress(now = performance.now()) {
+      progressFrame = 0;
       const cue = cueFor();
       if (!cue) return;
       const displayed = currentDisplayTime(now);
       const ratio = (displayed * 1000 - cue.startMs) / (cue.endMs - cue.startMs);
-      seek.value = String(Math.max(0, Math.min(1000, Math.round(ratio * 1000))));
-      if (running) {
-        if (displayed * 1000 >= cue.endMs) boundary();
-        else progressFrame = requestAnimationFrame(drawProgress);
-      }
+      seek.value = String(Math.max(0, Math.min(1000, ratio * 1000)));
+      queueProgress();
     }
     function boundary() {
       const cue = cueFor();
@@ -227,20 +239,42 @@
       scheduleBoundary();
     }, true);
     rate.addEventListener('change', () => {
-      currentDisplayTime(performance.now());
       audio.playbackRate = Number(rate.value) || 1;
+      resetProgressClock();
       scheduleBoundary();
     });
-    // Move the handle at display-frame rate; the source page only updates on
-    // sparse browser timeupdate events, which is visibly jumpy.
     audio.addEventListener('timeupdate', event => {
+      if (running && !audio.seeking && !buffering) syncProgressClock();
       boundary();
       event.stopImmediatePropagation();
     }, true);
+    audio.addEventListener('seeking', () => {
+      cancelProgress();
+      clearTimeout(boundaryTimer);
+    });
+    const resumeProgress = () => {
+      buffering = false;
+      resetProgressClock();
+      queueProgress();
+      scheduleBoundary();
+    };
+    audio.addEventListener('seeked', resumeProgress);
+    audio.addEventListener('playing', resumeProgress);
+    audio.addEventListener('waiting', () => {
+      buffering = true;
+      cancelProgress();
+      clearTimeout(boundaryTimer);
+    });
     audio.addEventListener('ended', boundary);
     audio.addEventListener('pause', () => {
-      if (running) { running = false; clearTimeout(boundaryTimer); cancelAnimationFrame(progressFrame); }
+      running = false;
+      clearTimeout(boundaryTimer);
+      cancelProgress();
       setPlayGlyph(false);
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) cancelProgress();
+      else { resetProgressClock(); queueProgress(); }
     });
 
     let optionHeld = false;
@@ -257,8 +291,12 @@
     source.defaultView.addEventListener('blur', () => { optionHeld = false; });
     const watch = () => {
       const next = currentQuestion();
-      if (next !== activeQuestion) { activeQuestion = next; stopPlayback(); }
-      updateUi();
+      if (next !== activeQuestion) {
+        activeQuestion = next;
+        activeCue = cuesByQuestion.get(next);
+        stopPlayback();
+        updateUi();
+      }
     };
     const questionNav = source.getElementById('v10-global-nav');
     if (questionNav) {
@@ -278,6 +316,7 @@
       });
     }
     activeQuestion = currentQuestion();
+    activeCue = cuesByQuestion.get(activeQuestion);
     updateUi();
   }
   frame.addEventListener('load', () => bridge(frame.contentDocument));
