@@ -88,6 +88,12 @@
     let running = false;
     let activeQuestion = 0;
     let boundaryTimer = 0;
+    let progressFrame = 0;
+    const setPlayGlyph = playing => {
+      play.innerHTML = playing
+        ? '<span class="im-glyph im-pause-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><rect x="6" y="4.6" width="4.2" height="14.8" rx=".6"></rect><rect x="13.8" y="4.6" width="4.2" height="14.8" rx=".6"></rect></svg></span>'
+        : '<span class="im-glyph im-play-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M6.1 3.7 19.2 12 6.1 20.3Z"></path></svg></span>';
+    };
     const currentQuestion = () => {
       const selected = source.querySelector('#v10-global-nav [aria-current="true"][data-q]');
       return Number(selected?.dataset.q || $('im-number')?.textContent || 1);
@@ -110,7 +116,9 @@
     const stopPlayback = () => {
       running = false;
       clearTimeout(boundaryTimer);
+      cancelAnimationFrame(progressFrame);
       audio.pause();
+      setPlayGlyph(false);
     };
     async function prepare(cue) {
       const track = manifest.tracks.find(item => item.id === cue.trackId);
@@ -137,7 +145,10 @@
         audio.playbackRate = Number(rate.value) || 1;
         await audio.play();
         running = true;
+        setPlayGlyph(true);
         updateUi();
+        cancelAnimationFrame(progressFrame);
+        drawProgress();
         scheduleBoundary();
       } catch (error) {
         running = false;
@@ -150,6 +161,13 @@
       const cue = cueFor();
       const remaining = (cue.endMs - audio.currentTime * 1000) / audio.playbackRate;
       boundaryTimer = setTimeout(boundary, Math.max(1, remaining));
+    }
+    function drawProgress() {
+      const cue = cueFor();
+      if (!cue) return;
+      const ratio = (audio.currentTime * 1000 - cue.startMs) / (cue.endMs - cue.startMs);
+      seek.value = String(Math.max(0, Math.min(1000, Math.round(ratio * 1000))));
+      if (running) progressFrame = requestAnimationFrame(drawProgress);
     }
     function boundary() {
       const cue = cueFor();
@@ -182,13 +200,17 @@
       scheduleBoundary();
     }, true);
     rate.addEventListener('change', () => { audio.playbackRate = Number(rate.value) || 1; scheduleBoundary(); });
-    audio.addEventListener('timeupdate', () => {
-      const cue = cueFor();
-      if (!cue) return;
-      seek.value = String(Math.max(0, Math.min(1000, Math.round((audio.currentTime * 1000 - cue.startMs) / (cue.endMs - cue.startMs) * 1000))));
+    // Move the handle at display-frame rate; the source page only updates on
+    // sparse browser timeupdate events, which is visibly jumpy.
+    audio.addEventListener('timeupdate', event => {
       boundary();
-    });
+      event.stopImmediatePropagation();
+    }, true);
     audio.addEventListener('ended', boundary);
+    audio.addEventListener('pause', () => {
+      if (running) { running = false; clearTimeout(boundaryTimer); cancelAnimationFrame(progressFrame); }
+      setPlayGlyph(false);
+    });
 
     let optionHeld = false;
     source.addEventListener('keydown', event => {
