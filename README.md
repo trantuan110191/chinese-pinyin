@@ -1,20 +1,7 @@
-# Hán Tự Ký Họa
+# Website reset
 
-Trang học tiếng Trung cho người Việt, chạy hoàn toàn bằng HTML, CSS và JavaScript tĩnh.
+The published website content was removed at the owner's request.
+Only a holding page and retirement of the old offline cache remain.
+Original user-supplied files are kept outside this deployment repository.
 
-## Có gì trong app
-
-- Tra từ nội bộ bằng chữ Hán, Pinyin có dấu hoặc dạng số và nghĩa tiếng Việt
-- Kho 988 từ HSK 1-3 kèm audio Xiaoxiao
-- Luyện âm đầu dễ nhầm: `j q x`, `z c s`, `zh ch sh r`
-- Kiểm tra nghe mù
-- Học từ theo chủ đề: flash card, chọn đáp án, ghép câu, nghe rồi gõ Pinyin
-- Câu hỏi giao tiếp cơ bản và từ để hỏi
-
-## Mở local
-
-Mở `index.html` trực tiếp trong trình duyệt, hoặc chạy một static server nếu muốn thử qua localhost.
-
-## Bản đang chạy
-
-[https://trantuan110191.github.io/chinese-pinyin/](https://trantuan110191.github.io/chinese-pinyin/)
+Previous published revision: efc838d5bd1ee3af249eab2af58e2ad9d827de08.
