@@ -141,8 +141,27 @@
   window.addEventListener('blur',()=>option=false);document.addEventListener('compositionstart',()=>option=false);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)halt();});
   window.addEventListener('pagehide',halt);
-  const home=document.createElement('a');home.href='../../';home.textContent='Thư viện / Tra cứu';home.className='library-home';
-  (document.querySelector('.toolbar')||document.querySelector('.topbar')||document.body).append(home);
+  const header=document.querySelector('.toolbar')||document.querySelector('.topbar')||document.body;
+  const menuStyle=document.createElement('style');
+  menuStyle.textContent='.library-lesson-menu{font:12px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:inherit}.library-lesson-menu select{padding:7px 10px;border:1px solid #8884;border-radius:8px;background:transparent;color:inherit;font:inherit;max-width:170px;cursor:pointer}@media(max-width:620px){.library-lesson-menu select{max-width:130px}}';
+  document.head.append(menuStyle);
+  const home=document.createElement('a');home.href='../../';home.textContent='Home';home.title='Về trang thư viện và tra cứu';home.className='library-home';
+  const menu=document.createElement('label');menu.className='library-lesson-menu';menu.title='Chuyển sang bài khác';
+  menu.innerHTML=' <select aria-label="Chọn bài học"></select>';
+  const lessonPicker=menu.querySelector('select');
+  for(const [type,label] of [['sbt','SBT'],['sgk-khoa','SGK']]){
+    const group=document.createElement('optgroup');group.label=label;
+    const seen=new Set();
+    for(const row of (window.HSK_BOOKS||[]).filter(item=>item[0]===type)){
+      if(seen.has(row[2]))continue;seen.add(row[2]);
+      const option=document.createElement('option');option.value=new URL('../../'+row[4],location.href).href;option.textContent=`${label} · Bài ${row[2]}`;
+      if((data.kind==='sbt'?type==='sbt':type==='sgk-khoa')&&Number(row[2])===Number(data.lesson))option.selected=true;
+      group.append(option);
+    }
+    lessonPicker.append(group);
+  }
+  lessonPicker.addEventListener('change',()=>{if(lessonPicker.value)location.href=lessonPicker.value;});
+  header.append(home,menu);
   function navigate() {
     const hash=decodeURIComponent(location.hash.slice(1));
     const q=/^q(\d+)$/.exec(hash),p=/^para(\d+)$/.exec(hash);

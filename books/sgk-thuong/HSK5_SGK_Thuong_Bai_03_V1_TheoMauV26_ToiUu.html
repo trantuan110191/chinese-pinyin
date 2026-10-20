@@ -879,10 +879,269 @@ body.im-active.im-transcript-open #v10-fixed-area .study-long-quiz .options-tabl
   color:#30363a!important;
 }
 </style>
-<script id="hsk-media-data" type="application/json">{"id": "sgk-thuong-03", "kind": "sgk", "lesson": 3, "tracks": [{"id": "sgk-thuong-03-1", "name": "03-1-Giáo-trình-chuẩn-HSK-5-Tập-1.mp3", "url": "../../media/sgk/03-01.mp3", "durationMs": 204137, "timelineUrl": "../../media/sgk/03-01.txt"}], "cues": [{"startMs": 16391, "endMs": 49279, "startLabel": "00:00:16.391", "endLabel": "00:00:49.279", "text": "翟峰和妻子都是铁路工人，工作稳定，待遇不错。他们有房有车，从不为生活发愁。可翟峰却不想一辈子过这样平静的生活。通过电视，翟峰迷上了帆船，他觉得帆船能带他撞开“世界之门”：只要有一艘船，就能航行在无边无际的海上，到任何自己想去的地方。", "id": "sgk-thuong-03-1-1", "trackId": "sgk-thuong-03-1", "paragraph": 1}, {"startMs": 49654, "endMs": 71080, "startLabel": "00:00:49.654", "endLabel": "00:01:11.080", "text": "由于翟峰和妻子没有积蓄，于是卖房卖车，买下了一艘二手船，翟峰叫它“彩虹号”。出发前，翟峰自学了航海知识。然而，包括翟峰的父母，所有人都觉得，翟峰“疯了”。", "id": "sgk-thuong-03-1-2", "trackId": "sgk-thuong-03-1", "paragraph": 2}, {"startMs": 71508, "endMs": 126506, "startLabel": "00:01:11.508", "endLabel": "00:02:06.506", "text": "2012年11月24日，辞了职的翟峰和妻子带着休学的女儿，第一次驾驶帆船出海了。白天，翟峰和妻子轮流驾船。女儿在船上看书、学习、画画儿。下午海面平静时，翟峰会和妻子下海游泳或者钓鱼。该吃饭时，妻子会给全家人做一顿美味的海鲜。傍晚是一家人最舒适的时候。干完活儿，一家人坐在一起，用电脑看看电影，或者聊聊天儿。这样的生活，是翟峰盼望已久的。以前陆地上的夜晚，他们在各自的房间，一家人没有更多的交流。", "id": "sgk-thuong-03-1-3", "trackId": "sgk-thuong-03-1", "paragraph": 3}, {"startMs": 127389, "endMs": 160173, "startLabel": "00:02:07.389", "endLabel": "00:02:40.173", "text": "中国有句老话，可上山，勿下海。美好的时刻过去后是一个个紧张的夜晚。一路上，翟峰一家经历了船身着火、漏水等大大小小十多次险情。他们最怕雷电交加的时刻，因为小船随时有可能被下一道闪电击到，一家三口只能紧紧拥抱在一起，希望闪电快快过去。", "id": "sgk-thuong-03-1-4", "trackId": "sgk-thuong-03-1", "paragraph": 4}, {"startMs": 160646, "endMs": 201642, "startLabel": "00:02:40.646", "endLabel": "00:03:21.642", "text": "在经历了八个月、航行了4000多海里之后，翟峰一家终于回到了家。翟峰相信，一切只是开始，航海就是他人生道路上一段长长的台阶，通向他想要的未来。“我和太太想要看看这个时代、这个世界到底是什么样子。人生有选择，一切可改变。”下一站，他们想去澳洲和新西兰。等待今年11月的北风，北风南下之时，他们将再次出发。", "id": "sgk-thuong-03-1-5", "trackId": "sgk-thuong-03-1", "paragraph": 5}], "version": "20261019-ms1"}</script><link rel="stylesheet" href="../../library/media.css"><script src="../../library/media.js" defer></script></head>
+
+<style id="sgk-thuong-consolidated-v1">
+/* SGK Thuong – independent of the separate SBT layout.
+   Color follows the approved neutral gray-blue, with hover optional. */
+.topbar .brand{min-width:0;max-width:min(48vw,560px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12.5px;font-weight:690;color:#53585b}
+.topbar .brand .sgk-lesson-name{font-weight:610;color:#40464a}
+.intro-hint{display:none!important}
+.study-pane-head,.pane-head{min-height:46px;box-sizing:border-box}
+.study-pane-head{gap:8px}
+.study-pane-head #studyLeftTitle{flex:1;min-width:0}
+.sgk-hover-toggle{flex:0 0 auto;font:500 11px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#5f6669;background:#fff;border:1px solid #e2e5e6;border-radius:7px;padding:6px 9px;min-height:29px;white-space:nowrap;cursor:pointer}
+.sgk-hover-toggle:hover{border-color:#bfc8ca;background:#f9fbfb}
+.sgk-hover-toggle[aria-pressed="false"]{color:#8d9497;border-color:#eceeee}
+/* Default appearance remains unfilled; only the hovered option gains color. */
+#addonStudy .v10-question .study-choice{background:transparent!important;transition:background-color .10s ease!important}
+#addonStudy .v10-question .v15-word-option{transition:background-color .10s ease!important}
+body.sgk-hover-on #addonStudy .v10-question .study-choice:hover,
+body.sgk-hover-on #addonStudy .v10-question .study-choice:focus-visible{background:#eaf0f0!important}
+body.sgk-hover-on #addonStudy .v10-question .v15-word-option:hover,
+body.sgk-hover-on #addonStudy .v10-question .v15-word-option:focus-visible{background:#eaf0f0!important}
+body.sgk-hover-off #addonStudy .v10-question .study-choice:hover{background:transparent!important}
+body.sgk-hover-off #addonStudy .v10-question .v15-word-option:hover{background:#fff!important}
+/* Retain accurate choice spacing and flat per-option background; no joined blocks. */
+#addonStudy .v10-question .study-answer-buttons{row-gap:8px!important}
+#addonStudy .v10-question .study-choice{border-radius:8px!important}
+/* Consistent category pictograms; no extra labels or reliance on an icon font. */
+#tocList .v10-menu-row{gap:9px}
+#tocList .sgk-menu-symbol{height:21px;width:21px;flex:0 0 21px;display:grid;place-items:center;color:#777f82}
+#tocList .sgk-menu-symbol svg{display:block;width:19px;height:19px}
+#tocList .v10-menu-zh{min-width:45px}
+@media(max-width:790px){.topbar .brand{max-width:35vw;font-size:11px}.study-pane-head,.pane-head{min-height:38px}.sgk-hover-toggle{font-size:10px;padding:5px 7px;min-height:26px}}
+@media(max-width:420px){.topbar .brand{max-width:32vw;font-size:10px}}
+</style>
+<style id="sgk-sbt-v18-exact-visual-tokens">
+/* HSK5 SGK Thuong – SBT V18 visual standard, 2026-10-20.
+   Presentation only: all textbook content, answer keys, navigation JS remain untouched. */
+:root{
+ --bg:#fdfdfc!important;--paper:#fff!important;--faint:#fafbfa!important;
+ --line:#ededed!important;--softline:#f0f2f2!important;
+ --ink:#383b3e!important;--muted:#85888a!important;
+ --accent:#64686b!important;--accentLight:#edf0f1!important;
+ --header:56px!important;
+}
+html,body{background:#fdfdfc!important;color:#383b3e!important;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,"Noto Sans SC","Microsoft YaHei",sans-serif!important;}
+button,input,textarea,select{box-shadow:none!important;}
+:where(button,input,textarea,select,[tabindex]):focus-visible{outline:2px solid #aeb5b7!important;outline-offset:2px!important;}
+/* Top chrome and button styles copied from the workbook's soft monochrome aesthetic. */
+.topbar{background:#fdfdfc!important;border-bottom:1px solid #ededed!important;backdrop-filter:none!important;box-shadow:none!important;}
+.topbar .brand,.topbar .brand .sgk-lesson-name{color:#545b60!important;font-size:12px!important;font-weight:650!important;}
+.topbar .btn,.topbar .study-entry,.topbar .lang-trigger{
+ background:#fff!important;border:1px solid #e7e9e9!important;border-radius:10px!important;
+ color:#61676a!important;box-shadow:none!important;font-size:12px!important;font-weight:500!important;
+ padding:7px 12px!important;min-height:35px!important;
+}
+.topbar .btn:hover,.topbar .study-entry:hover,.topbar .lang-trigger:hover,
+.topbar .btn.active,.topbar .study-entry[aria-pressed="true"],.topbar .lang-trigger[aria-expanded="true"]{
+ background:#f1f3f3!important;border-color:#dce1e2!important;color:#565b5d!important;
+}
+.topbar .lang-menu{background:#fff!important;border:1px solid #e9ecec!important;border-radius:11px!important;box-shadow:0 6px 18px #22222212!important;}
+.topbar .lang-menu label:hover{background:#f3f5f5!important;}
+/* SGK already displays name in the top bar, so omit the duplicate 01/title line. */
+.workspace{background:transparent!important;padding:10px clamp(10px,1.5vw,20px) 10px!important;gap:8px!important;}
+.workspace > .intro{display:none!important;}
+.workspace > .split,.workspace > .study-split,#addonStudy{background:transparent!important;}
+/* Outer study panels and title bars visually identical to SBT V18. */
+.workspace .pane,.workspace .study-pane{
+ background:#fff!important;border:1px solid #ededed!important;border-radius:12px!important;
+ box-shadow:none!important;
+}
+.workspace .pane-head,.workspace .study-pane-head{
+ box-sizing:border-box!important;flex:0 0 46px!important;min-height:46px!important;
+ height:46px!important;max-height:46px!important;padding:9px 13px!important;
+ border-bottom:1px solid #efeeee!important;background:#fff!important;
+ box-shadow:none!important;gap:9px!important;
+}
+.workspace .pane-title,.workspace .study-pane-title{
+ font:400 16px/1.35 Arial,"Noto Sans SC","Microsoft YaHei",sans-serif!important;
+ letter-spacing:0!important;color:#53585b!important;
+}
+.workspace .pane-subtitle,.workspace .study-pane-sublabel{font-size:11px!important;color:#8e9496!important;font-weight:400!important;}
+.splitter::before,.study-splitter::before{background:#d9dede!important;border-radius:8px!important;}
+.splitter:hover::before,.study-splitter:hover::before,.study-splitter.dragging::before{background:#9ba5a8!important;}
+/* SBT V18 option-row hover control: white by default, cool light gray on hover only. */
+.sgk-hover-toggle{
+ color:#62696b!important;border:1px solid #e3e7e8!important;background:#fff!important;
+ border-radius:6px!important;padding:5px 8px!important;min-height:27px!important;
+ font:500 10px/1.3 Arial,sans-serif!important;transition:none!important;
+}
+.sgk-hover-toggle:hover,.sgk-hover-toggle:focus-visible{background:#f1f4f4!important;border-color:#b8c4c6!important;}
+.sgk-hover-toggle[aria-pressed="false"]{color:#92999b!important;}
+/* Quiet SBT reading surface; hover never changes card sizing. */
+.pane-reading .reader{background:#fff!important;padding:5px 13px 23px!important;}
+.pane-reading .para,.pane-reading .para.current{
+ margin:10px 0 12px!important;padding:8px 7px 13px!important;
+ border:1px solid transparent!important;border-bottom:1px solid #f0f2f2!important;
+ border-radius:7px!important;background:transparent!important;
+ box-shadow:none!important;transition:background-color .12s ease!important;
+}
+body.sgk-hover-on .pane-reading .para:hover{background:#f6f8f8!important;}
+body.sgk-hover-off .pane-reading .para:hover{background:transparent!important;}
+.pane-reading .para-top,.pane-reading .para-count{color:#8b9295!important;font-size:11px!important;}
+.pane-reading .para-top .para-number{font-weight:600!important;color:#686d70!important;}
+.pane-reading .langcol{border-left-color:#f0f2f2!important;}
+.pane-reading .para .zh{font-size:15px!important;line-height:1.8!important;color:#383b3e!important;}
+.pane-reading .para .en,.pane-reading .para .vi{font-size:12px!important;line-height:1.58!important;color:#62676a!important;}
+.pane-reading .inline-word{border-bottom-color:#c6cacc!important;color:inherit!important;}
+.pane-reading .inline-word:hover,.pane-reading .inline-word:focus-visible{background:#eef1f1!important;border-bottom-color:#a7afb1!important;}
+.pane-reading .inline-word.marked{background:#e9edee!important;color:#3b4144!important;}
+/* Glossary remains a list rather than a new UI, but has SBT's clean row treatment. */
+.pane-glossary .gloss-controls,.pane-glossary .selected-note{background:#fff!important;border-bottom:1px solid #f0f2f2!important;}
+.pane-glossary .wordcard{
+ background:#fff!important;border:1px solid transparent!important;
+ border-bottom:1px solid #eff1f1!important;border-radius:7px!important;
+ color:#494f52!important;box-shadow:none!important;transition:background-color .12s ease!important;
+}
+.pane-glossary .wordcard.selected{background:#fff!important;border-color:#e8eded!important;}
+body.sgk-hover-on .pane-glossary .wordcard:hover{background:#eef1f1!important;border-color:#e5eaea!important;}
+body.sgk-hover-off .pane-glossary .wordcard:hover{background:#fff!important;border-color:#e5eaea!important;}
+.pane-glossary .search,.pane-glossary .filterrow button{background:#fff!important;border-color:#e6eaea!important;color:#5d6366!important;}
+.pane-glossary .word-zh{color:#41484b!important;}
+/* Textbook study sections: same whitespace, soft dividers, no tinted container stack. */
+#addonStudy .study-scroll{background:#fff!important;padding:11px clamp(12px,1.7vw,23px) 28px!important;}
+#addonStudy.v12-onepane .v10-all-questions,
+#addonStudy.v12-onepane .study-h2,#addonStudy.v12-onepane .study-kicker,
+#addonStudy.v12-onepane .study-desc,#addonStudy.v12-onepane .v10-bank,
+#addonStudy.v12-onepane .study-inset,#addonStudy.v12-onepane .v11-grammar-wrap{
+ max-width:none!important;
+}
+#addonStudy .study-kicker{color:#858b8e!important;font-size:10.5px!important;letter-spacing:.02em!important;font-weight:550!important;}
+#addonStudy .study-h2{font-size:19px!important;line-height:1.4!important;font-weight:550!important;color:#4c5255!important;}
+#addonStudy .study-desc,#addonStudy .study-note{color:#62686a!important;font-size:12.5px!important;}
+#addonStudy .study-zh{color:#363c3e!important;font-weight:400!important;}
+#addonStudy .study-en,#addonStudy .study-vi{color:#697075!important;font-size:12px!important;line-height:1.6!important;}
+#addonStudy .study-lang-label{color:#91989b!important;font-size:10px!important;}
+#addonStudy .study-inset,#addonStudy .study-formula,#addonStudy .v10-bank,
+#addonStudy .study-prompt,#addonStudy .v10-study-unit,#addonStudy .v11-grammar-unit,
+#addonStudy .v10-progress{
+ background:#fff!important;border-color:#edf0f0!important;box-shadow:none!important;
+}
+#addonStudy .study-formula,#addonStudy .v10-bank{background:#fafbfa!important;}
+#addonStudy .v10-study-unit,#addonStudy .v11-grammar-unit{border-radius:9px!important;}
+#addonStudy .v10-question{
+ background:#fff!important;border:0!important;border-bottom:1px solid #edf0f0!important;
+ border-radius:0!important;margin:3px 0 8px!important;padding:12px 6px 17px!important;
+ box-shadow:none!important;
+}
+#addonStudy .v10-question .v10-qhead{border-bottom-color:#f0f2f2!important;}
+#addonStudy .v10-question .v10-qhead strong,#addonStudy .v10-question .study-small-head{
+ color:#5b6366!important;font-weight:570!important;
+}
+#addonStudy .v10-question .v10-question-text{color:#383d3f!important;}
+#addonStudy .v10-question .study-choice{
+ background:transparent!important;color:#44494c!important;border:0!important;
+ border-radius:7px!important;box-shadow:none!important;min-height:34px!important;
+ padding:4px 8px!important;line-height:1.44!important;vertical-align:middle!important;
+ transition:background-color .12s ease!important;
+}
+#addonStudy .v10-question .study-choice b{
+ display:inline-grid!important;place-items:center!important;flex:0 0 26px!important;
+ width:26px!important;height:26px!important;
+ border:1.5px solid #d6d9da!important;border-radius:50%!important;
+ background:#fff!important;color:#585e62!important;font-size:12px!important;
+ font-weight:550!important;box-shadow:none!important;
+}
+/* Correct response = gray ring only, including after revealing answer. */
+#addonStudy .v10-question .study-choice.v12-choice-correct b,
+#addonStudy .v10-question .study-choice[data-correct-preview="true"]:hover b,
+#addonStudy .v10-question .study-choice[data-correct-preview="true"]:focus-visible b{
+ border:3px solid #53595d!important;background:#fff!important;color:#30363a!important;
+ font-weight:700!important;
+}
+#addonStudy .v10-question .study-choice span,
+#addonStudy .v10-question .study-choice.v12-choice-correct span,
+#addonStudy .v10-question .study-choice[data-correct-preview="true"]:hover span{
+ color:#44494c!important;font-weight:400!important;
+}
+#addonStudy .v10-question .study-choice.selected,
+#addonStudy .v10-question .study-choice.v12-choice-correct{background:transparent!important;color:#44494c!important;}
+body.sgk-hover-on #addonStudy .v10-question .study-choice:hover,
+body.sgk-hover-on #addonStudy .v10-question .study-choice:focus-visible,
+body.sgk-hover-on #addonStudy .v10-question .study-choice.v12-choice-correct:hover,
+body.sgk-hover-on #addonStudy .v10-question .study-choice.v12-choice-correct:focus-visible{
+ background:#eef1f1!important;
+}
+body.sgk-hover-off #addonStudy .v10-question .study-choice:hover,
+body.sgk-hover-off #addonStudy .v10-question .study-choice:focus-visible,
+body.sgk-hover-off #addonStudy .v10-question .study-choice.v12-choice-correct:hover{
+ background:transparent!important;
+}
+/* SBT button hover treatment also applies to word bank and ordered-position tasks. */
+#addonStudy .v15-word-option{background:#fff!important;border-color:#e3e7e8!important;color:#535a5d!important;box-shadow:none!important;}
+body.sgk-hover-on #addonStudy .v15-word-option:hover,
+body.sgk-hover-on #addonStudy .v15-word-option:focus-visible{background:#eef1f1!important;border-color:#d3dbdd!important;}
+body.sgk-hover-off #addonStudy .v15-word-option:hover,
+body.sgk-hover-off #addonStudy .v15-word-option:focus-visible{background:#fff!important;}
+#addonStudy .v15-word-option.selected,#addonStudy .v15-word-option[aria-pressed="true"]{background:#f3f5f5!important;border-color:#a6b0b2!important;}
+#addonStudy .study-primary,#addonStudy .study-secondary,
+#addonStudy .v10-qactions button,#addonStudy .study-link{
+ background:#fff!important;border:1px solid #e5e9e9!important;
+ color:#62686b!important;border-radius:8px!important;
+ font-size:12px!important;font-weight:500!important;box-shadow:none!important;
+}
+#addonStudy .study-primary:hover,#addonStudy .study-secondary:hover,
+#addonStudy .v10-qactions button:hover,#addonStudy .study-link:hover{background:#f1f4f4!important;border-color:#d9e0e1!important;}
+#addonStudy .study-feedback,#addonStudy .v10-qfeedback .study-feedback{
+ background:#fff!important;border-color:#e9eded!important;color:#545b5d!important;box-shadow:none!important;
+}
+#addonStudy .study-feedback strong,#addonStudy .study-answer-line{color:#53595d!important;}
+#addonStudy .study-feedback.good strong{color:#467b60!important;}
+#addonStudy .study-essay,#addonStudy .study-blank-select{
+ color:#444a4d!important;border-color:#e2e7e7!important;background-color:#fff!important;
+ box-shadow:none!important;
+}
+#addonStudy .study-essay:focus,#addonStudy .study-blank-select:focus{background-color:#fff!important;border-color:#b4bec0!important;}
+#addonStudy .v10-colloc-example,#addonStudy .study-discussion{border-bottom-color:#eff1f1!important;}
+#addonStudy .study-colloc-row{border-color:#eef0f0!important;background:#fff!important;box-shadow:none!important;}
+body.sgk-hover-on #addonStudy .study-colloc-row:hover{background:#eef1f1!important;border-color:#e0e6e6!important;}
+body.sgk-hover-off #addonStudy .study-colloc-row:hover{background:#fff!important;}
+#addonStudy .study-colloc-row.active{background:#f6f8f8!important;border-color:#dadfdf!important;}
+/* Same monochrome navigation/control states as the workbook. */
+.workspace .bottom{border:1px solid #ededed!important;border-radius:12px!important;
+ background:#fff!important;box-shadow:none!important;min-height:54px!important;}
+.workspace .nav-trigger,.workspace .arrow,#addonBottom .study-item-step,
+#addonBottom .study-section-nav button{
+ background:#fff!important;border-color:#e9ecec!important;border-radius:7px!important;color:#646a6d!important;
+ box-shadow:none!important;
+}
+.workspace .nav-trigger:hover,.workspace .arrow:hover:not(:disabled),
+#addonBottom .study-item-step:hover,#addonBottom .study-section-nav button:hover{
+ background:#f4f6f6!important;border-color:#e1e5e5!important;
+}
+#addonBottom .study-section-nav button[aria-current="page"],
+#addonBottom .study-item-step[aria-current="step"],.workspace .step[aria-current="step"]{
+ background:#e9edee!important;border-color:#d6dddd!important;color:#494e51!important;
+}
+.study-item-bar,.study-popup,.toc,.overlay .toc,.v12-floating{
+ background:#fff!important;border-color:#e9eeee!important;box-shadow:none!important;
+}
+.study-popup,.overlay .toc,.v12-floating{box-shadow:0 6px 18px #22222214!important;}
+#tocList .v10-menu-row{background:#fff!important;border-bottom-color:#f0f2f2!important;}
+#tocList .v10-menu-row:hover,#tocList .v10-menu-row[aria-current="page"]{
+ background:#f2f4f4!important;border-color:#e0e5e5!important;
+}
+#tocList .sgk-menu-symbol{color:#727a7d!important;}
+.v12-floating .v12-pop-close:hover,.study-popup button:hover{background:#f1f4f4!important;}
+@media(max-width:790px){
+ :root{--header:55px!important}
+ .workspace{padding:6px!important;gap:6px!important}
+ .workspace .pane-head,.workspace .study-pane-head{flex-basis:42px!important;height:42px!important;min-height:42px!important;max-height:42px!important;padding:7px 9px!important}
+ .workspace .pane-title,.workspace .study-pane-title{font-size:14px!important}
+ #addonStudy .study-scroll{padding:9px 10px 18px!important}
+}
+@media print{
+ .workspace>.intro{display:block!important}
+ #addonStudy .v10-question{break-inside:avoid}
+}
+
+</style>
+<script id="hsk-media-data" type="application/json">{"id": "sgk-thuong-03", "kind": "sgk", "lesson": 3, "tracks": [{"id": "sgk-thuong-03-1", "name": "03-1-Giáo-trình-chuẩn-HSK-5-Tập-1.mp3", "url": "../../media/sgk/03-01.mp3", "durationMs": 204137, "timelineUrl": "../../media/sgk/03-01.txt"}], "cues": [{"startMs": 16391, "endMs": 49279, "startLabel": "00:00:16.391", "endLabel": "00:00:49.279", "text": "翟峰和妻子都是铁路工人，工作稳定，待遇不错。他们有房有车，从不为生活发愁。可翟峰却不想一辈子过这样平静的生活。通过电视，翟峰迷上了帆船，他觉得帆船能带他撞开“世界之门”：只要有一艘船，就能航行在无边无际的海上，到任何自己想去的地方。", "id": "sgk-thuong-03-1-1", "trackId": "sgk-thuong-03-1", "paragraph": 1}, {"startMs": 49654, "endMs": 71080, "startLabel": "00:00:49.654", "endLabel": "00:01:11.080", "text": "由于翟峰和妻子没有积蓄，于是卖房卖车，买下了一艘二手船，翟峰叫它“彩虹号”。出发前，翟峰自学了航海知识。然而，包括翟峰的父母，所有人都觉得，翟峰“疯了”。", "id": "sgk-thuong-03-1-2", "trackId": "sgk-thuong-03-1", "paragraph": 2}, {"startMs": 71508, "endMs": 126506, "startLabel": "00:01:11.508", "endLabel": "00:02:06.506", "text": "2012年11月24日，辞了职的翟峰和妻子带着休学的女儿，第一次驾驶帆船出海了。白天，翟峰和妻子轮流驾船。女儿在船上看书、学习、画画儿。下午海面平静时，翟峰会和妻子下海游泳或者钓鱼。该吃饭时，妻子会给全家人做一顿美味的海鲜。傍晚是一家人最舒适的时候。干完活儿，一家人坐在一起，用电脑看看电影，或者聊聊天儿。这样的生活，是翟峰盼望已久的。以前陆地上的夜晚，他们在各自的房间，一家人没有更多的交流。", "id": "sgk-thuong-03-1-3", "trackId": "sgk-thuong-03-1", "paragraph": 3}, {"startMs": 127389, "endMs": 160173, "startLabel": "00:02:07.389", "endLabel": "00:02:40.173", "text": "中国有句老话，可上山，勿下海。美好的时刻过去后是一个个紧张的夜晚。一路上，翟峰一家经历了船身着火、漏水等大大小小十多次险情。他们最怕雷电交加的时刻，因为小船随时有可能被下一道闪电击到，一家三口只能紧紧拥抱在一起，希望闪电快快过去。", "id": "sgk-thuong-03-1-4", "trackId": "sgk-thuong-03-1", "paragraph": 4}, {"startMs": 160646, "endMs": 201642, "startLabel": "00:02:40.646", "endLabel": "00:03:21.642", "text": "在经历了八个月、航行了4000多海里之后，翟峰一家终于回到了家。翟峰相信，一切只是开始，航海就是他人生道路上一段长长的台阶，通向他想要的未来。“我和太太想要看看这个时代、这个世界到底是什么样子。人生有选择，一切可改变。”下一站，他们想去澳洲和新西兰。等待今年11月的北风，北风南下之时，他们将再次出发。", "id": "sgk-thuong-03-1-5", "trackId": "sgk-thuong-03-1", "paragraph": 5}], "version": "20261019-ms1"}</script><link rel="stylesheet" href="../../library/media.css"><script src="../../data/books.js"></script><script src="../../library/media.js" defer></script></head>
 <body>
 <header class="topbar">
-<div class="brand">HSK5 <b>· SGK Thượng</b> · Bài 03</div>
+<div class="brand" title="人生有选择，一切可改变">HSK5 上 · SGK / BÀI 03 <span class="sgk-lesson-name">人生有选择，一切可改变</span></div>
 <div class="toolbar-space"></div><button aria-pressed="false" class="btn study-entry" id="studyEntry" type="button">Ngữ pháp · Bài tập</button>
 <div class="langmenu">
 <button aria-controls="langMenu" aria-expanded="false" class="btn" id="langTrigger" type="button">文 Hán · Anh · Việt ▾</button>
@@ -912,7 +1171,7 @@ body.im-active.im-transcript-open #v10-fixed-area .study-long-quiz .options-tabl
 </section>
 </div>
 <div aria-label="Ngữ pháp và bài tập SGK Bài 3" class="study-split" hidden="" id="addonStudy">
-<section aria-label="Tài liệu và câu hỏi" class="study-pane"><div class="study-pane-head"><span class="study-pane-title" id="studyLeftTitle">注释</span><span class="study-pane-sublabel">SGK · Bài 3</span></div><div class="study-scroll" id="studyLeft" tabindex="0"></div></section>
+<section aria-label="Tài liệu và câu hỏi" class="study-pane"><div class="study-pane-head"><span class="study-pane-title" id="studyLeftTitle">注释</span><button id="sgkHoverToggle" class="sgk-hover-toggle" type="button" aria-pressed="true" title="Bật/tắt nền khi rê chuột">Rê nền: Bật</button></div><div class="study-scroll" id="studyLeft" tabindex="0"></div></section>
 <div aria-label="Chỉnh kích thước hai khung" aria-orientation="vertical" aria-valuemax="75" aria-valuemin="30" aria-valuenow="57" class="study-splitter" id="addonSplitter" role="separator" tabindex="0"></div>
 <section aria-label="Giải thích và thực hành" class="study-pane"><div class="study-pane-head"><span class="study-pane-title" id="studyRightTitle">Ghi nhớ</span><span class="study-pane-sublabel" id="studyRightSub"></span></div><div class="study-scroll" id="studyRight" tabindex="0"></div></section></div>
 <nav aria-label="Điều hướng đoạn bài khóa" class="bottom">
@@ -1217,11 +1476,11 @@ body.im-active.im-transcript-open #v10-fixed-area .study-long-quiz .options-tabl
  }
  function sourceReference(){return `<p class="study-slim">Chọn từ, bấm “Hiện đáp án” rồi rê chuột vào từ được điền để xem giải thích.</p>`;}
  function renderGrammar(){
-  $('studyLeft').innerHTML=`<div class="v11-grammar-wrap"><div class="study-kicker">SGK · 注释 · 4 ĐIỂM NGỮ PHÁP</div><h2 class="study-h2">Ngữ pháp cần nắm</h2>`+data.grammar.map((g,i)=>`<article class="v10-study-unit v11-grammar-unit" id="g-${i}"><div class="v10-unit-n"><span aria-label="Điểm ngữ pháp ${i+1}">${i+1}</span><h3 data-slang="zh">${E(g.term)}</h3></div><div class="study-desc">${E(g.vi)} · ${E(g.en)}</div><div class="study-small-head">CẤU TRÚC</div><div class="study-formula" data-slang="zh">${E(g.formula)}</div><p class="study-note">${E(g.tip)}</p><div class="study-small-head">VÍ DỤ TRONG SGK</div>${g.examples.map((ex,k)=>`<div class="study-ex"><div class="study-kicker">${k+1}.</div><div class="study-zh" data-slang="zh">${E(ex.zh)}</div>${lang('en',ex.en)}${lang('vi',ex.vi)}</div>`).join('')}</article>`).join('')+foot+'</div>';
+  $('studyLeft').innerHTML=`<div class="v11-grammar-wrap"><div class="study-kicker">SGK · 注释 · ${data.grammar.length} ĐIỂM NGỮ PHÁP</div><h2 class="study-h2">Ngữ pháp cần nắm</h2>`+data.grammar.map((g,i)=>`<article class="v10-study-unit v11-grammar-unit" id="g-${i}"><div class="v10-unit-n"><span aria-label="Điểm ngữ pháp ${i+1}">${i+1}</span><h3 data-slang="zh">${E(g.term)}</h3></div><div class="study-desc">${E(g.vi)} · ${E(g.en)}</div><div class="study-small-head">CẤU TRÚC</div><div class="study-formula" data-slang="zh">${E(g.formula)}</div><p class="study-note">${E(g.tip)}</p><div class="study-small-head">VÍ DỤ TRONG SGK</div>${g.examples.map((ex,k)=>`<div class="study-ex"><div class="study-kicker">${k+1}.</div><div class="study-zh" data-slang="zh">${E(ex.zh)}</div>${lang('en',ex.en)}${lang('vi',ex.vi)}</div>`).join('')}</article>`).join('')+foot+'</div>';
   $('studyRight').replaceChildren();
  }
  function renderColloc(){
-  $('studyLeft').innerHTML=`<div class="study-kicker">SGK · 词语搭配</div><h2 class="study-h2">10 nhóm kết hợp từ</h2>`+data.collocations.map((item,i)=>`<article class="v10-study-unit" id="colloc-${i}"><div class="v10-unit-n"><span>${i+1}</span><h3 data-slang="zh">${E(item.term)}</h3></div><div class="study-small-head">CÁC CỤM TỪ HOÀN CHỈNH</div>${item.examples.map(c=>`<div class="study-zh v10-colloc-example" data-slang="zh">${E(c)}</div>`).join('')}<p class="study-note">${E(collocTips[item.term]||'')}</p></article>`).join('')+foot;
+  $('studyLeft').innerHTML=`<div class="study-kicker">SGK · 词语搭配</div><h2 class="study-h2">${data.collocations.length} nhóm kết hợp từ</h2>`+data.collocations.map((item,i)=>`<article class="v10-study-unit" id="colloc-${i}"><div class="v10-unit-n"><span>${i+1}</span><h3 data-slang="zh">${E(item.term)}</h3></div><div class="study-small-head">CÁC CỤM TỪ HOÀN CHỈNH</div>${item.examples.map(c=>`<div class="study-zh v10-colloc-example" data-slang="zh">${E(c)}</div>`).join('')}<p class="study-note">${E(collocTips[item.term]||'')}</p></article>`).join('')+foot;
   $('studyRight').replaceChildren();
  }
  const exerciseLabels={
@@ -1438,6 +1697,28 @@ body.im-active.im-transcript-open #v10-fixed-area .study-long-quiz .options-tabl
  splitter.addEventListener('keydown',e=>{const dir={ArrowLeft:-3,ArrowRight:3,ArrowUp:-3,ArrowDown:3};if(dir[e.key]){resize((wide()?desktopPct:mobilePct)+dir[e.key]);e.preventDefault();}});
  window.addEventListener('resize',()=>resize(wide()?desktopPct:mobilePct));
  resize(71);renderMenu();syncLang();
+})();
+</script>
+
+<script id="sgk-thuong-compact-controls-v1">
+(()=>{'use strict';
+ const toggle=document.getElementById('sgkHoverToggle');
+ const storageKey='hsk5-sgk-thuong-hover-enabled';
+ let enabled=true;
+ try{enabled=localStorage.getItem(storageKey)!=='false'}catch(e){}
+ const setHover=()=>{
+   document.body.classList.toggle('sgk-hover-on',enabled);
+   document.body.classList.toggle('sgk-hover-off',!enabled);
+   if(toggle){toggle.textContent='Rê nền: '+(enabled?'Bật':'Tắt');toggle.setAttribute('aria-pressed',String(enabled));
+    toggle.title=enabled?'Tắt nền xám xanh khi rê chuột vào lựa chọn':'Bật nền xám xanh khi rê chuột vào lựa chọn';}
+ };
+ if(toggle)toggle.addEventListener('click',()=>{enabled=!enabled;setHover();try{localStorage.setItem(storageKey,String(enabled))}catch(e){}});
+ setHover();
+ const icons={"read": "<path d=\"M12 7v14m0-14C9 5.5 5 5 2 6v14c3-1 7-.5 10 1m0-14c3-1.5 7-2 10-1v14c-3-1-7-.5-10 1\"/>", "grammar": "<path d=\"M8 3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4\"/><path d=\"M8 7h5m-5 4h3M17 2l5 5-8 8-5 1 1-5 7-9Z\"/>", "colloc": "<path d=\"m10 13 4-4m-6 8H6a4 4 0 0 1 0-8h3m6-2h3a4 4 0 0 1 0 8h-3\"/>", "compare": "<path d=\"M12 3v18M5 7h14M6 7l-4 8h8L6 7Zm12 0-4 8h8l-4-8Z\"/><path d=\"M7 21h10\"/>", "ex1": "<path d=\"M4 7h16M4 12h8M4 17h5m8-5v7m-3-3.5h6\"/>", "ex2": "<circle cx=\"7\" cy=\"7\" r=\"3\"/><path d=\"m6 7 1 1 2-2M13 7h8M4 16h3m7 0h7M4 21h3m7 0h7\"/>", "ex3": "<path d=\"M4 5h2v4H4m0 4h2v4H4m6-10h11m-11 8h11m-17 4h3m3 0h11\"/>", "expand": "<path d=\"M4 4h8v8H4zM16 4l5 8h-10z\"/><circle cx=\"7\" cy=\"18\" r=\"3\"/><path d=\"M14 16h7v6h-7z\"/>", "apply": "<path d=\"m12 19 9-9-7-7-9 9-2 9 9-2Z\"/><path d=\"m12 5 7 7M3 21h8\"/>"};
+ const shapes=Object.fromEntries(Object.entries(icons).map(([key,content])=>[key,`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${content}</svg>`]));
+ const list=document.getElementById('tocList');
+ function decorateMenu(){if(!list)return;for(const row of list.querySelectorAll('.v10-menu-row')){if(row.querySelector('.sgk-menu-symbol'))continue;const key=row.getAttribute('data-open-section');if(!Object.prototype.hasOwnProperty.call(shapes,key))continue;const span=document.createElement('span');span.className='sgk-menu-symbol';span.innerHTML=shapes[key];row.insertBefore(span,row.firstChild);}}
+ if(list){new MutationObserver(decorateMenu).observe(list,{childList:true});decorateMenu();}
 })();
 </script>
 </body>
