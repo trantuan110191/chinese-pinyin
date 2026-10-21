@@ -3,6 +3,13 @@
   if (window.__hsk5OptionReplayInstalled) return;
   window.__hsk5OptionReplayInstalled = true;
 
+  if (document.getElementById('v13-bottom-dock')) {
+    const styles = document.createElement('link');
+    styles.rel = 'stylesheet';
+    styles.href = new URL('hsk5-current-question.css?v=1', document.currentScript.src).href;
+    document.head.appendChild(styles);
+  }
+
   let pending = null;
   let waitingForPlayback = false;
   function player() {

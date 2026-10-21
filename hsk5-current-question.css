@@ -1,0 +1,23 @@
+html {
+  --hsk5-current-background: #216a7b;
+  --hsk5-current-text: #fff;
+  --hsk5-current-border: #165363;
+}
+
+html[data-hsk-theme="night"] {
+  --hsk5-current-background: #9fd4df;
+  --hsk5-current-text: #11333c;
+  --hsk5-current-border: #c2e7ed;
+}
+
+/* Layered important rules outrank the supplied unlayered theme overrides. */
+@layer hsk5-current-question {
+  #v13-bottom-dock .v13-num[aria-current="true"],
+  #v10-global-nav .v10-qbtn[aria-current="true"] {
+    background: var(--hsk5-current-background) !important;
+    color: var(--hsk5-current-text) !important;
+    border-color: var(--hsk5-current-border) !important;
+    font-weight: 750 !important;
+    box-shadow: inset 0 -2px 0 var(--hsk5-current-border) !important;
+  }
+}
