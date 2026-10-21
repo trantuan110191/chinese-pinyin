@@ -39,4 +39,26 @@
     }
   }, true);
   window.addEventListener('blur', () => { pending = null; });
+
+  const audio = document.getElementById('im-audio');
+  const button = document.getElementById('im-play');
+  if (audio && button) {
+    function syncPlayIcon() {
+      const playing = !audio.paused && !audio.ended && !audio.error;
+      const glyph = playing ? 'im-pause-glyph' : 'im-play-glyph';
+      if (!button.querySelector('.' + glyph)) {
+        const shape = playing
+          ? '<rect x="6" y="4.6" width="4.2" height="14.8" rx=".6"/><rect x="13.8" y="4.6" width="4.2" height="14.8" rx=".6"/>'
+          : '<path d="M6.1 3.7 19.2 12 6.1 20.3Z"/>';
+        button.innerHTML = '<span class="im-glyph ' + glyph + '" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">' + shape + '</svg></span>';
+      }
+      button.setAttribute('aria-label', playing ? 'Tạm dừng' : 'Phát câu hiện tại');
+    }
+    // The original pause handler may run after a replay has already resumed.
+    // Run after it and render the current audio state, not the queued event type.
+    for (const event of ['play', 'playing', 'pause', 'ended', 'emptied', 'error']) {
+      audio.addEventListener(event, syncPlayIcon);
+    }
+    syncPlayIcon();
+  }
 })();
