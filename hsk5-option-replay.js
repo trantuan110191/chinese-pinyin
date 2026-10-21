@@ -4,6 +4,7 @@
   window.__hsk5OptionReplayInstalled = true;
 
   let pending = null;
+  let waitingForPlayback = false;
   function player() {
     const reading = document.getElementById('rl-overlay');
     if (reading && !reading.hidden && reading.getClientRects().length) {
@@ -35,6 +36,10 @@
     pending = null;
     if (api && api === player() && unmodified(event) && typeof api.replay === 'function') {
       event.preventDefault();
+      // A second tap before initial playback starts is already at the cue start.
+      // Do not cancel the native play promise while the MP3 is still loading.
+      if (api === window.__hskListenKeys && audio && !audio.paused &&
+          (waitingForPlayback || audio.readyState === 0)) return;
       api.replay();
     }
   }, true);
@@ -43,7 +48,9 @@
   const audio = document.getElementById('im-audio');
   const button = document.getElementById('im-play');
   if (audio && button) {
-    function syncPlayIcon() {
+    function syncPlayIcon(event) {
+      if (event?.type === 'play') waitingForPlayback = audio.readyState < 3;
+      if (event?.type === 'playing' || audio.paused || audio.ended || audio.error) waitingForPlayback = false;
       const playing = !audio.paused && !audio.ended && !audio.error;
       const glyph = playing ? 'im-pause-glyph' : 'im-play-glyph';
       if (!button.querySelector('.' + glyph)) {
