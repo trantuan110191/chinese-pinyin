@@ -1,0 +1,219 @@
+{
+  "book": "SGK",
+  "download_policy": "1 timeline TXT = 1 MP3 rút gọn; nghe trên web tiếp tục dùng MP3 gốc",
+  "bai_html": 18,
+  "so_timeline": 19,
+  "tong_doan": 100,
+  "items": [
+    {
+      "timeline": "timeline/01-1.txt",
+      "mp3_goc": "audio/01-1.mp3",
+      "mp3_tai": "download/01-1-theo-timeline.mp3",
+      "so_doan": 7,
+      "goc_giay": 204.54,
+      "rut_gon_giay": 189.36,
+      "tiet_kiem_giay": 15.18,
+      "size_bytes": 1515538,
+      "sha256": "9f200ee1b6980412d79f654d1694893b9f932cfb5d2d35cc2e22bfd9b4d60b53"
+    },
+    {
+      "timeline": "timeline/02-1.txt",
+      "mp3_goc": "audio/02-1.mp3",
+      "mp3_tai": "download/02-1-theo-timeline.mp3",
+      "so_doan": 6,
+      "goc_giay": 173.82,
+      "rut_gon_giay": 155.02,
+      "tiet_kiem_giay": 18.8,
+      "size_bytes": 1240786,
+      "sha256": "c6ab0cb94d62ff1815e0c940b9071ff8108c0b958613347c174dfdd1daad94fc"
+    },
+    {
+      "timeline": "timeline/03-1.txt",
+      "mp3_goc": "audio/03-1.mp3",
+      "mp3_tai": "download/03-1-theo-timeline.mp3",
+      "so_doan": 5,
+      "goc_giay": 204.2,
+      "rut_gon_giay": 183.74,
+      "tiet_kiem_giay": 20.46,
+      "size_bytes": 1470610,
+      "sha256": "507054d1fe9122445c8e7e6503fcf8e210e710294d249ad4b66bfcdc44d471dd"
+    },
+    {
+      "timeline": "timeline/04-1.txt",
+      "mp3_goc": "audio/04-1.mp3",
+      "mp3_tai": "download/04-1-theo-timeline.mp3",
+      "so_doan": 6,
+      "goc_giay": 208.38,
+      "rut_gon_giay": 189.0,
+      "tiet_kiem_giay": 19.38,
+      "size_bytes": 1512658,
+      "sha256": "d1aaa7effbf2d482b9aae754b740835721319a9ab236b6311f0be72cfb5451fd"
+    },
+    {
+      "timeline": "timeline/05-1.txt",
+      "mp3_goc": "audio/05-1.mp3",
+      "mp3_tai": "download/05-1-theo-timeline.mp3",
+      "so_doan": 4,
+      "goc_giay": 193.25,
+      "rut_gon_giay": 177.05,
+      "tiet_kiem_giay": 16.21,
+      "size_bytes": 1417042,
+      "sha256": "d87f38685cf0458679ba80f47500cf20f647b32d9f500491805817b4c71434e2"
+    },
+    {
+      "timeline": "timeline/06-1.txt",
+      "mp3_goc": "audio/06-1.mp3",
+      "mp3_tai": "download/06-1-theo-timeline.mp3",
+      "so_doan": 6,
+      "goc_giay": 195.74,
+      "rut_gon_giay": 176.08,
+      "tiet_kiem_giay": 19.66,
+      "size_bytes": 1409266,
+      "sha256": "921816ce785afdee36166631e823cd000510f45b69ea160221220286cd430c7c"
+    },
+    {
+      "timeline": "timeline/07-1.txt",
+      "mp3_goc": "audio/07-1.mp3",
+      "mp3_tai": "download/07-1-theo-timeline.mp3",
+      "so_doan": 3,
+      "goc_giay": 87.57,
+      "rut_gon_giay": 71.89,
+      "tiet_kiem_giay": 15.68,
+      "size_bytes": 575794,
+      "sha256": "107fb8ce8c39b41a257d606214708881bb595a1c1a048ab82fd03c30fdc01cad"
+    },
+    {
+      "timeline": "timeline/07-3.txt",
+      "mp3_goc": "audio/07-3.mp3",
+      "mp3_tai": "download/07-3-theo-timeline.mp3",
+      "so_doan": 3,
+      "goc_giay": 139.35,
+      "rut_gon_giay": 127.37,
+      "tiet_kiem_giay": 11.98,
+      "size_bytes": 1019602,
+      "sha256": "b2032d7d7b58edbc990f064be9d06c7a4f4bf2adbe12be198cc97405412bb75e"
+    },
+    {
+      "timeline": "timeline/08-1.txt",
+      "mp3_goc": "audio/08-1.mp3",
+      "mp3_tai": "download/08-1-theo-timeline.mp3",
+      "so_doan": 10,
+      "goc_giay": 206.06,
+      "rut_gon_giay": 184.61,
+      "tiet_kiem_giay": 21.45,
+      "size_bytes": 1477522,
+      "sha256": "4db1d2ee38cd71c60b6bb84b5552493758c6a088ac2dce952e04f5d0e8023b7c"
+    },
+    {
+      "timeline": "timeline/09-1.txt",
+      "mp3_goc": "audio/09-1.mp3",
+      "mp3_tai": "download/09-1-theo-timeline.mp3",
+      "so_doan": 4,
+      "goc_giay": 194.32,
+      "rut_gon_giay": 178.74,
+      "tiet_kiem_giay": 15.58,
+      "size_bytes": 1430578,
+      "sha256": "1b42fa098db8f148c4911a00e515a966aa5b3274de20e5a36bc59a60003a9c67"
+    },
+    {
+      "timeline": "timeline/10-1.txt",
+      "mp3_goc": "audio/10-1.mp3",
+      "mp3_tai": "download/10-1-theo-timeline.mp3",
+      "so_doan": 6,
+      "goc_giay": 160.24,
+      "rut_gon_giay": 142.67,
+      "tiet_kiem_giay": 17.57,
+      "size_bytes": 1142002,
+      "sha256": "7d61f556d472334261af87c8387fc2e88b2f740251deeedc0c71eb45ebc7f095"
+    },
+    {
+      "timeline": "timeline/11-1.txt",
+      "mp3_goc": "audio/11-1.mp3",
+      "mp3_tai": "download/11-1-theo-timeline.mp3",
+      "so_doan": 5,
+      "goc_giay": 198.87,
+      "rut_gon_giay": 182.41,
+      "tiet_kiem_giay": 16.46,
+      "size_bytes": 1459954,
+      "sha256": "f36f9de964f58ba8466c96ee19d9339a90adb828a9cf909978b79c7ab206f38f"
+    },
+    {
+      "timeline": "timeline/12-1.txt",
+      "mp3_goc": "audio/12-1.mp3",
+      "mp3_tai": "download/12-1-theo-timeline.mp3",
+      "so_doan": 6,
+      "goc_giay": 157.05,
+      "rut_gon_giay": 137.59,
+      "tiet_kiem_giay": 19.46,
+      "size_bytes": 1101394,
+      "sha256": "6d44ddde945907ede5f1a1765b445da828a29e1ed1349931df5411310f8e4925"
+    },
+    {
+      "timeline": "timeline/13-1.txt",
+      "mp3_goc": "audio/13-1.mp3",
+      "mp3_tai": "download/13-1-theo-timeline.mp3",
+      "so_doan": 4,
+      "goc_giay": 179.42,
+      "rut_gon_giay": 160.74,
+      "tiet_kiem_giay": 18.68,
+      "size_bytes": 1286578,
+      "sha256": "755d919ad069f27ae6b95945fecfdff47f4d7079656eb5d74ea35a350c41bc7a"
+    },
+    {
+      "timeline": "timeline/14-1.txt",
+      "mp3_goc": "audio/14-1.mp3",
+      "mp3_tai": "download/14-1-theo-timeline.mp3",
+      "so_doan": 3,
+      "goc_giay": 173.98,
+      "rut_gon_giay": 156.67,
+      "tiet_kiem_giay": 17.31,
+      "size_bytes": 1254034,
+      "sha256": "615e520ed88031428b336a2cdcbfa57823abdca57c37ffa0b91ebf492efa9c69"
+    },
+    {
+      "timeline": "timeline/15-1.txt",
+      "mp3_goc": "audio/15-1.mp3",
+      "mp3_tai": "download/15-1-theo-timeline.mp3",
+      "so_doan": 7,
+      "goc_giay": 185.5,
+      "rut_gon_giay": 170.78,
+      "tiet_kiem_giay": 14.72,
+      "size_bytes": 1366930,
+      "sha256": "2e1ea01c99fdfa672db702942d7ba50fc713700dd63407ec98c0670d20205012"
+    },
+    {
+      "timeline": "timeline/16-1.txt",
+      "mp3_goc": "audio/16-1.mp3",
+      "mp3_tai": "download/16-1-theo-timeline.mp3",
+      "so_doan": 4,
+      "goc_giay": 167.84,
+      "rut_gon_giay": 150.08,
+      "tiet_kiem_giay": 17.76,
+      "size_bytes": 1201330,
+      "sha256": "5819e0cb61db817d3d87caae61bdb8589603b02be3a459455b5ef93d1fc82991"
+    },
+    {
+      "timeline": "timeline/17-1.txt",
+      "mp3_goc": "audio/17-1.mp3",
+      "mp3_tai": "download/17-1-theo-timeline.mp3",
+      "so_doan": 5,
+      "goc_giay": 177.33,
+      "rut_gon_giay": 159.16,
+      "tiet_kiem_giay": 18.17,
+      "size_bytes": 1273906,
+      "sha256": "fec981c088679daac49776889557fa7551d1526c30557a6a3366658fba7054b3"
+    },
+    {
+      "timeline": "timeline/18-1.txt",
+      "mp3_goc": "audio/18-1.mp3",
+      "mp3_tai": "download/18-1-theo-timeline.mp3",
+      "so_doan": 6,
+      "goc_giay": 172.44,
+      "rut_gon_giay": 153.47,
+      "tiet_kiem_giay": 18.97,
+      "size_bytes": 1228402,
+      "sha256": "2b0303d83abec13d0fb452436370ec426843bcc42d2e46cbb4c03279dc1cd387"
+    }
+  ],
+  "included_in_this_deployment_zip": true
+}

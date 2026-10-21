@@ -1,0 +1,963 @@
+{
+  "schema_version": 1,
+  "collection": "HSK5 SGK Thượng",
+  "course": "HSK5",
+  "book": "SGK Thượng",
+  "deployment": "static, relative paths, media loaded on demand",
+  "lessons": [
+    {
+      "lesson": 1,
+      "page": "HSK5_SGK_Thuong_Bai_01_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 01　爱的细节",
+      "paragraphs": 7,
+      "audio_tracks": [
+        "01-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "01-1",
+          "start": 10.828,
+          "end": 18.353
+        },
+        {
+          "n": 2,
+          "track": "01-1",
+          "start": 18.693,
+          "end": 58.969
+        },
+        {
+          "n": 3,
+          "track": "01-1",
+          "start": 59.37,
+          "end": 77.358
+        },
+        {
+          "n": 4,
+          "track": "01-1",
+          "start": 77.719,
+          "end": 143.494
+        },
+        {
+          "n": 5,
+          "track": "01-1",
+          "start": 143.812,
+          "end": 158.644
+        },
+        {
+          "n": 6,
+          "track": "01-1",
+          "start": 158.992,
+          "end": 181.206
+        },
+        {
+          "n": 7,
+          "track": "01-1",
+          "start": 182.354,
+          "end": 202.141
+        }
+      ]
+    },
+    {
+      "lesson": 2,
+      "page": "HSK5_SGK_Thuong_Bai_02_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 02　留串钥匙给父母",
+      "paragraphs": 6,
+      "audio_tracks": [
+        "02-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "02-1",
+          "start": 13.0,
+          "end": 33.12
+        },
+        {
+          "n": 2,
+          "track": "02-1",
+          "start": 34.23,
+          "end": 52.69
+        },
+        {
+          "n": 3,
+          "track": "02-1",
+          "start": 53.25,
+          "end": 69.67
+        },
+        {
+          "n": 4,
+          "track": "02-1",
+          "start": 69.86,
+          "end": 105.02
+        },
+        {
+          "n": 5,
+          "track": "02-1",
+          "start": 106.38,
+          "end": 149.56
+        },
+        {
+          "n": 6,
+          "track": "02-1",
+          "start": 150.52,
+          "end": 171.41
+        }
+      ]
+    },
+    {
+      "lesson": 3,
+      "page": "HSK5_SGK_Thuong_Bai_03_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 03　人生有选择，一切可改变",
+      "paragraphs": 5,
+      "audio_tracks": [
+        "03-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "03-1",
+          "start": 16.391,
+          "end": 49.279
+        },
+        {
+          "n": 2,
+          "track": "03-1",
+          "start": 49.654,
+          "end": 71.08
+        },
+        {
+          "n": 3,
+          "track": "03-1",
+          "start": 71.508,
+          "end": 126.506
+        },
+        {
+          "n": 4,
+          "track": "03-1",
+          "start": 127.389,
+          "end": 160.173
+        },
+        {
+          "n": 5,
+          "track": "03-1",
+          "start": 160.646,
+          "end": 201.642
+        }
+      ]
+    },
+    {
+      "lesson": 4,
+      "page": "HSK5_SGK_Thuong_Bai_04_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 04　子路背米",
+      "paragraphs": 6,
+      "audio_tracks": [
+        "04-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "04-1",
+          "start": 11.49,
+          "end": 28.6
+        },
+        {
+          "n": 2,
+          "track": "04-1",
+          "start": 29.82,
+          "end": 63.22
+        },
+        {
+          "n": 3,
+          "track": "04-1",
+          "start": 64.65,
+          "end": 104.36
+        },
+        {
+          "n": 4,
+          "track": "04-1",
+          "start": 105.175,
+          "end": 147.88
+        },
+        {
+          "n": 5,
+          "track": "04-1",
+          "start": 148.81,
+          "end": 184.45
+        },
+        {
+          "n": 6,
+          "track": "04-1",
+          "start": 185.78,
+          "end": 205.42
+        }
+      ]
+    },
+    {
+      "lesson": 5,
+      "page": "HSK5_SGK_Thuong_Bai_05_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 05　济南的泉水",
+      "paragraphs": 4,
+      "audio_tracks": [
+        "05-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "05-1",
+          "start": 11.56,
+          "end": 44.72
+        },
+        {
+          "n": 2,
+          "track": "05-1",
+          "start": 45.12,
+          "end": 86.7
+        },
+        {
+          "n": 3,
+          "track": "05-1",
+          "start": 87.19,
+          "end": 119.15
+        },
+        {
+          "n": 4,
+          "track": "05-1",
+          "start": 120.23,
+          "end": 190.06
+        }
+      ]
+    },
+    {
+      "lesson": 6,
+      "page": "HSK5_SGK_Thuong_Bai_06_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 06　除夕的由来",
+      "paragraphs": 6,
+      "audio_tracks": [
+        "06-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "06-1",
+          "start": 11.75,
+          "end": 29.35
+        },
+        {
+          "n": 2,
+          "track": "06-1",
+          "start": 30.01,
+          "end": 57.58
+        },
+        {
+          "n": 3,
+          "track": "06-1",
+          "start": 58.07,
+          "end": 90.94
+        },
+        {
+          "n": 4,
+          "track": "06-1",
+          "start": 92.16,
+          "end": 135.45
+        },
+        {
+          "n": 5,
+          "track": "06-1",
+          "start": 136.91,
+          "end": 167.29
+        },
+        {
+          "n": 6,
+          "track": "06-1",
+          "start": 169.11,
+          "end": 192.69
+        }
+      ]
+    },
+    {
+      "lesson": 7,
+      "page": "HSK5_SGK_Thuong_Bai_07_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 07　成语故事两则",
+      "paragraphs": 6,
+      "audio_tracks": [
+        "07-1",
+        "07-3"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "07-1",
+          "start": 12.78,
+          "end": 33.69
+        },
+        {
+          "n": 2,
+          "track": "07-1",
+          "start": 33.98,
+          "end": 71.8
+        },
+        {
+          "n": 3,
+          "track": "07-1",
+          "start": 72.17,
+          "end": 84.97
+        },
+        {
+          "n": 4,
+          "track": "07-3",
+          "start": 7.77,
+          "end": 46.4
+        },
+        {
+          "n": 5,
+          "track": "07-3",
+          "start": 46.66,
+          "end": 110.08
+        },
+        {
+          "n": 6,
+          "track": "07-3",
+          "start": 110.57,
+          "end": 135.52
+        }
+      ]
+    },
+    {
+      "lesson": 8,
+      "page": "HSK5_SGK_Thuong_Bai_08_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 08　“朝三暮四”的古今义",
+      "paragraphs": 10,
+      "audio_tracks": [
+        "08-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "08-1",
+          "start": 13.71,
+          "end": 31.03
+        },
+        {
+          "n": 2,
+          "track": "08-1",
+          "start": 31.74,
+          "end": 57.61
+        },
+        {
+          "n": 3,
+          "track": "08-1",
+          "start": 58.02,
+          "end": 70.02
+        },
+        {
+          "n": 4,
+          "track": "08-1",
+          "start": 70.54,
+          "end": 95.19
+        },
+        {
+          "n": 5,
+          "track": "08-1",
+          "start": 95.74,
+          "end": 108.85
+        },
+        {
+          "n": 6,
+          "track": "08-1",
+          "start": 109.69,
+          "end": 134.86
+        },
+        {
+          "n": 7,
+          "track": "08-1",
+          "start": 135.43,
+          "end": 147.48
+        },
+        {
+          "n": 8,
+          "track": "08-1",
+          "start": 148.02,
+          "end": 164.5
+        },
+        {
+          "n": 9,
+          "track": "08-1",
+          "start": 165.36,
+          "end": 179.62
+        },
+        {
+          "n": 10,
+          "track": "08-1",
+          "start": 180.83,
+          "end": 203.13
+        }
+      ]
+    },
+    {
+      "lesson": 9,
+      "page": "HSK5_SGK_Thuong_Bai_09_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 09　别样鲁迅",
+      "paragraphs": 4,
+      "audio_tracks": [
+        "09-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "09-1",
+          "start": 11.17,
+          "end": 37.29
+        },
+        {
+          "n": 2,
+          "track": "09-1",
+          "start": 38.1,
+          "end": 75.48
+        },
+        {
+          "n": 3,
+          "track": "09-1",
+          "start": 75.99,
+          "end": 152.5
+        },
+        {
+          "n": 4,
+          "track": "09-1",
+          "start": 152.92,
+          "end": 191.14
+        }
+      ]
+    },
+    {
+      "lesson": 10,
+      "page": "HSK5_SGK_Thuong_Bai_10_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 10　争论的奇迹",
+      "paragraphs": 6,
+      "audio_tracks": [
+        "10-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "10-1",
+          "start": 11.16,
+          "end": 57.82
+        },
+        {
+          "n": 2,
+          "track": "10-1",
+          "start": 57.87,
+          "end": 77.83
+        },
+        {
+          "n": 3,
+          "track": "10-1",
+          "start": 78.39,
+          "end": 103.85
+        },
+        {
+          "n": 4,
+          "track": "10-1",
+          "start": 104.89,
+          "end": 120.52
+        },
+        {
+          "n": 5,
+          "track": "10-1",
+          "start": 122.39,
+          "end": 145.84
+        },
+        {
+          "n": 6,
+          "track": "10-1",
+          "start": 146.64,
+          "end": 157.33
+        }
+      ]
+    },
+    {
+      "lesson": 11,
+      "page": "HSK5_SGK_Thuong_Bai_11_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 11　闹钟的危害",
+      "paragraphs": 5,
+      "audio_tracks": [
+        "11-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "11-1",
+          "start": 11.24,
+          "end": 26.361
+        },
+        {
+          "n": 2,
+          "track": "11-1",
+          "start": 26.613,
+          "end": 44.252
+        },
+        {
+          "n": 3,
+          "track": "11-1",
+          "start": 44.635,
+          "end": 108.133
+        },
+        {
+          "n": 4,
+          "track": "11-1",
+          "start": 108.493,
+          "end": 156.221
+        },
+        {
+          "n": 5,
+          "track": "11-1",
+          "start": 157.802,
+          "end": 195.559
+        }
+      ]
+    },
+    {
+      "lesson": 12,
+      "page": "HSK5_SGK_Thuong_Bai_12_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 12　海外用户玩儿微信",
+      "paragraphs": 6,
+      "audio_tracks": [
+        "12-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "12-1",
+          "start": 15.21,
+          "end": 34.32
+        },
+        {
+          "n": 2,
+          "track": "12-1",
+          "start": 34.39,
+          "end": 56.28
+        },
+        {
+          "n": 3,
+          "track": "12-1",
+          "start": 56.72,
+          "end": 84.93
+        },
+        {
+          "n": 4,
+          "track": "12-1",
+          "start": 86.12,
+          "end": 96.82
+        },
+        {
+          "n": 5,
+          "track": "12-1",
+          "start": 96.94,
+          "end": 135.6
+        },
+        {
+          "n": 6,
+          "track": "12-1",
+          "start": 135.79,
+          "end": 154.01
+        }
+      ]
+    },
+    {
+      "lesson": 13,
+      "page": "HSK5_SGK_Thuong_Bai_13_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 13　锯掉生活的“筐底”",
+      "paragraphs": 4,
+      "audio_tracks": [
+        "13-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "13-1",
+          "start": 14.33,
+          "end": 53.13
+        },
+        {
+          "n": 2,
+          "track": "13-1",
+          "start": 53.2,
+          "end": 100.67
+        },
+        {
+          "n": 3,
+          "track": "13-1",
+          "start": 100.95,
+          "end": 138.77
+        },
+        {
+          "n": 4,
+          "track": "13-1",
+          "start": 139.84,
+          "end": 175.99
+        }
+      ]
+    },
+    {
+      "lesson": 14,
+      "page": "HSK5_SGK_Thuong_Bai_14_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 14　北京的四合院",
+      "paragraphs": 3,
+      "audio_tracks": [
+        "14-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "14-1",
+          "start": 12.055,
+          "end": 54.15
+        },
+        {
+          "n": 2,
+          "track": "14-1",
+          "start": 55.42,
+          "end": 125.63
+        },
+        {
+          "n": 3,
+          "track": "14-1",
+          "start": 126.527,
+          "end": 170.55
+        }
+      ]
+    },
+    {
+      "lesson": 15,
+      "page": "HSK5_SGK_Thuong_Bai_15_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 15　纸上谈兵",
+      "paragraphs": 7,
+      "audio_tracks": [
+        "15-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "15-1",
+          "start": 10.93,
+          "end": 35.93
+        },
+        {
+          "n": 2,
+          "track": "15-1",
+          "start": 36.07,
+          "end": 63.03
+        },
+        {
+          "n": 3,
+          "track": "15-1",
+          "start": 63.12,
+          "end": 101.76
+        },
+        {
+          "n": 4,
+          "track": "15-1",
+          "start": 102.07,
+          "end": 121.0
+        },
+        {
+          "n": 5,
+          "track": "15-1",
+          "start": 121.16,
+          "end": 144.67
+        },
+        {
+          "n": 6,
+          "track": "15-1",
+          "start": 145.04,
+          "end": 165.75
+        },
+        {
+          "n": 7,
+          "track": "15-1",
+          "start": 166.03,
+          "end": 182.123
+        }
+      ]
+    },
+    {
+      "lesson": 16,
+      "page": "HSK5_SGK_Thuong_Bai_16_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 16　体重与节食",
+      "paragraphs": 4,
+      "audio_tracks": [
+        "16-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "16-1",
+          "start": 11.78,
+          "end": 28.22
+        },
+        {
+          "n": 2,
+          "track": "16-1",
+          "start": 29.14,
+          "end": 66.95
+        },
+        {
+          "n": 3,
+          "track": "16-1",
+          "start": 67.9,
+          "end": 108.05
+        },
+        {
+          "n": 4,
+          "track": "16-1",
+          "start": 109.03,
+          "end": 164.21
+        }
+      ]
+    },
+    {
+      "lesson": 17,
+      "page": "HSK5_SGK_Thuong_Bai_17_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 17　在最美好的时刻离开",
+      "paragraphs": 5,
+      "audio_tracks": [
+        "17-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "17-1",
+          "start": 13.806000000000001,
+          "end": 47.138
+        },
+        {
+          "n": 2,
+          "track": "17-1",
+          "start": 47.592,
+          "end": 77.761
+        },
+        {
+          "n": 3,
+          "track": "17-1",
+          "start": 78.264,
+          "end": 117.713
+        },
+        {
+          "n": 4,
+          "track": "17-1",
+          "start": 118.114,
+          "end": 147.789
+        },
+        {
+          "n": 5,
+          "track": "17-1",
+          "start": 148.362,
+          "end": 174.253
+        }
+      ]
+    },
+    {
+      "lesson": 18,
+      "page": "HSK5_SGK_Thuong_Bai_18_NgheChep_PhongCach_SBT.html",
+      "title": "HSK5 上 · SGK / BÀI 18　抽象艺术美不美？",
+      "paragraphs": 6,
+      "audio_tracks": [
+        "18-1"
+      ],
+      "segments": [
+        {
+          "n": 1,
+          "track": "18-1",
+          "start": 13.06,
+          "end": 40.3
+        },
+        {
+          "n": 2,
+          "track": "18-1",
+          "start": 41.03,
+          "end": 66.56
+        },
+        {
+          "n": 3,
+          "track": "18-1",
+          "start": 66.77,
+          "end": 91.54
+        },
+        {
+          "n": 4,
+          "track": "18-1",
+          "start": 92.57,
+          "end": 113.94
+        },
+        {
+          "n": 5,
+          "track": "18-1",
+          "start": 114.99,
+          "end": 156.5
+        },
+        {
+          "n": 6,
+          "track": "18-1",
+          "start": 157.27,
+          "end": 169.52
+        }
+      ]
+    }
+  ],
+  "tracks": {
+    "01-1": {
+      "audio": "audio/01-1.mp3",
+      "timeline": "timeline/01-1.txt",
+      "duration_seconds": 204.539,
+      "segments": 7,
+      "bytes": 3326879,
+      "sha256": "be253dac124dd3397ba816f312fae9321e6f797457fd59bc87c83cc216ccfa97"
+    },
+    "02-1": {
+      "audio": "audio/02-1.mp3",
+      "timeline": "timeline/02-1.txt",
+      "duration_seconds": 173.819,
+      "segments": 6,
+      "bytes": 2835359,
+      "sha256": "44676e034146db09382ff9a9f4c870ca255f12bbc6579985a716975a8bb40b84"
+    },
+    "03-1": {
+      "audio": "audio/03-1.mp3",
+      "timeline": "timeline/03-1.txt",
+      "duration_seconds": 204.199,
+      "segments": 5,
+      "bytes": 3321445,
+      "sha256": "c54958bf867b0095eace78a136de216106617e63aba9a50ecebfa7e9ca86b760"
+    },
+    "04-1": {
+      "audio": "audio/04-1.mp3",
+      "timeline": "timeline/04-1.txt",
+      "duration_seconds": 208.379,
+      "segments": 6,
+      "bytes": 3388319,
+      "sha256": "ff4c321d0fd6ac937717ca42e9f87a3a0cbf5efba2d2948ddb5478fbfa42d75e"
+    },
+    "05-1": {
+      "audio": "audio/05-1.mp3",
+      "timeline": "timeline/05-1.txt",
+      "duration_seconds": 193.254,
+      "segments": 4,
+      "bytes": 3146321,
+      "sha256": "170a655e3c32dd5351853675ad18cfe23afce226a591ef1f6d2783d7a6a2afad"
+    },
+    "06-1": {
+      "audio": "audio/06-1.mp3",
+      "timeline": "timeline/06-1.txt",
+      "duration_seconds": 195.736,
+      "segments": 6,
+      "bytes": 3186027,
+      "sha256": "6983931056e6b87cd1089d97243d7e5640aba5b9e3ad925642193f09e382818f"
+    },
+    "07-1": {
+      "audio": "audio/07-1.mp3",
+      "timeline": "timeline/07-1.txt",
+      "duration_seconds": 87.57,
+      "segments": 3,
+      "bytes": 1454841,
+      "sha256": "3a5c06e736d70964b78ba01dc969125ddd05bb1a7e1fdcec095440cf190c9095"
+    },
+    "07-3": {
+      "audio": "audio/07-3.mp3",
+      "timeline": "timeline/07-3.txt",
+      "duration_seconds": 139.345,
+      "segments": 3,
+      "bytes": 2283236,
+      "sha256": "9cf960c9a57060726c19c8e848e7e30381c5982c58cbea61368ff77ba1304a1b"
+    },
+    "08-1": {
+      "audio": "audio/08-1.mp3",
+      "timeline": "timeline/08-1.txt",
+      "duration_seconds": 206.062,
+      "segments": 10,
+      "bytes": 3350704,
+      "sha256": "c41d585479d867e552d35f37c449bb59f3110d228dcb8f71a5fd53a5b59638d3"
+    },
+    "09-1": {
+      "audio": "audio/09-1.mp3",
+      "timeline": "timeline/09-1.txt",
+      "duration_seconds": 194.325,
+      "segments": 4,
+      "bytes": 3163457,
+      "sha256": "5b4a01e70f5c2bb2b29074d41a604921bc180a05527a8fc6779e41b8ed4d5a7f"
+    },
+    "10-1": {
+      "audio": "audio/10-1.mp3",
+      "timeline": "timeline/10-1.txt",
+      "duration_seconds": 160.235,
+      "segments": 6,
+      "bytes": 2618020,
+      "sha256": "63441aa321c189baf022f04e43e1f16ab432a5a915de63c7666644a347e06654"
+    },
+    "11-1": {
+      "audio": "audio/11-1.mp3",
+      "timeline": "timeline/11-1.txt",
+      "duration_seconds": 198.87,
+      "segments": 5,
+      "bytes": 3236182,
+      "sha256": "262b037b9e1f6fe4fd4ea8b0c8debf08a38d22c07680c8e1a19ae755fc4c6c0c"
+    },
+    "12-1": {
+      "audio": "audio/12-1.mp3",
+      "timeline": "timeline/12-1.txt",
+      "duration_seconds": 157.048,
+      "segments": 6,
+      "bytes": 2567029,
+      "sha256": "5bb9322afe804efed8ba4acdf108e16e07ff935842e7a160ff1bf82b91c9e46e"
+    },
+    "13-1": {
+      "audio": "audio/13-1.mp3",
+      "timeline": "timeline/13-1.txt",
+      "duration_seconds": 179.417,
+      "segments": 4,
+      "bytes": 2924385,
+      "sha256": "75e4c6b2745d2c759fd349b642740cf2ebabce344e38b5c4a34eed60d6499fc1"
+    },
+    "14-1": {
+      "audio": "audio/14-1.mp3",
+      "timeline": "timeline/14-1.txt",
+      "duration_seconds": 173.983,
+      "segments": 3,
+      "bytes": 2837450,
+      "sha256": "8869352c4ff115befd8772f086696d8d363fcebe20af6389b4038cfb7de088e4"
+    },
+    "15-1": {
+      "audio": "audio/15-1.mp3",
+      "timeline": "timeline/15-1.txt",
+      "duration_seconds": 185.504,
+      "segments": 7,
+      "bytes": 3021770,
+      "sha256": "327bc1eae55ed94ddc35d1ea7c53bc381d179dc3ee34dd614cb7fc6ee78c352d"
+    },
+    "16-1": {
+      "audio": "audio/16-1.mp3",
+      "timeline": "timeline/16-1.txt",
+      "duration_seconds": 167.845,
+      "segments": 4,
+      "bytes": 2739229,
+      "sha256": "a1b7b26b3e145df6cbfac0e0284d04f382c429f06da6a36e656d39770776eb7f"
+    },
+    "17-1": {
+      "audio": "audio/17-1.mp3",
+      "timeline": "timeline/17-1.txt",
+      "duration_seconds": 177.327,
+      "segments": 5,
+      "bytes": 2890948,
+      "sha256": "c17ed3169170487425955a25c7cb6868e6ecc31a528468ed4b5c967b4338386b"
+    },
+    "18-1": {
+      "audio": "audio/18-1.mp3",
+      "timeline": "timeline/18-1.txt",
+      "duration_seconds": 172.442,
+      "segments": 6,
+      "bytes": 2812790,
+      "sha256": "d03f407cfb83f1520126c21b46196f822824d176c55c955bbfc93531f8df689c"
+    }
+  },
+  "player_progress": "requestAnimationFrame synchronized to audio.currentTime; slider step=any; update while playing"
+}

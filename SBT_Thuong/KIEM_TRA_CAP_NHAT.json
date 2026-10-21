@@ -1,0 +1,136 @@
+{
+  "book": "SBT",
+  "patches": [
+    {
+      "file": "HSK5_SBT_Thuong_Bai_01_V18.html",
+      "lesson": 1,
+      "patches": 4,
+      "original_length": 445979,
+      "new_length": 448904
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_02_V18.html",
+      "lesson": 2,
+      "patches": 2,
+      "original_length": 414287,
+      "new_length": 416570
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_03_V18.html",
+      "lesson": 3,
+      "patches": 2,
+      "original_length": 417831,
+      "new_length": 420114
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_04_V18.html",
+      "lesson": 4,
+      "patches": 2,
+      "original_length": 423247,
+      "new_length": 425530
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_05_V18.html",
+      "lesson": 5,
+      "patches": 2,
+      "original_length": 422836,
+      "new_length": 425119
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_06_V18.html",
+      "lesson": 6,
+      "patches": 2,
+      "original_length": 427425,
+      "new_length": 429708
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_07_V18.html",
+      "lesson": 7,
+      "patches": 2,
+      "original_length": 416035,
+      "new_length": 418318
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_08_V18.html",
+      "lesson": 8,
+      "patches": 2,
+      "original_length": 412255,
+      "new_length": 414538
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_09_V18.html",
+      "lesson": 9,
+      "patches": 2,
+      "original_length": 413373,
+      "new_length": 415656
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_10_V18.html",
+      "lesson": 10,
+      "patches": 2,
+      "original_length": 423053,
+      "new_length": 425336
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_11_V18.html",
+      "lesson": 11,
+      "patches": 2,
+      "original_length": 422781,
+      "new_length": 425064
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_12_V18.html",
+      "lesson": 12,
+      "patches": 2,
+      "original_length": 418879,
+      "new_length": 421162
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_13_V18.html",
+      "lesson": 13,
+      "patches": 2,
+      "original_length": 414091,
+      "new_length": 416374
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_14_V18.html",
+      "lesson": 14,
+      "patches": 2,
+      "original_length": 420366,
+      "new_length": 422649
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_15_V18.html",
+      "lesson": 15,
+      "patches": 2,
+      "original_length": 420125,
+      "new_length": 422408
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_16_V18.html",
+      "lesson": 16,
+      "patches": 2,
+      "original_length": 416380,
+      "new_length": 418663
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_17_V18.html",
+      "lesson": 17,
+      "patches": 2,
+      "original_length": 413168,
+      "new_length": 415451
+    },
+    {
+      "file": "HSK5_SBT_Thuong_Bai_18_V18.html",
+      "lesson": 18,
+      "patches": 2,
+      "original_length": 420304,
+      "new_length": 422587
+    }
+  ],
+  "checks": {
+    "unchanged_mp3_and_timeline": true,
+    "shortcut": "Option/Alt one-key replay; left/right navigate",
+    "progress": "requestAnimationFrame, variable step any, redraw clock only on change"
+  }
+}

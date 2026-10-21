@@ -1,0 +1,136 @@
+{
+  "book": "SGK",
+  "patches": [
+    {
+      "file": "HSK5_SGK_Thuong_Bai_01_NgheChep_PhongCach_SBT.html",
+      "lesson": 1,
+      "patches": 3,
+      "original_length": 219071,
+      "new_length": 221210
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_02_NgheChep_PhongCach_SBT.html",
+      "lesson": 2,
+      "patches": 3,
+      "original_length": 218290,
+      "new_length": 220429
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_03_NgheChep_PhongCach_SBT.html",
+      "lesson": 3,
+      "patches": 3,
+      "original_length": 218513,
+      "new_length": 220652
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_04_NgheChep_PhongCach_SBT.html",
+      "lesson": 4,
+      "patches": 3,
+      "original_length": 218377,
+      "new_length": 220516
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_05_NgheChep_PhongCach_SBT.html",
+      "lesson": 5,
+      "patches": 3,
+      "original_length": 219433,
+      "new_length": 221572
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_06_NgheChep_PhongCach_SBT.html",
+      "lesson": 6,
+      "patches": 3,
+      "original_length": 218772,
+      "new_length": 220911
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_07_NgheChep_PhongCach_SBT.html",
+      "lesson": 7,
+      "patches": 3,
+      "original_length": 218985,
+      "new_length": 221124
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_08_NgheChep_PhongCach_SBT.html",
+      "lesson": 8,
+      "patches": 3,
+      "original_length": 218362,
+      "new_length": 220501
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_09_NgheChep_PhongCach_SBT.html",
+      "lesson": 9,
+      "patches": 3,
+      "original_length": 217590,
+      "new_length": 219729
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_10_NgheChep_PhongCach_SBT.html",
+      "lesson": 10,
+      "patches": 3,
+      "original_length": 215931,
+      "new_length": 218070
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_11_NgheChep_PhongCach_SBT.html",
+      "lesson": 11,
+      "patches": 3,
+      "original_length": 218243,
+      "new_length": 220382
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_12_NgheChep_PhongCach_SBT.html",
+      "lesson": 12,
+      "patches": 3,
+      "original_length": 217172,
+      "new_length": 219311
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_13_NgheChep_PhongCach_SBT.html",
+      "lesson": 13,
+      "patches": 3,
+      "original_length": 217451,
+      "new_length": 219590
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_14_NgheChep_PhongCach_SBT.html",
+      "lesson": 14,
+      "patches": 3,
+      "original_length": 216366,
+      "new_length": 218505
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_15_NgheChep_PhongCach_SBT.html",
+      "lesson": 15,
+      "patches": 3,
+      "original_length": 217509,
+      "new_length": 219648
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_16_NgheChep_PhongCach_SBT.html",
+      "lesson": 16,
+      "patches": 3,
+      "original_length": 216682,
+      "new_length": 218821
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_17_NgheChep_PhongCach_SBT.html",
+      "lesson": 17,
+      "patches": 3,
+      "original_length": 216991,
+      "new_length": 219130
+    },
+    {
+      "file": "HSK5_SGK_Thuong_Bai_18_NgheChep_PhongCach_SBT.html",
+      "lesson": 18,
+      "patches": 3,
+      "original_length": 217475,
+      "new_length": 219614
+    }
+  ],
+  "checks": {
+    "unchanged_mp3_and_timeline": true,
+    "shortcut": "Option/Alt one-key replay; left/right navigate",
+    "progress": "requestAnimationFrame, variable step any, redraw clock only on change"
+  }
+}
