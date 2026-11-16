@@ -6,7 +6,7 @@
   const modeButtons = [...document.querySelectorAll('.mode-btn')], themeButtons = [...document.querySelectorAll('.theme-btn')];
   let visible = checks.filter(c => c.checked).map(c => c.name), mode = 'exact', request = 0, composing = false, timer;
   let displayed = [], count = 0, busy = false, sources = [];
-  const worker = new Worker('lookup-worker.js?v=1');
+  const worker = new Worker('lookup-worker.js?v=2');
   const rows = JSON.parse(document.getElementById('data').textContent);
   worker.postMessage({ type: 'init', rows, hanViet: window.HSK5_HAN_VIET_DATA?.rows || [] });
   function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
@@ -70,7 +70,7 @@
   for (const button of modeButtons) button.addEventListener('click', () => {
     mode = button.dataset.mode;
     for (const b of modeButtons) b.setAttribute('aria-pressed', String(b === button));
-    document.getElementById('mode-help').firstChild.textContent = mode === 'exact' ? 'Chính xác: khớp đúng từ, âm Hán–Việt hoặc cụm nghĩa; có thể gõ có dấu, không dấu hay viết liền. ' : 'Thông minh: tìm cả cụm liên quan; từ khớp chính xác đứng trước. Cùng mức khớp, ưu tiên HanziVoice mới. ';
+    document.getElementById('mode-help').firstChild.textContent = mode === 'exact' ? 'Chính xác: gõ có dấu để phân biệt nghĩa (ngọc ≠ ngốc); gõ không dấu để tìm rộng hơn. Pinyin có dấu/số thanh sẽ khớp đúng thanh. ' : 'Thông minh: tìm cả cụm liên quan nhưng vẫn phân biệt dấu bạn đã gõ. Từ khớp chính xác đứng trước; cùng mức khớp ưu tiên HanziVoice mới. ';
     search(true);
   });
   for (const button of themeButtons) {

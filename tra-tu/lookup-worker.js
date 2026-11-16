@@ -1,12 +1,33 @@
 'use strict';
 
-const norm = s => String(s || '').toLowerCase().replace(/u:/g, 'ü').replace(/đ/g, 'd').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/([a-züv])[1-5]/g, '$1').replace(/[üv]/g, 'u').replace(/[^a-z0-9\p{Script=Han}]/gu, '');
-const normHV = s => String(s || '').toLowerCase().replace(/đ/g, 'd').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
-const segments = s => [...new Set(String(s || '').split(/[;,，；、]/).map(norm).filter(Boolean))];
+const normText = s => String(s || '').toLowerCase().normalize('NFC').replace(/[^\p{L}\p{M}\p{N}]/gu, '');
+const norm = s => normText(String(s || '').replace(/đ/gi, 'd').normalize('NFD').replace(/\p{M}/gu, ''));
+const normHV = norm;
+const unique = values => [...new Set(values.filter(Boolean))];
+const segments = s => unique(String(s || '').split(/[;,，；、]/).map(normText));
+const folded = values => { const result = values.map(norm); return result.every((v, i) => v === values[i]) ? values : unique(result); };
+function normPinyin(s) {
+  const value = String(s || '').toLowerCase().replace(/u:|v/g, 'ü').replace(/([a-zü]+)([0-5])/g, (_, body, digit) => {
+    const tone = Number(digit);
+    if (!tone || tone === 5) return body;
+    const marks = { a: 'āáǎà', e: 'ēéěè', i: 'īíǐì', o: 'ōóǒò', u: 'ūúǔù', ü: 'ǖǘǚǜ' };
+    let at = body.indexOf('a');
+    if (at < 0) at = body.indexOf('e');
+    if (at < 0) at = body.indexOf('ou');
+    if (at < 0) for (let i = body.length - 1; i >= 0; i--) if (marks[body[i]]) { at = i; break; }
+    if (at < 0) {
+      const nasal = body.search(/[mn]/);
+      return nasal < 0 ? body : body.slice(0, nasal + 1) + ['\u0304', '\u0301', '\u030c', '\u0300'][tone - 1] + body.slice(nasal + 1);
+    }
+    return body.slice(0, at) + marks[body[at]][tone - 1] + body.slice(at + 1);
+  });
+  return normText(value);
+}
+const foldPinyin = s => normPinyin(s).normalize('NFD').replace(/[\u0300\u0301\u0304\u030c]/g, '').normalize('NFC');
 const NOT_FOUND = 1e6;
 
 class LookupIndex {
-  constructor() { this.rows = []; this.indexed = []; this.exact = new Map(); this.hanViet = new Map(); }
+  constructor() { this.rows = []; this.indexed = []; this.exact = new Map(); this.pinyin = new Map(); }
   addKey(map, key, i) {
     if (!key) return;
     const found = map.get(key);
@@ -16,34 +37,51 @@ class LookupIndex {
     for (let n = 0; n < rows.length; n++) {
       const r = legacy ? [...rows[n], hanVietRows[n]?.[0] || '', -1, []] : rows[n];
       const aliases = r[7] || [], i = this.rows.length;
-      const h = norm(r[1]), p = [...new Set((r[0] + ';' + (aliases[0] || '')).split(/[;/]/).map(norm).filter(Boolean))];
-      const vi = segments(r[2] + ';' + (aliases[2] || '')), en = segments(r[3] + ';' + (aliases[1] || ''));
-      const hv = [...new Set((legacy ? hanVietRows[n]?.[1] || [] : (r[5] + ';' + (aliases[3] || '')).split(/[;/,]/)).map(normHV).filter(Boolean))];
+      const h = normText(r[1]), pExact = unique((r[0] + ';' + (aliases[0] || '')).split(/[;/]/).map(normPinyin));
+      const p = unique(pExact.map(foldPinyin));
+      const viPrimary = segments(r[2]), enPrimary = segments(r[3]);
+      const viExact = aliases[2] ? unique([...viPrimary, ...segments(aliases[2])]) : viPrimary;
+      const enExact = aliases[1] ? unique([...enPrimary, ...segments(aliases[1])]) : enPrimary;
+      const hvExact = unique((legacy ? hanVietRows[n]?.[1] || [] : (r[5] + ';' + (aliases[3] || '')).split(/[;/,]/)).map(normText));
+      const vi = folded(viExact), en = folded(enExact), hv = folded(hvExact);
       this.rows.push(r);
-      this.indexed.push({ h, p, vi, en, hv });
-      for (const key of new Set([h, ...p, ...vi, ...en])) this.addKey(this.exact, key, i);
-      for (const key of hv) this.addKey(this.hanViet, key, i);
+      this.indexed.push({ h, p, vi, en, hv, pExact, viExact, enExact, hvExact, viPrimary, enPrimary });
+      for (const key of new Set([norm(h), ...vi, ...en, ...hv])) this.addKey(this.exact, key, i);
+      for (const key of p) this.addKey(this.pinyin, key, i);
     }
   }
   query(raw, mode) {
-    const q = norm(raw), hq = normHV(raw);
-    if (!q) return [];
-    const exact = new Set([...(this.exact.get(q) || []), ...(this.hanViet.get(hq) || [])]);
-    const hits = [...exact].map(i => [0, 0, i]);
+    const text = normText(raw), plain = norm(raw), pPlain = foldPinyin(raw);
+    if (!plain) return [];
+    const markedText = /[\p{M}đ]/iu.test(raw.normalize('NFD'));
+    const markedPinyin = /[0-5\u0300\u0301\u0304\u030c]/u.test(raw.normalize('NFD'));
+    const q = markedText ? text : plain, pq = markedPinyin ? normPinyin(raw) : pPlain;
+    const exact = new Set(), hits = [];
+    // Folded keys find candidates quickly; explicit accents/tone numbers must still agree.
+    for (const i of new Set([...(this.exact.get(plain) || []), ...(this.pinyin.get(pPlain) || [])])) {
+      const a = this.indexed[i];
+      let score = a.h === text ? 0 : NOT_FOUND;
+      if ([...a.viPrimary, ...a.enPrimary].some(v => (markedText ? v : norm(v)) === q)) score = Math.min(score, 1);
+      if ((markedPinyin ? a.pExact : a.p).includes(pq)) score = Math.min(score, 2);
+      if ((markedText ? a.hvExact : a.hv).includes(q)) score = Math.min(score, 3);
+      if ((markedText ? a.viExact : a.vi).includes(q) || (markedText ? a.enExact : a.en).includes(q)) score = Math.min(score, 4);
+      if (score < NOT_FOUND) { exact.add(i); hits.push([0, score, i]); }
+    }
     if (mode === 'smart') {
-      const parts = raw.trim().split(/\s+/).map(norm).filter(Boolean), hp = raw.trim().split(/\s+/).map(normHV).filter(Boolean);
+      const parts = raw.trim().split(/\s+/).map(markedText ? normText : norm).filter(Boolean);
+      const pp = raw.trim().split(/\s+/).map(markedPinyin ? normPinyin : foldPinyin).filter(Boolean);
       for (let i = 0; i < this.indexed.length; i++) {
         if (exact.has(i)) continue;
         const a = this.indexed[i];
-        let score = smartField([a.h], q, parts, 11, NOT_FOUND);
-        score = smartField(a.p, q, parts, 13, score);
-        if (hq) score = smartField(a.hv, hq, hp, 15, score);
-        score = smartField(a.vi, q, parts, 29, score);
-        score = smartField(a.en, q, parts, 31, score);
+        let score = smartField([a.h], text, [text], 11, NOT_FOUND);
+        score = smartField(markedPinyin ? a.pExact : a.p, pq, pp, 13, score);
+        score = smartField(markedText ? a.hvExact : a.hv, q, parts, 15, score);
+        score = smartField(markedText ? a.viExact : a.vi, q, parts, 29, score);
+        score = smartField(markedText ? a.enExact : a.en, q, parts, 31, score);
         if (parts.length === 1 && q.length >= 2 && /\p{Script=Han}/u.test(q)) {
           const gap = subseq(a.h, q); if (gap >= 0) score = Math.min(score, 70 + Math.min(gap * 3, 55));
-        } else if (parts.length === 1 && q.length >= 4 && /^[a-z]+$/.test(q)) {
-          for (const p of a.p) { const gap = subseq(p, q); if (gap >= 0) score = Math.min(score, 86 + Math.min(gap * 4, 70)); }
+        } else if (!markedText && !markedPinyin && parts.length === 1 && pq.length >= 4 && /^[a-z]+$/.test(pq)) {
+          for (const p of a.p) { const gap = subseq(p, pq); if (gap >= 0) score = Math.min(score, 86 + Math.min(gap * 4, 70)); }
         }
         if (score < NOT_FOUND) hits.push([1, score, i]);
       }
