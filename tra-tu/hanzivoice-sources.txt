@@ -1,0 +1,30 @@
+HanziVoice 0.10.498.22 - dữ liệu tra cứu bổ sung
+
+Nguồn: HanziVoice_0.10.498.22_LITE_NESTED_SCROLL_NO_MP3.zip do người dùng cung cấp.
+SHA-256: 3f0bfbaa8c569caece792552ebe1ec39c34ace7139a823aed280c11d8990f49f
+
+Chỉ trích các trường: chữ, pinyin, nghĩa Việt/Anh, từ loại, âm Hán–Việt.
+Không chạy mã extension, không mang MP3, báo cáo hay dữ liệu nét viết lên web.
+Không tự dịch thêm nghĩa hoặc suy đoán từ loại khi nguồn chưa có.
+
+Nguồn chung: dictionary.json, curated-usage.json, manual-glosses.json,
+character-explanations.json và character-explanation-overrides.json.
+Ưu tiên nghĩa đã biên tập trong curated-usage; các trường còn thiếu lấy từ
+nguồn trong ZIP. Các cách đọc/nghĩa khác trong ZIP vẫn được lập chỉ mục.
+Nghĩa theo bài học từ full-lexicon, generic-display-completions và
+pinyin-notations được giữ riêng, ghi rõ SGK/SBT và số bài.
+
+Kho trước 7.126 mục và dữ liệu Hán–Việt trước đây giữ nguyên. Khi cùng một
+từ có kết quả từ HanziVoice mới, không lặp lại thẻ của kho trước.
+Kết quả khớp chính xác đứng trước kết quả liên quan; cùng mức khớp ưu tiên
+HanziVoice mới, mục từ chung trước cụm theo ngữ cảnh, sau cùng là kho trước.
+
+Nguồn dictionary.json ghi:
+CC-CEDICT - https://cc-cedict.org/wiki/
+Creative Commons Attribution-ShareAlike 4.0 International
+https://creativecommons.org/licenses/by-sa/4.0/
+
+hanzivoice-49822.json là bản trích/chuyển định dạng cho tìm kiếm web;
+dữ liệu CC-CEDICT trong file tiếp tục theo CC BY-SA 4.0. Nội dung biên tập
+của HanziVoice được ghi nguồn từ ZIP người dùng cung cấp, không nhận là
+nội dung do website này dịch hoặc xác minh lại.
