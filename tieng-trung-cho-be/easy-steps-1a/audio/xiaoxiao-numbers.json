@@ -1,0 +1,54 @@
+{
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "-10%",
+  "pitch": "+0Hz",
+  "generatedOn": "2026-11-22",
+  "tool": "edge-tts 7.3.1",
+  "recordings": [
+    {
+      "number": 1,
+      "text": "一",
+      "pinyin": "yī",
+      "file": "xiaoxiao-1-yi-v1.mp3",
+      "duration": 1.872,
+      "bytes": 11232,
+      "sha256": "023bab5898187d723977482ffb0b59f8c05c16689e6987c3a15ded05f2043aa5"
+    },
+    {
+      "number": 2,
+      "text": "二",
+      "pinyin": "èr",
+      "file": "xiaoxiao-2-er-v1.mp3",
+      "duration": 1.872,
+      "bytes": 11232,
+      "sha256": "90a4c14bfbfa77465438f34136b451709f48491b81365b19bdba7481891c1f17"
+    },
+    {
+      "number": 3,
+      "text": "三",
+      "pinyin": "sān",
+      "file": "xiaoxiao-3-san-v1.mp3",
+      "duration": 1.872,
+      "bytes": 11232,
+      "sha256": "68686f837e882a8022df2129496e488f32635a8485a8039e2d6a22b383be14aa"
+    },
+    {
+      "number": 4,
+      "text": "四",
+      "pinyin": "sì",
+      "file": "xiaoxiao-4-si-v1.mp3",
+      "duration": 1.872,
+      "bytes": 11232,
+      "sha256": "473a2ba9b8bd047226faf1e819ce1a84e4fcf94123657c2dde8bac45693d8b1d"
+    },
+    {
+      "number": 5,
+      "text": "五",
+      "pinyin": "wǔ",
+      "file": "xiaoxiao-5-wu-v1.mp3",
+      "duration": 1.872,
+      "bytes": 11232,
+      "sha256": "d4d3c84d44c4863e89d461b6bab6b523f9ee2b4a47cfc9f2a9bb761255790bd1"
+    }
+  ]
+}
