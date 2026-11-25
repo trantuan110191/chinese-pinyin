@@ -6,7 +6,7 @@
   const modeButtons = [...document.querySelectorAll('.mode-btn')], themeButtons = [...document.querySelectorAll('.theme-btn')];
   let visible = checks.filter(c => c.checked).map(c => c.name), mode = 'exact', request = 0, composing = false, timer;
   let displayed = [], count = 0, busy = false, sources = [];
-  const worker = new Worker('lookup-worker.js?v=2');
+  const worker = new Worker('lookup-worker.js?v=3');
   const rows = JSON.parse(document.getElementById('data').textContent);
   worker.postMessage({ type: 'init', rows, hanViet: window.HSK5_HAN_VIET_DATA?.rows || [] });
   function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }

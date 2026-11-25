@@ -1,5 +1,14 @@
 'use strict';
 
+if (typeof importScripts === 'function') importScripts('hanzi-variants.js?v=1');
+const HANZI_TRADITIONAL_CHARS = typeof self !== 'undefined' ? self.HANZI_TRADITIONAL_CHARS || {} : {};
+const HANZI_TRADITIONAL_WORDS = typeof self !== 'undefined' ? self.HANZI_TRADITIONAL_WORDS || {} : {};
+const canonicalHanzi = value => {
+  const text = String(value || '');
+  if (HANZI_TRADITIONAL_WORDS[text]) return HANZI_TRADITIONAL_WORDS[text];
+  return [...text].map(char => HANZI_TRADITIONAL_CHARS[char] || char).join('');
+};
+
 const normText = s => String(s || '').toLowerCase().normalize('NFC').replace(/[^\p{L}\p{M}\p{N}]/gu, '');
 const norm = s => normText(String(s || '').replace(/đ/gi, 'd').normalize('NFD').replace(/\p{M}/gu, ''));
 const normHV = norm;
@@ -37,7 +46,7 @@ class LookupIndex {
     for (let n = 0; n < rows.length; n++) {
       const r = legacy ? [...rows[n], hanVietRows[n]?.[0] || '', -1, []] : rows[n];
       const aliases = r[7] || [], i = this.rows.length;
-      const h = normText(r[1]), pExact = unique((r[0] + ';' + (aliases[0] || '')).split(/[;/]/).map(normPinyin));
+      const h = normText(r[1]), canonical = normText(canonicalHanzi(r[1])), pExact = unique((r[0] + ';' + (aliases[0] || '')).split(/[;/]/).map(normPinyin));
       const p = unique(pExact.map(foldPinyin));
       const viPrimary = segments(r[2]), enPrimary = segments(r[3]);
       const viExact = aliases[2] ? unique([...viPrimary, ...segments(aliases[2])]) : viPrimary;
@@ -45,8 +54,8 @@ class LookupIndex {
       const hvExact = unique((legacy ? hanVietRows[n]?.[1] || [] : (r[5] + ';' + (aliases[3] || '')).split(/[;/,]/)).map(normText));
       const vi = folded(viExact), en = folded(enExact), hv = folded(hvExact);
       this.rows.push(r);
-      this.indexed.push({ h, p, vi, en, hv, pExact, viExact, enExact, hvExact, viPrimary, enPrimary });
-      for (const key of new Set([norm(h), ...vi, ...en, ...hv])) this.addKey(this.exact, key, i);
+      this.indexed.push({ h, canonical, p, vi, en, hv, pExact, viExact, enExact, hvExact, viPrimary, enPrimary });
+      for (const key of new Set([norm(h), norm(canonical), ...vi, ...en, ...hv])) this.addKey(this.exact, key, i);
       for (const key of p) this.addKey(this.pinyin, key, i);
     }
   }
@@ -58,9 +67,10 @@ class LookupIndex {
     const q = markedText ? text : plain, pq = markedPinyin ? normPinyin(raw) : pPlain;
     const exact = new Set(), hits = [];
     // Folded keys find candidates quickly; explicit accents/tone numbers must still agree.
-    for (const i of new Set([...(this.exact.get(plain) || []), ...(this.pinyin.get(pPlain) || [])])) {
+    const canonicalText = normText(canonicalHanzi(raw));
+    for (const i of new Set([...(this.exact.get(plain) || []), ...(this.exact.get(canonicalText) || []), ...(this.pinyin.get(pPlain) || [])])) {
       const a = this.indexed[i];
-      let score = a.h === text ? 0 : NOT_FOUND;
+      let score = a.h === text || a.canonical === canonicalText ? 0 : NOT_FOUND;
       if ([...a.viPrimary, ...a.enPrimary].some(v => (markedText ? v : norm(v)) === q)) score = Math.min(score, 1);
       if ((markedPinyin ? a.pExact : a.p).includes(pq)) score = Math.min(score, 2);
       if ((markedText ? a.hvExact : a.hv).includes(q)) score = Math.min(score, 3);
@@ -90,8 +100,24 @@ class LookupIndex {
     const sourceRank = i => this.rows[i][6] < 0 ? 2 : this.rows[i][6] === 0 ? 0 : 1;
     hits.sort((a, b) => a[0] - b[0] || sourceRank(a[2]) - sourceRank(b[2]) || a[1] - b[1] || a[2] - b[2]);
     const primaryTerms = new Map();
-    for (const [tier, , i] of hits) if (this.rows[i][6] >= 0) primaryTerms.set(this.rows[i][1], Math.min(tier, primaryTerms.get(this.rows[i][1]) ?? 2));
-    return hits.filter(([tier, , i]) => this.rows[i][6] >= 0 || tier < (primaryTerms.get(this.rows[i][1]) ?? 2)).map(h => h[2]);
+    for (const [tier, , i] of hits) if (this.rows[i][6] >= 0) {
+      const term = canonicalHanzi(this.rows[i][1]);
+      primaryTerms.set(term, Math.min(tier, primaryTerms.get(term) ?? 2));
+    }
+    const selected = new Map();
+    const completeness = r => [r[0], r[2], r[3], r[4], r[5]].filter(Boolean).length;
+    for (const [tier, score, i] of hits) {
+      const r = this.rows[i], term = canonicalHanzi(r[1]);
+      if (r[6] < 0 && tier >= (primaryTerms.get(term) ?? 2)) continue;
+      const previous = selected.get(term);
+      if (!previous) { selected.set(term, { i, tier, score }); continue; }
+      const old = this.rows[previous.i];
+      const preferred = sourceRank(i) < sourceRank(previous.i)
+        || (sourceRank(i) === sourceRank(previous.i) && completeness(r) > completeness(old))
+        || (sourceRank(i) === sourceRank(previous.i) && completeness(r) === completeness(old) && r[1] === term && old[1] !== term);
+      if (preferred) selected.set(term, { i, tier, score });
+    }
+    return [...selected.values()].map(match => match.i);
   }
 }
 
@@ -118,8 +144,12 @@ else {
     } catch (_) { postMessage({ type: 'load-error' }); }
     finally { loading = false; }
   }
-  function page(offset = 0) {
-    postMessage({ type: 'results', request, offset, count: matches.length, rows: matches.slice(offset, offset + 24).map(i => index.rows[i]) });
+function page(offset = 0) {
+    postMessage({ type: 'results', request, offset, count: matches.length, rows: matches.slice(offset, offset + 24).map(i => {
+      const row = index.rows[i], simplified = canonicalHanzi(row[1]);
+      if (row[1] === simplified) return row;
+      const display = [...row]; display[1] = simplified; return display;
+    }) });
   }
   onmessage = e => {
     const message = e.data;
